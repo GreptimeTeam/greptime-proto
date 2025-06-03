@@ -73,6 +73,9 @@ extern CreateTableTaskDefaultTypeInternal _CreateTableTask_default_instance_;
 class CreateTableTasks;
 struct CreateTableTasksDefaultTypeInternal;
 extern CreateTableTasksDefaultTypeInternal _CreateTableTasks_default_instance_;
+class CreateTriggerTask;
+struct CreateTriggerTaskDefaultTypeInternal;
+extern CreateTriggerTaskDefaultTypeInternal _CreateTriggerTask_default_instance_;
 class CreateViewTask;
 struct CreateViewTaskDefaultTypeInternal;
 extern CreateViewTaskDefaultTypeInternal _CreateViewTask_default_instance_;
@@ -111,6 +114,7 @@ template<> ::greptime::v1::meta::CreateDatabaseTask* Arena::CreateMaybeMessage<:
 template<> ::greptime::v1::meta::CreateFlowTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateFlowTask>(Arena*);
 template<> ::greptime::v1::meta::CreateTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTableTask>(Arena*);
 template<> ::greptime::v1::meta::CreateTableTasks* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTableTasks>(Arena*);
+template<> ::greptime::v1::meta::CreateTriggerTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTriggerTask>(Arena*);
 template<> ::greptime::v1::meta::CreateViewTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateViewTask>(Arena*);
 template<> ::greptime::v1::meta::DdlTaskRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::DdlTaskRequest>(Arena*);
 template<> ::greptime::v1::meta::DdlTaskResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::DdlTaskResponse>(Arena*);
@@ -2402,6 +2406,163 @@ class AlterDatabaseTask final :
 };
 // -------------------------------------------------------------------
 
+class CreateTriggerTask final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.CreateTriggerTask) */ {
+ public:
+  inline CreateTriggerTask() : CreateTriggerTask(nullptr) {}
+  ~CreateTriggerTask() override;
+  explicit PROTOBUF_CONSTEXPR CreateTriggerTask(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateTriggerTask(const CreateTriggerTask& from);
+  CreateTriggerTask(CreateTriggerTask&& from) noexcept
+    : CreateTriggerTask() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateTriggerTask& operator=(const CreateTriggerTask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTriggerTask& operator=(CreateTriggerTask&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateTriggerTask& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateTriggerTask* internal_default_instance() {
+    return reinterpret_cast<const CreateTriggerTask*>(
+               &_CreateTriggerTask_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(CreateTriggerTask& a, CreateTriggerTask& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateTriggerTask* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTriggerTask* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateTriggerTask* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateTriggerTask>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateTriggerTask& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CreateTriggerTask& from) {
+    CreateTriggerTask::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateTriggerTask* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.CreateTriggerTask";
+  }
+  protected:
+  explicit CreateTriggerTask(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCreateTriggerFieldNumber = 1,
+  };
+  // .greptime.v1.CreateTriggerExpr create_trigger = 1;
+  bool has_create_trigger() const;
+  private:
+  bool _internal_has_create_trigger() const;
+  public:
+  void clear_create_trigger();
+  const ::greptime::v1::CreateTriggerExpr& create_trigger() const;
+  PROTOBUF_NODISCARD ::greptime::v1::CreateTriggerExpr* release_create_trigger();
+  ::greptime::v1::CreateTriggerExpr* mutable_create_trigger();
+  void set_allocated_create_trigger(::greptime::v1::CreateTriggerExpr* create_trigger);
+  private:
+  const ::greptime::v1::CreateTriggerExpr& _internal_create_trigger() const;
+  ::greptime::v1::CreateTriggerExpr* _internal_mutable_create_trigger();
+  public:
+  void unsafe_arena_set_allocated_create_trigger(
+      ::greptime::v1::CreateTriggerExpr* create_trigger);
+  ::greptime::v1::CreateTriggerExpr* unsafe_arena_release_create_trigger();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.CreateTriggerTask)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::CreateTriggerExpr* create_trigger_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DdlTaskRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.DdlTaskRequest) */ {
  public:
@@ -2460,6 +2621,7 @@ class DdlTaskRequest final :
     kCreateViewTask = 13,
     kDropViewTask = 14,
     kAlterDatabaseTask = 15,
+    kCreateTriggerTask = 16,
     TASK_NOT_SET = 0,
   };
 
@@ -2468,7 +2630,7 @@ class DdlTaskRequest final :
                &_DdlTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(DdlTaskRequest& a, DdlTaskRequest& b) {
     a.Swap(&b);
@@ -2557,6 +2719,7 @@ class DdlTaskRequest final :
     kCreateViewTaskFieldNumber = 13,
     kDropViewTaskFieldNumber = 14,
     kAlterDatabaseTaskFieldNumber = 15,
+    kCreateTriggerTaskFieldNumber = 16,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -2846,6 +3009,24 @@ class DdlTaskRequest final :
       ::greptime::v1::meta::AlterDatabaseTask* alter_database_task);
   ::greptime::v1::meta::AlterDatabaseTask* unsafe_arena_release_alter_database_task();
 
+  // .greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;
+  bool has_create_trigger_task() const;
+  private:
+  bool _internal_has_create_trigger_task() const;
+  public:
+  void clear_create_trigger_task();
+  const ::greptime::v1::meta::CreateTriggerTask& create_trigger_task() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::CreateTriggerTask* release_create_trigger_task();
+  ::greptime::v1::meta::CreateTriggerTask* mutable_create_trigger_task();
+  void set_allocated_create_trigger_task(::greptime::v1::meta::CreateTriggerTask* create_trigger_task);
+  private:
+  const ::greptime::v1::meta::CreateTriggerTask& _internal_create_trigger_task() const;
+  ::greptime::v1::meta::CreateTriggerTask* _internal_mutable_create_trigger_task();
+  public:
+  void unsafe_arena_set_allocated_create_trigger_task(
+      ::greptime::v1::meta::CreateTriggerTask* create_trigger_task);
+  ::greptime::v1::meta::CreateTriggerTask* unsafe_arena_release_create_trigger_task();
+
   void clear_task();
   TaskCase task_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskRequest)
@@ -2865,6 +3046,7 @@ class DdlTaskRequest final :
   void set_has_create_view_task();
   void set_has_drop_view_task();
   void set_has_alter_database_task();
+  void set_has_create_trigger_task();
 
   inline bool has_task() const;
   inline void clear_has_task();
@@ -2892,6 +3074,7 @@ class DdlTaskRequest final :
       ::greptime::v1::meta::CreateViewTask* create_view_task_;
       ::greptime::v1::meta::DropViewTask* drop_view_task_;
       ::greptime::v1::meta::AlterDatabaseTask* alter_database_task_;
+      ::greptime::v1::meta::CreateTriggerTask* create_trigger_task_;
     } task_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2950,7 +3133,7 @@ class DdlTaskResponse final :
                &_DdlTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(DdlTaskResponse& a, DdlTaskResponse& b) {
     a.Swap(&b);
@@ -4354,6 +4537,95 @@ inline void AlterDatabaseTask::set_allocated_task(::greptime::v1::AlterDatabaseE
 
 // -------------------------------------------------------------------
 
+// CreateTriggerTask
+
+// .greptime.v1.CreateTriggerExpr create_trigger = 1;
+inline bool CreateTriggerTask::_internal_has_create_trigger() const {
+  return this != internal_default_instance() && _impl_.create_trigger_ != nullptr;
+}
+inline bool CreateTriggerTask::has_create_trigger() const {
+  return _internal_has_create_trigger();
+}
+inline const ::greptime::v1::CreateTriggerExpr& CreateTriggerTask::_internal_create_trigger() const {
+  const ::greptime::v1::CreateTriggerExpr* p = _impl_.create_trigger_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::CreateTriggerExpr&>(
+      ::greptime::v1::_CreateTriggerExpr_default_instance_);
+}
+inline const ::greptime::v1::CreateTriggerExpr& CreateTriggerTask::create_trigger() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.CreateTriggerTask.create_trigger)
+  return _internal_create_trigger();
+}
+inline void CreateTriggerTask::unsafe_arena_set_allocated_create_trigger(
+    ::greptime::v1::CreateTriggerExpr* create_trigger) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.create_trigger_);
+  }
+  _impl_.create_trigger_ = create_trigger;
+  if (create_trigger) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.CreateTriggerTask.create_trigger)
+}
+inline ::greptime::v1::CreateTriggerExpr* CreateTriggerTask::release_create_trigger() {
+  
+  ::greptime::v1::CreateTriggerExpr* temp = _impl_.create_trigger_;
+  _impl_.create_trigger_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::CreateTriggerExpr* CreateTriggerTask::unsafe_arena_release_create_trigger() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.CreateTriggerTask.create_trigger)
+  
+  ::greptime::v1::CreateTriggerExpr* temp = _impl_.create_trigger_;
+  _impl_.create_trigger_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::CreateTriggerExpr* CreateTriggerTask::_internal_mutable_create_trigger() {
+  
+  if (_impl_.create_trigger_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::CreateTriggerExpr>(GetArenaForAllocation());
+    _impl_.create_trigger_ = p;
+  }
+  return _impl_.create_trigger_;
+}
+inline ::greptime::v1::CreateTriggerExpr* CreateTriggerTask::mutable_create_trigger() {
+  ::greptime::v1::CreateTriggerExpr* _msg = _internal_mutable_create_trigger();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.CreateTriggerTask.create_trigger)
+  return _msg;
+}
+inline void CreateTriggerTask::set_allocated_create_trigger(::greptime::v1::CreateTriggerExpr* create_trigger) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.create_trigger_);
+  }
+  if (create_trigger) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(create_trigger));
+    if (message_arena != submessage_arena) {
+      create_trigger = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, create_trigger, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.create_trigger_ = create_trigger;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.CreateTriggerTask.create_trigger)
+}
+
+// -------------------------------------------------------------------
+
 // DdlTaskRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
@@ -5562,6 +5834,80 @@ inline ::greptime::v1::meta::AlterDatabaseTask* DdlTaskRequest::mutable_alter_da
   return _msg;
 }
 
+// .greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;
+inline bool DdlTaskRequest::_internal_has_create_trigger_task() const {
+  return task_case() == kCreateTriggerTask;
+}
+inline bool DdlTaskRequest::has_create_trigger_task() const {
+  return _internal_has_create_trigger_task();
+}
+inline void DdlTaskRequest::set_has_create_trigger_task() {
+  _impl_._oneof_case_[0] = kCreateTriggerTask;
+}
+inline void DdlTaskRequest::clear_create_trigger_task() {
+  if (_internal_has_create_trigger_task()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.task_.create_trigger_task_;
+    }
+    clear_has_task();
+  }
+}
+inline ::greptime::v1::meta::CreateTriggerTask* DdlTaskRequest::release_create_trigger_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.create_trigger_task)
+  if (_internal_has_create_trigger_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::CreateTriggerTask* temp = _impl_.task_.create_trigger_task_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.task_.create_trigger_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::CreateTriggerTask& DdlTaskRequest::_internal_create_trigger_task() const {
+  return _internal_has_create_trigger_task()
+      ? *_impl_.task_.create_trigger_task_
+      : reinterpret_cast< ::greptime::v1::meta::CreateTriggerTask&>(::greptime::v1::meta::_CreateTriggerTask_default_instance_);
+}
+inline const ::greptime::v1::meta::CreateTriggerTask& DdlTaskRequest::create_trigger_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.create_trigger_task)
+  return _internal_create_trigger_task();
+}
+inline ::greptime::v1::meta::CreateTriggerTask* DdlTaskRequest::unsafe_arena_release_create_trigger_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.create_trigger_task)
+  if (_internal_has_create_trigger_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::CreateTriggerTask* temp = _impl_.task_.create_trigger_task_;
+    _impl_.task_.create_trigger_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlTaskRequest::unsafe_arena_set_allocated_create_trigger_task(::greptime::v1::meta::CreateTriggerTask* create_trigger_task) {
+  clear_task();
+  if (create_trigger_task) {
+    set_has_create_trigger_task();
+    _impl_.task_.create_trigger_task_ = create_trigger_task;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.create_trigger_task)
+}
+inline ::greptime::v1::meta::CreateTriggerTask* DdlTaskRequest::_internal_mutable_create_trigger_task() {
+  if (!_internal_has_create_trigger_task()) {
+    clear_task();
+    set_has_create_trigger_task();
+    _impl_.task_.create_trigger_task_ = CreateMaybeMessage< ::greptime::v1::meta::CreateTriggerTask >(GetArenaForAllocation());
+  }
+  return _impl_.task_.create_trigger_task_;
+}
+inline ::greptime::v1::meta::CreateTriggerTask* DdlTaskRequest::mutable_create_trigger_task() {
+  ::greptime::v1::meta::CreateTriggerTask* _msg = _internal_mutable_create_trigger_task();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.create_trigger_task)
+  return _msg;
+}
+
 inline bool DdlTaskRequest::has_task() const {
   return task_case() != TASK_NOT_SET;
 }
@@ -5785,6 +6131,8 @@ DdlTaskResponse::table_ids() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

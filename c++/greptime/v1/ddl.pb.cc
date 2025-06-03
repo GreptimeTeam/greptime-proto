@@ -600,9 +600,91 @@ struct UnsetDatabaseOptionsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UnsetDatabaseOptionsDefaultTypeInternal _UnsetDatabaseOptions_default_instance_;
+PROTOBUF_CONSTEXPR CreateTriggerExpr_LabelsEntry_DoNotUse::CreateTriggerExpr_LabelsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    CreateTriggerExpr_LabelsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal _CreateTriggerExpr_LabelsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR CreateTriggerExpr_AnnotationsEntry_DoNotUse::CreateTriggerExpr_AnnotationsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    CreateTriggerExpr_AnnotationsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal _CreateTriggerExpr_AnnotationsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR CreateTriggerExpr::CreateTriggerExpr(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.channels_)*/{}
+  , /*decltype(_impl_.labels_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.annotations_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.trigger_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.interval_)*/uint64_t{0u}
+  , /*decltype(_impl_.create_if_not_exists_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CreateTriggerExprDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateTriggerExprDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateTriggerExprDefaultTypeInternal() {}
+  union {
+    CreateTriggerExpr _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTriggerExprDefaultTypeInternal _CreateTriggerExpr_default_instance_;
+PROTOBUF_CONSTEXPR NotifyChannel::NotifyChannel(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.channel_type_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct NotifyChannelDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR NotifyChannelDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~NotifyChannelDefaultTypeInternal() {}
+  union {
+    NotifyChannel _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 NotifyChannelDefaultTypeInternal _NotifyChannel_default_instance_;
+PROTOBUF_CONSTEXPR WebhookOptions_OptsEntry_DoNotUse::WebhookOptions_OptsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    WebhookOptions_OptsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal _WebhookOptions_OptsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR WebhookOptions::WebhookOptions(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.opts_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.url_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct WebhookOptionsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WebhookOptionsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WebhookOptionsDefaultTypeInternal() {}
+  union {
+    WebhookOptions _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WebhookOptionsDefaultTypeInternal _WebhookOptions_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[39];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[45];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[4];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fddl_2eproto = nullptr;
 
@@ -987,6 +1069,67 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::UnsetDatabaseOptions, _impl_.keys_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse, value_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.catalog_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.trigger_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.create_if_not_exists_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.sql_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.channels_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.labels_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.annotations_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.interval_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::NotifyChannel, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::NotifyChannel, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::NotifyChannel, _impl_.name_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::NotifyChannel, _impl_.channel_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions, _impl_.url_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions, _impl_.opts_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::DdlRequest)},
@@ -1028,6 +1171,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 355, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
   { 366, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
   { 373, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
+  { 380, 388, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
+  { 390, 398, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
+  { 400, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
+  { 414, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
+  { 423, 431, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
+  { 433, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1070,6 +1219,12 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_AlterDatabaseExpr_default_instance_._instance,
   &::greptime::v1::_SetDatabaseOptions_default_instance_._instance,
   &::greptime::v1::_UnsetDatabaseOptions_default_instance_._instance,
+  &::greptime::v1::_CreateTriggerExpr_LabelsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::_CreateTriggerExpr_AnnotationsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::_CreateTriggerExpr_default_instance_._instance,
+  &::greptime::v1::_NotifyChannel_default_instance_._instance,
+  &::greptime::v1::_WebhookOptions_OptsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::_WebhookOptions_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1206,21 +1361,36 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "\000B\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_d"
   "atabase_options\030\001 \003(\0132\023.greptime.v1.Opti"
   "on\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t"
-  "*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)"
-  "\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020"
-  "\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000"
-  "BL\n\016io.greptime.v1B\003DdlZ5github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1b\006"
-  "proto3"
+  "\"\217\003\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001"
+  " \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_"
+  "not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channel"
+  "s\030\005 \003(\0132\032.greptime.v1.NotifyChannel\022:\n\006l"
+  "abels\030\006 \003(\0132*.greptime.v1.CreateTriggerE"
+  "xpr.LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.g"
+  "reptime.v1.CreateTriggerExpr.Annotations"
+  "Entry\022\020\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annota"
+  "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002"
+  "8\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007web"
+  "hook\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH"
+  "\000B\016\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003u"
+  "rl\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Web"
+  "hookOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003ke"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*$\n\010Analyzer\022\013"
+  "\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBack"
+  "end\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingI"
+  "ndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptim"
+  "e.v1B\003DdlZ5github.com/GreptimeTeam/grept"
+  "ime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 5526, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 6152, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
-    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 39,
+    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 45,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fddl_2eproto, file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fddl_2eproto,
@@ -12952,6 +13122,1144 @@ void UnsetDatabaseOptions::InternalSwap(UnsetDatabaseOptions* other) {
       file_level_metadata_greptime_2fv1_2fddl_2eproto[38]);
 }
 
+// ===================================================================
+
+CreateTriggerExpr_LabelsEntry_DoNotUse::CreateTriggerExpr_LabelsEntry_DoNotUse() {}
+CreateTriggerExpr_LabelsEntry_DoNotUse::CreateTriggerExpr_LabelsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void CreateTriggerExpr_LabelsEntry_DoNotUse::MergeFrom(const CreateTriggerExpr_LabelsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr_LabelsEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[39]);
+}
+
+// ===================================================================
+
+CreateTriggerExpr_AnnotationsEntry_DoNotUse::CreateTriggerExpr_AnnotationsEntry_DoNotUse() {}
+CreateTriggerExpr_AnnotationsEntry_DoNotUse::CreateTriggerExpr_AnnotationsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void CreateTriggerExpr_AnnotationsEntry_DoNotUse::MergeFrom(const CreateTriggerExpr_AnnotationsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr_AnnotationsEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[40]);
+}
+
+// ===================================================================
+
+class CreateTriggerExpr::_Internal {
+ public:
+};
+
+CreateTriggerExpr::CreateTriggerExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &CreateTriggerExpr::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.CreateTriggerExpr)
+}
+CreateTriggerExpr::CreateTriggerExpr(const CreateTriggerExpr& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CreateTriggerExpr* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.channels_){from._impl_.channels_}
+    , /*decltype(_impl_.labels_)*/{}
+    , /*decltype(_impl_.annotations_)*/{}
+    , decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.trigger_name_){}
+    , decltype(_impl_.sql_){}
+    , decltype(_impl_.interval_){}
+    , decltype(_impl_.create_if_not_exists_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.labels_.MergeFrom(from._impl_.labels_);
+  _this->_impl_.annotations_.MergeFrom(from._impl_.annotations_);
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog_name().empty()) {
+    _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.trigger_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_trigger_name().empty()) {
+    _this->_impl_.trigger_name_.Set(from._internal_trigger_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.sql_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.sql_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_sql().empty()) {
+    _this->_impl_.sql_.Set(from._internal_sql(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.interval_, &from._impl_.interval_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
+    reinterpret_cast<char*>(&_impl_.interval_)) + sizeof(_impl_.create_if_not_exists_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.CreateTriggerExpr)
+}
+
+inline void CreateTriggerExpr::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.channels_){arena}
+    , /*decltype(_impl_.labels_)*/{::_pbi::ArenaInitialized(), arena}
+    , /*decltype(_impl_.annotations_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.trigger_name_){}
+    , decltype(_impl_.sql_){}
+    , decltype(_impl_.interval_){uint64_t{0u}}
+    , decltype(_impl_.create_if_not_exists_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.trigger_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.sql_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.sql_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CreateTriggerExpr::~CreateTriggerExpr() {
+  // @@protoc_insertion_point(destructor:greptime.v1.CreateTriggerExpr)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CreateTriggerExpr::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.channels_.~RepeatedPtrField();
+  _impl_.labels_.Destruct();
+  _impl_.labels_.~MapField();
+  _impl_.annotations_.Destruct();
+  _impl_.annotations_.~MapField();
+  _impl_.catalog_name_.Destroy();
+  _impl_.trigger_name_.Destroy();
+  _impl_.sql_.Destroy();
+}
+
+void CreateTriggerExpr::ArenaDtor(void* object) {
+  CreateTriggerExpr* _this = reinterpret_cast< CreateTriggerExpr* >(object);
+  _this->_impl_.labels_.Destruct();
+  _this->_impl_.annotations_.Destruct();
+}
+void CreateTriggerExpr::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CreateTriggerExpr::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.CreateTriggerExpr)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.channels_.Clear();
+  _impl_.labels_.Clear();
+  _impl_.annotations_.Clear();
+  _impl_.catalog_name_.ClearToEmpty();
+  _impl_.trigger_name_.ClearToEmpty();
+  _impl_.sql_.ClearToEmpty();
+  ::memset(&_impl_.interval_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.create_if_not_exists_) -
+      reinterpret_cast<char*>(&_impl_.interval_)) + sizeof(_impl_.create_if_not_exists_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateTriggerExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string trigger_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_trigger_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.trigger_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // bool create_if_not_exists = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.create_if_not_exists_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string sql = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_sql();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.sql"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .greptime.v1.NotifyChannel channels = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_channels(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> labels = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.labels_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> annotations = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.annotations_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 interval = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.interval_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CreateTriggerExpr::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.CreateTriggerExpr)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog_name().data(), static_cast<int>(this->_internal_catalog_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.CreateTriggerExpr.catalog_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog_name(), target);
+  }
+
+  // string trigger_name = 2;
+  if (!this->_internal_trigger_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_trigger_name().data(), static_cast<int>(this->_internal_trigger_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.CreateTriggerExpr.trigger_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_trigger_name(), target);
+  }
+
+  // bool create_if_not_exists = 3;
+  if (this->_internal_create_if_not_exists() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_create_if_not_exists(), target);
+  }
+
+  // string sql = 4;
+  if (!this->_internal_sql().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_sql().data(), static_cast<int>(this->_internal_sql().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.CreateTriggerExpr.sql");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_sql(), target);
+  }
+
+  // repeated .greptime.v1.NotifyChannel channels = 5;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_channels_size()); i < n; i++) {
+    const auto& repfield = this->_internal_channels(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // map<string, string> labels = 6;
+  if (!this->_internal_labels().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = CreateTriggerExpr_LabelsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_labels();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.CreateTriggerExpr.LabelsEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.CreateTriggerExpr.LabelsEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(6, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(6, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // map<string, string> annotations = 7;
+  if (!this->_internal_annotations().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = CreateTriggerExpr_AnnotationsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_annotations();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.CreateTriggerExpr.AnnotationsEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.CreateTriggerExpr.AnnotationsEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(7, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  // uint64 interval = 8;
+  if (this->_internal_interval() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_interval(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.CreateTriggerExpr)
+  return target;
+}
+
+size_t CreateTriggerExpr::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.CreateTriggerExpr)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.NotifyChannel channels = 5;
+  total_size += 1UL * this->_internal_channels_size();
+  for (const auto& msg : this->_impl_.channels_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // map<string, string> labels = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_labels_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_labels().begin();
+      it != this->_internal_labels().end(); ++it) {
+    total_size += CreateTriggerExpr_LabelsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // map<string, string> annotations = 7;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_annotations_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_annotations().begin();
+      it != this->_internal_annotations().end(); ++it) {
+    total_size += CreateTriggerExpr_AnnotationsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog_name());
+  }
+
+  // string trigger_name = 2;
+  if (!this->_internal_trigger_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_trigger_name());
+  }
+
+  // string sql = 4;
+  if (!this->_internal_sql().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_sql());
+  }
+
+  // uint64 interval = 8;
+  if (this->_internal_interval() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_interval());
+  }
+
+  // bool create_if_not_exists = 3;
+  if (this->_internal_create_if_not_exists() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateTriggerExpr::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CreateTriggerExpr::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateTriggerExpr::GetClassData() const { return &_class_data_; }
+
+
+void CreateTriggerExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CreateTriggerExpr*>(&to_msg);
+  auto& from = static_cast<const CreateTriggerExpr&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.CreateTriggerExpr)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.channels_.MergeFrom(from._impl_.channels_);
+  _this->_impl_.labels_.MergeFrom(from._impl_.labels_);
+  _this->_impl_.annotations_.MergeFrom(from._impl_.annotations_);
+  if (!from._internal_catalog_name().empty()) {
+    _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  if (!from._internal_trigger_name().empty()) {
+    _this->_internal_set_trigger_name(from._internal_trigger_name());
+  }
+  if (!from._internal_sql().empty()) {
+    _this->_internal_set_sql(from._internal_sql());
+  }
+  if (from._internal_interval() != 0) {
+    _this->_internal_set_interval(from._internal_interval());
+  }
+  if (from._internal_create_if_not_exists() != 0) {
+    _this->_internal_set_create_if_not_exists(from._internal_create_if_not_exists());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CreateTriggerExpr::CopyFrom(const CreateTriggerExpr& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.CreateTriggerExpr)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateTriggerExpr::IsInitialized() const {
+  return true;
+}
+
+void CreateTriggerExpr::InternalSwap(CreateTriggerExpr* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.channels_.InternalSwap(&other->_impl_.channels_);
+  _impl_.labels_.InternalSwap(&other->_impl_.labels_);
+  _impl_.annotations_.InternalSwap(&other->_impl_.annotations_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_name_, lhs_arena,
+      &other->_impl_.catalog_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.trigger_name_, lhs_arena,
+      &other->_impl_.trigger_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.sql_, lhs_arena,
+      &other->_impl_.sql_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CreateTriggerExpr, _impl_.create_if_not_exists_)
+      + sizeof(CreateTriggerExpr::_impl_.create_if_not_exists_)
+      - PROTOBUF_FIELD_OFFSET(CreateTriggerExpr, _impl_.interval_)>(
+          reinterpret_cast<char*>(&_impl_.interval_),
+          reinterpret_cast<char*>(&other->_impl_.interval_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[41]);
+}
+
+// ===================================================================
+
+class NotifyChannel::_Internal {
+ public:
+  static const ::greptime::v1::WebhookOptions& webhook(const NotifyChannel* msg);
+};
+
+const ::greptime::v1::WebhookOptions&
+NotifyChannel::_Internal::webhook(const NotifyChannel* msg) {
+  return *msg->_impl_.channel_type_.webhook_;
+}
+void NotifyChannel::set_allocated_webhook(::greptime::v1::WebhookOptions* webhook) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_channel_type();
+  if (webhook) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(webhook);
+    if (message_arena != submessage_arena) {
+      webhook = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, webhook, submessage_arena);
+    }
+    set_has_webhook();
+    _impl_.channel_type_.webhook_ = webhook;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.NotifyChannel.webhook)
+}
+NotifyChannel::NotifyChannel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.NotifyChannel)
+}
+NotifyChannel::NotifyChannel(const NotifyChannel& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  NotifyChannel* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.channel_type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  clear_has_channel_type();
+  switch (from.channel_type_case()) {
+    case kWebhook: {
+      _this->_internal_mutable_webhook()->::greptime::v1::WebhookOptions::MergeFrom(
+          from._internal_webhook());
+      break;
+    }
+    case CHANNEL_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.NotifyChannel)
+}
+
+inline void NotifyChannel::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.channel_type_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_channel_type();
+}
+
+NotifyChannel::~NotifyChannel() {
+  // @@protoc_insertion_point(destructor:greptime.v1.NotifyChannel)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void NotifyChannel::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  if (has_channel_type()) {
+    clear_channel_type();
+  }
+}
+
+void NotifyChannel::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void NotifyChannel::clear_channel_type() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.NotifyChannel)
+  switch (channel_type_case()) {
+    case kWebhook: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.channel_type_.webhook_;
+      }
+      break;
+    }
+    case CHANNEL_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = CHANNEL_TYPE_NOT_SET;
+}
+
+
+void NotifyChannel::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.NotifyChannel)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  clear_channel_type();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* NotifyChannel::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.NotifyChannel.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.WebhookOptions webhook = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_webhook(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* NotifyChannel::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.NotifyChannel)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.NotifyChannel.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // .greptime.v1.WebhookOptions webhook = 2;
+  if (_internal_has_webhook()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::webhook(this),
+        _Internal::webhook(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.NotifyChannel)
+  return target;
+}
+
+size_t NotifyChannel::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.NotifyChannel)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  switch (channel_type_case()) {
+    // .greptime.v1.WebhookOptions webhook = 2;
+    case kWebhook: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.channel_type_.webhook_);
+      break;
+    }
+    case CHANNEL_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData NotifyChannel::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    NotifyChannel::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*NotifyChannel::GetClassData() const { return &_class_data_; }
+
+
+void NotifyChannel::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<NotifyChannel*>(&to_msg);
+  auto& from = static_cast<const NotifyChannel&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.NotifyChannel)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  switch (from.channel_type_case()) {
+    case kWebhook: {
+      _this->_internal_mutable_webhook()->::greptime::v1::WebhookOptions::MergeFrom(
+          from._internal_webhook());
+      break;
+    }
+    case CHANNEL_TYPE_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void NotifyChannel::CopyFrom(const NotifyChannel& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.NotifyChannel)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyChannel::IsInitialized() const {
+  return true;
+}
+
+void NotifyChannel::InternalSwap(NotifyChannel* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  swap(_impl_.channel_type_, other->_impl_.channel_type_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata NotifyChannel::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[42]);
+}
+
+// ===================================================================
+
+WebhookOptions_OptsEntry_DoNotUse::WebhookOptions_OptsEntry_DoNotUse() {}
+WebhookOptions_OptsEntry_DoNotUse::WebhookOptions_OptsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void WebhookOptions_OptsEntry_DoNotUse::MergeFrom(const WebhookOptions_OptsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata WebhookOptions_OptsEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[43]);
+}
+
+// ===================================================================
+
+class WebhookOptions::_Internal {
+ public:
+};
+
+WebhookOptions::WebhookOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &WebhookOptions::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.WebhookOptions)
+}
+WebhookOptions::WebhookOptions(const WebhookOptions& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  WebhookOptions* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.opts_)*/{}
+    , decltype(_impl_.url_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.opts_.MergeFrom(from._impl_.opts_);
+  _impl_.url_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.url_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_url().empty()) {
+    _this->_impl_.url_.Set(from._internal_url(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.WebhookOptions)
+}
+
+inline void WebhookOptions::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.opts_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.url_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.url_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.url_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+WebhookOptions::~WebhookOptions() {
+  // @@protoc_insertion_point(destructor:greptime.v1.WebhookOptions)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void WebhookOptions::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.opts_.Destruct();
+  _impl_.opts_.~MapField();
+  _impl_.url_.Destroy();
+}
+
+void WebhookOptions::ArenaDtor(void* object) {
+  WebhookOptions* _this = reinterpret_cast< WebhookOptions* >(object);
+  _this->_impl_.opts_.Destruct();
+}
+void WebhookOptions::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void WebhookOptions::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.WebhookOptions)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.opts_.Clear();
+  _impl_.url_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* WebhookOptions::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string url = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_url();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.WebhookOptions.url"));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> opts = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.opts_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* WebhookOptions::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.WebhookOptions)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string url = 1;
+  if (!this->_internal_url().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_url().data(), static_cast<int>(this->_internal_url().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.WebhookOptions.url");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_url(), target);
+  }
+
+  // map<string, string> opts = 2;
+  if (!this->_internal_opts().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = WebhookOptions_OptsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_opts();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.WebhookOptions.OptsEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.WebhookOptions.OptsEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(2, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.WebhookOptions)
+  return target;
+}
+
+size_t WebhookOptions::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.WebhookOptions)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, string> opts = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_opts_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_opts().begin();
+      it != this->_internal_opts().end(); ++it) {
+    total_size += WebhookOptions_OptsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string url = 1;
+  if (!this->_internal_url().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_url());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WebhookOptions::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    WebhookOptions::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WebhookOptions::GetClassData() const { return &_class_data_; }
+
+
+void WebhookOptions::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<WebhookOptions*>(&to_msg);
+  auto& from = static_cast<const WebhookOptions&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.WebhookOptions)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.opts_.MergeFrom(from._impl_.opts_);
+  if (!from._internal_url().empty()) {
+    _this->_internal_set_url(from._internal_url());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void WebhookOptions::CopyFrom(const WebhookOptions& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.WebhookOptions)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WebhookOptions::IsInitialized() const {
+  return true;
+}
+
+void WebhookOptions::InternalSwap(WebhookOptions* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.opts_.InternalSwap(&other->_impl_.opts_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.url_, lhs_arena,
+      &other->_impl_.url_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata WebhookOptions::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[44]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace greptime
@@ -13111,6 +14419,30 @@ Arena::CreateMaybeMessage< ::greptime::v1::SetDatabaseOptions >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::UnsetDatabaseOptions*
 Arena::CreateMaybeMessage< ::greptime::v1::UnsetDatabaseOptions >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::UnsetDatabaseOptions >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::CreateTriggerExpr*
+Arena::CreateMaybeMessage< ::greptime::v1::CreateTriggerExpr >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::CreateTriggerExpr >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::NotifyChannel*
+Arena::CreateMaybeMessage< ::greptime::v1::NotifyChannel >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::NotifyChannel >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::WebhookOptions_OptsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::WebhookOptions_OptsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::WebhookOptions_OptsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::WebhookOptions*
+Arena::CreateMaybeMessage< ::greptime::v1::WebhookOptions >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::WebhookOptions >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

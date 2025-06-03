@@ -38987,6 +38987,4095 @@ java.lang.String defaultValue);
 
   }
 
+  public interface CreateTriggerExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.CreateTriggerExpr)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string trigger_name = 2;</code>
+     * @return The triggerName.
+     */
+    java.lang.String getTriggerName();
+    /**
+     * <code>string trigger_name = 2;</code>
+     * @return The bytes for triggerName.
+     */
+    com.google.protobuf.ByteString
+        getTriggerNameBytes();
+
+    /**
+     * <code>bool create_if_not_exists = 3;</code>
+     * @return The createIfNotExists.
+     */
+    boolean getCreateIfNotExists();
+
+    /**
+     * <pre>
+     * The SQL statement to be executed periodically.
+     * </pre>
+     *
+     * <code>string sql = 4;</code>
+     * @return The sql.
+     */
+    java.lang.String getSql();
+    /**
+     * <pre>
+     * The SQL statement to be executed periodically.
+     * </pre>
+     *
+     * <code>string sql = 4;</code>
+     * @return The bytes for sql.
+     */
+    com.google.protobuf.ByteString
+        getSqlBytes();
+
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    java.util.List<io.greptime.v1.Ddl.NotifyChannel> 
+        getChannelsList();
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    io.greptime.v1.Ddl.NotifyChannel getChannels(int index);
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    int getChannelsCount();
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    java.util.List<? extends io.greptime.v1.Ddl.NotifyChannelOrBuilder> 
+        getChannelsOrBuilderList();
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    io.greptime.v1.Ddl.NotifyChannelOrBuilder getChannelsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    int getLabelsCount();
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    boolean containsLabels(
+        java.lang.String key);
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabels();
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getLabelsMap();
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+
+    /* nullable */
+java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+
+    java.lang.String getLabelsOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    int getAnnotationsCount();
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    boolean containsAnnotations(
+        java.lang.String key);
+    /**
+     * Use {@link #getAnnotationsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getAnnotations();
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getAnnotationsMap();
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+
+    /* nullable */
+java.lang.String getAnnotationsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+
+    java.lang.String getAnnotationsOrThrow(
+        java.lang.String key);
+
+    /**
+     * <pre>
+     * The execution interval for sql query in seconds.
+     * </pre>
+     *
+     * <code>uint64 interval = 8;</code>
+     * @return The interval.
+     */
+    long getInterval();
+  }
+  /**
+   * <pre>
+   * The create trigger expression.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.CreateTriggerExpr}
+   */
+  public static final class CreateTriggerExpr extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.CreateTriggerExpr)
+      CreateTriggerExprOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateTriggerExpr.newBuilder() to construct.
+    private CreateTriggerExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateTriggerExpr() {
+      catalogName_ = "";
+      triggerName_ = "";
+      sql_ = "";
+      channels_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateTriggerExpr();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateTriggerExpr(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              triggerName_ = s;
+              break;
+            }
+            case 24: {
+
+              createIfNotExists_ = input.readBool();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sql_ = s;
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                channels_ = new java.util.ArrayList<io.greptime.v1.Ddl.NotifyChannel>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              channels_.add(
+                  input.readMessage(io.greptime.v1.Ddl.NotifyChannel.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                labels_ = com.google.protobuf.MapField.newMapField(
+                    LabelsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              labels_.getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                annotations_ = com.google.protobuf.MapField.newMapField(
+                    AnnotationsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000004;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              annotations__ = input.readMessage(
+                  AnnotationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              annotations_.getMutableMap().put(
+                  annotations__.getKey(), annotations__.getValue());
+              break;
+            }
+            case 64: {
+
+              interval_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          channels_ = java.util.Collections.unmodifiableList(channels_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 6:
+          return internalGetLabels();
+        case 7:
+          return internalGetAnnotations();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.CreateTriggerExpr.class, io.greptime.v1.Ddl.CreateTriggerExpr.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRIGGER_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object triggerName_;
+    /**
+     * <code>string trigger_name = 2;</code>
+     * @return The triggerName.
+     */
+    @java.lang.Override
+    public java.lang.String getTriggerName() {
+      java.lang.Object ref = triggerName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        triggerName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string trigger_name = 2;</code>
+     * @return The bytes for triggerName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTriggerNameBytes() {
+      java.lang.Object ref = triggerName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        triggerName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CREATE_IF_NOT_EXISTS_FIELD_NUMBER = 3;
+    private boolean createIfNotExists_;
+    /**
+     * <code>bool create_if_not_exists = 3;</code>
+     * @return The createIfNotExists.
+     */
+    @java.lang.Override
+    public boolean getCreateIfNotExists() {
+      return createIfNotExists_;
+    }
+
+    public static final int SQL_FIELD_NUMBER = 4;
+    private volatile java.lang.Object sql_;
+    /**
+     * <pre>
+     * The SQL statement to be executed periodically.
+     * </pre>
+     *
+     * <code>string sql = 4;</code>
+     * @return The sql.
+     */
+    @java.lang.Override
+    public java.lang.String getSql() {
+      java.lang.Object ref = sql_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        sql_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The SQL statement to be executed periodically.
+     * </pre>
+     *
+     * <code>string sql = 4;</code>
+     * @return The bytes for sql.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSqlBytes() {
+      java.lang.Object ref = sql_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        sql_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNELS_FIELD_NUMBER = 5;
+    private java.util.List<io.greptime.v1.Ddl.NotifyChannel> channels_;
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.Ddl.NotifyChannel> getChannelsList() {
+      return channels_;
+    }
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.Ddl.NotifyChannelOrBuilder> 
+        getChannelsOrBuilderList() {
+      return channels_;
+    }
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    @java.lang.Override
+    public int getChannelsCount() {
+      return channels_.size();
+    }
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.NotifyChannel getChannels(int index) {
+      return channels_.get(index);
+    }
+    /**
+     * <pre>
+     * The channels for sending notifications.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.NotifyChannelOrBuilder getChannelsOrBuilder(
+        int index) {
+      return channels_.get(index);
+    }
+
+    public static final int LABELS_FIELD_NUMBER = 6;
+    private static final class LabelsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> labels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetLabels() {
+      if (labels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            LabelsDefaultEntryHolder.defaultEntry);
+      }
+      return labels_;
+    }
+
+    public int getLabelsCount() {
+      return internalGetLabels().getMap().size();
+    }
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getLabelsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+      return getLabelsMap();
+    }
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+      return internalGetLabels().getMap();
+    }
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * The user-defined labels.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; labels = 6;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int ANNOTATIONS_FIELD_NUMBER = 7;
+    private static final class AnnotationsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> annotations_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetAnnotations() {
+      if (annotations_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AnnotationsDefaultEntryHolder.defaultEntry);
+      }
+      return annotations_;
+    }
+
+    public int getAnnotationsCount() {
+      return internalGetAnnotations().getMap().size();
+    }
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsAnnotations(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetAnnotations().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAnnotationsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotations() {
+      return getAnnotationsMap();
+    }
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
+      return internalGetAnnotations().getMap();
+    }
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getAnnotationsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotations().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * The user-defined annotations.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotations = 7;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getAnnotationsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public static final int INTERVAL_FIELD_NUMBER = 8;
+    private long interval_;
+    /**
+     * <pre>
+     * The execution interval for sql query in seconds.
+     * </pre>
+     *
+     * <code>uint64 interval = 8;</code>
+     * @return The interval.
+     */
+    @java.lang.Override
+    public long getInterval() {
+      return interval_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, triggerName_);
+      }
+      if (createIfNotExists_ != false) {
+        output.writeBool(3, createIfNotExists_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sql_);
+      }
+      for (int i = 0; i < channels_.size(); i++) {
+        output.writeMessage(5, channels_.get(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetLabels(),
+          LabelsDefaultEntryHolder.defaultEntry,
+          6);
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetAnnotations(),
+          AnnotationsDefaultEntryHolder.defaultEntry,
+          7);
+      if (interval_ != 0L) {
+        output.writeUInt64(8, interval_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, triggerName_);
+      }
+      if (createIfNotExists_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, createIfNotExists_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sql_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sql_);
+      }
+      for (int i = 0; i < channels_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, channels_.get(i));
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetLabels().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        labels__ = LabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, labels__);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetAnnotations().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        annotations__ = AnnotationsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(7, annotations__);
+      }
+      if (interval_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, interval_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.CreateTriggerExpr)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.CreateTriggerExpr other = (io.greptime.v1.Ddl.CreateTriggerExpr) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getTriggerName()
+          .equals(other.getTriggerName())) return false;
+      if (getCreateIfNotExists()
+          != other.getCreateIfNotExists()) return false;
+      if (!getSql()
+          .equals(other.getSql())) return false;
+      if (!getChannelsList()
+          .equals(other.getChannelsList())) return false;
+      if (!internalGetLabels().equals(
+          other.internalGetLabels())) return false;
+      if (!internalGetAnnotations().equals(
+          other.internalGetAnnotations())) return false;
+      if (getInterval()
+          != other.getInterval()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + TRIGGER_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTriggerName().hashCode();
+      hash = (37 * hash) + CREATE_IF_NOT_EXISTS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getCreateIfNotExists());
+      hash = (37 * hash) + SQL_FIELD_NUMBER;
+      hash = (53 * hash) + getSql().hashCode();
+      if (getChannelsCount() > 0) {
+        hash = (37 * hash) + CHANNELS_FIELD_NUMBER;
+        hash = (53 * hash) + getChannelsList().hashCode();
+      }
+      if (!internalGetLabels().getMap().isEmpty()) {
+        hash = (37 * hash) + LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetLabels().hashCode();
+      }
+      if (!internalGetAnnotations().getMap().isEmpty()) {
+        hash = (37 * hash) + ANNOTATIONS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetAnnotations().hashCode();
+      }
+      hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getInterval());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CreateTriggerExpr parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.CreateTriggerExpr prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The create trigger expression.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.CreateTriggerExpr}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.CreateTriggerExpr)
+        io.greptime.v1.Ddl.CreateTriggerExprOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 6:
+            return internalGetLabels();
+          case 7:
+            return internalGetAnnotations();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 6:
+            return internalGetMutableLabels();
+          case 7:
+            return internalGetMutableAnnotations();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.CreateTriggerExpr.class, io.greptime.v1.Ddl.CreateTriggerExpr.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.CreateTriggerExpr.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getChannelsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        triggerName_ = "";
+
+        createIfNotExists_ = false;
+
+        sql_ = "";
+
+        if (channelsBuilder_ == null) {
+          channels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          channelsBuilder_.clear();
+        }
+        internalGetMutableLabels().clear();
+        internalGetMutableAnnotations().clear();
+        interval_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CreateTriggerExpr_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateTriggerExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.CreateTriggerExpr.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateTriggerExpr build() {
+        io.greptime.v1.Ddl.CreateTriggerExpr result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CreateTriggerExpr buildPartial() {
+        io.greptime.v1.Ddl.CreateTriggerExpr result = new io.greptime.v1.Ddl.CreateTriggerExpr(this);
+        int from_bitField0_ = bitField0_;
+        result.catalogName_ = catalogName_;
+        result.triggerName_ = triggerName_;
+        result.createIfNotExists_ = createIfNotExists_;
+        result.sql_ = sql_;
+        if (channelsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            channels_ = java.util.Collections.unmodifiableList(channels_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.channels_ = channels_;
+        } else {
+          result.channels_ = channelsBuilder_.build();
+        }
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+        result.annotations_ = internalGetAnnotations();
+        result.annotations_.makeImmutable();
+        result.interval_ = interval_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.CreateTriggerExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.CreateTriggerExpr)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.CreateTriggerExpr other) {
+        if (other == io.greptime.v1.Ddl.CreateTriggerExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getTriggerName().isEmpty()) {
+          triggerName_ = other.triggerName_;
+          onChanged();
+        }
+        if (other.getCreateIfNotExists() != false) {
+          setCreateIfNotExists(other.getCreateIfNotExists());
+        }
+        if (!other.getSql().isEmpty()) {
+          sql_ = other.sql_;
+          onChanged();
+        }
+        if (channelsBuilder_ == null) {
+          if (!other.channels_.isEmpty()) {
+            if (channels_.isEmpty()) {
+              channels_ = other.channels_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureChannelsIsMutable();
+              channels_.addAll(other.channels_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.channels_.isEmpty()) {
+            if (channelsBuilder_.isEmpty()) {
+              channelsBuilder_.dispose();
+              channelsBuilder_ = null;
+              channels_ = other.channels_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              channelsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getChannelsFieldBuilder() : null;
+            } else {
+              channelsBuilder_.addAllMessages(other.channels_);
+            }
+          }
+        }
+        internalGetMutableLabels().mergeFrom(
+            other.internalGetLabels());
+        internalGetMutableAnnotations().mergeFrom(
+            other.internalGetAnnotations());
+        if (other.getInterval() != 0L) {
+          setInterval(other.getInterval());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.CreateTriggerExpr parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.CreateTriggerExpr) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object triggerName_ = "";
+      /**
+       * <code>string trigger_name = 2;</code>
+       * @return The triggerName.
+       */
+      public java.lang.String getTriggerName() {
+        java.lang.Object ref = triggerName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          triggerName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string trigger_name = 2;</code>
+       * @return The bytes for triggerName.
+       */
+      public com.google.protobuf.ByteString
+          getTriggerNameBytes() {
+        java.lang.Object ref = triggerName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          triggerName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string trigger_name = 2;</code>
+       * @param value The triggerName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTriggerName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        triggerName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string trigger_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTriggerName() {
+        
+        triggerName_ = getDefaultInstance().getTriggerName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string trigger_name = 2;</code>
+       * @param value The bytes for triggerName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTriggerNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        triggerName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean createIfNotExists_ ;
+      /**
+       * <code>bool create_if_not_exists = 3;</code>
+       * @return The createIfNotExists.
+       */
+      @java.lang.Override
+      public boolean getCreateIfNotExists() {
+        return createIfNotExists_;
+      }
+      /**
+       * <code>bool create_if_not_exists = 3;</code>
+       * @param value The createIfNotExists to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCreateIfNotExists(boolean value) {
+        
+        createIfNotExists_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool create_if_not_exists = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCreateIfNotExists() {
+        
+        createIfNotExists_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object sql_ = "";
+      /**
+       * <pre>
+       * The SQL statement to be executed periodically.
+       * </pre>
+       *
+       * <code>string sql = 4;</code>
+       * @return The sql.
+       */
+      public java.lang.String getSql() {
+        java.lang.Object ref = sql_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          sql_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The SQL statement to be executed periodically.
+       * </pre>
+       *
+       * <code>string sql = 4;</code>
+       * @return The bytes for sql.
+       */
+      public com.google.protobuf.ByteString
+          getSqlBytes() {
+        java.lang.Object ref = sql_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          sql_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The SQL statement to be executed periodically.
+       * </pre>
+       *
+       * <code>string sql = 4;</code>
+       * @param value The sql to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSql(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sql_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The SQL statement to be executed periodically.
+       * </pre>
+       *
+       * <code>string sql = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSql() {
+        
+        sql_ = getDefaultInstance().getSql();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The SQL statement to be executed periodically.
+       * </pre>
+       *
+       * <code>string sql = 4;</code>
+       * @param value The bytes for sql to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSqlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sql_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.greptime.v1.Ddl.NotifyChannel> channels_ =
+        java.util.Collections.emptyList();
+      private void ensureChannelsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          channels_ = new java.util.ArrayList<io.greptime.v1.Ddl.NotifyChannel>(channels_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.NotifyChannel, io.greptime.v1.Ddl.NotifyChannel.Builder, io.greptime.v1.Ddl.NotifyChannelOrBuilder> channelsBuilder_;
+
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.NotifyChannel> getChannelsList() {
+        if (channelsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(channels_);
+        } else {
+          return channelsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public int getChannelsCount() {
+        if (channelsBuilder_ == null) {
+          return channels_.size();
+        } else {
+          return channelsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public io.greptime.v1.Ddl.NotifyChannel getChannels(int index) {
+        if (channelsBuilder_ == null) {
+          return channels_.get(index);
+        } else {
+          return channelsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder setChannels(
+          int index, io.greptime.v1.Ddl.NotifyChannel value) {
+        if (channelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChannelsIsMutable();
+          channels_.set(index, value);
+          onChanged();
+        } else {
+          channelsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder setChannels(
+          int index, io.greptime.v1.Ddl.NotifyChannel.Builder builderForValue) {
+        if (channelsBuilder_ == null) {
+          ensureChannelsIsMutable();
+          channels_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          channelsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder addChannels(io.greptime.v1.Ddl.NotifyChannel value) {
+        if (channelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChannelsIsMutable();
+          channels_.add(value);
+          onChanged();
+        } else {
+          channelsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder addChannels(
+          int index, io.greptime.v1.Ddl.NotifyChannel value) {
+        if (channelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureChannelsIsMutable();
+          channels_.add(index, value);
+          onChanged();
+        } else {
+          channelsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder addChannels(
+          io.greptime.v1.Ddl.NotifyChannel.Builder builderForValue) {
+        if (channelsBuilder_ == null) {
+          ensureChannelsIsMutable();
+          channels_.add(builderForValue.build());
+          onChanged();
+        } else {
+          channelsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder addChannels(
+          int index, io.greptime.v1.Ddl.NotifyChannel.Builder builderForValue) {
+        if (channelsBuilder_ == null) {
+          ensureChannelsIsMutable();
+          channels_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          channelsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder addAllChannels(
+          java.lang.Iterable<? extends io.greptime.v1.Ddl.NotifyChannel> values) {
+        if (channelsBuilder_ == null) {
+          ensureChannelsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, channels_);
+          onChanged();
+        } else {
+          channelsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder clearChannels() {
+        if (channelsBuilder_ == null) {
+          channels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          channelsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public Builder removeChannels(int index) {
+        if (channelsBuilder_ == null) {
+          ensureChannelsIsMutable();
+          channels_.remove(index);
+          onChanged();
+        } else {
+          channelsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public io.greptime.v1.Ddl.NotifyChannel.Builder getChannelsBuilder(
+          int index) {
+        return getChannelsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public io.greptime.v1.Ddl.NotifyChannelOrBuilder getChannelsOrBuilder(
+          int index) {
+        if (channelsBuilder_ == null) {
+          return channels_.get(index);  } else {
+          return channelsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.Ddl.NotifyChannelOrBuilder> 
+           getChannelsOrBuilderList() {
+        if (channelsBuilder_ != null) {
+          return channelsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(channels_);
+        }
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public io.greptime.v1.Ddl.NotifyChannel.Builder addChannelsBuilder() {
+        return getChannelsFieldBuilder().addBuilder(
+            io.greptime.v1.Ddl.NotifyChannel.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public io.greptime.v1.Ddl.NotifyChannel.Builder addChannelsBuilder(
+          int index) {
+        return getChannelsFieldBuilder().addBuilder(
+            index, io.greptime.v1.Ddl.NotifyChannel.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The channels for sending notifications.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.NotifyChannel channels = 5;</code>
+       */
+      public java.util.List<io.greptime.v1.Ddl.NotifyChannel.Builder> 
+           getChannelsBuilderList() {
+        return getChannelsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.Ddl.NotifyChannel, io.greptime.v1.Ddl.NotifyChannel.Builder, io.greptime.v1.Ddl.NotifyChannelOrBuilder> 
+          getChannelsFieldBuilder() {
+        if (channelsBuilder_ == null) {
+          channelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.Ddl.NotifyChannel, io.greptime.v1.Ddl.NotifyChannel.Builder, io.greptime.v1.Ddl.NotifyChannelOrBuilder>(
+                  channels_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          channels_ = null;
+        }
+        return channelsBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> labels_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetLabels() {
+        if (labels_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        return labels_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableLabels() {
+        onChanged();;
+        if (labels_ == null) {
+          labels_ = com.google.protobuf.MapField.newMapField(
+              LabelsDefaultEntryHolder.defaultEntry);
+        }
+        if (!labels_.isMutable()) {
+          labels_ = labels_.copy();
+        }
+        return labels_;
+      }
+
+      public int getLabelsCount() {
+        return internalGetLabels().getMap().size();
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetLabels().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getLabelsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getLabels() {
+        return getLabelsMap();
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
+        return internalGetLabels().getMap();
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getLabelsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetLabels().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearLabels() {
+        internalGetMutableLabels().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+
+      public Builder removeLabels(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableLabels().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableLabels() {
+        return internalGetMutableLabels().getMutableMap();
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+      public Builder putLabels(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableLabels().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * The user-defined labels.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; labels = 6;</code>
+       */
+
+      public Builder putAllLabels(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableLabels().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> annotations_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetAnnotations() {
+        if (annotations_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              AnnotationsDefaultEntryHolder.defaultEntry);
+        }
+        return annotations_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableAnnotations() {
+        onChanged();;
+        if (annotations_ == null) {
+          annotations_ = com.google.protobuf.MapField.newMapField(
+              AnnotationsDefaultEntryHolder.defaultEntry);
+        }
+        if (!annotations_.isMutable()) {
+          annotations_ = annotations_.copy();
+        }
+        return annotations_;
+      }
+
+      public int getAnnotationsCount() {
+        return internalGetAnnotations().getMap().size();
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsAnnotations(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetAnnotations().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getAnnotationsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getAnnotations() {
+        return getAnnotationsMap();
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
+        return internalGetAnnotations().getMap();
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getAnnotationsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetAnnotations().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getAnnotationsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetAnnotations().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearAnnotations() {
+        internalGetMutableAnnotations().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+
+      public Builder removeAnnotations(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableAnnotations().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableAnnotations() {
+        return internalGetMutableAnnotations().getMutableMap();
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+      public Builder putAnnotations(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableAnnotations().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * The user-defined annotations.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; annotations = 7;</code>
+       */
+
+      public Builder putAllAnnotations(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableAnnotations().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+
+      private long interval_ ;
+      /**
+       * <pre>
+       * The execution interval for sql query in seconds.
+       * </pre>
+       *
+       * <code>uint64 interval = 8;</code>
+       * @return The interval.
+       */
+      @java.lang.Override
+      public long getInterval() {
+        return interval_;
+      }
+      /**
+       * <pre>
+       * The execution interval for sql query in seconds.
+       * </pre>
+       *
+       * <code>uint64 interval = 8;</code>
+       * @param value The interval to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInterval(long value) {
+        
+        interval_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The execution interval for sql query in seconds.
+       * </pre>
+       *
+       * <code>uint64 interval = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInterval() {
+        
+        interval_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.CreateTriggerExpr)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.CreateTriggerExpr)
+    private static final io.greptime.v1.Ddl.CreateTriggerExpr DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.CreateTriggerExpr();
+    }
+
+    public static io.greptime.v1.Ddl.CreateTriggerExpr getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateTriggerExpr>
+        PARSER = new com.google.protobuf.AbstractParser<CreateTriggerExpr>() {
+      @java.lang.Override
+      public CreateTriggerExpr parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateTriggerExpr(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateTriggerExpr> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateTriggerExpr> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateTriggerExpr getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface NotifyChannelOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.NotifyChannel)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     * @return Whether the webhook field is set.
+     */
+    boolean hasWebhook();
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     * @return The webhook.
+     */
+    io.greptime.v1.Ddl.WebhookOptions getWebhook();
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     */
+    io.greptime.v1.Ddl.WebhookOptionsOrBuilder getWebhookOrBuilder();
+
+    public io.greptime.v1.Ddl.NotifyChannel.ChannelTypeCase getChannelTypeCase();
+  }
+  /**
+   * <pre>
+   * The notification channel for trigger.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.NotifyChannel}
+   */
+  public static final class NotifyChannel extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.NotifyChannel)
+      NotifyChannelOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use NotifyChannel.newBuilder() to construct.
+    private NotifyChannel(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private NotifyChannel() {
+      name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new NotifyChannel();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private NotifyChannel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Ddl.WebhookOptions.Builder subBuilder = null;
+              if (channelTypeCase_ == 2) {
+                subBuilder = ((io.greptime.v1.Ddl.WebhookOptions) channelType_).toBuilder();
+              }
+              channelType_ =
+                  input.readMessage(io.greptime.v1.Ddl.WebhookOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.WebhookOptions) channelType_);
+                channelType_ = subBuilder.buildPartial();
+              }
+              channelTypeCase_ = 2;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_NotifyChannel_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_NotifyChannel_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.NotifyChannel.class, io.greptime.v1.Ddl.NotifyChannel.Builder.class);
+    }
+
+    private int channelTypeCase_ = 0;
+    private java.lang.Object channelType_;
+    public enum ChannelTypeCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      WEBHOOK(2),
+      CHANNELTYPE_NOT_SET(0);
+      private final int value;
+      private ChannelTypeCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ChannelTypeCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ChannelTypeCase forNumber(int value) {
+        switch (value) {
+          case 2: return WEBHOOK;
+          case 0: return CHANNELTYPE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ChannelTypeCase
+    getChannelTypeCase() {
+      return ChannelTypeCase.forNumber(
+          channelTypeCase_);
+    }
+
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WEBHOOK_FIELD_NUMBER = 2;
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     * @return Whether the webhook field is set.
+     */
+    @java.lang.Override
+    public boolean hasWebhook() {
+      return channelTypeCase_ == 2;
+    }
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     * @return The webhook.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.WebhookOptions getWebhook() {
+      if (channelTypeCase_ == 2) {
+         return (io.greptime.v1.Ddl.WebhookOptions) channelType_;
+      }
+      return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.WebhookOptionsOrBuilder getWebhookOrBuilder() {
+      if (channelTypeCase_ == 2) {
+         return (io.greptime.v1.Ddl.WebhookOptions) channelType_;
+      }
+      return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (channelTypeCase_ == 2) {
+        output.writeMessage(2, (io.greptime.v1.Ddl.WebhookOptions) channelType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (channelTypeCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (io.greptime.v1.Ddl.WebhookOptions) channelType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.NotifyChannel)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.NotifyChannel other = (io.greptime.v1.Ddl.NotifyChannel) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getChannelTypeCase().equals(other.getChannelTypeCase())) return false;
+      switch (channelTypeCase_) {
+        case 2:
+          if (!getWebhook()
+              .equals(other.getWebhook())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      switch (channelTypeCase_) {
+        case 2:
+          hash = (37 * hash) + WEBHOOK_FIELD_NUMBER;
+          hash = (53 * hash) + getWebhook().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.NotifyChannel parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.NotifyChannel prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The notification channel for trigger.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.NotifyChannel}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.NotifyChannel)
+        io.greptime.v1.Ddl.NotifyChannelOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_NotifyChannel_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_NotifyChannel_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.NotifyChannel.class, io.greptime.v1.Ddl.NotifyChannel.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.NotifyChannel.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        channelTypeCase_ = 0;
+        channelType_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_NotifyChannel_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.NotifyChannel getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.NotifyChannel.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.NotifyChannel build() {
+        io.greptime.v1.Ddl.NotifyChannel result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.NotifyChannel buildPartial() {
+        io.greptime.v1.Ddl.NotifyChannel result = new io.greptime.v1.Ddl.NotifyChannel(this);
+        result.name_ = name_;
+        if (channelTypeCase_ == 2) {
+          if (webhookBuilder_ == null) {
+            result.channelType_ = channelType_;
+          } else {
+            result.channelType_ = webhookBuilder_.build();
+          }
+        }
+        result.channelTypeCase_ = channelTypeCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.NotifyChannel) {
+          return mergeFrom((io.greptime.v1.Ddl.NotifyChannel)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.NotifyChannel other) {
+        if (other == io.greptime.v1.Ddl.NotifyChannel.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        switch (other.getChannelTypeCase()) {
+          case WEBHOOK: {
+            mergeWebhook(other.getWebhook());
+            break;
+          }
+          case CHANNELTYPE_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.NotifyChannel parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.NotifyChannel) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int channelTypeCase_ = 0;
+      private java.lang.Object channelType_;
+      public ChannelTypeCase
+          getChannelTypeCase() {
+        return ChannelTypeCase.forNumber(
+            channelTypeCase_);
+      }
+
+      public Builder clearChannelType() {
+        channelTypeCase_ = 0;
+        channelType_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.WebhookOptions, io.greptime.v1.Ddl.WebhookOptions.Builder, io.greptime.v1.Ddl.WebhookOptionsOrBuilder> webhookBuilder_;
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       * @return Whether the webhook field is set.
+       */
+      @java.lang.Override
+      public boolean hasWebhook() {
+        return channelTypeCase_ == 2;
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       * @return The webhook.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.WebhookOptions getWebhook() {
+        if (webhookBuilder_ == null) {
+          if (channelTypeCase_ == 2) {
+            return (io.greptime.v1.Ddl.WebhookOptions) channelType_;
+          }
+          return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+        } else {
+          if (channelTypeCase_ == 2) {
+            return webhookBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      public Builder setWebhook(io.greptime.v1.Ddl.WebhookOptions value) {
+        if (webhookBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          channelType_ = value;
+          onChanged();
+        } else {
+          webhookBuilder_.setMessage(value);
+        }
+        channelTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      public Builder setWebhook(
+          io.greptime.v1.Ddl.WebhookOptions.Builder builderForValue) {
+        if (webhookBuilder_ == null) {
+          channelType_ = builderForValue.build();
+          onChanged();
+        } else {
+          webhookBuilder_.setMessage(builderForValue.build());
+        }
+        channelTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      public Builder mergeWebhook(io.greptime.v1.Ddl.WebhookOptions value) {
+        if (webhookBuilder_ == null) {
+          if (channelTypeCase_ == 2 &&
+              channelType_ != io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance()) {
+            channelType_ = io.greptime.v1.Ddl.WebhookOptions.newBuilder((io.greptime.v1.Ddl.WebhookOptions) channelType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            channelType_ = value;
+          }
+          onChanged();
+        } else {
+          if (channelTypeCase_ == 2) {
+            webhookBuilder_.mergeFrom(value);
+          } else {
+            webhookBuilder_.setMessage(value);
+          }
+        }
+        channelTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      public Builder clearWebhook() {
+        if (webhookBuilder_ == null) {
+          if (channelTypeCase_ == 2) {
+            channelTypeCase_ = 0;
+            channelType_ = null;
+            onChanged();
+          }
+        } else {
+          if (channelTypeCase_ == 2) {
+            channelTypeCase_ = 0;
+            channelType_ = null;
+          }
+          webhookBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      public io.greptime.v1.Ddl.WebhookOptions.Builder getWebhookBuilder() {
+        return getWebhookFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.WebhookOptionsOrBuilder getWebhookOrBuilder() {
+        if ((channelTypeCase_ == 2) && (webhookBuilder_ != null)) {
+          return webhookBuilder_.getMessageOrBuilder();
+        } else {
+          if (channelTypeCase_ == 2) {
+            return (io.greptime.v1.Ddl.WebhookOptions) channelType_;
+          }
+          return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.WebhookOptions webhook = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.WebhookOptions, io.greptime.v1.Ddl.WebhookOptions.Builder, io.greptime.v1.Ddl.WebhookOptionsOrBuilder> 
+          getWebhookFieldBuilder() {
+        if (webhookBuilder_ == null) {
+          if (!(channelTypeCase_ == 2)) {
+            channelType_ = io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+          }
+          webhookBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.WebhookOptions, io.greptime.v1.Ddl.WebhookOptions.Builder, io.greptime.v1.Ddl.WebhookOptionsOrBuilder>(
+                  (io.greptime.v1.Ddl.WebhookOptions) channelType_,
+                  getParentForChildren(),
+                  isClean());
+          channelType_ = null;
+        }
+        channelTypeCase_ = 2;
+        onChanged();;
+        return webhookBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.NotifyChannel)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.NotifyChannel)
+    private static final io.greptime.v1.Ddl.NotifyChannel DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.NotifyChannel();
+    }
+
+    public static io.greptime.v1.Ddl.NotifyChannel getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<NotifyChannel>
+        PARSER = new com.google.protobuf.AbstractParser<NotifyChannel>() {
+      @java.lang.Override
+      public NotifyChannel parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new NotifyChannel(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<NotifyChannel> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<NotifyChannel> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.NotifyChannel getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface WebhookOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.WebhookOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string url = 1;</code>
+     * @return The url.
+     */
+    java.lang.String getUrl();
+    /**
+     * <code>string url = 1;</code>
+     * @return The bytes for url.
+     */
+    com.google.protobuf.ByteString
+        getUrlBytes();
+
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    int getOptsCount();
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    boolean containsOpts(
+        java.lang.String key);
+    /**
+     * Use {@link #getOptsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getOpts();
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getOptsMap();
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+
+    /* nullable */
+java.lang.String getOptsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+
+    java.lang.String getOptsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * <pre>
+   * The options for webhook.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.WebhookOptions}
+   */
+  public static final class WebhookOptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.WebhookOptions)
+      WebhookOptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WebhookOptions.newBuilder() to construct.
+    private WebhookOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WebhookOptions() {
+      url_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new WebhookOptions();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WebhookOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              url_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                opts_ = com.google.protobuf.MapField.newMapField(
+                    OptsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              opts__ = input.readMessage(
+                  OptsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              opts_.getMutableMap().put(
+                  opts__.getKey(), opts__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 2:
+          return internalGetOpts();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.WebhookOptions.class, io.greptime.v1.Ddl.WebhookOptions.Builder.class);
+    }
+
+    public static final int URL_FIELD_NUMBER = 1;
+    private volatile java.lang.Object url_;
+    /**
+     * <code>string url = 1;</code>
+     * @return The url.
+     */
+    @java.lang.Override
+    public java.lang.String getUrl() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        url_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string url = 1;</code>
+     * @return The bytes for url.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUrlBytes() {
+      java.lang.Object ref = url_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        url_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OPTS_FIELD_NUMBER = 2;
+    private static final class OptsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> opts_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetOpts() {
+      if (opts_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            OptsDefaultEntryHolder.defaultEntry);
+      }
+      return opts_;
+    }
+
+    public int getOptsCount() {
+      return internalGetOpts().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsOpts(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetOpts().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getOptsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getOpts() {
+      return getOptsMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getOptsMap() {
+      return internalGetOpts().getMap();
+    }
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getOptsOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetOpts().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, string&gt; opts = 2;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getOptsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetOpts().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, url_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetOpts(),
+          OptsDefaultEntryHolder.defaultEntry,
+          2);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, url_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetOpts().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        opts__ = OptsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, opts__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.WebhookOptions)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.WebhookOptions other = (io.greptime.v1.Ddl.WebhookOptions) obj;
+
+      if (!getUrl()
+          .equals(other.getUrl())) return false;
+      if (!internalGetOpts().equals(
+          other.internalGetOpts())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + URL_FIELD_NUMBER;
+      hash = (53 * hash) + getUrl().hashCode();
+      if (!internalGetOpts().getMap().isEmpty()) {
+        hash = (37 * hash) + OPTS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetOpts().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.WebhookOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.WebhookOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The options for webhook.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.WebhookOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.WebhookOptions)
+        io.greptime.v1.Ddl.WebhookOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetOpts();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 2:
+            return internalGetMutableOpts();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.WebhookOptions.class, io.greptime.v1.Ddl.WebhookOptions.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.WebhookOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        url_ = "";
+
+        internalGetMutableOpts().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_WebhookOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.WebhookOptions getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.WebhookOptions build() {
+        io.greptime.v1.Ddl.WebhookOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.WebhookOptions buildPartial() {
+        io.greptime.v1.Ddl.WebhookOptions result = new io.greptime.v1.Ddl.WebhookOptions(this);
+        int from_bitField0_ = bitField0_;
+        result.url_ = url_;
+        result.opts_ = internalGetOpts();
+        result.opts_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.WebhookOptions) {
+          return mergeFrom((io.greptime.v1.Ddl.WebhookOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.WebhookOptions other) {
+        if (other == io.greptime.v1.Ddl.WebhookOptions.getDefaultInstance()) return this;
+        if (!other.getUrl().isEmpty()) {
+          url_ = other.url_;
+          onChanged();
+        }
+        internalGetMutableOpts().mergeFrom(
+            other.internalGetOpts());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.WebhookOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.WebhookOptions) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object url_ = "";
+      /**
+       * <code>string url = 1;</code>
+       * @return The url.
+       */
+      public java.lang.String getUrl() {
+        java.lang.Object ref = url_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          url_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @return The bytes for url.
+       */
+      public com.google.protobuf.ByteString
+          getUrlBytes() {
+        java.lang.Object ref = url_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          url_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @param value The url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        url_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUrl() {
+        
+        url_ = getDefaultInstance().getUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string url = 1;</code>
+       * @param value The bytes for url to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        url_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> opts_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetOpts() {
+        if (opts_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              OptsDefaultEntryHolder.defaultEntry);
+        }
+        return opts_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableOpts() {
+        onChanged();;
+        if (opts_ == null) {
+          opts_ = com.google.protobuf.MapField.newMapField(
+              OptsDefaultEntryHolder.defaultEntry);
+        }
+        if (!opts_.isMutable()) {
+          opts_ = opts_.copy();
+        }
+        return opts_;
+      }
+
+      public int getOptsCount() {
+        return internalGetOpts().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsOpts(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetOpts().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getOptsMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getOpts() {
+        return getOptsMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getOptsMap() {
+        return internalGetOpts().getMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getOptsOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetOpts().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getOptsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetOpts().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearOpts() {
+        internalGetMutableOpts().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+
+      public Builder removeOpts(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableOpts().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableOpts() {
+        return internalGetMutableOpts().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+      public Builder putOpts(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableOpts().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, string&gt; opts = 2;</code>
+       */
+
+      public Builder putAllOpts(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableOpts().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.WebhookOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.WebhookOptions)
+    private static final io.greptime.v1.Ddl.WebhookOptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.WebhookOptions();
+    }
+
+    public static io.greptime.v1.Ddl.WebhookOptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WebhookOptions>
+        PARSER = new com.google.protobuf.AbstractParser<WebhookOptions>() {
+      @java.lang.Override
+      public WebhookOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WebhookOptions(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WebhookOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WebhookOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.WebhookOptions getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DdlRequest_descriptor;
   private static final 
@@ -39182,6 +43271,36 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_CreateTriggerExpr_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_NotifyChannel_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_NotifyChannel_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_WebhookOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_WebhookOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_WebhookOptions_OptsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39324,12 +43443,27 @@ java.lang.String defaultValue);
       "\000B\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_d" +
       "atabase_options\030\001 \003(\0132\023.greptime.v1.Opti" +
       "on\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t" +
-      "*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)" +
-      "\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020" +
-      "\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000" +
-      "BL\n\016io.greptime.v1B\003DdlZ5github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1b\006" +
-      "proto3"
+      "\"\217\003\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001" +
+      " \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_" +
+      "not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channel" +
+      "s\030\005 \003(\0132\032.greptime.v1.NotifyChannel\022:\n\006l" +
+      "abels\030\006 \003(\0132*.greptime.v1.CreateTriggerE" +
+      "xpr.LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.g" +
+      "reptime.v1.CreateTriggerExpr.Annotations" +
+      "Entry\022\020\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annota" +
+      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
+      "8\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007web" +
+      "hook\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH" +
+      "\000B\016\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003u" +
+      "rl\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Web" +
+      "hookOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001*$\n\010Analyzer\022\013" +
+      "\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBack" +
+      "end\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingI" +
+      "ndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptim" +
+      "e.v1B\003DdlZ5github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -39570,6 +43704,42 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
         new java.lang.String[] { "Keys", });
+    internal_static_greptime_v1_CreateTriggerExpr_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_CreateTriggerExpr_descriptor,
+        new java.lang.String[] { "CatalogName", "TriggerName", "CreateIfNotExists", "Sql", "Channels", "Labels", "Annotations", "Interval", });
+    internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor =
+      internal_static_greptime_v1_CreateTriggerExpr_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor =
+      internal_static_greptime_v1_CreateTriggerExpr_descriptor.getNestedTypes().get(1);
+    internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_NotifyChannel_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_greptime_v1_NotifyChannel_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_NotifyChannel_descriptor,
+        new java.lang.String[] { "Name", "Webhook", "ChannelType", });
+    internal_static_greptime_v1_WebhookOptions_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_greptime_v1_WebhookOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_WebhookOptions_descriptor,
+        new java.lang.String[] { "Url", "Opts", });
+    internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor =
+      internal_static_greptime_v1_WebhookOptions_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_WebhookOptions_OptsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     io.greptime.v1.Common.getDescriptor();
   }
 

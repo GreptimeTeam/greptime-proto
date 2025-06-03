@@ -9907,6 +9907,629 @@ public final class Ddl {
 
   }
 
+  public interface CreateTriggerTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.CreateTriggerTask)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     * @return Whether the createTrigger field is set.
+     */
+    boolean hasCreateTrigger();
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     * @return The createTrigger.
+     */
+    io.greptime.v1.Ddl.CreateTriggerExpr getCreateTrigger();
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     */
+    io.greptime.v1.Ddl.CreateTriggerExprOrBuilder getCreateTriggerOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.CreateTriggerTask}
+   */
+  public static final class CreateTriggerTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.CreateTriggerTask)
+      CreateTriggerTaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateTriggerTask.newBuilder() to construct.
+    private CreateTriggerTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateTriggerTask() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateTriggerTask();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateTriggerTask(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.Ddl.CreateTriggerExpr.Builder subBuilder = null;
+              if (createTrigger_ != null) {
+                subBuilder = createTrigger_.toBuilder();
+              }
+              createTrigger_ = input.readMessage(io.greptime.v1.Ddl.CreateTriggerExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createTrigger_);
+                createTrigger_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateTriggerTask_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateTriggerTask_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Ddl.CreateTriggerTask.class, greptime.v1.meta.Ddl.CreateTriggerTask.Builder.class);
+    }
+
+    public static final int CREATE_TRIGGER_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.CreateTriggerExpr createTrigger_;
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     * @return Whether the createTrigger field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateTrigger() {
+      return createTrigger_ != null;
+    }
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     * @return The createTrigger.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateTriggerExpr getCreateTrigger() {
+      return createTrigger_ == null ? io.greptime.v1.Ddl.CreateTriggerExpr.getDefaultInstance() : createTrigger_;
+    }
+    /**
+     * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CreateTriggerExprOrBuilder getCreateTriggerOrBuilder() {
+      return getCreateTrigger();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (createTrigger_ != null) {
+        output.writeMessage(1, getCreateTrigger());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (createTrigger_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getCreateTrigger());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Ddl.CreateTriggerTask)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Ddl.CreateTriggerTask other = (greptime.v1.meta.Ddl.CreateTriggerTask) obj;
+
+      if (hasCreateTrigger() != other.hasCreateTrigger()) return false;
+      if (hasCreateTrigger()) {
+        if (!getCreateTrigger()
+            .equals(other.getCreateTrigger())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCreateTrigger()) {
+        hash = (37 * hash) + CREATE_TRIGGER_FIELD_NUMBER;
+        hash = (53 * hash) + getCreateTrigger().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.CreateTriggerTask parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Ddl.CreateTriggerTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.CreateTriggerTask}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.CreateTriggerTask)
+        greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateTriggerTask_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateTriggerTask_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Ddl.CreateTriggerTask.class, greptime.v1.meta.Ddl.CreateTriggerTask.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Ddl.CreateTriggerTask.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (createTriggerBuilder_ == null) {
+          createTrigger_ = null;
+        } else {
+          createTrigger_ = null;
+          createTriggerBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_CreateTriggerTask_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateTriggerTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateTriggerTask build() {
+        greptime.v1.meta.Ddl.CreateTriggerTask result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateTriggerTask buildPartial() {
+        greptime.v1.meta.Ddl.CreateTriggerTask result = new greptime.v1.meta.Ddl.CreateTriggerTask(this);
+        if (createTriggerBuilder_ == null) {
+          result.createTrigger_ = createTrigger_;
+        } else {
+          result.createTrigger_ = createTriggerBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Ddl.CreateTriggerTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.CreateTriggerTask)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Ddl.CreateTriggerTask other) {
+        if (other == greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance()) return this;
+        if (other.hasCreateTrigger()) {
+          mergeCreateTrigger(other.getCreateTrigger());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Ddl.CreateTriggerTask parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Ddl.CreateTriggerTask) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.CreateTriggerExpr createTrigger_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateTriggerExpr, io.greptime.v1.Ddl.CreateTriggerExpr.Builder, io.greptime.v1.Ddl.CreateTriggerExprOrBuilder> createTriggerBuilder_;
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       * @return Whether the createTrigger field is set.
+       */
+      public boolean hasCreateTrigger() {
+        return createTriggerBuilder_ != null || createTrigger_ != null;
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       * @return The createTrigger.
+       */
+      public io.greptime.v1.Ddl.CreateTriggerExpr getCreateTrigger() {
+        if (createTriggerBuilder_ == null) {
+          return createTrigger_ == null ? io.greptime.v1.Ddl.CreateTriggerExpr.getDefaultInstance() : createTrigger_;
+        } else {
+          return createTriggerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public Builder setCreateTrigger(io.greptime.v1.Ddl.CreateTriggerExpr value) {
+        if (createTriggerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createTrigger_ = value;
+          onChanged();
+        } else {
+          createTriggerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public Builder setCreateTrigger(
+          io.greptime.v1.Ddl.CreateTriggerExpr.Builder builderForValue) {
+        if (createTriggerBuilder_ == null) {
+          createTrigger_ = builderForValue.build();
+          onChanged();
+        } else {
+          createTriggerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public Builder mergeCreateTrigger(io.greptime.v1.Ddl.CreateTriggerExpr value) {
+        if (createTriggerBuilder_ == null) {
+          if (createTrigger_ != null) {
+            createTrigger_ =
+              io.greptime.v1.Ddl.CreateTriggerExpr.newBuilder(createTrigger_).mergeFrom(value).buildPartial();
+          } else {
+            createTrigger_ = value;
+          }
+          onChanged();
+        } else {
+          createTriggerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public Builder clearCreateTrigger() {
+        if (createTriggerBuilder_ == null) {
+          createTrigger_ = null;
+          onChanged();
+        } else {
+          createTrigger_ = null;
+          createTriggerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public io.greptime.v1.Ddl.CreateTriggerExpr.Builder getCreateTriggerBuilder() {
+        
+        onChanged();
+        return getCreateTriggerFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      public io.greptime.v1.Ddl.CreateTriggerExprOrBuilder getCreateTriggerOrBuilder() {
+        if (createTriggerBuilder_ != null) {
+          return createTriggerBuilder_.getMessageOrBuilder();
+        } else {
+          return createTrigger_ == null ?
+              io.greptime.v1.Ddl.CreateTriggerExpr.getDefaultInstance() : createTrigger_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.CreateTriggerExpr create_trigger = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CreateTriggerExpr, io.greptime.v1.Ddl.CreateTriggerExpr.Builder, io.greptime.v1.Ddl.CreateTriggerExprOrBuilder> 
+          getCreateTriggerFieldBuilder() {
+        if (createTriggerBuilder_ == null) {
+          createTriggerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.CreateTriggerExpr, io.greptime.v1.Ddl.CreateTriggerExpr.Builder, io.greptime.v1.Ddl.CreateTriggerExprOrBuilder>(
+                  getCreateTrigger(),
+                  getParentForChildren(),
+                  isClean());
+          createTrigger_ = null;
+        }
+        return createTriggerBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.CreateTriggerTask)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.CreateTriggerTask)
+    private static final greptime.v1.meta.Ddl.CreateTriggerTask DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.CreateTriggerTask();
+    }
+
+    public static greptime.v1.meta.Ddl.CreateTriggerTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateTriggerTask>
+        PARSER = new com.google.protobuf.AbstractParser<CreateTriggerTask>() {
+      @java.lang.Override
+      public CreateTriggerTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateTriggerTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateTriggerTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateTriggerTask> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateTriggerTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DdlTaskRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.DdlTaskRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -10150,6 +10773,21 @@ public final class Ddl {
      * <code>.greptime.v1.meta.AlterDatabaseTask alter_database_task = 15;</code>
      */
     greptime.v1.meta.Ddl.AlterDatabaseTaskOrBuilder getAlterDatabaseTaskOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     * @return Whether the createTriggerTask field is set.
+     */
+    boolean hasCreateTriggerTask();
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     * @return The createTriggerTask.
+     */
+    greptime.v1.meta.Ddl.CreateTriggerTask getCreateTriggerTask();
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     */
+    greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder getCreateTriggerTaskOrBuilder();
 
     public greptime.v1.meta.Ddl.DdlTaskRequest.TaskCase getTaskCase();
   }
@@ -10407,6 +11045,20 @@ public final class Ddl {
               taskCase_ = 15;
               break;
             }
+            case 130: {
+              greptime.v1.meta.Ddl.CreateTriggerTask.Builder subBuilder = null;
+              if (taskCase_ == 16) {
+                subBuilder = ((greptime.v1.meta.Ddl.CreateTriggerTask) task_).toBuilder();
+              }
+              task_ =
+                  input.readMessage(greptime.v1.meta.Ddl.CreateTriggerTask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.CreateTriggerTask) task_);
+                task_ = subBuilder.buildPartial();
+              }
+              taskCase_ = 16;
+              break;
+            }
             case 514: {
               io.greptime.v1.Common.QueryContext.Builder subBuilder = null;
               if (queryContext_ != null) {
@@ -10473,6 +11125,7 @@ public final class Ddl {
       CREATE_VIEW_TASK(13),
       DROP_VIEW_TASK(14),
       ALTER_DATABASE_TASK(15),
+      CREATE_TRIGGER_TASK(16),
       TASK_NOT_SET(0);
       private final int value;
       private TaskCase(int value) {
@@ -10504,6 +11157,7 @@ public final class Ddl {
           case 13: return CREATE_VIEW_TASK;
           case 14: return DROP_VIEW_TASK;
           case 15: return ALTER_DATABASE_TASK;
+          case 16: return CREATE_TRIGGER_TASK;
           case 0: return TASK_NOT_SET;
           default: return null;
         }
@@ -11005,6 +11659,37 @@ public final class Ddl {
       return greptime.v1.meta.Ddl.AlterDatabaseTask.getDefaultInstance();
     }
 
+    public static final int CREATE_TRIGGER_TASK_FIELD_NUMBER = 16;
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     * @return Whether the createTriggerTask field is set.
+     */
+    @java.lang.Override
+    public boolean hasCreateTriggerTask() {
+      return taskCase_ == 16;
+    }
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     * @return The createTriggerTask.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateTriggerTask getCreateTriggerTask() {
+      if (taskCase_ == 16) {
+         return (greptime.v1.meta.Ddl.CreateTriggerTask) task_;
+      }
+      return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder getCreateTriggerTaskOrBuilder() {
+      if (taskCase_ == 16) {
+         return (greptime.v1.meta.Ddl.CreateTriggerTask) task_;
+      }
+      return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11063,6 +11748,9 @@ public final class Ddl {
       }
       if (taskCase_ == 15) {
         output.writeMessage(15, (greptime.v1.meta.Ddl.AlterDatabaseTask) task_);
+      }
+      if (taskCase_ == 16) {
+        output.writeMessage(16, (greptime.v1.meta.Ddl.CreateTriggerTask) task_);
       }
       if (queryContext_ != null) {
         output.writeMessage(64, getQueryContext());
@@ -11135,6 +11823,10 @@ public final class Ddl {
       if (taskCase_ == 15) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, (greptime.v1.meta.Ddl.AlterDatabaseTask) task_);
+      }
+      if (taskCase_ == 16) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, (greptime.v1.meta.Ddl.CreateTriggerTask) task_);
       }
       if (queryContext_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -11223,6 +11915,10 @@ public final class Ddl {
           if (!getAlterDatabaseTask()
               .equals(other.getAlterDatabaseTask())) return false;
           break;
+        case 16:
+          if (!getCreateTriggerTask()
+              .equals(other.getCreateTriggerTask())) return false;
+          break;
         case 0:
         default:
       }
@@ -11301,6 +11997,10 @@ public final class Ddl {
         case 15:
           hash = (37 * hash) + ALTER_DATABASE_TASK_FIELD_NUMBER;
           hash = (53 * hash) + getAlterDatabaseTask().hashCode();
+          break;
+        case 16:
+          hash = (37 * hash) + CREATE_TRIGGER_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getCreateTriggerTask().hashCode();
           break;
         case 0:
         default:
@@ -11586,6 +12286,13 @@ public final class Ddl {
             result.task_ = alterDatabaseTaskBuilder_.build();
           }
         }
+        if (taskCase_ == 16) {
+          if (createTriggerTaskBuilder_ == null) {
+            result.task_ = task_;
+          } else {
+            result.task_ = createTriggerTaskBuilder_.build();
+          }
+        }
         result.taskCase_ = taskCase_;
         onBuilt();
         return result;
@@ -11696,6 +12403,10 @@ public final class Ddl {
           }
           case ALTER_DATABASE_TASK: {
             mergeAlterDatabaseTask(other.getAlterDatabaseTask());
+            break;
+          }
+          case CREATE_TRIGGER_TASK: {
+            mergeCreateTriggerTask(other.getCreateTriggerTask());
             break;
           }
           case TASK_NOT_SET: {
@@ -13971,6 +14682,148 @@ public final class Ddl {
         onChanged();;
         return alterDatabaseTaskBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.CreateTriggerTask, greptime.v1.meta.Ddl.CreateTriggerTask.Builder, greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder> createTriggerTaskBuilder_;
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       * @return Whether the createTriggerTask field is set.
+       */
+      @java.lang.Override
+      public boolean hasCreateTriggerTask() {
+        return taskCase_ == 16;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       * @return The createTriggerTask.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateTriggerTask getCreateTriggerTask() {
+        if (createTriggerTaskBuilder_ == null) {
+          if (taskCase_ == 16) {
+            return (greptime.v1.meta.Ddl.CreateTriggerTask) task_;
+          }
+          return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+        } else {
+          if (taskCase_ == 16) {
+            return createTriggerTaskBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      public Builder setCreateTriggerTask(greptime.v1.meta.Ddl.CreateTriggerTask value) {
+        if (createTriggerTaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          createTriggerTaskBuilder_.setMessage(value);
+        }
+        taskCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      public Builder setCreateTriggerTask(
+          greptime.v1.meta.Ddl.CreateTriggerTask.Builder builderForValue) {
+        if (createTriggerTaskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          createTriggerTaskBuilder_.setMessage(builderForValue.build());
+        }
+        taskCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      public Builder mergeCreateTriggerTask(greptime.v1.meta.Ddl.CreateTriggerTask value) {
+        if (createTriggerTaskBuilder_ == null) {
+          if (taskCase_ == 16 &&
+              task_ != greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.CreateTriggerTask.newBuilder((greptime.v1.meta.Ddl.CreateTriggerTask) task_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          if (taskCase_ == 16) {
+            createTriggerTaskBuilder_.mergeFrom(value);
+          } else {
+            createTriggerTaskBuilder_.setMessage(value);
+          }
+        }
+        taskCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      public Builder clearCreateTriggerTask() {
+        if (createTriggerTaskBuilder_ == null) {
+          if (taskCase_ == 16) {
+            taskCase_ = 0;
+            task_ = null;
+            onChanged();
+          }
+        } else {
+          if (taskCase_ == 16) {
+            taskCase_ = 0;
+            task_ = null;
+          }
+          createTriggerTaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      public greptime.v1.meta.Ddl.CreateTriggerTask.Builder getCreateTriggerTaskBuilder() {
+        return getCreateTriggerTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder getCreateTriggerTaskOrBuilder() {
+        if ((taskCase_ == 16) && (createTriggerTaskBuilder_ != null)) {
+          return createTriggerTaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (taskCase_ == 16) {
+            return (greptime.v1.meta.Ddl.CreateTriggerTask) task_;
+          }
+          return greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.CreateTriggerTask create_trigger_task = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.CreateTriggerTask, greptime.v1.meta.Ddl.CreateTriggerTask.Builder, greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder> 
+          getCreateTriggerTaskFieldBuilder() {
+        if (createTriggerTaskBuilder_ == null) {
+          if (!(taskCase_ == 16)) {
+            task_ = greptime.v1.meta.Ddl.CreateTriggerTask.getDefaultInstance();
+          }
+          createTriggerTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.CreateTriggerTask, greptime.v1.meta.Ddl.CreateTriggerTask.Builder, greptime.v1.meta.Ddl.CreateTriggerTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.CreateTriggerTask) task_,
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        taskCase_ = 16;
+        onChanged();;
+        return createTriggerTaskBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -15408,6 +16261,11 @@ public final class Ddl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_CreateTriggerTask_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_CreateTriggerTask_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_DdlTaskRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -15456,39 +16314,42 @@ public final class Ddl {
       "(\014\"<\n\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031." +
       "greptime.v1.DropViewExpr\"A\n\021AlterDatabas" +
       "eTask\022,\n\004task\030\001 \001(\0132\036.greptime.v1.AlterD" +
-      "atabaseExpr\"\365\007\n\016DdlTaskRequest\022/\n\006header" +
-      "\030\001 \001(\0132\037.greptime.v1.meta.RequestHeader\022" +
-      "0\n\rquery_context\030@ \001(\0132\031.greptime.v1.Que" +
-      "ryContext\022>\n\021create_table_task\030\002 \001(\0132!.g" +
-      "reptime.v1.meta.CreateTableTaskH\000\022:\n\017dro" +
-      "p_table_task\030\003 \001(\0132\037.greptime.v1.meta.Dr" +
-      "opTableTaskH\000\022<\n\020alter_table_task\030\004 \001(\0132" +
-      " .greptime.v1.meta.AlterTableTaskH\000\022B\n\023t" +
-      "runcate_table_task\030\005 \001(\0132#.greptime.v1.m" +
-      "eta.TruncateTableTaskH\000\022@\n\022create_table_" +
-      "tasks\030\006 \001(\0132\".greptime.v1.meta.CreateTab" +
-      "leTasksH\000\022<\n\020drop_table_tasks\030\007 \001(\0132 .gr" +
-      "eptime.v1.meta.DropTableTasksH\000\022>\n\021alter" +
-      "_table_tasks\030\010 \001(\0132!.greptime.v1.meta.Al" +
-      "terTableTasksH\000\022@\n\022drop_database_task\030\t " +
-      "\001(\0132\".greptime.v1.meta.DropDatabaseTaskH" +
-      "\000\022D\n\024create_database_task\030\n \001(\0132$.grepti" +
-      "me.v1.meta.CreateDatabaseTaskH\000\022<\n\020creat" +
-      "e_flow_task\030\013 \001(\0132 .greptime.v1.meta.Cre" +
-      "ateFlowTaskH\000\0228\n\016drop_flow_task\030\014 \001(\0132\036." +
-      "greptime.v1.meta.DropFlowTaskH\000\022<\n\020creat" +
-      "e_view_task\030\r \001(\0132 .greptime.v1.meta.Cre" +
-      "ateViewTaskH\000\0228\n\016drop_view_task\030\016 \001(\0132\036." +
-      "greptime.v1.meta.DropViewTaskH\000\022B\n\023alter" +
-      "_database_task\030\017 \001(\0132#.greptime.v1.meta." +
-      "AlterDatabaseTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskR" +
-      "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me" +
-      "ta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptim" +
-      "e.v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(\013" +
-      "2\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n\n" +
-      "\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1/met" +
-      "ab\006proto3"
+      "atabaseExpr\"K\n\021CreateTriggerTask\0226\n\016crea" +
+      "te_trigger\030\001 \001(\0132\036.greptime.v1.CreateTri" +
+      "ggerExpr\"\271\010\n\016DdlTaskRequest\022/\n\006header\030\001 " +
+      "\001(\0132\037.greptime.v1.meta.RequestHeader\0220\n\r" +
+      "query_context\030@ \001(\0132\031.greptime.v1.QueryC" +
+      "ontext\022>\n\021create_table_task\030\002 \001(\0132!.grep" +
+      "time.v1.meta.CreateTableTaskH\000\022:\n\017drop_t" +
+      "able_task\030\003 \001(\0132\037.greptime.v1.meta.DropT" +
+      "ableTaskH\000\022<\n\020alter_table_task\030\004 \001(\0132 .g" +
+      "reptime.v1.meta.AlterTableTaskH\000\022B\n\023trun" +
+      "cate_table_task\030\005 \001(\0132#.greptime.v1.meta" +
+      ".TruncateTableTaskH\000\022@\n\022create_table_tas" +
+      "ks\030\006 \001(\0132\".greptime.v1.meta.CreateTableT" +
+      "asksH\000\022<\n\020drop_table_tasks\030\007 \001(\0132 .grept" +
+      "ime.v1.meta.DropTableTasksH\000\022>\n\021alter_ta" +
+      "ble_tasks\030\010 \001(\0132!.greptime.v1.meta.Alter" +
+      "TableTasksH\000\022@\n\022drop_database_task\030\t \001(\013" +
+      "2\".greptime.v1.meta.DropDatabaseTaskH\000\022D" +
+      "\n\024create_database_task\030\n \001(\0132$.greptime." +
+      "v1.meta.CreateDatabaseTaskH\000\022<\n\020create_f" +
+      "low_task\030\013 \001(\0132 .greptime.v1.meta.Create" +
+      "FlowTaskH\000\0228\n\016drop_flow_task\030\014 \001(\0132\036.gre" +
+      "ptime.v1.meta.DropFlowTaskH\000\022<\n\020create_v" +
+      "iew_task\030\r \001(\0132 .greptime.v1.meta.Create" +
+      "ViewTaskH\000\0228\n\016drop_view_task\030\016 \001(\0132\036.gre" +
+      "ptime.v1.meta.DropViewTaskH\000\022B\n\023alter_da" +
+      "tabase_task\030\017 \001(\0132#.greptime.v1.meta.Alt" +
+      "erDatabaseTaskH\000\022B\n\023create_trigger_task\030" +
+      "\020 \001(\0132#.greptime.v1.meta.CreateTriggerTa" +
+      "skH\000B\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006head" +
+      "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead" +
+      "er\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Proce" +
+      "dureId\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1." +
+      "TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Dr" +
+      "op\020\001B<Z:github.com/GreptimeTeam/greptime" +
+      "-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15582,14 +16443,20 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor,
         new java.lang.String[] { "Task", });
-    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
+    internal_static_greptime_v1_meta_CreateTriggerTask_descriptor =
       getDescriptor().getMessageTypes().get(14);
+    internal_static_greptime_v1_meta_CreateTriggerTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_CreateTriggerTask_descriptor,
+        new java.lang.String[] { "CreateTrigger", });
+    internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,
