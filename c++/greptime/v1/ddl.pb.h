@@ -87,6 +87,15 @@ extern CreateTableExprDefaultTypeInternal _CreateTableExpr_default_instance_;
 class CreateTableExpr_TableOptionsEntry_DoNotUse;
 struct CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal;
 extern CreateTableExpr_TableOptionsEntry_DoNotUseDefaultTypeInternal _CreateTableExpr_TableOptionsEntry_DoNotUse_default_instance_;
+class CreateTriggerExpr;
+struct CreateTriggerExprDefaultTypeInternal;
+extern CreateTriggerExprDefaultTypeInternal _CreateTriggerExpr_default_instance_;
+class CreateTriggerExpr_AnnotationsEntry_DoNotUse;
+struct CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal;
+extern CreateTriggerExpr_AnnotationsEntry_DoNotUseDefaultTypeInternal _CreateTriggerExpr_AnnotationsEntry_DoNotUse_default_instance_;
+class CreateTriggerExpr_LabelsEntry_DoNotUse;
+struct CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal;
+extern CreateTriggerExpr_LabelsEntry_DoNotUseDefaultTypeInternal _CreateTriggerExpr_LabelsEntry_DoNotUse_default_instance_;
 class CreateViewExpr;
 struct CreateViewExprDefaultTypeInternal;
 extern CreateViewExprDefaultTypeInternal _CreateViewExpr_default_instance_;
@@ -120,6 +129,9 @@ extern ModifyColumnTypeDefaultTypeInternal _ModifyColumnType_default_instance_;
 class ModifyColumnTypes;
 struct ModifyColumnTypesDefaultTypeInternal;
 extern ModifyColumnTypesDefaultTypeInternal _ModifyColumnTypes_default_instance_;
+class NotifyChannel;
+struct NotifyChannelDefaultTypeInternal;
+extern NotifyChannelDefaultTypeInternal _NotifyChannel_default_instance_;
 class Option;
 struct OptionDefaultTypeInternal;
 extern OptionDefaultTypeInternal _Option_default_instance_;
@@ -168,6 +180,12 @@ extern UnsetSkippingDefaultTypeInternal _UnsetSkipping_default_instance_;
 class UnsetTableOptions;
 struct UnsetTableOptionsDefaultTypeInternal;
 extern UnsetTableOptionsDefaultTypeInternal _UnsetTableOptions_default_instance_;
+class WebhookOptions;
+struct WebhookOptionsDefaultTypeInternal;
+extern WebhookOptionsDefaultTypeInternal _WebhookOptions_default_instance_;
+class WebhookOptions_OptsEntry_DoNotUse;
+struct WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal;
+extern WebhookOptions_OptsEntry_DoNotUseDefaultTypeInternal _WebhookOptions_OptsEntry_DoNotUse_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
@@ -183,6 +201,9 @@ template<> ::greptime::v1::CreateFlowExpr* Arena::CreateMaybeMessage<::greptime:
 template<> ::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateFlowExpr_FlowOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr>(Arena*);
 template<> ::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTableExpr_TableOptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::CreateTriggerExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateTriggerExpr>(Arena*);
+template<> ::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::CreateViewExpr* Arena::CreateMaybeMessage<::greptime::v1::CreateViewExpr>(Arena*);
 template<> ::greptime::v1::DdlRequest* Arena::CreateMaybeMessage<::greptime::v1::DdlRequest>(Arena*);
 template<> ::greptime::v1::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::DropColumn>(Arena*);
@@ -194,6 +215,7 @@ template<> ::greptime::v1::DropViewExpr* Arena::CreateMaybeMessage<::greptime::v
 template<> ::greptime::v1::FlowId* Arena::CreateMaybeMessage<::greptime::v1::FlowId>(Arena*);
 template<> ::greptime::v1::ModifyColumnType* Arena::CreateMaybeMessage<::greptime::v1::ModifyColumnType>(Arena*);
 template<> ::greptime::v1::ModifyColumnTypes* Arena::CreateMaybeMessage<::greptime::v1::ModifyColumnTypes>(Arena*);
+template<> ::greptime::v1::NotifyChannel* Arena::CreateMaybeMessage<::greptime::v1::NotifyChannel>(Arena*);
 template<> ::greptime::v1::Option* Arena::CreateMaybeMessage<::greptime::v1::Option>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
 template<> ::greptime::v1::SetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::SetDatabaseOptions>(Arena*);
@@ -210,6 +232,8 @@ template<> ::greptime::v1::UnsetIndex* Arena::CreateMaybeMessage<::greptime::v1:
 template<> ::greptime::v1::UnsetInverted* Arena::CreateMaybeMessage<::greptime::v1::UnsetInverted>(Arena*);
 template<> ::greptime::v1::UnsetSkipping* Arena::CreateMaybeMessage<::greptime::v1::UnsetSkipping>(Arena*);
 template<> ::greptime::v1::UnsetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetTableOptions>(Arena*);
+template<> ::greptime::v1::WebhookOptions* Arena::CreateMaybeMessage<::greptime::v1::WebhookOptions>(Arena*);
+template<> ::greptime::v1::WebhookOptions_OptsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::WebhookOptions_OptsEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -7689,6 +7713,735 @@ class UnsetDatabaseOptions final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CreateTriggerExpr_LabelsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTriggerExpr_LabelsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTriggerExpr_LabelsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  CreateTriggerExpr_LabelsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateTriggerExpr_LabelsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit CreateTriggerExpr_LabelsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateTriggerExpr_LabelsEntry_DoNotUse& other);
+  static const CreateTriggerExpr_LabelsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateTriggerExpr_LabelsEntry_DoNotUse*>(&_CreateTriggerExpr_LabelsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTriggerExpr.LabelsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTriggerExpr.LabelsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class CreateTriggerExpr_AnnotationsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTriggerExpr_AnnotationsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CreateTriggerExpr_AnnotationsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  CreateTriggerExpr_AnnotationsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CreateTriggerExpr_AnnotationsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit CreateTriggerExpr_AnnotationsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CreateTriggerExpr_AnnotationsEntry_DoNotUse& other);
+  static const CreateTriggerExpr_AnnotationsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CreateTriggerExpr_AnnotationsEntry_DoNotUse*>(&_CreateTriggerExpr_AnnotationsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTriggerExpr.AnnotationsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.CreateTriggerExpr.AnnotationsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class CreateTriggerExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.CreateTriggerExpr) */ {
+ public:
+  inline CreateTriggerExpr() : CreateTriggerExpr(nullptr) {}
+  ~CreateTriggerExpr() override;
+  explicit PROTOBUF_CONSTEXPR CreateTriggerExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CreateTriggerExpr(const CreateTriggerExpr& from);
+  CreateTriggerExpr(CreateTriggerExpr&& from) noexcept
+    : CreateTriggerExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline CreateTriggerExpr& operator=(const CreateTriggerExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CreateTriggerExpr& operator=(CreateTriggerExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CreateTriggerExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CreateTriggerExpr* internal_default_instance() {
+    return reinterpret_cast<const CreateTriggerExpr*>(
+               &_CreateTriggerExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    41;
+
+  friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CreateTriggerExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CreateTriggerExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CreateTriggerExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CreateTriggerExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CreateTriggerExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CreateTriggerExpr& from) {
+    CreateTriggerExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CreateTriggerExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.CreateTriggerExpr";
+  }
+  protected:
+  explicit CreateTriggerExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChannelsFieldNumber = 5,
+    kLabelsFieldNumber = 6,
+    kAnnotationsFieldNumber = 7,
+    kCatalogNameFieldNumber = 1,
+    kTriggerNameFieldNumber = 2,
+    kSqlFieldNumber = 4,
+    kIntervalFieldNumber = 8,
+    kCreateIfNotExistsFieldNumber = 3,
+  };
+  // repeated .greptime.v1.NotifyChannel channels = 5;
+  int channels_size() const;
+  private:
+  int _internal_channels_size() const;
+  public:
+  void clear_channels();
+  ::greptime::v1::NotifyChannel* mutable_channels(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::NotifyChannel >*
+      mutable_channels();
+  private:
+  const ::greptime::v1::NotifyChannel& _internal_channels(int index) const;
+  ::greptime::v1::NotifyChannel* _internal_add_channels();
+  public:
+  const ::greptime::v1::NotifyChannel& channels(int index) const;
+  ::greptime::v1::NotifyChannel* add_channels();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::NotifyChannel >&
+      channels() const;
+
+  // map<string, string> labels = 6;
+  int labels_size() const;
+  private:
+  int _internal_labels_size() const;
+  public:
+  void clear_labels();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_labels() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_labels();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      labels() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_labels();
+
+  // map<string, string> annotations = 7;
+  int annotations_size() const;
+  private:
+  int _internal_annotations_size() const;
+  public:
+  void clear_annotations();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_annotations() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_annotations();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      annotations() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_annotations();
+
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string trigger_name = 2;
+  void clear_trigger_name();
+  const std::string& trigger_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_trigger_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_trigger_name();
+  PROTOBUF_NODISCARD std::string* release_trigger_name();
+  void set_allocated_trigger_name(std::string* trigger_name);
+  private:
+  const std::string& _internal_trigger_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_trigger_name(const std::string& value);
+  std::string* _internal_mutable_trigger_name();
+  public:
+
+  // string sql = 4;
+  void clear_sql();
+  const std::string& sql() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sql(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sql();
+  PROTOBUF_NODISCARD std::string* release_sql();
+  void set_allocated_sql(std::string* sql);
+  private:
+  const std::string& _internal_sql() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sql(const std::string& value);
+  std::string* _internal_mutable_sql();
+  public:
+
+  // uint64 interval = 8;
+  void clear_interval();
+  uint64_t interval() const;
+  void set_interval(uint64_t value);
+  private:
+  uint64_t _internal_interval() const;
+  void _internal_set_interval(uint64_t value);
+  public:
+
+  // bool create_if_not_exists = 3;
+  void clear_create_if_not_exists();
+  bool create_if_not_exists() const;
+  void set_create_if_not_exists(bool value);
+  private:
+  bool _internal_create_if_not_exists() const;
+  void _internal_set_create_if_not_exists(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.CreateTriggerExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::NotifyChannel > channels_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        CreateTriggerExpr_LabelsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> labels_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        CreateTriggerExpr_AnnotationsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> annotations_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trigger_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
+    uint64_t interval_;
+    bool create_if_not_exists_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class NotifyChannel final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.NotifyChannel) */ {
+ public:
+  inline NotifyChannel() : NotifyChannel(nullptr) {}
+  ~NotifyChannel() override;
+  explicit PROTOBUF_CONSTEXPR NotifyChannel(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  NotifyChannel(const NotifyChannel& from);
+  NotifyChannel(NotifyChannel&& from) noexcept
+    : NotifyChannel() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifyChannel& operator=(const NotifyChannel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NotifyChannel& operator=(NotifyChannel&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NotifyChannel& default_instance() {
+    return *internal_default_instance();
+  }
+  enum ChannelTypeCase {
+    kWebhook = 2,
+    CHANNEL_TYPE_NOT_SET = 0,
+  };
+
+  static inline const NotifyChannel* internal_default_instance() {
+    return reinterpret_cast<const NotifyChannel*>(
+               &_NotifyChannel_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    42;
+
+  friend void swap(NotifyChannel& a, NotifyChannel& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NotifyChannel* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NotifyChannel* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  NotifyChannel* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<NotifyChannel>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const NotifyChannel& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const NotifyChannel& from) {
+    NotifyChannel::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NotifyChannel* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.NotifyChannel";
+  }
+  protected:
+  explicit NotifyChannel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kWebhookFieldNumber = 2,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // .greptime.v1.WebhookOptions webhook = 2;
+  bool has_webhook() const;
+  private:
+  bool _internal_has_webhook() const;
+  public:
+  void clear_webhook();
+  const ::greptime::v1::WebhookOptions& webhook() const;
+  PROTOBUF_NODISCARD ::greptime::v1::WebhookOptions* release_webhook();
+  ::greptime::v1::WebhookOptions* mutable_webhook();
+  void set_allocated_webhook(::greptime::v1::WebhookOptions* webhook);
+  private:
+  const ::greptime::v1::WebhookOptions& _internal_webhook() const;
+  ::greptime::v1::WebhookOptions* _internal_mutable_webhook();
+  public:
+  void unsafe_arena_set_allocated_webhook(
+      ::greptime::v1::WebhookOptions* webhook);
+  ::greptime::v1::WebhookOptions* unsafe_arena_release_webhook();
+
+  void clear_channel_type();
+  ChannelTypeCase channel_type_case() const;
+  // @@protoc_insertion_point(class_scope:greptime.v1.NotifyChannel)
+ private:
+  class _Internal;
+  void set_has_webhook();
+
+  inline bool has_channel_type() const;
+  inline void clear_has_channel_type();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    union ChannelTypeUnion {
+      constexpr ChannelTypeUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::WebhookOptions* webhook_;
+    } channel_type_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class WebhookOptions_OptsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<WebhookOptions_OptsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<WebhookOptions_OptsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  WebhookOptions_OptsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR WebhookOptions_OptsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit WebhookOptions_OptsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const WebhookOptions_OptsEntry_DoNotUse& other);
+  static const WebhookOptions_OptsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const WebhookOptions_OptsEntry_DoNotUse*>(&_WebhookOptions_OptsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.WebhookOptions.OptsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.WebhookOptions.OptsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class WebhookOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.WebhookOptions) */ {
+ public:
+  inline WebhookOptions() : WebhookOptions(nullptr) {}
+  ~WebhookOptions() override;
+  explicit PROTOBUF_CONSTEXPR WebhookOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  WebhookOptions(const WebhookOptions& from);
+  WebhookOptions(WebhookOptions&& from) noexcept
+    : WebhookOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline WebhookOptions& operator=(const WebhookOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline WebhookOptions& operator=(WebhookOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const WebhookOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const WebhookOptions* internal_default_instance() {
+    return reinterpret_cast<const WebhookOptions*>(
+               &_WebhookOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    44;
+
+  friend void swap(WebhookOptions& a, WebhookOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(WebhookOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(WebhookOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  WebhookOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<WebhookOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const WebhookOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const WebhookOptions& from) {
+    WebhookOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(WebhookOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.WebhookOptions";
+  }
+  protected:
+  explicit WebhookOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOptsFieldNumber = 2,
+    kUrlFieldNumber = 1,
+  };
+  // map<string, string> opts = 2;
+  int opts_size() const;
+  private:
+  int _internal_opts_size() const;
+  public:
+  void clear_opts();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_opts() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_opts();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      opts() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_opts();
+
+  // string url = 1;
+  void clear_url();
+  const std::string& url() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_url(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_url();
+  PROTOBUF_NODISCARD std::string* release_url();
+  void set_allocated_url(std::string* url);
+  private:
+  const std::string& _internal_url() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_url(const std::string& value);
+  std::string* _internal_mutable_url();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.WebhookOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        WebhookOptions_OptsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> opts_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
 // ===================================================================
 
 
@@ -14646,9 +15399,539 @@ UnsetDatabaseOptions::mutable_keys() {
   return &_impl_.keys_;
 }
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// CreateTriggerExpr
+
+// string catalog_name = 1;
+inline void CreateTriggerExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.catalog_name)
+}
+inline std::string* CreateTriggerExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.catalog_name)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.catalog_name)
+}
+
+// string trigger_name = 2;
+inline void CreateTriggerExpr::clear_trigger_name() {
+  _impl_.trigger_name_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::trigger_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.trigger_name)
+  return _internal_trigger_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_trigger_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.trigger_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.trigger_name)
+}
+inline std::string* CreateTriggerExpr::mutable_trigger_name() {
+  std::string* _s = _internal_mutable_trigger_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.trigger_name)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_trigger_name() const {
+  return _impl_.trigger_name_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_trigger_name(const std::string& value) {
+  
+  _impl_.trigger_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_trigger_name() {
+  
+  return _impl_.trigger_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_trigger_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.trigger_name)
+  return _impl_.trigger_name_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_trigger_name(std::string* trigger_name) {
+  if (trigger_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.trigger_name_.SetAllocated(trigger_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.trigger_name_.IsDefault()) {
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.trigger_name)
+}
+
+// bool create_if_not_exists = 3;
+inline void CreateTriggerExpr::clear_create_if_not_exists() {
+  _impl_.create_if_not_exists_ = false;
+}
+inline bool CreateTriggerExpr::_internal_create_if_not_exists() const {
+  return _impl_.create_if_not_exists_;
+}
+inline bool CreateTriggerExpr::create_if_not_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.create_if_not_exists)
+  return _internal_create_if_not_exists();
+}
+inline void CreateTriggerExpr::_internal_set_create_if_not_exists(bool value) {
+  
+  _impl_.create_if_not_exists_ = value;
+}
+inline void CreateTriggerExpr::set_create_if_not_exists(bool value) {
+  _internal_set_create_if_not_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.create_if_not_exists)
+}
+
+// string sql = 4;
+inline void CreateTriggerExpr::clear_sql() {
+  _impl_.sql_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::sql() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.sql)
+  return _internal_sql();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_sql(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.sql_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.sql)
+}
+inline std::string* CreateTriggerExpr::mutable_sql() {
+  std::string* _s = _internal_mutable_sql();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.sql)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_sql() const {
+  return _impl_.sql_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_sql(const std::string& value) {
+  
+  _impl_.sql_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_sql() {
+  
+  return _impl_.sql_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_sql() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.sql)
+  return _impl_.sql_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_sql(std::string* sql) {
+  if (sql != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.sql_.SetAllocated(sql, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sql_.IsDefault()) {
+    _impl_.sql_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.sql)
+}
+
+// repeated .greptime.v1.NotifyChannel channels = 5;
+inline int CreateTriggerExpr::_internal_channels_size() const {
+  return _impl_.channels_.size();
+}
+inline int CreateTriggerExpr::channels_size() const {
+  return _internal_channels_size();
+}
+inline void CreateTriggerExpr::clear_channels() {
+  _impl_.channels_.Clear();
+}
+inline ::greptime::v1::NotifyChannel* CreateTriggerExpr::mutable_channels(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.channels)
+  return _impl_.channels_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::NotifyChannel >*
+CreateTriggerExpr::mutable_channels() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.CreateTriggerExpr.channels)
+  return &_impl_.channels_;
+}
+inline const ::greptime::v1::NotifyChannel& CreateTriggerExpr::_internal_channels(int index) const {
+  return _impl_.channels_.Get(index);
+}
+inline const ::greptime::v1::NotifyChannel& CreateTriggerExpr::channels(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.channels)
+  return _internal_channels(index);
+}
+inline ::greptime::v1::NotifyChannel* CreateTriggerExpr::_internal_add_channels() {
+  return _impl_.channels_.Add();
+}
+inline ::greptime::v1::NotifyChannel* CreateTriggerExpr::add_channels() {
+  ::greptime::v1::NotifyChannel* _add = _internal_add_channels();
+  // @@protoc_insertion_point(field_add:greptime.v1.CreateTriggerExpr.channels)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::NotifyChannel >&
+CreateTriggerExpr::channels() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.CreateTriggerExpr.channels)
+  return _impl_.channels_;
+}
+
+// map<string, string> labels = 6;
+inline int CreateTriggerExpr::_internal_labels_size() const {
+  return _impl_.labels_.size();
+}
+inline int CreateTriggerExpr::labels_size() const {
+  return _internal_labels_size();
+}
+inline void CreateTriggerExpr::clear_labels() {
+  _impl_.labels_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTriggerExpr::_internal_labels() const {
+  return _impl_.labels_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTriggerExpr::labels() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.CreateTriggerExpr.labels)
+  return _internal_labels();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTriggerExpr::_internal_mutable_labels() {
+  return _impl_.labels_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTriggerExpr::mutable_labels() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateTriggerExpr.labels)
+  return _internal_mutable_labels();
+}
+
+// map<string, string> annotations = 7;
+inline int CreateTriggerExpr::_internal_annotations_size() const {
+  return _impl_.annotations_.size();
+}
+inline int CreateTriggerExpr::annotations_size() const {
+  return _internal_annotations_size();
+}
+inline void CreateTriggerExpr::clear_annotations() {
+  _impl_.annotations_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTriggerExpr::_internal_annotations() const {
+  return _impl_.annotations_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CreateTriggerExpr::annotations() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.CreateTriggerExpr.annotations)
+  return _internal_annotations();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTriggerExpr::_internal_mutable_annotations() {
+  return _impl_.annotations_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CreateTriggerExpr::mutable_annotations() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.CreateTriggerExpr.annotations)
+  return _internal_mutable_annotations();
+}
+
+// uint64 interval = 8;
+inline void CreateTriggerExpr::clear_interval() {
+  _impl_.interval_ = uint64_t{0u};
+}
+inline uint64_t CreateTriggerExpr::_internal_interval() const {
+  return _impl_.interval_;
+}
+inline uint64_t CreateTriggerExpr::interval() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.interval)
+  return _internal_interval();
+}
+inline void CreateTriggerExpr::_internal_set_interval(uint64_t value) {
+  
+  _impl_.interval_ = value;
+}
+inline void CreateTriggerExpr::set_interval(uint64_t value) {
+  _internal_set_interval(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.interval)
+}
+
+// -------------------------------------------------------------------
+
+// NotifyChannel
+
+// string name = 1;
+inline void NotifyChannel::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& NotifyChannel::name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.NotifyChannel.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NotifyChannel::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.NotifyChannel.name)
+}
+inline std::string* NotifyChannel::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.NotifyChannel.name)
+  return _s;
+}
+inline const std::string& NotifyChannel::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void NotifyChannel::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NotifyChannel::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NotifyChannel::release_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.NotifyChannel.name)
+  return _impl_.name_.Release();
+}
+inline void NotifyChannel::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.NotifyChannel.name)
+}
+
+// .greptime.v1.WebhookOptions webhook = 2;
+inline bool NotifyChannel::_internal_has_webhook() const {
+  return channel_type_case() == kWebhook;
+}
+inline bool NotifyChannel::has_webhook() const {
+  return _internal_has_webhook();
+}
+inline void NotifyChannel::set_has_webhook() {
+  _impl_._oneof_case_[0] = kWebhook;
+}
+inline void NotifyChannel::clear_webhook() {
+  if (_internal_has_webhook()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.channel_type_.webhook_;
+    }
+    clear_has_channel_type();
+  }
+}
+inline ::greptime::v1::WebhookOptions* NotifyChannel::release_webhook() {
+  // @@protoc_insertion_point(field_release:greptime.v1.NotifyChannel.webhook)
+  if (_internal_has_webhook()) {
+    clear_has_channel_type();
+    ::greptime::v1::WebhookOptions* temp = _impl_.channel_type_.webhook_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.channel_type_.webhook_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::WebhookOptions& NotifyChannel::_internal_webhook() const {
+  return _internal_has_webhook()
+      ? *_impl_.channel_type_.webhook_
+      : reinterpret_cast< ::greptime::v1::WebhookOptions&>(::greptime::v1::_WebhookOptions_default_instance_);
+}
+inline const ::greptime::v1::WebhookOptions& NotifyChannel::webhook() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.NotifyChannel.webhook)
+  return _internal_webhook();
+}
+inline ::greptime::v1::WebhookOptions* NotifyChannel::unsafe_arena_release_webhook() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.NotifyChannel.webhook)
+  if (_internal_has_webhook()) {
+    clear_has_channel_type();
+    ::greptime::v1::WebhookOptions* temp = _impl_.channel_type_.webhook_;
+    _impl_.channel_type_.webhook_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void NotifyChannel::unsafe_arena_set_allocated_webhook(::greptime::v1::WebhookOptions* webhook) {
+  clear_channel_type();
+  if (webhook) {
+    set_has_webhook();
+    _impl_.channel_type_.webhook_ = webhook;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.NotifyChannel.webhook)
+}
+inline ::greptime::v1::WebhookOptions* NotifyChannel::_internal_mutable_webhook() {
+  if (!_internal_has_webhook()) {
+    clear_channel_type();
+    set_has_webhook();
+    _impl_.channel_type_.webhook_ = CreateMaybeMessage< ::greptime::v1::WebhookOptions >(GetArenaForAllocation());
+  }
+  return _impl_.channel_type_.webhook_;
+}
+inline ::greptime::v1::WebhookOptions* NotifyChannel::mutable_webhook() {
+  ::greptime::v1::WebhookOptions* _msg = _internal_mutable_webhook();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.NotifyChannel.webhook)
+  return _msg;
+}
+
+inline bool NotifyChannel::has_channel_type() const {
+  return channel_type_case() != CHANNEL_TYPE_NOT_SET;
+}
+inline void NotifyChannel::clear_has_channel_type() {
+  _impl_._oneof_case_[0] = CHANNEL_TYPE_NOT_SET;
+}
+inline NotifyChannel::ChannelTypeCase NotifyChannel::channel_type_case() const {
+  return NotifyChannel::ChannelTypeCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// WebhookOptions
+
+// string url = 1;
+inline void WebhookOptions::clear_url() {
+  _impl_.url_.ClearToEmpty();
+}
+inline const std::string& WebhookOptions::url() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.WebhookOptions.url)
+  return _internal_url();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void WebhookOptions::set_url(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.url_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.WebhookOptions.url)
+}
+inline std::string* WebhookOptions::mutable_url() {
+  std::string* _s = _internal_mutable_url();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.WebhookOptions.url)
+  return _s;
+}
+inline const std::string& WebhookOptions::_internal_url() const {
+  return _impl_.url_.Get();
+}
+inline void WebhookOptions::_internal_set_url(const std::string& value) {
+  
+  _impl_.url_.Set(value, GetArenaForAllocation());
+}
+inline std::string* WebhookOptions::_internal_mutable_url() {
+  
+  return _impl_.url_.Mutable(GetArenaForAllocation());
+}
+inline std::string* WebhookOptions::release_url() {
+  // @@protoc_insertion_point(field_release:greptime.v1.WebhookOptions.url)
+  return _impl_.url_.Release();
+}
+inline void WebhookOptions::set_allocated_url(std::string* url) {
+  if (url != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.url_.SetAllocated(url, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.url_.IsDefault()) {
+    _impl_.url_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.WebhookOptions.url)
+}
+
+// map<string, string> opts = 2;
+inline int WebhookOptions::_internal_opts_size() const {
+  return _impl_.opts_.size();
+}
+inline int WebhookOptions::opts_size() const {
+  return _internal_opts_size();
+}
+inline void WebhookOptions::clear_opts() {
+  _impl_.opts_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+WebhookOptions::_internal_opts() const {
+  return _impl_.opts_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+WebhookOptions::opts() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.WebhookOptions.opts)
+  return _internal_opts();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+WebhookOptions::_internal_mutable_opts() {
+  return _impl_.opts_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+WebhookOptions::mutable_opts() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.WebhookOptions.opts)
+  return _internal_mutable_opts();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
