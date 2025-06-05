@@ -54,6 +54,7 @@ message FlowRequest {
     CreateRequest create = 1;
     DropRequest drop = 2;
     FlushFlow flush = 3;
+    AdjustFlow adjust = 4;
   }
 }
 
@@ -87,4 +88,10 @@ message DropRequest { FlowId flow_id = 1; }
 
 message FlushFlow {
   FlowId flow_id = 1;
+}
+
+message AdjustFlow {
+  FlowId flow_id = 1;
+  // flow running options in json
+  string options = 2;
 }
