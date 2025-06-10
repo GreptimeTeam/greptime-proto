@@ -33,11 +33,11 @@ message ListProcessResponse {
 
 message ProcessInfo {
   // ID.
-  uint64 id = 1;
+  string id = 1;
   // Catalog of process.
   string catalog = 2;
   // Involved schemas.
-  repeated string schema = 3;
+  repeated string schemas = 3;
   // Query string.
   string query = 4;
   // Start time.

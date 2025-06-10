@@ -1238,10 +1238,20 @@ public final class Server {
      * ID.
      * </pre>
      *
-     * <code>uint64 id = 1;</code>
+     * <code>string id = 1;</code>
      * @return The id.
      */
-    long getId();
+    java.lang.String getId();
+    /**
+     * <pre>
+     * ID.
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
 
     /**
      * <pre>
@@ -1268,41 +1278,41 @@ public final class Server {
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
-     * @return A list containing the schema.
+     * <code>repeated string schemas = 3;</code>
+     * @return A list containing the schemas.
      */
     java.util.List<java.lang.String>
-        getSchemaList();
+        getSchemasList();
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
-     * @return The count of schema.
+     * <code>repeated string schemas = 3;</code>
+     * @return The count of schemas.
      */
-    int getSchemaCount();
+    int getSchemasCount();
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
+     * <code>repeated string schemas = 3;</code>
      * @param index The index of the element to return.
-     * @return The schema at the given index.
+     * @return The schemas at the given index.
      */
-    java.lang.String getSchema(int index);
+    java.lang.String getSchemas(int index);
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
+     * <code>repeated string schemas = 3;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the schema at the given index.
+     * @return The bytes of the schemas at the given index.
      */
     com.google.protobuf.ByteString
-        getSchemaBytes(int index);
+        getSchemasBytes(int index);
 
     /**
      * <pre>
@@ -1387,8 +1397,9 @@ public final class Server {
       super(builder);
     }
     private ProcessInfo() {
+      id_ = "";
       catalog_ = "";
-      schema_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      schemas_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       query_ = "";
       client_ = "";
       frontend_ = "";
@@ -1425,9 +1436,10 @@ public final class Server {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readUInt64();
+              id_ = s;
               break;
             }
             case 18: {
@@ -1439,10 +1451,10 @@ public final class Server {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                schema_ = new com.google.protobuf.LazyStringArrayList();
+                schemas_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              schema_.add(s);
+              schemas_.add(s);
               break;
             }
             case 34: {
@@ -1486,7 +1498,7 @@ public final class Server {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          schema_ = schema_.getUnmodifiableView();
+          schemas_ = schemas_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1506,18 +1518,49 @@ public final class Server {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private long id_;
+    private volatile java.lang.Object id_;
     /**
      * <pre>
      * ID.
      * </pre>
      *
-     * <code>uint64 id = 1;</code>
+     * <code>string id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public long getId() {
-      return id_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * ID.
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int CATALOG_FIELD_NUMBER = 2;
@@ -1566,55 +1609,55 @@ public final class Server {
       }
     }
 
-    public static final int SCHEMA_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList schema_;
+    public static final int SCHEMAS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList schemas_;
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
-     * @return A list containing the schema.
+     * <code>repeated string schemas = 3;</code>
+     * @return A list containing the schemas.
      */
     public com.google.protobuf.ProtocolStringList
-        getSchemaList() {
-      return schema_;
+        getSchemasList() {
+      return schemas_;
     }
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
-     * @return The count of schema.
+     * <code>repeated string schemas = 3;</code>
+     * @return The count of schemas.
      */
-    public int getSchemaCount() {
-      return schema_.size();
+    public int getSchemasCount() {
+      return schemas_.size();
     }
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
+     * <code>repeated string schemas = 3;</code>
      * @param index The index of the element to return.
-     * @return The schema at the given index.
+     * @return The schemas at the given index.
      */
-    public java.lang.String getSchema(int index) {
-      return schema_.get(index);
+    public java.lang.String getSchemas(int index) {
+      return schemas_.get(index);
     }
     /**
      * <pre>
      * Involved schemas.
      * </pre>
      *
-     * <code>repeated string schema = 3;</code>
+     * <code>repeated string schemas = 3;</code>
      * @param index The index of the value to return.
-     * @return The bytes of the schema at the given index.
+     * @return The bytes of the schemas at the given index.
      */
     public com.google.protobuf.ByteString
-        getSchemaBytes(int index) {
-      return schema_.getByteString(index);
+        getSchemasBytes(int index) {
+      return schemas_.getByteString(index);
     }
 
     public static final int QUERY_FIELD_NUMBER = 4;
@@ -1784,14 +1827,14 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0L) {
-        output.writeUInt64(1, id_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, catalog_);
       }
-      for (int i = 0; i < schema_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, schema_.getRaw(i));
+      for (int i = 0; i < schemas_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, schemas_.getRaw(i));
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, query_);
@@ -1814,20 +1857,19 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (id_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, id_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, catalog_);
       }
       {
         int dataSize = 0;
-        for (int i = 0; i < schema_.size(); i++) {
-          dataSize += computeStringSizeNoTag(schema_.getRaw(i));
+        for (int i = 0; i < schemas_.size(); i++) {
+          dataSize += computeStringSizeNoTag(schemas_.getRaw(i));
         }
         size += dataSize;
-        size += 1 * getSchemaList().size();
+        size += 1 * getSchemasList().size();
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(query_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, query_);
@@ -1857,12 +1899,12 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.ProcessInfo other = (io.greptime.v1.frontend.Server.ProcessInfo) obj;
 
-      if (getId()
-          != other.getId()) return false;
+      if (!getId()
+          .equals(other.getId())) return false;
       if (!getCatalog()
           .equals(other.getCatalog())) return false;
-      if (!getSchemaList()
-          .equals(other.getSchemaList())) return false;
+      if (!getSchemasList()
+          .equals(other.getSchemasList())) return false;
       if (!getQuery()
           .equals(other.getQuery())) return false;
       if (getStartTimestamp()
@@ -1883,13 +1925,12 @@ public final class Server {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getId());
+      hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + CATALOG_FIELD_NUMBER;
       hash = (53 * hash) + getCatalog().hashCode();
-      if (getSchemaCount() > 0) {
-        hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
-        hash = (53 * hash) + getSchemaList().hashCode();
+      if (getSchemasCount() > 0) {
+        hash = (37 * hash) + SCHEMAS_FIELD_NUMBER;
+        hash = (53 * hash) + getSchemasList().hashCode();
       }
       hash = (37 * hash) + QUERY_FIELD_NUMBER;
       hash = (53 * hash) + getQuery().hashCode();
@@ -2033,11 +2074,11 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = 0L;
+        id_ = "";
 
         catalog_ = "";
 
-        schema_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        schemas_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         query_ = "";
 
@@ -2077,10 +2118,10 @@ public final class Server {
         result.id_ = id_;
         result.catalog_ = catalog_;
         if (((bitField0_ & 0x00000001) != 0)) {
-          schema_ = schema_.getUnmodifiableView();
+          schemas_ = schemas_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.schema_ = schema_;
+        result.schemas_ = schemas_;
         result.query_ = query_;
         result.startTimestamp_ = startTimestamp_;
         result.client_ = client_;
@@ -2133,20 +2174,21 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.ProcessInfo other) {
         if (other == io.greptime.v1.frontend.Server.ProcessInfo.getDefaultInstance()) return this;
-        if (other.getId() != 0L) {
-          setId(other.getId());
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
         }
         if (!other.getCatalog().isEmpty()) {
           catalog_ = other.catalog_;
           onChanged();
         }
-        if (!other.schema_.isEmpty()) {
-          if (schema_.isEmpty()) {
-            schema_ = other.schema_;
+        if (!other.schemas_.isEmpty()) {
+          if (schemas_.isEmpty()) {
+            schemas_ = other.schemas_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureSchemaIsMutable();
-            schema_.addAll(other.schema_);
+            ensureSchemasIsMutable();
+            schemas_.addAll(other.schemas_);
           }
           onChanged();
         }
@@ -2195,30 +2237,63 @@ public final class Server {
       }
       private int bitField0_;
 
-      private long id_ ;
+      private java.lang.Object id_ = "";
       /**
        * <pre>
        * ID.
        * </pre>
        *
-       * <code>uint64 id = 1;</code>
+       * <code>string id = 1;</code>
        * @return The id.
        */
-      @java.lang.Override
-      public long getId() {
-        return id_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
        * ID.
        * </pre>
        *
-       * <code>uint64 id = 1;</code>
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * ID.
+       * </pre>
+       *
+       * <code>string id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(long value) {
-        
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         id_ = value;
         onChanged();
         return this;
@@ -2228,12 +2303,32 @@ public final class Server {
        * ID.
        * </pre>
        *
-       * <code>uint64 id = 1;</code>
+       * <code>string id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = 0L;
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * ID.
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
         onChanged();
         return this;
       }
@@ -2334,10 +2429,10 @@ public final class Server {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList schema_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureSchemaIsMutable() {
+      private com.google.protobuf.LazyStringList schemas_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureSchemasIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          schema_ = new com.google.protobuf.LazyStringArrayList(schema_);
+          schemas_ = new com.google.protobuf.LazyStringArrayList(schemas_);
           bitField0_ |= 0x00000001;
          }
       }
@@ -2346,66 +2441,66 @@ public final class Server {
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
-       * @return A list containing the schema.
+       * <code>repeated string schemas = 3;</code>
+       * @return A list containing the schemas.
        */
       public com.google.protobuf.ProtocolStringList
-          getSchemaList() {
-        return schema_.getUnmodifiableView();
+          getSchemasList() {
+        return schemas_.getUnmodifiableView();
       }
       /**
        * <pre>
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
-       * @return The count of schema.
+       * <code>repeated string schemas = 3;</code>
+       * @return The count of schemas.
        */
-      public int getSchemaCount() {
-        return schema_.size();
+      public int getSchemasCount() {
+        return schemas_.size();
       }
       /**
        * <pre>
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
+       * <code>repeated string schemas = 3;</code>
        * @param index The index of the element to return.
-       * @return The schema at the given index.
+       * @return The schemas at the given index.
        */
-      public java.lang.String getSchema(int index) {
-        return schema_.get(index);
+      public java.lang.String getSchemas(int index) {
+        return schemas_.get(index);
       }
       /**
        * <pre>
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
+       * <code>repeated string schemas = 3;</code>
        * @param index The index of the value to return.
-       * @return The bytes of the schema at the given index.
+       * @return The bytes of the schemas at the given index.
        */
       public com.google.protobuf.ByteString
-          getSchemaBytes(int index) {
-        return schema_.getByteString(index);
+          getSchemasBytes(int index) {
+        return schemas_.getByteString(index);
       }
       /**
        * <pre>
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
+       * <code>repeated string schemas = 3;</code>
        * @param index The index to set the value at.
-       * @param value The schema to set.
+       * @param value The schemas to set.
        * @return This builder for chaining.
        */
-      public Builder setSchema(
+      public Builder setSchemas(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureSchemaIsMutable();
-        schema_.set(index, value);
+  ensureSchemasIsMutable();
+        schemas_.set(index, value);
         onChanged();
         return this;
       }
@@ -2414,17 +2509,17 @@ public final class Server {
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
-       * @param value The schema to add.
+       * <code>repeated string schemas = 3;</code>
+       * @param value The schemas to add.
        * @return This builder for chaining.
        */
-      public Builder addSchema(
+      public Builder addSchemas(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureSchemaIsMutable();
-        schema_.add(value);
+  ensureSchemasIsMutable();
+        schemas_.add(value);
         onChanged();
         return this;
       }
@@ -2433,15 +2528,15 @@ public final class Server {
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
-       * @param values The schema to add.
+       * <code>repeated string schemas = 3;</code>
+       * @param values The schemas to add.
        * @return This builder for chaining.
        */
-      public Builder addAllSchema(
+      public Builder addAllSchemas(
           java.lang.Iterable<java.lang.String> values) {
-        ensureSchemaIsMutable();
+        ensureSchemasIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, schema_);
+            values, schemas_);
         onChanged();
         return this;
       }
@@ -2450,11 +2545,11 @@ public final class Server {
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
+       * <code>repeated string schemas = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSchema() {
-        schema_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      public Builder clearSchemas() {
+        schemas_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
@@ -2464,18 +2559,18 @@ public final class Server {
        * Involved schemas.
        * </pre>
        *
-       * <code>repeated string schema = 3;</code>
-       * @param value The bytes of the schema to add.
+       * <code>repeated string schemas = 3;</code>
+       * @param value The bytes of the schemas to add.
        * @return This builder for chaining.
        */
-      public Builder addSchemaBytes(
+      public Builder addSchemasBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensureSchemaIsMutable();
-        schema_.add(value);
+        ensureSchemasIsMutable();
+        schemas_.add(value);
         onChanged();
         return this;
       }
@@ -2890,16 +2985,16 @@ public final class Server {
       "\n!greptime/v1/frontend/server.proto\022\024gre" +
       "ptime.v1.frontend\"\024\n\022ListProcessRequest\"" +
       "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003(" +
-      "\0132!.greptime.v1.frontend.ProcessInfo\"\204\001\n" +
-      "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(" +
-      "\t\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017star" +
-      "t_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fro" +
-      "ntend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022(" +
-      ".greptime.v1.frontend.ListProcessRequest" +
-      "\032).greptime.v1.frontend.ListProcessRespo" +
-      "nseBa\n\027io.greptime.v1.frontendB\006ServerZ>" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1/frontendb\006proto3"
+      "\0132!.greptime.v1.frontend.ProcessInfo\"\205\001\n" +
+      "\013ProcessInfo\022\n\n\002id\030\001 \001(\t\022\017\n\007catalog\030\002 \001(" +
+      "\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017sta" +
+      "rt_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fr" +
+      "ontend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022" +
+      "(.greptime.v1.frontend.ListProcessReques" +
+      "t\032).greptime.v1.frontend.ListProcessResp" +
+      "onseBa\n\027io.greptime.v1.frontendB\006ServerZ" +
+      ">github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/frontendb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2922,7 +3017,7 @@ public final class Server {
     internal_static_greptime_v1_frontend_ProcessInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_ProcessInfo_descriptor,
-        new java.lang.String[] { "Id", "Catalog", "Schema", "Query", "StartTimestamp", "Client", "Frontend", });
+        new java.lang.String[] { "Id", "Catalog", "Schemas", "Query", "StartTimestamp", "Client", "Frontend", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

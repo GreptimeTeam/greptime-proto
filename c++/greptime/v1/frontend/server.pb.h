@@ -467,36 +467,50 @@ class ProcessInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSchemaFieldNumber = 3,
+    kSchemasFieldNumber = 3,
+    kIdFieldNumber = 1,
     kCatalogFieldNumber = 2,
     kQueryFieldNumber = 4,
     kClientFieldNumber = 6,
     kFrontendFieldNumber = 7,
-    kIdFieldNumber = 1,
     kStartTimestampFieldNumber = 5,
   };
-  // repeated string schema = 3;
-  int schema_size() const;
+  // repeated string schemas = 3;
+  int schemas_size() const;
   private:
-  int _internal_schema_size() const;
+  int _internal_schemas_size() const;
   public:
-  void clear_schema();
-  const std::string& schema(int index) const;
-  std::string* mutable_schema(int index);
-  void set_schema(int index, const std::string& value);
-  void set_schema(int index, std::string&& value);
-  void set_schema(int index, const char* value);
-  void set_schema(int index, const char* value, size_t size);
-  std::string* add_schema();
-  void add_schema(const std::string& value);
-  void add_schema(std::string&& value);
-  void add_schema(const char* value);
-  void add_schema(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& schema() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_schema();
+  void clear_schemas();
+  const std::string& schemas(int index) const;
+  std::string* mutable_schemas(int index);
+  void set_schemas(int index, const std::string& value);
+  void set_schemas(int index, std::string&& value);
+  void set_schemas(int index, const char* value);
+  void set_schemas(int index, const char* value, size_t size);
+  std::string* add_schemas();
+  void add_schemas(const std::string& value);
+  void add_schemas(std::string&& value);
+  void add_schemas(const char* value);
+  void add_schemas(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& schemas() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_schemas();
   private:
-  const std::string& _internal_schema(int index) const;
-  std::string* _internal_add_schema();
+  const std::string& _internal_schemas(int index) const;
+  std::string* _internal_add_schemas();
+  public:
+
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_id();
+  PROTOBUF_NODISCARD std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
   public:
 
   // string catalog = 2;
@@ -555,15 +569,6 @@ class ProcessInfo final :
   std::string* _internal_mutable_frontend();
   public:
 
-  // uint64 id = 1;
-  void clear_id();
-  uint64_t id() const;
-  void set_id(uint64_t value);
-  private:
-  uint64_t _internal_id() const;
-  void _internal_set_id(uint64_t value);
-  public:
-
   // int64 start_timestamp = 5;
   void clear_start_timestamp();
   int64_t start_timestamp() const;
@@ -581,12 +586,12 @@ class ProcessInfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> schema_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> schemas_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr frontend_;
-    uint64_t id_;
     int64_t start_timestamp_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -652,24 +657,54 @@ ListProcessResponse::processes() const {
 
 // ProcessInfo
 
-// uint64 id = 1;
+// string id = 1;
 inline void ProcessInfo::clear_id() {
-  _impl_.id_ = uint64_t{0u};
+  _impl_.id_.ClearToEmpty();
 }
-inline uint64_t ProcessInfo::_internal_id() const {
-  return _impl_.id_;
-}
-inline uint64_t ProcessInfo::id() const {
+inline const std::string& ProcessInfo::id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.id)
   return _internal_id();
 }
-inline void ProcessInfo::_internal_set_id(uint64_t value) {
-  
-  _impl_.id_ = value;
-}
-inline void ProcessInfo::set_id(uint64_t value) {
-  _internal_set_id(value);
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ProcessInfo::set_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.id)
+}
+inline std::string* ProcessInfo::mutable_id() {
+  std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ProcessInfo.id)
+  return _s;
+}
+inline const std::string& ProcessInfo::_internal_id() const {
+  return _impl_.id_.Get();
+}
+inline void ProcessInfo::_internal_set_id(const std::string& value) {
+  
+  _impl_.id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ProcessInfo::_internal_mutable_id() {
+  
+  return _impl_.id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ProcessInfo::release_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.frontend.ProcessInfo.id)
+  return _impl_.id_.Release();
+}
+inline void ProcessInfo::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.id_.SetAllocated(id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.id_.IsDefault()) {
+    _impl_.id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.id)
 }
 
 // string catalog = 2;
@@ -722,79 +757,79 @@ inline void ProcessInfo::set_allocated_catalog(std::string* catalog) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.catalog)
 }
 
-// repeated string schema = 3;
-inline int ProcessInfo::_internal_schema_size() const {
-  return _impl_.schema_.size();
+// repeated string schemas = 3;
+inline int ProcessInfo::_internal_schemas_size() const {
+  return _impl_.schemas_.size();
 }
-inline int ProcessInfo::schema_size() const {
-  return _internal_schema_size();
+inline int ProcessInfo::schemas_size() const {
+  return _internal_schemas_size();
 }
-inline void ProcessInfo::clear_schema() {
-  _impl_.schema_.Clear();
+inline void ProcessInfo::clear_schemas() {
+  _impl_.schemas_.Clear();
 }
-inline std::string* ProcessInfo::add_schema() {
-  std::string* _s = _internal_add_schema();
-  // @@protoc_insertion_point(field_add_mutable:greptime.v1.frontend.ProcessInfo.schema)
+inline std::string* ProcessInfo::add_schemas() {
+  std::string* _s = _internal_add_schemas();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.frontend.ProcessInfo.schemas)
   return _s;
 }
-inline const std::string& ProcessInfo::_internal_schema(int index) const {
-  return _impl_.schema_.Get(index);
+inline const std::string& ProcessInfo::_internal_schemas(int index) const {
+  return _impl_.schemas_.Get(index);
 }
-inline const std::string& ProcessInfo::schema(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.schema)
-  return _internal_schema(index);
+inline const std::string& ProcessInfo::schemas(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.schemas)
+  return _internal_schemas(index);
 }
-inline std::string* ProcessInfo::mutable_schema(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ProcessInfo.schema)
-  return _impl_.schema_.Mutable(index);
+inline std::string* ProcessInfo::mutable_schemas(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ProcessInfo.schemas)
+  return _impl_.schemas_.Mutable(index);
 }
-inline void ProcessInfo::set_schema(int index, const std::string& value) {
-  _impl_.schema_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.schema)
+inline void ProcessInfo::set_schemas(int index, const std::string& value) {
+  _impl_.schemas_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::set_schema(int index, std::string&& value) {
-  _impl_.schema_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.schema)
+inline void ProcessInfo::set_schemas(int index, std::string&& value) {
+  _impl_.schemas_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::set_schema(int index, const char* value) {
+inline void ProcessInfo::set_schemas(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  _impl_.schema_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:greptime.v1.frontend.ProcessInfo.schema)
+  _impl_.schemas_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::set_schema(int index, const char* value, size_t size) {
-  _impl_.schema_.Mutable(index)->assign(
+inline void ProcessInfo::set_schemas(int index, const char* value, size_t size) {
+  _impl_.schemas_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:greptime.v1.frontend.ProcessInfo.schema)
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline std::string* ProcessInfo::_internal_add_schema() {
-  return _impl_.schema_.Add();
+inline std::string* ProcessInfo::_internal_add_schemas() {
+  return _impl_.schemas_.Add();
 }
-inline void ProcessInfo::add_schema(const std::string& value) {
-  _impl_.schema_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.frontend.ProcessInfo.schema)
+inline void ProcessInfo::add_schemas(const std::string& value) {
+  _impl_.schemas_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::add_schema(std::string&& value) {
-  _impl_.schema_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:greptime.v1.frontend.ProcessInfo.schema)
+inline void ProcessInfo::add_schemas(std::string&& value) {
+  _impl_.schemas_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::add_schema(const char* value) {
+inline void ProcessInfo::add_schemas(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  _impl_.schema_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:greptime.v1.frontend.ProcessInfo.schema)
+  _impl_.schemas_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.frontend.ProcessInfo.schemas)
 }
-inline void ProcessInfo::add_schema(const char* value, size_t size) {
-  _impl_.schema_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:greptime.v1.frontend.ProcessInfo.schema)
+inline void ProcessInfo::add_schemas(const char* value, size_t size) {
+  _impl_.schemas_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.frontend.ProcessInfo.schemas)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-ProcessInfo::schema() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.frontend.ProcessInfo.schema)
-  return _impl_.schema_;
+ProcessInfo::schemas() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.frontend.ProcessInfo.schemas)
+  return _impl_.schemas_;
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-ProcessInfo::mutable_schema() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.frontend.ProcessInfo.schema)
-  return &_impl_.schema_;
+ProcessInfo::mutable_schemas() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.frontend.ProcessInfo.schemas)
+  return &_impl_.schemas_;
 }
 
 // string query = 4;
