@@ -50,11 +50,11 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ProcessInfo::ProcessInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.schemas_)*/{}
-  , /*decltype(_impl_.id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.query_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.client_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.frontend_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.id_)*/uint64_t{0u}
   , /*decltype(_impl_.start_timestamp_)*/int64_t{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ProcessInfoDefaultTypeInternal {
@@ -118,7 +118,7 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "ptime.v1.frontend\"\024\n\022ListProcessRequest\""
   "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003("
   "\0132!.greptime.v1.frontend.ProcessInfo\"\205\001\n"
-  "\013ProcessInfo\022\n\n\002id\030\001 \001(\t\022\017\n\007catalog\030\002 \001("
+  "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001("
   "\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017sta"
   "rt_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fr"
   "ontend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022"
@@ -389,23 +389,15 @@ ProcessInfo::ProcessInfo(const ProcessInfo& from)
   ProcessInfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.schemas_){from._impl_.schemas_}
-    , decltype(_impl_.id_){}
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.query_){}
     , decltype(_impl_.client_){}
     , decltype(_impl_.frontend_){}
+    , decltype(_impl_.id_){}
     , decltype(_impl_.start_timestamp_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.id_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.id_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_id().empty()) {
-    _this->_impl_.id_.Set(from._internal_id(), 
-      _this->GetArenaForAllocation());
-  }
   _impl_.catalog_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.catalog_.Set("", GetArenaForAllocation());
@@ -438,7 +430,9 @@ ProcessInfo::ProcessInfo(const ProcessInfo& from)
     _this->_impl_.frontend_.Set(from._internal_frontend(), 
       _this->GetArenaForAllocation());
   }
-  _this->_impl_.start_timestamp_ = from._impl_.start_timestamp_;
+  ::memcpy(&_impl_.id_, &from._impl_.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.start_timestamp_) -
+    reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.start_timestamp_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.frontend.ProcessInfo)
 }
 
@@ -448,18 +442,14 @@ inline void ProcessInfo::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.schemas_){arena}
-    , decltype(_impl_.id_){}
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.query_){}
     , decltype(_impl_.client_){}
     , decltype(_impl_.frontend_){}
+    , decltype(_impl_.id_){uint64_t{0u}}
     , decltype(_impl_.start_timestamp_){int64_t{0}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
-  _impl_.id_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.id_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.catalog_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.catalog_.Set("", GetArenaForAllocation());
@@ -490,7 +480,6 @@ ProcessInfo::~ProcessInfo() {
 inline void ProcessInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.schemas_.~RepeatedPtrField();
-  _impl_.id_.Destroy();
   _impl_.catalog_.Destroy();
   _impl_.query_.Destroy();
   _impl_.client_.Destroy();
@@ -508,12 +497,13 @@ void ProcessInfo::Clear() {
   (void) cached_has_bits;
 
   _impl_.schemas_.Clear();
-  _impl_.id_.ClearToEmpty();
   _impl_.catalog_.ClearToEmpty();
   _impl_.query_.ClearToEmpty();
   _impl_.client_.ClearToEmpty();
   _impl_.frontend_.ClearToEmpty();
-  _impl_.start_timestamp_ = int64_t{0};
+  ::memset(&_impl_.id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.start_timestamp_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.start_timestamp_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -523,13 +513,11 @@ const char* ProcessInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string id = 1;
+      // uint64 id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_id();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.ProcessInfo.id"));
         } else
           goto handle_unusual;
         continue;
@@ -625,14 +613,10 @@ uint8_t* ProcessInfo::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string id = 1;
-  if (!this->_internal_id().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.frontend.ProcessInfo.id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_id(), target);
+  // uint64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_id(), target);
   }
 
   // string catalog = 2;
@@ -715,13 +699,6 @@ size_t ProcessInfo::ByteSizeLong() const {
       _impl_.schemas_.Get(i));
   }
 
-  // string id = 1;
-  if (!this->_internal_id().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_id());
-  }
-
   // string catalog = 2;
   if (!this->_internal_catalog().empty()) {
     total_size += 1 +
@@ -750,6 +727,11 @@ size_t ProcessInfo::ByteSizeLong() const {
         this->_internal_frontend());
   }
 
+  // uint64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
+  }
+
   // int64 start_timestamp = 5;
   if (this->_internal_start_timestamp() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_start_timestamp());
@@ -774,9 +756,6 @@ void ProcessInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   (void) cached_has_bits;
 
   _this->_impl_.schemas_.MergeFrom(from._impl_.schemas_);
-  if (!from._internal_id().empty()) {
-    _this->_internal_set_id(from._internal_id());
-  }
   if (!from._internal_catalog().empty()) {
     _this->_internal_set_catalog(from._internal_catalog());
   }
@@ -788,6 +767,9 @@ void ProcessInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   }
   if (!from._internal_frontend().empty()) {
     _this->_internal_set_frontend(from._internal_frontend());
+  }
+  if (from._internal_id() != 0) {
+    _this->_internal_set_id(from._internal_id());
   }
   if (from._internal_start_timestamp() != 0) {
     _this->_internal_set_start_timestamp(from._internal_start_timestamp());
@@ -813,10 +795,6 @@ void ProcessInfo::InternalSwap(ProcessInfo* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.schemas_.InternalSwap(&other->_impl_.schemas_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.id_, lhs_arena,
-      &other->_impl_.id_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.catalog_, lhs_arena,
       &other->_impl_.catalog_, rhs_arena
   );
@@ -832,7 +810,12 @@ void ProcessInfo::InternalSwap(ProcessInfo* other) {
       &_impl_.frontend_, lhs_arena,
       &other->_impl_.frontend_, rhs_arena
   );
-  swap(_impl_.start_timestamp_, other->_impl_.start_timestamp_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ProcessInfo, _impl_.start_timestamp_)
+      + sizeof(ProcessInfo::_impl_.start_timestamp_)
+      - PROTOBUF_FIELD_OFFSET(ProcessInfo, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ProcessInfo::GetMetadata() const {

@@ -33,7 +33,7 @@ message ListProcessResponse {
 
 message ProcessInfo {
   // ID.
-  string id = 1;
+  uint64 id = 1;
   // Catalog of process.
   string catalog = 2;
   // Involved schemas.

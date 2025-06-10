@@ -468,11 +468,11 @@ class ProcessInfo final :
 
   enum : int {
     kSchemasFieldNumber = 3,
-    kIdFieldNumber = 1,
     kCatalogFieldNumber = 2,
     kQueryFieldNumber = 4,
     kClientFieldNumber = 6,
     kFrontendFieldNumber = 7,
+    kIdFieldNumber = 1,
     kStartTimestampFieldNumber = 5,
   };
   // repeated string schemas = 3;
@@ -497,20 +497,6 @@ class ProcessInfo final :
   private:
   const std::string& _internal_schemas(int index) const;
   std::string* _internal_add_schemas();
-  public:
-
-  // string id = 1;
-  void clear_id();
-  const std::string& id() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_id(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_id();
-  PROTOBUF_NODISCARD std::string* release_id();
-  void set_allocated_id(std::string* id);
-  private:
-  const std::string& _internal_id() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_id(const std::string& value);
-  std::string* _internal_mutable_id();
   public:
 
   // string catalog = 2;
@@ -569,6 +555,15 @@ class ProcessInfo final :
   std::string* _internal_mutable_frontend();
   public:
 
+  // uint64 id = 1;
+  void clear_id();
+  uint64_t id() const;
+  void set_id(uint64_t value);
+  private:
+  uint64_t _internal_id() const;
+  void _internal_set_id(uint64_t value);
+  public:
+
   // int64 start_timestamp = 5;
   void clear_start_timestamp();
   int64_t start_timestamp() const;
@@ -587,11 +582,11 @@ class ProcessInfo final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> schemas_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr frontend_;
+    uint64_t id_;
     int64_t start_timestamp_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -657,54 +652,24 @@ ListProcessResponse::processes() const {
 
 // ProcessInfo
 
-// string id = 1;
+// uint64 id = 1;
 inline void ProcessInfo::clear_id() {
-  _impl_.id_.ClearToEmpty();
+  _impl_.id_ = uint64_t{0u};
 }
-inline const std::string& ProcessInfo::id() const {
+inline uint64_t ProcessInfo::_internal_id() const {
+  return _impl_.id_;
+}
+inline uint64_t ProcessInfo::id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.id)
   return _internal_id();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ProcessInfo::set_id(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+inline void ProcessInfo::_internal_set_id(uint64_t value) {
+  
+  _impl_.id_ = value;
+}
+inline void ProcessInfo::set_id(uint64_t value) {
+  _internal_set_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.id)
-}
-inline std::string* ProcessInfo::mutable_id() {
-  std::string* _s = _internal_mutable_id();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ProcessInfo.id)
-  return _s;
-}
-inline const std::string& ProcessInfo::_internal_id() const {
-  return _impl_.id_.Get();
-}
-inline void ProcessInfo::_internal_set_id(const std::string& value) {
-  
-  _impl_.id_.Set(value, GetArenaForAllocation());
-}
-inline std::string* ProcessInfo::_internal_mutable_id() {
-  
-  return _impl_.id_.Mutable(GetArenaForAllocation());
-}
-inline std::string* ProcessInfo::release_id() {
-  // @@protoc_insertion_point(field_release:greptime.v1.frontend.ProcessInfo.id)
-  return _impl_.id_.Release();
-}
-inline void ProcessInfo::set_allocated_id(std::string* id) {
-  if (id != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.id_.SetAllocated(id, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.id_.IsDefault()) {
-    _impl_.id_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.id)
 }
 
 // string catalog = 2;

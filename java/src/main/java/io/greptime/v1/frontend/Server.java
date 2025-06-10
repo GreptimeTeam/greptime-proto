@@ -1238,20 +1238,10 @@ public final class Server {
      * ID.
      * </pre>
      *
-     * <code>string id = 1;</code>
+     * <code>uint64 id = 1;</code>
      * @return The id.
      */
-    java.lang.String getId();
-    /**
-     * <pre>
-     * ID.
-     * </pre>
-     *
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
+    long getId();
 
     /**
      * <pre>
@@ -1397,7 +1387,6 @@ public final class Server {
       super(builder);
     }
     private ProcessInfo() {
-      id_ = "";
       catalog_ = "";
       schemas_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       query_ = "";
@@ -1436,10 +1425,9 @@ public final class Server {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              id_ = s;
+              id_ = input.readUInt64();
               break;
             }
             case 18: {
@@ -1518,49 +1506,18 @@ public final class Server {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private long id_;
     /**
      * <pre>
      * ID.
      * </pre>
      *
-     * <code>string id = 1;</code>
+     * <code>uint64 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * ID.
-     * </pre>
-     *
-     * <code>string id = 1;</code>
-     * @return The bytes for id.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public long getId() {
+      return id_;
     }
 
     public static final int CATALOG_FIELD_NUMBER = 2;
@@ -1827,8 +1784,8 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      if (id_ != 0L) {
+        output.writeUInt64(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, catalog_);
@@ -1857,8 +1814,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, id_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, catalog_);
@@ -1899,8 +1857,8 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.ProcessInfo other = (io.greptime.v1.frontend.Server.ProcessInfo) obj;
 
-      if (!getId()
-          .equals(other.getId())) return false;
+      if (getId()
+          != other.getId()) return false;
       if (!getCatalog()
           .equals(other.getCatalog())) return false;
       if (!getSchemasList()
@@ -1925,7 +1883,8 @@ public final class Server {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       hash = (37 * hash) + CATALOG_FIELD_NUMBER;
       hash = (53 * hash) + getCatalog().hashCode();
       if (getSchemasCount() > 0) {
@@ -2074,7 +2033,7 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        id_ = "";
+        id_ = 0L;
 
         catalog_ = "";
 
@@ -2174,9 +2133,8 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.ProcessInfo other) {
         if (other == io.greptime.v1.frontend.Server.ProcessInfo.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
+        if (other.getId() != 0L) {
+          setId(other.getId());
         }
         if (!other.getCatalog().isEmpty()) {
           catalog_ = other.catalog_;
@@ -2237,63 +2195,30 @@ public final class Server {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private long id_ ;
       /**
        * <pre>
        * ID.
        * </pre>
        *
-       * <code>string id = 1;</code>
+       * <code>uint64 id = 1;</code>
        * @return The id.
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public long getId() {
+        return id_;
       }
       /**
        * <pre>
        * ID.
        * </pre>
        *
-       * <code>string id = 1;</code>
-       * @return The bytes for id.
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * ID.
-       * </pre>
-       *
-       * <code>string id = 1;</code>
+       * <code>uint64 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setId(long value) {
+        
         id_ = value;
         onChanged();
         return this;
@@ -2303,32 +2228,12 @@ public final class Server {
        * ID.
        * </pre>
        *
-       * <code>string id = 1;</code>
+       * <code>uint64 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
         
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * ID.
-       * </pre>
-       *
-       * <code>string id = 1;</code>
-       * @param value The bytes for id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
+        id_ = 0L;
         onChanged();
         return this;
       }
@@ -2986,7 +2891,7 @@ public final class Server {
       "ptime.v1.frontend\"\024\n\022ListProcessRequest\"" +
       "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003(" +
       "\0132!.greptime.v1.frontend.ProcessInfo\"\205\001\n" +
-      "\013ProcessInfo\022\n\n\002id\030\001 \001(\t\022\017\n\007catalog\030\002 \001(" +
+      "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(" +
       "\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017sta" +
       "rt_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fr" +
       "ontend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022" +
