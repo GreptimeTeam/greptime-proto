@@ -961,38 +961,57 @@ public final class Server {
 
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @return A list containing the dirtyTimestampSeconds.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
-    java.util.List<java.lang.Long> getDirtyTimestampSecondsList();
+    java.util.List<io.greptime.v1.flow.Server.WindowRange> 
+        getDirtyTimeRangesList();
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @return The count of dirtyTimestampSeconds.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
-    int getDirtyTimestampSecondsCount();
+    io.greptime.v1.flow.Server.WindowRange getDirtyTimeRanges(int index);
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @param index The index of the element to return.
-     * @return The dirtyTimestampSeconds at the given index.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
-    long getDirtyTimestampSeconds(int index);
+    int getDirtyTimeRangesCount();
+    /**
+     * <pre>
+     * The dirty time windows.
+     * Used to mark this point in time as dirty,
+     * so that the flow can be triggered to process the data.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+     */
+    java.util.List<? extends io.greptime.v1.flow.Server.WindowRangeOrBuilder> 
+        getDirtyTimeRangesOrBuilderList();
+    /**
+     * <pre>
+     * The dirty time windows.
+     * Used to mark this point in time as dirty,
+     * so that the flow can be triggered to process the data.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+     */
+    io.greptime.v1.flow.Server.WindowRangeOrBuilder getDirtyTimeRangesOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code greptime.v1.flow.DirtyWindowRequest}
@@ -1007,7 +1026,7 @@ public final class Server {
       super(builder);
     }
     private DirtyWindowRequest() {
-      dirtyTimestampSeconds_ = emptyLongList();
+      dirtyTimeRanges_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1046,25 +1065,13 @@ public final class Server {
               tableId_ = input.readUInt32();
               break;
             }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dirtyTimestampSeconds_ = newLongList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dirtyTimestampSeconds_.addLong(input.readInt64());
-              break;
-            }
             case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                dirtyTimestampSeconds_ = newLongList();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                dirtyTimeRanges_ = new java.util.ArrayList<io.greptime.v1.flow.Server.WindowRange>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                dirtyTimestampSeconds_.addLong(input.readInt64());
-              }
-              input.popLimit(limit);
+              dirtyTimeRanges_.add(
+                  input.readMessage(io.greptime.v1.flow.Server.WindowRange.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -1085,7 +1092,7 @@ public final class Server {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dirtyTimestampSeconds_.makeImmutable(); // C
+          dirtyTimeRanges_ = java.util.Collections.unmodifiableList(dirtyTimeRanges_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1115,51 +1122,75 @@ public final class Server {
       return tableId_;
     }
 
-    public static final int DIRTY_TIMESTAMP_SECONDS_FIELD_NUMBER = 2;
-    private com.google.protobuf.Internal.LongList dirtyTimestampSeconds_;
+    public static final int DIRTY_TIME_RANGES_FIELD_NUMBER = 2;
+    private java.util.List<io.greptime.v1.flow.Server.WindowRange> dirtyTimeRanges_;
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @return A list containing the dirtyTimestampSeconds.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
     @java.lang.Override
-    public java.util.List<java.lang.Long>
-        getDirtyTimestampSecondsList() {
-      return dirtyTimestampSeconds_;
+    public java.util.List<io.greptime.v1.flow.Server.WindowRange> getDirtyTimeRangesList() {
+      return dirtyTimeRanges_;
     }
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @return The count of dirtyTimestampSeconds.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
-    public int getDirtyTimestampSecondsCount() {
-      return dirtyTimestampSeconds_.size();
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.flow.Server.WindowRangeOrBuilder> 
+        getDirtyTimeRangesOrBuilderList() {
+      return dirtyTimeRanges_;
     }
     /**
      * <pre>
-     * The dirty time window in seconds.
+     * The dirty time windows.
      * Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
      * </pre>
      *
-     * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-     * @param index The index of the element to return.
-     * @return The dirtyTimestampSeconds at the given index.
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
      */
-    public long getDirtyTimestampSeconds(int index) {
-      return dirtyTimestampSeconds_.getLong(index);
+    @java.lang.Override
+    public int getDirtyTimeRangesCount() {
+      return dirtyTimeRanges_.size();
     }
-    private int dirtyTimestampSecondsMemoizedSerializedSize = -1;
+    /**
+     * <pre>
+     * The dirty time windows.
+     * Used to mark this point in time as dirty,
+     * so that the flow can be triggered to process the data.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.WindowRange getDirtyTimeRanges(int index) {
+      return dirtyTimeRanges_.get(index);
+    }
+    /**
+     * <pre>
+     * The dirty time windows.
+     * Used to mark this point in time as dirty,
+     * so that the flow can be triggered to process the data.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.WindowRangeOrBuilder getDirtyTimeRangesOrBuilder(
+        int index) {
+      return dirtyTimeRanges_.get(index);
+    }
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -1175,16 +1206,11 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (tableId_ != 0) {
         output.writeUInt32(1, tableId_);
       }
-      if (getDirtyTimestampSecondsList().size() > 0) {
-        output.writeUInt32NoTag(18);
-        output.writeUInt32NoTag(dirtyTimestampSecondsMemoizedSerializedSize);
-      }
-      for (int i = 0; i < dirtyTimestampSeconds_.size(); i++) {
-        output.writeInt64NoTag(dirtyTimestampSeconds_.getLong(i));
+      for (int i = 0; i < dirtyTimeRanges_.size(); i++) {
+        output.writeMessage(2, dirtyTimeRanges_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1199,19 +1225,9 @@ public final class Server {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, tableId_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < dirtyTimestampSeconds_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt64SizeNoTag(dirtyTimestampSeconds_.getLong(i));
-        }
-        size += dataSize;
-        if (!getDirtyTimestampSecondsList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        dirtyTimestampSecondsMemoizedSerializedSize = dataSize;
+      for (int i = 0; i < dirtyTimeRanges_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, dirtyTimeRanges_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1230,8 +1246,8 @@ public final class Server {
 
       if (getTableId()
           != other.getTableId()) return false;
-      if (!getDirtyTimestampSecondsList()
-          .equals(other.getDirtyTimestampSecondsList())) return false;
+      if (!getDirtyTimeRangesList()
+          .equals(other.getDirtyTimeRangesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1245,9 +1261,9 @@ public final class Server {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTableId();
-      if (getDirtyTimestampSecondsCount() > 0) {
-        hash = (37 * hash) + DIRTY_TIMESTAMP_SECONDS_FIELD_NUMBER;
-        hash = (53 * hash) + getDirtyTimestampSecondsList().hashCode();
+      if (getDirtyTimeRangesCount() > 0) {
+        hash = (37 * hash) + DIRTY_TIME_RANGES_FIELD_NUMBER;
+        hash = (53 * hash) + getDirtyTimeRangesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1377,6 +1393,7 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getDirtyTimeRangesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1384,8 +1401,12 @@ public final class Server {
         super.clear();
         tableId_ = 0;
 
-        dirtyTimestampSeconds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        if (dirtyTimeRangesBuilder_ == null) {
+          dirtyTimeRanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dirtyTimeRangesBuilder_.clear();
+        }
         return this;
       }
 
@@ -1414,11 +1435,15 @@ public final class Server {
         io.greptime.v1.flow.Server.DirtyWindowRequest result = new io.greptime.v1.flow.Server.DirtyWindowRequest(this);
         int from_bitField0_ = bitField0_;
         result.tableId_ = tableId_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          dirtyTimestampSeconds_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (dirtyTimeRangesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            dirtyTimeRanges_ = java.util.Collections.unmodifiableList(dirtyTimeRanges_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.dirtyTimeRanges_ = dirtyTimeRanges_;
+        } else {
+          result.dirtyTimeRanges_ = dirtyTimeRangesBuilder_.build();
         }
-        result.dirtyTimestampSeconds_ = dirtyTimestampSeconds_;
         onBuilt();
         return result;
       }
@@ -1470,15 +1495,31 @@ public final class Server {
         if (other.getTableId() != 0) {
           setTableId(other.getTableId());
         }
-        if (!other.dirtyTimestampSeconds_.isEmpty()) {
-          if (dirtyTimestampSeconds_.isEmpty()) {
-            dirtyTimestampSeconds_ = other.dirtyTimestampSeconds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDirtyTimestampSecondsIsMutable();
-            dirtyTimestampSeconds_.addAll(other.dirtyTimestampSeconds_);
+        if (dirtyTimeRangesBuilder_ == null) {
+          if (!other.dirtyTimeRanges_.isEmpty()) {
+            if (dirtyTimeRanges_.isEmpty()) {
+              dirtyTimeRanges_ = other.dirtyTimeRanges_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDirtyTimeRangesIsMutable();
+              dirtyTimeRanges_.addAll(other.dirtyTimeRanges_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.dirtyTimeRanges_.isEmpty()) {
+            if (dirtyTimeRangesBuilder_.isEmpty()) {
+              dirtyTimeRangesBuilder_.dispose();
+              dirtyTimeRangesBuilder_ = null;
+              dirtyTimeRanges_ = other.dirtyTimeRanges_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dirtyTimeRangesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDirtyTimeRangesFieldBuilder() : null;
+            } else {
+              dirtyTimeRangesBuilder_.addAllMessages(other.dirtyTimeRanges_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1541,125 +1582,352 @@ public final class Server {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList dirtyTimestampSeconds_ = emptyLongList();
-      private void ensureDirtyTimestampSecondsIsMutable() {
+      private java.util.List<io.greptime.v1.flow.Server.WindowRange> dirtyTimeRanges_ =
+        java.util.Collections.emptyList();
+      private void ensureDirtyTimeRangesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          dirtyTimestampSeconds_ = mutableCopy(dirtyTimestampSeconds_);
+          dirtyTimeRanges_ = new java.util.ArrayList<io.greptime.v1.flow.Server.WindowRange>(dirtyTimeRanges_);
           bitField0_ |= 0x00000001;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.flow.Server.WindowRange, io.greptime.v1.flow.Server.WindowRange.Builder, io.greptime.v1.flow.Server.WindowRangeOrBuilder> dirtyTimeRangesBuilder_;
+
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @return A list containing the dirtyTimestampSeconds.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public java.util.List<java.lang.Long>
-          getDirtyTimestampSecondsList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
-                 java.util.Collections.unmodifiableList(dirtyTimestampSeconds_) : dirtyTimestampSeconds_;
+      public java.util.List<io.greptime.v1.flow.Server.WindowRange> getDirtyTimeRangesList() {
+        if (dirtyTimeRangesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dirtyTimeRanges_);
+        } else {
+          return dirtyTimeRangesBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @return The count of dirtyTimestampSeconds.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public int getDirtyTimestampSecondsCount() {
-        return dirtyTimestampSeconds_.size();
+      public int getDirtyTimeRangesCount() {
+        if (dirtyTimeRangesBuilder_ == null) {
+          return dirtyTimeRanges_.size();
+        } else {
+          return dirtyTimeRangesBuilder_.getCount();
+        }
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @param index The index of the element to return.
-       * @return The dirtyTimestampSeconds at the given index.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public long getDirtyTimestampSeconds(int index) {
-        return dirtyTimestampSeconds_.getLong(index);
+      public io.greptime.v1.flow.Server.WindowRange getDirtyTimeRanges(int index) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          return dirtyTimeRanges_.get(index);
+        } else {
+          return dirtyTimeRangesBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @param index The index to set the value at.
-       * @param value The dirtyTimestampSeconds to set.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public Builder setDirtyTimestampSeconds(
-          int index, long value) {
-        ensureDirtyTimestampSecondsIsMutable();
-        dirtyTimestampSeconds_.setLong(index, value);
-        onChanged();
+      public Builder setDirtyTimeRanges(
+          int index, io.greptime.v1.flow.Server.WindowRange value) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.set(index, value);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @param value The dirtyTimestampSeconds to add.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public Builder addDirtyTimestampSeconds(long value) {
-        ensureDirtyTimestampSecondsIsMutable();
-        dirtyTimestampSeconds_.addLong(value);
-        onChanged();
+      public Builder setDirtyTimeRanges(
+          int index, io.greptime.v1.flow.Server.WindowRange.Builder builderForValue) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @param values The dirtyTimestampSeconds to add.
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public Builder addAllDirtyTimestampSeconds(
-          java.lang.Iterable<? extends java.lang.Long> values) {
-        ensureDirtyTimestampSecondsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, dirtyTimestampSeconds_);
-        onChanged();
+      public Builder addDirtyTimeRanges(io.greptime.v1.flow.Server.WindowRange value) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.add(value);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
        * <pre>
-       * The dirty time window in seconds.
+       * The dirty time windows.
        * Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
        * </pre>
        *
-       * <code>repeated int64 dirty_timestamp_seconds = 2;</code>
-       * @return This builder for chaining.
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
        */
-      public Builder clearDirtyTimestampSeconds() {
-        dirtyTimestampSeconds_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+      public Builder addDirtyTimeRanges(
+          int index, io.greptime.v1.flow.Server.WindowRange value) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.add(index, value);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public Builder addDirtyTimeRanges(
+          io.greptime.v1.flow.Server.WindowRange.Builder builderForValue) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public Builder addDirtyTimeRanges(
+          int index, io.greptime.v1.flow.Server.WindowRange.Builder builderForValue) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public Builder addAllDirtyTimeRanges(
+          java.lang.Iterable<? extends io.greptime.v1.flow.Server.WindowRange> values) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          ensureDirtyTimeRangesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dirtyTimeRanges_);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public Builder clearDirtyTimeRanges() {
+        if (dirtyTimeRangesBuilder_ == null) {
+          dirtyTimeRanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public Builder removeDirtyTimeRanges(int index) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          ensureDirtyTimeRangesIsMutable();
+          dirtyTimeRanges_.remove(index);
+          onChanged();
+        } else {
+          dirtyTimeRangesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public io.greptime.v1.flow.Server.WindowRange.Builder getDirtyTimeRangesBuilder(
+          int index) {
+        return getDirtyTimeRangesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public io.greptime.v1.flow.Server.WindowRangeOrBuilder getDirtyTimeRangesOrBuilder(
+          int index) {
+        if (dirtyTimeRangesBuilder_ == null) {
+          return dirtyTimeRanges_.get(index);  } else {
+          return dirtyTimeRangesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.flow.Server.WindowRangeOrBuilder> 
+           getDirtyTimeRangesOrBuilderList() {
+        if (dirtyTimeRangesBuilder_ != null) {
+          return dirtyTimeRangesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dirtyTimeRanges_);
+        }
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public io.greptime.v1.flow.Server.WindowRange.Builder addDirtyTimeRangesBuilder() {
+        return getDirtyTimeRangesFieldBuilder().addBuilder(
+            io.greptime.v1.flow.Server.WindowRange.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public io.greptime.v1.flow.Server.WindowRange.Builder addDirtyTimeRangesBuilder(
+          int index) {
+        return getDirtyTimeRangesFieldBuilder().addBuilder(
+            index, io.greptime.v1.flow.Server.WindowRange.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * The dirty time windows.
+       * Used to mark this point in time as dirty,
+       * so that the flow can be triggered to process the data.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.WindowRange dirty_time_ranges = 2;</code>
+       */
+      public java.util.List<io.greptime.v1.flow.Server.WindowRange.Builder> 
+           getDirtyTimeRangesBuilderList() {
+        return getDirtyTimeRangesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.flow.Server.WindowRange, io.greptime.v1.flow.Server.WindowRange.Builder, io.greptime.v1.flow.Server.WindowRangeOrBuilder> 
+          getDirtyTimeRangesFieldBuilder() {
+        if (dirtyTimeRangesBuilder_ == null) {
+          dirtyTimeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.flow.Server.WindowRange, io.greptime.v1.flow.Server.WindowRange.Builder, io.greptime.v1.flow.Server.WindowRangeOrBuilder>(
+                  dirtyTimeRanges_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          dirtyTimeRanges_ = null;
+        }
+        return dirtyTimeRangesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1709,6 +1977,608 @@ public final class Server {
 
     @java.lang.Override
     public io.greptime.v1.flow.Server.DirtyWindowRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface WindowRangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.WindowRange)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The start of the time window
+     * </pre>
+     *
+     * <code>int64 start_value = 1;</code>
+     * @return The startValue.
+     */
+    long getStartValue();
+
+    /**
+     * <pre>
+     * The end of the time window
+     * </pre>
+     *
+     * <code>int64 end_value = 2;</code>
+     * @return The endValue.
+     */
+    long getEndValue();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.flow.WindowRange}
+   */
+  public static final class WindowRange extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.WindowRange)
+      WindowRangeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use WindowRange.newBuilder() to construct.
+    private WindowRange(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private WindowRange() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new WindowRange();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private WindowRange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              startValue_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              endValue_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_WindowRange_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_WindowRange_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.flow.Server.WindowRange.class, io.greptime.v1.flow.Server.WindowRange.Builder.class);
+    }
+
+    public static final int START_VALUE_FIELD_NUMBER = 1;
+    private long startValue_;
+    /**
+     * <pre>
+     * The start of the time window
+     * </pre>
+     *
+     * <code>int64 start_value = 1;</code>
+     * @return The startValue.
+     */
+    @java.lang.Override
+    public long getStartValue() {
+      return startValue_;
+    }
+
+    public static final int END_VALUE_FIELD_NUMBER = 2;
+    private long endValue_;
+    /**
+     * <pre>
+     * The end of the time window
+     * </pre>
+     *
+     * <code>int64 end_value = 2;</code>
+     * @return The endValue.
+     */
+    @java.lang.Override
+    public long getEndValue() {
+      return endValue_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (startValue_ != 0L) {
+        output.writeInt64(1, startValue_);
+      }
+      if (endValue_ != 0L) {
+        output.writeInt64(2, endValue_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (startValue_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, startValue_);
+      }
+      if (endValue_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, endValue_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.flow.Server.WindowRange)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.flow.Server.WindowRange other = (io.greptime.v1.flow.Server.WindowRange) obj;
+
+      if (getStartValue()
+          != other.getStartValue()) return false;
+      if (getEndValue()
+          != other.getEndValue()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + START_VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartValue());
+      hash = (37 * hash) + END_VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEndValue());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.WindowRange parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.flow.Server.WindowRange prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.flow.WindowRange}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.WindowRange)
+        io.greptime.v1.flow.Server.WindowRangeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_WindowRange_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_WindowRange_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.flow.Server.WindowRange.class, io.greptime.v1.flow.Server.WindowRange.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.flow.Server.WindowRange.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        startValue_ = 0L;
+
+        endValue_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_WindowRange_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.WindowRange getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.WindowRange.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.WindowRange build() {
+        io.greptime.v1.flow.Server.WindowRange result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.WindowRange buildPartial() {
+        io.greptime.v1.flow.Server.WindowRange result = new io.greptime.v1.flow.Server.WindowRange(this);
+        result.startValue_ = startValue_;
+        result.endValue_ = endValue_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.flow.Server.WindowRange) {
+          return mergeFrom((io.greptime.v1.flow.Server.WindowRange)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.flow.Server.WindowRange other) {
+        if (other == io.greptime.v1.flow.Server.WindowRange.getDefaultInstance()) return this;
+        if (other.getStartValue() != 0L) {
+          setStartValue(other.getStartValue());
+        }
+        if (other.getEndValue() != 0L) {
+          setEndValue(other.getEndValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.flow.Server.WindowRange parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.flow.Server.WindowRange) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long startValue_ ;
+      /**
+       * <pre>
+       * The start of the time window
+       * </pre>
+       *
+       * <code>int64 start_value = 1;</code>
+       * @return The startValue.
+       */
+      @java.lang.Override
+      public long getStartValue() {
+        return startValue_;
+      }
+      /**
+       * <pre>
+       * The start of the time window
+       * </pre>
+       *
+       * <code>int64 start_value = 1;</code>
+       * @param value The startValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartValue(long value) {
+        
+        startValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The start of the time window
+       * </pre>
+       *
+       * <code>int64 start_value = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartValue() {
+        
+        startValue_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long endValue_ ;
+      /**
+       * <pre>
+       * The end of the time window
+       * </pre>
+       *
+       * <code>int64 end_value = 2;</code>
+       * @return The endValue.
+       */
+      @java.lang.Override
+      public long getEndValue() {
+        return endValue_;
+      }
+      /**
+       * <pre>
+       * The end of the time window
+       * </pre>
+       *
+       * <code>int64 end_value = 2;</code>
+       * @param value The endValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEndValue(long value) {
+        
+        endValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The end of the time window
+       * </pre>
+       *
+       * <code>int64 end_value = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEndValue() {
+        
+        endValue_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.WindowRange)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.WindowRange)
+    private static final io.greptime.v1.flow.Server.WindowRange DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.WindowRange();
+    }
+
+    public static io.greptime.v1.flow.Server.WindowRange getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<WindowRange>
+        PARSER = new com.google.protobuf.AbstractParser<WindowRange>() {
+      @java.lang.Override
+      public WindowRange parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new WindowRange(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<WindowRange> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<WindowRange> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.WindowRange getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10695,6 +11565,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_DirtyWindowRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_flow_WindowRange_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_flow_WindowRange_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10763,8 +11638,10 @@ java.lang.String defaultValue);
       "ptime/v1/ddl.proto\032\025greptime/v1/row.prot" +
       "o\"M\n\023DirtyWindowRequests\0226\n\010requests\030\001 \003" +
       "(\0132$.greptime.v1.flow.DirtyWindowRequest" +
-      "\"G\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r" +
-      "\022\037\n\027dirty_timestamp_seconds\030\002 \003(\003\"\316\001\n\021Fl" +
+      "\"`\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r" +
+      "\0228\n\021dirty_time_ranges\030\002 \003(\0132\035.greptime.v" +
+      "1.flow.WindowRange\"5\n\013WindowRange\022\023\n\013sta" +
+      "rt_value\030\001 \001(\003\022\021\n\tend_value\030\002 \001(\003\"\316\001\n\021Fl" +
       "owRequestHeader\022P\n\017tracing_context\030\001 \003(\013" +
       "27.greptime.v1.flow.FlowRequestHeader.Tr" +
       "acingContextEntry\0220\n\rquery_context\030\002 \001(\013" +
@@ -10827,9 +11704,15 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_DirtyWindowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DirtyWindowRequest_descriptor,
-        new java.lang.String[] { "TableId", "DirtyTimestampSeconds", });
-    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor =
+        new java.lang.String[] { "TableId", "DirtyTimeRanges", });
+    internal_static_greptime_v1_flow_WindowRange_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_greptime_v1_flow_WindowRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_flow_WindowRange_descriptor,
+        new java.lang.String[] { "StartValue", "EndValue", });
+    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequestHeader_descriptor,
@@ -10841,25 +11724,25 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_InsertRequests_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_flow_InsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequests_descriptor,
         new java.lang.String[] { "Requests", });
     internal_static_greptime_v1_flow_InsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_flow_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "Rows", });
     internal_static_greptime_v1_flow_FlowRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_flow_FlowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequest_descriptor,
         new java.lang.String[] { "Header", "Create", "Drop", "Flush", "Body", });
     internal_static_greptime_v1_flow_FlowResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_descriptor,
@@ -10871,7 +11754,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_CreateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
@@ -10883,13 +11766,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_DropRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_flow_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DropRequest_descriptor,
         new java.lang.String[] { "FlowId", });
     internal_static_greptime_v1_flow_FlushFlow_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_flow_FlushFlow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlushFlow_descriptor,

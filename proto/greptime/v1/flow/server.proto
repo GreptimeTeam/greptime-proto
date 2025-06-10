@@ -43,10 +43,17 @@ message DirtyWindowRequests {
 
 message DirtyWindowRequest {
   uint32 table_id = 1;
-  // The dirty time window in seconds.
+  // The dirty time windows.
   // Used to mark this point in time as dirty,
   // so that the flow can be triggered to process the data.
-  repeated int64 dirty_timestamp_seconds = 2;
+  repeated WindowRange dirty_time_ranges = 2;
+}
+
+message WindowRange {
+  // The start of the time window
+  int64 start_value = 1;
+  // The end of the time window
+  int64 end_value = 2;
 }
 
 message FlowRequestHeader {
