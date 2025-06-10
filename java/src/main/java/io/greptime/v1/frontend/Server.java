@@ -1353,6 +1353,26 @@ public final class Server {
      */
     com.google.protobuf.ByteString
         getClientBytes();
+
+    /**
+     * <pre>
+     * Frontend info of process.
+     * </pre>
+     *
+     * <code>string frontend = 7;</code>
+     * @return The frontend.
+     */
+    java.lang.String getFrontend();
+    /**
+     * <pre>
+     * Frontend info of process.
+     * </pre>
+     *
+     * <code>string frontend = 7;</code>
+     * @return The bytes for frontend.
+     */
+    com.google.protobuf.ByteString
+        getFrontendBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.ProcessInfo}
@@ -1371,6 +1391,7 @@ public final class Server {
       schema_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       query_ = "";
       client_ = "";
+      frontend_ = "";
     }
 
     @java.lang.Override
@@ -1439,6 +1460,12 @@ public final class Server {
               java.lang.String s = input.readStringRequireUtf8();
 
               client_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              frontend_ = s;
               break;
             }
             default: {
@@ -1697,6 +1724,52 @@ public final class Server {
       }
     }
 
+    public static final int FRONTEND_FIELD_NUMBER = 7;
+    private volatile java.lang.Object frontend_;
+    /**
+     * <pre>
+     * Frontend info of process.
+     * </pre>
+     *
+     * <code>string frontend = 7;</code>
+     * @return The frontend.
+     */
+    @java.lang.Override
+    public java.lang.String getFrontend() {
+      java.lang.Object ref = frontend_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        frontend_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Frontend info of process.
+     * </pre>
+     *
+     * <code>string frontend = 7;</code>
+     * @return The bytes for frontend.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFrontendBytes() {
+      java.lang.Object ref = frontend_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        frontend_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1728,6 +1801,9 @@ public final class Server {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(client_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, client_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontend_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, frontend_);
       }
       unknownFields.writeTo(output);
     }
@@ -1763,6 +1839,9 @@ public final class Server {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(client_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, client_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontend_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, frontend_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1790,6 +1869,8 @@ public final class Server {
           != other.getStartTimestamp()) return false;
       if (!getClient()
           .equals(other.getClient())) return false;
+      if (!getFrontend()
+          .equals(other.getFrontend())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1817,6 +1898,8 @@ public final class Server {
           getStartTimestamp());
       hash = (37 * hash) + CLIENT_FIELD_NUMBER;
       hash = (53 * hash) + getClient().hashCode();
+      hash = (37 * hash) + FRONTEND_FIELD_NUMBER;
+      hash = (53 * hash) + getFrontend().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1962,6 +2045,8 @@ public final class Server {
 
         client_ = "";
 
+        frontend_ = "";
+
         return this;
       }
 
@@ -1999,6 +2084,7 @@ public final class Server {
         result.query_ = query_;
         result.startTimestamp_ = startTimestamp_;
         result.client_ = client_;
+        result.frontend_ = frontend_;
         onBuilt();
         return result;
       }
@@ -2073,6 +2159,10 @@ public final class Server {
         }
         if (!other.getClient().isEmpty()) {
           client_ = other.client_;
+          onChanged();
+        }
+        if (!other.getFrontend().isEmpty()) {
+          frontend_ = other.frontend_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2624,6 +2714,102 @@ public final class Server {
         onChanged();
         return this;
       }
+
+      private java.lang.Object frontend_ = "";
+      /**
+       * <pre>
+       * Frontend info of process.
+       * </pre>
+       *
+       * <code>string frontend = 7;</code>
+       * @return The frontend.
+       */
+      public java.lang.String getFrontend() {
+        java.lang.Object ref = frontend_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          frontend_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Frontend info of process.
+       * </pre>
+       *
+       * <code>string frontend = 7;</code>
+       * @return The bytes for frontend.
+       */
+      public com.google.protobuf.ByteString
+          getFrontendBytes() {
+        java.lang.Object ref = frontend_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          frontend_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Frontend info of process.
+       * </pre>
+       *
+       * <code>string frontend = 7;</code>
+       * @param value The frontend to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrontend(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        frontend_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Frontend info of process.
+       * </pre>
+       *
+       * <code>string frontend = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrontend() {
+        
+        frontend_ = getDefaultInstance().getFrontend();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Frontend info of process.
+       * </pre>
+       *
+       * <code>string frontend = 7;</code>
+       * @param value The bytes for frontend to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrontendBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        frontend_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2704,16 +2890,16 @@ public final class Server {
       "\n!greptime/v1/frontend/server.proto\022\024gre" +
       "ptime.v1.frontend\"\024\n\022ListProcessRequest\"" +
       "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003(" +
-      "\0132!.greptime.v1.frontend.ProcessInfo\"r\n\013" +
-      "ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(\t" +
-      "\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017start" +
-      "_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t2n\n\010Fron" +
-      "tend\022b\n\013ListProcess\022(.greptime.v1.fronte" +
-      "nd.ListProcessRequest\032).greptime.v1.fron" +
-      "tend.ListProcessResponseBa\n\027io.greptime." +
-      "v1.frontendB\006ServerZ>github.com/Greptime" +
-      "Team/greptime-proto/go/greptime/v1/front" +
-      "endb\006proto3"
+      "\0132!.greptime.v1.frontend.ProcessInfo\"\204\001\n" +
+      "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(" +
+      "\t\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017star" +
+      "t_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fro" +
+      "ntend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022(" +
+      ".greptime.v1.frontend.ListProcessRequest" +
+      "\032).greptime.v1.frontend.ListProcessRespo" +
+      "nseBa\n\027io.greptime.v1.frontendB\006ServerZ>" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/frontendb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2736,7 +2922,7 @@ public final class Server {
     internal_static_greptime_v1_frontend_ProcessInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_ProcessInfo_descriptor,
-        new java.lang.String[] { "Id", "Catalog", "Schema", "Query", "StartTimestamp", "Client", });
+        new java.lang.String[] { "Id", "Catalog", "Schema", "Query", "StartTimestamp", "Client", "Frontend", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

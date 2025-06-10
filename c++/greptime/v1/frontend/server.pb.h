@@ -471,6 +471,7 @@ class ProcessInfo final :
     kCatalogFieldNumber = 2,
     kQueryFieldNumber = 4,
     kClientFieldNumber = 6,
+    kFrontendFieldNumber = 7,
     kIdFieldNumber = 1,
     kStartTimestampFieldNumber = 5,
   };
@@ -540,6 +541,20 @@ class ProcessInfo final :
   std::string* _internal_mutable_client();
   public:
 
+  // string frontend = 7;
+  void clear_frontend();
+  const std::string& frontend() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_frontend(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_frontend();
+  PROTOBUF_NODISCARD std::string* release_frontend();
+  void set_allocated_frontend(std::string* frontend);
+  private:
+  const std::string& _internal_frontend() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_frontend(const std::string& value);
+  std::string* _internal_mutable_frontend();
+  public:
+
   // uint64 id = 1;
   void clear_id();
   uint64_t id() const;
@@ -570,6 +585,7 @@ class ProcessInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr frontend_;
     uint64_t id_;
     int64_t start_timestamp_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -899,6 +915,56 @@ inline void ProcessInfo::set_allocated_client(std::string* client) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.client)
+}
+
+// string frontend = 7;
+inline void ProcessInfo::clear_frontend() {
+  _impl_.frontend_.ClearToEmpty();
+}
+inline const std::string& ProcessInfo::frontend() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.frontend)
+  return _internal_frontend();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ProcessInfo::set_frontend(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.frontend_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.frontend)
+}
+inline std::string* ProcessInfo::mutable_frontend() {
+  std::string* _s = _internal_mutable_frontend();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ProcessInfo.frontend)
+  return _s;
+}
+inline const std::string& ProcessInfo::_internal_frontend() const {
+  return _impl_.frontend_.Get();
+}
+inline void ProcessInfo::_internal_set_frontend(const std::string& value) {
+  
+  _impl_.frontend_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ProcessInfo::_internal_mutable_frontend() {
+  
+  return _impl_.frontend_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ProcessInfo::release_frontend() {
+  // @@protoc_insertion_point(field_release:greptime.v1.frontend.ProcessInfo.frontend)
+  return _impl_.frontend_.Release();
+}
+inline void ProcessInfo::set_allocated_frontend(std::string* frontend) {
+  if (frontend != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.frontend_.SetAllocated(frontend, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.frontend_.IsDefault()) {
+    _impl_.frontend_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.frontend)
 }
 
 #ifdef __GNUC__

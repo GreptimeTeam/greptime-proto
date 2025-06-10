@@ -44,4 +44,6 @@ message ProcessInfo {
   int64 start_timestamp = 5;
   // Client info.
   string client = 6;
+  // Frontend info of process.
+  string frontend = 7;
 }

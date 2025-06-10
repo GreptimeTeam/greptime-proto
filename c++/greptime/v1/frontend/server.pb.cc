@@ -53,6 +53,7 @@ PROTOBUF_CONSTEXPR ProcessInfo::ProcessInfo(
   , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.query_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.client_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.frontend_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.id_)*/uint64_t{0u}
   , /*decltype(_impl_.start_timestamp_)*/int64_t{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -98,6 +99,7 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _impl_.query_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _impl_.start_timestamp_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _impl_.client_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _impl_.frontend_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::frontend::ListProcessRequest)},
@@ -115,20 +117,20 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "\n!greptime/v1/frontend/server.proto\022\024gre"
   "ptime.v1.frontend\"\024\n\022ListProcessRequest\""
   "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003("
-  "\0132!.greptime.v1.frontend.ProcessInfo\"r\n\013"
-  "ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(\t"
-  "\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017start"
-  "_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t2n\n\010Fron"
-  "tend\022b\n\013ListProcess\022(.greptime.v1.fronte"
-  "nd.ListProcessRequest\032).greptime.v1.fron"
-  "tend.ListProcessResponseBa\n\027io.greptime."
-  "v1.frontendB\006ServerZ>github.com/Greptime"
-  "Team/greptime-proto/go/greptime/v1/front"
-  "endb\006proto3"
+  "\0132!.greptime.v1.frontend.ProcessInfo\"\204\001\n"
+  "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001("
+  "\t\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017star"
+  "t_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fro"
+  "ntend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022("
+  ".greptime.v1.frontend.ListProcessRequest"
+  "\032).greptime.v1.frontend.ListProcessRespo"
+  "nseBa\n\027io.greptime.v1.frontendB\006ServerZ>"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1/frontendb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto = {
-    false, false, 491, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
+    false, false, 510, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
     "greptime/v1/frontend/server.proto",
     &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets,
@@ -390,6 +392,7 @@ ProcessInfo::ProcessInfo(const ProcessInfo& from)
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.query_){}
     , decltype(_impl_.client_){}
+    , decltype(_impl_.frontend_){}
     , decltype(_impl_.id_){}
     , decltype(_impl_.start_timestamp_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -419,6 +422,14 @@ ProcessInfo::ProcessInfo(const ProcessInfo& from)
     _this->_impl_.client_.Set(from._internal_client(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.frontend_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.frontend_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_frontend().empty()) {
+    _this->_impl_.frontend_.Set(from._internal_frontend(), 
+      _this->GetArenaForAllocation());
+  }
   ::memcpy(&_impl_.id_, &from._impl_.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.start_timestamp_) -
     reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.start_timestamp_));
@@ -434,6 +445,7 @@ inline void ProcessInfo::SharedCtor(
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.query_){}
     , decltype(_impl_.client_){}
+    , decltype(_impl_.frontend_){}
     , decltype(_impl_.id_){uint64_t{0u}}
     , decltype(_impl_.start_timestamp_){int64_t{0}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -449,6 +461,10 @@ inline void ProcessInfo::SharedCtor(
   _impl_.client_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.client_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.frontend_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.frontend_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -467,6 +483,7 @@ inline void ProcessInfo::SharedDtor() {
   _impl_.catalog_.Destroy();
   _impl_.query_.Destroy();
   _impl_.client_.Destroy();
+  _impl_.frontend_.Destroy();
 }
 
 void ProcessInfo::SetCachedSize(int size) const {
@@ -483,6 +500,7 @@ void ProcessInfo::Clear() {
   _impl_.catalog_.ClearToEmpty();
   _impl_.query_.ClearToEmpty();
   _impl_.client_.ClearToEmpty();
+  _impl_.frontend_.ClearToEmpty();
   ::memset(&_impl_.id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.start_timestamp_) -
       reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.start_timestamp_));
@@ -553,6 +571,16 @@ const char* ProcessInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.ProcessInfo.client"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string frontend = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          auto str = _internal_mutable_frontend();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.ProcessInfo.frontend"));
         } else
           goto handle_unusual;
         continue;
@@ -637,6 +665,16 @@ uint8_t* ProcessInfo::_InternalSerialize(
         6, this->_internal_client(), target);
   }
 
+  // string frontend = 7;
+  if (!this->_internal_frontend().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_frontend().data(), static_cast<int>(this->_internal_frontend().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.frontend.ProcessInfo.frontend");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_frontend(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -682,6 +720,13 @@ size_t ProcessInfo::ByteSizeLong() const {
         this->_internal_client());
   }
 
+  // string frontend = 7;
+  if (!this->_internal_frontend().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_frontend());
+  }
+
   // uint64 id = 1;
   if (this->_internal_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
@@ -720,6 +765,9 @@ void ProcessInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   if (!from._internal_client().empty()) {
     _this->_internal_set_client(from._internal_client());
   }
+  if (!from._internal_frontend().empty()) {
+    _this->_internal_set_frontend(from._internal_frontend());
+  }
   if (from._internal_id() != 0) {
     _this->_internal_set_id(from._internal_id());
   }
@@ -757,6 +805,10 @@ void ProcessInfo::InternalSwap(ProcessInfo* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.client_, lhs_arena,
       &other->_impl_.client_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.frontend_, lhs_arena,
+      &other->_impl_.frontend_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ProcessInfo, _impl_.start_timestamp_)
