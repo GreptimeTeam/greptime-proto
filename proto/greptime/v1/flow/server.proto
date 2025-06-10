@@ -31,6 +31,22 @@ service Flow {
   // only expect `RegionRequest` to be one of `InsertRequests` or
   // `DeleteRequests` other types of `RegionRequest` will be ignored
   rpc HandleMirrorRequest(InsertRequests) returns (FlowResponse);
+
+  rpc HandleMarkDirtyTimeWindow(DirtyWindowRequests) returns (FlowResponse);
+}
+
+message DirtyWindowRequests {
+  // The dirty time window requests.
+  // Each request contains a table_id and a list of dirty timestamps.
+  repeated DirtyWindowRequest requests = 1;
+}
+
+message DirtyWindowRequest {
+  uint32 table_id = 1;
+  // The dirty time window in seconds.
+  // Used to mark this point in time as dirty,
+  // so that the flow can be triggered to process the data.
+  repeated int64 dirty_timestamp_seconds = 2;
 }
 
 message FlowRequestHeader {
