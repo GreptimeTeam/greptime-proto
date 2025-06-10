@@ -549,13 +549,13 @@ class ProcessInfo final :
   void _internal_set_id(uint64_t value);
   public:
 
-  // uint64 start_timestamp = 5;
+  // int64 start_timestamp = 5;
   void clear_start_timestamp();
-  uint64_t start_timestamp() const;
-  void set_start_timestamp(uint64_t value);
+  int64_t start_timestamp() const;
+  void set_start_timestamp(int64_t value);
   private:
-  uint64_t _internal_start_timestamp() const;
-  void _internal_set_start_timestamp(uint64_t value);
+  int64_t _internal_start_timestamp() const;
+  void _internal_set_start_timestamp(int64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.frontend.ProcessInfo)
@@ -571,7 +571,7 @@ class ProcessInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_;
     uint64_t id_;
-    uint64_t start_timestamp_;
+    int64_t start_timestamp_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -831,22 +831,22 @@ inline void ProcessInfo::set_allocated_query(std::string* query) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.query)
 }
 
-// uint64 start_timestamp = 5;
+// int64 start_timestamp = 5;
 inline void ProcessInfo::clear_start_timestamp() {
-  _impl_.start_timestamp_ = uint64_t{0u};
+  _impl_.start_timestamp_ = int64_t{0};
 }
-inline uint64_t ProcessInfo::_internal_start_timestamp() const {
+inline int64_t ProcessInfo::_internal_start_timestamp() const {
   return _impl_.start_timestamp_;
 }
-inline uint64_t ProcessInfo::start_timestamp() const {
+inline int64_t ProcessInfo::start_timestamp() const {
   // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.start_timestamp)
   return _internal_start_timestamp();
 }
-inline void ProcessInfo::_internal_set_start_timestamp(uint64_t value) {
+inline void ProcessInfo::_internal_set_start_timestamp(int64_t value) {
   
   _impl_.start_timestamp_ = value;
 }
-inline void ProcessInfo::set_start_timestamp(uint64_t value) {
+inline void ProcessInfo::set_start_timestamp(int64_t value) {
   _internal_set_start_timestamp(value);
   // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.start_timestamp)
 }

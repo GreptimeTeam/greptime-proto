@@ -41,7 +41,7 @@ message ProcessInfo {
   // Query string.
   string query = 4;
   // Start time.
-  uint64 start_timestamp = 5;
+  int64 start_timestamp = 5;
   // Client info.
   string client = 6;
 }

@@ -1329,7 +1329,7 @@ public final class Server {
      * Start time.
      * </pre>
      *
-     * <code>uint64 start_timestamp = 5;</code>
+     * <code>int64 start_timestamp = 5;</code>
      * @return The startTimestamp.
      */
     long getStartTimestamp();
@@ -1432,7 +1432,7 @@ public final class Server {
             }
             case 40: {
 
-              startTimestamp_ = input.readUInt64();
+              startTimestamp_ = input.readInt64();
               break;
             }
             case 50: {
@@ -1643,7 +1643,7 @@ public final class Server {
      * Start time.
      * </pre>
      *
-     * <code>uint64 start_timestamp = 5;</code>
+     * <code>int64 start_timestamp = 5;</code>
      * @return The startTimestamp.
      */
     @java.lang.Override
@@ -1724,7 +1724,7 @@ public final class Server {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, query_);
       }
       if (startTimestamp_ != 0L) {
-        output.writeUInt64(5, startTimestamp_);
+        output.writeInt64(5, startTimestamp_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(client_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, client_);
@@ -1758,7 +1758,7 @@ public final class Server {
       }
       if (startTimestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(5, startTimestamp_);
+          .computeInt64Size(5, startTimestamp_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(client_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, client_);
@@ -2492,7 +2492,7 @@ public final class Server {
        * Start time.
        * </pre>
        *
-       * <code>uint64 start_timestamp = 5;</code>
+       * <code>int64 start_timestamp = 5;</code>
        * @return The startTimestamp.
        */
       @java.lang.Override
@@ -2504,7 +2504,7 @@ public final class Server {
        * Start time.
        * </pre>
        *
-       * <code>uint64 start_timestamp = 5;</code>
+       * <code>int64 start_timestamp = 5;</code>
        * @param value The startTimestamp to set.
        * @return This builder for chaining.
        */
@@ -2519,7 +2519,7 @@ public final class Server {
        * Start time.
        * </pre>
        *
-       * <code>uint64 start_timestamp = 5;</code>
+       * <code>int64 start_timestamp = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearStartTimestamp() {
@@ -2707,7 +2707,7 @@ public final class Server {
       "\0132!.greptime.v1.frontend.ProcessInfo\"r\n\013" +
       "ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(\t" +
       "\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017start" +
-      "_timestamp\030\005 \001(\004\022\016\n\006client\030\006 \001(\t2n\n\010Fron" +
+      "_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t2n\n\010Fron" +
       "tend\022b\n\013ListProcess\022(.greptime.v1.fronte" +
       "nd.ListProcessRequest\032).greptime.v1.fron" +
       "tend.ListProcessResponseBa\n\027io.greptime." +

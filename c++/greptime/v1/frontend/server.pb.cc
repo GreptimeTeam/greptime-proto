@@ -54,7 +54,7 @@ PROTOBUF_CONSTEXPR ProcessInfo::ProcessInfo(
   , /*decltype(_impl_.query_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.client_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.id_)*/uint64_t{0u}
-  , /*decltype(_impl_.start_timestamp_)*/uint64_t{0u}
+  , /*decltype(_impl_.start_timestamp_)*/int64_t{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ProcessInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ProcessInfoDefaultTypeInternal()
@@ -118,7 +118,7 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "\0132!.greptime.v1.frontend.ProcessInfo\"r\n\013"
   "ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(\t"
   "\022\016\n\006schema\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017start"
-  "_timestamp\030\005 \001(\004\022\016\n\006client\030\006 \001(\t2n\n\010Fron"
+  "_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t2n\n\010Fron"
   "tend\022b\n\013ListProcess\022(.greptime.v1.fronte"
   "nd.ListProcessRequest\032).greptime.v1.fron"
   "tend.ListProcessResponseBa\n\027io.greptime."
@@ -435,7 +435,7 @@ inline void ProcessInfo::SharedCtor(
     , decltype(_impl_.query_){}
     , decltype(_impl_.client_){}
     , decltype(_impl_.id_){uint64_t{0u}}
-    , decltype(_impl_.start_timestamp_){uint64_t{0u}}
+    , decltype(_impl_.start_timestamp_){int64_t{0}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_.InitDefault();
@@ -538,7 +538,7 @@ const char* ProcessInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         } else
           goto handle_unusual;
         continue;
-      // uint64 start_timestamp = 5;
+      // int64 start_timestamp = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _impl_.start_timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -621,10 +621,10 @@ uint8_t* ProcessInfo::_InternalSerialize(
         4, this->_internal_query(), target);
   }
 
-  // uint64 start_timestamp = 5;
+  // int64 start_timestamp = 5;
   if (this->_internal_start_timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_start_timestamp(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_start_timestamp(), target);
   }
 
   // string client = 6;
@@ -687,9 +687,9 @@ size_t ProcessInfo::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
   }
 
-  // uint64 start_timestamp = 5;
+  // int64 start_timestamp = 5;
   if (this->_internal_start_timestamp() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_start_timestamp());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_start_timestamp());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
