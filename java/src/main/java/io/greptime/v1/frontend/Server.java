@@ -17,6 +17,18 @@ public final class Server {
   public interface ListProcessRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.frontend.ListProcessRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog = 1;</code>
+     * @return The catalog.
+     */
+    java.lang.String getCatalog();
+    /**
+     * <code>string catalog = 1;</code>
+     * @return The bytes for catalog.
+     */
+    com.google.protobuf.ByteString
+        getCatalogBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.ListProcessRequest}
@@ -31,6 +43,7 @@ public final class Server {
       super(builder);
     }
     private ListProcessRequest() {
+      catalog_ = "";
     }
 
     @java.lang.Override
@@ -63,6 +76,12 @@ public final class Server {
             case 0:
               done = true;
               break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalog_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -97,6 +116,44 @@ public final class Server {
               io.greptime.v1.frontend.Server.ListProcessRequest.class, io.greptime.v1.frontend.Server.ListProcessRequest.Builder.class);
     }
 
+    public static final int CATALOG_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalog_;
+    /**
+     * <code>string catalog = 1;</code>
+     * @return The catalog.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalog() {
+      java.lang.Object ref = catalog_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalog_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog = 1;</code>
+     * @return The bytes for catalog.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogBytes() {
+      java.lang.Object ref = catalog_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalog_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -111,6 +168,9 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalog_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -120,6 +180,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalog_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -135,6 +198,8 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.ListProcessRequest other = (io.greptime.v1.frontend.Server.ListProcessRequest) obj;
 
+      if (!getCatalog()
+          .equals(other.getCatalog())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -146,6 +211,8 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalog().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -279,6 +346,8 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        catalog_ = "";
+
         return this;
       }
 
@@ -305,6 +374,7 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.frontend.Server.ListProcessRequest buildPartial() {
         io.greptime.v1.frontend.Server.ListProcessRequest result = new io.greptime.v1.frontend.Server.ListProcessRequest(this);
+        result.catalog_ = catalog_;
         onBuilt();
         return result;
       }
@@ -353,6 +423,10 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.ListProcessRequest other) {
         if (other == io.greptime.v1.frontend.Server.ListProcessRequest.getDefaultInstance()) return this;
+        if (!other.getCatalog().isEmpty()) {
+          catalog_ = other.catalog_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -379,6 +453,82 @@ public final class Server {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object catalog_ = "";
+      /**
+       * <code>string catalog = 1;</code>
+       * @return The catalog.
+       */
+      public java.lang.String getCatalog() {
+        java.lang.Object ref = catalog_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalog_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog = 1;</code>
+       * @return The bytes for catalog.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogBytes() {
+        java.lang.Object ref = catalog_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalog_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog = 1;</code>
+       * @param value The catalog to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalog(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalog_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalog() {
+        
+        catalog_ = getDefaultInstance().getCatalog();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog = 1;</code>
+       * @param value The bytes for catalog to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalog_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -2888,18 +3038,19 @@ public final class Server {
   static {
     java.lang.String[] descriptorData = {
       "\n!greptime/v1/frontend/server.proto\022\024gre" +
-      "ptime.v1.frontend\"\024\n\022ListProcessRequest\"" +
-      "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003(" +
-      "\0132!.greptime.v1.frontend.ProcessInfo\"\205\001\n" +
-      "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001(" +
-      "\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017sta" +
-      "rt_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fr" +
-      "ontend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022" +
-      "(.greptime.v1.frontend.ListProcessReques" +
-      "t\032).greptime.v1.frontend.ListProcessResp" +
-      "onseBa\n\027io.greptime.v1.frontendB\006ServerZ" +
-      ">github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/frontendb\006proto3"
+      "ptime.v1.frontend\"%\n\022ListProcessRequest\022" +
+      "\017\n\007catalog\030\001 \001(\t\"K\n\023ListProcessResponse\022" +
+      "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten" +
+      "d.ProcessInfo\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(" +
+      "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q" +
+      "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c" +
+      "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2n\n\010Fronten" +
+      "d\022b\n\013ListProcess\022(.greptime.v1.frontend." +
+      "ListProcessRequest\032).greptime.v1.fronten" +
+      "d.ListProcessResponseBa\n\027io.greptime.v1." +
+      "frontendB\006ServerZ>github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1/frontend" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2910,7 +3061,7 @@ public final class Server {
     internal_static_greptime_v1_frontend_ListProcessRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_ListProcessRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Catalog", });
     internal_static_greptime_v1_frontend_ListProcessResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_frontend_ListProcessResponse_fieldAccessorTable = new

@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -72,9 +71,10 @@ namespace frontend {
 // ===================================================================
 
 class ListProcessRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.frontend.ListProcessRequest) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.frontend.ListProcessRequest) */ {
  public:
   inline ListProcessRequest() : ListProcessRequest(nullptr) {}
+  ~ListProcessRequest() override;
   explicit PROTOBUF_CONSTEXPR ListProcessRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   ListProcessRequest(const ListProcessRequest& from);
@@ -147,15 +147,29 @@ class ListProcessRequest final :
   ListProcessRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ListProcessRequest>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const ListProcessRequest& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ListProcessRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ListProcessRequest& from) {
+    ListProcessRequest::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const ListProcessRequest& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ListProcessRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -176,6 +190,23 @@ class ListProcessRequest final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kCatalogFieldNumber = 1,
+  };
+  // string catalog = 1;
+  void clear_catalog();
+  const std::string& catalog() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog();
+  PROTOBUF_NODISCARD std::string* release_catalog();
+  void set_allocated_catalog(std::string* catalog);
+  private:
+  const std::string& _internal_catalog() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog(const std::string& value);
+  std::string* _internal_mutable_catalog();
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.frontend.ListProcessRequest)
  private:
   class _Internal;
@@ -184,7 +215,10 @@ class ListProcessRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto;
 };
 // -------------------------------------------------------------------
@@ -603,6 +637,56 @@ class ProcessInfo final :
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
 // ListProcessRequest
+
+// string catalog = 1;
+inline void ListProcessRequest::clear_catalog() {
+  _impl_.catalog_.ClearToEmpty();
+}
+inline const std::string& ListProcessRequest::catalog() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.ListProcessRequest.catalog)
+  return _internal_catalog();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ListProcessRequest::set_catalog(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ListProcessRequest.catalog)
+}
+inline std::string* ListProcessRequest::mutable_catalog() {
+  std::string* _s = _internal_mutable_catalog();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.ListProcessRequest.catalog)
+  return _s;
+}
+inline const std::string& ListProcessRequest::_internal_catalog() const {
+  return _impl_.catalog_.Get();
+}
+inline void ListProcessRequest::_internal_set_catalog(const std::string& value) {
+  
+  _impl_.catalog_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ListProcessRequest::_internal_mutable_catalog() {
+  
+  return _impl_.catalog_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ListProcessRequest::release_catalog() {
+  // @@protoc_insertion_point(field_release:greptime.v1.frontend.ListProcessRequest.catalog)
+  return _impl_.catalog_.Release();
+}
+inline void ListProcessRequest::set_allocated_catalog(std::string* catalog) {
+  if (catalog != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_.SetAllocated(catalog, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_.IsDefault()) {
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ListProcessRequest.catalog)
+}
 
 // -------------------------------------------------------------------
 

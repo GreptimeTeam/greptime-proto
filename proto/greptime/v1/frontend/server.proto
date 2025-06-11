@@ -25,7 +25,9 @@ service Frontend {
   rpc ListProcess(ListProcessRequest) returns (ListProcessResponse);
 }
 
-message ListProcessRequest {}
+message ListProcessRequest {
+  string catalog = 1;
+}
 
 message ListProcessResponse {
   repeated ProcessInfo processes = 1;

@@ -24,7 +24,9 @@ namespace greptime {
 namespace v1 {
 namespace frontend {
 PROTOBUF_CONSTEXPR ListProcessRequest::ListProcessRequest(
-    ::_pbi::ConstantInitialized) {}
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ListProcessRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ListProcessRequestDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -80,6 +82,7 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ListProcessRequest, _impl_.catalog_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ListProcessResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -103,8 +106,8 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::frontend::ListProcessRequest)},
-  { 6, -1, -1, sizeof(::greptime::v1::frontend::ListProcessResponse)},
-  { 13, -1, -1, sizeof(::greptime::v1::frontend::ProcessInfo)},
+  { 7, -1, -1, sizeof(::greptime::v1::frontend::ListProcessResponse)},
+  { 14, -1, -1, sizeof(::greptime::v1::frontend::ProcessInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -115,22 +118,23 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n!greptime/v1/frontend/server.proto\022\024gre"
-  "ptime.v1.frontend\"\024\n\022ListProcessRequest\""
-  "K\n\023ListProcessResponse\0224\n\tprocesses\030\001 \003("
-  "\0132!.greptime.v1.frontend.ProcessInfo\"\205\001\n"
-  "\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022\017\n\007catalog\030\002 \001("
-  "\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005query\030\004 \001(\t\022\027\n\017sta"
-  "rt_timestamp\030\005 \001(\003\022\016\n\006client\030\006 \001(\t\022\020\n\010fr"
-  "ontend\030\007 \001(\t2n\n\010Frontend\022b\n\013ListProcess\022"
-  "(.greptime.v1.frontend.ListProcessReques"
-  "t\032).greptime.v1.frontend.ListProcessResp"
-  "onseBa\n\027io.greptime.v1.frontendB\006ServerZ"
-  ">github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/frontendb\006proto3"
+  "ptime.v1.frontend\"%\n\022ListProcessRequest\022"
+  "\017\n\007catalog\030\001 \001(\t\"K\n\023ListProcessResponse\022"
+  "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten"
+  "d.ProcessInfo\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001("
+  "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q"
+  "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c"
+  "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2n\n\010Fronten"
+  "d\022b\n\013ListProcess\022(.greptime.v1.frontend."
+  "ListProcessRequest\032).greptime.v1.fronten"
+  "d.ListProcessResponseBa\n\027io.greptime.v1."
+  "frontendB\006ServerZ>github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1/frontend"
+  "b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto = {
-    false, false, 511, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
+    false, false, 528, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
     "greptime/v1/frontend/server.proto",
     &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets,
@@ -155,31 +159,194 @@ class ListProcessRequest::_Internal {
 
 ListProcessRequest::ListProcessRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:greptime.v1.frontend.ListProcessRequest)
 }
 ListProcessRequest::ListProcessRequest(const ListProcessRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   ListProcessRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog().empty()) {
+    _this->_impl_.catalog_.Set(from._internal_catalog(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.frontend.ListProcessRequest)
 }
 
+inline void ListProcessRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
 
+ListProcessRequest::~ListProcessRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.frontend.ListProcessRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
 
+inline void ListProcessRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_.Destroy();
+}
 
+void ListProcessRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ListProcessRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.frontend.ListProcessRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ListProcessRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.ListProcessRequest.catalog"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ListProcessRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.frontend.ListProcessRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog().data(), static_cast<int>(this->_internal_catalog().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.frontend.ListProcessRequest.catalog");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.frontend.ListProcessRequest)
+  return target;
+}
+
+size_t ListProcessRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.frontend.ListProcessRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ListProcessRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ListProcessRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ListProcessRequest::GetClassData() const { return &_class_data_; }
 
 
+void ListProcessRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ListProcessRequest*>(&to_msg);
+  auto& from = static_cast<const ListProcessRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.frontend.ListProcessRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  if (!from._internal_catalog().empty()) {
+    _this->_internal_set_catalog(from._internal_catalog());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
 
+void ListProcessRequest::CopyFrom(const ListProcessRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.frontend.ListProcessRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
+bool ListProcessRequest::IsInitialized() const {
+  return true;
+}
 
+void ListProcessRequest::InternalSwap(ListProcessRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_, lhs_arena,
+      &other->_impl_.catalog_, rhs_arena
+  );
+}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ListProcessRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
