@@ -1385,10 +1385,30 @@ public final class Server {
 
     /**
      * <pre>
+     * Frontend server address of process.
+     * </pre>
+     *
+     * <code>string server_addr = 1;</code>
+     * @return The serverAddr.
+     */
+    java.lang.String getServerAddr();
+    /**
+     * <pre>
+     * Frontend server address of process.
+     * </pre>
+     *
+     * <code>string server_addr = 1;</code>
+     * @return The bytes for serverAddr.
+     */
+    com.google.protobuf.ByteString
+        getServerAddrBytes();
+
+    /**
+     * <pre>
      * Catalog of process to kill.
      * </pre>
      *
-     * <code>string catalog = 1;</code>
+     * <code>string catalog = 2;</code>
      * @return The catalog.
      */
     java.lang.String getCatalog();
@@ -1397,7 +1417,7 @@ public final class Server {
      * Catalog of process to kill.
      * </pre>
      *
-     * <code>string catalog = 1;</code>
+     * <code>string catalog = 2;</code>
      * @return The bytes for catalog.
      */
     com.google.protobuf.ByteString
@@ -1408,7 +1428,7 @@ public final class Server {
      * ID of process to kill.
      * </pre>
      *
-     * <code>uint64 process_id = 2;</code>
+     * <code>uint64 process_id = 3;</code>
      * @return The processId.
      */
     long getProcessId();
@@ -1426,6 +1446,7 @@ public final class Server {
       super(builder);
     }
     private KillProcessRequest() {
+      serverAddr_ = "";
       catalog_ = "";
     }
 
@@ -1462,10 +1483,16 @@ public final class Server {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              serverAddr_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               catalog_ = s;
               break;
             }
-            case 16: {
+            case 24: {
 
               processId_ = input.readUInt64();
               break;
@@ -1504,14 +1531,60 @@ public final class Server {
               io.greptime.v1.frontend.Server.KillProcessRequest.class, io.greptime.v1.frontend.Server.KillProcessRequest.Builder.class);
     }
 
-    public static final int CATALOG_FIELD_NUMBER = 1;
+    public static final int SERVER_ADDR_FIELD_NUMBER = 1;
+    private volatile java.lang.Object serverAddr_;
+    /**
+     * <pre>
+     * Frontend server address of process.
+     * </pre>
+     *
+     * <code>string server_addr = 1;</code>
+     * @return The serverAddr.
+     */
+    @java.lang.Override
+    public java.lang.String getServerAddr() {
+      java.lang.Object ref = serverAddr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverAddr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Frontend server address of process.
+     * </pre>
+     *
+     * <code>string server_addr = 1;</code>
+     * @return The bytes for serverAddr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getServerAddrBytes() {
+      java.lang.Object ref = serverAddr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverAddr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CATALOG_FIELD_NUMBER = 2;
     private volatile java.lang.Object catalog_;
     /**
      * <pre>
      * Catalog of process to kill.
      * </pre>
      *
-     * <code>string catalog = 1;</code>
+     * <code>string catalog = 2;</code>
      * @return The catalog.
      */
     @java.lang.Override
@@ -1532,7 +1605,7 @@ public final class Server {
      * Catalog of process to kill.
      * </pre>
      *
-     * <code>string catalog = 1;</code>
+     * <code>string catalog = 2;</code>
      * @return The bytes for catalog.
      */
     @java.lang.Override
@@ -1550,14 +1623,14 @@ public final class Server {
       }
     }
 
-    public static final int PROCESS_ID_FIELD_NUMBER = 2;
+    public static final int PROCESS_ID_FIELD_NUMBER = 3;
     private long processId_;
     /**
      * <pre>
      * ID of process to kill.
      * </pre>
      *
-     * <code>uint64 process_id = 2;</code>
+     * <code>uint64 process_id = 3;</code>
      * @return The processId.
      */
     @java.lang.Override
@@ -1579,11 +1652,14 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverAddr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serverAddr_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalog_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, catalog_);
       }
       if (processId_ != 0L) {
-        output.writeUInt64(2, processId_);
+        output.writeUInt64(3, processId_);
       }
       unknownFields.writeTo(output);
     }
@@ -1594,12 +1670,15 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverAddr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serverAddr_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalog_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, catalog_);
       }
       if (processId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(2, processId_);
+          .computeUInt64Size(3, processId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1616,6 +1695,8 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.KillProcessRequest other = (io.greptime.v1.frontend.Server.KillProcessRequest) obj;
 
+      if (!getServerAddr()
+          .equals(other.getServerAddr())) return false;
       if (!getCatalog()
           .equals(other.getCatalog())) return false;
       if (getProcessId()
@@ -1631,6 +1712,8 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SERVER_ADDR_FIELD_NUMBER;
+      hash = (53 * hash) + getServerAddr().hashCode();
       hash = (37 * hash) + CATALOG_FIELD_NUMBER;
       hash = (53 * hash) + getCatalog().hashCode();
       hash = (37 * hash) + PROCESS_ID_FIELD_NUMBER;
@@ -1769,6 +1852,8 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        serverAddr_ = "";
+
         catalog_ = "";
 
         processId_ = 0L;
@@ -1799,6 +1884,7 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.frontend.Server.KillProcessRequest buildPartial() {
         io.greptime.v1.frontend.Server.KillProcessRequest result = new io.greptime.v1.frontend.Server.KillProcessRequest(this);
+        result.serverAddr_ = serverAddr_;
         result.catalog_ = catalog_;
         result.processId_ = processId_;
         onBuilt();
@@ -1849,6 +1935,10 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.KillProcessRequest other) {
         if (other == io.greptime.v1.frontend.Server.KillProcessRequest.getDefaultInstance()) return this;
+        if (!other.getServerAddr().isEmpty()) {
+          serverAddr_ = other.serverAddr_;
+          onChanged();
+        }
         if (!other.getCatalog().isEmpty()) {
           catalog_ = other.catalog_;
           onChanged();
@@ -1885,13 +1975,109 @@ public final class Server {
         return this;
       }
 
+      private java.lang.Object serverAddr_ = "";
+      /**
+       * <pre>
+       * Frontend server address of process.
+       * </pre>
+       *
+       * <code>string server_addr = 1;</code>
+       * @return The serverAddr.
+       */
+      public java.lang.String getServerAddr() {
+        java.lang.Object ref = serverAddr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverAddr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Frontend server address of process.
+       * </pre>
+       *
+       * <code>string server_addr = 1;</code>
+       * @return The bytes for serverAddr.
+       */
+      public com.google.protobuf.ByteString
+          getServerAddrBytes() {
+        java.lang.Object ref = serverAddr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverAddr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Frontend server address of process.
+       * </pre>
+       *
+       * <code>string server_addr = 1;</code>
+       * @param value The serverAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerAddr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverAddr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Frontend server address of process.
+       * </pre>
+       *
+       * <code>string server_addr = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerAddr() {
+        
+        serverAddr_ = getDefaultInstance().getServerAddr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Frontend server address of process.
+       * </pre>
+       *
+       * <code>string server_addr = 1;</code>
+       * @param value The bytes for serverAddr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerAddrBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverAddr_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object catalog_ = "";
       /**
        * <pre>
        * Catalog of process to kill.
        * </pre>
        *
-       * <code>string catalog = 1;</code>
+       * <code>string catalog = 2;</code>
        * @return The catalog.
        */
       public java.lang.String getCatalog() {
@@ -1911,7 +2097,7 @@ public final class Server {
        * Catalog of process to kill.
        * </pre>
        *
-       * <code>string catalog = 1;</code>
+       * <code>string catalog = 2;</code>
        * @return The bytes for catalog.
        */
       public com.google.protobuf.ByteString
@@ -1932,7 +2118,7 @@ public final class Server {
        * Catalog of process to kill.
        * </pre>
        *
-       * <code>string catalog = 1;</code>
+       * <code>string catalog = 2;</code>
        * @param value The catalog to set.
        * @return This builder for chaining.
        */
@@ -1951,7 +2137,7 @@ public final class Server {
        * Catalog of process to kill.
        * </pre>
        *
-       * <code>string catalog = 1;</code>
+       * <code>string catalog = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearCatalog() {
@@ -1965,7 +2151,7 @@ public final class Server {
        * Catalog of process to kill.
        * </pre>
        *
-       * <code>string catalog = 1;</code>
+       * <code>string catalog = 2;</code>
        * @param value The bytes for catalog to set.
        * @return This builder for chaining.
        */
@@ -1987,7 +2173,7 @@ public final class Server {
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 2;</code>
+       * <code>uint64 process_id = 3;</code>
        * @return The processId.
        */
       @java.lang.Override
@@ -1999,7 +2185,7 @@ public final class Server {
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 2;</code>
+       * <code>uint64 process_id = 3;</code>
        * @param value The processId to set.
        * @return This builder for chaining.
        */
@@ -2014,7 +2200,7 @@ public final class Server {
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 2;</code>
+       * <code>uint64 process_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearProcessId() {
@@ -2079,6 +2265,16 @@ public final class Server {
   public interface KillProcessResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.frontend.KillProcessResponse)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Whether targeting process is found.
+     * </pre>
+     *
+     * <code>bool found = 1;</code>
+     * @return The found.
+     */
+    boolean getFound();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.KillProcessResponse}
@@ -2125,6 +2321,11 @@ public final class Server {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              found_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2159,6 +2360,21 @@ public final class Server {
               io.greptime.v1.frontend.Server.KillProcessResponse.class, io.greptime.v1.frontend.Server.KillProcessResponse.Builder.class);
     }
 
+    public static final int FOUND_FIELD_NUMBER = 1;
+    private boolean found_;
+    /**
+     * <pre>
+     * Whether targeting process is found.
+     * </pre>
+     *
+     * <code>bool found = 1;</code>
+     * @return The found.
+     */
+    @java.lang.Override
+    public boolean getFound() {
+      return found_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2173,6 +2389,9 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (found_ != false) {
+        output.writeBool(1, found_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2182,6 +2401,10 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
+      if (found_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, found_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2197,6 +2420,8 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.KillProcessResponse other = (io.greptime.v1.frontend.Server.KillProcessResponse) obj;
 
+      if (getFound()
+          != other.getFound()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2208,6 +2433,9 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FOUND_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFound());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2341,6 +2569,8 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        found_ = false;
+
         return this;
       }
 
@@ -2367,6 +2597,7 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.frontend.Server.KillProcessResponse buildPartial() {
         io.greptime.v1.frontend.Server.KillProcessResponse result = new io.greptime.v1.frontend.Server.KillProcessResponse(this);
+        result.found_ = found_;
         onBuilt();
         return result;
       }
@@ -2415,6 +2646,9 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.KillProcessResponse other) {
         if (other == io.greptime.v1.frontend.Server.KillProcessResponse.getDefaultInstance()) return this;
+        if (other.getFound() != false) {
+          setFound(other.getFound());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2441,6 +2675,49 @@ public final class Server {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private boolean found_ ;
+      /**
+       * <pre>
+       * Whether targeting process is found.
+       * </pre>
+       *
+       * <code>bool found = 1;</code>
+       * @return The found.
+       */
+      @java.lang.Override
+      public boolean getFound() {
+        return found_;
+      }
+      /**
+       * <pre>
+       * Whether targeting process is found.
+       * </pre>
+       *
+       * <code>bool found = 1;</code>
+       * @param value The found to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFound(boolean value) {
+        
+        found_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether targeting process is found.
+       * </pre>
+       *
+       * <code>bool found = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFound() {
+        
+        found_ = false;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -4168,20 +4445,21 @@ public final class Server {
       "ptime.v1.frontend\"%\n\022ListProcessRequest\022" +
       "\017\n\007catalog\030\001 \001(\t\"K\n\023ListProcessResponse\022" +
       "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten" +
-      "d.ProcessInfo\"9\n\022KillProcessRequest\022\017\n\007c" +
-      "atalog\030\001 \001(\t\022\022\n\nprocess_id\030\002 \001(\004\"\025\n\023Kill" +
-      "ProcessResponse\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 " +
-      "\001(\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n" +
-      "\005query\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n" +
-      "\006client\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Fron" +
-      "tend\022b\n\013ListProcess\022(.greptime.v1.fronte" +
-      "nd.ListProcessRequest\032).greptime.v1.fron" +
-      "tend.ListProcessResponse\022b\n\013KillProcess\022" +
-      "(.greptime.v1.frontend.KillProcessReques" +
-      "t\032).greptime.v1.frontend.KillProcessResp" +
-      "onseBa\n\027io.greptime.v1.frontendB\006ServerZ" +
-      ">github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1/frontendb\006proto3"
+      "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s" +
+      "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro" +
+      "cess_id\030\003 \001(\004\"$\n\023KillProcessResponse\022\r\n\005" +
+      "found\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022" +
+      "\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005que" +
+      "ry\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006cli" +
+      "ent\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Frontend" +
+      "\022b\n\013ListProcess\022(.greptime.v1.frontend.L" +
+      "istProcessRequest\032).greptime.v1.frontend" +
+      ".ListProcessResponse\022b\n\013KillProcess\022(.gr" +
+      "eptime.v1.frontend.KillProcessRequest\032)." +
+      "greptime.v1.frontend.KillProcessResponse" +
+      "Ba\n\027io.greptime.v1.frontendB\006ServerZ>git" +
+      "hub.com/GreptimeTeam/greptime-proto/go/g" +
+      "reptime/v1/frontendb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4204,13 +4482,13 @@ public final class Server {
     internal_static_greptime_v1_frontend_KillProcessRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_KillProcessRequest_descriptor,
-        new java.lang.String[] { "Catalog", "ProcessId", });
+        new java.lang.String[] { "ServerAddr", "Catalog", "ProcessId", });
     internal_static_greptime_v1_frontend_KillProcessResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_frontend_KillProcessResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_KillProcessResponse_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Found", });
     internal_static_greptime_v1_frontend_ProcessInfo_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_frontend_ProcessInfo_fieldAccessorTable = new

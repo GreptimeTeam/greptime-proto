@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -510,10 +509,25 @@ class KillProcessRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCatalogFieldNumber = 1,
-    kProcessIdFieldNumber = 2,
+    kServerAddrFieldNumber = 1,
+    kCatalogFieldNumber = 2,
+    kProcessIdFieldNumber = 3,
   };
-  // string catalog = 1;
+  // string server_addr = 1;
+  void clear_server_addr();
+  const std::string& server_addr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_server_addr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_server_addr();
+  PROTOBUF_NODISCARD std::string* release_server_addr();
+  void set_allocated_server_addr(std::string* server_addr);
+  private:
+  const std::string& _internal_server_addr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_server_addr(const std::string& value);
+  std::string* _internal_mutable_server_addr();
+  public:
+
+  // string catalog = 2;
   void clear_catalog();
   const std::string& catalog() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -527,7 +541,7 @@ class KillProcessRequest final :
   std::string* _internal_mutable_catalog();
   public:
 
-  // uint64 process_id = 2;
+  // uint64 process_id = 3;
   void clear_process_id();
   uint64_t process_id() const;
   void set_process_id(uint64_t value);
@@ -544,6 +558,7 @@ class KillProcessRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr server_addr_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     uint64_t process_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -554,9 +569,10 @@ class KillProcessRequest final :
 // -------------------------------------------------------------------
 
 class KillProcessResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.frontend.KillProcessResponse) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.frontend.KillProcessResponse) */ {
  public:
   inline KillProcessResponse() : KillProcessResponse(nullptr) {}
+  ~KillProcessResponse() override;
   explicit PROTOBUF_CONSTEXPR KillProcessResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   KillProcessResponse(const KillProcessResponse& from);
@@ -629,15 +645,29 @@ class KillProcessResponse final :
   KillProcessResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<KillProcessResponse>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const KillProcessResponse& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const KillProcessResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const KillProcessResponse& from) {
+    KillProcessResponse::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const KillProcessResponse& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(KillProcessResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -658,6 +688,18 @@ class KillProcessResponse final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kFoundFieldNumber = 1,
+  };
+  // bool found = 1;
+  void clear_found();
+  bool found() const;
+  void set_found(bool value);
+  private:
+  bool _internal_found() const;
+  void _internal_set_found(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.frontend.KillProcessResponse)
  private:
   class _Internal;
@@ -666,7 +708,10 @@ class KillProcessResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    bool found_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1027,7 +1072,57 @@ ListProcessResponse::processes() const {
 
 // KillProcessRequest
 
-// string catalog = 1;
+// string server_addr = 1;
+inline void KillProcessRequest::clear_server_addr() {
+  _impl_.server_addr_.ClearToEmpty();
+}
+inline const std::string& KillProcessRequest::server_addr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.KillProcessRequest.server_addr)
+  return _internal_server_addr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void KillProcessRequest::set_server_addr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.server_addr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.KillProcessRequest.server_addr)
+}
+inline std::string* KillProcessRequest::mutable_server_addr() {
+  std::string* _s = _internal_mutable_server_addr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.frontend.KillProcessRequest.server_addr)
+  return _s;
+}
+inline const std::string& KillProcessRequest::_internal_server_addr() const {
+  return _impl_.server_addr_.Get();
+}
+inline void KillProcessRequest::_internal_set_server_addr(const std::string& value) {
+  
+  _impl_.server_addr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* KillProcessRequest::_internal_mutable_server_addr() {
+  
+  return _impl_.server_addr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* KillProcessRequest::release_server_addr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.frontend.KillProcessRequest.server_addr)
+  return _impl_.server_addr_.Release();
+}
+inline void KillProcessRequest::set_allocated_server_addr(std::string* server_addr) {
+  if (server_addr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.server_addr_.SetAllocated(server_addr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.server_addr_.IsDefault()) {
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.KillProcessRequest.server_addr)
+}
+
+// string catalog = 2;
 inline void KillProcessRequest::clear_catalog() {
   _impl_.catalog_.ClearToEmpty();
 }
@@ -1077,7 +1172,7 @@ inline void KillProcessRequest::set_allocated_catalog(std::string* catalog) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.KillProcessRequest.catalog)
 }
 
-// uint64 process_id = 2;
+// uint64 process_id = 3;
 inline void KillProcessRequest::clear_process_id() {
   _impl_.process_id_ = uint64_t{0u};
 }
@@ -1100,6 +1195,26 @@ inline void KillProcessRequest::set_process_id(uint64_t value) {
 // -------------------------------------------------------------------
 
 // KillProcessResponse
+
+// bool found = 1;
+inline void KillProcessResponse::clear_found() {
+  _impl_.found_ = false;
+}
+inline bool KillProcessResponse::_internal_found() const {
+  return _impl_.found_;
+}
+inline bool KillProcessResponse::found() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.KillProcessResponse.found)
+  return _internal_found();
+}
+inline void KillProcessResponse::_internal_set_found(bool value) {
+  
+  _impl_.found_ = value;
+}
+inline void KillProcessResponse::set_found(bool value) {
+  _internal_set_found(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.KillProcessResponse.found)
+}
 
 // -------------------------------------------------------------------
 

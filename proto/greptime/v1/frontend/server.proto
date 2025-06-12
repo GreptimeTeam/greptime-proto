@@ -36,13 +36,18 @@ message ListProcessResponse {
 }
 
 message KillProcessRequest {
+  // Frontend server address of process.
+  string server_addr = 1;
   // Catalog of process to kill.
-  string catalog = 1;
+  string catalog = 2;
   // ID of process to kill.
-  uint64 process_id = 2;
+  uint64 process_id = 3;
 }
 
-message KillProcessResponse {}
+message KillProcessResponse {
+  // Whether targeting process is found.
+  bool found = 1;
+}
 
 message ProcessInfo {
   // ID.
