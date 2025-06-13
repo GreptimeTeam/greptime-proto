@@ -64,4 +64,6 @@ message ProcessInfo {
   string client = 6;
   // Frontend info of process.
   string frontend = 7;
+  // Client connection id.
+  uint32 connection_id = 8;
 }

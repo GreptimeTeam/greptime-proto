@@ -2917,6 +2917,16 @@ public final class Server {
      */
     com.google.protobuf.ByteString
         getFrontendBytes();
+
+    /**
+     * <pre>
+     * Client connection id.
+     * </pre>
+     *
+     * <code>uint32 connection_id = 8;</code>
+     * @return The connectionId.
+     */
+    int getConnectionId();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.ProcessInfo}
@@ -3010,6 +3020,11 @@ public final class Server {
               java.lang.String s = input.readStringRequireUtf8();
 
               frontend_ = s;
+              break;
+            }
+            case 64: {
+
+              connectionId_ = input.readUInt32();
               break;
             }
             default: {
@@ -3314,6 +3329,21 @@ public final class Server {
       }
     }
 
+    public static final int CONNECTION_ID_FIELD_NUMBER = 8;
+    private int connectionId_;
+    /**
+     * <pre>
+     * Client connection id.
+     * </pre>
+     *
+     * <code>uint32 connection_id = 8;</code>
+     * @return The connectionId.
+     */
+    @java.lang.Override
+    public int getConnectionId() {
+      return connectionId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3348,6 +3378,9 @@ public final class Server {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontend_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, frontend_);
+      }
+      if (connectionId_ != 0) {
+        output.writeUInt32(8, connectionId_);
       }
       unknownFields.writeTo(output);
     }
@@ -3386,6 +3419,10 @@ public final class Server {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(frontend_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, frontend_);
       }
+      if (connectionId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(8, connectionId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3415,6 +3452,8 @@ public final class Server {
           .equals(other.getClient())) return false;
       if (!getFrontend()
           .equals(other.getFrontend())) return false;
+      if (getConnectionId()
+          != other.getConnectionId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3444,6 +3483,8 @@ public final class Server {
       hash = (53 * hash) + getClient().hashCode();
       hash = (37 * hash) + FRONTEND_FIELD_NUMBER;
       hash = (53 * hash) + getFrontend().hashCode();
+      hash = (37 * hash) + CONNECTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getConnectionId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3591,6 +3632,8 @@ public final class Server {
 
         frontend_ = "";
 
+        connectionId_ = 0;
+
         return this;
       }
 
@@ -3629,6 +3672,7 @@ public final class Server {
         result.startTimestamp_ = startTimestamp_;
         result.client_ = client_;
         result.frontend_ = frontend_;
+        result.connectionId_ = connectionId_;
         onBuilt();
         return result;
       }
@@ -3708,6 +3752,9 @@ public final class Server {
         if (!other.getFrontend().isEmpty()) {
           frontend_ = other.frontend_;
           onChanged();
+        }
+        if (other.getConnectionId() != 0) {
+          setConnectionId(other.getConnectionId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4354,6 +4401,49 @@ public final class Server {
         onChanged();
         return this;
       }
+
+      private int connectionId_ ;
+      /**
+       * <pre>
+       * Client connection id.
+       * </pre>
+       *
+       * <code>uint32 connection_id = 8;</code>
+       * @return The connectionId.
+       */
+      @java.lang.Override
+      public int getConnectionId() {
+        return connectionId_;
+      }
+      /**
+       * <pre>
+       * Client connection id.
+       * </pre>
+       *
+       * <code>uint32 connection_id = 8;</code>
+       * @param value The connectionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setConnectionId(int value) {
+        
+        connectionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Client connection id.
+       * </pre>
+       *
+       * <code>uint32 connection_id = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearConnectionId() {
+        
+        connectionId_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4448,18 +4538,19 @@ public final class Server {
       "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s" +
       "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro" +
       "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007" +
-      "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(" +
+      "success\030\001 \001(\010\"\234\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(" +
       "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q" +
       "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c" +
-      "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Fronte" +
-      "nd\022b\n\013ListProcess\022(.greptime.v1.frontend" +
-      ".ListProcessRequest\032).greptime.v1.fronte" +
-      "nd.ListProcessResponse\022b\n\013KillProcess\022(." +
-      "greptime.v1.frontend.KillProcessRequest\032" +
-      ").greptime.v1.frontend.KillProcessRespon" +
-      "seBa\n\027io.greptime.v1.frontendB\006ServerZ>g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1/frontendb\006proto3"
+      "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t\022\025\n\rconnect" +
+      "ion_id\030\010 \001(\r2\322\001\n\010Frontend\022b\n\013ListProcess" +
+      "\022(.greptime.v1.frontend.ListProcessReque" +
+      "st\032).greptime.v1.frontend.ListProcessRes" +
+      "ponse\022b\n\013KillProcess\022(.greptime.v1.front" +
+      "end.KillProcessRequest\032).greptime.v1.fro" +
+      "ntend.KillProcessResponseBa\n\027io.greptime" +
+      ".v1.frontendB\006ServerZ>github.com/Greptim" +
+      "eTeam/greptime-proto/go/greptime/v1/fron" +
+      "tendb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4494,7 +4585,7 @@ public final class Server {
     internal_static_greptime_v1_frontend_ProcessInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_ProcessInfo_descriptor,
-        new java.lang.String[] { "Id", "Catalog", "Schemas", "Query", "StartTimestamp", "Client", "Frontend", });
+        new java.lang.String[] { "Id", "Catalog", "Schemas", "Query", "StartTimestamp", "Client", "Frontend", "ConnectionId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
