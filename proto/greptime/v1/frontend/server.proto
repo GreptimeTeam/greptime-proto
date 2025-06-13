@@ -45,8 +45,8 @@ message KillProcessRequest {
 }
 
 message KillProcessResponse {
-  // Whether targeting process is found.
-  bool found = 1;
+  // Whether targeting process is successfully killed
+  bool success = 1;
 }
 
 message ProcessInfo {

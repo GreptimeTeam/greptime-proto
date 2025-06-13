@@ -689,15 +689,15 @@ class KillProcessResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFoundFieldNumber = 1,
+    kSuccessFieldNumber = 1,
   };
-  // bool found = 1;
-  void clear_found();
-  bool found() const;
-  void set_found(bool value);
+  // bool success = 1;
+  void clear_success();
+  bool success() const;
+  void set_success(bool value);
   private:
-  bool _internal_found() const;
-  void _internal_set_found(bool value);
+  bool _internal_success() const;
+  void _internal_set_success(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.frontend.KillProcessResponse)
@@ -708,7 +708,7 @@ class KillProcessResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    bool found_;
+    bool success_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1196,24 +1196,24 @@ inline void KillProcessRequest::set_process_id(uint64_t value) {
 
 // KillProcessResponse
 
-// bool found = 1;
-inline void KillProcessResponse::clear_found() {
-  _impl_.found_ = false;
+// bool success = 1;
+inline void KillProcessResponse::clear_success() {
+  _impl_.success_ = false;
 }
-inline bool KillProcessResponse::_internal_found() const {
-  return _impl_.found_;
+inline bool KillProcessResponse::_internal_success() const {
+  return _impl_.success_;
 }
-inline bool KillProcessResponse::found() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.frontend.KillProcessResponse.found)
-  return _internal_found();
+inline bool KillProcessResponse::success() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.frontend.KillProcessResponse.success)
+  return _internal_success();
 }
-inline void KillProcessResponse::_internal_set_found(bool value) {
+inline void KillProcessResponse::_internal_set_success(bool value) {
   
-  _impl_.found_ = value;
+  _impl_.success_ = value;
 }
-inline void KillProcessResponse::set_found(bool value) {
-  _internal_set_found(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.frontend.KillProcessResponse.found)
+inline void KillProcessResponse::set_success(bool value) {
+  _internal_set_success(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.frontend.KillProcessResponse.success)
 }
 
 // -------------------------------------------------------------------

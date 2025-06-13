@@ -2268,13 +2268,13 @@ public final class Server {
 
     /**
      * <pre>
-     * Whether targeting process is found.
+     * Whether targeting process is successfully killed
      * </pre>
      *
-     * <code>bool found = 1;</code>
-     * @return The found.
+     * <code>bool success = 1;</code>
+     * @return The success.
      */
-    boolean getFound();
+    boolean getSuccess();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.KillProcessResponse}
@@ -2323,7 +2323,7 @@ public final class Server {
               break;
             case 8: {
 
-              found_ = input.readBool();
+              success_ = input.readBool();
               break;
             }
             default: {
@@ -2360,19 +2360,19 @@ public final class Server {
               io.greptime.v1.frontend.Server.KillProcessResponse.class, io.greptime.v1.frontend.Server.KillProcessResponse.Builder.class);
     }
 
-    public static final int FOUND_FIELD_NUMBER = 1;
-    private boolean found_;
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_;
     /**
      * <pre>
-     * Whether targeting process is found.
+     * Whether targeting process is successfully killed
      * </pre>
      *
-     * <code>bool found = 1;</code>
-     * @return The found.
+     * <code>bool success = 1;</code>
+     * @return The success.
      */
     @java.lang.Override
-    public boolean getFound() {
-      return found_;
+    public boolean getSuccess() {
+      return success_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2389,8 +2389,8 @@ public final class Server {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (found_ != false) {
-        output.writeBool(1, found_);
+      if (success_ != false) {
+        output.writeBool(1, success_);
       }
       unknownFields.writeTo(output);
     }
@@ -2401,9 +2401,9 @@ public final class Server {
       if (size != -1) return size;
 
       size = 0;
-      if (found_ != false) {
+      if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, found_);
+          .computeBoolSize(1, success_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2420,8 +2420,8 @@ public final class Server {
       }
       io.greptime.v1.frontend.Server.KillProcessResponse other = (io.greptime.v1.frontend.Server.KillProcessResponse) obj;
 
-      if (getFound()
-          != other.getFound()) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2433,9 +2433,9 @@ public final class Server {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FOUND_FIELD_NUMBER;
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getFound());
+          getSuccess());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2569,7 +2569,7 @@ public final class Server {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        found_ = false;
+        success_ = false;
 
         return this;
       }
@@ -2597,7 +2597,7 @@ public final class Server {
       @java.lang.Override
       public io.greptime.v1.frontend.Server.KillProcessResponse buildPartial() {
         io.greptime.v1.frontend.Server.KillProcessResponse result = new io.greptime.v1.frontend.Server.KillProcessResponse(this);
-        result.found_ = found_;
+        result.success_ = success_;
         onBuilt();
         return result;
       }
@@ -2646,8 +2646,8 @@ public final class Server {
 
       public Builder mergeFrom(io.greptime.v1.frontend.Server.KillProcessResponse other) {
         if (other == io.greptime.v1.frontend.Server.KillProcessResponse.getDefaultInstance()) return this;
-        if (other.getFound() != false) {
-          setFound(other.getFound());
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2678,45 +2678,45 @@ public final class Server {
         return this;
       }
 
-      private boolean found_ ;
+      private boolean success_ ;
       /**
        * <pre>
-       * Whether targeting process is found.
+       * Whether targeting process is successfully killed
        * </pre>
        *
-       * <code>bool found = 1;</code>
-       * @return The found.
+       * <code>bool success = 1;</code>
+       * @return The success.
        */
       @java.lang.Override
-      public boolean getFound() {
-        return found_;
+      public boolean getSuccess() {
+        return success_;
       }
       /**
        * <pre>
-       * Whether targeting process is found.
+       * Whether targeting process is successfully killed
        * </pre>
        *
-       * <code>bool found = 1;</code>
-       * @param value The found to set.
+       * <code>bool success = 1;</code>
+       * @param value The success to set.
        * @return This builder for chaining.
        */
-      public Builder setFound(boolean value) {
+      public Builder setSuccess(boolean value) {
         
-        found_ = value;
+        success_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Whether targeting process is found.
+       * Whether targeting process is successfully killed
        * </pre>
        *
-       * <code>bool found = 1;</code>
+       * <code>bool success = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearFound() {
+      public Builder clearSuccess() {
         
-        found_ = false;
+        success_ = false;
         onChanged();
         return this;
       }
@@ -4447,19 +4447,19 @@ public final class Server {
       "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten" +
       "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s" +
       "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro" +
-      "cess_id\030\003 \001(\004\"$\n\023KillProcessResponse\022\r\n\005" +
-      "found\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022" +
-      "\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005que" +
-      "ry\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006cli" +
-      "ent\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Frontend" +
-      "\022b\n\013ListProcess\022(.greptime.v1.frontend.L" +
-      "istProcessRequest\032).greptime.v1.frontend" +
-      ".ListProcessResponse\022b\n\013KillProcess\022(.gr" +
-      "eptime.v1.frontend.KillProcessRequest\032)." +
-      "greptime.v1.frontend.KillProcessResponse" +
-      "Ba\n\027io.greptime.v1.frontendB\006ServerZ>git" +
-      "hub.com/GreptimeTeam/greptime-proto/go/g" +
-      "reptime/v1/frontendb\006proto3"
+      "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007" +
+      "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(" +
+      "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q" +
+      "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c" +
+      "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Fronte" +
+      "nd\022b\n\013ListProcess\022(.greptime.v1.frontend" +
+      ".ListProcessRequest\032).greptime.v1.fronte" +
+      "nd.ListProcessResponse\022b\n\013KillProcess\022(." +
+      "greptime.v1.frontend.KillProcessRequest\032" +
+      ").greptime.v1.frontend.KillProcessRespon" +
+      "seBa\n\027io.greptime.v1.frontendB\006ServerZ>g" +
+      "ithub.com/GreptimeTeam/greptime-proto/go" +
+      "/greptime/v1/frontendb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4488,7 +4488,7 @@ public final class Server {
     internal_static_greptime_v1_frontend_KillProcessResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_frontend_KillProcessResponse_descriptor,
-        new java.lang.String[] { "Found", });
+        new java.lang.String[] { "Success", });
     internal_static_greptime_v1_frontend_ProcessInfo_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_frontend_ProcessInfo_fieldAccessorTable = new

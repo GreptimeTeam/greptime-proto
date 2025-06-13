@@ -66,7 +66,7 @@ struct KillProcessRequestDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 KillProcessRequestDefaultTypeInternal _KillProcessRequest_default_instance_;
 PROTOBUF_CONSTEXPR KillProcessResponse::KillProcessResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.found_)*/false
+    /*decltype(_impl_.success_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct KillProcessResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR KillProcessResponseDefaultTypeInternal()
@@ -133,7 +133,7 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessResponse, _impl_.found_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessResponse, _impl_.success_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -171,23 +171,23 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten"
   "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s"
   "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro"
-  "cess_id\030\003 \001(\004\"$\n\023KillProcessResponse\022\r\n\005"
-  "found\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(\004\022"
-  "\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005que"
-  "ry\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006cli"
-  "ent\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Frontend"
-  "\022b\n\013ListProcess\022(.greptime.v1.frontend.L"
-  "istProcessRequest\032).greptime.v1.frontend"
-  ".ListProcessResponse\022b\n\013KillProcess\022(.gr"
-  "eptime.v1.frontend.KillProcessRequest\032)."
-  "greptime.v1.frontend.KillProcessResponse"
-  "Ba\n\027io.greptime.v1.frontendB\006ServerZ>git"
-  "hub.com/GreptimeTeam/greptime-proto/go/g"
-  "reptime/v1/frontendb\006proto3"
+  "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007"
+  "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001("
+  "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q"
+  "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c"
+  "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Fronte"
+  "nd\022b\n\013ListProcess\022(.greptime.v1.frontend"
+  ".ListProcessRequest\032).greptime.v1.fronte"
+  "nd.ListProcessResponse\022b\n\013KillProcess\022(."
+  "greptime.v1.frontend.KillProcessRequest\032"
+  ").greptime.v1.frontend.KillProcessRespon"
+  "seBa\n\027io.greptime.v1.frontendB\006ServerZ>g"
+  "ithub.com/GreptimeTeam/greptime-proto/go"
+  "/greptime/v1/frontendb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto = {
-    false, false, 747, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
+    false, false, 749, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
     "greptime/v1/frontend/server.proto",
     &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once, nullptr, 0, 5,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets,
@@ -888,11 +888,11 @@ KillProcessResponse::KillProcessResponse(const KillProcessResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   KillProcessResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.found_){}
+      decltype(_impl_.success_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.found_ = from._impl_.found_;
+  _this->_impl_.success_ = from._impl_.success_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.frontend.KillProcessResponse)
 }
 
@@ -901,7 +901,7 @@ inline void KillProcessResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.found_){false}
+      decltype(_impl_.success_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -929,7 +929,7 @@ void KillProcessResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.found_ = false;
+  _impl_.success_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -939,10 +939,10 @@ const char* KillProcessResponse::_InternalParse(const char* ptr, ::_pbi::ParseCo
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bool found = 1;
+      // bool success = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.found_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.success_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -976,10 +976,10 @@ uint8_t* KillProcessResponse::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool found = 1;
-  if (this->_internal_found() != 0) {
+  // bool success = 1;
+  if (this->_internal_success() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_found(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -998,8 +998,8 @@ size_t KillProcessResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bool found = 1;
-  if (this->_internal_found() != 0) {
+  // bool success = 1;
+  if (this->_internal_success() != 0) {
     total_size += 1 + 1;
   }
 
@@ -1021,8 +1021,8 @@ void KillProcessResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_found() != 0) {
-    _this->_internal_set_found(from._internal_found());
+  if (from._internal_success() != 0) {
+    _this->_internal_set_success(from._internal_success());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1041,7 +1041,7 @@ bool KillProcessResponse::IsInitialized() const {
 void KillProcessResponse::InternalSwap(KillProcessResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.found_, other->_impl_.found_);
+  swap(_impl_.success_, other->_impl_.success_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata KillProcessResponse::GetMetadata() const {
