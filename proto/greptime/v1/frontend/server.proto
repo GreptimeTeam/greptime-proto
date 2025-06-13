@@ -23,6 +23,8 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/front
 service Frontend {
   // List all running processes on frontend.
   rpc ListProcess(ListProcessRequest) returns (ListProcessResponse);
+  // Kill a running process on frontend.
+  rpc KillProcess(KillProcessRequest) returns (KillProcessResponse);
 }
 
 message ListProcessRequest {
@@ -31,6 +33,20 @@ message ListProcessRequest {
 
 message ListProcessResponse {
   repeated ProcessInfo processes = 1;
+}
+
+message KillProcessRequest {
+  // Frontend server address of process.
+  string server_addr = 1;
+  // Catalog of process to kill.
+  string catalog = 2;
+  // ID of process to kill.
+  uint64 process_id = 3;
+}
+
+message KillProcessResponse {
+  // Whether targeting process is successfully killed
+  bool success = 1;
 }
 
 message ProcessInfo {

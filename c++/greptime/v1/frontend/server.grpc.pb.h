@@ -60,12 +60,23 @@ class Frontend final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::ListProcessResponse>> PrepareAsyncListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::ListProcessResponse>>(PrepareAsyncListProcessRaw(context, request, cq));
     }
+    // Kill a running process on frontend.
+    virtual ::grpc::Status KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::greptime::v1::frontend::KillProcessResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>> AsyncKillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>>(AsyncKillProcessRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>> PrepareAsyncKillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>>(PrepareAsyncKillProcessRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
       // List all running processes on frontend.
       virtual void ListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Kill a running process on frontend.
+      virtual void KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -73,6 +84,8 @@ class Frontend final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::ListProcessResponse>* AsyncListProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::ListProcessResponse>* PrepareAsyncListProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>* AsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::frontend::KillProcessResponse>* PrepareAsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -84,11 +97,20 @@ class Frontend final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::ListProcessResponse>> PrepareAsyncListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::ListProcessResponse>>(PrepareAsyncListProcessRaw(context, request, cq));
     }
+    ::grpc::Status KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::greptime::v1::frontend::KillProcessResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>> AsyncKillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>>(AsyncKillProcessRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>> PrepareAsyncKillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>>(PrepareAsyncKillProcessRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
       void ListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response, std::function<void(::grpc::Status)>) override;
       void ListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, std::function<void(::grpc::Status)>) override;
+      void KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -102,7 +124,10 @@ class Frontend final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::ListProcessResponse>* AsyncListProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::ListProcessResponse>* PrepareAsyncListProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>* AsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>* PrepareAsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ListProcess_;
+    const ::grpc::internal::RpcMethod rpcmethod_KillProcess_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -112,6 +137,8 @@ class Frontend final {
     virtual ~Service();
     // List all running processes on frontend.
     virtual ::grpc::Status ListProcess(::grpc::ServerContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response);
+    // Kill a running process on frontend.
+    virtual ::grpc::Status KillProcess(::grpc::ServerContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ListProcess : public BaseClass {
@@ -133,7 +160,27 @@ class Frontend final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ListProcess<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_KillProcess() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillProcess(::grpc::ServerContext* context, ::greptime::v1::frontend::KillProcessRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::frontend::KillProcessResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ListProcess<WithAsyncMethod_KillProcess<Service > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_ListProcess : public BaseClass {
    private:
@@ -161,7 +208,34 @@ class Frontend final {
     virtual ::grpc::ServerUnaryReactor* ListProcess(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::frontend::ListProcessRequest* /*request*/, ::greptime::v1::frontend::ListProcessResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_ListProcess<Service > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_KillProcess() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response) { return this->KillProcess(context, request, response); }));}
+    void SetMessageAllocatorFor_KillProcess(
+        ::grpc::MessageAllocator< ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillProcess(
+      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_ListProcess<WithCallbackMethod_KillProcess<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ListProcess : public BaseClass {
@@ -176,6 +250,23 @@ class Frontend final {
     }
     // disable synchronous version of this method
     ::grpc::Status ListProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::ListProcessRequest* /*request*/, ::greptime::v1::frontend::ListProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_KillProcess() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -201,6 +292,26 @@ class Frontend final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_KillProcess() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillProcess(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_ListProcess : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -220,6 +331,28 @@ class Frontend final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* ListProcess(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_KillProcess() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->KillProcess(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillProcess(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -249,9 +382,36 @@ class Frontend final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedListProcess(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::frontend::ListProcessRequest,::greptime::v1::frontend::ListProcessResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ListProcess<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_KillProcess : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_KillProcess() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse>* streamer) {
+                       return this->StreamedKillProcess(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_KillProcess() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status KillProcess(::grpc::ServerContext* /*context*/, const ::greptime::v1::frontend::KillProcessRequest* /*request*/, ::greptime::v1::frontend::KillProcessResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedKillProcess(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::frontend::KillProcessRequest,::greptime::v1::frontend::KillProcessResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ListProcess<WithStreamedUnaryMethod_KillProcess<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ListProcess<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_ListProcess<WithStreamedUnaryMethod_KillProcess<Service > > StreamedService;
 };
 
 }  // namespace frontend

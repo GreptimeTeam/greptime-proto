@@ -49,6 +49,34 @@ struct ListProcessResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ListProcessResponseDefaultTypeInternal _ListProcessResponse_default_instance_;
+PROTOBUF_CONSTEXPR KillProcessRequest::KillProcessRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.server_addr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.process_id_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct KillProcessRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR KillProcessRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~KillProcessRequestDefaultTypeInternal() {}
+  union {
+    KillProcessRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 KillProcessRequestDefaultTypeInternal _KillProcessRequest_default_instance_;
+PROTOBUF_CONSTEXPR KillProcessResponse::KillProcessResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.success_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct KillProcessResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR KillProcessResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~KillProcessResponseDefaultTypeInternal() {}
+  union {
+    KillProcessResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 KillProcessResponseDefaultTypeInternal _KillProcessResponse_default_instance_;
 PROTOBUF_CONSTEXPR ProcessInfo::ProcessInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.schemas_)*/{}
@@ -71,7 +99,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace frontend
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[3];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[5];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2ffrontend_2fserver_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2ffrontend_2fserver_2eproto = nullptr;
 
@@ -91,6 +119,22 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ListProcessResponse, _impl_.processes_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessRequest, _impl_.server_addr_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessRequest, _impl_.catalog_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessRequest, _impl_.process_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::KillProcessResponse, _impl_.success_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::frontend::ProcessInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -107,12 +151,16 @@ const uint32_t TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets[] 
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::frontend::ListProcessRequest)},
   { 7, -1, -1, sizeof(::greptime::v1::frontend::ListProcessResponse)},
-  { 14, -1, -1, sizeof(::greptime::v1::frontend::ProcessInfo)},
+  { 14, -1, -1, sizeof(::greptime::v1::frontend::KillProcessRequest)},
+  { 23, -1, -1, sizeof(::greptime::v1::frontend::KillProcessResponse)},
+  { 30, -1, -1, sizeof(::greptime::v1::frontend::ProcessInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::frontend::_ListProcessRequest_default_instance_._instance,
   &::greptime::v1::frontend::_ListProcessResponse_default_instance_._instance,
+  &::greptime::v1::frontend::_KillProcessRequest_default_instance_._instance,
+  &::greptime::v1::frontend::_KillProcessResponse_default_instance_._instance,
   &::greptime::v1::frontend::_ProcessInfo_default_instance_._instance,
 };
 
@@ -121,22 +169,27 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "ptime.v1.frontend\"%\n\022ListProcessRequest\022"
   "\017\n\007catalog\030\001 \001(\t\"K\n\023ListProcessResponse\022"
   "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten"
-  "d.ProcessInfo\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001("
+  "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s"
+  "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro"
+  "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007"
+  "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001("
   "\004\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q"
   "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c"
-  "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2n\n\010Fronten"
-  "d\022b\n\013ListProcess\022(.greptime.v1.frontend."
-  "ListProcessRequest\032).greptime.v1.fronten"
-  "d.ListProcessResponseBa\n\027io.greptime.v1."
-  "frontendB\006ServerZ>github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1/frontend"
-  "b\006proto3"
+  "lient\030\006 \001(\t\022\020\n\010frontend\030\007 \001(\t2\322\001\n\010Fronte"
+  "nd\022b\n\013ListProcess\022(.greptime.v1.frontend"
+  ".ListProcessRequest\032).greptime.v1.fronte"
+  "nd.ListProcessResponse\022b\n\013KillProcess\022(."
+  "greptime.v1.frontend.KillProcessRequest\032"
+  ").greptime.v1.frontend.KillProcessRespon"
+  "seBa\n\027io.greptime.v1.frontendB\006ServerZ>g"
+  "ithub.com/GreptimeTeam/greptime-proto/go"
+  "/greptime/v1/frontendb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto = {
-    false, false, 528, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
+    false, false, 749, descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto,
     "greptime/v1/frontend/server.proto",
-    &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once, nullptr, 0, 3,
+    &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once, nullptr, 0, 5,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2ffrontend_2fserver_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto, file_level_enum_descriptors_greptime_2fv1_2ffrontend_2fserver_2eproto,
     file_level_service_descriptors_greptime_2fv1_2ffrontend_2fserver_2eproto,
@@ -537,6 +590,464 @@ void ListProcessResponse::InternalSwap(ListProcessResponse* other) {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once,
       file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[1]);
+}
+
+// ===================================================================
+
+class KillProcessRequest::_Internal {
+ public:
+};
+
+KillProcessRequest::KillProcessRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.frontend.KillProcessRequest)
+}
+KillProcessRequest::KillProcessRequest(const KillProcessRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  KillProcessRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.server_addr_){}
+    , decltype(_impl_.catalog_){}
+    , decltype(_impl_.process_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.server_addr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_server_addr().empty()) {
+    _this->_impl_.server_addr_.Set(from._internal_server_addr(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog().empty()) {
+    _this->_impl_.catalog_.Set(from._internal_catalog(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.process_id_ = from._impl_.process_id_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.frontend.KillProcessRequest)
+}
+
+inline void KillProcessRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.server_addr_){}
+    , decltype(_impl_.catalog_){}
+    , decltype(_impl_.process_id_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.server_addr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.server_addr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+KillProcessRequest::~KillProcessRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.frontend.KillProcessRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void KillProcessRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.server_addr_.Destroy();
+  _impl_.catalog_.Destroy();
+}
+
+void KillProcessRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void KillProcessRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.frontend.KillProcessRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.server_addr_.ClearToEmpty();
+  _impl_.catalog_.ClearToEmpty();
+  _impl_.process_id_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* KillProcessRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string server_addr = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_server_addr();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.KillProcessRequest.server_addr"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string catalog = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_catalog();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.frontend.KillProcessRequest.catalog"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 process_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.process_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* KillProcessRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.frontend.KillProcessRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string server_addr = 1;
+  if (!this->_internal_server_addr().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_server_addr().data(), static_cast<int>(this->_internal_server_addr().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.frontend.KillProcessRequest.server_addr");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_server_addr(), target);
+  }
+
+  // string catalog = 2;
+  if (!this->_internal_catalog().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog().data(), static_cast<int>(this->_internal_catalog().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.frontend.KillProcessRequest.catalog");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_catalog(), target);
+  }
+
+  // uint64 process_id = 3;
+  if (this->_internal_process_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_process_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.frontend.KillProcessRequest)
+  return target;
+}
+
+size_t KillProcessRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.frontend.KillProcessRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string server_addr = 1;
+  if (!this->_internal_server_addr().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_server_addr());
+  }
+
+  // string catalog = 2;
+  if (!this->_internal_catalog().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog());
+  }
+
+  // uint64 process_id = 3;
+  if (this->_internal_process_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_process_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData KillProcessRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    KillProcessRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*KillProcessRequest::GetClassData() const { return &_class_data_; }
+
+
+void KillProcessRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<KillProcessRequest*>(&to_msg);
+  auto& from = static_cast<const KillProcessRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.frontend.KillProcessRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_server_addr().empty()) {
+    _this->_internal_set_server_addr(from._internal_server_addr());
+  }
+  if (!from._internal_catalog().empty()) {
+    _this->_internal_set_catalog(from._internal_catalog());
+  }
+  if (from._internal_process_id() != 0) {
+    _this->_internal_set_process_id(from._internal_process_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void KillProcessRequest::CopyFrom(const KillProcessRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.frontend.KillProcessRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool KillProcessRequest::IsInitialized() const {
+  return true;
+}
+
+void KillProcessRequest::InternalSwap(KillProcessRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.server_addr_, lhs_arena,
+      &other->_impl_.server_addr_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_, lhs_arena,
+      &other->_impl_.catalog_, rhs_arena
+  );
+  swap(_impl_.process_id_, other->_impl_.process_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata KillProcessRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[2]);
+}
+
+// ===================================================================
+
+class KillProcessResponse::_Internal {
+ public:
+};
+
+KillProcessResponse::KillProcessResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.frontend.KillProcessResponse)
+}
+KillProcessResponse::KillProcessResponse(const KillProcessResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  KillProcessResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.success_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.success_ = from._impl_.success_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.frontend.KillProcessResponse)
+}
+
+inline void KillProcessResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.success_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+KillProcessResponse::~KillProcessResponse() {
+  // @@protoc_insertion_point(destructor:greptime.v1.frontend.KillProcessResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void KillProcessResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void KillProcessResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void KillProcessResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.frontend.KillProcessResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.success_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* KillProcessResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bool success = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.success_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* KillProcessResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.frontend.KillProcessResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool success = 1;
+  if (this->_internal_success() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.frontend.KillProcessResponse)
+  return target;
+}
+
+size_t KillProcessResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.frontend.KillProcessResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool success = 1;
+  if (this->_internal_success() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData KillProcessResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    KillProcessResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*KillProcessResponse::GetClassData() const { return &_class_data_; }
+
+
+void KillProcessResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<KillProcessResponse*>(&to_msg);
+  auto& from = static_cast<const KillProcessResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.frontend.KillProcessResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_success() != 0) {
+    _this->_internal_set_success(from._internal_success());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void KillProcessResponse::CopyFrom(const KillProcessResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.frontend.KillProcessResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool KillProcessResponse::IsInitialized() const {
+  return true;
+}
+
+void KillProcessResponse::InternalSwap(KillProcessResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.success_, other->_impl_.success_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata KillProcessResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[3]);
 }
 
 // ===================================================================
@@ -988,7 +1499,7 @@ void ProcessInfo::InternalSwap(ProcessInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ProcessInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2ffrontend_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[2]);
+      file_level_metadata_greptime_2fv1_2ffrontend_2fserver_2eproto[4]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -1003,6 +1514,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::frontend::ListProcessRequest >(Arena*
 template<> PROTOBUF_NOINLINE ::greptime::v1::frontend::ListProcessResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::frontend::ListProcessResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::frontend::ListProcessResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::frontend::KillProcessRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::frontend::KillProcessRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::frontend::KillProcessRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::frontend::KillProcessResponse*
+Arena::CreateMaybeMessage< ::greptime::v1::frontend::KillProcessResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::frontend::KillProcessResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::frontend::ProcessInfo*
 Arena::CreateMaybeMessage< ::greptime::v1::frontend::ProcessInfo >(Arena* arena) {

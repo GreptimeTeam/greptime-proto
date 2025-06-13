@@ -25,6 +25,7 @@ namespace frontend {
 
 static const char* Frontend_method_names[] = {
   "/greptime.v1.frontend.Frontend/ListProcess",
+  "/greptime.v1.frontend.Frontend/KillProcess",
 };
 
 std::unique_ptr< Frontend::Stub> Frontend::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,6 +36,7 @@ std::unique_ptr< Frontend::Stub> Frontend::NewStub(const std::shared_ptr< ::grpc
 
 Frontend::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_ListProcess_(Frontend_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_KillProcess_(Frontend_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Frontend::Stub::ListProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::ListProcessRequest& request, ::greptime::v1::frontend::ListProcessResponse* response) {
@@ -60,6 +62,29 @@ void Frontend::Stub::async::ListProcess(::grpc::ClientContext* context, const ::
   return result;
 }
 
+::grpc::Status Frontend::Stub::KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::greptime::v1::frontend::KillProcessResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_KillProcess_, context, request, response);
+}
+
+void Frontend::Stub::async::KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_KillProcess_, context, request, response, std::move(f));
+}
+
+void Frontend::Stub::async::KillProcess(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_KillProcess_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>* Frontend::Stub::PrepareAsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::frontend::KillProcessResponse, ::greptime::v1::frontend::KillProcessRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_KillProcess_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::frontend::KillProcessResponse>* Frontend::Stub::AsyncKillProcessRaw(::grpc::ClientContext* context, const ::greptime::v1::frontend::KillProcessRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncKillProcessRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Frontend::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Frontend_method_names[0],
@@ -71,12 +96,29 @@ Frontend::Service::Service() {
              ::greptime::v1::frontend::ListProcessResponse* resp) {
                return service->ListProcess(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Frontend_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Frontend::Service, ::greptime::v1::frontend::KillProcessRequest, ::greptime::v1::frontend::KillProcessResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Frontend::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::greptime::v1::frontend::KillProcessRequest* req,
+             ::greptime::v1::frontend::KillProcessResponse* resp) {
+               return service->KillProcess(ctx, req, resp);
+             }, this)));
 }
 
 Frontend::Service::~Service() {
 }
 
 ::grpc::Status Frontend::Service::ListProcess(::grpc::ServerContext* context, const ::greptime::v1::frontend::ListProcessRequest* request, ::greptime::v1::frontend::ListProcessResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Frontend::Service::KillProcess(::grpc::ServerContext* context, const ::greptime::v1::frontend::KillProcessRequest* request, ::greptime::v1::frontend::KillProcessResponse* response) {
   (void) context;
   (void) request;
   (void) response;
