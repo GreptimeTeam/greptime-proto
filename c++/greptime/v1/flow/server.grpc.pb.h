@@ -70,6 +70,13 @@ class Flow final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>> PrepareAsyncHandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>>(PrepareAsyncHandleMirrorRequestRaw(context, request, cq));
     }
+    virtual ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::greptime::v1::flow::FlowResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>> AsyncHandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>>(AsyncHandleMarkDirtyTimeWindowRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>> PrepareAsyncHandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>>(PrepareAsyncHandleMarkDirtyTimeWindowRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -81,6 +88,8 @@ class Flow final {
       // `DeleteRequests` other types of `RegionRequest` will be ignored
       virtual void HandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void HandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -90,6 +99,8 @@ class Flow final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleCreateRemoveRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::FlowRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>* AsyncHandleMirrorRequestRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleMirrorRequestRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>* AsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -108,6 +119,13 @@ class Flow final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>> PrepareAsyncHandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>>(PrepareAsyncHandleMirrorRequestRaw(context, request, cq));
     }
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::greptime::v1::flow::FlowResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>> AsyncHandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>>(AsyncHandleMarkDirtyTimeWindowRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>> PrepareAsyncHandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>>(PrepareAsyncHandleMarkDirtyTimeWindowRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -115,6 +133,8 @@ class Flow final {
       void HandleCreateRemove(::grpc::ClientContext* context, const ::greptime::v1::flow::FlowRequest* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void HandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response, std::function<void(::grpc::Status)>) override;
       void HandleMirrorRequest(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, std::function<void(::grpc::Status)>) override;
+      void HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -130,8 +150,11 @@ class Flow final {
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleCreateRemoveRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::FlowRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* AsyncHandleMirrorRequestRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleMirrorRequestRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::InsertRequests& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* AsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* PrepareAsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_HandleCreateRemove_;
     const ::grpc::internal::RpcMethod rpcmethod_HandleMirrorRequest_;
+    const ::grpc::internal::RpcMethod rpcmethod_HandleMarkDirtyTimeWindow_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -145,6 +168,7 @@ class Flow final {
     // only expect `RegionRequest` to be one of `InsertRequests` or
     // `DeleteRequests` other types of `RegionRequest` will be ignored
     virtual ::grpc::Status HandleMirrorRequest(::grpc::ServerContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response);
+    virtual ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_HandleCreateRemove : public BaseClass {
@@ -186,7 +210,27 @@ class Flow final {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_HandleCreateRemove<WithAsyncMethod_HandleMirrorRequest<Service > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestHandleMarkDirtyTimeWindow(::grpc::ServerContext* context, ::greptime::v1::flow::DirtyWindowRequests* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::flow::FlowResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_HandleCreateRemove<WithAsyncMethod_HandleMirrorRequest<WithAsyncMethod_HandleMarkDirtyTimeWindow<Service > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_HandleCreateRemove : public BaseClass {
    private:
@@ -241,7 +285,34 @@ class Flow final {
     virtual ::grpc::ServerUnaryReactor* HandleMirrorRequest(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::flow::InsertRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_HandleCreateRemove<WithCallbackMethod_HandleMirrorRequest<Service > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response) { return this->HandleMarkDirtyTimeWindow(context, request, response); }));}
+    void SetMessageAllocatorFor_HandleMarkDirtyTimeWindow(
+        ::grpc::MessageAllocator< ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* HandleMarkDirtyTimeWindow(
+      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_HandleCreateRemove<WithCallbackMethod_HandleMirrorRequest<WithCallbackMethod_HandleMarkDirtyTimeWindow<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_HandleCreateRemove : public BaseClass {
@@ -273,6 +344,23 @@ class Flow final {
     }
     // disable synchronous version of this method
     ::grpc::Status HandleMirrorRequest(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::InsertRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -318,6 +406,26 @@ class Flow final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestHandleMarkDirtyTimeWindow(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_HandleCreateRemove : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -359,6 +467,28 @@ class Flow final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* HandleMirrorRequest(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->HandleMarkDirtyTimeWindow(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* HandleMarkDirtyTimeWindow(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -415,9 +545,36 @@ class Flow final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedHandleMirrorRequest(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::flow::InsertRequests,::greptime::v1::flow::FlowResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_HandleCreateRemove<WithStreamedUnaryMethod_HandleMirrorRequest<Service > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_HandleMarkDirtyTimeWindow : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_HandleMarkDirtyTimeWindow() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse>* streamer) {
+                       return this->StreamedHandleMarkDirtyTimeWindow(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_HandleMarkDirtyTimeWindow() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status HandleMarkDirtyTimeWindow(::grpc::ServerContext* /*context*/, const ::greptime::v1::flow::DirtyWindowRequests* /*request*/, ::greptime::v1::flow::FlowResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedHandleMarkDirtyTimeWindow(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::flow::DirtyWindowRequests,::greptime::v1::flow::FlowResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_HandleCreateRemove<WithStreamedUnaryMethod_HandleMirrorRequest<WithStreamedUnaryMethod_HandleMarkDirtyTimeWindow<Service > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_HandleCreateRemove<WithStreamedUnaryMethod_HandleMirrorRequest<Service > > StreamedService;
+  typedef WithStreamedUnaryMethod_HandleCreateRemove<WithStreamedUnaryMethod_HandleMirrorRequest<WithStreamedUnaryMethod_HandleMarkDirtyTimeWindow<Service > > > StreamedService;
 };
 
 }  // namespace flow
