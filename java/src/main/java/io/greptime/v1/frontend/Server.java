@@ -1428,10 +1428,10 @@ public final class Server {
      * ID of process to kill.
      * </pre>
      *
-     * <code>uint64 process_id = 3;</code>
+     * <code>uint32 process_id = 3;</code>
      * @return The processId.
      */
-    long getProcessId();
+    int getProcessId();
   }
   /**
    * Protobuf type {@code greptime.v1.frontend.KillProcessRequest}
@@ -1494,7 +1494,7 @@ public final class Server {
             }
             case 24: {
 
-              processId_ = input.readUInt64();
+              processId_ = input.readUInt32();
               break;
             }
             default: {
@@ -1624,17 +1624,17 @@ public final class Server {
     }
 
     public static final int PROCESS_ID_FIELD_NUMBER = 3;
-    private long processId_;
+    private int processId_;
     /**
      * <pre>
      * ID of process to kill.
      * </pre>
      *
-     * <code>uint64 process_id = 3;</code>
+     * <code>uint32 process_id = 3;</code>
      * @return The processId.
      */
     @java.lang.Override
-    public long getProcessId() {
+    public int getProcessId() {
       return processId_;
     }
 
@@ -1658,8 +1658,8 @@ public final class Server {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, catalog_);
       }
-      if (processId_ != 0L) {
-        output.writeUInt64(3, processId_);
+      if (processId_ != 0) {
+        output.writeUInt32(3, processId_);
       }
       unknownFields.writeTo(output);
     }
@@ -1676,9 +1676,9 @@ public final class Server {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, catalog_);
       }
-      if (processId_ != 0L) {
+      if (processId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, processId_);
+          .computeUInt32Size(3, processId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1717,8 +1717,7 @@ public final class Server {
       hash = (37 * hash) + CATALOG_FIELD_NUMBER;
       hash = (53 * hash) + getCatalog().hashCode();
       hash = (37 * hash) + PROCESS_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getProcessId());
+      hash = (53 * hash) + getProcessId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1856,7 +1855,7 @@ public final class Server {
 
         catalog_ = "";
 
-        processId_ = 0L;
+        processId_ = 0;
 
         return this;
       }
@@ -1943,7 +1942,7 @@ public final class Server {
           catalog_ = other.catalog_;
           onChanged();
         }
-        if (other.getProcessId() != 0L) {
+        if (other.getProcessId() != 0) {
           setProcessId(other.getProcessId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2167,17 +2166,17 @@ public final class Server {
         return this;
       }
 
-      private long processId_ ;
+      private int processId_ ;
       /**
        * <pre>
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 3;</code>
+       * <code>uint32 process_id = 3;</code>
        * @return The processId.
        */
       @java.lang.Override
-      public long getProcessId() {
+      public int getProcessId() {
         return processId_;
       }
       /**
@@ -2185,11 +2184,11 @@ public final class Server {
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 3;</code>
+       * <code>uint32 process_id = 3;</code>
        * @param value The processId to set.
        * @return This builder for chaining.
        */
-      public Builder setProcessId(long value) {
+      public Builder setProcessId(int value) {
         
         processId_ = value;
         onChanged();
@@ -2200,12 +2199,12 @@ public final class Server {
        * ID of process to kill.
        * </pre>
        *
-       * <code>uint64 process_id = 3;</code>
+       * <code>uint32 process_id = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearProcessId() {
         
-        processId_ = 0L;
+        processId_ = 0;
         onChanged();
         return this;
       }
@@ -4446,7 +4445,7 @@ public final class Server {
       "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten" +
       "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s" +
       "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro" +
-      "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007" +
+      "cess_id\030\003 \001(\r\"&\n\023KillProcessResponse\022\017\n\007" +
       "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001(" +
       "\r\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q" +
       "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c" +

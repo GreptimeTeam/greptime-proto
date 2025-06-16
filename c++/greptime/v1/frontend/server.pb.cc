@@ -53,7 +53,7 @@ PROTOBUF_CONSTEXPR KillProcessRequest::KillProcessRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.server_addr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.process_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.process_id_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct KillProcessRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR KillProcessRequestDefaultTypeInternal()
@@ -171,7 +171,7 @@ const char descriptor_table_protodef_greptime_2fv1_2ffrontend_2fserver_2eproto[]
   "4\n\tprocesses\030\001 \003(\0132!.greptime.v1.fronten"
   "d.ProcessInfo\"N\n\022KillProcessRequest\022\023\n\013s"
   "erver_addr\030\001 \001(\t\022\017\n\007catalog\030\002 \001(\t\022\022\n\npro"
-  "cess_id\030\003 \001(\004\"&\n\023KillProcessResponse\022\017\n\007"
+  "cess_id\030\003 \001(\r\"&\n\023KillProcessResponse\022\017\n\007"
   "success\030\001 \001(\010\"\205\001\n\013ProcessInfo\022\n\n\002id\030\001 \001("
   "\r\022\017\n\007catalog\030\002 \001(\t\022\017\n\007schemas\030\003 \003(\t\022\r\n\005q"
   "uery\030\004 \001(\t\022\027\n\017start_timestamp\030\005 \001(\003\022\016\n\006c"
@@ -641,7 +641,7 @@ inline void KillProcessRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.server_addr_){}
     , decltype(_impl_.catalog_){}
-    , decltype(_impl_.process_id_){uint64_t{0u}}
+    , decltype(_impl_.process_id_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.server_addr_.InitDefault();
@@ -681,7 +681,7 @@ void KillProcessRequest::Clear() {
 
   _impl_.server_addr_.ClearToEmpty();
   _impl_.catalog_.ClearToEmpty();
-  _impl_.process_id_ = uint64_t{0u};
+  _impl_.process_id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -711,10 +711,10 @@ const char* KillProcessRequest::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
-      // uint64 process_id = 3;
+      // uint32 process_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.process_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.process_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -768,10 +768,10 @@ uint8_t* KillProcessRequest::_InternalSerialize(
         2, this->_internal_catalog(), target);
   }
 
-  // uint64 process_id = 3;
+  // uint32 process_id = 3;
   if (this->_internal_process_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_process_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_process_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -804,9 +804,9 @@ size_t KillProcessRequest::ByteSizeLong() const {
         this->_internal_catalog());
   }
 
-  // uint64 process_id = 3;
+  // uint32 process_id = 3;
   if (this->_internal_process_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_process_id());
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_process_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
