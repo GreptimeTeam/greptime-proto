@@ -842,9 +842,8 @@ class ProcessInfo final :
     kQueryFieldNumber = 4,
     kClientFieldNumber = 6,
     kFrontendFieldNumber = 7,
-    kIdFieldNumber = 1,
     kStartTimestampFieldNumber = 5,
-    kConnectionIdFieldNumber = 8,
+    kIdFieldNumber = 1,
   };
   // repeated string schemas = 3;
   int schemas_size() const;
@@ -926,15 +925,6 @@ class ProcessInfo final :
   std::string* _internal_mutable_frontend();
   public:
 
-  // uint64 id = 1;
-  void clear_id();
-  uint64_t id() const;
-  void set_id(uint64_t value);
-  private:
-  uint64_t _internal_id() const;
-  void _internal_set_id(uint64_t value);
-  public:
-
   // int64 start_timestamp = 5;
   void clear_start_timestamp();
   int64_t start_timestamp() const;
@@ -944,13 +934,13 @@ class ProcessInfo final :
   void _internal_set_start_timestamp(int64_t value);
   public:
 
-  // uint32 connection_id = 8;
-  void clear_connection_id();
-  uint32_t connection_id() const;
-  void set_connection_id(uint32_t value);
+  // uint32 id = 1;
+  void clear_id();
+  uint32_t id() const;
+  void set_id(uint32_t value);
   private:
-  uint32_t _internal_connection_id() const;
-  void _internal_set_connection_id(uint32_t value);
+  uint32_t _internal_id() const;
+  void _internal_set_id(uint32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.frontend.ProcessInfo)
@@ -966,9 +956,8 @@ class ProcessInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr client_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr frontend_;
-    uint64_t id_;
     int64_t start_timestamp_;
-    uint32_t connection_id_;
+    uint32_t id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1231,22 +1220,22 @@ inline void KillProcessResponse::set_success(bool value) {
 
 // ProcessInfo
 
-// uint64 id = 1;
+// uint32 id = 1;
 inline void ProcessInfo::clear_id() {
-  _impl_.id_ = uint64_t{0u};
+  _impl_.id_ = 0u;
 }
-inline uint64_t ProcessInfo::_internal_id() const {
+inline uint32_t ProcessInfo::_internal_id() const {
   return _impl_.id_;
 }
-inline uint64_t ProcessInfo::id() const {
+inline uint32_t ProcessInfo::id() const {
   // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.id)
   return _internal_id();
 }
-inline void ProcessInfo::_internal_set_id(uint64_t value) {
+inline void ProcessInfo::_internal_set_id(uint32_t value) {
   
   _impl_.id_ = value;
 }
-inline void ProcessInfo::set_id(uint64_t value) {
+inline void ProcessInfo::set_id(uint32_t value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.id)
 }
@@ -1544,26 +1533,6 @@ inline void ProcessInfo::set_allocated_frontend(std::string* frontend) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.frontend.ProcessInfo.frontend)
-}
-
-// uint32 connection_id = 8;
-inline void ProcessInfo::clear_connection_id() {
-  _impl_.connection_id_ = 0u;
-}
-inline uint32_t ProcessInfo::_internal_connection_id() const {
-  return _impl_.connection_id_;
-}
-inline uint32_t ProcessInfo::connection_id() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.frontend.ProcessInfo.connection_id)
-  return _internal_connection_id();
-}
-inline void ProcessInfo::_internal_set_connection_id(uint32_t value) {
-  
-  _impl_.connection_id_ = value;
-}
-inline void ProcessInfo::set_connection_id(uint32_t value) {
-  _internal_set_connection_id(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.frontend.ProcessInfo.connection_id)
 }
 
 #ifdef __GNUC__

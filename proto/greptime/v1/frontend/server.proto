@@ -51,7 +51,7 @@ message KillProcessResponse {
 
 message ProcessInfo {
   // ID.
-  uint64 id = 1;
+  uint32 id = 1;
   // Catalog of process.
   string catalog = 2;
   // Involved schemas.
@@ -64,6 +64,4 @@ message ProcessInfo {
   string client = 6;
   // Frontend info of process.
   string frontend = 7;
-  // Client connection id.
-  uint32 connection_id = 8;
 }
