@@ -26,6 +26,7 @@ namespace flow {
 static const char* Flow_method_names[] = {
   "/greptime.v1.flow.Flow/HandleCreateRemove",
   "/greptime.v1.flow.Flow/HandleMirrorRequest",
+  "/greptime.v1.flow.Flow/HandleMarkDirtyTimeWindow",
 };
 
 std::unique_ptr< Flow::Stub> Flow::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,6 +38,7 @@ std::unique_ptr< Flow::Stub> Flow::NewStub(const std::shared_ptr< ::grpc::Channe
 Flow::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_HandleCreateRemove_(Flow_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_HandleMirrorRequest_(Flow_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_HandleMarkDirtyTimeWindow_(Flow_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Flow::Stub::HandleCreateRemove(::grpc::ClientContext* context, const ::greptime::v1::flow::FlowRequest& request, ::greptime::v1::flow::FlowResponse* response) {
@@ -85,6 +87,29 @@ void Flow::Stub::async::HandleMirrorRequest(::grpc::ClientContext* context, cons
   return result;
 }
 
+::grpc::Status Flow::Stub::HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::greptime::v1::flow::FlowResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_HandleMarkDirtyTimeWindow_, context, request, response);
+}
+
+void Flow::Stub::async::HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_HandleMarkDirtyTimeWindow_, context, request, response, std::move(f));
+}
+
+void Flow::Stub::async::HandleMarkDirtyTimeWindow(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_HandleMarkDirtyTimeWindow_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* Flow::Stub::PrepareAsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::flow::FlowResponse, ::greptime::v1::flow::DirtyWindowRequests, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_HandleMarkDirtyTimeWindow_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::flow::FlowResponse>* Flow::Stub::AsyncHandleMarkDirtyTimeWindowRaw(::grpc::ClientContext* context, const ::greptime::v1::flow::DirtyWindowRequests& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncHandleMarkDirtyTimeWindowRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Flow::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Flow_method_names[0],
@@ -106,6 +131,16 @@ Flow::Service::Service() {
              ::greptime::v1::flow::FlowResponse* resp) {
                return service->HandleMirrorRequest(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Flow_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Flow::Service, ::greptime::v1::flow::DirtyWindowRequests, ::greptime::v1::flow::FlowResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Flow::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::greptime::v1::flow::DirtyWindowRequests* req,
+             ::greptime::v1::flow::FlowResponse* resp) {
+               return service->HandleMarkDirtyTimeWindow(ctx, req, resp);
+             }, this)));
 }
 
 Flow::Service::~Service() {
@@ -119,6 +154,13 @@ Flow::Service::~Service() {
 }
 
 ::grpc::Status Flow::Service::HandleMirrorRequest(::grpc::ServerContext* context, const ::greptime::v1::flow::InsertRequests* request, ::greptime::v1::flow::FlowResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Flow::Service::HandleMarkDirtyTimeWindow(::grpc::ServerContext* context, const ::greptime::v1::flow::DirtyWindowRequests* request, ::greptime::v1::flow::FlowResponse* response) {
   (void) context;
   (void) request;
   (void) response;
