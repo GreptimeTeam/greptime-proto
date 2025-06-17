@@ -3326,6 +3326,7 @@ class AlterRequest final :
     kUnsetTableOptions = 9,
     kSetIndex = 10,
     kUnsetIndex = 11,
+    kDropDefaults = 12,
     KIND_NOT_SET = 0,
   };
 
@@ -3416,6 +3417,7 @@ class AlterRequest final :
     kUnsetTableOptionsFieldNumber = 9,
     kSetIndexFieldNumber = 10,
     kUnsetIndexFieldNumber = 11,
+    kDropDefaultsFieldNumber = 12,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -3561,6 +3563,24 @@ class AlterRequest final :
       ::greptime::v1::UnsetIndex* unset_index);
   ::greptime::v1::UnsetIndex* unsafe_arena_release_unset_index();
 
+  // .greptime.v1.DropDefaults drop_defaults = 12;
+  bool has_drop_defaults() const;
+  private:
+  bool _internal_has_drop_defaults() const;
+  public:
+  void clear_drop_defaults();
+  const ::greptime::v1::DropDefaults& drop_defaults() const;
+  PROTOBUF_NODISCARD ::greptime::v1::DropDefaults* release_drop_defaults();
+  ::greptime::v1::DropDefaults* mutable_drop_defaults();
+  void set_allocated_drop_defaults(::greptime::v1::DropDefaults* drop_defaults);
+  private:
+  const ::greptime::v1::DropDefaults& _internal_drop_defaults() const;
+  ::greptime::v1::DropDefaults* _internal_mutable_drop_defaults();
+  public:
+  void unsafe_arena_set_allocated_drop_defaults(
+      ::greptime::v1::DropDefaults* drop_defaults);
+  ::greptime::v1::DropDefaults* unsafe_arena_release_drop_defaults();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.AlterRequest)
@@ -3573,6 +3593,7 @@ class AlterRequest final :
   void set_has_unset_table_options();
   void set_has_set_index();
   void set_has_unset_index();
+  void set_has_drop_defaults();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -3593,6 +3614,7 @@ class AlterRequest final :
       ::greptime::v1::UnsetTableOptions* unset_table_options_;
       ::greptime::v1::SetIndex* set_index_;
       ::greptime::v1::UnsetIndex* unset_index_;
+      ::greptime::v1::DropDefaults* drop_defaults_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -8977,6 +8999,72 @@ inline ::greptime::v1::UnsetIndex* AlterRequest::_internal_mutable_unset_index()
 inline ::greptime::v1::UnsetIndex* AlterRequest::mutable_unset_index() {
   ::greptime::v1::UnsetIndex* _msg = _internal_mutable_unset_index();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.unset_index)
+  return _msg;
+}
+
+// .greptime.v1.DropDefaults drop_defaults = 12;
+inline bool AlterRequest::_internal_has_drop_defaults() const {
+  return kind_case() == kDropDefaults;
+}
+inline bool AlterRequest::has_drop_defaults() const {
+  return _internal_has_drop_defaults();
+}
+inline void AlterRequest::set_has_drop_defaults() {
+  _impl_._oneof_case_[0] = kDropDefaults;
+}
+inline ::greptime::v1::DropDefaults* AlterRequest::release_drop_defaults() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.drop_defaults)
+  if (_internal_has_drop_defaults()) {
+    clear_has_kind();
+    ::greptime::v1::DropDefaults* temp = _impl_.kind_.drop_defaults_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.drop_defaults_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::DropDefaults& AlterRequest::_internal_drop_defaults() const {
+  return _internal_has_drop_defaults()
+      ? *_impl_.kind_.drop_defaults_
+      : reinterpret_cast< ::greptime::v1::DropDefaults&>(::greptime::v1::_DropDefaults_default_instance_);
+}
+inline const ::greptime::v1::DropDefaults& AlterRequest::drop_defaults() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.drop_defaults)
+  return _internal_drop_defaults();
+}
+inline ::greptime::v1::DropDefaults* AlterRequest::unsafe_arena_release_drop_defaults() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.drop_defaults)
+  if (_internal_has_drop_defaults()) {
+    clear_has_kind();
+    ::greptime::v1::DropDefaults* temp = _impl_.kind_.drop_defaults_;
+    _impl_.kind_.drop_defaults_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_drop_defaults(::greptime::v1::DropDefaults* drop_defaults) {
+  clear_kind();
+  if (drop_defaults) {
+    set_has_drop_defaults();
+    _impl_.kind_.drop_defaults_ = drop_defaults;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.drop_defaults)
+}
+inline ::greptime::v1::DropDefaults* AlterRequest::_internal_mutable_drop_defaults() {
+  if (!_internal_has_drop_defaults()) {
+    clear_kind();
+    set_has_drop_defaults();
+    _impl_.kind_.drop_defaults_ = CreateMaybeMessage< ::greptime::v1::DropDefaults >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.drop_defaults_;
+}
+inline ::greptime::v1::DropDefaults* AlterRequest::mutable_drop_defaults() {
+  ::greptime::v1::DropDefaults* _msg = _internal_mutable_drop_defaults();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.drop_defaults)
   return _msg;
 }
 

@@ -17055,6 +17055,21 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.UnsetIndexOrBuilder getUnsetIndexOrBuilder();
 
     /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     * @return Whether the dropDefaults field is set.
+     */
+    boolean hasDropDefaults();
+    /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     * @return The dropDefaults.
+     */
+    io.greptime.v1.Ddl.DropDefaults getDropDefaults();
+    /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     */
+    io.greptime.v1.Ddl.DropDefaultsOrBuilder getDropDefaultsOrBuilder();
+
+    /**
      * <pre>
      * The version of the schema before applying the alteration.
      * </pre>
@@ -17219,6 +17234,20 @@ java.lang.String defaultValue);
               kindCase_ = 11;
               break;
             }
+            case 98: {
+              io.greptime.v1.Ddl.DropDefaults.Builder subBuilder = null;
+              if (kindCase_ == 12) {
+                subBuilder = ((io.greptime.v1.Ddl.DropDefaults) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.DropDefaults.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.DropDefaults) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 12;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -17265,6 +17294,7 @@ java.lang.String defaultValue);
       UNSET_TABLE_OPTIONS(9),
       SET_INDEX(10),
       UNSET_INDEX(11),
+      DROP_DEFAULTS(12),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -17289,6 +17319,7 @@ java.lang.String defaultValue);
           case 9: return UNSET_TABLE_OPTIONS;
           case 10: return SET_INDEX;
           case 11: return UNSET_INDEX;
+          case 12: return DROP_DEFAULTS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -17532,6 +17563,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.UnsetIndex.getDefaultInstance();
     }
 
+    public static final int DROP_DEFAULTS_FIELD_NUMBER = 12;
+    /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     * @return Whether the dropDefaults field is set.
+     */
+    @java.lang.Override
+    public boolean hasDropDefaults() {
+      return kindCase_ == 12;
+    }
+    /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     * @return The dropDefaults.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropDefaults getDropDefaults() {
+      if (kindCase_ == 12) {
+         return (io.greptime.v1.Ddl.DropDefaults) kind_;
+      }
+      return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.DropDefaultsOrBuilder getDropDefaultsOrBuilder() {
+      if (kindCase_ == 12) {
+         return (io.greptime.v1.Ddl.DropDefaults) kind_;
+      }
+      return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+    }
+
     public static final int SCHEMA_VERSION_FIELD_NUMBER = 4;
     private long schemaVersion_;
     /**
@@ -17588,6 +17650,9 @@ java.lang.String defaultValue);
       if (kindCase_ == 11) {
         output.writeMessage(11, (io.greptime.v1.Ddl.UnsetIndex) kind_);
       }
+      if (kindCase_ == 12) {
+        output.writeMessage(12, (io.greptime.v1.Ddl.DropDefaults) kind_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -17632,6 +17697,10 @@ java.lang.String defaultValue);
       if (kindCase_ == 11) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, (io.greptime.v1.Ddl.UnsetIndex) kind_);
+      }
+      if (kindCase_ == 12) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, (io.greptime.v1.Ddl.DropDefaults) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17682,6 +17751,10 @@ java.lang.String defaultValue);
           if (!getUnsetIndex()
               .equals(other.getUnsetIndex())) return false;
           break;
+        case 12:
+          if (!getDropDefaults()
+              .equals(other.getDropDefaults())) return false;
+          break;
         case 0:
         default:
       }
@@ -17730,6 +17803,10 @@ java.lang.String defaultValue);
         case 11:
           hash = (37 * hash) + UNSET_INDEX_FIELD_NUMBER;
           hash = (53 * hash) + getUnsetIndex().hashCode();
+          break;
+        case 12:
+          hash = (37 * hash) + DROP_DEFAULTS_FIELD_NUMBER;
+          hash = (53 * hash) + getDropDefaults().hashCode();
           break;
         case 0:
         default:
@@ -17949,6 +18026,13 @@ java.lang.String defaultValue);
             result.kind_ = unsetIndexBuilder_.build();
           }
         }
+        if (kindCase_ == 12) {
+          if (dropDefaultsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = dropDefaultsBuilder_.build();
+          }
+        }
         result.schemaVersion_ = schemaVersion_;
         result.kindCase_ = kindCase_;
         onBuilt();
@@ -18032,6 +18116,10 @@ java.lang.String defaultValue);
           }
           case UNSET_INDEX: {
             mergeUnsetIndex(other.getUnsetIndex());
+            break;
+          }
+          case DROP_DEFAULTS: {
+            mergeDropDefaults(other.getDropDefaults());
             break;
           }
           case KIND_NOT_SET: {
@@ -19105,6 +19193,148 @@ java.lang.String defaultValue);
         kindCase_ = 11;
         onChanged();;
         return unsetIndexBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropDefaults, io.greptime.v1.Ddl.DropDefaults.Builder, io.greptime.v1.Ddl.DropDefaultsOrBuilder> dropDefaultsBuilder_;
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       * @return Whether the dropDefaults field is set.
+       */
+      @java.lang.Override
+      public boolean hasDropDefaults() {
+        return kindCase_ == 12;
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       * @return The dropDefaults.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropDefaults getDropDefaults() {
+        if (dropDefaultsBuilder_ == null) {
+          if (kindCase_ == 12) {
+            return (io.greptime.v1.Ddl.DropDefaults) kind_;
+          }
+          return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+        } else {
+          if (kindCase_ == 12) {
+            return dropDefaultsBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      public Builder setDropDefaults(io.greptime.v1.Ddl.DropDefaults value) {
+        if (dropDefaultsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          dropDefaultsBuilder_.setMessage(value);
+        }
+        kindCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      public Builder setDropDefaults(
+          io.greptime.v1.Ddl.DropDefaults.Builder builderForValue) {
+        if (dropDefaultsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          dropDefaultsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      public Builder mergeDropDefaults(io.greptime.v1.Ddl.DropDefaults value) {
+        if (dropDefaultsBuilder_ == null) {
+          if (kindCase_ == 12 &&
+              kind_ != io.greptime.v1.Ddl.DropDefaults.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.DropDefaults.newBuilder((io.greptime.v1.Ddl.DropDefaults) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 12) {
+            dropDefaultsBuilder_.mergeFrom(value);
+          } else {
+            dropDefaultsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 12;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      public Builder clearDropDefaults() {
+        if (dropDefaultsBuilder_ == null) {
+          if (kindCase_ == 12) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 12) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          dropDefaultsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      public io.greptime.v1.Ddl.DropDefaults.Builder getDropDefaultsBuilder() {
+        return getDropDefaultsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.DropDefaultsOrBuilder getDropDefaultsOrBuilder() {
+        if ((kindCase_ == 12) && (dropDefaultsBuilder_ != null)) {
+          return dropDefaultsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 12) {
+            return (io.greptime.v1.Ddl.DropDefaults) kind_;
+          }
+          return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.DropDefaults, io.greptime.v1.Ddl.DropDefaults.Builder, io.greptime.v1.Ddl.DropDefaultsOrBuilder> 
+          getDropDefaultsFieldBuilder() {
+        if (dropDefaultsBuilder_ == null) {
+          if (!(kindCase_ == 12)) {
+            kind_ = io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+          }
+          dropDefaultsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.DropDefaults, io.greptime.v1.Ddl.DropDefaults.Builder, io.greptime.v1.Ddl.DropDefaultsOrBuilder>(
+                  (io.greptime.v1.Ddl.DropDefaults) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 12;
+        onChanged();;
+        return dropDefaultsBuilder_;
       }
 
       private long schemaVersion_ ;
@@ -28968,7 +29198,7 @@ java.lang.String defaultValue);
       "\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\treg" +
       "ion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010request" +
       "s\030\001 \003(\0132 .greptime.v1.region.AlterReques" +
-      "t\"\306\003\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
+      "t\"\372\003\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
       "\013add_columns\030\002 \001(\0132\036.greptime.v1.region." +
       "AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gre" +
       "ptime.v1.region.DropColumnsH\000\022=\n\023modify_" +
@@ -28978,39 +29208,41 @@ java.lang.String defaultValue);
       "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
       "TableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grep" +
       "time.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132" +
-      "\027.greptime.v1.UnsetIndexH\000\022\026\n\016schema_ver" +
-      "sion\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_" +
-      "columns\030\001 \003(\0132\035.greptime.v1.region.AddCo" +
-      "lumn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(" +
-      "\0132\036.greptime.v1.region.DropColumn\"v\n\tAdd" +
-      "Column\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1" +
-      ".region.RegionColumnDef\0220\n\010location\030\003 \001(" +
-      "\0132\036.greptime.v1.AddColumnLocation\"\032\n\nDro" +
-      "pColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWin" +
-      "dow\022\026\n\016window_seconds\030\001 \001(\003\"\231\001\n\016CompactR" +
-      "equest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001" +
-      "(\0132\033.greptime.v1.region.RegularH\000\0229\n\rstr" +
-      "ict_window\030\003 \001(\0132 .greptime.v1.region.St" +
-      "rictWindowH\000B\t\n\007options\"$\n\017TruncateReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef" +
-      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
-      "nDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001" +
-      "(\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020M" +
-      "itoManifestInfo\022\035\n\025data_manifest_version" +
-      "\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_man" +
-      "ifest_version\030\001 \001(\004\022!\n\031metadata_manifest" +
-      "_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion" +
-      "_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$." +
-      "greptime.v1.region.MitoManifestInfoH\000\022F\n" +
-      "\024metric_manifest_info\030\003 \001(\0132&.greptime.v" +
-      "1.region.MetricManifestInfoH\000B\017\n\rmanifes" +
-      "t_info2Y\n\006Region\022O\n\006Handle\022!.greptime.v1" +
-      ".region.RegionRequest\032\".greptime.v1.regi" +
-      "on.RegionResponseB]\n\025io.greptime.v1.regi" +
-      "onB\006ServerZ<github.com/GreptimeTeam/grep" +
-      "time-proto/go/greptime/v1/regionb\006proto3"
+      "\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defau" +
+      "lts\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022\026" +
+      "\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddCol" +
+      "umns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1." +
+      "region.AddColumn\"C\n\013DropColumns\0224\n\014drop_" +
+      "columns\030\001 \003(\0132\036.greptime.v1.region.DropC" +
+      "olumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#" +
+      ".greptime.v1.region.RegionColumnDef\0220\n\010l" +
+      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
+      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flu" +
+      "shRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"" +
+      "&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"" +
+      "\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n" +
+      "\007regular\030\002 \001(\0132\033.greptime.v1.region.Regu" +
+      "larH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime." +
+      "v1.region.StrictWindowH\000B\t\n\007options\"$\n\017T" +
+      "runcateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Reg" +
+      "ionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grept" +
+      "ime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021B" +
+      "ulkInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\ta" +
+      "rrow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000B" +
+      "\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025data_mani" +
+      "fest_version\030\001 \001(\004\"V\n\022MetricManifestInfo" +
+      "\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031metad" +
+      "ata_manifest_version\030\002 \001(\004\"\275\001\n\013SyncReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_i" +
+      "nfo\030\002 \001(\0132$.greptime.v1.region.MitoManif" +
+      "estInfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132" +
+      "&.greptime.v1.region.MetricManifestInfoH" +
+      "\000B\017\n\rmanifest_info2Y\n\006Region\022O\n\006Handle\022!" +
+      ".greptime.v1.region.RegionRequest\032\".grep" +
+      "time.v1.region.RegionResponseB]\n\025io.grep" +
+      "time.v1.regionB\006ServerZ<github.com/Grept" +
+      "imeTeam/greptime-proto/go/greptime/v1/re" +
+      "gionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -29138,7 +29370,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlterRequest_descriptor,
-        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "SchemaVersion", "Kind", });
+        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SchemaVersion", "Kind", });
     internal_static_greptime_v1_region_AddColumns_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_AddColumns_fieldAccessorTable = new

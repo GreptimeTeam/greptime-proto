@@ -114,7 +114,12 @@ message AlterTableExpr {
     UnsetTableOptions unset_table_options = 11;
     SetIndex set_index = 12;
     UnsetIndex unset_index = 13;
+    DropDefaults drop_defaults = 14;
   }
+}
+
+message DropDefault {
+  string column_name = 1;
 }
 
 message SetIndex {
@@ -163,6 +168,10 @@ message DropDatabaseExpr {
 
 message AddColumns {
   repeated AddColumn add_columns = 1;
+}
+
+message DropDefaults {
+  repeated DropDefault drop_defaults = 1;
 }
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
