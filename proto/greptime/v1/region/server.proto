@@ -55,6 +55,7 @@ message RegionRequest {
     AlterRequests alters = 15;
     BulkInsertRequest bulk_insert = 16;
     SyncRequest sync = 17;
+    ListMetadataRequest list_metadata = 18;
   }
 }
 
@@ -62,6 +63,9 @@ message RegionResponse {
   ResponseHeader header = 1;
   uint64 affected_rows = 2;
   map<string, bytes> extensions = 3;
+  // Response for ListMetadataRequest.
+  // It is a json array of region metadata.
+  bytes metadata = 4;
 }
 
 message InsertRequests { repeated InsertRequest requests = 1; }
@@ -212,4 +216,9 @@ message SyncRequest {
     MitoManifestInfo mito_manifest_info = 2;
     MetricManifestInfo metric_manifest_info = 3;
   }
+}
+
+// Get region metadatas of a list of regions.
+message ListMetadataRequest {
+  repeated uint64 region_ids = 1;
 }
