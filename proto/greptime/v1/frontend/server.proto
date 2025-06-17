@@ -41,7 +41,7 @@ message KillProcessRequest {
   // Catalog of process to kill.
   string catalog = 2;
   // ID of process to kill.
-  uint64 process_id = 3;
+  uint32 process_id = 3;
 }
 
 message KillProcessResponse {
@@ -51,7 +51,7 @@ message KillProcessResponse {
 
 message ProcessInfo {
   // ID.
-  uint64 id = 1;
+  uint32 id = 1;
   // Catalog of process.
   string catalog = 2;
   // Involved schemas.
