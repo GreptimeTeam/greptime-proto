@@ -5726,7 +5726,9 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <pre>
      * Response for ListMetadataRequest.
-     * It is a json array of region metadata.
+     * It is a json array of region metadatas.
+     * The length of the array is equal to the number of regions in the list request.
+     * The element is null if the region is not found.
      * </pre>
      *
      * <code>bytes metadata = 4;</code>
@@ -5986,7 +5988,9 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <pre>
      * Response for ListMetadataRequest.
-     * It is a json array of region metadata.
+     * It is a json array of region metadatas.
+     * The length of the array is equal to the number of regions in the list request.
+     * The element is null if the region is not found.
      * </pre>
      *
      * <code>bytes metadata = 4;</code>
@@ -6683,7 +6687,9 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Response for ListMetadataRequest.
-       * It is a json array of region metadata.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
        * </pre>
        *
        * <code>bytes metadata = 4;</code>
@@ -6696,7 +6702,9 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Response for ListMetadataRequest.
-       * It is a json array of region metadata.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
        * </pre>
        *
        * <code>bytes metadata = 4;</code>
@@ -6715,7 +6723,9 @@ com.google.protobuf.ByteString defaultValue);
       /**
        * <pre>
        * Response for ListMetadataRequest.
-       * It is a json array of region metadata.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
        * </pre>
        *
        * <code>bytes metadata = 4;</code>
