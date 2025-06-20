@@ -88,6 +88,10 @@ message CreateTriggerTask {
     CreateTriggerExpr create_trigger = 1;
 }
 
+message DropTriggerTask {
+    DropTriggerExpr drop_trigger = 1;
+}
+
 message DdlTaskRequest {
     RequestHeader header = 1;
     QueryContext query_context = 64;
@@ -108,6 +112,7 @@ message DdlTaskRequest {
         DropViewTask drop_view_task = 14;
         AlterDatabaseTask alter_database_task = 15;
         CreateTriggerTask create_trigger_task = 16;
+        DropTriggerTask drop_trigger_task = 17;
      }
 }
 

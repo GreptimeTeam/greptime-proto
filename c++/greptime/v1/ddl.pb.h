@@ -123,6 +123,9 @@ extern DropFlowExprDefaultTypeInternal _DropFlowExpr_default_instance_;
 class DropTableExpr;
 struct DropTableExprDefaultTypeInternal;
 extern DropTableExprDefaultTypeInternal _DropTableExpr_default_instance_;
+class DropTriggerExpr;
+struct DropTriggerExprDefaultTypeInternal;
+extern DropTriggerExprDefaultTypeInternal _DropTriggerExpr_default_instance_;
 class DropViewExpr;
 struct DropViewExprDefaultTypeInternal;
 extern DropViewExprDefaultTypeInternal _DropViewExpr_default_instance_;
@@ -165,6 +168,9 @@ extern SetTableOptionsDefaultTypeInternal _SetTableOptions_default_instance_;
 class TableId;
 struct TableIdDefaultTypeInternal;
 extern TableIdDefaultTypeInternal _TableId_default_instance_;
+class TriggerId;
+struct TriggerIdDefaultTypeInternal;
+extern TriggerIdDefaultTypeInternal _TriggerId_default_instance_;
 class TruncateTableExpr;
 struct TruncateTableExprDefaultTypeInternal;
 extern TruncateTableExprDefaultTypeInternal _TruncateTableExpr_default_instance_;
@@ -219,6 +225,7 @@ template<> ::greptime::v1::DropDefault* Arena::CreateMaybeMessage<::greptime::v1
 template<> ::greptime::v1::DropDefaults* Arena::CreateMaybeMessage<::greptime::v1::DropDefaults>(Arena*);
 template<> ::greptime::v1::DropFlowExpr* Arena::CreateMaybeMessage<::greptime::v1::DropFlowExpr>(Arena*);
 template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTableExpr>(Arena*);
+template<> ::greptime::v1::DropTriggerExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTriggerExpr>(Arena*);
 template<> ::greptime::v1::DropViewExpr* Arena::CreateMaybeMessage<::greptime::v1::DropViewExpr>(Arena*);
 template<> ::greptime::v1::FlowId* Arena::CreateMaybeMessage<::greptime::v1::FlowId>(Arena*);
 template<> ::greptime::v1::ModifyColumnType* Arena::CreateMaybeMessage<::greptime::v1::ModifyColumnType>(Arena*);
@@ -233,6 +240,7 @@ template<> ::greptime::v1::SetInverted* Arena::CreateMaybeMessage<::greptime::v1
 template<> ::greptime::v1::SetSkipping* Arena::CreateMaybeMessage<::greptime::v1::SetSkipping>(Arena*);
 template<> ::greptime::v1::SetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::SetTableOptions>(Arena*);
 template<> ::greptime::v1::TableId* Arena::CreateMaybeMessage<::greptime::v1::TableId>(Arena*);
+template<> ::greptime::v1::TriggerId* Arena::CreateMaybeMessage<::greptime::v1::TriggerId>(Arena*);
 template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::greptime::v1::TruncateTableExpr>(Arena*);
 template<> ::greptime::v1::UnsetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetDatabaseOptions>(Arena*);
 template<> ::greptime::v1::UnsetFulltext* Arena::CreateMaybeMessage<::greptime::v1::UnsetFulltext>(Arena*);
@@ -6060,6 +6068,154 @@ class FlowId final :
 };
 // -------------------------------------------------------------------
 
+class TriggerId final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.TriggerId) */ {
+ public:
+  inline TriggerId() : TriggerId(nullptr) {}
+  ~TriggerId() override;
+  explicit PROTOBUF_CONSTEXPR TriggerId(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TriggerId(const TriggerId& from);
+  TriggerId(TriggerId&& from) noexcept
+    : TriggerId() {
+    *this = ::std::move(from);
+  }
+
+  inline TriggerId& operator=(const TriggerId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TriggerId& operator=(TriggerId&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TriggerId& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TriggerId* internal_default_instance() {
+    return reinterpret_cast<const TriggerId*>(
+               &_TriggerId_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(TriggerId& a, TriggerId& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TriggerId* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TriggerId* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TriggerId* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TriggerId>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TriggerId& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TriggerId& from) {
+    TriggerId::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TriggerId* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.TriggerId";
+  }
+  protected:
+  explicit TriggerId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // uint32 id = 1;
+  void clear_id();
+  uint32_t id() const;
+  void set_id(uint32_t value);
+  private:
+  uint32_t _internal_id() const;
+  void _internal_set_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.TriggerId)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint32_t id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ColumnDef final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ColumnDef) */ {
  public:
@@ -6108,7 +6264,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -6366,7 +6522,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -6560,7 +6716,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -6757,7 +6913,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -6910,7 +7066,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -7063,7 +7219,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -7216,7 +7372,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -7402,7 +7558,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -7561,7 +7717,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -7783,7 +7939,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -7940,7 +8096,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -8159,7 +8315,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -8440,7 +8596,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -8653,7 +8809,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -8777,6 +8933,206 @@ class WebhookOptions final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> opts_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr url_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DropTriggerExpr final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DropTriggerExpr) */ {
+ public:
+  inline DropTriggerExpr() : DropTriggerExpr(nullptr) {}
+  ~DropTriggerExpr() override;
+  explicit PROTOBUF_CONSTEXPR DropTriggerExpr(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DropTriggerExpr(const DropTriggerExpr& from);
+  DropTriggerExpr(DropTriggerExpr&& from) noexcept
+    : DropTriggerExpr() {
+    *this = ::std::move(from);
+  }
+
+  inline DropTriggerExpr& operator=(const DropTriggerExpr& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DropTriggerExpr& operator=(DropTriggerExpr&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DropTriggerExpr& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DropTriggerExpr* internal_default_instance() {
+    return reinterpret_cast<const DropTriggerExpr*>(
+               &_DropTriggerExpr_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    48;
+
+  friend void swap(DropTriggerExpr& a, DropTriggerExpr& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DropTriggerExpr* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DropTriggerExpr* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DropTriggerExpr* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DropTriggerExpr>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DropTriggerExpr& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DropTriggerExpr& from) {
+    DropTriggerExpr::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DropTriggerExpr* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.DropTriggerExpr";
+  }
+  protected:
+  explicit DropTriggerExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kTriggerNameFieldNumber = 2,
+    kTriggerIdFieldNumber = 3,
+    kDropIfExistsFieldNumber = 4,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string trigger_name = 2;
+  void clear_trigger_name();
+  const std::string& trigger_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_trigger_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_trigger_name();
+  PROTOBUF_NODISCARD std::string* release_trigger_name();
+  void set_allocated_trigger_name(std::string* trigger_name);
+  private:
+  const std::string& _internal_trigger_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_trigger_name(const std::string& value);
+  std::string* _internal_mutable_trigger_name();
+  public:
+
+  // .greptime.v1.TriggerId trigger_id = 3;
+  bool has_trigger_id() const;
+  private:
+  bool _internal_has_trigger_id() const;
+  public:
+  void clear_trigger_id();
+  const ::greptime::v1::TriggerId& trigger_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TriggerId* release_trigger_id();
+  ::greptime::v1::TriggerId* mutable_trigger_id();
+  void set_allocated_trigger_id(::greptime::v1::TriggerId* trigger_id);
+  private:
+  const ::greptime::v1::TriggerId& _internal_trigger_id() const;
+  ::greptime::v1::TriggerId* _internal_mutable_trigger_id();
+  public:
+  void unsafe_arena_set_allocated_trigger_id(
+      ::greptime::v1::TriggerId* trigger_id);
+  ::greptime::v1::TriggerId* unsafe_arena_release_trigger_id();
+
+  // bool drop_if_exists = 4;
+  void clear_drop_if_exists();
+  bool drop_if_exists() const;
+  void set_drop_if_exists(bool value);
+  private:
+  bool _internal_drop_if_exists() const;
+  void _internal_set_drop_if_exists(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.DropTriggerExpr)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trigger_name_;
+    ::greptime::v1::TriggerId* trigger_id_;
+    bool drop_if_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -14607,6 +14963,30 @@ inline void FlowId::set_id(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// TriggerId
+
+// uint32 id = 1;
+inline void TriggerId::clear_id() {
+  _impl_.id_ = 0u;
+}
+inline uint32_t TriggerId::_internal_id() const {
+  return _impl_.id_;
+}
+inline uint32_t TriggerId::id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TriggerId.id)
+  return _internal_id();
+}
+inline void TriggerId::_internal_set_id(uint32_t value) {
+  
+  _impl_.id_ = value;
+}
+inline void TriggerId::set_id(uint32_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.TriggerId.id)
+}
+
+// -------------------------------------------------------------------
+
 // ColumnDef
 
 // string name = 1;
@@ -16429,9 +16809,227 @@ WebhookOptions::mutable_opts() {
   return _internal_mutable_opts();
 }
 
+// -------------------------------------------------------------------
+
+// DropTriggerExpr
+
+// string catalog_name = 1;
+inline void DropTriggerExpr::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& DropTriggerExpr::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropTriggerExpr.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DropTriggerExpr::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.DropTriggerExpr.catalog_name)
+}
+inline std::string* DropTriggerExpr::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropTriggerExpr.catalog_name)
+  return _s;
+}
+inline const std::string& DropTriggerExpr::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void DropTriggerExpr::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DropTriggerExpr::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DropTriggerExpr::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropTriggerExpr.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void DropTriggerExpr::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropTriggerExpr.catalog_name)
+}
+
+// string trigger_name = 2;
+inline void DropTriggerExpr::clear_trigger_name() {
+  _impl_.trigger_name_.ClearToEmpty();
+}
+inline const std::string& DropTriggerExpr::trigger_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropTriggerExpr.trigger_name)
+  return _internal_trigger_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DropTriggerExpr::set_trigger_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.trigger_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.DropTriggerExpr.trigger_name)
+}
+inline std::string* DropTriggerExpr::mutable_trigger_name() {
+  std::string* _s = _internal_mutable_trigger_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropTriggerExpr.trigger_name)
+  return _s;
+}
+inline const std::string& DropTriggerExpr::_internal_trigger_name() const {
+  return _impl_.trigger_name_.Get();
+}
+inline void DropTriggerExpr::_internal_set_trigger_name(const std::string& value) {
+  
+  _impl_.trigger_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* DropTriggerExpr::_internal_mutable_trigger_name() {
+  
+  return _impl_.trigger_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* DropTriggerExpr::release_trigger_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropTriggerExpr.trigger_name)
+  return _impl_.trigger_name_.Release();
+}
+inline void DropTriggerExpr::set_allocated_trigger_name(std::string* trigger_name) {
+  if (trigger_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.trigger_name_.SetAllocated(trigger_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.trigger_name_.IsDefault()) {
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropTriggerExpr.trigger_name)
+}
+
+// .greptime.v1.TriggerId trigger_id = 3;
+inline bool DropTriggerExpr::_internal_has_trigger_id() const {
+  return this != internal_default_instance() && _impl_.trigger_id_ != nullptr;
+}
+inline bool DropTriggerExpr::has_trigger_id() const {
+  return _internal_has_trigger_id();
+}
+inline void DropTriggerExpr::clear_trigger_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.trigger_id_ != nullptr) {
+    delete _impl_.trigger_id_;
+  }
+  _impl_.trigger_id_ = nullptr;
+}
+inline const ::greptime::v1::TriggerId& DropTriggerExpr::_internal_trigger_id() const {
+  const ::greptime::v1::TriggerId* p = _impl_.trigger_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TriggerId&>(
+      ::greptime::v1::_TriggerId_default_instance_);
+}
+inline const ::greptime::v1::TriggerId& DropTriggerExpr::trigger_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropTriggerExpr.trigger_id)
+  return _internal_trigger_id();
+}
+inline void DropTriggerExpr::unsafe_arena_set_allocated_trigger_id(
+    ::greptime::v1::TriggerId* trigger_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.trigger_id_);
+  }
+  _impl_.trigger_id_ = trigger_id;
+  if (trigger_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.DropTriggerExpr.trigger_id)
+}
+inline ::greptime::v1::TriggerId* DropTriggerExpr::release_trigger_id() {
+  
+  ::greptime::v1::TriggerId* temp = _impl_.trigger_id_;
+  _impl_.trigger_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TriggerId* DropTriggerExpr::unsafe_arena_release_trigger_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.DropTriggerExpr.trigger_id)
+  
+  ::greptime::v1::TriggerId* temp = _impl_.trigger_id_;
+  _impl_.trigger_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TriggerId* DropTriggerExpr::_internal_mutable_trigger_id() {
+  
+  if (_impl_.trigger_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TriggerId>(GetArenaForAllocation());
+    _impl_.trigger_id_ = p;
+  }
+  return _impl_.trigger_id_;
+}
+inline ::greptime::v1::TriggerId* DropTriggerExpr::mutable_trigger_id() {
+  ::greptime::v1::TriggerId* _msg = _internal_mutable_trigger_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.DropTriggerExpr.trigger_id)
+  return _msg;
+}
+inline void DropTriggerExpr::set_allocated_trigger_id(::greptime::v1::TriggerId* trigger_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.trigger_id_;
+  }
+  if (trigger_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(trigger_id);
+    if (message_arena != submessage_arena) {
+      trigger_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, trigger_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.trigger_id_ = trigger_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropTriggerExpr.trigger_id)
+}
+
+// bool drop_if_exists = 4;
+inline void DropTriggerExpr::clear_drop_if_exists() {
+  _impl_.drop_if_exists_ = false;
+}
+inline bool DropTriggerExpr::_internal_drop_if_exists() const {
+  return _impl_.drop_if_exists_;
+}
+inline bool DropTriggerExpr::drop_if_exists() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.DropTriggerExpr.drop_if_exists)
+  return _internal_drop_if_exists();
+}
+inline void DropTriggerExpr::_internal_set_drop_if_exists(bool value) {
+  
+  _impl_.drop_if_exists_ = value;
+}
+inline void DropTriggerExpr::set_drop_if_exists(bool value) {
+  _internal_set_drop_if_exists(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.DropTriggerExpr.drop_if_exists)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

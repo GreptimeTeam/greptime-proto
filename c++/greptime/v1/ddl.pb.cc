@@ -465,6 +465,19 @@ struct FlowIdDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowIdDefaultTypeInternal _FlowId_default_instance_;
+PROTOBUF_CONSTEXPR TriggerId::TriggerId(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.id_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct TriggerIdDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TriggerIdDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TriggerIdDefaultTypeInternal() {}
+  union {
+    TriggerId _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TriggerIdDefaultTypeInternal _TriggerId_default_instance_;
 PROTOBUF_CONSTEXPR ColumnDef::ColumnDef(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -708,9 +721,25 @@ struct WebhookOptionsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WebhookOptionsDefaultTypeInternal _WebhookOptions_default_instance_;
+PROTOBUF_CONSTEXPR DropTriggerExpr::DropTriggerExpr(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.trigger_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.trigger_id_)*/nullptr
+  , /*decltype(_impl_.drop_if_exists_)*/false
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DropTriggerExprDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DropTriggerExprDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DropTriggerExprDefaultTypeInternal() {}
+  union {
+    DropTriggerExpr _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DropTriggerExprDefaultTypeInternal _DropTriggerExpr_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[47];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fddl_2eproto[49];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto[4];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fddl_2eproto = nullptr;
 
@@ -1015,6 +1044,13 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::FlowId, _impl_.id_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::TriggerId, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::TriggerId, _impl_.id_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDef, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -1171,6 +1207,16 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions, _impl_.url_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::WebhookOptions, _impl_.opts_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTriggerExpr, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTriggerExpr, _impl_.catalog_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTriggerExpr, _impl_.trigger_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTriggerExpr, _impl_.trigger_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::DropTriggerExpr, _impl_.drop_if_exists_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::DdlRequest)},
@@ -1203,23 +1249,25 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 278, -1, -1, sizeof(::greptime::v1::DropColumn)},
   { 285, -1, -1, sizeof(::greptime::v1::TableId)},
   { 292, -1, -1, sizeof(::greptime::v1::FlowId)},
-  { 299, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 313, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
-  { 321, -1, -1, sizeof(::greptime::v1::SetFulltext)},
-  { 332, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
-  { 339, -1, -1, sizeof(::greptime::v1::SetInverted)},
-  { 346, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
-  { 353, -1, -1, sizeof(::greptime::v1::SetSkipping)},
-  { 363, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
-  { 370, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
-  { 381, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
-  { 388, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
-  { 395, 403, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
-  { 405, 413, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
-  { 415, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
-  { 429, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
-  { 438, 446, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
-  { 448, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
+  { 299, -1, -1, sizeof(::greptime::v1::TriggerId)},
+  { 306, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 320, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
+  { 328, -1, -1, sizeof(::greptime::v1::SetFulltext)},
+  { 339, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
+  { 346, -1, -1, sizeof(::greptime::v1::SetInverted)},
+  { 353, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
+  { 360, -1, -1, sizeof(::greptime::v1::SetSkipping)},
+  { 370, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
+  { 377, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
+  { 388, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
+  { 395, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
+  { 402, 410, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
+  { 412, 420, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
+  { 422, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
+  { 436, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
+  { 445, 453, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
+  { 455, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
+  { 463, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1253,6 +1301,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_DropColumn_default_instance_._instance,
   &::greptime::v1::_TableId_default_instance_._instance,
   &::greptime::v1::_FlowId_default_instance_._instance,
+  &::greptime::v1::_TriggerId_default_instance_._instance,
   &::greptime::v1::_ColumnDef_default_instance_._instance,
   &::greptime::v1::_AddColumnLocation_default_instance_._instance,
   &::greptime::v1::_SetFulltext_default_instance_._instance,
@@ -1270,6 +1319,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_NotifyChannel_default_instance_._instance,
   &::greptime::v1::_WebhookOptions_OptsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_WebhookOptions_default_instance_._instance,
+  &::greptime::v1::_DropTriggerExpr_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1379,67 +1429,71 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   ".greptime.v1.Option\"!\n\021UnsetTableOptions"
   "\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001"
   "(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002i"
-  "d\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\td"
-  "ata_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT"
-  "ype\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_cons"
-  "traint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gr"
-  "eptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022"
-  "@\n\022datatype_extension\030\007 \001(\0132$.greptime.v"
-  "1.ColumnDataTypeExtension\022+\n\007options\030\010 \001"
-  "(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021AddCo"
-  "lumnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gr"
-  "eptime.v1.AddColumnLocation.LocationType"
-  "\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationT"
-  "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\242\001\n\013SetFulltex"
-  "t\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'"
-  "\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022"
-  "\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\016"
-  "2\034.greptime.v1.FulltextBackend\"$\n\rUnsetF"
-  "ulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInver"
-  "ted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverte"
-  "d\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023"
-  "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013g"
-  "ranularity\030\003 \001(\004\022;\n\023skipping_index_type\030"
-  "\004 \001(\0162\036.greptime.v1.SkippingIndexType\"$\n"
-  "\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021"
-  "AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022"
-  "\023\n\013schema_name\030\002 \001(\t\022\?\n\024set_database_opt"
-  "ions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOpti"
-  "onsH\000\022C\n\026unset_database_options\030\004 \001(\0132!."
-  "greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004ki"
-  "nd\"G\n\022SetDatabaseOptions\0221\n\024set_database"
-  "_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024U"
-  "nsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cr"
-  "eateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n"
-  "\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exi"
-  "sts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\013"
-  "2\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006"
-  " \003(\0132*.greptime.v1.CreateTriggerExpr.Lab"
-  "elsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime"
-  ".v1.CreateTriggerExpr.AnnotationsEntry\022\020"
-  "\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEn"
-  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rN"
-  "otifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 "
-  "\001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014ch"
-  "annel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001("
-  "\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpt"
-  "ions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t"
-  "\022\r\n\005value\030\002 \001(\t:\0028\001*$\n\010Analyzer\022\013\n\007ENGLI"
-  "SH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007"
-  "TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexTyp"
-  "e\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1B\003D"
-  "dlZ5github.com/GreptimeTeam/greptime-pro"
-  "to/go/greptime/v1b\006proto3"
+  "d\030\001 \001(\r\"\027\n\tTriggerId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tCol"
+  "umnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162"
+  "\033.greptime.v1.ColumnDataType\022\023\n\013is_nulla"
+  "ble\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n"
+  "\rsemantic_type\030\005 \001(\0162\031.greptime.v1.Seman"
+  "ticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_ext"
+  "ension\030\007 \001(\0132$.greptime.v1.ColumnDataTyp"
+  "eExtension\022+\n\007options\030\010 \001(\0132\032.greptime.v"
+  "1.ColumnOptions\"\230\001\n\021AddColumnLocation\022B\n"
+  "\rlocation_type\030\001 \001(\0162+.greptime.v1.AddCo"
+  "lumnLocation.LocationType\022\031\n\021after_colum"
+  "n_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022"
+  "\t\n\005AFTER\020\001\"\242\001\n\013SetFulltext\022\023\n\013column_nam"
+  "e\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001("
+  "\0162\025.greptime.v1.Analyzer\022\026\n\016case_sensiti"
+  "ve\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.greptime.v1."
+  "FulltextBackend\"$\n\rUnsetFulltext\022\023\n\013colu"
+  "mn_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_n"
+  "ame\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_nam"
+  "e\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023\n\013column_name\030\001"
+  " \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 \001("
+  "\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.greptim"
+  "e.v1.SkippingIndexType\"$\n\rUnsetSkipping\022"
+  "\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatabaseEx"
+  "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030"
+  "\002 \001(\t\022\?\n\024set_database_options\030\003 \001(\0132\037.gr"
+  "eptime.v1.SetDatabaseOptionsH\000\022C\n\026unset_"
+  "database_options\030\004 \001(\0132!.greptime.v1.Uns"
+  "etDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetDataba"
+  "seOptions\0221\n\024set_database_options\030\001 \003(\0132"
+  "\023.greptime.v1.Option\"$\n\024UnsetDatabaseOpt"
+  "ions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021CreateTriggerExpr"
+  "\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002"
+  " \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022\013\n\003sq"
+  "l\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.greptime.v1."
+  "NotifyChannel\022:\n\006labels\030\006 \003(\0132*.greptime"
+  ".v1.CreateTriggerExpr.LabelsEntry\022D\n\013ann"
+  "otations\030\007 \003(\0132/.greptime.v1.CreateTrigg"
+  "erExpr.AnnotationsEntry\022\020\n\010interval\030\010 \001("
+  "\004\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
+  " \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n"
+  "\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime."
+  "v1.WebhookOptionsH\000B\016\n\014channel_type\"\177\n\016W"
+  "ebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\013"
+  "2%.greptime.v1.WebhookOptions.OptsEntry\032"
+  "+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t"
+  ":\0028\001\"\201\001\n\017DropTriggerExpr\022\024\n\014catalog_name"
+  "\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022*\n\ntrigger_"
+  "id\030\003 \001(\0132\026.greptime.v1.TriggerId\022\026\n\016drop"
+  "_if_exists\030\004 \001(\010*$\n\010Analyzer\022\013\n\007ENGLISH\020"
+  "\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007TAN"
+  "TIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType\022\020"
+  "\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1B\003DdlZ"
+  "5github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 6305, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 6462, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
-    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 47,
+    &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 49,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fddl_2eproto, file_level_enum_descriptors_greptime_2fv1_2fddl_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fddl_2eproto,
@@ -10703,6 +10757,184 @@ void FlowId::InternalSwap(FlowId* other) {
 
 // ===================================================================
 
+class TriggerId::_Internal {
+ public:
+};
+
+TriggerId::TriggerId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.TriggerId)
+}
+TriggerId::TriggerId(const TriggerId& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  TriggerId* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.id_ = from._impl_.id_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.TriggerId)
+}
+
+inline void TriggerId::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.id_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+TriggerId::~TriggerId() {
+  // @@protoc_insertion_point(destructor:greptime.v1.TriggerId)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void TriggerId::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void TriggerId::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void TriggerId::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.TriggerId)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.id_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TriggerId::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* TriggerId::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.TriggerId)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.TriggerId)
+  return target;
+}
+
+size_t TriggerId::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.TriggerId)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TriggerId::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    TriggerId::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TriggerId::GetClassData() const { return &_class_data_; }
+
+
+void TriggerId::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<TriggerId*>(&to_msg);
+  auto& from = static_cast<const TriggerId&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.TriggerId)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_id() != 0) {
+    _this->_internal_set_id(from._internal_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void TriggerId::CopyFrom(const TriggerId& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.TriggerId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TriggerId::IsInitialized() const {
+  return true;
+}
+
+void TriggerId::InternalSwap(TriggerId* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.id_, other->_impl_.id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TriggerId::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[30]);
+}
+
+// ===================================================================
+
 class ColumnDef::_Internal {
  public:
   static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const ColumnDef* msg);
@@ -11180,7 +11412,7 @@ void ColumnDef::InternalSwap(ColumnDef* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnDef::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[30]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[31]);
 }
 
 // ===================================================================
@@ -11413,7 +11645,7 @@ void AddColumnLocation::InternalSwap(AddColumnLocation* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AddColumnLocation::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[31]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[32]);
 }
 
 // ===================================================================
@@ -11730,7 +11962,7 @@ void SetFulltext::InternalSwap(SetFulltext* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetFulltext::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[32]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[33]);
 }
 
 // ===================================================================
@@ -11933,7 +12165,7 @@ void UnsetFulltext::InternalSwap(UnsetFulltext* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UnsetFulltext::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[33]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[34]);
 }
 
 // ===================================================================
@@ -12136,7 +12368,7 @@ void SetInverted::InternalSwap(SetInverted* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetInverted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[34]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[35]);
 }
 
 // ===================================================================
@@ -12339,7 +12571,7 @@ void UnsetInverted::InternalSwap(UnsetInverted* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UnsetInverted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[35]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[36]);
 }
 
 // ===================================================================
@@ -12629,7 +12861,7 @@ void SetSkipping::InternalSwap(SetSkipping* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetSkipping::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[36]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[37]);
 }
 
 // ===================================================================
@@ -12832,7 +13064,7 @@ void UnsetSkipping::InternalSwap(UnsetSkipping* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UnsetSkipping::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[37]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[38]);
 }
 
 // ===================================================================
@@ -13239,7 +13471,7 @@ void AlterDatabaseExpr::InternalSwap(AlterDatabaseExpr* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AlterDatabaseExpr::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[38]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[39]);
 }
 
 // ===================================================================
@@ -13424,7 +13656,7 @@ void SetDatabaseOptions::InternalSwap(SetDatabaseOptions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SetDatabaseOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[39]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[40]);
 }
 
 // ===================================================================
@@ -13614,7 +13846,7 @@ void UnsetDatabaseOptions::InternalSwap(UnsetDatabaseOptions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UnsetDatabaseOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[40]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[41]);
 }
 
 // ===================================================================
@@ -13628,7 +13860,7 @@ void CreateTriggerExpr_LabelsEntry_DoNotUse::MergeFrom(const CreateTriggerExpr_L
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr_LabelsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[41]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[42]);
 }
 
 // ===================================================================
@@ -13642,7 +13874,7 @@ void CreateTriggerExpr_AnnotationsEntry_DoNotUse::MergeFrom(const CreateTriggerE
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr_AnnotationsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[42]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[43]);
 }
 
 // ===================================================================
@@ -14168,7 +14400,7 @@ void CreateTriggerExpr::InternalSwap(CreateTriggerExpr* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateTriggerExpr::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[43]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[44]);
 }
 
 // ===================================================================
@@ -14467,7 +14699,7 @@ void NotifyChannel::InternalSwap(NotifyChannel* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata NotifyChannel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[44]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[45]);
 }
 
 // ===================================================================
@@ -14481,7 +14713,7 @@ void WebhookOptions_OptsEntry_DoNotUse::MergeFrom(const WebhookOptions_OptsEntry
 ::PROTOBUF_NAMESPACE_ID::Metadata WebhookOptions_OptsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[45]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[46]);
 }
 
 // ===================================================================
@@ -14752,7 +14984,333 @@ void WebhookOptions::InternalSwap(WebhookOptions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata WebhookOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fddl_2eproto[46]);
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[47]);
+}
+
+// ===================================================================
+
+class DropTriggerExpr::_Internal {
+ public:
+  static const ::greptime::v1::TriggerId& trigger_id(const DropTriggerExpr* msg);
+};
+
+const ::greptime::v1::TriggerId&
+DropTriggerExpr::_Internal::trigger_id(const DropTriggerExpr* msg) {
+  return *msg->_impl_.trigger_id_;
+}
+DropTriggerExpr::DropTriggerExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.DropTriggerExpr)
+}
+DropTriggerExpr::DropTriggerExpr(const DropTriggerExpr& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DropTriggerExpr* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.trigger_name_){}
+    , decltype(_impl_.trigger_id_){nullptr}
+    , decltype(_impl_.drop_if_exists_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog_name().empty()) {
+    _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.trigger_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_trigger_name().empty()) {
+    _this->_impl_.trigger_name_.Set(from._internal_trigger_name(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_trigger_id()) {
+    _this->_impl_.trigger_id_ = new ::greptime::v1::TriggerId(*from._impl_.trigger_id_);
+  }
+  _this->_impl_.drop_if_exists_ = from._impl_.drop_if_exists_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.DropTriggerExpr)
+}
+
+inline void DropTriggerExpr::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.trigger_name_){}
+    , decltype(_impl_.trigger_id_){nullptr}
+    , decltype(_impl_.drop_if_exists_){false}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.trigger_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.trigger_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+DropTriggerExpr::~DropTriggerExpr() {
+  // @@protoc_insertion_point(destructor:greptime.v1.DropTriggerExpr)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DropTriggerExpr::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_name_.Destroy();
+  _impl_.trigger_name_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.trigger_id_;
+}
+
+void DropTriggerExpr::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DropTriggerExpr::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.DropTriggerExpr)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_name_.ClearToEmpty();
+  _impl_.trigger_name_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.trigger_id_ != nullptr) {
+    delete _impl_.trigger_id_;
+  }
+  _impl_.trigger_id_ = nullptr;
+  _impl_.drop_if_exists_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DropTriggerExpr::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.DropTriggerExpr.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string trigger_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_trigger_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.DropTriggerExpr.trigger_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.TriggerId trigger_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_trigger_id(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool drop_if_exists = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.drop_if_exists_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DropTriggerExpr::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.DropTriggerExpr)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog_name().data(), static_cast<int>(this->_internal_catalog_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.DropTriggerExpr.catalog_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog_name(), target);
+  }
+
+  // string trigger_name = 2;
+  if (!this->_internal_trigger_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_trigger_name().data(), static_cast<int>(this->_internal_trigger_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.DropTriggerExpr.trigger_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_trigger_name(), target);
+  }
+
+  // .greptime.v1.TriggerId trigger_id = 3;
+  if (this->_internal_has_trigger_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::trigger_id(this),
+        _Internal::trigger_id(this).GetCachedSize(), target, stream);
+  }
+
+  // bool drop_if_exists = 4;
+  if (this->_internal_drop_if_exists() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_drop_if_exists(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.DropTriggerExpr)
+  return target;
+}
+
+size_t DropTriggerExpr::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.DropTriggerExpr)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog_name());
+  }
+
+  // string trigger_name = 2;
+  if (!this->_internal_trigger_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_trigger_name());
+  }
+
+  // .greptime.v1.TriggerId trigger_id = 3;
+  if (this->_internal_has_trigger_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.trigger_id_);
+  }
+
+  // bool drop_if_exists = 4;
+  if (this->_internal_drop_if_exists() != 0) {
+    total_size += 1 + 1;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DropTriggerExpr::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DropTriggerExpr::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DropTriggerExpr::GetClassData() const { return &_class_data_; }
+
+
+void DropTriggerExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DropTriggerExpr*>(&to_msg);
+  auto& from = static_cast<const DropTriggerExpr&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.DropTriggerExpr)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog_name().empty()) {
+    _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  if (!from._internal_trigger_name().empty()) {
+    _this->_internal_set_trigger_name(from._internal_trigger_name());
+  }
+  if (from._internal_has_trigger_id()) {
+    _this->_internal_mutable_trigger_id()->::greptime::v1::TriggerId::MergeFrom(
+        from._internal_trigger_id());
+  }
+  if (from._internal_drop_if_exists() != 0) {
+    _this->_internal_set_drop_if_exists(from._internal_drop_if_exists());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DropTriggerExpr::CopyFrom(const DropTriggerExpr& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.DropTriggerExpr)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DropTriggerExpr::IsInitialized() const {
+  return true;
+}
+
+void DropTriggerExpr::InternalSwap(DropTriggerExpr* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_name_, lhs_arena,
+      &other->_impl_.catalog_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.trigger_name_, lhs_arena,
+      &other->_impl_.trigger_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DropTriggerExpr, _impl_.drop_if_exists_)
+      + sizeof(DropTriggerExpr::_impl_.drop_if_exists_)
+      - PROTOBUF_FIELD_OFFSET(DropTriggerExpr, _impl_.trigger_id_)>(
+          reinterpret_cast<char*>(&_impl_.trigger_id_),
+          reinterpret_cast<char*>(&other->_impl_.trigger_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DropTriggerExpr::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fddl_2eproto_getter, &descriptor_table_greptime_2fv1_2fddl_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fddl_2eproto[48]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -14879,6 +15437,10 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::FlowId*
 Arena::CreateMaybeMessage< ::greptime::v1::FlowId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::FlowId >(arena);
 }
+template<> PROTOBUF_NOINLINE ::greptime::v1::TriggerId*
+Arena::CreateMaybeMessage< ::greptime::v1::TriggerId >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::TriggerId >(arena);
+}
 template<> PROTOBUF_NOINLINE ::greptime::v1::ColumnDef*
 Arena::CreateMaybeMessage< ::greptime::v1::ColumnDef >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::ColumnDef >(arena);
@@ -14946,6 +15508,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::WebhookOptions_OptsEntry_DoNotUse >(A
 template<> PROTOBUF_NOINLINE ::greptime::v1::WebhookOptions*
 Arena::CreateMaybeMessage< ::greptime::v1::WebhookOptions >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::WebhookOptions >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::DropTriggerExpr*
+Arena::CreateMaybeMessage< ::greptime::v1::DropTriggerExpr >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::DropTriggerExpr >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
