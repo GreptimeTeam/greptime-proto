@@ -31481,496 +31481,6 @@ java.lang.String defaultValue);
 
   }
 
-  public interface TriggerIdOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.TriggerId)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint32 id = 1;</code>
-     * @return The id.
-     */
-    int getId();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.TriggerId}
-   */
-  public static final class TriggerId extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.TriggerId)
-      TriggerIdOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use TriggerId.newBuilder() to construct.
-    private TriggerId(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private TriggerId() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new TriggerId();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private TriggerId(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              id_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_TriggerId_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.Ddl.internal_static_greptime_v1_TriggerId_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Ddl.TriggerId.class, io.greptime.v1.Ddl.TriggerId.Builder.class);
-    }
-
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
-    /**
-     * <code>uint32 id = 1;</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public int getId() {
-      return id_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeUInt32(1, id_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, id_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.Ddl.TriggerId)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.Ddl.TriggerId other = (io.greptime.v1.Ddl.TriggerId) obj;
-
-      if (getId()
-          != other.getId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.Ddl.TriggerId parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.Ddl.TriggerId prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.TriggerId}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.TriggerId)
-        io.greptime.v1.Ddl.TriggerIdOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TriggerId_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TriggerId_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Ddl.TriggerId.class, io.greptime.v1.Ddl.TriggerId.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.Ddl.TriggerId.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        id_ = 0;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.Ddl.internal_static_greptime_v1_TriggerId_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TriggerId getDefaultInstanceForType() {
-        return io.greptime.v1.Ddl.TriggerId.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TriggerId build() {
-        io.greptime.v1.Ddl.TriggerId result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.Ddl.TriggerId buildPartial() {
-        io.greptime.v1.Ddl.TriggerId result = new io.greptime.v1.Ddl.TriggerId(this);
-        result.id_ = id_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Ddl.TriggerId) {
-          return mergeFrom((io.greptime.v1.Ddl.TriggerId)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.Ddl.TriggerId other) {
-        if (other == io.greptime.v1.Ddl.TriggerId.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.Ddl.TriggerId parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Ddl.TriggerId) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int id_ ;
-      /**
-       * <code>uint32 id = 1;</code>
-       * @return The id.
-       */
-      @java.lang.Override
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>uint32 id = 1;</code>
-       * @param value The id to set.
-       * @return This builder for chaining.
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.TriggerId)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.TriggerId)
-    private static final io.greptime.v1.Ddl.TriggerId DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.TriggerId();
-    }
-
-    public static io.greptime.v1.Ddl.TriggerId getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<TriggerId>
-        PARSER = new com.google.protobuf.AbstractParser<TriggerId>() {
-      @java.lang.Override
-      public TriggerId parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TriggerId(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<TriggerId> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TriggerId> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TriggerId getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface ColumnDefOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.ColumnDef)
       com.google.protobuf.MessageOrBuilder {
@@ -45190,22 +44700,7 @@ java.lang.String defaultValue);
         getTriggerNameBytes();
 
     /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     * @return Whether the triggerId field is set.
-     */
-    boolean hasTriggerId();
-    /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     * @return The triggerId.
-     */
-    io.greptime.v1.Ddl.TriggerId getTriggerId();
-    /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     */
-    io.greptime.v1.Ddl.TriggerIdOrBuilder getTriggerIdOrBuilder();
-
-    /**
-     * <code>bool drop_if_exists = 4;</code>
+     * <code>bool drop_if_exists = 3;</code>
      * @return The dropIfExists.
      */
     boolean getDropIfExists();
@@ -45269,20 +44764,7 @@ java.lang.String defaultValue);
               triggerName_ = s;
               break;
             }
-            case 26: {
-              io.greptime.v1.Ddl.TriggerId.Builder subBuilder = null;
-              if (triggerId_ != null) {
-                subBuilder = triggerId_.toBuilder();
-              }
-              triggerId_ = input.readMessage(io.greptime.v1.Ddl.TriggerId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(triggerId_);
-                triggerId_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
+            case 24: {
 
               dropIfExists_ = input.readBool();
               break;
@@ -45397,36 +44879,10 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int TRIGGER_ID_FIELD_NUMBER = 3;
-    private io.greptime.v1.Ddl.TriggerId triggerId_;
-    /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     * @return Whether the triggerId field is set.
-     */
-    @java.lang.Override
-    public boolean hasTriggerId() {
-      return triggerId_ != null;
-    }
-    /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     * @return The triggerId.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TriggerId getTriggerId() {
-      return triggerId_ == null ? io.greptime.v1.Ddl.TriggerId.getDefaultInstance() : triggerId_;
-    }
-    /**
-     * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TriggerIdOrBuilder getTriggerIdOrBuilder() {
-      return getTriggerId();
-    }
-
-    public static final int DROP_IF_EXISTS_FIELD_NUMBER = 4;
+    public static final int DROP_IF_EXISTS_FIELD_NUMBER = 3;
     private boolean dropIfExists_;
     /**
-     * <code>bool drop_if_exists = 4;</code>
+     * <code>bool drop_if_exists = 3;</code>
      * @return The dropIfExists.
      */
     @java.lang.Override
@@ -45454,11 +44910,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, triggerName_);
       }
-      if (triggerId_ != null) {
-        output.writeMessage(3, getTriggerId());
-      }
       if (dropIfExists_ != false) {
-        output.writeBool(4, dropIfExists_);
+        output.writeBool(3, dropIfExists_);
       }
       unknownFields.writeTo(output);
     }
@@ -45475,13 +44928,9 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(triggerName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, triggerName_);
       }
-      if (triggerId_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getTriggerId());
-      }
       if (dropIfExists_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, dropIfExists_);
+          .computeBoolSize(3, dropIfExists_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -45502,11 +44951,6 @@ java.lang.String defaultValue);
           .equals(other.getCatalogName())) return false;
       if (!getTriggerName()
           .equals(other.getTriggerName())) return false;
-      if (hasTriggerId() != other.hasTriggerId()) return false;
-      if (hasTriggerId()) {
-        if (!getTriggerId()
-            .equals(other.getTriggerId())) return false;
-      }
       if (getDropIfExists()
           != other.getDropIfExists()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -45524,10 +44968,6 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getCatalogName().hashCode();
       hash = (37 * hash) + TRIGGER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTriggerName().hashCode();
-      if (hasTriggerId()) {
-        hash = (37 * hash) + TRIGGER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getTriggerId().hashCode();
-      }
       hash = (37 * hash) + DROP_IF_EXISTS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getDropIfExists());
@@ -45668,12 +45108,6 @@ java.lang.String defaultValue);
 
         triggerName_ = "";
 
-        if (triggerIdBuilder_ == null) {
-          triggerId_ = null;
-        } else {
-          triggerId_ = null;
-          triggerIdBuilder_ = null;
-        }
         dropIfExists_ = false;
 
         return this;
@@ -45704,11 +45138,6 @@ java.lang.String defaultValue);
         io.greptime.v1.Ddl.DropTriggerExpr result = new io.greptime.v1.Ddl.DropTriggerExpr(this);
         result.catalogName_ = catalogName_;
         result.triggerName_ = triggerName_;
-        if (triggerIdBuilder_ == null) {
-          result.triggerId_ = triggerId_;
-        } else {
-          result.triggerId_ = triggerIdBuilder_.build();
-        }
         result.dropIfExists_ = dropIfExists_;
         onBuilt();
         return result;
@@ -45765,9 +45194,6 @@ java.lang.String defaultValue);
         if (!other.getTriggerName().isEmpty()) {
           triggerName_ = other.triggerName_;
           onChanged();
-        }
-        if (other.hasTriggerId()) {
-          mergeTriggerId(other.getTriggerId());
         }
         if (other.getDropIfExists() != false) {
           setDropIfExists(other.getDropIfExists());
@@ -45953,128 +45379,9 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.Ddl.TriggerId triggerId_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TriggerId, io.greptime.v1.Ddl.TriggerId.Builder, io.greptime.v1.Ddl.TriggerIdOrBuilder> triggerIdBuilder_;
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       * @return Whether the triggerId field is set.
-       */
-      public boolean hasTriggerId() {
-        return triggerIdBuilder_ != null || triggerId_ != null;
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       * @return The triggerId.
-       */
-      public io.greptime.v1.Ddl.TriggerId getTriggerId() {
-        if (triggerIdBuilder_ == null) {
-          return triggerId_ == null ? io.greptime.v1.Ddl.TriggerId.getDefaultInstance() : triggerId_;
-        } else {
-          return triggerIdBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public Builder setTriggerId(io.greptime.v1.Ddl.TriggerId value) {
-        if (triggerIdBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          triggerId_ = value;
-          onChanged();
-        } else {
-          triggerIdBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public Builder setTriggerId(
-          io.greptime.v1.Ddl.TriggerId.Builder builderForValue) {
-        if (triggerIdBuilder_ == null) {
-          triggerId_ = builderForValue.build();
-          onChanged();
-        } else {
-          triggerIdBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public Builder mergeTriggerId(io.greptime.v1.Ddl.TriggerId value) {
-        if (triggerIdBuilder_ == null) {
-          if (triggerId_ != null) {
-            triggerId_ =
-              io.greptime.v1.Ddl.TriggerId.newBuilder(triggerId_).mergeFrom(value).buildPartial();
-          } else {
-            triggerId_ = value;
-          }
-          onChanged();
-        } else {
-          triggerIdBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public Builder clearTriggerId() {
-        if (triggerIdBuilder_ == null) {
-          triggerId_ = null;
-          onChanged();
-        } else {
-          triggerId_ = null;
-          triggerIdBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public io.greptime.v1.Ddl.TriggerId.Builder getTriggerIdBuilder() {
-        
-        onChanged();
-        return getTriggerIdFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      public io.greptime.v1.Ddl.TriggerIdOrBuilder getTriggerIdOrBuilder() {
-        if (triggerIdBuilder_ != null) {
-          return triggerIdBuilder_.getMessageOrBuilder();
-        } else {
-          return triggerId_ == null ?
-              io.greptime.v1.Ddl.TriggerId.getDefaultInstance() : triggerId_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.TriggerId trigger_id = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TriggerId, io.greptime.v1.Ddl.TriggerId.Builder, io.greptime.v1.Ddl.TriggerIdOrBuilder> 
-          getTriggerIdFieldBuilder() {
-        if (triggerIdBuilder_ == null) {
-          triggerIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TriggerId, io.greptime.v1.Ddl.TriggerId.Builder, io.greptime.v1.Ddl.TriggerIdOrBuilder>(
-                  getTriggerId(),
-                  getParentForChildren(),
-                  isClean());
-          triggerId_ = null;
-        }
-        return triggerIdBuilder_;
-      }
-
       private boolean dropIfExists_ ;
       /**
-       * <code>bool drop_if_exists = 4;</code>
+       * <code>bool drop_if_exists = 3;</code>
        * @return The dropIfExists.
        */
       @java.lang.Override
@@ -46082,7 +45389,7 @@ java.lang.String defaultValue);
         return dropIfExists_;
       }
       /**
-       * <code>bool drop_if_exists = 4;</code>
+       * <code>bool drop_if_exists = 3;</code>
        * @param value The dropIfExists to set.
        * @return This builder for chaining.
        */
@@ -46093,7 +45400,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bool drop_if_exists = 4;</code>
+       * <code>bool drop_if_exists = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDropIfExists() {
@@ -46306,11 +45613,6 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_FlowId_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_TriggerId_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_TriggerId_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_ColumnDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -46515,62 +45817,60 @@ java.lang.String defaultValue);
       ".greptime.v1.Option\"!\n\021UnsetTableOptions" +
       "\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001" +
       "(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002i" +
-      "d\030\001 \001(\r\"\027\n\tTriggerId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tCol" +
-      "umnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162" +
-      "\033.greptime.v1.ColumnDataType\022\023\n\013is_nulla" +
-      "ble\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n" +
-      "\rsemantic_type\030\005 \001(\0162\031.greptime.v1.Seman" +
-      "ticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_ext" +
-      "ension\030\007 \001(\0132$.greptime.v1.ColumnDataTyp" +
-      "eExtension\022+\n\007options\030\010 \001(\0132\032.greptime.v" +
-      "1.ColumnOptions\"\230\001\n\021AddColumnLocation\022B\n" +
-      "\rlocation_type\030\001 \001(\0162+.greptime.v1.AddCo" +
-      "lumnLocation.LocationType\022\031\n\021after_colum" +
-      "n_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022" +
-      "\t\n\005AFTER\020\001\"\242\001\n\013SetFulltext\022\023\n\013column_nam" +
-      "e\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(" +
-      "\0162\025.greptime.v1.Analyzer\022\026\n\016case_sensiti" +
-      "ve\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.greptime.v1." +
-      "FulltextBackend\"$\n\rUnsetFulltext\022\023\n\013colu" +
-      "mn_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_n" +
-      "ame\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_nam" +
-      "e\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023\n\013column_name\030\001" +
-      " \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 \001(" +
-      "\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.greptim" +
-      "e.v1.SkippingIndexType\"$\n\rUnsetSkipping\022" +
-      "\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatabaseEx" +
-      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030" +
-      "\002 \001(\t\022?\n\024set_database_options\030\003 \001(\0132\037.gr" +
-      "eptime.v1.SetDatabaseOptionsH\000\022C\n\026unset_" +
-      "database_options\030\004 \001(\0132!.greptime.v1.Uns" +
-      "etDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetDataba" +
-      "seOptions\0221\n\024set_database_options\030\001 \003(\0132" +
-      "\023.greptime.v1.Option\"$\n\024UnsetDatabaseOpt" +
-      "ions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021CreateTriggerExpr" +
-      "\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002" +
-      " \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022\013\n\003sq" +
-      "l\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.greptime.v1." +
-      "NotifyChannel\022:\n\006labels\030\006 \003(\0132*.greptime" +
-      ".v1.CreateTriggerExpr.LabelsEntry\022D\n\013ann" +
-      "otations\030\007 \003(\0132/.greptime.v1.CreateTrigg" +
-      "erExpr.AnnotationsEntry\022\020\n\010interval\030\010 \001(" +
-      "\004\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n" +
-      "\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime." +
-      "v1.WebhookOptionsH\000B\016\n\014channel_type\"\177\n\016W" +
-      "ebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\013" +
-      "2%.greptime.v1.WebhookOptions.OptsEntry\032" +
-      "+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001\"\201\001\n\017DropTriggerExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022*\n\ntrigger_" +
-      "id\030\003 \001(\0132\026.greptime.v1.TriggerId\022\026\n\016drop" +
-      "_if_exists\030\004 \001(\010*$\n\010Analyzer\022\013\n\007ENGLISH\020" +
-      "\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007TAN" +
-      "TIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType\022\020" +
-      "\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1B\003DdlZ" +
-      "5github.com/GreptimeTeam/greptime-proto/" +
-      "go/greptime/v1b\006proto3"
+      "d\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\td" +
+      "ata_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT" +
+      "ype\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_cons" +
+      "traint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.gr" +
+      "eptime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022" +
+      "@\n\022datatype_extension\030\007 \001(\0132$.greptime.v" +
+      "1.ColumnDataTypeExtension\022+\n\007options\030\010 \001" +
+      "(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021AddCo" +
+      "lumnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gr" +
+      "eptime.v1.AddColumnLocation.LocationType" +
+      "\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationT" +
+      "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\242\001\n\013SetFulltex" +
+      "t\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'" +
+      "\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022" +
+      "\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\016" +
+      "2\034.greptime.v1.FulltextBackend\"$\n\rUnsetF" +
+      "ulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInver" +
+      "ted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverte" +
+      "d\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023" +
+      "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013g" +
+      "ranularity\030\003 \001(\004\022;\n\023skipping_index_type\030" +
+      "\004 \001(\0162\036.greptime.v1.SkippingIndexType\"$\n" +
+      "\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021" +
+      "AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
+      "\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_opt" +
+      "ions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOpti" +
+      "onsH\000\022C\n\026unset_database_options\030\004 \001(\0132!." +
+      "greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004ki" +
+      "nd\"G\n\022SetDatabaseOptions\0221\n\024set_database" +
+      "_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024U" +
+      "nsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cr" +
+      "eateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n" +
+      "\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exi" +
+      "sts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\013" +
+      "2\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006" +
+      " \003(\0132*.greptime.v1.CreateTriggerExpr.Lab" +
+      "elsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime" +
+      ".v1.CreateTriggerExpr.AnnotationsEntry\022\020" +
+      "\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rN" +
+      "otifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 " +
+      "\001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014ch" +
+      "annel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(" +
+      "\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpt" +
+      "ions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024" +
+      "\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001" +
+      "(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyzer\022\013" +
+      "\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBack" +
+      "end\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingI" +
+      "ndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptim" +
+      "e.v1B\003DdlZ5github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -46757,80 +46057,74 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlowId_descriptor,
         new java.lang.String[] { "Id", });
-    internal_static_greptime_v1_TriggerId_descriptor =
-      getDescriptor().getMessageTypes().get(27);
-    internal_static_greptime_v1_TriggerId_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_TriggerId_descriptor,
-        new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", "Options", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,
         new java.lang.String[] { "LocationType", "AfterColumnName", });
     internal_static_greptime_v1_SetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_SetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_UnsetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_UnsetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", });
     internal_static_greptime_v1_UnsetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
     internal_static_greptime_v1_SetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDatabaseOptions_descriptor,
         new java.lang.String[] { "SetDatabaseOptions", });
     internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_CreateTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
@@ -46848,13 +46142,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_NotifyChannel_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_NotifyChannel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_NotifyChannel_descriptor,
         new java.lang.String[] { "Name", "Webhook", "ChannelType", });
     internal_static_greptime_v1_WebhookOptions_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_WebhookOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WebhookOptions_descriptor,
@@ -46866,11 +46160,11 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_DropTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "TriggerName", "TriggerId", "DropIfExists", });
+        new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
     io.greptime.v1.Common.getDescriptor();
   }
 
