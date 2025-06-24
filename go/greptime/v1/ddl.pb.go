@@ -3237,6 +3237,69 @@ func (x *WebhookOptions) GetOpts() map[string]string {
 	return nil
 }
 
+type DropTriggerExpr struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CatalogName  string `protobuf:"bytes,1,opt,name=catalog_name,json=catalogName,proto3" json:"catalog_name,omitempty"`
+	TriggerName  string `protobuf:"bytes,2,opt,name=trigger_name,json=triggerName,proto3" json:"trigger_name,omitempty"`
+	DropIfExists bool   `protobuf:"varint,3,opt,name=drop_if_exists,json=dropIfExists,proto3" json:"drop_if_exists,omitempty"`
+}
+
+func (x *DropTriggerExpr) Reset() {
+	*x = DropTriggerExpr{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_ddl_proto_msgTypes[41]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DropTriggerExpr) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DropTriggerExpr) ProtoMessage() {}
+
+func (x *DropTriggerExpr) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_ddl_proto_msgTypes[41]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DropTriggerExpr.ProtoReflect.Descriptor instead.
+func (*DropTriggerExpr) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *DropTriggerExpr) GetCatalogName() string {
+	if x != nil {
+		return x.CatalogName
+	}
+	return ""
+}
+
+func (x *DropTriggerExpr) GetTriggerName() string {
+	if x != nil {
+		return x.TriggerName
+	}
+	return ""
+}
+
+func (x *DropTriggerExpr) GetDropIfExists() bool {
+	if x != nil {
+		return x.DropIfExists
+	}
+	return false
+}
+
 var File_greptime_v1_ddl_proto protoreflect.FileDescriptor
 
 var file_greptime_v1_ddl_proto_rawDesc = []byte{
@@ -3734,19 +3797,27 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02,
-	0x38, 0x01, 0x2a, 0x24, 0x0a, 0x08, 0x41, 0x6e, 0x61, 0x6c, 0x79, 0x7a, 0x65, 0x72, 0x12, 0x0b,
-	0x0a, 0x07, 0x45, 0x4e, 0x47, 0x4c, 0x49, 0x53, 0x48, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x43,
-	0x48, 0x49, 0x4e, 0x45, 0x53, 0x45, 0x10, 0x01, 0x2a, 0x29, 0x0a, 0x0f, 0x46, 0x75, 0x6c, 0x6c,
-	0x74, 0x65, 0x78, 0x74, 0x42, 0x61, 0x63, 0x6b, 0x65, 0x6e, 0x64, 0x12, 0x0b, 0x0a, 0x07, 0x54,
-	0x41, 0x4e, 0x54, 0x49, 0x56, 0x59, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x42, 0x4c, 0x4f, 0x4f,
-	0x4d, 0x10, 0x01, 0x2a, 0x25, 0x0a, 0x11, 0x53, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x49,
-	0x6e, 0x64, 0x65, 0x78, 0x54, 0x79, 0x70, 0x65, 0x12, 0x10, 0x0a, 0x0c, 0x42, 0x4c, 0x4f, 0x4f,
-	0x4d, 0x5f, 0x46, 0x49, 0x4c, 0x54, 0x45, 0x52, 0x10, 0x00, 0x42, 0x4c, 0x0a, 0x0e, 0x69, 0x6f,
-	0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x03, 0x44, 0x64,
-	0x6c, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72,
-	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74,
-	0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65,
-	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x38, 0x01, 0x22, 0x7d, 0x0a, 0x0f, 0x44, 0x72, 0x6f, 0x70, 0x54, 0x72, 0x69, 0x67, 0x67, 0x65,
+	0x72, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67,
+	0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74,
+	0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x21, 0x0a, 0x0c, 0x74, 0x72, 0x69, 0x67,
+	0x67, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b,
+	0x74, 0x72, 0x69, 0x67, 0x67, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x24, 0x0a, 0x0e, 0x64,
+	0x72, 0x6f, 0x70, 0x5f, 0x69, 0x66, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x08, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x49, 0x66, 0x45, 0x78, 0x69, 0x73, 0x74,
+	0x73, 0x2a, 0x24, 0x0a, 0x08, 0x41, 0x6e, 0x61, 0x6c, 0x79, 0x7a, 0x65, 0x72, 0x12, 0x0b, 0x0a,
+	0x07, 0x45, 0x4e, 0x47, 0x4c, 0x49, 0x53, 0x48, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x43, 0x48,
+	0x49, 0x4e, 0x45, 0x53, 0x45, 0x10, 0x01, 0x2a, 0x29, 0x0a, 0x0f, 0x46, 0x75, 0x6c, 0x6c, 0x74,
+	0x65, 0x78, 0x74, 0x42, 0x61, 0x63, 0x6b, 0x65, 0x6e, 0x64, 0x12, 0x0b, 0x0a, 0x07, 0x54, 0x41,
+	0x4e, 0x54, 0x49, 0x56, 0x59, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x42, 0x4c, 0x4f, 0x4f, 0x4d,
+	0x10, 0x01, 0x2a, 0x25, 0x0a, 0x11, 0x53, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x49, 0x6e,
+	0x64, 0x65, 0x78, 0x54, 0x79, 0x70, 0x65, 0x12, 0x10, 0x0a, 0x0c, 0x42, 0x4c, 0x4f, 0x4f, 0x4d,
+	0x5f, 0x46, 0x49, 0x4c, 0x54, 0x45, 0x52, 0x10, 0x00, 0x42, 0x4c, 0x0a, 0x0e, 0x69, 0x6f, 0x2e,
+	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x03, 0x44, 0x64, 0x6c,
+	0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65,
+	0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69,
+	0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -3762,7 +3833,7 @@ func file_greptime_v1_ddl_proto_rawDescGZIP() []byte {
 }
 
 var file_greptime_v1_ddl_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_greptime_v1_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
+var file_greptime_v1_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(Analyzer)(0),                       // 0: greptime.v1.Analyzer
 	(FulltextBackend)(0),                // 1: greptime.v1.FulltextBackend
@@ -3809,18 +3880,19 @@ var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(*CreateTriggerExpr)(nil),           // 42: greptime.v1.CreateTriggerExpr
 	(*NotifyChannel)(nil),               // 43: greptime.v1.NotifyChannel
 	(*WebhookOptions)(nil),              // 44: greptime.v1.WebhookOptions
-	nil,                                 // 45: greptime.v1.CreateFlowExpr.FlowOptionsEntry
-	nil,                                 // 46: greptime.v1.CreateTableExpr.TableOptionsEntry
-	nil,                                 // 47: greptime.v1.CreateDatabaseExpr.OptionsEntry
-	nil,                                 // 48: greptime.v1.CreateTriggerExpr.LabelsEntry
-	nil,                                 // 49: greptime.v1.CreateTriggerExpr.AnnotationsEntry
-	nil,                                 // 50: greptime.v1.WebhookOptions.OptsEntry
-	(*TableName)(nil),                   // 51: greptime.v1.TableName
-	(*ExpireAfter)(nil),                 // 52: greptime.v1.ExpireAfter
-	(ColumnDataType)(0),                 // 53: greptime.v1.ColumnDataType
-	(*ColumnDataTypeExtension)(nil),     // 54: greptime.v1.ColumnDataTypeExtension
-	(SemanticType)(0),                   // 55: greptime.v1.SemanticType
-	(*ColumnOptions)(nil),               // 56: greptime.v1.ColumnOptions
+	(*DropTriggerExpr)(nil),             // 45: greptime.v1.DropTriggerExpr
+	nil,                                 // 46: greptime.v1.CreateFlowExpr.FlowOptionsEntry
+	nil,                                 // 47: greptime.v1.CreateTableExpr.TableOptionsEntry
+	nil,                                 // 48: greptime.v1.CreateDatabaseExpr.OptionsEntry
+	nil,                                 // 49: greptime.v1.CreateTriggerExpr.LabelsEntry
+	nil,                                 // 50: greptime.v1.CreateTriggerExpr.AnnotationsEntry
+	nil,                                 // 51: greptime.v1.WebhookOptions.OptsEntry
+	(*TableName)(nil),                   // 52: greptime.v1.TableName
+	(*ExpireAfter)(nil),                 // 53: greptime.v1.ExpireAfter
+	(ColumnDataType)(0),                 // 54: greptime.v1.ColumnDataType
+	(*ColumnDataTypeExtension)(nil),     // 55: greptime.v1.ColumnDataTypeExtension
+	(SemanticType)(0),                   // 56: greptime.v1.SemanticType
+	(*ColumnOptions)(nil),               // 57: greptime.v1.ColumnOptions
 }
 var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	15, // 0: greptime.v1.DdlRequest.create_database:type_name -> greptime.v1.CreateDatabaseExpr
@@ -3833,15 +3905,15 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	7,  // 7: greptime.v1.DdlRequest.create_view:type_name -> greptime.v1.CreateViewExpr
 	8,  // 8: greptime.v1.DdlRequest.drop_view:type_name -> greptime.v1.DropViewExpr
 	39, // 9: greptime.v1.DdlRequest.alter_database:type_name -> greptime.v1.AlterDatabaseExpr
-	51, // 10: greptime.v1.CreateFlowExpr.source_table_names:type_name -> greptime.v1.TableName
-	51, // 11: greptime.v1.CreateFlowExpr.sink_table_name:type_name -> greptime.v1.TableName
-	52, // 12: greptime.v1.CreateFlowExpr.expire_after:type_name -> greptime.v1.ExpireAfter
-	45, // 13: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
+	52, // 10: greptime.v1.CreateFlowExpr.source_table_names:type_name -> greptime.v1.TableName
+	52, // 11: greptime.v1.CreateFlowExpr.sink_table_name:type_name -> greptime.v1.TableName
+	53, // 12: greptime.v1.CreateFlowExpr.expire_after:type_name -> greptime.v1.ExpireAfter
+	46, // 13: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
 	30, // 14: greptime.v1.DropFlowExpr.flow_id:type_name -> greptime.v1.FlowId
-	51, // 15: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
+	52, // 15: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
 	29, // 16: greptime.v1.DropViewExpr.view_id:type_name -> greptime.v1.TableId
 	31, // 17: greptime.v1.CreateTableExpr.column_defs:type_name -> greptime.v1.ColumnDef
-	46, // 18: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
+	47, // 18: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
 	29, // 19: greptime.v1.CreateTableExpr.table_id:type_name -> greptime.v1.TableId
 	18, // 20: greptime.v1.AlterTableExpr.add_columns:type_name -> greptime.v1.AddColumns
 	20, // 21: greptime.v1.AlterTableExpr.drop_columns:type_name -> greptime.v1.DropColumns
@@ -3859,7 +3931,7 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	36, // 33: greptime.v1.UnsetIndex.inverted:type_name -> greptime.v1.UnsetInverted
 	38, // 34: greptime.v1.UnsetIndex.skipping:type_name -> greptime.v1.UnsetSkipping
 	29, // 35: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
-	47, // 36: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
+	48, // 36: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
 	29, // 37: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
 	23, // 38: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
 	11, // 39: greptime.v1.DropDefaults.drop_defaults:type_name -> greptime.v1.DropDefault
@@ -3867,13 +3939,13 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	24, // 41: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
 	31, // 42: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
 	32, // 43: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
-	53, // 44: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
-	54, // 45: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	54, // 44: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
+	55, // 45: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
 	25, // 46: greptime.v1.SetTableOptions.table_options:type_name -> greptime.v1.Option
-	53, // 47: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
-	55, // 48: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
-	54, // 49: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	56, // 50: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
+	54, // 47: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
+	56, // 48: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
+	55, // 49: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	57, // 50: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
 	3,  // 51: greptime.v1.AddColumnLocation.location_type:type_name -> greptime.v1.AddColumnLocation.LocationType
 	0,  // 52: greptime.v1.SetFulltext.analyzer:type_name -> greptime.v1.Analyzer
 	1,  // 53: greptime.v1.SetFulltext.backend:type_name -> greptime.v1.FulltextBackend
@@ -3882,10 +3954,10 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	41, // 56: greptime.v1.AlterDatabaseExpr.unset_database_options:type_name -> greptime.v1.UnsetDatabaseOptions
 	25, // 57: greptime.v1.SetDatabaseOptions.set_database_options:type_name -> greptime.v1.Option
 	43, // 58: greptime.v1.CreateTriggerExpr.channels:type_name -> greptime.v1.NotifyChannel
-	48, // 59: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
-	49, // 60: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
+	49, // 59: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
+	50, // 60: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
 	44, // 61: greptime.v1.NotifyChannel.webhook:type_name -> greptime.v1.WebhookOptions
-	50, // 62: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
+	51, // 62: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
 	63, // [63:63] is the sub-list for method output_type
 	63, // [63:63] is the sub-list for method input_type
 	63, // [63:63] is the sub-list for extension type_name
@@ -4392,6 +4464,18 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
+		file_greptime_v1_ddl_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DropTriggerExpr); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	file_greptime_v1_ddl_proto_msgTypes[0].OneofWrappers = []interface{}{
 		(*DdlRequest_CreateDatabase)(nil),
@@ -4439,7 +4523,7 @@ func file_greptime_v1_ddl_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_ddl_proto_rawDesc,
 			NumEnums:      4,
-			NumMessages:   47,
+			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

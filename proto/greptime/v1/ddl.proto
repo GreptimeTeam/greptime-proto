@@ -326,3 +326,9 @@ message WebhookOptions {
     string url = 1;
     map<string, string> opts = 2;
 }
+
+message DropTriggerExpr {
+    string catalog_name = 1;
+    string trigger_name = 2;
+    bool drop_if_exists = 3;
+}
