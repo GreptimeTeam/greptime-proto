@@ -251,6 +251,10 @@ message SetFulltext {
     Analyzer analyzer = 3;
     bool case_sensitive = 4;
     FulltextBackend backend = 5;
+    // The granularity for the fulltext index (for bloom backend only).
+    uint64 granularity = 6;
+    // The false positive rate for the fulltext index (for bloom backend only).
+    double false_positive_rate = 7;
 }
 
 message UnsetFulltext {
@@ -274,6 +278,7 @@ message SetSkipping {
     bool enable = 2;
     uint64 granularity = 3;
     SkippingIndexType skipping_index_type = 4;
+    double false_positive_rate = 5;
 }
 
 message UnsetSkipping {

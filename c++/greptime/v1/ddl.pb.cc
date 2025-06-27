@@ -505,6 +505,8 @@ PROTOBUF_CONSTEXPR SetFulltext::SetFulltext(
   , /*decltype(_impl_.analyzer_)*/0
   , /*decltype(_impl_.enable_)*/false
   , /*decltype(_impl_.case_sensitive_)*/false
+  , /*decltype(_impl_.granularity_)*/uint64_t{0u}
+  , /*decltype(_impl_.false_positive_rate_)*/0
   , /*decltype(_impl_.backend_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SetFulltextDefaultTypeInternal {
@@ -561,6 +563,7 @@ PROTOBUF_CONSTEXPR SetSkipping::SetSkipping(
   , /*decltype(_impl_.granularity_)*/uint64_t{0u}
   , /*decltype(_impl_.enable_)*/false
   , /*decltype(_impl_.skipping_index_type_)*/0
+  , /*decltype(_impl_.false_positive_rate_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SetSkippingDefaultTypeInternal {
   PROTOBUF_CONSTEXPR SetSkippingDefaultTypeInternal()
@@ -1062,6 +1065,8 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetFulltext, _impl_.analyzer_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetFulltext, _impl_.case_sensitive_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetFulltext, _impl_.backend_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SetFulltext, _impl_.granularity_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SetFulltext, _impl_.false_positive_rate_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::UnsetFulltext, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1093,6 +1098,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetSkipping, _impl_.enable_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetSkipping, _impl_.granularity_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::SetSkipping, _impl_.skipping_index_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::SetSkipping, _impl_.false_positive_rate_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::UnsetSkipping, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1230,21 +1236,21 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 299, -1, -1, sizeof(::greptime::v1::ColumnDef)},
   { 313, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
   { 321, -1, -1, sizeof(::greptime::v1::SetFulltext)},
-  { 332, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
-  { 339, -1, -1, sizeof(::greptime::v1::SetInverted)},
-  { 346, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
-  { 353, -1, -1, sizeof(::greptime::v1::SetSkipping)},
-  { 363, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
-  { 370, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
-  { 381, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
-  { 388, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
-  { 395, 403, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
-  { 405, 413, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
-  { 415, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
-  { 429, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
-  { 438, 446, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
-  { 448, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
-  { 456, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
+  { 334, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
+  { 341, -1, -1, sizeof(::greptime::v1::SetInverted)},
+  { 348, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
+  { 355, -1, -1, sizeof(::greptime::v1::SetSkipping)},
+  { 366, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
+  { 373, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
+  { 384, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
+  { 391, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
+  { 398, 406, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
+  { 408, 416, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
+  { 418, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
+  { 432, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
+  { 441, 449, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
+  { 451, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
+  { 459, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1416,56 +1422,58 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "lumnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gr"
   "eptime.v1.AddColumnLocation.LocationType"
   "\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationT"
-  "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\242\001\n\013SetFulltex"
+  "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltex"
   "t\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'"
   "\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022"
   "\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\016"
-  "2\034.greptime.v1.FulltextBackend\"$\n\rUnsetF"
-  "ulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInver"
-  "ted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverte"
-  "d\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023"
-  "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013g"
-  "ranularity\030\003 \001(\004\022;\n\023skipping_index_type\030"
-  "\004 \001(\0162\036.greptime.v1.SkippingIndexType\"$\n"
-  "\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021"
-  "AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022"
-  "\023\n\013schema_name\030\002 \001(\t\022\?\n\024set_database_opt"
-  "ions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOpti"
-  "onsH\000\022C\n\026unset_database_options\030\004 \001(\0132!."
-  "greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004ki"
-  "nd\"G\n\022SetDatabaseOptions\0221\n\024set_database"
-  "_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024U"
-  "nsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cr"
-  "eateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n"
-  "\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exi"
-  "sts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\013"
-  "2\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006"
-  " \003(\0132*.greptime.v1.CreateTriggerExpr.Lab"
-  "elsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime"
-  ".v1.CreateTriggerExpr.AnnotationsEntry\022\020"
-  "\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEn"
-  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rN"
-  "otifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 "
-  "\001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014ch"
-  "annel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001("
-  "\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpt"
-  "ions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t"
-  "\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024"
-  "\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001"
-  "(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyzer\022\013"
-  "\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBack"
-  "end\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingI"
-  "ndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptim"
-  "e.v1B\003DdlZ5github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1b\006proto3"
+  "2\034.greptime.v1.FulltextBackend\022\023\n\013granul"
+  "arity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001"
+  "\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\""
+  "\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUn"
+  "setInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013Set"
+  "Skipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030"
+  "\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_i"
+  "ndex_type\030\004 \001(\0162\036.greptime.v1.SkippingIn"
+  "dexType\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\r"
+  "UnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021A"
+  "lterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023"
+  "\n\013schema_name\030\002 \001(\t\022\?\n\024set_database_opti"
+  "ons\030\003 \001(\0132\037.greptime.v1.SetDatabaseOptio"
+  "nsH\000\022C\n\026unset_database_options\030\004 \001(\0132!.g"
+  "reptime.v1.UnsetDatabaseOptionsH\000B\006\n\004kin"
+  "d\"G\n\022SetDatabaseOptions\0221\n\024set_database_"
+  "options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024Un"
+  "setDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cre"
+  "ateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014"
+  "trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exis"
+  "ts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132"
+  "\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006 "
+  "\003(\0132*.greptime.v1.CreateTriggerExpr.Labe"
+  "lsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime."
+  "v1.CreateTriggerExpr.AnnotationsEntry\022\020\n"
+  "\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001 "
+  "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEnt"
+  "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNo"
+  "tifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001"
+  "(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014cha"
+  "nnel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t"
+  "\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpti"
+  "ons.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022"
+  "\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n"
+  "\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001("
+  "\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyzer\022\013\n"
+  "\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBacke"
+  "nd\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIn"
+  "dexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptime"
+  ".v1B\003DdlZ5github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 6392, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 6471, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 1, 48,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -11464,6 +11472,8 @@ SetFulltext::SetFulltext(const SetFulltext& from)
     , decltype(_impl_.analyzer_){}
     , decltype(_impl_.enable_){}
     , decltype(_impl_.case_sensitive_){}
+    , decltype(_impl_.granularity_){}
+    , decltype(_impl_.false_positive_rate_){}
     , decltype(_impl_.backend_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -11491,6 +11501,8 @@ inline void SetFulltext::SharedCtor(
     , decltype(_impl_.analyzer_){0}
     , decltype(_impl_.enable_){false}
     , decltype(_impl_.case_sensitive_){false}
+    , decltype(_impl_.granularity_){uint64_t{0u}}
+    , decltype(_impl_.false_positive_rate_){0}
     , decltype(_impl_.backend_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -11581,6 +11593,22 @@ const char* SetFulltext::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
         } else
           goto handle_unusual;
         continue;
+      // uint64 granularity = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.granularity_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double false_positive_rate = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 57)) {
+          _impl_.false_positive_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -11646,6 +11674,22 @@ uint8_t* SetFulltext::_InternalSerialize(
       5, this->_internal_backend(), target);
   }
 
+  // uint64 granularity = 6;
+  if (this->_internal_granularity() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_granularity(), target);
+  }
+
+  // double false_positive_rate = 7;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = this->_internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(7, this->_internal_false_positive_rate(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -11685,6 +11729,20 @@ size_t SetFulltext::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
+  // uint64 granularity = 6;
+  if (this->_internal_granularity() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_granularity());
+  }
+
+  // double false_positive_rate = 7;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = this->_internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    total_size += 1 + 8;
+  }
+
   // .greptime.v1.FulltextBackend backend = 5;
   if (this->_internal_backend() != 0) {
     total_size += 1 +
@@ -11720,6 +11778,16 @@ void SetFulltext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   }
   if (from._internal_case_sensitive() != 0) {
     _this->_internal_set_case_sensitive(from._internal_case_sensitive());
+  }
+  if (from._internal_granularity() != 0) {
+    _this->_internal_set_granularity(from._internal_granularity());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = from._internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    _this->_internal_set_false_positive_rate(from._internal_false_positive_rate());
   }
   if (from._internal_backend() != 0) {
     _this->_internal_set_backend(from._internal_backend());
@@ -12390,6 +12458,7 @@ SetSkipping::SetSkipping(const SetSkipping& from)
     , decltype(_impl_.granularity_){}
     , decltype(_impl_.enable_){}
     , decltype(_impl_.skipping_index_type_){}
+    , decltype(_impl_.false_positive_rate_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -12402,8 +12471,8 @@ SetSkipping::SetSkipping(const SetSkipping& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.granularity_, &from._impl_.granularity_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.skipping_index_type_) -
-    reinterpret_cast<char*>(&_impl_.granularity_)) + sizeof(_impl_.skipping_index_type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.false_positive_rate_) -
+    reinterpret_cast<char*>(&_impl_.granularity_)) + sizeof(_impl_.false_positive_rate_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.SetSkipping)
 }
 
@@ -12416,6 +12485,7 @@ inline void SetSkipping::SharedCtor(
     , decltype(_impl_.granularity_){uint64_t{0u}}
     , decltype(_impl_.enable_){false}
     , decltype(_impl_.skipping_index_type_){0}
+    , decltype(_impl_.false_positive_rate_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.column_name_.InitDefault();
@@ -12450,8 +12520,8 @@ void SetSkipping::Clear() {
 
   _impl_.column_name_.ClearToEmpty();
   ::memset(&_impl_.granularity_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.skipping_index_type_) -
-      reinterpret_cast<char*>(&_impl_.granularity_)) + sizeof(_impl_.skipping_index_type_));
+      reinterpret_cast<char*>(&_impl_.false_positive_rate_) -
+      reinterpret_cast<char*>(&_impl_.granularity_)) + sizeof(_impl_.false_positive_rate_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -12493,6 +12563,14 @@ const char* SetSkipping::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_skipping_index_type(static_cast<::greptime::v1::SkippingIndexType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // double false_positive_rate = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
+          _impl_.false_positive_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -12554,6 +12632,16 @@ uint8_t* SetSkipping::_InternalSerialize(
       4, this->_internal_skipping_index_type(), target);
   }
 
+  // double false_positive_rate = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = this->_internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_false_positive_rate(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -12593,6 +12681,15 @@ size_t SetSkipping::ByteSizeLong() const {
       ::_pbi::WireFormatLite::EnumSize(this->_internal_skipping_index_type());
   }
 
+  // double false_positive_rate = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = this->_internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    total_size += 1 + 8;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -12623,6 +12720,13 @@ void SetSkipping::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
   if (from._internal_skipping_index_type() != 0) {
     _this->_internal_set_skipping_index_type(from._internal_skipping_index_type());
   }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_false_positive_rate = from._internal_false_positive_rate();
+  uint64_t raw_false_positive_rate;
+  memcpy(&raw_false_positive_rate, &tmp_false_positive_rate, sizeof(tmp_false_positive_rate));
+  if (raw_false_positive_rate != 0) {
+    _this->_internal_set_false_positive_rate(from._internal_false_positive_rate());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -12647,8 +12751,8 @@ void SetSkipping::InternalSwap(SetSkipping* other) {
       &other->_impl_.column_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SetSkipping, _impl_.skipping_index_type_)
-      + sizeof(SetSkipping::_impl_.skipping_index_type_)
+      PROTOBUF_FIELD_OFFSET(SetSkipping, _impl_.false_positive_rate_)
+      + sizeof(SetSkipping::_impl_.false_positive_rate_)
       - PROTOBUF_FIELD_OFFSET(SetSkipping, _impl_.granularity_)>(
           reinterpret_cast<char*>(&_impl_.granularity_),
           reinterpret_cast<char*>(&other->_impl_.granularity_));
