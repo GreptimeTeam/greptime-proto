@@ -143,8 +143,8 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fwal_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr"
-  "eptime/v1/row.proto\032\030greptime/v1/common."
+  "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\030gr"
+  "eptime/v1/common.proto\032\025greptime/v1/row."
   "proto\"J\n\tWriteHint\022=\n\024primary_key_encodi"
   "ng\030\001 \001(\0162\037.greptime.v1.PrimaryKeyEncodin"
   "g\"\217\001\n\010Mutation\022$\n\007op_type\030\001 \001(\0162\023.grepti"
