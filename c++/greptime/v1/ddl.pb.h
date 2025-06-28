@@ -150,6 +150,12 @@ extern RenameTableDefaultTypeInternal _RenameTable_default_instance_;
 class SetDatabaseOptions;
 struct SetDatabaseOptionsDefaultTypeInternal;
 extern SetDatabaseOptionsDefaultTypeInternal _SetDatabaseOptions_default_instance_;
+class SetDefault;
+struct SetDefaultDefaultTypeInternal;
+extern SetDefaultDefaultTypeInternal _SetDefault_default_instance_;
+class SetDefaults;
+struct SetDefaultsDefaultTypeInternal;
+extern SetDefaultsDefaultTypeInternal _SetDefaults_default_instance_;
 class SetFulltext;
 struct SetFulltextDefaultTypeInternal;
 extern SetFulltextDefaultTypeInternal _SetFulltext_default_instance_;
@@ -237,6 +243,8 @@ template<> ::greptime::v1::NotifyChannel* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::Option* Arena::CreateMaybeMessage<::greptime::v1::Option>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
 template<> ::greptime::v1::SetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::SetDatabaseOptions>(Arena*);
+template<> ::greptime::v1::SetDefault* Arena::CreateMaybeMessage<::greptime::v1::SetDefault>(Arena*);
+template<> ::greptime::v1::SetDefaults* Arena::CreateMaybeMessage<::greptime::v1::SetDefaults>(Arena*);
 template<> ::greptime::v1::SetFulltext* Arena::CreateMaybeMessage<::greptime::v1::SetFulltext>(Arena*);
 template<> ::greptime::v1::SetIndex* Arena::CreateMaybeMessage<::greptime::v1::SetIndex>(Arena*);
 template<> ::greptime::v1::SetIndexes* Arena::CreateMaybeMessage<::greptime::v1::SetIndexes>(Arena*);
@@ -2214,6 +2222,7 @@ class AlterTableExpr final :
     kDropDefaults = 14,
     kSetIndexes = 15,
     kUnsetIndexes = 16,
+    kSetDefaults = 17,
     KIND_NOT_SET = 0,
   };
 
@@ -2309,6 +2318,7 @@ class AlterTableExpr final :
     kDropDefaultsFieldNumber = 14,
     kSetIndexesFieldNumber = 15,
     kUnsetIndexesFieldNumber = 16,
+    kSetDefaultsFieldNumber = 17,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -2550,6 +2560,24 @@ class AlterTableExpr final :
       ::greptime::v1::UnsetIndexes* unset_indexes);
   ::greptime::v1::UnsetIndexes* unsafe_arena_release_unset_indexes();
 
+  // .greptime.v1.SetDefaults set_defaults = 17;
+  bool has_set_defaults() const;
+  private:
+  bool _internal_has_set_defaults() const;
+  public:
+  void clear_set_defaults();
+  const ::greptime::v1::SetDefaults& set_defaults() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetDefaults* release_set_defaults();
+  ::greptime::v1::SetDefaults* mutable_set_defaults();
+  void set_allocated_set_defaults(::greptime::v1::SetDefaults* set_defaults);
+  private:
+  const ::greptime::v1::SetDefaults& _internal_set_defaults() const;
+  ::greptime::v1::SetDefaults* _internal_mutable_set_defaults();
+  public:
+  void unsafe_arena_set_allocated_set_defaults(
+      ::greptime::v1::SetDefaults* set_defaults);
+  ::greptime::v1::SetDefaults* unsafe_arena_release_set_defaults();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.AlterTableExpr)
@@ -2566,6 +2594,7 @@ class AlterTableExpr final :
   void set_has_drop_defaults();
   void set_has_set_indexes();
   void set_has_unset_indexes();
+  void set_has_set_defaults();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -2591,6 +2620,7 @@ class AlterTableExpr final :
       ::greptime::v1::DropDefaults* drop_defaults_;
       ::greptime::v1::SetIndexes* set_indexes_;
       ::greptime::v1::UnsetIndexes* unset_indexes_;
+      ::greptime::v1::SetDefaults* set_defaults_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3068,6 +3098,175 @@ class UnsetIndexes final :
 };
 // -------------------------------------------------------------------
 
+class SetDefault final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetDefault) */ {
+ public:
+  inline SetDefault() : SetDefault(nullptr) {}
+  ~SetDefault() override;
+  explicit PROTOBUF_CONSTEXPR SetDefault(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetDefault(const SetDefault& from);
+  SetDefault(SetDefault&& from) noexcept
+    : SetDefault() {
+    *this = ::std::move(from);
+  }
+
+  inline SetDefault& operator=(const SetDefault& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetDefault& operator=(SetDefault&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetDefault& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetDefault* internal_default_instance() {
+    return reinterpret_cast<const SetDefault*>(
+               &_SetDefault_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(SetDefault& a, SetDefault& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetDefault* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetDefault* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetDefault* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetDefault>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetDefault& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SetDefault& from) {
+    SetDefault::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetDefault* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SetDefault";
+  }
+  protected:
+  explicit SetDefault(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnNameFieldNumber = 1,
+    kDefaultConstraintFieldNumber = 2,
+  };
+  // string column_name = 1;
+  void clear_column_name();
+  const std::string& column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column_name();
+  PROTOBUF_NODISCARD std::string* release_column_name();
+  void set_allocated_column_name(std::string* column_name);
+  private:
+  const std::string& _internal_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
+  std::string* _internal_mutable_column_name();
+  public:
+
+  // bytes default_constraint = 2;
+  void clear_default_constraint();
+  const std::string& default_constraint() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_default_constraint(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_default_constraint();
+  PROTOBUF_NODISCARD std::string* release_default_constraint();
+  void set_allocated_default_constraint(std::string* default_constraint);
+  private:
+  const std::string& _internal_default_constraint() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_constraint(const std::string& value);
+  std::string* _internal_mutable_default_constraint();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SetDefault)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SetIndex final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetIndex) */ {
  public:
@@ -3123,7 +3322,7 @@ class SetIndex final :
                &_SetIndex_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(SetIndex& a, SetIndex& b) {
     a.Swap(&b);
@@ -3341,7 +3540,7 @@ class UnsetIndex final :
                &_UnsetIndex_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(UnsetIndex& a, UnsetIndex& b) {
     a.Swap(&b);
@@ -3552,7 +3751,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -3796,7 +3995,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -4002,7 +4201,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -4207,7 +4406,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -4387,7 +4586,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4544,7 +4743,7 @@ class DropDefaults final :
                &_DropDefaults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(DropDefaults& a, DropDefaults& b) {
     a.Swap(&b);
@@ -4653,6 +4852,163 @@ class DropDefaults final :
 };
 // -------------------------------------------------------------------
 
+class SetDefaults final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetDefaults) */ {
+ public:
+  inline SetDefaults() : SetDefaults(nullptr) {}
+  ~SetDefaults() override;
+  explicit PROTOBUF_CONSTEXPR SetDefaults(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetDefaults(const SetDefaults& from);
+  SetDefaults(SetDefaults&& from) noexcept
+    : SetDefaults() {
+    *this = ::std::move(from);
+  }
+
+  inline SetDefaults& operator=(const SetDefaults& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetDefaults& operator=(SetDefaults&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetDefaults& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetDefaults* internal_default_instance() {
+    return reinterpret_cast<const SetDefaults*>(
+               &_SetDefaults_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(SetDefaults& a, SetDefaults& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetDefaults* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetDefaults* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetDefaults* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetDefaults>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetDefaults& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SetDefaults& from) {
+    SetDefaults::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetDefaults* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SetDefaults";
+  }
+  protected:
+  explicit SetDefaults(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSetDefaultsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.SetDefault set_defaults = 1;
+  int set_defaults_size() const;
+  private:
+  int _internal_set_defaults_size() const;
+  public:
+  void clear_set_defaults();
+  ::greptime::v1::SetDefault* mutable_set_defaults(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetDefault >*
+      mutable_set_defaults();
+  private:
+  const ::greptime::v1::SetDefault& _internal_set_defaults(int index) const;
+  ::greptime::v1::SetDefault* _internal_add_set_defaults();
+  public:
+  const ::greptime::v1::SetDefault& set_defaults(int index) const;
+  ::greptime::v1::SetDefault* add_set_defaults();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetDefault >&
+      set_defaults() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SetDefaults)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetDefault > set_defaults_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DropColumns final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DropColumns) */ {
  public:
@@ -4701,7 +5057,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4858,7 +5214,7 @@ class ModifyColumnTypes final :
                &_ModifyColumnTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(ModifyColumnTypes& a, ModifyColumnTypes& b) {
     a.Swap(&b);
@@ -5015,7 +5371,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -5168,7 +5524,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -5356,7 +5712,7 @@ class ModifyColumnType final :
                &_ModifyColumnType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(ModifyColumnType& a, ModifyColumnType& b) {
     a.Swap(&b);
@@ -5540,7 +5896,7 @@ class Option final :
                &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(Option& a, Option& b) {
     a.Swap(&b);
@@ -5709,7 +6065,7 @@ class SetTableOptions final :
                &_SetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(SetTableOptions& a, SetTableOptions& b) {
     a.Swap(&b);
@@ -5866,7 +6222,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -6029,7 +6385,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -6182,7 +6538,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -6330,7 +6686,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -6478,7 +6834,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -6736,7 +7092,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -6930,7 +7286,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -7149,7 +7505,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -7302,7 +7658,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -7455,7 +7811,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -7608,7 +7964,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -7805,7 +8161,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -7964,7 +8320,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -8186,7 +8542,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -8343,7 +8699,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -8562,7 +8918,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -8843,7 +9199,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -9056,7 +9412,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -9235,7 +9591,7 @@ class DropTriggerExpr final :
                &_DropTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    51;
 
   friend void swap(DropTriggerExpr& a, DropTriggerExpr& b) {
     a.Swap(&b);
@@ -13094,6 +13450,80 @@ inline ::greptime::v1::UnsetIndexes* AlterTableExpr::mutable_unset_indexes() {
   return _msg;
 }
 
+// .greptime.v1.SetDefaults set_defaults = 17;
+inline bool AlterTableExpr::_internal_has_set_defaults() const {
+  return kind_case() == kSetDefaults;
+}
+inline bool AlterTableExpr::has_set_defaults() const {
+  return _internal_has_set_defaults();
+}
+inline void AlterTableExpr::set_has_set_defaults() {
+  _impl_._oneof_case_[0] = kSetDefaults;
+}
+inline void AlterTableExpr::clear_set_defaults() {
+  if (_internal_has_set_defaults()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.set_defaults_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::SetDefaults* AlterTableExpr::release_set_defaults() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterTableExpr.set_defaults)
+  if (_internal_has_set_defaults()) {
+    clear_has_kind();
+    ::greptime::v1::SetDefaults* temp = _impl_.kind_.set_defaults_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.set_defaults_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SetDefaults& AlterTableExpr::_internal_set_defaults() const {
+  return _internal_has_set_defaults()
+      ? *_impl_.kind_.set_defaults_
+      : reinterpret_cast< ::greptime::v1::SetDefaults&>(::greptime::v1::_SetDefaults_default_instance_);
+}
+inline const ::greptime::v1::SetDefaults& AlterTableExpr::set_defaults() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterTableExpr.set_defaults)
+  return _internal_set_defaults();
+}
+inline ::greptime::v1::SetDefaults* AlterTableExpr::unsafe_arena_release_set_defaults() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterTableExpr.set_defaults)
+  if (_internal_has_set_defaults()) {
+    clear_has_kind();
+    ::greptime::v1::SetDefaults* temp = _impl_.kind_.set_defaults_;
+    _impl_.kind_.set_defaults_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterTableExpr::unsafe_arena_set_allocated_set_defaults(::greptime::v1::SetDefaults* set_defaults) {
+  clear_kind();
+  if (set_defaults) {
+    set_has_set_defaults();
+    _impl_.kind_.set_defaults_ = set_defaults;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterTableExpr.set_defaults)
+}
+inline ::greptime::v1::SetDefaults* AlterTableExpr::_internal_mutable_set_defaults() {
+  if (!_internal_has_set_defaults()) {
+    clear_kind();
+    set_has_set_defaults();
+    _impl_.kind_.set_defaults_ = CreateMaybeMessage< ::greptime::v1::SetDefaults >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.set_defaults_;
+}
+inline ::greptime::v1::SetDefaults* AlterTableExpr::mutable_set_defaults() {
+  ::greptime::v1::SetDefaults* _msg = _internal_mutable_set_defaults();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterTableExpr.set_defaults)
+  return _msg;
+}
+
 inline bool AlterTableExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -13243,6 +13673,110 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetInd
 UnsetIndexes::unset_indexes() const {
   // @@protoc_insertion_point(field_list:greptime.v1.UnsetIndexes.unset_indexes)
   return _impl_.unset_indexes_;
+}
+
+// -------------------------------------------------------------------
+
+// SetDefault
+
+// string column_name = 1;
+inline void SetDefault::clear_column_name() {
+  _impl_.column_name_.ClearToEmpty();
+}
+inline const std::string& SetDefault::column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetDefault.column_name)
+  return _internal_column_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetDefault::set_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.SetDefault.column_name)
+}
+inline std::string* SetDefault::mutable_column_name() {
+  std::string* _s = _internal_mutable_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetDefault.column_name)
+  return _s;
+}
+inline const std::string& SetDefault::_internal_column_name() const {
+  return _impl_.column_name_.Get();
+}
+inline void SetDefault::_internal_set_column_name(const std::string& value) {
+  
+  _impl_.column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetDefault::_internal_mutable_column_name() {
+  
+  return _impl_.column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetDefault::release_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SetDefault.column_name)
+  return _impl_.column_name_.Release();
+}
+inline void SetDefault::set_allocated_column_name(std::string* column_name) {
+  if (column_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.column_name_.SetAllocated(column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_name_.IsDefault()) {
+    _impl_.column_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.SetDefault.column_name)
+}
+
+// bytes default_constraint = 2;
+inline void SetDefault::clear_default_constraint() {
+  _impl_.default_constraint_.ClearToEmpty();
+}
+inline const std::string& SetDefault::default_constraint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetDefault.default_constraint)
+  return _internal_default_constraint();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SetDefault::set_default_constraint(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.default_constraint_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.SetDefault.default_constraint)
+}
+inline std::string* SetDefault::mutable_default_constraint() {
+  std::string* _s = _internal_mutable_default_constraint();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetDefault.default_constraint)
+  return _s;
+}
+inline const std::string& SetDefault::_internal_default_constraint() const {
+  return _impl_.default_constraint_.Get();
+}
+inline void SetDefault::_internal_set_default_constraint(const std::string& value) {
+  
+  _impl_.default_constraint_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SetDefault::_internal_mutable_default_constraint() {
+  
+  return _impl_.default_constraint_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SetDefault::release_default_constraint() {
+  // @@protoc_insertion_point(field_release:greptime.v1.SetDefault.default_constraint)
+  return _impl_.default_constraint_.Release();
+}
+inline void SetDefault::set_allocated_default_constraint(std::string* default_constraint) {
+  if (default_constraint != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.default_constraint_.SetAllocated(default_constraint, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.default_constraint_.IsDefault()) {
+    _impl_.default_constraint_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.SetDefault.default_constraint)
 }
 
 // -------------------------------------------------------------------
@@ -14588,6 +15122,50 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::DropDefa
 DropDefaults::drop_defaults() const {
   // @@protoc_insertion_point(field_list:greptime.v1.DropDefaults.drop_defaults)
   return _impl_.drop_defaults_;
+}
+
+// -------------------------------------------------------------------
+
+// SetDefaults
+
+// repeated .greptime.v1.SetDefault set_defaults = 1;
+inline int SetDefaults::_internal_set_defaults_size() const {
+  return _impl_.set_defaults_.size();
+}
+inline int SetDefaults::set_defaults_size() const {
+  return _internal_set_defaults_size();
+}
+inline void SetDefaults::clear_set_defaults() {
+  _impl_.set_defaults_.Clear();
+}
+inline ::greptime::v1::SetDefault* SetDefaults::mutable_set_defaults(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetDefaults.set_defaults)
+  return _impl_.set_defaults_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetDefault >*
+SetDefaults::mutable_set_defaults() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetDefaults.set_defaults)
+  return &_impl_.set_defaults_;
+}
+inline const ::greptime::v1::SetDefault& SetDefaults::_internal_set_defaults(int index) const {
+  return _impl_.set_defaults_.Get(index);
+}
+inline const ::greptime::v1::SetDefault& SetDefaults::set_defaults(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetDefaults.set_defaults)
+  return _internal_set_defaults(index);
+}
+inline ::greptime::v1::SetDefault* SetDefaults::_internal_add_set_defaults() {
+  return _impl_.set_defaults_.Add();
+}
+inline ::greptime::v1::SetDefault* SetDefaults::add_set_defaults() {
+  ::greptime::v1::SetDefault* _add = _internal_add_set_defaults();
+  // @@protoc_insertion_point(field_add:greptime.v1.SetDefaults.set_defaults)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetDefault >&
+SetDefaults::set_defaults() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.SetDefaults.set_defaults)
+  return _impl_.set_defaults_;
 }
 
 // -------------------------------------------------------------------
@@ -17435,6 +18013,10 @@ inline void DropTriggerExpr::set_drop_if_exists(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
