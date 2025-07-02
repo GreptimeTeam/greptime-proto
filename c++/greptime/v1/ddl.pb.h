@@ -6641,6 +6641,8 @@ class SetFulltext final :
     kAnalyzerFieldNumber = 3,
     kEnableFieldNumber = 2,
     kCaseSensitiveFieldNumber = 4,
+    kGranularityFieldNumber = 6,
+    kFalsePositiveRateFieldNumber = 7,
     kBackendFieldNumber = 5,
   };
   // string column_name = 1;
@@ -6684,6 +6686,24 @@ class SetFulltext final :
   void _internal_set_case_sensitive(bool value);
   public:
 
+  // uint64 granularity = 6;
+  void clear_granularity();
+  uint64_t granularity() const;
+  void set_granularity(uint64_t value);
+  private:
+  uint64_t _internal_granularity() const;
+  void _internal_set_granularity(uint64_t value);
+  public:
+
+  // double false_positive_rate = 7;
+  void clear_false_positive_rate();
+  double false_positive_rate() const;
+  void set_false_positive_rate(double value);
+  private:
+  double _internal_false_positive_rate() const;
+  void _internal_set_false_positive_rate(double value);
+  public:
+
   // .greptime.v1.FulltextBackend backend = 5;
   void clear_backend();
   ::greptime::v1::FulltextBackend backend() const;
@@ -6705,6 +6725,8 @@ class SetFulltext final :
     int analyzer_;
     bool enable_;
     bool case_sensitive_;
+    uint64_t granularity_;
+    double false_positive_rate_;
     int backend_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -7297,6 +7319,7 @@ class SetSkipping final :
     kGranularityFieldNumber = 3,
     kEnableFieldNumber = 2,
     kSkippingIndexTypeFieldNumber = 4,
+    kFalsePositiveRateFieldNumber = 5,
   };
   // string column_name = 1;
   void clear_column_name();
@@ -7339,6 +7362,15 @@ class SetSkipping final :
   void _internal_set_skipping_index_type(::greptime::v1::SkippingIndexType value);
   public:
 
+  // double false_positive_rate = 5;
+  void clear_false_positive_rate();
+  double false_positive_rate() const;
+  void set_false_positive_rate(double value);
+  private:
+  double _internal_false_positive_rate() const;
+  void _internal_set_false_positive_rate(double value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.SetSkipping)
  private:
   class _Internal;
@@ -7351,6 +7383,7 @@ class SetSkipping final :
     uint64_t granularity_;
     bool enable_;
     int skipping_index_type_;
+    double false_positive_rate_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -15381,6 +15414,46 @@ inline void SetFulltext::set_backend(::greptime::v1::FulltextBackend value) {
   // @@protoc_insertion_point(field_set:greptime.v1.SetFulltext.backend)
 }
 
+// uint64 granularity = 6;
+inline void SetFulltext::clear_granularity() {
+  _impl_.granularity_ = uint64_t{0u};
+}
+inline uint64_t SetFulltext::_internal_granularity() const {
+  return _impl_.granularity_;
+}
+inline uint64_t SetFulltext::granularity() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetFulltext.granularity)
+  return _internal_granularity();
+}
+inline void SetFulltext::_internal_set_granularity(uint64_t value) {
+  
+  _impl_.granularity_ = value;
+}
+inline void SetFulltext::set_granularity(uint64_t value) {
+  _internal_set_granularity(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetFulltext.granularity)
+}
+
+// double false_positive_rate = 7;
+inline void SetFulltext::clear_false_positive_rate() {
+  _impl_.false_positive_rate_ = 0;
+}
+inline double SetFulltext::_internal_false_positive_rate() const {
+  return _impl_.false_positive_rate_;
+}
+inline double SetFulltext::false_positive_rate() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetFulltext.false_positive_rate)
+  return _internal_false_positive_rate();
+}
+inline void SetFulltext::_internal_set_false_positive_rate(double value) {
+  
+  _impl_.false_positive_rate_ = value;
+}
+inline void SetFulltext::set_false_positive_rate(double value) {
+  _internal_set_false_positive_rate(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetFulltext.false_positive_rate)
+}
+
 // -------------------------------------------------------------------
 
 // UnsetFulltext
@@ -15655,6 +15728,26 @@ inline void SetSkipping::_internal_set_skipping_index_type(::greptime::v1::Skipp
 inline void SetSkipping::set_skipping_index_type(::greptime::v1::SkippingIndexType value) {
   _internal_set_skipping_index_type(value);
   // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.skipping_index_type)
+}
+
+// double false_positive_rate = 5;
+inline void SetSkipping::clear_false_positive_rate() {
+  _impl_.false_positive_rate_ = 0;
+}
+inline double SetSkipping::_internal_false_positive_rate() const {
+  return _impl_.false_positive_rate_;
+}
+inline double SetSkipping::false_positive_rate() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetSkipping.false_positive_rate)
+  return _internal_false_positive_rate();
+}
+inline void SetSkipping::_internal_set_false_positive_rate(double value) {
+  
+  _impl_.false_positive_rate_ = value;
+}
+inline void SetSkipping::set_false_positive_rate(double value) {
+  _internal_set_false_positive_rate(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.SetSkipping.false_positive_rate)
 }
 
 // -------------------------------------------------------------------
