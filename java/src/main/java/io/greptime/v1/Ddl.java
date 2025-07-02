@@ -33920,6 +33920,26 @@ java.lang.String defaultValue);
      * @return The backend.
      */
     io.greptime.v1.Ddl.FulltextBackend getBackend();
+
+    /**
+     * <pre>
+     * The granularity for the fulltext index (for bloom backend only).
+     * </pre>
+     *
+     * <code>uint64 granularity = 6;</code>
+     * @return The granularity.
+     */
+    long getGranularity();
+
+    /**
+     * <pre>
+     * The false positive rate for the fulltext index (for bloom backend only).
+     * </pre>
+     *
+     * <code>double false_positive_rate = 7;</code>
+     * @return The falsePositiveRate.
+     */
+    double getFalsePositiveRate();
   }
   /**
    * Protobuf type {@code greptime.v1.SetFulltext}
@@ -33995,6 +34015,16 @@ java.lang.String defaultValue);
               int rawValue = input.readEnum();
 
               backend_ = rawValue;
+              break;
+            }
+            case 48: {
+
+              granularity_ = input.readUInt64();
+              break;
+            }
+            case 57: {
+
+              falsePositiveRate_ = input.readDouble();
               break;
             }
             default: {
@@ -34129,6 +34159,36 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.Ddl.FulltextBackend.UNRECOGNIZED : result;
     }
 
+    public static final int GRANULARITY_FIELD_NUMBER = 6;
+    private long granularity_;
+    /**
+     * <pre>
+     * The granularity for the fulltext index (for bloom backend only).
+     * </pre>
+     *
+     * <code>uint64 granularity = 6;</code>
+     * @return The granularity.
+     */
+    @java.lang.Override
+    public long getGranularity() {
+      return granularity_;
+    }
+
+    public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 7;
+    private double falsePositiveRate_;
+    /**
+     * <pre>
+     * The false positive rate for the fulltext index (for bloom backend only).
+     * </pre>
+     *
+     * <code>double false_positive_rate = 7;</code>
+     * @return The falsePositiveRate.
+     */
+    @java.lang.Override
+    public double getFalsePositiveRate() {
+      return falsePositiveRate_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -34158,6 +34218,12 @@ java.lang.String defaultValue);
       if (backend_ != io.greptime.v1.Ddl.FulltextBackend.TANTIVY.getNumber()) {
         output.writeEnum(5, backend_);
       }
+      if (granularity_ != 0L) {
+        output.writeUInt64(6, granularity_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        output.writeDouble(7, falsePositiveRate_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -34186,6 +34252,14 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, backend_);
       }
+      if (granularity_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, granularity_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(7, falsePositiveRate_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -34209,6 +34283,11 @@ java.lang.String defaultValue);
       if (getCaseSensitive()
           != other.getCaseSensitive()) return false;
       if (backend_ != other.backend_) return false;
+      if (getGranularity()
+          != other.getGranularity()) return false;
+      if (java.lang.Double.doubleToLongBits(getFalsePositiveRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getFalsePositiveRate())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -34232,6 +34311,12 @@ java.lang.String defaultValue);
           getCaseSensitive());
       hash = (37 * hash) + BACKEND_FIELD_NUMBER;
       hash = (53 * hash) + backend_;
+      hash = (37 * hash) + GRANULARITY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getGranularity());
+      hash = (37 * hash) + FALSE_POSITIVE_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFalsePositiveRate()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -34375,6 +34460,10 @@ java.lang.String defaultValue);
 
         backend_ = 0;
 
+        granularity_ = 0L;
+
+        falsePositiveRate_ = 0D;
+
         return this;
       }
 
@@ -34406,6 +34495,8 @@ java.lang.String defaultValue);
         result.analyzer_ = analyzer_;
         result.caseSensitive_ = caseSensitive_;
         result.backend_ = backend_;
+        result.granularity_ = granularity_;
+        result.falsePositiveRate_ = falsePositiveRate_;
         onBuilt();
         return result;
       }
@@ -34469,6 +34560,12 @@ java.lang.String defaultValue);
         }
         if (other.backend_ != 0) {
           setBackendValue(other.getBackendValue());
+        }
+        if (other.getGranularity() != 0L) {
+          setGranularity(other.getGranularity());
+        }
+        if (other.getFalsePositiveRate() != 0D) {
+          setFalsePositiveRate(other.getFalsePositiveRate());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -34741,6 +34838,92 @@ java.lang.String defaultValue);
       public Builder clearBackend() {
         
         backend_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long granularity_ ;
+      /**
+       * <pre>
+       * The granularity for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>uint64 granularity = 6;</code>
+       * @return The granularity.
+       */
+      @java.lang.Override
+      public long getGranularity() {
+        return granularity_;
+      }
+      /**
+       * <pre>
+       * The granularity for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>uint64 granularity = 6;</code>
+       * @param value The granularity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGranularity(long value) {
+        
+        granularity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The granularity for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>uint64 granularity = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGranularity() {
+        
+        granularity_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double falsePositiveRate_ ;
+      /**
+       * <pre>
+       * The false positive rate for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>double false_positive_rate = 7;</code>
+       * @return The falsePositiveRate.
+       */
+      @java.lang.Override
+      public double getFalsePositiveRate() {
+        return falsePositiveRate_;
+      }
+      /**
+       * <pre>
+       * The false positive rate for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>double false_positive_rate = 7;</code>
+       * @param value The falsePositiveRate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFalsePositiveRate(double value) {
+        
+        falsePositiveRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The false positive rate for the fulltext index (for bloom backend only).
+       * </pre>
+       *
+       * <code>double false_positive_rate = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFalsePositiveRate() {
+        
+        falsePositiveRate_ = 0D;
         onChanged();
         return this;
       }
@@ -36545,6 +36728,12 @@ java.lang.String defaultValue);
      * @return The skippingIndexType.
      */
     io.greptime.v1.Ddl.SkippingIndexType getSkippingIndexType();
+
+    /**
+     * <code>double false_positive_rate = 5;</code>
+     * @return The falsePositiveRate.
+     */
+    double getFalsePositiveRate();
   }
   /**
    * Protobuf type {@code greptime.v1.SetSkipping}
@@ -36613,6 +36802,11 @@ java.lang.String defaultValue);
               int rawValue = input.readEnum();
 
               skippingIndexType_ = rawValue;
+              break;
+            }
+            case 41: {
+
+              falsePositiveRate_ = input.readDouble();
               break;
             }
             default: {
@@ -36728,6 +36922,17 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.Ddl.SkippingIndexType.UNRECOGNIZED : result;
     }
 
+    public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 5;
+    private double falsePositiveRate_;
+    /**
+     * <code>double false_positive_rate = 5;</code>
+     * @return The falsePositiveRate.
+     */
+    @java.lang.Override
+    public double getFalsePositiveRate() {
+      return falsePositiveRate_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -36754,6 +36959,9 @@ java.lang.String defaultValue);
       if (skippingIndexType_ != io.greptime.v1.Ddl.SkippingIndexType.BLOOM_FILTER.getNumber()) {
         output.writeEnum(4, skippingIndexType_);
       }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        output.writeDouble(5, falsePositiveRate_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -36778,6 +36986,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, skippingIndexType_);
       }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, falsePositiveRate_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -36800,6 +37012,9 @@ java.lang.String defaultValue);
       if (getGranularity()
           != other.getGranularity()) return false;
       if (skippingIndexType_ != other.skippingIndexType_) return false;
+      if (java.lang.Double.doubleToLongBits(getFalsePositiveRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getFalsePositiveRate())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -36821,6 +37036,9 @@ java.lang.String defaultValue);
           getGranularity());
       hash = (37 * hash) + SKIPPING_INDEX_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + skippingIndexType_;
+      hash = (37 * hash) + FALSE_POSITIVE_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFalsePositiveRate()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -36962,6 +37180,8 @@ java.lang.String defaultValue);
 
         skippingIndexType_ = 0;
 
+        falsePositiveRate_ = 0D;
+
         return this;
       }
 
@@ -36992,6 +37212,7 @@ java.lang.String defaultValue);
         result.enable_ = enable_;
         result.granularity_ = granularity_;
         result.skippingIndexType_ = skippingIndexType_;
+        result.falsePositiveRate_ = falsePositiveRate_;
         onBuilt();
         return result;
       }
@@ -37052,6 +37273,9 @@ java.lang.String defaultValue);
         }
         if (other.skippingIndexType_ != 0) {
           setSkippingIndexTypeValue(other.getSkippingIndexTypeValue());
+        }
+        if (other.getFalsePositiveRate() != 0D) {
+          setFalsePositiveRate(other.getFalsePositiveRate());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -37270,6 +37494,37 @@ java.lang.String defaultValue);
       public Builder clearSkippingIndexType() {
         
         skippingIndexType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double falsePositiveRate_ ;
+      /**
+       * <code>double false_positive_rate = 5;</code>
+       * @return The falsePositiveRate.
+       */
+      @java.lang.Override
+      public double getFalsePositiveRate() {
+        return falsePositiveRate_;
+      }
+      /**
+       * <code>double false_positive_rate = 5;</code>
+       * @param value The falsePositiveRate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFalsePositiveRate(double value) {
+        
+        falsePositiveRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double false_positive_rate = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFalsePositiveRate() {
+        
+        falsePositiveRate_ = 0D;
         onChanged();
         return this;
       }
@@ -45032,47 +45287,49 @@ java.lang.String defaultValue);
       "lumnLocation\022B\n\rlocation_type\030\001 \001(\0162+.gr" +
       "eptime.v1.AddColumnLocation.LocationType" +
       "\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014LocationT" +
-      "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\242\001\n\013SetFulltex" +
+      "ype\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltex" +
       "t\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'" +
       "\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022" +
       "\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\016" +
-      "2\034.greptime.v1.FulltextBackend\"$\n\rUnsetF" +
-      "ulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInver" +
-      "ted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverte" +
-      "d\022\023\n\013column_name\030\001 \001(\t\"\204\001\n\013SetSkipping\022\023" +
-      "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013g" +
-      "ranularity\030\003 \001(\004\022;\n\023skipping_index_type\030" +
-      "\004 \001(\0162\036.greptime.v1.SkippingIndexType\"$\n" +
-      "\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021" +
-      "AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_opt" +
-      "ions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOpti" +
-      "onsH\000\022C\n\026unset_database_options\030\004 \001(\0132!." +
-      "greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004ki" +
-      "nd\"G\n\022SetDatabaseOptions\0221\n\024set_database" +
-      "_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024U" +
-      "nsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cr" +
-      "eateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n" +
-      "\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exi" +
-      "sts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\013" +
-      "2\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006" +
-      " \003(\0132*.greptime.v1.CreateTriggerExpr.Lab" +
-      "elsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime" +
-      ".v1.CreateTriggerExpr.AnnotationsEntry\022\020" +
-      "\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rN" +
-      "otifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 " +
-      "\001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014ch" +
-      "annel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(" +
-      "\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpt" +
-      "ions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001*$\n\010Analyzer\022\013\n\007ENGLI" +
-      "SH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007" +
-      "TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexTyp" +
-      "e\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1B\003D" +
-      "dlZ5github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1b\006proto3"
+      "2\034.greptime.v1.FulltextBackend\022\023\n\013granul" +
+      "arity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001" +
+      "\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"" +
+      "\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUn" +
+      "setInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013Set" +
+      "Skipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030" +
+      "\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_i" +
+      "ndex_type\030\004 \001(\0162\036.greptime.v1.SkippingIn" +
+      "dexType\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\r" +
+      "UnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021A" +
+      "lterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
+      "\n\013schema_name\030\002 \001(\t\022?\n\024set_database_opti" +
+      "ons\030\003 \001(\0132\037.greptime.v1.SetDatabaseOptio" +
+      "nsH\000\022C\n\026unset_database_options\030\004 \001(\0132!.g" +
+      "reptime.v1.UnsetDatabaseOptionsH\000B\006\n\004kin" +
+      "d\"G\n\022SetDatabaseOptions\0221\n\024set_database_" +
+      "options\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024Un" +
+      "setDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Cre" +
+      "ateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014" +
+      "trigger_name\030\002 \001(\t\022\034\n\024create_if_not_exis" +
+      "ts\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132" +
+      "\032.greptime.v1.NotifyChannel\022:\n\006labels\030\006 " +
+      "\003(\0132*.greptime.v1.CreateTriggerExpr.Labe" +
+      "lsEntry\022D\n\013annotations\030\007 \003(\0132/.greptime." +
+      "v1.CreateTriggerExpr.AnnotationsEntry\022\020\n" +
+      "\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNo" +
+      "tifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001" +
+      "(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n\014cha" +
+      "nnel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t" +
+      "\0223\n\004opts\030\002 \003(\0132%.greptime.v1.WebhookOpti" +
+      "ons.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001*$\n\010Analyzer\022\013\n\007ENGLIS" +
+      "H\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007T" +
+      "ANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType" +
+      "\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1B\003Dd" +
+      "lZ5github.com/GreptimeTeam/greptime-prot" +
+      "o/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -45276,7 +45533,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
-        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", });
+        new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
       getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
@@ -45300,7 +45557,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetSkipping_descriptor,
-        new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", });
+        new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetSkipping_descriptor =
       getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
