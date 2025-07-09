@@ -144,9 +144,13 @@ message AlterRequest {
     ModifyColumnTypes modify_column_types = 5;
     SetTableOptions set_table_options = 6;
     UnsetTableOptions unset_table_options = 9;
+    // Deprecated: use set_indexes instead.
     SetIndex set_index = 10;
+    // Deprecated: use unset_indexes instead.
     UnsetIndex unset_index = 11;
     DropDefaults drop_defaults = 12;
+    SetIndexes set_indexes = 13;
+    UnsetIndexes unset_indexes = 14;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
