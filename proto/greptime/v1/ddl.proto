@@ -112,14 +112,26 @@ message AlterTableExpr {
     ModifyColumnTypes modify_column_types = 7;
     SetTableOptions set_table_options = 8;
     UnsetTableOptions unset_table_options = 11;
+    // Deprecated: use set_indexes instead.
     SetIndex set_index = 12;
+    // Deprecated: use unset_indexes instead.
     UnsetIndex unset_index = 13;
     DropDefaults drop_defaults = 14;
+    SetIndexes set_indexes = 15;
+    UnsetIndexes unset_indexes = 16;
   }
 }
 
 message DropDefault {
   string column_name = 1;
+}
+
+message SetIndexes {
+  repeated SetIndex set_indexes = 1;
+}
+
+message UnsetIndexes {
+  repeated UnsetIndex unset_indexes = 1;
 }
 
 message SetIndex {
