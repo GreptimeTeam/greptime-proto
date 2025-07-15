@@ -16,19 +16,19 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
 import "greptime/v1/meta/common.proto";
 
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
 message MigrateRegionRequest {
-    RequestHeader header = 1;
-    uint64 region_id = 3;
-    uint64 from_peer = 4;
-    uint64 to_peer = 5;
-    uint32 timeout_secs = 6;
+  RequestHeader header = 1;
+  uint64 region_id = 3;
+  uint64 from_peer = 4;
+  uint64 to_peer = 5;
+  uint32 timeout_secs = 6;
 }
 
 message MigrateRegionResponse {
-    ResponseHeader header = 1;
-    ProcedureId pid = 2;
+  ResponseHeader header = 1;
+  ProcedureId pid = 2;
 }

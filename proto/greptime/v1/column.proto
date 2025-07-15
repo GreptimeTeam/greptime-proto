@@ -16,11 +16,11 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option java_package = "io.greptime.v1";
-option java_outer_classname = "Columns";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
 import "greptime/v1/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+option java_outer_classname = "Columns";
+option java_package = "io.greptime.v1";
 
 message Column {
   string column_name = 1;

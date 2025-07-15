@@ -16,13 +16,13 @@ syntax = "proto3";
 
 package greptime.v1.flow;
 
-option java_package = "io.greptime.v1.flow";
-option java_outer_classname = "Server";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/flow";
-
 import "greptime/v1/common.proto";
 import "greptime/v1/ddl.proto";
 import "greptime/v1/row.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/flow";
+option java_outer_classname = "Server";
+option java_package = "io.greptime.v1.flow";
 
 service Flow {
   // Handle the control plane request for creating or removing a flow.
@@ -56,7 +56,9 @@ message FlowRequestHeader {
   QueryContext query_context = 2;
 }
 
-message InsertRequests {repeated InsertRequest requests = 1;}
+message InsertRequests {
+  repeated InsertRequest requests = 1;
+}
 
 message InsertRequest {
   uint64 region_id = 1;
@@ -98,7 +100,9 @@ message CreateRequest {
   bool or_replace = 9;
 }
 
-message DropRequest {FlowId flow_id = 1;}
+message DropRequest {
+  FlowId flow_id = 1;
+}
 
 message FlushFlow {
   FlowId flow_id = 1;

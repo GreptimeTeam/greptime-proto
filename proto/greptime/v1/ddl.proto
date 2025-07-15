@@ -16,11 +16,11 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option java_package = "io.greptime.v1";
-option java_outer_classname = "Ddl";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
 import "greptime/v1/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+option java_outer_classname = "Ddl";
+option java_package = "io.greptime.v1";
 
 // "Data Definition Language" requests, that create, modify or delete the
 // database structures but not the data. `DdlRequest` could carry more
@@ -174,11 +174,17 @@ message DropDefaults {
   repeated DropDefault drop_defaults = 1;
 }
 
-message DropColumns { repeated DropColumn drop_columns = 1; }
+message DropColumns {
+  repeated DropColumn drop_columns = 1;
+}
 
-message ModifyColumnTypes { repeated ModifyColumnType modify_column_types = 1; }
+message ModifyColumnTypes {
+  repeated ModifyColumnType modify_column_types = 1;
+}
 
-message RenameTable { string new_table_name = 1; }
+message RenameTable {
+  string new_table_name = 1;
+}
 
 message AddColumn {
   ColumnDef column_def = 1;
@@ -198,18 +204,24 @@ message Option {
 }
 
 message SetTableOptions {
-    repeated Option table_options = 1;
+  repeated Option table_options = 1;
 }
 
 message UnsetTableOptions {
-    repeated string keys = 1;
+  repeated string keys = 1;
 }
 
-message DropColumn { string name = 1; }
+message DropColumn {
+  string name = 1;
+}
 
-message TableId { uint32 id = 1; }
+message TableId {
+  uint32 id = 1;
+}
 
-message FlowId { uint32 id = 1; }
+message FlowId {
+  uint32 id = 1;
+}
 
 message ColumnDef {
   string name = 1;
@@ -236,104 +248,104 @@ message AddColumnLocation {
 }
 
 enum Analyzer {
-    ENGLISH = 0;
-    CHINESE = 1;
+  ENGLISH = 0;
+  CHINESE = 1;
 }
 
 enum FulltextBackend {
-    TANTIVY = 0;
-    BLOOM = 1;
+  TANTIVY = 0;
+  BLOOM = 1;
 }
 
 message SetFulltext {
-    string column_name = 1;
-    bool enable = 2;
-    Analyzer analyzer = 3;
-    bool case_sensitive = 4;
-    FulltextBackend backend = 5;
-    // The granularity for the fulltext index (for bloom backend only).
-    uint64 granularity = 6;
-    // The false positive rate for the fulltext index (for bloom backend only).
-    double false_positive_rate = 7;
+  string column_name = 1;
+  bool enable = 2;
+  Analyzer analyzer = 3;
+  bool case_sensitive = 4;
+  FulltextBackend backend = 5;
+  // The granularity for the fulltext index (for bloom backend only).
+  uint64 granularity = 6;
+  // The false positive rate for the fulltext index (for bloom backend only).
+  double false_positive_rate = 7;
 }
 
 message UnsetFulltext {
-    string column_name = 1;
+  string column_name = 1;
 }
 
 message SetInverted {
-    string column_name = 1;
+  string column_name = 1;
 }
 
 message UnsetInverted {
-    string column_name = 1;
+  string column_name = 1;
 }
 
 enum SkippingIndexType {
-    BLOOM_FILTER = 0;
+  BLOOM_FILTER = 0;
 }
 
 message SetSkipping {
-    string column_name = 1;
-    bool enable = 2;
-    uint64 granularity = 3;
-    SkippingIndexType skipping_index_type = 4;
-    double false_positive_rate = 5;
+  string column_name = 1;
+  bool enable = 2;
+  uint64 granularity = 3;
+  SkippingIndexType skipping_index_type = 4;
+  double false_positive_rate = 5;
 }
 
 message UnsetSkipping {
-    string column_name = 1;
+  string column_name = 1;
 }
 message AlterDatabaseExpr {
-    string catalog_name = 1;
-    string schema_name = 2;
-    oneof kind {
-        SetDatabaseOptions set_database_options = 3;
-        UnsetDatabaseOptions unset_database_options = 4;
-    }
+  string catalog_name = 1;
+  string schema_name = 2;
+  oneof kind {
+    SetDatabaseOptions set_database_options = 3;
+    UnsetDatabaseOptions unset_database_options = 4;
+  }
 }
 
 message SetDatabaseOptions {
-    repeated Option set_database_options = 1;
+  repeated Option set_database_options = 1;
 }
 
 message UnsetDatabaseOptions {
-    repeated string keys = 1;
+  repeated string keys = 1;
 }
 
 // The create trigger expression.
 message CreateTriggerExpr {
-    string catalog_name = 1;
-    string trigger_name = 2;
-    bool create_if_not_exists = 3;
-    // The SQL statement to be executed periodically.
-    string sql = 4;
-    // The channels for sending notifications.
-    repeated NotifyChannel channels = 5;
-    // The user-defined labels.
-    map<string, string> labels = 6;
-    // The user-defined annotations.
-    map<string, string> annotations = 7;
-    // The execution interval for sql query in seconds.
-    uint64 interval = 8;
+  string catalog_name = 1;
+  string trigger_name = 2;
+  bool create_if_not_exists = 3;
+  // The SQL statement to be executed periodically.
+  string sql = 4;
+  // The channels for sending notifications.
+  repeated NotifyChannel channels = 5;
+  // The user-defined labels.
+  map<string, string> labels = 6;
+  // The user-defined annotations.
+  map<string, string> annotations = 7;
+  // The execution interval for sql query in seconds.
+  uint64 interval = 8;
 }
 
 // The notification channel for trigger.
 message NotifyChannel {
-    string name = 1;
-    oneof channel_type {
-        WebhookOptions webhook = 2;
-    }
+  string name = 1;
+  oneof channel_type {
+    WebhookOptions webhook = 2;
+  }
 }
 
 // The options for webhook.
 message WebhookOptions {
-    string url = 1;
-    map<string, string> opts = 2;
+  string url = 1;
+  map<string, string> opts = 2;
 }
 
 message DropTriggerExpr {
-    string catalog_name = 1;
-    string trigger_name = 2;
-    bool drop_if_exists = 3;
+  string catalog_name = 1;
+  string trigger_name = 2;
+  bool drop_if_exists = 3;
 }

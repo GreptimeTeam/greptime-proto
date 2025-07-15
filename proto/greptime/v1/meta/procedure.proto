@@ -6,62 +6,62 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
 import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/ddl.proto";
 import "greptime/v1/meta/region.proto";
 
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
+
 enum ProcedureStatus {
-    Running = 0;
-    Done = 1;
-    Retrying = 2;
-    Failed = 3;
-    PrepareRollback = 4;
-    RollingBack = 5;
-    Poisoned = 6;
+  Running = 0;
+  Done = 1;
+  Retrying = 2;
+  Failed = 3;
+  PrepareRollback = 4;
+  RollingBack = 5;
+  Poisoned = 6;
 }
 
 message ProcedureMeta {
-    ProcedureId id = 1;
-    string type_name = 2;
-    ProcedureStatus status = 3;
-    int64 start_time_ms = 4;
-    int64 end_time_ms = 5;
-    repeated string lock_keys = 6;
-    string error = 7;
+  ProcedureId id = 1;
+  string type_name = 2;
+  ProcedureStatus status = 3;
+  int64 start_time_ms = 4;
+  int64 end_time_ms = 5;
+  repeated string lock_keys = 6;
+  string error = 7;
 }
 
 message QueryProcedureRequest {
-    RequestHeader header = 1;
-    ProcedureId pid = 2;
+  RequestHeader header = 1;
+  ProcedureId pid = 2;
 }
 
 message ProcedureStateResponse {
-    ResponseHeader header = 1;
-    ProcedureStatus status = 2;
-    string error = 3;
+  ResponseHeader header = 1;
+  ProcedureStatus status = 2;
+  string error = 3;
 }
 
 message ProcedureDetailRequest {
-    RequestHeader header = 1;
+  RequestHeader header = 1;
 }
 
 message ProcedureDetailResponse {
-    ResponseHeader header = 1;
-    repeated ProcedureMeta procedures = 2;
+  ResponseHeader header = 1;
+  repeated ProcedureMeta procedures = 2;
 }
 
 service ProcedureService {
-    // Query a submitted procedure state
-    rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
+  // Query a submitted procedure state
+  rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
 
-    // Submits a DDL task
-    rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
+  // Submits a DDL task
+  rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
 
-    // Submits a region migration task
-    rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
+  // Submits a region migration task
+  rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
 
-    // Query all submitted procedures details
-    rpc details(ProcedureDetailRequest) returns (ProcedureDetailResponse);
+  // Query all submitted procedures details
+  rpc details(ProcedureDetailRequest) returns (ProcedureDetailResponse);
 }

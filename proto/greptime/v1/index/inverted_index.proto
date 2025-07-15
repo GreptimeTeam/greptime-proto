@@ -21,70 +21,70 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/index
 // InvertedIndexMetas defines the metadata for an inverted index
 // within an inverted index blob.
 message InvertedIndexMetas {
-    // A map of tag names to their respective metadata corresponding to an individual
-    // inverted index within the inverted index blob.
-    map<string, InvertedIndexMeta> metas = 1;
+  // A map of tag names to their respective metadata corresponding to an individual
+  // inverted index within the inverted index blob.
+  map<string, InvertedIndexMeta> metas = 1;
 
-    // The total count of rows within the inverted index blob.
-    // This is used to determine the number of segments within the bitmap.
-    uint64 total_row_count = 2;
+  // The total count of rows within the inverted index blob.
+  // This is used to determine the number of segments within the bitmap.
+  uint64 total_row_count = 2;
 
-    // The number of rows per group for bitmap indexing which determines how rows are
-    // batched for indexing. Each batch corresponds to a segment in the bitmap and allows
-    // for efficient retrieval during queries by reducing the search space.
-    uint64 segment_row_count = 3;
+  // The number of rows per group for bitmap indexing which determines how rows are
+  // batched for indexing. Each batch corresponds to a segment in the bitmap and allows
+  // for efficient retrieval during queries by reducing the search space.
+  uint64 segment_row_count = 3;
 }
 
 // InvertedIndexMeta contains the metadata for a specific tag's inverted index.
 message InvertedIndexMeta {
-    // Name of the tag associated with the inverted index.
-    string name = 1;
+  // Name of the tag associated with the inverted index.
+  string name = 1;
 
-    // The base byte offset for this tag's inverted index data within the blob.
-    // Other offsets in this message are relative to this base offset.
-    uint64 base_offset = 2;
+  // The base byte offset for this tag's inverted index data within the blob.
+  // Other offsets in this message are relative to this base offset.
+  uint64 base_offset = 2;
 
-    // The total size in bytes of this tag's inverted index data, including bitmaps,
-    // FST data.
-    uint64 inverted_index_size = 3;
+  // The total size in bytes of this tag's inverted index data, including bitmaps,
+  // FST data.
+  uint64 inverted_index_size = 3;
 
-    // The byte offset of the Finite State Transducer (FST) data relative to the `base_offset`.
-    uint32 relative_fst_offset = 4;
+  // The byte offset of the Finite State Transducer (FST) data relative to the `base_offset`.
+  uint32 relative_fst_offset = 4;
 
-    // The size in bytes of the FST data.
-    uint32 fst_size = 5;
+  // The size in bytes of the FST data.
+  uint32 fst_size = 5;
 
-    // The byte offset relative to the `base_offset` where the null bitmap for this tag
-    // starts.
-    uint32 relative_null_bitmap_offset = 6;
+  // The byte offset relative to the `base_offset` where the null bitmap for this tag
+  // starts.
+  uint32 relative_null_bitmap_offset = 6;
 
-    // The size in bytes of the null bitmap.
-    uint32 null_bitmap_size = 7;
+  // The size in bytes of the null bitmap.
+  uint32 null_bitmap_size = 7;
 
-    // Statistical information about the tag's inverted index.
-    InvertedIndexStats stats = 8;
+  // Statistical information about the tag's inverted index.
+  InvertedIndexStats stats = 8;
 
-    // The type of bitmap used for indexing.
-    BitmapType bitmap_type = 9;
+  // The type of bitmap used for indexing.
+  BitmapType bitmap_type = 9;
 }
 
 // InvertedIndexStats provides statistical data on a tag's inverted index.
 message InvertedIndexStats {
-    // The count of null entries within the tag's column.
-    uint64 null_count = 1;
+  // The count of null entries within the tag's column.
+  uint64 null_count = 1;
 
-    // The number of distinct values within the tag's column.
-    uint64 distinct_count = 2;
+  // The number of distinct values within the tag's column.
+  uint64 distinct_count = 2;
 
-    // The minimum value found within the tag's column, encoded as bytes.
-    bytes min_value = 3;
+  // The minimum value found within the tag's column, encoded as bytes.
+  bytes min_value = 3;
 
-    // The maximum value found within the tag's column, encoded as bytes.
-    bytes max_value = 4;
+  // The maximum value found within the tag's column, encoded as bytes.
+  bytes max_value = 4;
 }
 
 // BitmapType defines the type of bitmap used for indexing.
 enum BitmapType {
-    BitVec = 0;
-    Roaring = 1;
+  BitVec = 0;
+  Roaring = 1;
 }

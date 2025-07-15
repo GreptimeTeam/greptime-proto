@@ -16,15 +16,15 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option java_package = "io.greptime.v1";
-option java_outer_classname = "Database";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
-import "greptime/v1/ddl.proto";
 import "greptime/v1/column.proto";
-import "greptime/v1/row.proto";
-import "greptime/v1/prom.proto";
 import "greptime/v1/common.proto";
+import "greptime/v1/ddl.proto";
+import "greptime/v1/prom.proto";
+import "greptime/v1/row.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+option java_outer_classname = "Database";
+option java_package = "io.greptime.v1";
 
 service GreptimeDatabase {
   rpc Handle(GreptimeRequest) returns (GreptimeResponse);
@@ -46,7 +46,9 @@ message GreptimeRequest {
 
 message GreptimeResponse {
   ResponseHeader header = 1;
-  oneof response { AffectedRows affected_rows = 2; }
+  oneof response {
+    AffectedRows affected_rows = 2;
+  }
 }
 
 message QueryRequest {
@@ -65,7 +67,9 @@ message InsertIntoPlan {
   bytes logical_plan = 2;
 }
 
-message InsertRequests { repeated InsertRequest inserts = 1; }
+message InsertRequests {
+  repeated InsertRequest inserts = 1;
+}
 
 message InsertRequest {
   string table_name = 1;
@@ -79,7 +83,9 @@ message InsertRequest {
   uint32 row_count = 4;
 }
 
-message DeleteRequests { repeated DeleteRequest deletes = 1; }
+message DeleteRequests {
+  repeated DeleteRequest deletes = 1;
+}
 
 message DeleteRequest {
   // The table name to delete from. Catalog name and schema name are in the
@@ -93,7 +99,9 @@ message DeleteRequest {
   uint32 row_count = 4;
 }
 
-message RowInsertRequests { repeated RowInsertRequest inserts = 1; }
+message RowInsertRequests {
+  repeated RowInsertRequest inserts = 1;
+}
 
 message RowInsertRequest {
   string table_name = 1;
@@ -102,7 +110,9 @@ message RowInsertRequest {
   Rows rows = 2;
 }
 
-message RowDeleteRequests { repeated RowDeleteRequest deletes = 1; }
+message RowDeleteRequests {
+  repeated RowDeleteRequest deletes = 1;
+}
 
 message RowDeleteRequest {
   // The table name to delete from. Catalog name and schema name are in the

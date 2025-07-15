@@ -16,15 +16,17 @@ syntax = "proto3";
 
 package greptime.v1.region;
 
-option java_package = "io.greptime.v1.region";
-option java_outer_classname = "Server";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/region";
-
 import "greptime/v1/common.proto";
-import "greptime/v1/row.proto";
 import "greptime/v1/ddl.proto";
+import "greptime/v1/row.proto";
 
-service Region { rpc Handle(RegionRequest) returns (RegionResponse); }
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/region";
+option java_outer_classname = "Server";
+option java_package = "io.greptime.v1.region";
+
+service Region {
+  rpc Handle(RegionRequest) returns (RegionResponse);
+}
 
 message RegionRequestHeader {
   // Encoded trace_id & span_id, follow the w3c Trace Context
@@ -70,9 +72,13 @@ message RegionResponse {
   bytes metadata = 4;
 }
 
-message InsertRequests { repeated InsertRequest requests = 1; }
+message InsertRequests {
+  repeated InsertRequest requests = 1;
+}
 
-message DeleteRequests { repeated DeleteRequest requests = 1; }
+message DeleteRequests {
+  repeated DeleteRequest requests = 1;
+}
 
 message InsertRequest {
   uint64 region_id = 1;
@@ -94,7 +100,9 @@ message QueryRequest {
 // Create a batch of regions at once, usually used to create multiple logical
 // regions at once. Different engines can choose whether to support this
 // request. Metric Engine needs it.
-message CreateRequests { repeated CreateRequest requests = 1; }
+message CreateRequests {
+  repeated CreateRequest requests = 1;
+}
 
 message CreateRequest {
   uint64 region_id = 1;
@@ -112,7 +120,9 @@ message CreateRequest {
 }
 
 // Same as CreateRequests, but for dropping regions.
-message DropRequests { repeated DropRequest requests = 1; }
+message DropRequests {
+  repeated DropRequest requests = 1;
+}
 
 message DropRequest {
   uint64 region_id = 1;
@@ -132,9 +142,13 @@ message OpenRequest {
   map<string, string> options = 4;
 }
 
-message CloseRequest { uint64 region_id = 1; }
+message CloseRequest {
+  uint64 region_id = 1;
+}
 
-message AlterRequests { repeated AlterRequest requests = 1; }
+message AlterRequests {
+  repeated AlterRequest requests = 1;
+}
 
 message AlterRequest {
   uint64 region_id = 1;
@@ -152,18 +166,26 @@ message AlterRequest {
   uint64 schema_version = 4;
 }
 
-message AddColumns { repeated AddColumn add_columns = 1; }
+message AddColumns {
+  repeated AddColumn add_columns = 1;
+}
 
-message DropColumns { repeated DropColumn drop_columns = 1; }
+message DropColumns {
+  repeated DropColumn drop_columns = 1;
+}
 
 message AddColumn {
   RegionColumnDef column_def = 1;
   AddColumnLocation location = 3;
 }
 
-message DropColumn { string name = 1; }
+message DropColumn {
+  string name = 1;
+}
 
-message FlushRequest { uint64 region_id = 1; }
+message FlushRequest {
+  uint64 region_id = 1;
+}
 
 /// Regular compaction
 message Regular {}
@@ -174,14 +196,16 @@ message StrictWindow {
 }
 
 message CompactRequest {
-    uint64 region_id = 1;
-    oneof options {
-      Regular regular = 2;
-      StrictWindow strict_window = 3;
-    }
+  uint64 region_id = 1;
+  oneof options {
+    Regular regular = 2;
+    StrictWindow strict_window = 3;
+  }
 }
 
-message TruncateRequest { uint64 region_id = 1; }
+message TruncateRequest {
+  uint64 region_id = 1;
+}
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`

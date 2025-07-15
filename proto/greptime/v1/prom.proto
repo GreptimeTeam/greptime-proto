@@ -16,11 +16,11 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option java_package = "io.greptime.v1";
-option java_outer_classname = "Prometheus";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
 import "greptime/v1/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+option java_outer_classname = "Prometheus";
+option java_package = "io.greptime.v1";
 
 // PrometheusGateway behaves absolutely the same as Prometheus HTTP API
 service PrometheusGateway {

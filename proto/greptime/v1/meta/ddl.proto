@@ -16,110 +16,116 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
+import "greptime/v1/common.proto";
+import "greptime/v1/ddl.proto";
 import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/route.proto";
-import "greptime/v1/ddl.proto";
-import "greptime/v1/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 enum DdlTaskType {
-    Create = 0;
-    Drop = 1;
+  Create = 0;
+  Drop = 1;
 }
 
 message CreateDatabaseTask {
-    CreateDatabaseExpr create_database = 1;
+  CreateDatabaseExpr create_database = 1;
 }
 
 message CreateTableTask {
-    CreateTableExpr create_table = 1;
-    repeated Partition partitions = 2;
-    bytes table_info = 3;
+  CreateTableExpr create_table = 1;
+  repeated Partition partitions = 2;
+  bytes table_info = 3;
 }
 
-message CreateTableTasks { repeated CreateTableTask tasks = 1; }
-
-message DropTableTask{
-    DropTableExpr drop_table = 1;
+message CreateTableTasks {
+  repeated CreateTableTask tasks = 1;
 }
 
-message DropTableTasks { repeated DropTableTask tasks = 1; }
-
-message AlterTableTask{
-    AlterTableExpr alter_table = 1;
+message DropTableTask {
+  DropTableExpr drop_table = 1;
 }
 
-message AlterTableTasks { repeated AlterTableTask tasks = 1; }
+message DropTableTasks {
+  repeated DropTableTask tasks = 1;
+}
+
+message AlterTableTask {
+  AlterTableExpr alter_table = 1;
+}
+
+message AlterTableTasks {
+  repeated AlterTableTask tasks = 1;
+}
 
 message TruncateTableTask {
-    TruncateTableExpr truncate_table = 1;
+  TruncateTableExpr truncate_table = 1;
 }
 
 message DropDatabaseTask {
-    DropDatabaseExpr drop_database = 1;
+  DropDatabaseExpr drop_database = 1;
 }
 
 message CreateFlowTask {
-    CreateFlowExpr create_flow = 1;
+  CreateFlowExpr create_flow = 1;
 }
 
 message DropFlowTask {
-    DropFlowExpr drop_flow = 1;
+  DropFlowExpr drop_flow = 1;
 }
 
 // Create a view task
 message CreateViewTask {
-    CreateViewExpr create_view = 1;
-    bytes view_info = 2;
+  CreateViewExpr create_view = 1;
+  bytes view_info = 2;
 }
 
 // Drop a view task
 message DropViewTask {
-    DropViewExpr drop_view = 1;
+  DropViewExpr drop_view = 1;
 }
 
 // Alter database tasks
 message AlterDatabaseTask {
-    AlterDatabaseExpr task = 1;
+  AlterDatabaseExpr task = 1;
 }
 
 message CreateTriggerTask {
-    CreateTriggerExpr create_trigger = 1;
+  CreateTriggerExpr create_trigger = 1;
 }
 
 message DropTriggerTask {
-    DropTriggerExpr drop_trigger = 1;
+  DropTriggerExpr drop_trigger = 1;
 }
 
 message DdlTaskRequest {
-    RequestHeader header = 1;
-    QueryContext query_context = 64;
+  RequestHeader header = 1;
+  QueryContext query_context = 64;
 
-    oneof task {
-        CreateTableTask create_table_task = 2;
-        DropTableTask drop_table_task = 3;
-        AlterTableTask alter_table_task = 4;
-        TruncateTableTask truncate_table_task = 5;
-        CreateTableTasks create_table_tasks = 6;
-        DropTableTasks drop_table_tasks = 7;
-        AlterTableTasks alter_table_tasks = 8;
-        DropDatabaseTask drop_database_task = 9;
-        CreateDatabaseTask create_database_task = 10;
-        CreateFlowTask create_flow_task = 11;
-        DropFlowTask drop_flow_task = 12;
-        CreateViewTask create_view_task = 13;
-        DropViewTask drop_view_task = 14;
-        AlterDatabaseTask alter_database_task = 15;
-        CreateTriggerTask create_trigger_task = 16;
-        DropTriggerTask drop_trigger_task = 17;
-     }
+  oneof task {
+    CreateTableTask create_table_task = 2;
+    DropTableTask drop_table_task = 3;
+    AlterTableTask alter_table_task = 4;
+    TruncateTableTask truncate_table_task = 5;
+    CreateTableTasks create_table_tasks = 6;
+    DropTableTasks drop_table_tasks = 7;
+    AlterTableTasks alter_table_tasks = 8;
+    DropDatabaseTask drop_database_task = 9;
+    CreateDatabaseTask create_database_task = 10;
+    CreateFlowTask create_flow_task = 11;
+    DropFlowTask drop_flow_task = 12;
+    CreateViewTask create_view_task = 13;
+    DropViewTask drop_view_task = 14;
+    AlterDatabaseTask alter_database_task = 15;
+    CreateTriggerTask create_trigger_task = 16;
+    DropTriggerTask drop_trigger_task = 17;
+  }
 }
 
 message DdlTaskResponse {
-    ResponseHeader header = 1;
-    ProcedureId pid = 2;
+  ResponseHeader header = 1;
+  ProcedureId pid = 2;
 
-    // Returns if the tables created.
-    repeated TableId table_ids = 5;
+  // Returns if the tables created.
+  repeated TableId table_ids = 5;
 }
