@@ -20,14 +20,14 @@ option go_package = "github.com/GreptimeTeam/greptime-proto/go/prometheus/remote
 
 message MetricMetadata {
   enum MetricType {
-    UNKNOWN        = 0;
-    COUNTER        = 1;
-    GAUGE          = 2;
-    HISTOGRAM      = 3;
+    UNKNOWN = 0;
+    COUNTER = 1;
+    GAUGE = 2;
+    HISTOGRAM = 3;
     GAUGEHISTOGRAM = 4;
-    SUMMARY        = 5;
-    INFO           = 6;
-    STATESET       = 7;
+    SUMMARY = 5;
+    INFO = 6;
+    STATESET = 7;
   }
 
   // Represents the metric type, these match the set from Prometheus.
@@ -39,7 +39,7 @@ message MetricMetadata {
 }
 
 message Sample {
-  double value    = 1;
+  double value = 1;
   // timestamp is in ms format, see model/timestamp/timestamp.go for
   // conversion from time.Time to Prometheus timestamp.
   int64 timestamp = 2;
@@ -58,13 +58,13 @@ message Exemplar {
 message TimeSeries {
   // For a timeseries to be valid, and for the samples and exemplars
   // to be ingested by the remote system properly, the labels field is required.
-  repeated Label labels   = 1;
+  repeated Label labels = 1;
   repeated Sample samples = 2;
   repeated Exemplar exemplars = 3;
 }
 
 message Label {
-  string name  = 1;
+  string name = 1;
   string value = 2;
 }
 
@@ -75,21 +75,21 @@ message Labels {
 // Matcher specifies a rule, which can match or set of labels or not.
 message LabelMatcher {
   enum Type {
-    EQ  = 0;
+    EQ = 0;
     NEQ = 1;
-    RE  = 2;
+    RE = 2;
     NRE = 3;
   }
-  Type type    = 1;
-  string name  = 2;
+  Type type = 1;
+  string name = 2;
   string value = 3;
 }
 
 message ReadHints {
-  int64 step_ms = 1;  // Query step size in milliseconds.
-  string func = 2;    // String representation of surrounding function or aggregation.
+  int64 step_ms = 1; // Query step size in milliseconds.
+  string func = 2; // String representation of surrounding function or aggregation.
   int64 start_ms = 3; // Start time in milliseconds.
-  int64 end_ms = 4;   // End time in milliseconds.
+  int64 end_ms = 4; // End time in milliseconds.
   repeated string grouping = 5; // List of label names used in aggregation.
   bool by = 6; // Indicate whether it is without or by.
   int64 range_ms = 7; // Range vector selector range in milliseconds.
@@ -104,10 +104,10 @@ message Chunk {
   // We require this to match chunkenc.Encoding.
   enum Encoding {
     UNKNOWN = 0;
-    XOR     = 1;
+    XOR = 1;
   }
-  Encoding type  = 3;
-  bytes data     = 4;
+  Encoding type = 3;
+  bytes data = 4;
 }
 
 // ChunkedSeries represents single, encoded time series.

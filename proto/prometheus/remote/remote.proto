@@ -14,17 +14,17 @@
 syntax = "proto3";
 package prometheus;
 
+import "prometheus/remote/types.proto";
+
 // GreptimeTeam modify the original go_package definition to make it consistent with the go package name.
 // And we also remove the gogoproto dependency which is now deprecated.
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/prometheus/remote";
-
-import "prometheus/remote/types.proto";
 
 message WriteRequest {
   repeated prometheus.TimeSeries timeseries = 1;
   // Cortex uses this field to determine the source of the write request.
   // We reserve it to avoid any compatibility issues.
-  reserved  2;
+  reserved 2;
   repeated prometheus.MetricMetadata metadata = 3;
 }
 

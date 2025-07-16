@@ -16,10 +16,10 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
-import "greptime/v1/row.proto";
 import "greptime/v1/common.proto";
+import "greptime/v1/row.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 
 // Type of operation to rows.
 enum OpType {

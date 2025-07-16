@@ -16,9 +16,9 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
 import "greptime/v1/meta/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 service Heartbeat {
   // Heartbeat, there may be many contents of the heartbeat, such as:
@@ -138,7 +138,9 @@ message RegionLease {
   repeated uint64 closeable_region_ids = 4;
 }
 
-message AskLeaderRequest { RequestHeader header = 1; }
+message AskLeaderRequest {
+  RequestHeader header = 1;
+}
 
 message AskLeaderResponse {
   ResponseHeader header = 1;
@@ -156,5 +158,7 @@ message MailboxMessage {
   // The unix timestamp in milliseconds.
   int64 timestamp_millis = 5;
   // The message body.
-  oneof payload { string json = 6; }
+  oneof payload {
+    string json = 6;
+  }
 }

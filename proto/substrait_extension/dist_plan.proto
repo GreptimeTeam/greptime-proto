@@ -14,9 +14,9 @@
 
 syntax = "proto3";
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/substrait_extension";
-
 package substrait_extension;
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/substrait_extension";
 
 message MergeScan {
   // the input logical plan

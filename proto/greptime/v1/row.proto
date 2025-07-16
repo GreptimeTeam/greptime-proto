@@ -16,11 +16,11 @@ syntax = "proto3";
 
 package greptime.v1;
 
-option java_package = "io.greptime.v1";
-option java_outer_classname = "RowData";
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
-
 import "greptime/v1/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
+option java_outer_classname = "RowData";
+option java_package = "io.greptime.v1";
 
 message Rows {
   repeated ColumnSchema schema = 1;
@@ -39,7 +39,9 @@ message ColumnSchema {
   ColumnOptions options = 5;
 }
 
-message Row { repeated Value values = 1; }
+message Row {
+  repeated Value values = 1;
+}
 
 message Value {
   oneof value_data {

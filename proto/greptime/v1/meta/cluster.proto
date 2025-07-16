@@ -16,10 +16,10 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
 import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/store.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 // Cluster service is used for communication between meta nodes.
 service Cluster {
@@ -33,7 +33,9 @@ service Cluster {
   rpc MetasrvPeers(MetasrvPeersRequest) returns (MetasrvPeersResponse);
 }
 
-message MetasrvPeersRequest { RequestHeader header = 1; }
+message MetasrvPeersRequest {
+  RequestHeader header = 1;
+}
 
 message MetasrvPeersResponse {
   ResponseHeader header = 1;

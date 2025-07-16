@@ -16,9 +16,9 @@ syntax = "proto3";
 
 package greptime.v1.meta;
 
-option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
-
 import "greptime/v1/meta/common.proto";
+
+option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
 service Lock {
   // Lock acquires a distributed shared lock on a given named lock. On success,
@@ -55,4 +55,6 @@ message UnlockRequest {
   bytes key = 2;
 }
 
-message UnlockResponse { ResponseHeader header = 1; }
+message UnlockResponse {
+  ResponseHeader header = 1;
+}
