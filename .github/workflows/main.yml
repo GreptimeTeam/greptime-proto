@@ -45,6 +45,20 @@ jobs:
           make go
           test $(git status --porcelain=v1 | wc -l) -eq 0 || (echo "Fail: generated go protobuf in github action is different from pushed ones" ; exit 1)
 
+  proto-fmt:
+    name: Protobuf Format
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Buf
+        uses: bufbuild/buf-action@v1
+        with:
+          setup_only: true
+      - name: Run Buf Format
+        run: buf format --diff --exit-code
+
   fmt:
     name: Rustfmt
     if: github.event.pull_request.draft == false
