@@ -2770,21 +2770,6 @@ public final class Route {
         getNameBytes();
 
     /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return Whether the partition field is set.
-     */
-    boolean hasPartition();
-    /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return The partition.
-     */
-    greptime.v1.meta.Route.Partition getPartition();
-    /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     */
-    greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder();
-
-    /**
      * <code>map&lt;string, string&gt; attrs = 100;</code>
      */
     int getAttrsCount();
@@ -2819,6 +2804,57 @@ java.lang.String defaultValue);
 
     java.lang.String getAttrsOrThrow(
         java.lang.String key);
+
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Region.partition is deprecated.
+     *     See greptime/v1/meta/route.proto;l=50
+     * @return Whether the partition field is set.
+     */
+    @java.lang.Deprecated boolean hasPartition();
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Region.partition is deprecated.
+     *     See greptime/v1/meta/route.proto;l=50
+     * @return The partition.
+     */
+    @java.lang.Deprecated greptime.v1.meta.Route.Partition getPartition();
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     */
+    @java.lang.Deprecated greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder();
+
+    /**
+     * <pre>
+     * The partition expression of the region.
+     * </pre>
+     *
+     * <code>string partition_expr = 4;</code>
+     * @return The partitionExpr.
+     */
+    java.lang.String getPartitionExpr();
+    /**
+     * <pre>
+     * The partition expression of the region.
+     * </pre>
+     *
+     * <code>string partition_expr = 4;</code>
+     * @return The bytes for partitionExpr.
+     */
+    com.google.protobuf.ByteString
+        getPartitionExprBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.Region}
@@ -2834,6 +2870,7 @@ java.lang.String defaultValue);
     }
     private Region() {
       name_ = "";
+      partitionExpr_ = "";
     }
 
     @java.lang.Override
@@ -2889,6 +2926,12 @@ java.lang.String defaultValue);
                 partition_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              partitionExpr_ = s;
               break;
             }
             case 802: {
@@ -3003,32 +3046,6 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int PARTITION_FIELD_NUMBER = 3;
-    private greptime.v1.meta.Route.Partition partition_;
-    /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return Whether the partition field is set.
-     */
-    @java.lang.Override
-    public boolean hasPartition() {
-      return partition_ != null;
-    }
-    /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return The partition.
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Route.Partition getPartition() {
-      return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-    }
-    /**
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
-      return getPartition();
-    }
-
     public static final int ATTRS_FIELD_NUMBER = 100;
     private static final class AttrsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -3110,6 +3127,94 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
+    public static final int PARTITION_FIELD_NUMBER = 3;
+    private greptime.v1.meta.Route.Partition partition_;
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Region.partition is deprecated.
+     *     See greptime/v1/meta/route.proto;l=50
+     * @return Whether the partition field is set.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated public boolean hasPartition() {
+      return partition_ != null;
+    }
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Region.partition is deprecated.
+     *     See greptime/v1/meta/route.proto;l=50
+     * @return The partition.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated public greptime.v1.meta.Route.Partition getPartition() {
+      return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+    }
+    /**
+     * <pre>
+     * Deprecated: Use `partition_expr` instead.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+     */
+    @java.lang.Override
+    @java.lang.Deprecated public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
+      return getPartition();
+    }
+
+    public static final int PARTITION_EXPR_FIELD_NUMBER = 4;
+    private volatile java.lang.Object partitionExpr_;
+    /**
+     * <pre>
+     * The partition expression of the region.
+     * </pre>
+     *
+     * <code>string partition_expr = 4;</code>
+     * @return The partitionExpr.
+     */
+    @java.lang.Override
+    public java.lang.String getPartitionExpr() {
+      java.lang.Object ref = partitionExpr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        partitionExpr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The partition expression of the region.
+     * </pre>
+     *
+     * <code>string partition_expr = 4;</code>
+     * @return The bytes for partitionExpr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPartitionExprBytes() {
+      java.lang.Object ref = partitionExpr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        partitionExpr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3132,6 +3237,9 @@ java.lang.String defaultValue);
       }
       if (partition_ != null) {
         output.writeMessage(3, getPartition());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, partitionExpr_);
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
@@ -3158,6 +3266,9 @@ java.lang.String defaultValue);
       if (partition_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPartition());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, partitionExpr_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetAttrs().getMap().entrySet()) {
@@ -3188,13 +3299,15 @@ java.lang.String defaultValue);
           != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
+      if (!internalGetAttrs().equals(
+          other.internalGetAttrs())) return false;
       if (hasPartition() != other.hasPartition()) return false;
       if (hasPartition()) {
         if (!getPartition()
             .equals(other.getPartition())) return false;
       }
-      if (!internalGetAttrs().equals(
-          other.internalGetAttrs())) return false;
+      if (!getPartitionExpr()
+          .equals(other.getPartitionExpr())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3211,14 +3324,16 @@ java.lang.String defaultValue);
           getId());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (hasPartition()) {
-        hash = (37 * hash) + PARTITION_FIELD_NUMBER;
-        hash = (53 * hash) + getPartition().hashCode();
-      }
       if (!internalGetAttrs().getMap().isEmpty()) {
         hash = (37 * hash) + ATTRS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAttrs().hashCode();
       }
+      if (hasPartition()) {
+        hash = (37 * hash) + PARTITION_FIELD_NUMBER;
+        hash = (53 * hash) + getPartition().hashCode();
+      }
+      hash = (37 * hash) + PARTITION_EXPR_FIELD_NUMBER;
+      hash = (53 * hash) + getPartitionExpr().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3378,13 +3493,15 @@ java.lang.String defaultValue);
 
         name_ = "";
 
+        internalGetMutableAttrs().clear();
         if (partitionBuilder_ == null) {
           partition_ = null;
         } else {
           partition_ = null;
           partitionBuilder_ = null;
         }
-        internalGetMutableAttrs().clear();
+        partitionExpr_ = "";
+
         return this;
       }
 
@@ -3414,13 +3531,14 @@ java.lang.String defaultValue);
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.name_ = name_;
+        result.attrs_ = internalGetAttrs();
+        result.attrs_.makeImmutable();
         if (partitionBuilder_ == null) {
           result.partition_ = partition_;
         } else {
           result.partition_ = partitionBuilder_.build();
         }
-        result.attrs_ = internalGetAttrs();
-        result.attrs_.makeImmutable();
+        result.partitionExpr_ = partitionExpr_;
         onBuilt();
         return result;
       }
@@ -3476,11 +3594,15 @@ java.lang.String defaultValue);
           name_ = other.name_;
           onChanged();
         }
+        internalGetMutableAttrs().mergeFrom(
+            other.internalGetAttrs());
         if (other.hasPartition()) {
           mergePartition(other.getPartition());
         }
-        internalGetMutableAttrs().mergeFrom(
-            other.internalGetAttrs());
+        if (!other.getPartitionExpr().isEmpty()) {
+          partitionExpr_ = other.partitionExpr_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3630,125 +3752,6 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private greptime.v1.meta.Route.Partition partition_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> partitionBuilder_;
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       * @return Whether the partition field is set.
-       */
-      public boolean hasPartition() {
-        return partitionBuilder_ != null || partition_ != null;
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       * @return The partition.
-       */
-      public greptime.v1.meta.Route.Partition getPartition() {
-        if (partitionBuilder_ == null) {
-          return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-        } else {
-          return partitionBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder setPartition(greptime.v1.meta.Route.Partition value) {
-        if (partitionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          partition_ = value;
-          onChanged();
-        } else {
-          partitionBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder setPartition(
-          greptime.v1.meta.Route.Partition.Builder builderForValue) {
-        if (partitionBuilder_ == null) {
-          partition_ = builderForValue.build();
-          onChanged();
-        } else {
-          partitionBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder mergePartition(greptime.v1.meta.Route.Partition value) {
-        if (partitionBuilder_ == null) {
-          if (partition_ != null) {
-            partition_ =
-              greptime.v1.meta.Route.Partition.newBuilder(partition_).mergeFrom(value).buildPartial();
-          } else {
-            partition_ = value;
-          }
-          onChanged();
-        } else {
-          partitionBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder clearPartition() {
-        if (partitionBuilder_ == null) {
-          partition_ = null;
-          onChanged();
-        } else {
-          partition_ = null;
-          partitionBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public greptime.v1.meta.Route.Partition.Builder getPartitionBuilder() {
-        
-        onChanged();
-        return getPartitionFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
-        if (partitionBuilder_ != null) {
-          return partitionBuilder_.getMessageOrBuilder();
-        } else {
-          return partition_ == null ?
-              greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> 
-          getPartitionFieldBuilder() {
-        if (partitionBuilder_ == null) {
-          partitionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder>(
-                  getPartition(),
-                  getParentForChildren(),
-                  isClean());
-          partition_ = null;
-        }
-        return partitionBuilder_;
-      }
-
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> attrs_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3877,6 +3880,261 @@ java.lang.String defaultValue);
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAttrs().getMutableMap()
             .putAll(values);
+        return this;
+      }
+
+      private greptime.v1.meta.Route.Partition partition_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> partitionBuilder_;
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Region.partition is deprecated.
+       *     See greptime/v1/meta/route.proto;l=50
+       * @return Whether the partition field is set.
+       */
+      @java.lang.Deprecated public boolean hasPartition() {
+        return partitionBuilder_ != null || partition_ != null;
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Region.partition is deprecated.
+       *     See greptime/v1/meta/route.proto;l=50
+       * @return The partition.
+       */
+      @java.lang.Deprecated public greptime.v1.meta.Route.Partition getPartition() {
+        if (partitionBuilder_ == null) {
+          return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+        } else {
+          return partitionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public Builder setPartition(greptime.v1.meta.Route.Partition value) {
+        if (partitionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          partition_ = value;
+          onChanged();
+        } else {
+          partitionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public Builder setPartition(
+          greptime.v1.meta.Route.Partition.Builder builderForValue) {
+        if (partitionBuilder_ == null) {
+          partition_ = builderForValue.build();
+          onChanged();
+        } else {
+          partitionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public Builder mergePartition(greptime.v1.meta.Route.Partition value) {
+        if (partitionBuilder_ == null) {
+          if (partition_ != null) {
+            partition_ =
+              greptime.v1.meta.Route.Partition.newBuilder(partition_).mergeFrom(value).buildPartial();
+          } else {
+            partition_ = value;
+          }
+          onChanged();
+        } else {
+          partitionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public Builder clearPartition() {
+        if (partitionBuilder_ == null) {
+          partition_ = null;
+          onChanged();
+        } else {
+          partition_ = null;
+          partitionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public greptime.v1.meta.Route.Partition.Builder getPartitionBuilder() {
+        
+        onChanged();
+        return getPartitionFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
+        if (partitionBuilder_ != null) {
+          return partitionBuilder_.getMessageOrBuilder();
+        } else {
+          return partition_ == null ?
+              greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+        }
+      }
+      /**
+       * <pre>
+       * Deprecated: Use `partition_expr` instead.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.Partition partition = 3 [deprecated = true];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> 
+          getPartitionFieldBuilder() {
+        if (partitionBuilder_ == null) {
+          partitionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder>(
+                  getPartition(),
+                  getParentForChildren(),
+                  isClean());
+          partition_ = null;
+        }
+        return partitionBuilder_;
+      }
+
+      private java.lang.Object partitionExpr_ = "";
+      /**
+       * <pre>
+       * The partition expression of the region.
+       * </pre>
+       *
+       * <code>string partition_expr = 4;</code>
+       * @return The partitionExpr.
+       */
+      public java.lang.String getPartitionExpr() {
+        java.lang.Object ref = partitionExpr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          partitionExpr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression of the region.
+       * </pre>
+       *
+       * <code>string partition_expr = 4;</code>
+       * @return The bytes for partitionExpr.
+       */
+      public com.google.protobuf.ByteString
+          getPartitionExprBytes() {
+        java.lang.Object ref = partitionExpr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          partitionExpr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression of the region.
+       * </pre>
+       *
+       * <code>string partition_expr = 4;</code>
+       * @param value The partitionExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartitionExpr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        partitionExpr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression of the region.
+       * </pre>
+       *
+       * <code>string partition_expr = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPartitionExpr() {
+        
+        partitionExpr_ = getDefaultInstance().getPartitionExpr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression of the region.
+       * </pre>
+       *
+       * <code>string partition_expr = 4;</code>
+       * @param value The bytes for partitionExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartitionExprBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        partitionExpr_ = value;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -5768,8 +6026,8 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\034greptime/v1/meta/route.proto\022\020greptime" +
-      ".v1.meta\032\035greptime/v1/meta/common.proto\032" +
-      "\030greptime/v1/common.proto\"j\n\nTableRoute\022" +
+      ".v1.meta\032\030greptime/v1/common.proto\032\035grep" +
+      "time/v1/meta/common.proto\"j\n\nTableRoute\022" +
       "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022" +
       "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met" +
       "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001" +
@@ -5777,23 +6035,24 @@ java.lang.String defaultValue);
       "_peer_index\030\002 \001(\004\022\035\n\025follower_peer_index" +
       "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n" +
       "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab" +
-      "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014" +
-      "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti" +
-      "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr" +
-      "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4" +
-      "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu" +
-      "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers" +
-      "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_" +
-      "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout" +
-      "eB<Z:github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/metab\006proto3"
+      "le_schema\030\003 \001(\014\"\320\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014" +
+      "\n\004name\030\002 \001(\t\0222\n\005attrs\030d \003(\0132#.greptime.v" +
+      "1.meta.Region.AttrsEntry\0222\n\tpartition\030\003 " +
+      "\001(\0132\033.greptime.v1.meta.PartitionB\002\030\001\022\026\n\016" +
+      "partition_expr\030\004 \001(\t\032,\n\nAttrsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022" +
+      "\023\n\013column_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014" +
+      "\"k\n\017TableRouteValue\022%\n\005peers\030\001 \003(\0132\026.gre" +
+      "ptime.v1.meta.Peer\0221\n\013table_route\030\002 \001(\0132" +
+      "\034.greptime.v1.meta.TableRouteB<Z:github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          greptime.v1.meta.Common.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
+          greptime.v1.meta.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_TableRoute_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5818,7 +6077,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_Region_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_Region_descriptor,
-        new java.lang.String[] { "Id", "Name", "Partition", "Attrs", });
+        new java.lang.String[] { "Id", "Name", "Attrs", "Partition", "PartitionExpr", });
     internal_static_greptime_v1_meta_Region_AttrsEntry_descriptor =
       internal_static_greptime_v1_meta_Region_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_Region_AttrsEntry_fieldAccessorTable = new
@@ -5837,8 +6096,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_TableRouteValue_descriptor,
         new java.lang.String[] { "Peers", "TableRoute", });
-    greptime.v1.meta.Common.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
+    greptime.v1.meta.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

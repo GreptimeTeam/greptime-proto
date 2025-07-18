@@ -17143,9 +17143,9 @@ public final class Ddl {
   static {
     java.lang.String[] descriptorData = {
       "\n\032greptime/v1/meta/ddl.proto\022\020greptime.v" +
-      "1.meta\032\035greptime/v1/meta/common.proto\032\034g" +
-      "reptime/v1/meta/route.proto\032\025greptime/v1" +
-      "/ddl.proto\032\030greptime/v1/common.proto\"N\n\022" +
+      "1.meta\032\030greptime/v1/common.proto\032\025grepti" +
+      "me/v1/ddl.proto\032\035greptime/v1/meta/common" +
+      ".proto\032\034greptime/v1/meta/route.proto\"N\n\022" +
       "CreateDatabaseTask\0228\n\017create_database\030\001 " +
       "\001(\0132\037.greptime.v1.CreateDatabaseExpr\"\212\001\n" +
       "\017CreateTableTask\0222\n\014create_table\030\001 \001(\0132\034" +
@@ -17216,10 +17216,10 @@ public final class Ddl {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.greptime.v1.Common.getDescriptor(),
+          io.greptime.v1.Ddl.getDescriptor(),
           greptime.v1.meta.Common.getDescriptor(),
           greptime.v1.meta.Route.getDescriptor(),
-          io.greptime.v1.Ddl.getDescriptor(),
-          io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_CreateDatabaseTask_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -17329,10 +17329,10 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,
         new java.lang.String[] { "Header", "Pid", "TableIds", });
+    io.greptime.v1.Common.getDescriptor();
+    io.greptime.v1.Ddl.getDescriptor();
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
-    io.greptime.v1.Ddl.getDescriptor();
-    io.greptime.v1.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

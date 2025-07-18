@@ -44,9 +44,14 @@ message Region {
   // TODO(LFC): Maybe use message RegionNumber?
   uint64 id = 1;
   string name = 2;
-  Partition partition = 3;
 
   map<string, string> attrs = 100;
+
+  // Deprecated: Use `partition_expr` instead.
+  Partition partition = 3 [deprecated = true];
+
+  // The partition expression of the region.
+  string partition_expr = 4;
 }
 
 // PARTITION `region_name` VALUES LESS THAN (value_list)

@@ -33,8 +33,8 @@
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "greptime/v1/meta/common.pb.h"
 #include "greptime/v1/common.pb.h"
+#include "greptime/v1/meta/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fmeta_2froute_2eproto
@@ -799,6 +799,7 @@ class Region final :
   enum : int {
     kAttrsFieldNumber = 100,
     kNameFieldNumber = 2,
+    kPartitionExprFieldNumber = 4,
     kPartitionFieldNumber = 3,
     kIdFieldNumber = 1,
   };
@@ -833,23 +834,37 @@ class Region final :
   std::string* _internal_mutable_name();
   public:
 
-  // .greptime.v1.meta.Partition partition = 3;
-  bool has_partition() const;
+  // string partition_expr = 4;
+  void clear_partition_expr();
+  const std::string& partition_expr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_partition_expr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_partition_expr();
+  PROTOBUF_NODISCARD std::string* release_partition_expr();
+  void set_allocated_partition_expr(std::string* partition_expr);
+  private:
+  const std::string& _internal_partition_expr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_partition_expr(const std::string& value);
+  std::string* _internal_mutable_partition_expr();
+  public:
+
+  // .greptime.v1.meta.Partition partition = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED bool has_partition() const;
   private:
   bool _internal_has_partition() const;
   public:
-  void clear_partition();
-  const ::greptime::v1::meta::Partition& partition() const;
-  PROTOBUF_NODISCARD ::greptime::v1::meta::Partition* release_partition();
-  ::greptime::v1::meta::Partition* mutable_partition();
-  void set_allocated_partition(::greptime::v1::meta::Partition* partition);
+  PROTOBUF_DEPRECATED void clear_partition();
+  PROTOBUF_DEPRECATED const ::greptime::v1::meta::Partition& partition() const;
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED ::greptime::v1::meta::Partition* release_partition();
+  PROTOBUF_DEPRECATED ::greptime::v1::meta::Partition* mutable_partition();
+  PROTOBUF_DEPRECATED void set_allocated_partition(::greptime::v1::meta::Partition* partition);
   private:
   const ::greptime::v1::meta::Partition& _internal_partition() const;
   ::greptime::v1::meta::Partition* _internal_mutable_partition();
   public:
-  void unsafe_arena_set_allocated_partition(
+  PROTOBUF_DEPRECATED void unsafe_arena_set_allocated_partition(
       ::greptime::v1::meta::Partition* partition);
-  ::greptime::v1::meta::Partition* unsafe_arena_release_partition();
+  PROTOBUF_DEPRECATED ::greptime::v1::meta::Partition* unsafe_arena_release_partition();
 
   // uint64 id = 1;
   void clear_id();
@@ -874,6 +889,7 @@ class Region final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> attrs_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr partition_expr_;
     ::greptime::v1::meta::Partition* partition_;
     uint64_t id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1784,7 +1800,36 @@ inline void Region::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Region.name)
 }
 
-// .greptime.v1.meta.Partition partition = 3;
+// map<string, string> attrs = 100;
+inline int Region::_internal_attrs_size() const {
+  return _impl_.attrs_.size();
+}
+inline int Region::attrs_size() const {
+  return _internal_attrs_size();
+}
+inline void Region::clear_attrs() {
+  _impl_.attrs_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Region::_internal_attrs() const {
+  return _impl_.attrs_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Region::attrs() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.Region.attrs)
+  return _internal_attrs();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Region::_internal_mutable_attrs() {
+  return _impl_.attrs_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Region::mutable_attrs() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.Region.attrs)
+  return _internal_mutable_attrs();
+}
+
+// .greptime.v1.meta.Partition partition = 3 [deprecated = true];
 inline bool Region::_internal_has_partition() const {
   return this != internal_default_instance() && _impl_.partition_ != nullptr;
 }
@@ -1874,33 +1919,54 @@ inline void Region::set_allocated_partition(::greptime::v1::meta::Partition* par
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Region.partition)
 }
 
-// map<string, string> attrs = 100;
-inline int Region::_internal_attrs_size() const {
-  return _impl_.attrs_.size();
+// string partition_expr = 4;
+inline void Region::clear_partition_expr() {
+  _impl_.partition_expr_.ClearToEmpty();
 }
-inline int Region::attrs_size() const {
-  return _internal_attrs_size();
+inline const std::string& Region::partition_expr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.Region.partition_expr)
+  return _internal_partition_expr();
 }
-inline void Region::clear_attrs() {
-  _impl_.attrs_.Clear();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Region::set_partition_expr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.partition_expr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.Region.partition_expr)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Region::_internal_attrs() const {
-  return _impl_.attrs_.GetMap();
+inline std::string* Region::mutable_partition_expr() {
+  std::string* _s = _internal_mutable_partition_expr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.Region.partition_expr)
+  return _s;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Region::attrs() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.meta.Region.attrs)
-  return _internal_attrs();
+inline const std::string& Region::_internal_partition_expr() const {
+  return _impl_.partition_expr_.Get();
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Region::_internal_mutable_attrs() {
-  return _impl_.attrs_.MutableMap();
+inline void Region::_internal_set_partition_expr(const std::string& value) {
+  
+  _impl_.partition_expr_.Set(value, GetArenaForAllocation());
 }
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Region::mutable_attrs() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.Region.attrs)
-  return _internal_mutable_attrs();
+inline std::string* Region::_internal_mutable_partition_expr() {
+  
+  return _impl_.partition_expr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Region::release_partition_expr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.Region.partition_expr)
+  return _impl_.partition_expr_.Release();
+}
+inline void Region::set_allocated_partition_expr(std::string* partition_expr) {
+  if (partition_expr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.partition_expr_.SetAllocated(partition_expr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.partition_expr_.IsDefault()) {
+    _impl_.partition_expr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Region.partition_expr)
 }
 
 // -------------------------------------------------------------------
