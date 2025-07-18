@@ -83,6 +83,7 @@ PROTOBUF_CONSTEXPR Region::Region(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.attrs_)*/{::_pbi::ConstantInitialized()}
   , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.partition_expr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.partition_)*/nullptr
   , /*decltype(_impl_.id_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -175,8 +176,9 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.partition_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.attrs_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.partition_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.partition_expr_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Partition, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -200,8 +202,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 17, -1, -1, sizeof(::greptime::v1::meta::Table)},
   { 26, 34, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
   { 36, -1, -1, sizeof(::greptime::v1::meta::Region)},
-  { 46, -1, -1, sizeof(::greptime::v1::meta::Partition)},
-  { 54, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
+  { 47, -1, -1, sizeof(::greptime::v1::meta::Partition)},
+  { 55, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -216,8 +218,8 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034greptime/v1/meta/route.proto\022\020greptime"
-  ".v1.meta\032\035greptime/v1/meta/common.proto\032"
-  "\030greptime/v1/common.proto\"j\n\nTableRoute\022"
+  ".v1.meta\032\030greptime/v1/common.proto\032\035grep"
+  "time/v1/meta/common.proto\"j\n\nTableRoute\022"
   "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022"
   "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met"
   "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001"
@@ -225,17 +227,18 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROT
   "_peer_index\030\002 \001(\004\022\035\n\025follower_peer_index"
   "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n"
   "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab"
-  "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014"
-  "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti"
-  "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr"
-  "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr"
-  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4"
-  "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu"
-  "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers"
-  "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_"
-  "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout"
-  "eB<Z:github.com/GreptimeTeam/greptime-pr"
-  "oto/go/greptime/v1/metab\006proto3"
+  "le_schema\030\003 \001(\014\"\320\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014"
+  "\n\004name\030\002 \001(\t\0222\n\005attrs\030d \003(\0132#.greptime.v"
+  "1.meta.Region.AttrsEntry\0222\n\tpartition\030\003 "
+  "\001(\0132\033.greptime.v1.meta.PartitionB\002\030\001\022\026\n\016"
+  "partition_expr\030\004 \001(\t\032,\n\nAttrsEntry\022\013\n\003ke"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4\n\tPartition\022"
+  "\023\n\013column_list\030\001 \003(\014\022\022\n\nvalue_list\030\002 \003(\014"
+  "\"k\n\017TableRouteValue\022%\n\005peers\030\001 \003(\0132\026.gre"
+  "ptime.v1.meta.Peer\0221\n\013table_route\030\002 \001(\0132"
+  "\034.greptime.v1.meta.TableRouteB<Z:github."
+  "com/GreptimeTeam/greptime-proto/go/grept"
+  "ime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -243,7 +246,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto = {
-    false, false, 831, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
+    false, false, 859, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
     "greptime/v1/meta/route.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 2, 7,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets,
@@ -1070,6 +1073,7 @@ Region::Region(const Region& from)
   new (&_impl_) Impl_{
       /*decltype(_impl_.attrs_)*/{}
     , decltype(_impl_.name_){}
+    , decltype(_impl_.partition_expr_){}
     , decltype(_impl_.partition_){nullptr}
     , decltype(_impl_.id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -1082,6 +1086,14 @@ Region::Region(const Region& from)
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
     _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.partition_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.partition_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_partition_expr().empty()) {
+    _this->_impl_.partition_expr_.Set(from._internal_partition_expr(), 
       _this->GetArenaForAllocation());
   }
   if (from._internal_has_partition()) {
@@ -1098,6 +1110,7 @@ inline void Region::SharedCtor(
   new (&_impl_) Impl_{
       /*decltype(_impl_.attrs_)*/{::_pbi::ArenaInitialized(), arena}
     , decltype(_impl_.name_){}
+    , decltype(_impl_.partition_expr_){}
     , decltype(_impl_.partition_){nullptr}
     , decltype(_impl_.id_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -1105,6 +1118,10 @@ inline void Region::SharedCtor(
   _impl_.name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.partition_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.partition_expr_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -1123,6 +1140,7 @@ inline void Region::SharedDtor() {
   _impl_.attrs_.Destruct();
   _impl_.attrs_.~MapField();
   _impl_.name_.Destroy();
+  _impl_.partition_expr_.Destroy();
   if (this != internal_default_instance()) delete _impl_.partition_;
 }
 
@@ -1142,6 +1160,7 @@ void Region::Clear() {
 
   _impl_.attrs_.Clear();
   _impl_.name_.ClearToEmpty();
+  _impl_.partition_expr_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.partition_ != nullptr) {
     delete _impl_.partition_;
   }
@@ -1174,11 +1193,21 @@ const char* Region::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.meta.Partition partition = 3;
+      // .greptime.v1.meta.Partition partition = 3 [deprecated = true];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_partition(), ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string partition_expr = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_partition_expr();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.Region.partition_expr"));
         } else
           goto handle_unusual;
         continue;
@@ -1240,11 +1269,21 @@ uint8_t* Region::_InternalSerialize(
         2, this->_internal_name(), target);
   }
 
-  // .greptime.v1.meta.Partition partition = 3;
+  // .greptime.v1.meta.Partition partition = 3 [deprecated = true];
   if (this->_internal_has_partition()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(3, _Internal::partition(this),
         _Internal::partition(this).GetCachedSize(), target, stream);
+  }
+
+  // string partition_expr = 4;
+  if (!this->_internal_partition_expr().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_partition_expr().data(), static_cast<int>(this->_internal_partition_expr().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.Region.partition_expr");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_partition_expr(), target);
   }
 
   // map<string, string> attrs = 100;
@@ -1309,7 +1348,14 @@ size_t Region::ByteSizeLong() const {
         this->_internal_name());
   }
 
-  // .greptime.v1.meta.Partition partition = 3;
+  // string partition_expr = 4;
+  if (!this->_internal_partition_expr().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_partition_expr());
+  }
+
+  // .greptime.v1.meta.Partition partition = 3 [deprecated = true];
   if (this->_internal_has_partition()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1343,6 +1389,9 @@ void Region::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
   }
+  if (!from._internal_partition_expr().empty()) {
+    _this->_internal_set_partition_expr(from._internal_partition_expr());
+  }
   if (from._internal_has_partition()) {
     _this->_internal_mutable_partition()->::greptime::v1::meta::Partition::MergeFrom(
         from._internal_partition());
@@ -1373,6 +1422,10 @@ void Region::InternalSwap(Region* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.name_, lhs_arena,
       &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.partition_expr_, lhs_arena,
+      &other->_impl_.partition_expr_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Region, _impl_.id_)

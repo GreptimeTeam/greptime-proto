@@ -12279,9 +12279,9 @@ public final class Database {
   static {
     java.lang.String[] descriptorData = {
       "\n\032greptime/v1/database.proto\022\013greptime.v" +
-      "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co" +
-      "lumn.proto\032\025greptime/v1/row.proto\032\026grept" +
-      "ime/v1/prom.proto\032\030greptime/v1/common.pr" +
+      "1\032\030greptime/v1/column.proto\032\030greptime/v1" +
+      "/common.proto\032\025greptime/v1/ddl.proto\032\026gr" +
+      "eptime/v1/prom.proto\032\025greptime/v1/row.pr" +
       "oto\"\352\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132" +
       "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002" +
       " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q" +
@@ -12327,11 +12327,11 @@ public final class Database {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.greptime.v1.Ddl.getDescriptor(),
           io.greptime.v1.Columns.getDescriptor(),
-          io.greptime.v1.RowData.getDescriptor(),
-          io.greptime.v1.Prometheus.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
+          io.greptime.v1.Ddl.getDescriptor(),
+          io.greptime.v1.Prometheus.getDescriptor(),
+          io.greptime.v1.RowData.getDescriptor(),
         });
     internal_static_greptime_v1_GreptimeRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -12405,11 +12405,11 @@ public final class Database {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RowDeleteRequest_descriptor,
         new java.lang.String[] { "TableName", "Rows", });
-    io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.Columns.getDescriptor();
-    io.greptime.v1.RowData.getDescriptor();
-    io.greptime.v1.Prometheus.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
+    io.greptime.v1.Ddl.getDescriptor();
+    io.greptime.v1.Prometheus.getDescriptor();
+    io.greptime.v1.RowData.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

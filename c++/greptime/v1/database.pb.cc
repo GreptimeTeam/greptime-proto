@@ -334,9 +334,9 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fdatabase_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\032greptime/v1/database.proto\022\013greptime.v"
-  "1\032\025greptime/v1/ddl.proto\032\030greptime/v1/co"
-  "lumn.proto\032\025greptime/v1/row.proto\032\026grept"
-  "ime/v1/prom.proto\032\030greptime/v1/common.pr"
+  "1\032\030greptime/v1/column.proto\032\030greptime/v1"
+  "/common.proto\032\025greptime/v1/ddl.proto\032\026gr"
+  "eptime/v1/prom.proto\032\025greptime/v1/row.pr"
   "oto\"\352\002\n\017GreptimeRequest\022*\n\006header\030\001 \001(\0132"
   "\032.greptime.v1.RequestHeader\022.\n\007inserts\030\002"
   " \001(\0132\033.greptime.v1.InsertRequestsH\000\022*\n\005q"
