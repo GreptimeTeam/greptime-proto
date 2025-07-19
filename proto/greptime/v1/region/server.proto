@@ -160,8 +160,8 @@ message AlterRequest {
     UnsetTableOptions unset_table_options = 9;
     SetIndex set_index = 10;
     UnsetIndex unset_index = 11;
-    DropDefaults drop_defaults = 12;
-    SetDefaults set_defaults = 13;
+    string unset_default = 12;
+    SetDefault set_default = 13;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;

@@ -967,7 +967,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n"
   "\tregion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010req"
   "uests\030\001 \003(\0132 .greptime.v1.region.AlterRe"
-  "quest\"\254\004\n\014AlterRequest\022\021\n\tregion_id\030\001 \001("
+  "quest\"\217\004\n\014AlterRequest\022\021\n\tregion_id\030\001 \001("
   "\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v1.reg"
   "ion.AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037"
   ".greptime.v1.region.DropColumnsH\000\022=\n\023mod"
@@ -977,43 +977,42 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "nset_table_options\030\t \001(\0132\036.greptime.v1.U"
   "nsetTableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025."
   "greptime.v1.SetIndexH\000\022.\n\013unset_index\030\013 "
-  "\001(\0132\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_d"
-  "efaults\030\014 \001(\0132\031.greptime.v1.DropDefaults"
-  "H\000\0220\n\014set_defaults\030\r \001(\0132\030.greptime.v1.S"
-  "etDefaultsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004"
-  "kind\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132"
-  "\035.greptime.v1.region.AddColumn\"C\n\013DropCo"
-  "lumns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v"
-  "1.region.DropColumn\"v\n\tAddColumn\0227\n\ncolu"
-  "mn_def\030\001 \001(\0132#.greptime.v1.region.Region"
-  "ColumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v"
-  "1.AddColumnLocation\"\032\n\nDropColumn\022\014\n\004nam"
-  "e\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001"
-  "(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016window_"
-  "seconds\030\001 \001(\003\"\231\001\n\016CompactRequest\022\021\n\tregi"
-  "on_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptime."
-  "v1.region.RegularH\000\0229\n\rstrict_window\030\003 \001"
-  "(\0132 .greptime.v1.region.StrictWindowH\000B\t"
-  "\n\007options\"$\n\017TruncateRequest\022\021\n\tregion_i"
-  "d\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_def"
-  "\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolumn"
-  "_id\030\002 \001(\r\"Z\n\021BulkInsertRequest\022\021\n\tregion"
-  "_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime."
-  "v1.ArrowIpcH\000B\006\n\004body\"1\n\020MitoManifestInf"
-  "o\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metr"
-  "icManifestInfo\022\035\n\025data_manifest_version\030"
-  "\001 \001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004"
-  "\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022m"
-  "ito_manifest_info\030\002 \001(\0132$.greptime.v1.re"
-  "gion.MitoManifestInfoH\000\022F\n\024metric_manife"
-  "st_info\030\003 \001(\0132&.greptime.v1.region.Metri"
-  "cManifestInfoH\000B\017\n\rmanifest_info\")\n\023List"
-  "MetadataRequest\022\022\n\nregion_ids\030\001 \003(\0042Y\n\006R"
-  "egion\022O\n\006Handle\022!.greptime.v1.region.Reg"
-  "ionRequest\032\".greptime.v1.region.RegionRe"
-  "sponseB]\n\025io.greptime.v1.regionB\006ServerZ"
-  "<github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/regionb\006proto3"
+  "\001(\0132\027.greptime.v1.UnsetIndexH\000\022\027\n\runset_"
+  "default\030\014 \001(\tH\000\022.\n\013set_default\030\r \001(\0132\027.g"
+  "reptime.v1.SetDefaultH\000\022\026\n\016schema_versio"
+  "n\030\004 \001(\004B\006\n\004kind\"@\n\nAddColumns\0222\n\013add_col"
+  "umns\030\001 \003(\0132\035.greptime.v1.region.AddColum"
+  "n\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036"
+  ".greptime.v1.region.DropColumn\"v\n\tAddCol"
+  "umn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.re"
+  "gion.RegionColumnDef\0220\n\010location\030\003 \001(\0132\036"
+  ".greptime.v1.AddColumnLocation\"\032\n\nDropCo"
+  "lumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tre"
+  "gion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow"
+  "\022\026\n\016window_seconds\030\001 \001(\003\"\231\001\n\016CompactRequ"
+  "est\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132"
+  "\033.greptime.v1.region.RegularH\000\0229\n\rstrict"
+  "_window\030\003 \001(\0132 .greptime.v1.region.Stric"
+  "tWindowH\000B\t\n\007options\"$\n\017TruncateRequest\022"
+  "\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n"
+  "\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDe"
+  "f\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertReques"
+  "t\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132"
+  "\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020Mito"
+  "ManifestInfo\022\035\n\025data_manifest_version\030\001 "
+  "\001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manife"
+  "st_version\030\001 \001(\004\022!\n\031metadata_manifest_ve"
+  "rsion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id"
+  "\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.gre"
+  "ptime.v1.region.MitoManifestInfoH\000\022F\n\024me"
+  "tric_manifest_info\030\003 \001(\0132&.greptime.v1.r"
+  "egion.MetricManifestInfoH\000B\017\n\rmanifest_i"
+  "nfo\")\n\023ListMetadataRequest\022\022\n\nregion_ids"
+  "\030\001 \003(\0042Y\n\006Region\022O\n\006Handle\022!.greptime.v1"
+  ".region.RegionRequest\032\".greptime.v1.regi"
+  "on.RegionResponseB]\n\025io.greptime.v1.regi"
+  "onB\006ServerZ<github.com/GreptimeTeam/grep"
+  "time-proto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -1022,7 +1021,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 4509, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 4480, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 3, 35,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -5742,8 +5741,7 @@ class AlterRequest::_Internal {
   static const ::greptime::v1::UnsetTableOptions& unset_table_options(const AlterRequest* msg);
   static const ::greptime::v1::SetIndex& set_index(const AlterRequest* msg);
   static const ::greptime::v1::UnsetIndex& unset_index(const AlterRequest* msg);
-  static const ::greptime::v1::DropDefaults& drop_defaults(const AlterRequest* msg);
-  static const ::greptime::v1::SetDefaults& set_defaults(const AlterRequest* msg);
+  static const ::greptime::v1::SetDefault& set_default(const AlterRequest* msg);
 };
 
 const ::greptime::v1::region::AddColumns&
@@ -5774,13 +5772,9 @@ const ::greptime::v1::UnsetIndex&
 AlterRequest::_Internal::unset_index(const AlterRequest* msg) {
   return *msg->_impl_.kind_.unset_index_;
 }
-const ::greptime::v1::DropDefaults&
-AlterRequest::_Internal::drop_defaults(const AlterRequest* msg) {
-  return *msg->_impl_.kind_.drop_defaults_;
-}
-const ::greptime::v1::SetDefaults&
-AlterRequest::_Internal::set_defaults(const AlterRequest* msg) {
-  return *msg->_impl_.kind_.set_defaults_;
+const ::greptime::v1::SetDefault&
+AlterRequest::_Internal::set_default(const AlterRequest* msg) {
+  return *msg->_impl_.kind_.set_default_;
 }
 void AlterRequest::set_allocated_add_columns(::greptime::v1::region::AddColumns* add_columns) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -5932,50 +5926,26 @@ void AlterRequest::clear_unset_index() {
     clear_has_kind();
   }
 }
-void AlterRequest::set_allocated_drop_defaults(::greptime::v1::DropDefaults* drop_defaults) {
+void AlterRequest::set_allocated_set_default(::greptime::v1::SetDefault* set_default) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_kind();
-  if (drop_defaults) {
+  if (set_default) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
         ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(drop_defaults));
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(set_default));
     if (message_arena != submessage_arena) {
-      drop_defaults = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, drop_defaults, submessage_arena);
+      set_default = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, set_default, submessage_arena);
     }
-    set_has_drop_defaults();
-    _impl_.kind_.drop_defaults_ = drop_defaults;
+    set_has_set_default();
+    _impl_.kind_.set_default_ = set_default;
   }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.drop_defaults)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.set_default)
 }
-void AlterRequest::clear_drop_defaults() {
-  if (_internal_has_drop_defaults()) {
+void AlterRequest::clear_set_default() {
+  if (_internal_has_set_default()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.kind_.drop_defaults_;
-    }
-    clear_has_kind();
-  }
-}
-void AlterRequest::set_allocated_set_defaults(::greptime::v1::SetDefaults* set_defaults) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_kind();
-  if (set_defaults) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
-                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(set_defaults));
-    if (message_arena != submessage_arena) {
-      set_defaults = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, set_defaults, submessage_arena);
-    }
-    set_has_set_defaults();
-    _impl_.kind_.set_defaults_ = set_defaults;
-  }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.AlterRequest.set_defaults)
-}
-void AlterRequest::clear_set_defaults() {
-  if (_internal_has_set_defaults()) {
-    if (GetArenaForAllocation() == nullptr) {
-      delete _impl_.kind_.set_defaults_;
+      delete _impl_.kind_.set_default_;
     }
     clear_has_kind();
   }
@@ -6037,14 +6007,13 @@ AlterRequest::AlterRequest(const AlterRequest& from)
           from._internal_unset_index());
       break;
     }
-    case kDropDefaults: {
-      _this->_internal_mutable_drop_defaults()->::greptime::v1::DropDefaults::MergeFrom(
-          from._internal_drop_defaults());
+    case kUnsetDefault: {
+      _this->_internal_set_unset_default(from._internal_unset_default());
       break;
     }
-    case kSetDefaults: {
-      _this->_internal_mutable_set_defaults()->::greptime::v1::SetDefaults::MergeFrom(
-          from._internal_set_defaults());
+    case kSetDefault: {
+      _this->_internal_mutable_set_default()->::greptime::v1::SetDefault::MergeFrom(
+          from._internal_set_default());
       break;
     }
     case KIND_NOT_SET: {
@@ -6133,15 +6102,13 @@ void AlterRequest::clear_kind() {
       }
       break;
     }
-    case kDropDefaults: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.kind_.drop_defaults_;
-      }
+    case kUnsetDefault: {
+      _impl_.kind_.unset_default_.Destroy();
       break;
     }
-    case kSetDefaults: {
+    case kSetDefault: {
       if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.kind_.set_defaults_;
+        delete _impl_.kind_.set_default_;
       }
       break;
     }
@@ -6244,18 +6211,20 @@ const char* AlterRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.DropDefaults drop_defaults = 12;
+      // string unset_default = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
-          ptr = ctx->ParseMessage(_internal_mutable_drop_defaults(), ptr);
+          auto str = _internal_mutable_unset_default();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.region.AlterRequest.unset_default"));
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.SetDefaults set_defaults = 13;
+      // .greptime.v1.SetDefault set_default = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
-          ptr = ctx->ParseMessage(_internal_mutable_set_defaults(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_set_default(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6350,18 +6319,21 @@ uint8_t* AlterRequest::_InternalSerialize(
         _Internal::unset_index(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.DropDefaults drop_defaults = 12;
-  if (_internal_has_drop_defaults()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(12, _Internal::drop_defaults(this),
-        _Internal::drop_defaults(this).GetCachedSize(), target, stream);
+  // string unset_default = 12;
+  if (_internal_has_unset_default()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_unset_default().data(), static_cast<int>(this->_internal_unset_default().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.region.AlterRequest.unset_default");
+    target = stream->WriteStringMaybeAliased(
+        12, this->_internal_unset_default(), target);
   }
 
-  // .greptime.v1.SetDefaults set_defaults = 13;
-  if (_internal_has_set_defaults()) {
+  // .greptime.v1.SetDefault set_default = 13;
+  if (_internal_has_set_default()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(13, _Internal::set_defaults(this),
-        _Internal::set_defaults(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(13, _Internal::set_default(this),
+        _Internal::set_default(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6440,18 +6412,18 @@ size_t AlterRequest::ByteSizeLong() const {
           *_impl_.kind_.unset_index_);
       break;
     }
-    // .greptime.v1.DropDefaults drop_defaults = 12;
-    case kDropDefaults: {
+    // string unset_default = 12;
+    case kUnsetDefault: {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.kind_.drop_defaults_);
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_unset_default());
       break;
     }
-    // .greptime.v1.SetDefaults set_defaults = 13;
-    case kSetDefaults: {
+    // .greptime.v1.SetDefault set_default = 13;
+    case kSetDefault: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.kind_.set_defaults_);
+          *_impl_.kind_.set_default_);
       break;
     }
     case KIND_NOT_SET: {
@@ -6518,14 +6490,13 @@ void AlterRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
           from._internal_unset_index());
       break;
     }
-    case kDropDefaults: {
-      _this->_internal_mutable_drop_defaults()->::greptime::v1::DropDefaults::MergeFrom(
-          from._internal_drop_defaults());
+    case kUnsetDefault: {
+      _this->_internal_set_unset_default(from._internal_unset_default());
       break;
     }
-    case kSetDefaults: {
-      _this->_internal_mutable_set_defaults()->::greptime::v1::SetDefaults::MergeFrom(
-          from._internal_set_defaults());
+    case kSetDefault: {
+      _this->_internal_mutable_set_default()->::greptime::v1::SetDefault::MergeFrom(
+          from._internal_set_default());
       break;
     }
     case KIND_NOT_SET: {
