@@ -216,8 +216,8 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034greptime/v1/meta/route.proto\022\020greptime"
-  ".v1.meta\032\035greptime/v1/meta/common.proto\032"
-  "\030greptime/v1/common.proto\"j\n\nTableRoute\022"
+  ".v1.meta\032\030greptime/v1/common.proto\032\035grep"
+  "time/v1/meta/common.proto\"j\n\nTableRoute\022"
   "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022"
   "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met"
   "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001"

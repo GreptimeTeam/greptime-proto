@@ -212,7 +212,7 @@ func (x AddColumnLocation_LocationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AddColumnLocation_LocationType.Descriptor instead.
 func (AddColumnLocation_LocationType) EnumDescriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{28, 0}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{27, 0}
 }
 
 // "Data Definition Language" requests, that create, modify or delete the
@@ -950,7 +950,8 @@ type AlterTableExpr struct {
 	//	*AlterTableExpr_UnsetTableOptions
 	//	*AlterTableExpr_SetIndex
 	//	*AlterTableExpr_UnsetIndex
-	//	*AlterTableExpr_DropDefaults
+	//	*AlterTableExpr_UnsetDefault
+	//	*AlterTableExpr_SetDefault
 	Kind isAlterTableExpr_Kind `protobuf_oneof:"kind"`
 }
 
@@ -1070,9 +1071,16 @@ func (x *AlterTableExpr) GetUnsetIndex() *UnsetIndex {
 	return nil
 }
 
-func (x *AlterTableExpr) GetDropDefaults() *DropDefaults {
-	if x, ok := x.GetKind().(*AlterTableExpr_DropDefaults); ok {
-		return x.DropDefaults
+func (x *AlterTableExpr) GetUnsetDefault() string {
+	if x, ok := x.GetKind().(*AlterTableExpr_UnsetDefault); ok {
+		return x.UnsetDefault
+	}
+	return ""
+}
+
+func (x *AlterTableExpr) GetSetDefault() *SetDefault {
+	if x, ok := x.GetKind().(*AlterTableExpr_SetDefault); ok {
+		return x.SetDefault
 	}
 	return nil
 }
@@ -1113,8 +1121,12 @@ type AlterTableExpr_UnsetIndex struct {
 	UnsetIndex *UnsetIndex `protobuf:"bytes,13,opt,name=unset_index,json=unsetIndex,proto3,oneof"`
 }
 
-type AlterTableExpr_DropDefaults struct {
-	DropDefaults *DropDefaults `protobuf:"bytes,14,opt,name=drop_defaults,json=dropDefaults,proto3,oneof"`
+type AlterTableExpr_UnsetDefault struct {
+	UnsetDefault string `protobuf:"bytes,14,opt,name=unset_default,json=unsetDefault,proto3,oneof"`
+}
+
+type AlterTableExpr_SetDefault struct {
+	SetDefault *SetDefault `protobuf:"bytes,15,opt,name=set_default,json=setDefault,proto3,oneof"`
 }
 
 func (*AlterTableExpr_AddColumns) isAlterTableExpr_Kind() {}
@@ -1133,18 +1145,21 @@ func (*AlterTableExpr_SetIndex) isAlterTableExpr_Kind() {}
 
 func (*AlterTableExpr_UnsetIndex) isAlterTableExpr_Kind() {}
 
-func (*AlterTableExpr_DropDefaults) isAlterTableExpr_Kind() {}
+func (*AlterTableExpr_UnsetDefault) isAlterTableExpr_Kind() {}
 
-type DropDefault struct {
+func (*AlterTableExpr_SetDefault) isAlterTableExpr_Kind() {}
+
+type SetDefault struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ColumnName string `protobuf:"bytes,1,opt,name=column_name,json=columnName,proto3" json:"column_name,omitempty"`
+	ColumnName        string `protobuf:"bytes,1,opt,name=column_name,json=columnName,proto3" json:"column_name,omitempty"`
+	DefaultConstraint []byte `protobuf:"bytes,2,opt,name=default_constraint,json=defaultConstraint,proto3" json:"default_constraint,omitempty"`
 }
 
-func (x *DropDefault) Reset() {
-	*x = DropDefault{}
+func (x *SetDefault) Reset() {
+	*x = SetDefault{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_greptime_v1_ddl_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1152,13 +1167,13 @@ func (x *DropDefault) Reset() {
 	}
 }
 
-func (x *DropDefault) String() string {
+func (x *SetDefault) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DropDefault) ProtoMessage() {}
+func (*SetDefault) ProtoMessage() {}
 
-func (x *DropDefault) ProtoReflect() protoreflect.Message {
+func (x *SetDefault) ProtoReflect() protoreflect.Message {
 	mi := &file_greptime_v1_ddl_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1170,16 +1185,23 @@ func (x *DropDefault) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DropDefault.ProtoReflect.Descriptor instead.
-func (*DropDefault) Descriptor() ([]byte, []int) {
+// Deprecated: Use SetDefault.ProtoReflect.Descriptor instead.
+func (*SetDefault) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *DropDefault) GetColumnName() string {
+func (x *SetDefault) GetColumnName() string {
 	if x != nil {
 		return x.ColumnName
 	}
 	return ""
+}
+
+func (x *SetDefault) GetDefaultConstraint() []byte {
+	if x != nil {
+		return x.DefaultConstraint
+	}
+	return nil
 }
 
 type SetIndex struct {
@@ -1703,53 +1725,6 @@ func (x *AddColumns) GetAddColumns() []*AddColumn {
 	return nil
 }
 
-type DropDefaults struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	DropDefaults []*DropDefault `protobuf:"bytes,1,rep,name=drop_defaults,json=dropDefaults,proto3" json:"drop_defaults,omitempty"`
-}
-
-func (x *DropDefaults) Reset() {
-	*x = DropDefaults{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[15]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *DropDefaults) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DropDefaults) ProtoMessage() {}
-
-func (x *DropDefaults) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[15]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DropDefaults.ProtoReflect.Descriptor instead.
-func (*DropDefaults) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *DropDefaults) GetDropDefaults() []*DropDefault {
-	if x != nil {
-		return x.DropDefaults
-	}
-	return nil
-}
-
 type DropColumns struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -1761,7 +1736,7 @@ type DropColumns struct {
 func (x *DropColumns) Reset() {
 	*x = DropColumns{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[16]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1774,7 +1749,7 @@ func (x *DropColumns) String() string {
 func (*DropColumns) ProtoMessage() {}
 
 func (x *DropColumns) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[16]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1787,7 +1762,7 @@ func (x *DropColumns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropColumns.ProtoReflect.Descriptor instead.
 func (*DropColumns) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{16}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *DropColumns) GetDropColumns() []*DropColumn {
@@ -1808,7 +1783,7 @@ type ModifyColumnTypes struct {
 func (x *ModifyColumnTypes) Reset() {
 	*x = ModifyColumnTypes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[17]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1821,7 +1796,7 @@ func (x *ModifyColumnTypes) String() string {
 func (*ModifyColumnTypes) ProtoMessage() {}
 
 func (x *ModifyColumnTypes) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[17]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1834,7 +1809,7 @@ func (x *ModifyColumnTypes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ModifyColumnTypes.ProtoReflect.Descriptor instead.
 func (*ModifyColumnTypes) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{17}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ModifyColumnTypes) GetModifyColumnTypes() []*ModifyColumnType {
@@ -1855,7 +1830,7 @@ type RenameTable struct {
 func (x *RenameTable) Reset() {
 	*x = RenameTable{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[18]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1868,7 +1843,7 @@ func (x *RenameTable) String() string {
 func (*RenameTable) ProtoMessage() {}
 
 func (x *RenameTable) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[18]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1881,7 +1856,7 @@ func (x *RenameTable) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenameTable.ProtoReflect.Descriptor instead.
 func (*RenameTable) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{18}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *RenameTable) GetNewTableName() string {
@@ -1904,7 +1879,7 @@ type AddColumn struct {
 func (x *AddColumn) Reset() {
 	*x = AddColumn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[19]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1917,7 +1892,7 @@ func (x *AddColumn) String() string {
 func (*AddColumn) ProtoMessage() {}
 
 func (x *AddColumn) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[19]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1930,7 +1905,7 @@ func (x *AddColumn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddColumn.ProtoReflect.Descriptor instead.
 func (*AddColumn) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{19}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *AddColumn) GetColumnDef() *ColumnDef {
@@ -1967,7 +1942,7 @@ type ModifyColumnType struct {
 func (x *ModifyColumnType) Reset() {
 	*x = ModifyColumnType{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[20]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1980,7 +1955,7 @@ func (x *ModifyColumnType) String() string {
 func (*ModifyColumnType) ProtoMessage() {}
 
 func (x *ModifyColumnType) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[20]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +1968,7 @@ func (x *ModifyColumnType) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ModifyColumnType.ProtoReflect.Descriptor instead.
 func (*ModifyColumnType) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{20}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ModifyColumnType) GetColumnName() string {
@@ -2029,7 +2004,7 @@ type Option struct {
 func (x *Option) Reset() {
 	*x = Option{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[21]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2042,7 +2017,7 @@ func (x *Option) String() string {
 func (*Option) ProtoMessage() {}
 
 func (x *Option) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[21]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2055,7 +2030,7 @@ func (x *Option) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Option.ProtoReflect.Descriptor instead.
 func (*Option) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{21}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *Option) GetKey() string {
@@ -2083,7 +2058,7 @@ type SetTableOptions struct {
 func (x *SetTableOptions) Reset() {
 	*x = SetTableOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[22]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2096,7 +2071,7 @@ func (x *SetTableOptions) String() string {
 func (*SetTableOptions) ProtoMessage() {}
 
 func (x *SetTableOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[22]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2109,7 +2084,7 @@ func (x *SetTableOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTableOptions.ProtoReflect.Descriptor instead.
 func (*SetTableOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{22}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *SetTableOptions) GetTableOptions() []*Option {
@@ -2130,7 +2105,7 @@ type UnsetTableOptions struct {
 func (x *UnsetTableOptions) Reset() {
 	*x = UnsetTableOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[23]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2143,7 +2118,7 @@ func (x *UnsetTableOptions) String() string {
 func (*UnsetTableOptions) ProtoMessage() {}
 
 func (x *UnsetTableOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[23]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2156,7 +2131,7 @@ func (x *UnsetTableOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnsetTableOptions.ProtoReflect.Descriptor instead.
 func (*UnsetTableOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{23}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *UnsetTableOptions) GetKeys() []string {
@@ -2177,7 +2152,7 @@ type DropColumn struct {
 func (x *DropColumn) Reset() {
 	*x = DropColumn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[24]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2190,7 +2165,7 @@ func (x *DropColumn) String() string {
 func (*DropColumn) ProtoMessage() {}
 
 func (x *DropColumn) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[24]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2203,7 +2178,7 @@ func (x *DropColumn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropColumn.ProtoReflect.Descriptor instead.
 func (*DropColumn) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{24}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DropColumn) GetName() string {
@@ -2224,7 +2199,7 @@ type TableId struct {
 func (x *TableId) Reset() {
 	*x = TableId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[25]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2237,7 +2212,7 @@ func (x *TableId) String() string {
 func (*TableId) ProtoMessage() {}
 
 func (x *TableId) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[25]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2250,7 +2225,7 @@ func (x *TableId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TableId.ProtoReflect.Descriptor instead.
 func (*TableId) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{25}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *TableId) GetId() uint32 {
@@ -2271,7 +2246,7 @@ type FlowId struct {
 func (x *FlowId) Reset() {
 	*x = FlowId{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[26]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2284,7 +2259,7 @@ func (x *FlowId) String() string {
 func (*FlowId) ProtoMessage() {}
 
 func (x *FlowId) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[26]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2297,7 +2272,7 @@ func (x *FlowId) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FlowId.ProtoReflect.Descriptor instead.
 func (*FlowId) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{26}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *FlowId) GetId() uint32 {
@@ -2327,7 +2302,7 @@ type ColumnDef struct {
 func (x *ColumnDef) Reset() {
 	*x = ColumnDef{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[27]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2340,7 +2315,7 @@ func (x *ColumnDef) String() string {
 func (*ColumnDef) ProtoMessage() {}
 
 func (x *ColumnDef) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[27]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2353,7 +2328,7 @@ func (x *ColumnDef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ColumnDef.ProtoReflect.Descriptor instead.
 func (*ColumnDef) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{27}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *ColumnDef) GetName() string {
@@ -2424,7 +2399,7 @@ type AddColumnLocation struct {
 func (x *AddColumnLocation) Reset() {
 	*x = AddColumnLocation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[28]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2437,7 +2412,7 @@ func (x *AddColumnLocation) String() string {
 func (*AddColumnLocation) ProtoMessage() {}
 
 func (x *AddColumnLocation) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[28]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2450,7 +2425,7 @@ func (x *AddColumnLocation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddColumnLocation.ProtoReflect.Descriptor instead.
 func (*AddColumnLocation) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{28}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *AddColumnLocation) GetLocationType() AddColumnLocation_LocationType {
@@ -2486,7 +2461,7 @@ type SetFulltext struct {
 func (x *SetFulltext) Reset() {
 	*x = SetFulltext{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[29]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2499,7 +2474,7 @@ func (x *SetFulltext) String() string {
 func (*SetFulltext) ProtoMessage() {}
 
 func (x *SetFulltext) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[29]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2512,7 +2487,7 @@ func (x *SetFulltext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFulltext.ProtoReflect.Descriptor instead.
 func (*SetFulltext) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{29}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetFulltext) GetColumnName() string {
@@ -2575,7 +2550,7 @@ type UnsetFulltext struct {
 func (x *UnsetFulltext) Reset() {
 	*x = UnsetFulltext{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[30]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2588,7 +2563,7 @@ func (x *UnsetFulltext) String() string {
 func (*UnsetFulltext) ProtoMessage() {}
 
 func (x *UnsetFulltext) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[30]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2601,7 +2576,7 @@ func (x *UnsetFulltext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnsetFulltext.ProtoReflect.Descriptor instead.
 func (*UnsetFulltext) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{30}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *UnsetFulltext) GetColumnName() string {
@@ -2622,7 +2597,7 @@ type SetInverted struct {
 func (x *SetInverted) Reset() {
 	*x = SetInverted{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[31]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2635,7 +2610,7 @@ func (x *SetInverted) String() string {
 func (*SetInverted) ProtoMessage() {}
 
 func (x *SetInverted) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[31]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2648,7 +2623,7 @@ func (x *SetInverted) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInverted.ProtoReflect.Descriptor instead.
 func (*SetInverted) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{31}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetInverted) GetColumnName() string {
@@ -2669,7 +2644,7 @@ type UnsetInverted struct {
 func (x *UnsetInverted) Reset() {
 	*x = UnsetInverted{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[32]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2682,7 +2657,7 @@ func (x *UnsetInverted) String() string {
 func (*UnsetInverted) ProtoMessage() {}
 
 func (x *UnsetInverted) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[32]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2695,7 +2670,7 @@ func (x *UnsetInverted) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnsetInverted.ProtoReflect.Descriptor instead.
 func (*UnsetInverted) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{32}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *UnsetInverted) GetColumnName() string {
@@ -2720,7 +2695,7 @@ type SetSkipping struct {
 func (x *SetSkipping) Reset() {
 	*x = SetSkipping{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[33]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2733,7 +2708,7 @@ func (x *SetSkipping) String() string {
 func (*SetSkipping) ProtoMessage() {}
 
 func (x *SetSkipping) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[33]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2746,7 +2721,7 @@ func (x *SetSkipping) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSkipping.ProtoReflect.Descriptor instead.
 func (*SetSkipping) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{33}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SetSkipping) GetColumnName() string {
@@ -2795,7 +2770,7 @@ type UnsetSkipping struct {
 func (x *UnsetSkipping) Reset() {
 	*x = UnsetSkipping{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[34]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2808,7 +2783,7 @@ func (x *UnsetSkipping) String() string {
 func (*UnsetSkipping) ProtoMessage() {}
 
 func (x *UnsetSkipping) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[34]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2821,7 +2796,7 @@ func (x *UnsetSkipping) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnsetSkipping.ProtoReflect.Descriptor instead.
 func (*UnsetSkipping) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{34}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *UnsetSkipping) GetColumnName() string {
@@ -2848,7 +2823,7 @@ type AlterDatabaseExpr struct {
 func (x *AlterDatabaseExpr) Reset() {
 	*x = AlterDatabaseExpr{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[35]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2861,7 +2836,7 @@ func (x *AlterDatabaseExpr) String() string {
 func (*AlterDatabaseExpr) ProtoMessage() {}
 
 func (x *AlterDatabaseExpr) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[35]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2874,7 +2849,7 @@ func (x *AlterDatabaseExpr) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlterDatabaseExpr.ProtoReflect.Descriptor instead.
 func (*AlterDatabaseExpr) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{35}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *AlterDatabaseExpr) GetCatalogName() string {
@@ -2939,7 +2914,7 @@ type SetDatabaseOptions struct {
 func (x *SetDatabaseOptions) Reset() {
 	*x = SetDatabaseOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[36]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2952,7 +2927,7 @@ func (x *SetDatabaseOptions) String() string {
 func (*SetDatabaseOptions) ProtoMessage() {}
 
 func (x *SetDatabaseOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[36]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2965,7 +2940,7 @@ func (x *SetDatabaseOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDatabaseOptions.ProtoReflect.Descriptor instead.
 func (*SetDatabaseOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{36}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *SetDatabaseOptions) GetSetDatabaseOptions() []*Option {
@@ -2986,7 +2961,7 @@ type UnsetDatabaseOptions struct {
 func (x *UnsetDatabaseOptions) Reset() {
 	*x = UnsetDatabaseOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[37]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2999,7 +2974,7 @@ func (x *UnsetDatabaseOptions) String() string {
 func (*UnsetDatabaseOptions) ProtoMessage() {}
 
 func (x *UnsetDatabaseOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[37]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3012,7 +2987,7 @@ func (x *UnsetDatabaseOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnsetDatabaseOptions.ProtoReflect.Descriptor instead.
 func (*UnsetDatabaseOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{37}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *UnsetDatabaseOptions) GetKeys() []string {
@@ -3046,7 +3021,7 @@ type CreateTriggerExpr struct {
 func (x *CreateTriggerExpr) Reset() {
 	*x = CreateTriggerExpr{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[38]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3059,7 +3034,7 @@ func (x *CreateTriggerExpr) String() string {
 func (*CreateTriggerExpr) ProtoMessage() {}
 
 func (x *CreateTriggerExpr) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[38]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3072,7 +3047,7 @@ func (x *CreateTriggerExpr) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTriggerExpr.ProtoReflect.Descriptor instead.
 func (*CreateTriggerExpr) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{38}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CreateTriggerExpr) GetCatalogName() string {
@@ -3147,7 +3122,7 @@ type NotifyChannel struct {
 func (x *NotifyChannel) Reset() {
 	*x = NotifyChannel{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[39]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3160,7 +3135,7 @@ func (x *NotifyChannel) String() string {
 func (*NotifyChannel) ProtoMessage() {}
 
 func (x *NotifyChannel) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[39]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3173,7 +3148,7 @@ func (x *NotifyChannel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyChannel.ProtoReflect.Descriptor instead.
 func (*NotifyChannel) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{39}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *NotifyChannel) GetName() string {
@@ -3220,7 +3195,7 @@ type WebhookOptions struct {
 func (x *WebhookOptions) Reset() {
 	*x = WebhookOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[40]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[39]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3233,7 +3208,7 @@ func (x *WebhookOptions) String() string {
 func (*WebhookOptions) ProtoMessage() {}
 
 func (x *WebhookOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[40]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[39]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3246,7 +3221,7 @@ func (x *WebhookOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WebhookOptions.ProtoReflect.Descriptor instead.
 func (*WebhookOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{40}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *WebhookOptions) GetUrl() string {
@@ -3276,7 +3251,7 @@ type DropTriggerExpr struct {
 func (x *DropTriggerExpr) Reset() {
 	*x = DropTriggerExpr{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_ddl_proto_msgTypes[41]
+		mi := &file_greptime_v1_ddl_proto_msgTypes[40]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3289,7 +3264,7 @@ func (x *DropTriggerExpr) String() string {
 func (*DropTriggerExpr) ProtoMessage() {}
 
 func (x *DropTriggerExpr) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_ddl_proto_msgTypes[41]
+	mi := &file_greptime_v1_ddl_proto_msgTypes[40]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3302,7 +3277,7 @@ func (x *DropTriggerExpr) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropTriggerExpr.ProtoReflect.Descriptor instead.
 func (*DropTriggerExpr) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{41}
+	return file_greptime_v1_ddl_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *DropTriggerExpr) GetCatalogName() string {
@@ -3489,7 +3464,7 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x65, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a,
 	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
 	0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xd9, 0x05, 0x0a, 0x0e, 0x41, 0x6c,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xfa, 0x05, 0x0a, 0x0e, 0x41, 0x6c,
 	0x74, 0x65, 0x72, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21, 0x0a, 0x0c,
 	0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01,
 	0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d, 0x65, 0x12,
@@ -3530,97 +3505,97 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x3a, 0x0a, 0x0b, 0x75, 0x6e, 0x73, 0x65, 0x74, 0x5f, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x0d,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
 	0x76, 0x31, 0x2e, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x48, 0x00, 0x52,
-	0x0a, 0x75, 0x6e, 0x73, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x40, 0x0a, 0x0d, 0x64,
-	0x72, 0x6f, 0x70, 0x5f, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x18, 0x0e, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31,
-	0x2e, 0x44, 0x72, 0x6f, 0x70, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x48, 0x00, 0x52,
-	0x0c, 0x64, 0x72, 0x6f, 0x70, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x42, 0x06, 0x0a,
-	0x04, 0x6b, 0x69, 0x6e, 0x64, 0x22, 0x2e, 0x0a, 0x0b, 0x44, 0x72, 0x6f, 0x70, 0x44, 0x65, 0x66,
+	0x0a, 0x75, 0x6e, 0x73, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x25, 0x0a, 0x0d, 0x75,
+	0x6e, 0x73, 0x65, 0x74, 0x5f, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x18, 0x0e, 0x20, 0x01,
+	0x28, 0x09, 0x48, 0x00, 0x52, 0x0c, 0x75, 0x6e, 0x73, 0x65, 0x74, 0x44, 0x65, 0x66, 0x61, 0x75,
+	0x6c, 0x74, 0x12, 0x3a, 0x0a, 0x0b, 0x73, 0x65, 0x74, 0x5f, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c,
+	0x74, 0x18, 0x0f, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69,
+	0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x65, 0x74, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74,
+	0x48, 0x00, 0x52, 0x0a, 0x73, 0x65, 0x74, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x42, 0x06,
+	0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x22, 0x5c, 0x0a, 0x0a, 0x53, 0x65, 0x74, 0x44, 0x65, 0x66,
 	0x61, 0x75, 0x6c, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x5f, 0x6e,
 	0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6c, 0x75, 0x6d,
-	0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0xbd, 0x01, 0x0a, 0x08, 0x53, 0x65, 0x74, 0x49, 0x6e, 0x64,
-	0x65, 0x78, 0x12, 0x36, 0x0a, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x53, 0x65, 0x74, 0x46, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x48, 0x00,
-	0x52, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x12, 0x36, 0x0a, 0x08, 0x69, 0x6e,
-	0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67,
-	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x65, 0x74, 0x49, 0x6e,
-	0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x48, 0x00, 0x52, 0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74,
-	0x65, 0x64, 0x12, 0x36, 0x0a, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x18, 0x03,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x53, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x48, 0x00,
-	0x52, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x42, 0x09, 0x0a, 0x07, 0x6f, 0x70,
-	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0xc5, 0x01, 0x0a, 0x0a, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x49,
-	0x6e, 0x64, 0x65, 0x78, 0x12, 0x38, 0x0a, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x46, 0x75, 0x6c, 0x6c, 0x74, 0x65,
-	0x78, 0x74, 0x48, 0x00, 0x52, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x12, 0x38,
-	0x0a, 0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x1a, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55,
-	0x6e, 0x73, 0x65, 0x74, 0x49, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x48, 0x00, 0x52, 0x08,
-	0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x12, 0x38, 0x0a, 0x08, 0x73, 0x6b, 0x69, 0x70,
-	0x70, 0x69, 0x6e, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x72, 0x65,
-	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x53, 0x6b,
-	0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x48, 0x00, 0x52, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69,
-	0x6e, 0x67, 0x42, 0x09, 0x0a, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0xc9, 0x01,
-	0x0a, 0x0d, 0x44, 0x72, 0x6f, 0x70, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12,
+	0x6e, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2d, 0x0a, 0x12, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74,
+	0x5f, 0x63, 0x6f, 0x6e, 0x73, 0x74, 0x72, 0x61, 0x69, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0c, 0x52, 0x11, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x43, 0x6f, 0x6e, 0x73, 0x74, 0x72,
+	0x61, 0x69, 0x6e, 0x74, 0x22, 0xbd, 0x01, 0x0a, 0x08, 0x53, 0x65, 0x74, 0x49, 0x6e, 0x64, 0x65,
+	0x78, 0x12, 0x36, 0x0a, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x53, 0x65, 0x74, 0x46, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x48, 0x00, 0x52,
+	0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x12, 0x36, 0x0a, 0x08, 0x69, 0x6e, 0x76,
+	0x65, 0x72, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72,
+	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x65, 0x74, 0x49, 0x6e, 0x76,
+	0x65, 0x72, 0x74, 0x65, 0x64, 0x48, 0x00, 0x52, 0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65,
+	0x64, 0x12, 0x36, 0x0a, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x53, 0x65, 0x74, 0x53, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x48, 0x00, 0x52,
+	0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x42, 0x09, 0x0a, 0x07, 0x6f, 0x70, 0x74,
+	0x69, 0x6f, 0x6e, 0x73, 0x22, 0xc5, 0x01, 0x0a, 0x0a, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x49, 0x6e,
+	0x64, 0x65, 0x78, 0x12, 0x38, 0x0a, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x46, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78,
+	0x74, 0x48, 0x00, 0x52, 0x08, 0x66, 0x75, 0x6c, 0x6c, 0x74, 0x65, 0x78, 0x74, 0x12, 0x38, 0x0a,
+	0x08, 0x69, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x1a, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x6e,
+	0x73, 0x65, 0x74, 0x49, 0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x48, 0x00, 0x52, 0x08, 0x69,
+	0x6e, 0x76, 0x65, 0x72, 0x74, 0x65, 0x64, 0x12, 0x38, 0x0a, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70,
+	0x69, 0x6e, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x55, 0x6e, 0x73, 0x65, 0x74, 0x53, 0x6b, 0x69,
+	0x70, 0x70, 0x69, 0x6e, 0x67, 0x48, 0x00, 0x52, 0x08, 0x73, 0x6b, 0x69, 0x70, 0x70, 0x69, 0x6e,
+	0x67, 0x42, 0x09, 0x0a, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0xc9, 0x01, 0x0a,
+	0x0d, 0x44, 0x72, 0x6f, 0x70, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21,
+	0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d,
+	0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e, 0x61,
+	0x6d, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x4e, 0x61, 0x6d,
+	0x65, 0x12, 0x2f, 0x0a, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c, 0x65,
+	0x49, 0x64, 0x12, 0x24, 0x0a, 0x0e, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x69, 0x66, 0x5f, 0x65, 0x78,
+	0x69, 0x73, 0x74, 0x73, 0x18, 0x05, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70,
+	0x49, 0x66, 0x45, 0x78, 0x69, 0x73, 0x74, 0x73, 0x22, 0x8d, 0x02, 0x0a, 0x12, 0x43, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12,
 	0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61,
 	0x6d, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e,
-	0x61, 0x6d, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d,
-	0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x4e, 0x61,
-	0x6d, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c,
-	0x65, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x0e, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x69, 0x66, 0x5f, 0x65,
-	0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x05, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0c, 0x64, 0x72, 0x6f,
-	0x70, 0x49, 0x66, 0x45, 0x78, 0x69, 0x73, 0x74, 0x73, 0x22, 0x8d, 0x02, 0x0a, 0x12, 0x43, 0x72,
-	0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x45, 0x78, 0x70, 0x72,
-	0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e,
-	0x61, 0x6d, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61,
-	0x4e, 0x61, 0x6d, 0x65, 0x12, 0x2f, 0x0a, 0x14, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x69,
-	0x66, 0x5f, 0x6e, 0x6f, 0x74, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x03, 0x20, 0x01,
-	0x28, 0x08, 0x52, 0x11, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x66, 0x4e, 0x6f, 0x74, 0x45,
-	0x78, 0x69, 0x73, 0x74, 0x73, 0x12, 0x46, 0x0a, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73,
-	0x18, 0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2c, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
-	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62,
-	0x61, 0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x45,
-	0x6e, 0x74, 0x72, 0x79, 0x52, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x3a, 0x0a,
-	0x0c, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a,
-	0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12,
-	0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xa7, 0x01, 0x0a, 0x11, 0x54, 0x72,
-	0x75, 0x6e, 0x63, 0x61, 0x74, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12,
-	0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61,
-	0x6d, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d,
-	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e,
-	0x61, 0x6d, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d,
-	0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x4e, 0x61,
-	0x6d, 0x65, 0x12, 0x2f, 0x0a, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c,
-	0x65, 0x49, 0x64, 0x22, 0x7c, 0x0a, 0x10, 0x44, 0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62,
-	0x61, 0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c,
-	0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63,
-	0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63,
-	0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x24, 0x0a, 0x0e, 0x64,
-	0x72, 0x6f, 0x70, 0x5f, 0x69, 0x66, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x49, 0x66, 0x45, 0x78, 0x69, 0x73, 0x74,
-	0x73, 0x22, 0x45, 0x0a, 0x0a, 0x41, 0x64, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x12,
-	0x37, 0x0a, 0x0b, 0x61, 0x64, 0x64, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x18, 0x01,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
-	0x76, 0x31, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x52, 0x0a, 0x61, 0x64,
-	0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x22, 0x4d, 0x0a, 0x0c, 0x44, 0x72, 0x6f, 0x70,
-	0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x12, 0x3d, 0x0a, 0x0d, 0x64, 0x72, 0x6f, 0x70,
-	0x5f, 0x64, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x72,
-	0x6f, 0x70, 0x44, 0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x44,
-	0x65, 0x66, 0x61, 0x75, 0x6c, 0x74, 0x73, 0x22, 0x49, 0x0a, 0x0b, 0x44, 0x72, 0x6f, 0x70, 0x43,
+	0x61, 0x6d, 0x65, 0x12, 0x2f, 0x0a, 0x14, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x69, 0x66,
+	0x5f, 0x6e, 0x6f, 0x74, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x08, 0x52, 0x11, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x66, 0x4e, 0x6f, 0x74, 0x45, 0x78,
+	0x69, 0x73, 0x74, 0x73, 0x12, 0x46, 0x0a, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x18,
+	0x04, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x2c, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61,
+	0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x2e, 0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x45, 0x6e,
+	0x74, 0x72, 0x79, 0x52, 0x07, 0x6f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x1a, 0x3a, 0x0a, 0x0c,
+	0x4f, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03,
+	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14,
+	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0xa7, 0x01, 0x0a, 0x11, 0x54, 0x72, 0x75,
+	0x6e, 0x63, 0x61, 0x74, 0x65, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21,
+	0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d,
+	0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e, 0x61,
+	0x6d, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x6e, 0x61, 0x6d, 0x65,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x4e, 0x61, 0x6d,
+	0x65, 0x12, 0x2f, 0x0a, 0x08, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x49, 0x64, 0x52, 0x07, 0x74, 0x61, 0x62, 0x6c, 0x65,
+	0x49, 0x64, 0x22, 0x7c, 0x0a, 0x10, 0x44, 0x72, 0x6f, 0x70, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61,
+	0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f,
+	0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61,
+	0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x63, 0x68,
+	0x65, 0x6d, 0x61, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a,
+	0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x24, 0x0a, 0x0e, 0x64, 0x72,
+	0x6f, 0x70, 0x5f, 0x69, 0x66, 0x5f, 0x65, 0x78, 0x69, 0x73, 0x74, 0x73, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x08, 0x52, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x49, 0x66, 0x45, 0x78, 0x69, 0x73, 0x74, 0x73,
+	0x22, 0x45, 0x0a, 0x0a, 0x41, 0x64, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x12, 0x37,
+	0x0a, 0x0b, 0x61, 0x64, 0x64, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x41, 0x64, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x52, 0x0a, 0x61, 0x64, 0x64,
+	0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x22, 0x49, 0x0a, 0x0b, 0x44, 0x72, 0x6f, 0x70, 0x43,
 	0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x12, 0x3a, 0x0a, 0x0c, 0x64, 0x72, 0x6f, 0x70, 0x5f, 0x63,
 	0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x67,
 	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x72, 0x6f, 0x70, 0x43,
@@ -3868,7 +3843,7 @@ func file_greptime_v1_ddl_proto_rawDescGZIP() []byte {
 }
 
 var file_greptime_v1_ddl_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_greptime_v1_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
+var file_greptime_v1_ddl_proto_msgTypes = make([]protoimpl.MessageInfo, 47)
 var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(Analyzer)(0),                       // 0: greptime.v1.Analyzer
 	(FulltextBackend)(0),                // 1: greptime.v1.FulltextBackend
@@ -3881,7 +3856,7 @@ var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(*DropViewExpr)(nil),                // 8: greptime.v1.DropViewExpr
 	(*CreateTableExpr)(nil),             // 9: greptime.v1.CreateTableExpr
 	(*AlterTableExpr)(nil),              // 10: greptime.v1.AlterTableExpr
-	(*DropDefault)(nil),                 // 11: greptime.v1.DropDefault
+	(*SetDefault)(nil),                  // 11: greptime.v1.SetDefault
 	(*SetIndex)(nil),                    // 12: greptime.v1.SetIndex
 	(*UnsetIndex)(nil),                  // 13: greptime.v1.UnsetIndex
 	(*DropTableExpr)(nil),               // 14: greptime.v1.DropTableExpr
@@ -3889,45 +3864,44 @@ var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	(*TruncateTableExpr)(nil),           // 16: greptime.v1.TruncateTableExpr
 	(*DropDatabaseExpr)(nil),            // 17: greptime.v1.DropDatabaseExpr
 	(*AddColumns)(nil),                  // 18: greptime.v1.AddColumns
-	(*DropDefaults)(nil),                // 19: greptime.v1.DropDefaults
-	(*DropColumns)(nil),                 // 20: greptime.v1.DropColumns
-	(*ModifyColumnTypes)(nil),           // 21: greptime.v1.ModifyColumnTypes
-	(*RenameTable)(nil),                 // 22: greptime.v1.RenameTable
-	(*AddColumn)(nil),                   // 23: greptime.v1.AddColumn
-	(*ModifyColumnType)(nil),            // 24: greptime.v1.ModifyColumnType
-	(*Option)(nil),                      // 25: greptime.v1.Option
-	(*SetTableOptions)(nil),             // 26: greptime.v1.SetTableOptions
-	(*UnsetTableOptions)(nil),           // 27: greptime.v1.UnsetTableOptions
-	(*DropColumn)(nil),                  // 28: greptime.v1.DropColumn
-	(*TableId)(nil),                     // 29: greptime.v1.TableId
-	(*FlowId)(nil),                      // 30: greptime.v1.FlowId
-	(*ColumnDef)(nil),                   // 31: greptime.v1.ColumnDef
-	(*AddColumnLocation)(nil),           // 32: greptime.v1.AddColumnLocation
-	(*SetFulltext)(nil),                 // 33: greptime.v1.SetFulltext
-	(*UnsetFulltext)(nil),               // 34: greptime.v1.UnsetFulltext
-	(*SetInverted)(nil),                 // 35: greptime.v1.SetInverted
-	(*UnsetInverted)(nil),               // 36: greptime.v1.UnsetInverted
-	(*SetSkipping)(nil),                 // 37: greptime.v1.SetSkipping
-	(*UnsetSkipping)(nil),               // 38: greptime.v1.UnsetSkipping
-	(*AlterDatabaseExpr)(nil),           // 39: greptime.v1.AlterDatabaseExpr
-	(*SetDatabaseOptions)(nil),          // 40: greptime.v1.SetDatabaseOptions
-	(*UnsetDatabaseOptions)(nil),        // 41: greptime.v1.UnsetDatabaseOptions
-	(*CreateTriggerExpr)(nil),           // 42: greptime.v1.CreateTriggerExpr
-	(*NotifyChannel)(nil),               // 43: greptime.v1.NotifyChannel
-	(*WebhookOptions)(nil),              // 44: greptime.v1.WebhookOptions
-	(*DropTriggerExpr)(nil),             // 45: greptime.v1.DropTriggerExpr
-	nil,                                 // 46: greptime.v1.CreateFlowExpr.FlowOptionsEntry
-	nil,                                 // 47: greptime.v1.CreateTableExpr.TableOptionsEntry
-	nil,                                 // 48: greptime.v1.CreateDatabaseExpr.OptionsEntry
-	nil,                                 // 49: greptime.v1.CreateTriggerExpr.LabelsEntry
-	nil,                                 // 50: greptime.v1.CreateTriggerExpr.AnnotationsEntry
-	nil,                                 // 51: greptime.v1.WebhookOptions.OptsEntry
-	(*TableName)(nil),                   // 52: greptime.v1.TableName
-	(*ExpireAfter)(nil),                 // 53: greptime.v1.ExpireAfter
-	(ColumnDataType)(0),                 // 54: greptime.v1.ColumnDataType
-	(*ColumnDataTypeExtension)(nil),     // 55: greptime.v1.ColumnDataTypeExtension
-	(SemanticType)(0),                   // 56: greptime.v1.SemanticType
-	(*ColumnOptions)(nil),               // 57: greptime.v1.ColumnOptions
+	(*DropColumns)(nil),                 // 19: greptime.v1.DropColumns
+	(*ModifyColumnTypes)(nil),           // 20: greptime.v1.ModifyColumnTypes
+	(*RenameTable)(nil),                 // 21: greptime.v1.RenameTable
+	(*AddColumn)(nil),                   // 22: greptime.v1.AddColumn
+	(*ModifyColumnType)(nil),            // 23: greptime.v1.ModifyColumnType
+	(*Option)(nil),                      // 24: greptime.v1.Option
+	(*SetTableOptions)(nil),             // 25: greptime.v1.SetTableOptions
+	(*UnsetTableOptions)(nil),           // 26: greptime.v1.UnsetTableOptions
+	(*DropColumn)(nil),                  // 27: greptime.v1.DropColumn
+	(*TableId)(nil),                     // 28: greptime.v1.TableId
+	(*FlowId)(nil),                      // 29: greptime.v1.FlowId
+	(*ColumnDef)(nil),                   // 30: greptime.v1.ColumnDef
+	(*AddColumnLocation)(nil),           // 31: greptime.v1.AddColumnLocation
+	(*SetFulltext)(nil),                 // 32: greptime.v1.SetFulltext
+	(*UnsetFulltext)(nil),               // 33: greptime.v1.UnsetFulltext
+	(*SetInverted)(nil),                 // 34: greptime.v1.SetInverted
+	(*UnsetInverted)(nil),               // 35: greptime.v1.UnsetInverted
+	(*SetSkipping)(nil),                 // 36: greptime.v1.SetSkipping
+	(*UnsetSkipping)(nil),               // 37: greptime.v1.UnsetSkipping
+	(*AlterDatabaseExpr)(nil),           // 38: greptime.v1.AlterDatabaseExpr
+	(*SetDatabaseOptions)(nil),          // 39: greptime.v1.SetDatabaseOptions
+	(*UnsetDatabaseOptions)(nil),        // 40: greptime.v1.UnsetDatabaseOptions
+	(*CreateTriggerExpr)(nil),           // 41: greptime.v1.CreateTriggerExpr
+	(*NotifyChannel)(nil),               // 42: greptime.v1.NotifyChannel
+	(*WebhookOptions)(nil),              // 43: greptime.v1.WebhookOptions
+	(*DropTriggerExpr)(nil),             // 44: greptime.v1.DropTriggerExpr
+	nil,                                 // 45: greptime.v1.CreateFlowExpr.FlowOptionsEntry
+	nil,                                 // 46: greptime.v1.CreateTableExpr.TableOptionsEntry
+	nil,                                 // 47: greptime.v1.CreateDatabaseExpr.OptionsEntry
+	nil,                                 // 48: greptime.v1.CreateTriggerExpr.LabelsEntry
+	nil,                                 // 49: greptime.v1.CreateTriggerExpr.AnnotationsEntry
+	nil,                                 // 50: greptime.v1.WebhookOptions.OptsEntry
+	(*TableName)(nil),                   // 51: greptime.v1.TableName
+	(*ExpireAfter)(nil),                 // 52: greptime.v1.ExpireAfter
+	(ColumnDataType)(0),                 // 53: greptime.v1.ColumnDataType
+	(*ColumnDataTypeExtension)(nil),     // 54: greptime.v1.ColumnDataTypeExtension
+	(SemanticType)(0),                   // 55: greptime.v1.SemanticType
+	(*ColumnOptions)(nil),               // 56: greptime.v1.ColumnOptions
 }
 var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	15, // 0: greptime.v1.DdlRequest.create_database:type_name -> greptime.v1.CreateDatabaseExpr
@@ -3939,65 +3913,64 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	6,  // 6: greptime.v1.DdlRequest.drop_flow:type_name -> greptime.v1.DropFlowExpr
 	7,  // 7: greptime.v1.DdlRequest.create_view:type_name -> greptime.v1.CreateViewExpr
 	8,  // 8: greptime.v1.DdlRequest.drop_view:type_name -> greptime.v1.DropViewExpr
-	39, // 9: greptime.v1.DdlRequest.alter_database:type_name -> greptime.v1.AlterDatabaseExpr
-	52, // 10: greptime.v1.CreateFlowExpr.source_table_names:type_name -> greptime.v1.TableName
-	52, // 11: greptime.v1.CreateFlowExpr.sink_table_name:type_name -> greptime.v1.TableName
-	53, // 12: greptime.v1.CreateFlowExpr.expire_after:type_name -> greptime.v1.ExpireAfter
-	46, // 13: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
-	30, // 14: greptime.v1.DropFlowExpr.flow_id:type_name -> greptime.v1.FlowId
-	52, // 15: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
-	29, // 16: greptime.v1.DropViewExpr.view_id:type_name -> greptime.v1.TableId
-	31, // 17: greptime.v1.CreateTableExpr.column_defs:type_name -> greptime.v1.ColumnDef
-	47, // 18: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
-	29, // 19: greptime.v1.CreateTableExpr.table_id:type_name -> greptime.v1.TableId
+	38, // 9: greptime.v1.DdlRequest.alter_database:type_name -> greptime.v1.AlterDatabaseExpr
+	51, // 10: greptime.v1.CreateFlowExpr.source_table_names:type_name -> greptime.v1.TableName
+	51, // 11: greptime.v1.CreateFlowExpr.sink_table_name:type_name -> greptime.v1.TableName
+	52, // 12: greptime.v1.CreateFlowExpr.expire_after:type_name -> greptime.v1.ExpireAfter
+	45, // 13: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
+	29, // 14: greptime.v1.DropFlowExpr.flow_id:type_name -> greptime.v1.FlowId
+	51, // 15: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
+	28, // 16: greptime.v1.DropViewExpr.view_id:type_name -> greptime.v1.TableId
+	30, // 17: greptime.v1.CreateTableExpr.column_defs:type_name -> greptime.v1.ColumnDef
+	46, // 18: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
+	28, // 19: greptime.v1.CreateTableExpr.table_id:type_name -> greptime.v1.TableId
 	18, // 20: greptime.v1.AlterTableExpr.add_columns:type_name -> greptime.v1.AddColumns
-	20, // 21: greptime.v1.AlterTableExpr.drop_columns:type_name -> greptime.v1.DropColumns
-	22, // 22: greptime.v1.AlterTableExpr.rename_table:type_name -> greptime.v1.RenameTable
-	21, // 23: greptime.v1.AlterTableExpr.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
-	26, // 24: greptime.v1.AlterTableExpr.set_table_options:type_name -> greptime.v1.SetTableOptions
-	27, // 25: greptime.v1.AlterTableExpr.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
+	19, // 21: greptime.v1.AlterTableExpr.drop_columns:type_name -> greptime.v1.DropColumns
+	21, // 22: greptime.v1.AlterTableExpr.rename_table:type_name -> greptime.v1.RenameTable
+	20, // 23: greptime.v1.AlterTableExpr.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
+	25, // 24: greptime.v1.AlterTableExpr.set_table_options:type_name -> greptime.v1.SetTableOptions
+	26, // 25: greptime.v1.AlterTableExpr.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
 	12, // 26: greptime.v1.AlterTableExpr.set_index:type_name -> greptime.v1.SetIndex
 	13, // 27: greptime.v1.AlterTableExpr.unset_index:type_name -> greptime.v1.UnsetIndex
-	19, // 28: greptime.v1.AlterTableExpr.drop_defaults:type_name -> greptime.v1.DropDefaults
-	33, // 29: greptime.v1.SetIndex.fulltext:type_name -> greptime.v1.SetFulltext
-	35, // 30: greptime.v1.SetIndex.inverted:type_name -> greptime.v1.SetInverted
-	37, // 31: greptime.v1.SetIndex.skipping:type_name -> greptime.v1.SetSkipping
-	34, // 32: greptime.v1.UnsetIndex.fulltext:type_name -> greptime.v1.UnsetFulltext
-	36, // 33: greptime.v1.UnsetIndex.inverted:type_name -> greptime.v1.UnsetInverted
-	38, // 34: greptime.v1.UnsetIndex.skipping:type_name -> greptime.v1.UnsetSkipping
-	29, // 35: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
-	48, // 36: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
-	29, // 37: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
-	23, // 38: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
-	11, // 39: greptime.v1.DropDefaults.drop_defaults:type_name -> greptime.v1.DropDefault
-	28, // 40: greptime.v1.DropColumns.drop_columns:type_name -> greptime.v1.DropColumn
-	24, // 41: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
-	31, // 42: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
-	32, // 43: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
-	54, // 44: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
-	55, // 45: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	25, // 46: greptime.v1.SetTableOptions.table_options:type_name -> greptime.v1.Option
-	54, // 47: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
-	56, // 48: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
-	55, // 49: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	57, // 50: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
-	3,  // 51: greptime.v1.AddColumnLocation.location_type:type_name -> greptime.v1.AddColumnLocation.LocationType
-	0,  // 52: greptime.v1.SetFulltext.analyzer:type_name -> greptime.v1.Analyzer
-	1,  // 53: greptime.v1.SetFulltext.backend:type_name -> greptime.v1.FulltextBackend
-	2,  // 54: greptime.v1.SetSkipping.skipping_index_type:type_name -> greptime.v1.SkippingIndexType
-	40, // 55: greptime.v1.AlterDatabaseExpr.set_database_options:type_name -> greptime.v1.SetDatabaseOptions
-	41, // 56: greptime.v1.AlterDatabaseExpr.unset_database_options:type_name -> greptime.v1.UnsetDatabaseOptions
-	25, // 57: greptime.v1.SetDatabaseOptions.set_database_options:type_name -> greptime.v1.Option
-	43, // 58: greptime.v1.CreateTriggerExpr.channels:type_name -> greptime.v1.NotifyChannel
-	49, // 59: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
-	50, // 60: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
-	44, // 61: greptime.v1.NotifyChannel.webhook:type_name -> greptime.v1.WebhookOptions
-	51, // 62: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
-	63, // [63:63] is the sub-list for method output_type
-	63, // [63:63] is the sub-list for method input_type
-	63, // [63:63] is the sub-list for extension type_name
-	63, // [63:63] is the sub-list for extension extendee
-	0,  // [0:63] is the sub-list for field type_name
+	11, // 28: greptime.v1.AlterTableExpr.set_default:type_name -> greptime.v1.SetDefault
+	32, // 29: greptime.v1.SetIndex.fulltext:type_name -> greptime.v1.SetFulltext
+	34, // 30: greptime.v1.SetIndex.inverted:type_name -> greptime.v1.SetInverted
+	36, // 31: greptime.v1.SetIndex.skipping:type_name -> greptime.v1.SetSkipping
+	33, // 32: greptime.v1.UnsetIndex.fulltext:type_name -> greptime.v1.UnsetFulltext
+	35, // 33: greptime.v1.UnsetIndex.inverted:type_name -> greptime.v1.UnsetInverted
+	37, // 34: greptime.v1.UnsetIndex.skipping:type_name -> greptime.v1.UnsetSkipping
+	28, // 35: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
+	47, // 36: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
+	28, // 37: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
+	22, // 38: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
+	27, // 39: greptime.v1.DropColumns.drop_columns:type_name -> greptime.v1.DropColumn
+	23, // 40: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
+	30, // 41: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
+	31, // 42: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
+	53, // 43: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
+	54, // 44: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	24, // 45: greptime.v1.SetTableOptions.table_options:type_name -> greptime.v1.Option
+	53, // 46: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
+	55, // 47: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
+	54, // 48: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	56, // 49: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
+	3,  // 50: greptime.v1.AddColumnLocation.location_type:type_name -> greptime.v1.AddColumnLocation.LocationType
+	0,  // 51: greptime.v1.SetFulltext.analyzer:type_name -> greptime.v1.Analyzer
+	1,  // 52: greptime.v1.SetFulltext.backend:type_name -> greptime.v1.FulltextBackend
+	2,  // 53: greptime.v1.SetSkipping.skipping_index_type:type_name -> greptime.v1.SkippingIndexType
+	39, // 54: greptime.v1.AlterDatabaseExpr.set_database_options:type_name -> greptime.v1.SetDatabaseOptions
+	40, // 55: greptime.v1.AlterDatabaseExpr.unset_database_options:type_name -> greptime.v1.UnsetDatabaseOptions
+	24, // 56: greptime.v1.SetDatabaseOptions.set_database_options:type_name -> greptime.v1.Option
+	42, // 57: greptime.v1.CreateTriggerExpr.channels:type_name -> greptime.v1.NotifyChannel
+	48, // 58: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
+	49, // 59: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
+	43, // 60: greptime.v1.NotifyChannel.webhook:type_name -> greptime.v1.WebhookOptions
+	50, // 61: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
+	62, // [62:62] is the sub-list for method output_type
+	62, // [62:62] is the sub-list for method input_type
+	62, // [62:62] is the sub-list for extension type_name
+	62, // [62:62] is the sub-list for extension extendee
+	0,  // [0:62] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_ddl_proto_init() }
@@ -4092,7 +4065,7 @@ func file_greptime_v1_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_ddl_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropDefault); i {
+			switch v := v.(*SetDefault); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4188,18 +4161,6 @@ func file_greptime_v1_ddl_proto_init() {
 			}
 		}
 		file_greptime_v1_ddl_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropDefaults); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_greptime_v1_ddl_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DropColumns); i {
 			case 0:
 				return &v.state
@@ -4211,7 +4172,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ModifyColumnTypes); i {
 			case 0:
 				return &v.state
@@ -4223,7 +4184,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RenameTable); i {
 			case 0:
 				return &v.state
@@ -4235,7 +4196,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddColumn); i {
 			case 0:
 				return &v.state
@@ -4247,7 +4208,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ModifyColumnType); i {
 			case 0:
 				return &v.state
@@ -4259,7 +4220,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*Option); i {
 			case 0:
 				return &v.state
@@ -4271,7 +4232,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetTableOptions); i {
 			case 0:
 				return &v.state
@@ -4283,7 +4244,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UnsetTableOptions); i {
 			case 0:
 				return &v.state
@@ -4295,7 +4256,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DropColumn); i {
 			case 0:
 				return &v.state
@@ -4307,7 +4268,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*TableId); i {
 			case 0:
 				return &v.state
@@ -4319,7 +4280,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FlowId); i {
 			case 0:
 				return &v.state
@@ -4331,7 +4292,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ColumnDef); i {
 			case 0:
 				return &v.state
@@ -4343,7 +4304,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddColumnLocation); i {
 			case 0:
 				return &v.state
@@ -4355,7 +4316,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetFulltext); i {
 			case 0:
 				return &v.state
@@ -4367,7 +4328,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UnsetFulltext); i {
 			case 0:
 				return &v.state
@@ -4379,7 +4340,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetInverted); i {
 			case 0:
 				return &v.state
@@ -4391,7 +4352,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UnsetInverted); i {
 			case 0:
 				return &v.state
@@ -4403,7 +4364,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetSkipping); i {
 			case 0:
 				return &v.state
@@ -4415,7 +4376,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UnsetSkipping); i {
 			case 0:
 				return &v.state
@@ -4427,7 +4388,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AlterDatabaseExpr); i {
 			case 0:
 				return &v.state
@@ -4439,7 +4400,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*SetDatabaseOptions); i {
 			case 0:
 				return &v.state
@@ -4451,7 +4412,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UnsetDatabaseOptions); i {
 			case 0:
 				return &v.state
@@ -4463,7 +4424,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateTriggerExpr); i {
 			case 0:
 				return &v.state
@@ -4475,7 +4436,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*NotifyChannel); i {
 			case 0:
 				return &v.state
@@ -4487,7 +4448,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WebhookOptions); i {
 			case 0:
 				return &v.state
@@ -4499,7 +4460,7 @@ func file_greptime_v1_ddl_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_ddl_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_ddl_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DropTriggerExpr); i {
 			case 0:
 				return &v.state
@@ -4533,7 +4494,8 @@ func file_greptime_v1_ddl_proto_init() {
 		(*AlterTableExpr_UnsetTableOptions)(nil),
 		(*AlterTableExpr_SetIndex)(nil),
 		(*AlterTableExpr_UnsetIndex)(nil),
-		(*AlterTableExpr_DropDefaults)(nil),
+		(*AlterTableExpr_UnsetDefault)(nil),
+		(*AlterTableExpr_SetDefault)(nil),
 	}
 	file_greptime_v1_ddl_proto_msgTypes[8].OneofWrappers = []interface{}{
 		(*SetIndex_Fulltext)(nil),
@@ -4545,11 +4507,11 @@ func file_greptime_v1_ddl_proto_init() {
 		(*UnsetIndex_Inverted)(nil),
 		(*UnsetIndex_Skipping)(nil),
 	}
-	file_greptime_v1_ddl_proto_msgTypes[35].OneofWrappers = []interface{}{
+	file_greptime_v1_ddl_proto_msgTypes[34].OneofWrappers = []interface{}{
 		(*AlterDatabaseExpr_SetDatabaseOptions)(nil),
 		(*AlterDatabaseExpr_UnsetDatabaseOptions)(nil),
 	}
-	file_greptime_v1_ddl_proto_msgTypes[39].OneofWrappers = []interface{}{
+	file_greptime_v1_ddl_proto_msgTypes[38].OneofWrappers = []interface{}{
 		(*NotifyChannel_Webhook)(nil),
 	}
 	type x struct{}
@@ -4558,7 +4520,7 @@ func file_greptime_v1_ddl_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_ddl_proto_rawDesc,
 			NumEnums:      4,
-			NumMessages:   48,
+			NumMessages:   47,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
