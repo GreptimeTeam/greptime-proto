@@ -31,10 +31,10 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "greptime/v1/common.pb.h"
+#include "greptime/v1/ddl.pb.h"
 #include "greptime/v1/meta/common.pb.h"
 #include "greptime/v1/meta/route.pb.h"
-#include "greptime/v1/ddl.pb.h"
-#include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fmeta_2fddl_2eproto
