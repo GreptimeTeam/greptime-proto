@@ -1,3 +1,5 @@
+name: CI
+
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
@@ -5,8 +7,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-
-name: CI
 
 env:
   RUST_TOOLCHAIN: stable
@@ -29,7 +29,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.18.4"
+          go-version: "1.24.3"
       - uses: arduino/setup-protoc@v3
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,10 +40,12 @@ jobs:
         uses: Swatinem/rust-cache@v2
       - name: Run cargo check
         run: cargo check --workspace --all-targets
-      - name: Check Go protbuf generation
+      - name: Generate protbuf
         run: |
-          make go
-          test $(git status --porcelain=v1 | wc -l) -eq 0 || (echo "Fail: generated go protobuf in github action is different from pushed ones" ; exit 1)
+          make all  
+      - name: Check protobuf generation
+        run: |
+          git diff --quiet || (echo "Fail: generated go protobuf in github action is different from pushed ones, please run 'make all'"; exit 1)
 
   proto-fmt:
     name: Protobuf Format
@@ -96,3 +98,4 @@ jobs:
         uses: Swatinem/rust-cache@v2
       - name: Run cargo clippy
         run: cargo clippy --workspace --all-targets -- -D warnings -D clippy::print_stdout -D clippy::print_stderr
+
