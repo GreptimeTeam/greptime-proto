@@ -47,17 +47,17 @@ message Region {
 
   map<string, string> attrs = 100;
 
-  // Deprecated: Use `partition_expr` instead.
-  Partition partition = 3 [deprecated = true];
-
-  // The partition expression of the region.
-  string partition_expr = 4;
+  // The partition definition of the region.
+  Partition partition = 3;
 }
 
-// PARTITION `region_name` VALUES LESS THAN (value_list)
+// Partition definition.
 message Partition {
-  repeated bytes column_list = 1;
-  repeated bytes value_list = 2;
+  repeated bytes column_list = 1 [deprecated = true];
+  repeated bytes value_list = 2 [deprecated = true];
+
+  // The partition expression serialized in JSON format.
+  string expression = 3;
 }
 
 // This message is only for saving into store.
