@@ -5768,8 +5768,8 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\034greptime/v1/meta/route.proto\022\020greptime" +
-      ".v1.meta\032\035greptime/v1/meta/common.proto\032" +
-      "\030greptime/v1/common.proto\"j\n\nTableRoute\022" +
+      ".v1.meta\032\030greptime/v1/common.proto\032\035grep" +
+      "time/v1/meta/common.proto\"j\n\nTableRoute\022" +
       "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022" +
       "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met" +
       "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001" +
@@ -5792,8 +5792,8 @@ java.lang.String defaultValue);
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          greptime.v1.meta.Common.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
+          greptime.v1.meta.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_TableRoute_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5837,8 +5837,8 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_TableRouteValue_descriptor,
         new java.lang.String[] { "Peers", "TableRoute", });
-    greptime.v1.meta.Common.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
+    greptime.v1.meta.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

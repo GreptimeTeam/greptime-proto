@@ -4489,8 +4489,8 @@ public final class Wal {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\025gr" +
-      "eptime/v1/row.proto\032\030greptime/v1/common." +
+      "\n\025greptime/v1/wal.proto\022\013greptime.v1\032\030gr" +
+      "eptime/v1/common.proto\032\025greptime/v1/row." +
       "proto\"J\n\tWriteHint\022=\n\024primary_key_encodi" +
       "ng\030\001 \001(\0162\037.greptime.v1.PrimaryKeyEncodin" +
       "g\"\217\001\n\010Mutation\022$\n\007op_type\030\001 \001(\0162\023.grepti" +
@@ -4511,8 +4511,8 @@ public final class Wal {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          io.greptime.v1.RowData.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
+          io.greptime.v1.RowData.getDescriptor(),
         });
     internal_static_greptime_v1_WriteHint_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4538,8 +4538,8 @@ public final class Wal {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_BulkWalEntry_descriptor,
         new java.lang.String[] { "Sequence", "MaxTs", "MinTs", "TimestampIndex", "ArrowIpc", "Body", });
-    io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
+    io.greptime.v1.RowData.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

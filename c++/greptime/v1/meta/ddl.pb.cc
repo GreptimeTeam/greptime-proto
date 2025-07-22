@@ -467,9 +467,9 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fddl_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\032greptime/v1/meta/ddl.proto\022\020greptime.v"
-  "1.meta\032\035greptime/v1/meta/common.proto\032\034g"
-  "reptime/v1/meta/route.proto\032\025greptime/v1"
-  "/ddl.proto\032\030greptime/v1/common.proto\"N\n\022"
+  "1.meta\032\030greptime/v1/common.proto\032\025grepti"
+  "me/v1/ddl.proto\032\035greptime/v1/meta/common"
+  ".proto\032\034greptime/v1/meta/route.proto\"N\n\022"
   "CreateDatabaseTask\0228\n\017create_database\030\001 "
   "\001(\0132\037.greptime.v1.CreateDatabaseExpr\"\212\001\n"
   "\017CreateTableTask\0222\n\014create_table\030\001 \001(\0132\034"
