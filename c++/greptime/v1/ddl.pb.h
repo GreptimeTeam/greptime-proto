@@ -153,6 +153,9 @@ extern SetFulltextDefaultTypeInternal _SetFulltext_default_instance_;
 class SetIndex;
 struct SetIndexDefaultTypeInternal;
 extern SetIndexDefaultTypeInternal _SetIndex_default_instance_;
+class SetIndexes;
+struct SetIndexesDefaultTypeInternal;
+extern SetIndexesDefaultTypeInternal _SetIndexes_default_instance_;
 class SetInverted;
 struct SetInvertedDefaultTypeInternal;
 extern SetInvertedDefaultTypeInternal _SetInverted_default_instance_;
@@ -177,6 +180,9 @@ extern UnsetFulltextDefaultTypeInternal _UnsetFulltext_default_instance_;
 class UnsetIndex;
 struct UnsetIndexDefaultTypeInternal;
 extern UnsetIndexDefaultTypeInternal _UnsetIndex_default_instance_;
+class UnsetIndexes;
+struct UnsetIndexesDefaultTypeInternal;
+extern UnsetIndexesDefaultTypeInternal _UnsetIndexes_default_instance_;
 class UnsetInverted;
 struct UnsetInvertedDefaultTypeInternal;
 extern UnsetInvertedDefaultTypeInternal _UnsetInverted_default_instance_;
@@ -229,6 +235,7 @@ template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1
 template<> ::greptime::v1::SetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::SetDatabaseOptions>(Arena*);
 template<> ::greptime::v1::SetFulltext* Arena::CreateMaybeMessage<::greptime::v1::SetFulltext>(Arena*);
 template<> ::greptime::v1::SetIndex* Arena::CreateMaybeMessage<::greptime::v1::SetIndex>(Arena*);
+template<> ::greptime::v1::SetIndexes* Arena::CreateMaybeMessage<::greptime::v1::SetIndexes>(Arena*);
 template<> ::greptime::v1::SetInverted* Arena::CreateMaybeMessage<::greptime::v1::SetInverted>(Arena*);
 template<> ::greptime::v1::SetSkipping* Arena::CreateMaybeMessage<::greptime::v1::SetSkipping>(Arena*);
 template<> ::greptime::v1::SetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::SetTableOptions>(Arena*);
@@ -237,6 +244,7 @@ template<> ::greptime::v1::TruncateTableExpr* Arena::CreateMaybeMessage<::grepti
 template<> ::greptime::v1::UnsetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetDatabaseOptions>(Arena*);
 template<> ::greptime::v1::UnsetFulltext* Arena::CreateMaybeMessage<::greptime::v1::UnsetFulltext>(Arena*);
 template<> ::greptime::v1::UnsetIndex* Arena::CreateMaybeMessage<::greptime::v1::UnsetIndex>(Arena*);
+template<> ::greptime::v1::UnsetIndexes* Arena::CreateMaybeMessage<::greptime::v1::UnsetIndexes>(Arena*);
 template<> ::greptime::v1::UnsetInverted* Arena::CreateMaybeMessage<::greptime::v1::UnsetInverted>(Arena*);
 template<> ::greptime::v1::UnsetSkipping* Arena::CreateMaybeMessage<::greptime::v1::UnsetSkipping>(Arena*);
 template<> ::greptime::v1::UnsetTableOptions* Arena::CreateMaybeMessage<::greptime::v1::UnsetTableOptions>(Arena*);
@@ -2200,6 +2208,8 @@ class AlterTableExpr final :
     kSetIndex = 12,
     kUnsetIndex = 13,
     kDropDefaults = 14,
+    kSetIndexes = 15,
+    kUnsetIndexes = 16,
     KIND_NOT_SET = 0,
   };
 
@@ -2293,6 +2303,8 @@ class AlterTableExpr final :
     kSetIndexFieldNumber = 12,
     kUnsetIndexFieldNumber = 13,
     kDropDefaultsFieldNumber = 14,
+    kSetIndexesFieldNumber = 15,
+    kUnsetIndexesFieldNumber = 16,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -2498,6 +2510,42 @@ class AlterTableExpr final :
       ::greptime::v1::DropDefaults* drop_defaults);
   ::greptime::v1::DropDefaults* unsafe_arena_release_drop_defaults();
 
+  // .greptime.v1.SetIndexes set_indexes = 15;
+  bool has_set_indexes() const;
+  private:
+  bool _internal_has_set_indexes() const;
+  public:
+  void clear_set_indexes();
+  const ::greptime::v1::SetIndexes& set_indexes() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetIndexes* release_set_indexes();
+  ::greptime::v1::SetIndexes* mutable_set_indexes();
+  void set_allocated_set_indexes(::greptime::v1::SetIndexes* set_indexes);
+  private:
+  const ::greptime::v1::SetIndexes& _internal_set_indexes() const;
+  ::greptime::v1::SetIndexes* _internal_mutable_set_indexes();
+  public:
+  void unsafe_arena_set_allocated_set_indexes(
+      ::greptime::v1::SetIndexes* set_indexes);
+  ::greptime::v1::SetIndexes* unsafe_arena_release_set_indexes();
+
+  // .greptime.v1.UnsetIndexes unset_indexes = 16;
+  bool has_unset_indexes() const;
+  private:
+  bool _internal_has_unset_indexes() const;
+  public:
+  void clear_unset_indexes();
+  const ::greptime::v1::UnsetIndexes& unset_indexes() const;
+  PROTOBUF_NODISCARD ::greptime::v1::UnsetIndexes* release_unset_indexes();
+  ::greptime::v1::UnsetIndexes* mutable_unset_indexes();
+  void set_allocated_unset_indexes(::greptime::v1::UnsetIndexes* unset_indexes);
+  private:
+  const ::greptime::v1::UnsetIndexes& _internal_unset_indexes() const;
+  ::greptime::v1::UnsetIndexes* _internal_mutable_unset_indexes();
+  public:
+  void unsafe_arena_set_allocated_unset_indexes(
+      ::greptime::v1::UnsetIndexes* unset_indexes);
+  ::greptime::v1::UnsetIndexes* unsafe_arena_release_unset_indexes();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.AlterTableExpr)
@@ -2512,6 +2560,8 @@ class AlterTableExpr final :
   void set_has_set_index();
   void set_has_unset_index();
   void set_has_drop_defaults();
+  void set_has_set_indexes();
+  void set_has_unset_indexes();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -2535,6 +2585,8 @@ class AlterTableExpr final :
       ::greptime::v1::SetIndex* set_index_;
       ::greptime::v1::UnsetIndex* unset_index_;
       ::greptime::v1::DropDefaults* drop_defaults_;
+      ::greptime::v1::SetIndexes* set_indexes_;
+      ::greptime::v1::UnsetIndexes* unset_indexes_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2698,6 +2750,320 @@ class DropDefault final :
 };
 // -------------------------------------------------------------------
 
+class SetIndexes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetIndexes) */ {
+ public:
+  inline SetIndexes() : SetIndexes(nullptr) {}
+  ~SetIndexes() override;
+  explicit PROTOBUF_CONSTEXPR SetIndexes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SetIndexes(const SetIndexes& from);
+  SetIndexes(SetIndexes&& from) noexcept
+    : SetIndexes() {
+    *this = ::std::move(from);
+  }
+
+  inline SetIndexes& operator=(const SetIndexes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SetIndexes& operator=(SetIndexes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SetIndexes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SetIndexes* internal_default_instance() {
+    return reinterpret_cast<const SetIndexes*>(
+               &_SetIndexes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(SetIndexes& a, SetIndexes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SetIndexes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SetIndexes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SetIndexes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SetIndexes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SetIndexes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SetIndexes& from) {
+    SetIndexes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SetIndexes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.SetIndexes";
+  }
+  protected:
+  explicit SetIndexes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSetIndexesFieldNumber = 1,
+  };
+  // repeated .greptime.v1.SetIndex set_indexes = 1;
+  int set_indexes_size() const;
+  private:
+  int _internal_set_indexes_size() const;
+  public:
+  void clear_set_indexes();
+  ::greptime::v1::SetIndex* mutable_set_indexes(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetIndex >*
+      mutable_set_indexes();
+  private:
+  const ::greptime::v1::SetIndex& _internal_set_indexes(int index) const;
+  ::greptime::v1::SetIndex* _internal_add_set_indexes();
+  public:
+  const ::greptime::v1::SetIndex& set_indexes(int index) const;
+  ::greptime::v1::SetIndex* add_set_indexes();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetIndex >&
+      set_indexes() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.SetIndexes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetIndex > set_indexes_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnsetIndexes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.UnsetIndexes) */ {
+ public:
+  inline UnsetIndexes() : UnsetIndexes(nullptr) {}
+  ~UnsetIndexes() override;
+  explicit PROTOBUF_CONSTEXPR UnsetIndexes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UnsetIndexes(const UnsetIndexes& from);
+  UnsetIndexes(UnsetIndexes&& from) noexcept
+    : UnsetIndexes() {
+    *this = ::std::move(from);
+  }
+
+  inline UnsetIndexes& operator=(const UnsetIndexes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnsetIndexes& operator=(UnsetIndexes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UnsetIndexes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UnsetIndexes* internal_default_instance() {
+    return reinterpret_cast<const UnsetIndexes*>(
+               &_UnsetIndexes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(UnsetIndexes& a, UnsetIndexes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnsetIndexes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnsetIndexes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UnsetIndexes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UnsetIndexes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UnsetIndexes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UnsetIndexes& from) {
+    UnsetIndexes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnsetIndexes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.UnsetIndexes";
+  }
+  protected:
+  explicit UnsetIndexes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUnsetIndexesFieldNumber = 1,
+  };
+  // repeated .greptime.v1.UnsetIndex unset_indexes = 1;
+  int unset_indexes_size() const;
+  private:
+  int _internal_unset_indexes_size() const;
+  public:
+  void clear_unset_indexes();
+  ::greptime::v1::UnsetIndex* mutable_unset_indexes(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetIndex >*
+      mutable_unset_indexes();
+  private:
+  const ::greptime::v1::UnsetIndex& _internal_unset_indexes(int index) const;
+  ::greptime::v1::UnsetIndex* _internal_add_unset_indexes();
+  public:
+  const ::greptime::v1::UnsetIndex& unset_indexes(int index) const;
+  ::greptime::v1::UnsetIndex* add_unset_indexes();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetIndex >&
+      unset_indexes() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.UnsetIndexes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetIndex > unset_indexes_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class SetIndex final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.SetIndex) */ {
  public:
@@ -2753,7 +3119,7 @@ class SetIndex final :
                &_SetIndex_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(SetIndex& a, SetIndex& b) {
     a.Swap(&b);
@@ -2971,7 +3337,7 @@ class UnsetIndex final :
                &_UnsetIndex_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(UnsetIndex& a, UnsetIndex& b) {
     a.Swap(&b);
@@ -3182,7 +3548,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -3426,7 +3792,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -3632,7 +3998,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -3837,7 +4203,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -4017,7 +4383,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4174,7 +4540,7 @@ class DropDefaults final :
                &_DropDefaults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(DropDefaults& a, DropDefaults& b) {
     a.Swap(&b);
@@ -4331,7 +4697,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4488,7 +4854,7 @@ class ModifyColumnTypes final :
                &_ModifyColumnTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(ModifyColumnTypes& a, ModifyColumnTypes& b) {
     a.Swap(&b);
@@ -4645,7 +5011,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -4798,7 +5164,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -4986,7 +5352,7 @@ class ModifyColumnType final :
                &_ModifyColumnType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(ModifyColumnType& a, ModifyColumnType& b) {
     a.Swap(&b);
@@ -5170,7 +5536,7 @@ class Option final :
                &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(Option& a, Option& b) {
     a.Swap(&b);
@@ -5339,7 +5705,7 @@ class SetTableOptions final :
                &_SetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(SetTableOptions& a, SetTableOptions& b) {
     a.Swap(&b);
@@ -5496,7 +5862,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -5659,7 +6025,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -5812,7 +6178,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -5960,7 +6326,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -6108,7 +6474,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -6366,7 +6732,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -6560,7 +6926,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -6779,7 +7145,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -6932,7 +7298,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -7085,7 +7451,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -7238,7 +7604,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -7435,7 +7801,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -7594,7 +7960,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -7816,7 +8182,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -7973,7 +8339,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -8192,7 +8558,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -8473,7 +8839,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -8686,7 +9052,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -12396,6 +12762,154 @@ inline ::greptime::v1::DropDefaults* AlterTableExpr::mutable_drop_defaults() {
   return _msg;
 }
 
+// .greptime.v1.SetIndexes set_indexes = 15;
+inline bool AlterTableExpr::_internal_has_set_indexes() const {
+  return kind_case() == kSetIndexes;
+}
+inline bool AlterTableExpr::has_set_indexes() const {
+  return _internal_has_set_indexes();
+}
+inline void AlterTableExpr::set_has_set_indexes() {
+  _impl_._oneof_case_[0] = kSetIndexes;
+}
+inline void AlterTableExpr::clear_set_indexes() {
+  if (_internal_has_set_indexes()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.set_indexes_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::SetIndexes* AlterTableExpr::release_set_indexes() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterTableExpr.set_indexes)
+  if (_internal_has_set_indexes()) {
+    clear_has_kind();
+    ::greptime::v1::SetIndexes* temp = _impl_.kind_.set_indexes_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.set_indexes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SetIndexes& AlterTableExpr::_internal_set_indexes() const {
+  return _internal_has_set_indexes()
+      ? *_impl_.kind_.set_indexes_
+      : reinterpret_cast< ::greptime::v1::SetIndexes&>(::greptime::v1::_SetIndexes_default_instance_);
+}
+inline const ::greptime::v1::SetIndexes& AlterTableExpr::set_indexes() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterTableExpr.set_indexes)
+  return _internal_set_indexes();
+}
+inline ::greptime::v1::SetIndexes* AlterTableExpr::unsafe_arena_release_set_indexes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterTableExpr.set_indexes)
+  if (_internal_has_set_indexes()) {
+    clear_has_kind();
+    ::greptime::v1::SetIndexes* temp = _impl_.kind_.set_indexes_;
+    _impl_.kind_.set_indexes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterTableExpr::unsafe_arena_set_allocated_set_indexes(::greptime::v1::SetIndexes* set_indexes) {
+  clear_kind();
+  if (set_indexes) {
+    set_has_set_indexes();
+    _impl_.kind_.set_indexes_ = set_indexes;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterTableExpr.set_indexes)
+}
+inline ::greptime::v1::SetIndexes* AlterTableExpr::_internal_mutable_set_indexes() {
+  if (!_internal_has_set_indexes()) {
+    clear_kind();
+    set_has_set_indexes();
+    _impl_.kind_.set_indexes_ = CreateMaybeMessage< ::greptime::v1::SetIndexes >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.set_indexes_;
+}
+inline ::greptime::v1::SetIndexes* AlterTableExpr::mutable_set_indexes() {
+  ::greptime::v1::SetIndexes* _msg = _internal_mutable_set_indexes();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterTableExpr.set_indexes)
+  return _msg;
+}
+
+// .greptime.v1.UnsetIndexes unset_indexes = 16;
+inline bool AlterTableExpr::_internal_has_unset_indexes() const {
+  return kind_case() == kUnsetIndexes;
+}
+inline bool AlterTableExpr::has_unset_indexes() const {
+  return _internal_has_unset_indexes();
+}
+inline void AlterTableExpr::set_has_unset_indexes() {
+  _impl_._oneof_case_[0] = kUnsetIndexes;
+}
+inline void AlterTableExpr::clear_unset_indexes() {
+  if (_internal_has_unset_indexes()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.unset_indexes_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::UnsetIndexes* AlterTableExpr::release_unset_indexes() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterTableExpr.unset_indexes)
+  if (_internal_has_unset_indexes()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetIndexes* temp = _impl_.kind_.unset_indexes_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.unset_indexes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::UnsetIndexes& AlterTableExpr::_internal_unset_indexes() const {
+  return _internal_has_unset_indexes()
+      ? *_impl_.kind_.unset_indexes_
+      : reinterpret_cast< ::greptime::v1::UnsetIndexes&>(::greptime::v1::_UnsetIndexes_default_instance_);
+}
+inline const ::greptime::v1::UnsetIndexes& AlterTableExpr::unset_indexes() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterTableExpr.unset_indexes)
+  return _internal_unset_indexes();
+}
+inline ::greptime::v1::UnsetIndexes* AlterTableExpr::unsafe_arena_release_unset_indexes() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterTableExpr.unset_indexes)
+  if (_internal_has_unset_indexes()) {
+    clear_has_kind();
+    ::greptime::v1::UnsetIndexes* temp = _impl_.kind_.unset_indexes_;
+    _impl_.kind_.unset_indexes_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterTableExpr::unsafe_arena_set_allocated_unset_indexes(::greptime::v1::UnsetIndexes* unset_indexes) {
+  clear_kind();
+  if (unset_indexes) {
+    set_has_unset_indexes();
+    _impl_.kind_.unset_indexes_ = unset_indexes;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterTableExpr.unset_indexes)
+}
+inline ::greptime::v1::UnsetIndexes* AlterTableExpr::_internal_mutable_unset_indexes() {
+  if (!_internal_has_unset_indexes()) {
+    clear_kind();
+    set_has_unset_indexes();
+    _impl_.kind_.unset_indexes_ = CreateMaybeMessage< ::greptime::v1::UnsetIndexes >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.unset_indexes_;
+}
+inline ::greptime::v1::UnsetIndexes* AlterTableExpr::mutable_unset_indexes() {
+  ::greptime::v1::UnsetIndexes* _msg = _internal_mutable_unset_indexes();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterTableExpr.unset_indexes)
+  return _msg;
+}
+
 inline bool AlterTableExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -12457,6 +12971,94 @@ inline void DropDefault::set_allocated_column_name(std::string* column_name) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.DropDefault.column_name)
+}
+
+// -------------------------------------------------------------------
+
+// SetIndexes
+
+// repeated .greptime.v1.SetIndex set_indexes = 1;
+inline int SetIndexes::_internal_set_indexes_size() const {
+  return _impl_.set_indexes_.size();
+}
+inline int SetIndexes::set_indexes_size() const {
+  return _internal_set_indexes_size();
+}
+inline void SetIndexes::clear_set_indexes() {
+  _impl_.set_indexes_.Clear();
+}
+inline ::greptime::v1::SetIndex* SetIndexes::mutable_set_indexes(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.SetIndexes.set_indexes)
+  return _impl_.set_indexes_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetIndex >*
+SetIndexes::mutable_set_indexes() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.SetIndexes.set_indexes)
+  return &_impl_.set_indexes_;
+}
+inline const ::greptime::v1::SetIndex& SetIndexes::_internal_set_indexes(int index) const {
+  return _impl_.set_indexes_.Get(index);
+}
+inline const ::greptime::v1::SetIndex& SetIndexes::set_indexes(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.SetIndexes.set_indexes)
+  return _internal_set_indexes(index);
+}
+inline ::greptime::v1::SetIndex* SetIndexes::_internal_add_set_indexes() {
+  return _impl_.set_indexes_.Add();
+}
+inline ::greptime::v1::SetIndex* SetIndexes::add_set_indexes() {
+  ::greptime::v1::SetIndex* _add = _internal_add_set_indexes();
+  // @@protoc_insertion_point(field_add:greptime.v1.SetIndexes.set_indexes)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::SetIndex >&
+SetIndexes::set_indexes() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.SetIndexes.set_indexes)
+  return _impl_.set_indexes_;
+}
+
+// -------------------------------------------------------------------
+
+// UnsetIndexes
+
+// repeated .greptime.v1.UnsetIndex unset_indexes = 1;
+inline int UnsetIndexes::_internal_unset_indexes_size() const {
+  return _impl_.unset_indexes_.size();
+}
+inline int UnsetIndexes::unset_indexes_size() const {
+  return _internal_unset_indexes_size();
+}
+inline void UnsetIndexes::clear_unset_indexes() {
+  _impl_.unset_indexes_.Clear();
+}
+inline ::greptime::v1::UnsetIndex* UnsetIndexes::mutable_unset_indexes(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.UnsetIndexes.unset_indexes)
+  return _impl_.unset_indexes_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetIndex >*
+UnsetIndexes::mutable_unset_indexes() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.UnsetIndexes.unset_indexes)
+  return &_impl_.unset_indexes_;
+}
+inline const ::greptime::v1::UnsetIndex& UnsetIndexes::_internal_unset_indexes(int index) const {
+  return _impl_.unset_indexes_.Get(index);
+}
+inline const ::greptime::v1::UnsetIndex& UnsetIndexes::unset_indexes(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.UnsetIndexes.unset_indexes)
+  return _internal_unset_indexes(index);
+}
+inline ::greptime::v1::UnsetIndex* UnsetIndexes::_internal_add_unset_indexes() {
+  return _impl_.unset_indexes_.Add();
+}
+inline ::greptime::v1::UnsetIndex* UnsetIndexes::add_unset_indexes() {
+  ::greptime::v1::UnsetIndex* _add = _internal_add_unset_indexes();
+  // @@protoc_insertion_point(field_add:greptime.v1.UnsetIndexes.unset_indexes)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::UnsetIndex >&
+UnsetIndexes::unset_indexes() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.UnsetIndexes.unset_indexes)
+  return _impl_.unset_indexes_;
 }
 
 // -------------------------------------------------------------------
@@ -16525,6 +17127,10 @@ WebhookOptions::mutable_opts() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
