@@ -2770,6 +2770,21 @@ public final class Route {
         getNameBytes();
 
     /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     * @return Whether the partition field is set.
+     */
+    boolean hasPartition();
+    /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     * @return The partition.
+     */
+    greptime.v1.meta.Route.Partition getPartition();
+    /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     */
+    greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder();
+
+    /**
      * <code>map&lt;string, string&gt; attrs = 100;</code>
      */
     int getAttrsCount();
@@ -2804,33 +2819,6 @@ java.lang.String defaultValue);
 
     java.lang.String getAttrsOrThrow(
         java.lang.String key);
-
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return Whether the partition field is set.
-     */
-    boolean hasPartition();
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return The partition.
-     */
-    greptime.v1.meta.Route.Partition getPartition();
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     */
-    greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.Region}
@@ -3015,6 +3003,32 @@ java.lang.String defaultValue);
       }
     }
 
+    public static final int PARTITION_FIELD_NUMBER = 3;
+    private greptime.v1.meta.Route.Partition partition_;
+    /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     * @return Whether the partition field is set.
+     */
+    @java.lang.Override
+    public boolean hasPartition() {
+      return partition_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     * @return The partition.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Route.Partition getPartition() {
+      return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+    }
+    /**
+     * <code>.greptime.v1.meta.Partition partition = 3;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
+      return getPartition();
+    }
+
     public static final int ATTRS_FIELD_NUMBER = 100;
     private static final class AttrsDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -3096,44 +3110,6 @@ java.lang.String defaultValue);
       return map.get(key);
     }
 
-    public static final int PARTITION_FIELD_NUMBER = 3;
-    private greptime.v1.meta.Route.Partition partition_;
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return Whether the partition field is set.
-     */
-    @java.lang.Override
-    public boolean hasPartition() {
-      return partition_ != null;
-    }
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     * @return The partition.
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Route.Partition getPartition() {
-      return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-    }
-    /**
-     * <pre>
-     * The partition definition of the region.
-     * </pre>
-     *
-     * <code>.greptime.v1.meta.Partition partition = 3;</code>
-     */
-    @java.lang.Override
-    public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
-      return getPartition();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3212,13 +3188,13 @@ java.lang.String defaultValue);
           != other.getId()) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!internalGetAttrs().equals(
-          other.internalGetAttrs())) return false;
       if (hasPartition() != other.hasPartition()) return false;
       if (hasPartition()) {
         if (!getPartition()
             .equals(other.getPartition())) return false;
       }
+      if (!internalGetAttrs().equals(
+          other.internalGetAttrs())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3235,13 +3211,13 @@ java.lang.String defaultValue);
           getId());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (!internalGetAttrs().getMap().isEmpty()) {
-        hash = (37 * hash) + ATTRS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetAttrs().hashCode();
-      }
       if (hasPartition()) {
         hash = (37 * hash) + PARTITION_FIELD_NUMBER;
         hash = (53 * hash) + getPartition().hashCode();
+      }
+      if (!internalGetAttrs().getMap().isEmpty()) {
+        hash = (37 * hash) + ATTRS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetAttrs().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3402,13 +3378,13 @@ java.lang.String defaultValue);
 
         name_ = "";
 
-        internalGetMutableAttrs().clear();
         if (partitionBuilder_ == null) {
           partition_ = null;
         } else {
           partition_ = null;
           partitionBuilder_ = null;
         }
+        internalGetMutableAttrs().clear();
         return this;
       }
 
@@ -3438,13 +3414,13 @@ java.lang.String defaultValue);
         int from_bitField0_ = bitField0_;
         result.id_ = id_;
         result.name_ = name_;
-        result.attrs_ = internalGetAttrs();
-        result.attrs_.makeImmutable();
         if (partitionBuilder_ == null) {
           result.partition_ = partition_;
         } else {
           result.partition_ = partitionBuilder_.build();
         }
+        result.attrs_ = internalGetAttrs();
+        result.attrs_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -3500,11 +3476,11 @@ java.lang.String defaultValue);
           name_ = other.name_;
           onChanged();
         }
-        internalGetMutableAttrs().mergeFrom(
-            other.internalGetAttrs());
         if (other.hasPartition()) {
           mergePartition(other.getPartition());
         }
+        internalGetMutableAttrs().mergeFrom(
+            other.internalGetAttrs());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3654,6 +3630,125 @@ java.lang.String defaultValue);
         return this;
       }
 
+      private greptime.v1.meta.Route.Partition partition_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> partitionBuilder_;
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       * @return Whether the partition field is set.
+       */
+      public boolean hasPartition() {
+        return partitionBuilder_ != null || partition_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       * @return The partition.
+       */
+      public greptime.v1.meta.Route.Partition getPartition() {
+        if (partitionBuilder_ == null) {
+          return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+        } else {
+          return partitionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public Builder setPartition(greptime.v1.meta.Route.Partition value) {
+        if (partitionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          partition_ = value;
+          onChanged();
+        } else {
+          partitionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public Builder setPartition(
+          greptime.v1.meta.Route.Partition.Builder builderForValue) {
+        if (partitionBuilder_ == null) {
+          partition_ = builderForValue.build();
+          onChanged();
+        } else {
+          partitionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public Builder mergePartition(greptime.v1.meta.Route.Partition value) {
+        if (partitionBuilder_ == null) {
+          if (partition_ != null) {
+            partition_ =
+              greptime.v1.meta.Route.Partition.newBuilder(partition_).mergeFrom(value).buildPartial();
+          } else {
+            partition_ = value;
+          }
+          onChanged();
+        } else {
+          partitionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public Builder clearPartition() {
+        if (partitionBuilder_ == null) {
+          partition_ = null;
+          onChanged();
+        } else {
+          partition_ = null;
+          partitionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public greptime.v1.meta.Route.Partition.Builder getPartitionBuilder() {
+        
+        onChanged();
+        return getPartitionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
+        if (partitionBuilder_ != null) {
+          return partitionBuilder_.getMessageOrBuilder();
+        } else {
+          return partition_ == null ?
+              greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.Partition partition = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> 
+          getPartitionFieldBuilder() {
+        if (partitionBuilder_ == null) {
+          partitionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder>(
+                  getPartition(),
+                  getParentForChildren(),
+                  isClean());
+          partition_ = null;
+        }
+        return partitionBuilder_;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> attrs_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3784,161 +3879,6 @@ java.lang.String defaultValue);
             .putAll(values);
         return this;
       }
-
-      private greptime.v1.meta.Route.Partition partition_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> partitionBuilder_;
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       * @return Whether the partition field is set.
-       */
-      public boolean hasPartition() {
-        return partitionBuilder_ != null || partition_ != null;
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       * @return The partition.
-       */
-      public greptime.v1.meta.Route.Partition getPartition() {
-        if (partitionBuilder_ == null) {
-          return partition_ == null ? greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-        } else {
-          return partitionBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder setPartition(greptime.v1.meta.Route.Partition value) {
-        if (partitionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          partition_ = value;
-          onChanged();
-        } else {
-          partitionBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder setPartition(
-          greptime.v1.meta.Route.Partition.Builder builderForValue) {
-        if (partitionBuilder_ == null) {
-          partition_ = builderForValue.build();
-          onChanged();
-        } else {
-          partitionBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder mergePartition(greptime.v1.meta.Route.Partition value) {
-        if (partitionBuilder_ == null) {
-          if (partition_ != null) {
-            partition_ =
-              greptime.v1.meta.Route.Partition.newBuilder(partition_).mergeFrom(value).buildPartial();
-          } else {
-            partition_ = value;
-          }
-          onChanged();
-        } else {
-          partitionBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public Builder clearPartition() {
-        if (partitionBuilder_ == null) {
-          partition_ = null;
-          onChanged();
-        } else {
-          partition_ = null;
-          partitionBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public greptime.v1.meta.Route.Partition.Builder getPartitionBuilder() {
-        
-        onChanged();
-        return getPartitionFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      public greptime.v1.meta.Route.PartitionOrBuilder getPartitionOrBuilder() {
-        if (partitionBuilder_ != null) {
-          return partitionBuilder_.getMessageOrBuilder();
-        } else {
-          return partition_ == null ?
-              greptime.v1.meta.Route.Partition.getDefaultInstance() : partition_;
-        }
-      }
-      /**
-       * <pre>
-       * The partition definition of the region.
-       * </pre>
-       *
-       * <code>.greptime.v1.meta.Partition partition = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder> 
-          getPartitionFieldBuilder() {
-        if (partitionBuilder_ == null) {
-          partitionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              greptime.v1.meta.Route.Partition, greptime.v1.meta.Route.Partition.Builder, greptime.v1.meta.Route.PartitionOrBuilder>(
-                  getPartition(),
-                  getParentForChildren(),
-                  isClean());
-          partition_ = null;
-        }
-        return partitionBuilder_;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3999,21 +3939,21 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @return A list containing the columnList.
      */
     @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getColumnListList();
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @return The count of columnList.
      */
     @java.lang.Deprecated int getColumnListCount();
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @param index The index of the element to return.
      * @return The columnList at the given index.
      */
@@ -4022,21 +3962,21 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @return A list containing the valueList.
      */
     @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getValueListList();
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @return The count of valueList.
      */
     @java.lang.Deprecated int getValueListCount();
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @param index The index of the element to return.
      * @return The valueList at the given index.
      */
@@ -4182,7 +4122,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @return A list containing the columnList.
      */
     @java.lang.Override
@@ -4193,7 +4133,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @return The count of columnList.
      */
     @java.lang.Deprecated public int getColumnListCount() {
@@ -4202,7 +4142,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes column_list = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=55
+     *     See greptime/v1/meta/route.proto;l=53
      * @param index The index of the element to return.
      * @return The columnList at the given index.
      */
@@ -4215,7 +4155,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @return A list containing the valueList.
      */
     @java.lang.Override
@@ -4226,7 +4166,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @return The count of valueList.
      */
     @java.lang.Deprecated public int getValueListCount() {
@@ -4235,7 +4175,7 @@ java.lang.String defaultValue);
     /**
      * <code>repeated bytes value_list = 2 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-     *     See greptime/v1/meta/route.proto;l=56
+     *     See greptime/v1/meta/route.proto;l=54
      * @param index The index of the element to return.
      * @return The valueList at the given index.
      */
@@ -4677,7 +4617,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @return A list containing the columnList.
        */
       @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
@@ -4688,7 +4628,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @return The count of columnList.
        */
       @java.lang.Deprecated public int getColumnListCount() {
@@ -4697,7 +4637,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @param index The index of the element to return.
        * @return The columnList at the given index.
        */
@@ -4707,7 +4647,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @param index The index to set the value at.
        * @param value The columnList to set.
        * @return This builder for chaining.
@@ -4725,7 +4665,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @param value The columnList to add.
        * @return This builder for chaining.
        */
@@ -4741,7 +4681,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @param values The columnList to add.
        * @return This builder for chaining.
        */
@@ -4756,7 +4696,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes column_list = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=55
+       *     See greptime/v1/meta/route.proto;l=53
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearColumnList() {
@@ -4776,7 +4716,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @return A list containing the valueList.
        */
       @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
@@ -4787,7 +4727,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @return The count of valueList.
        */
       @java.lang.Deprecated public int getValueListCount() {
@@ -4796,7 +4736,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @param index The index of the element to return.
        * @return The valueList at the given index.
        */
@@ -4806,7 +4746,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @param index The index to set the value at.
        * @param value The valueList to set.
        * @return This builder for chaining.
@@ -4824,7 +4764,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @param value The valueList to add.
        * @return This builder for chaining.
        */
@@ -4840,7 +4780,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @param values The valueList to add.
        * @return This builder for chaining.
        */
@@ -4855,7 +4795,7 @@ java.lang.String defaultValue);
       /**
        * <code>repeated bytes value_list = 2 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
-       *     See greptime/v1/meta/route.proto;l=56
+       *     See greptime/v1/meta/route.proto;l=54
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearValueList() {
@@ -6076,9 +6016,9 @@ java.lang.String defaultValue);
       "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n" +
       "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab" +
       "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014" +
-      "\n\004name\030\002 \001(\t\0222\n\005attrs\030d \003(\0132#.greptime.v" +
-      "1.meta.Region.AttrsEntry\022.\n\tpartition\030\003 " +
-      "\001(\0132\033.greptime.v1.meta.Partition\032,\n\nAttr" +
+      "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti" +
+      "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr" +
+      "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr" +
       "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"P" +
       "\n\tPartition\022\027\n\013column_list\030\001 \003(\014B\002\030\001\022\026\n\n" +
       "value_list\030\002 \003(\014B\002\030\001\022\022\n\nexpression\030\003 \001(\t" +
@@ -6117,7 +6057,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_Region_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_Region_descriptor,
-        new java.lang.String[] { "Id", "Name", "Attrs", "Partition", });
+        new java.lang.String[] { "Id", "Name", "Partition", "Attrs", });
     internal_static_greptime_v1_meta_Region_AttrsEntry_descriptor =
       internal_static_greptime_v1_meta_Region_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_Region_AttrsEntry_fieldAccessorTable = new

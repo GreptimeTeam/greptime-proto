@@ -1800,35 +1800,6 @@ inline void Region::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Region.name)
 }
 
-// map<string, string> attrs = 100;
-inline int Region::_internal_attrs_size() const {
-  return _impl_.attrs_.size();
-}
-inline int Region::attrs_size() const {
-  return _internal_attrs_size();
-}
-inline void Region::clear_attrs() {
-  _impl_.attrs_.Clear();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Region::_internal_attrs() const {
-  return _impl_.attrs_.GetMap();
-}
-inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
-Region::attrs() const {
-  // @@protoc_insertion_point(field_map:greptime.v1.meta.Region.attrs)
-  return _internal_attrs();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Region::_internal_mutable_attrs() {
-  return _impl_.attrs_.MutableMap();
-}
-inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
-Region::mutable_attrs() {
-  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.Region.attrs)
-  return _internal_mutable_attrs();
-}
-
 // .greptime.v1.meta.Partition partition = 3;
 inline bool Region::_internal_has_partition() const {
   return this != internal_default_instance() && _impl_.partition_ != nullptr;
@@ -1917,6 +1888,35 @@ inline void Region::set_allocated_partition(::greptime::v1::meta::Partition* par
   }
   _impl_.partition_ = partition;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Region.partition)
+}
+
+// map<string, string> attrs = 100;
+inline int Region::_internal_attrs_size() const {
+  return _impl_.attrs_.size();
+}
+inline int Region::attrs_size() const {
+  return _internal_attrs_size();
+}
+inline void Region::clear_attrs() {
+  _impl_.attrs_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Region::_internal_attrs() const {
+  return _impl_.attrs_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+Region::attrs() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.Region.attrs)
+  return _internal_attrs();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Region::_internal_mutable_attrs() {
+  return _impl_.attrs_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+Region::mutable_attrs() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.Region.attrs)
+  return _internal_mutable_attrs();
 }
 
 // -------------------------------------------------------------------

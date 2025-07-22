@@ -44,11 +44,9 @@ message Region {
   // TODO(LFC): Maybe use message RegionNumber?
   uint64 id = 1;
   string name = 2;
+  Partition partition = 3;
 
   map<string, string> attrs = 100;
-
-  // The partition definition of the region.
-  Partition partition = 3;
 }
 
 // Partition definition.

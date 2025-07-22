@@ -176,8 +176,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.attrs_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.partition_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Region, _impl_.attrs_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Partition, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -228,9 +228,9 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROT
   "es\030\003 \003(\004\"U\n\005Table\022\n\n\002id\030\001 \001(\004\022*\n\ntable_n"
   "ame\030\002 \001(\0132\026.greptime.v1.TableName\022\024\n\014tab"
   "le_schema\030\003 \001(\014\"\264\001\n\006Region\022\n\n\002id\030\001 \001(\004\022\014"
-  "\n\004name\030\002 \001(\t\0222\n\005attrs\030d \003(\0132#.greptime.v"
-  "1.meta.Region.AttrsEntry\022.\n\tpartition\030\003 "
-  "\001(\0132\033.greptime.v1.meta.Partition\032,\n\nAttr"
+  "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti"
+  "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr"
+  "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr"
   "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"P"
   "\n\tPartition\022\027\n\013column_list\030\001 \003(\014B\002\030\001\022\026\n\n"
   "value_list\030\002 \003(\014B\002\030\001\022\022\n\nexpression\030\003 \001(\t"
