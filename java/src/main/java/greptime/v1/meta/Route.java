@@ -3937,42 +3937,74 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @return A list containing the columnList.
      */
-    java.util.List<com.google.protobuf.ByteString> getColumnListList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getColumnListList();
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @return The count of columnList.
      */
-    int getColumnListCount();
+    @java.lang.Deprecated int getColumnListCount();
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @param index The index of the element to return.
      * @return The columnList at the given index.
      */
-    com.google.protobuf.ByteString getColumnList(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getColumnList(int index);
 
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @return A list containing the valueList.
      */
-    java.util.List<com.google.protobuf.ByteString> getValueListList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getValueListList();
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @return The count of valueList.
      */
-    int getValueListCount();
+    @java.lang.Deprecated int getValueListCount();
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @param index The index of the element to return.
      * @return The valueList at the given index.
      */
-    com.google.protobuf.ByteString getValueList(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getValueList(int index);
+
+    /**
+     * <pre>
+     * The partition expression serialized in JSON format.
+     * </pre>
+     *
+     * <code>string expression = 3;</code>
+     * @return The expression.
+     */
+    java.lang.String getExpression();
+    /**
+     * <pre>
+     * The partition expression serialized in JSON format.
+     * </pre>
+     *
+     * <code>string expression = 3;</code>
+     * @return The bytes for expression.
+     */
+    com.google.protobuf.ByteString
+        getExpressionBytes();
   }
   /**
    * <pre>
-   * PARTITION `region_name` VALUES LESS THAN (value_list)
+   * Partition definition.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.meta.Partition}
@@ -3989,6 +4021,7 @@ java.lang.String defaultValue);
     private Partition() {
       columnList_ = java.util.Collections.emptyList();
       valueList_ = java.util.Collections.emptyList();
+      expression_ = "";
     }
 
     @java.lang.Override
@@ -4038,6 +4071,12 @@ java.lang.String defaultValue);
               valueList_.add(input.readBytes());
               break;
             }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              expression_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4081,55 +4120,113 @@ java.lang.String defaultValue);
     public static final int COLUMN_LIST_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.ByteString> columnList_;
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @return A list containing the columnList.
      */
     @java.lang.Override
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getColumnListList() {
       return columnList_;
     }
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @return The count of columnList.
      */
-    public int getColumnListCount() {
+    @java.lang.Deprecated public int getColumnListCount() {
       return columnList_.size();
     }
     /**
-     * <code>repeated bytes column_list = 1;</code>
+     * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=53
      * @param index The index of the element to return.
      * @return The columnList at the given index.
      */
-    public com.google.protobuf.ByteString getColumnList(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getColumnList(int index) {
       return columnList_.get(index);
     }
 
     public static final int VALUE_LIST_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.ByteString> valueList_;
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @return A list containing the valueList.
      */
     @java.lang.Override
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getValueListList() {
       return valueList_;
     }
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @return The count of valueList.
      */
-    public int getValueListCount() {
+    @java.lang.Deprecated public int getValueListCount() {
       return valueList_.size();
     }
     /**
-     * <code>repeated bytes value_list = 2;</code>
+     * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+     *     See greptime/v1/meta/route.proto;l=54
      * @param index The index of the element to return.
      * @return The valueList at the given index.
      */
-    public com.google.protobuf.ByteString getValueList(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getValueList(int index) {
       return valueList_.get(index);
+    }
+
+    public static final int EXPRESSION_FIELD_NUMBER = 3;
+    private volatile java.lang.Object expression_;
+    /**
+     * <pre>
+     * The partition expression serialized in JSON format.
+     * </pre>
+     *
+     * <code>string expression = 3;</code>
+     * @return The expression.
+     */
+    @java.lang.Override
+    public java.lang.String getExpression() {
+      java.lang.Object ref = expression_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        expression_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The partition expression serialized in JSON format.
+     * </pre>
+     *
+     * <code>string expression = 3;</code>
+     * @return The bytes for expression.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getExpressionBytes() {
+      java.lang.Object ref = expression_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        expression_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4151,6 +4248,9 @@ java.lang.String defaultValue);
       }
       for (int i = 0; i < valueList_.size(); i++) {
         output.writeBytes(2, valueList_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expression_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, expression_);
       }
       unknownFields.writeTo(output);
     }
@@ -4179,6 +4279,9 @@ java.lang.String defaultValue);
         size += dataSize;
         size += 1 * getValueListList().size();
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expression_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, expression_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4198,6 +4301,8 @@ java.lang.String defaultValue);
           .equals(other.getColumnListList())) return false;
       if (!getValueListList()
           .equals(other.getValueListList())) return false;
+      if (!getExpression()
+          .equals(other.getExpression())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4217,6 +4322,8 @@ java.lang.String defaultValue);
         hash = (37 * hash) + VALUE_LIST_FIELD_NUMBER;
         hash = (53 * hash) + getValueListList().hashCode();
       }
+      hash = (37 * hash) + EXPRESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getExpression().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4314,7 +4421,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     * PARTITION `region_name` VALUES LESS THAN (value_list)
+     * Partition definition.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.meta.Partition}
@@ -4358,6 +4465,8 @@ java.lang.String defaultValue);
         bitField0_ = (bitField0_ & ~0x00000001);
         valueList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        expression_ = "";
+
         return this;
       }
 
@@ -4395,6 +4504,7 @@ java.lang.String defaultValue);
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.valueList_ = valueList_;
+        result.expression_ = expression_;
         onBuilt();
         return result;
       }
@@ -4463,6 +4573,10 @@ java.lang.String defaultValue);
           }
           onChanged();
         }
+        if (!other.getExpression().isEmpty()) {
+          expression_ = other.expression_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4501,36 +4615,44 @@ java.lang.String defaultValue);
          }
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @return A list containing the columnList.
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getColumnListList() {
         return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(columnList_) : columnList_;
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @return The count of columnList.
        */
-      public int getColumnListCount() {
+      @java.lang.Deprecated public int getColumnListCount() {
         return columnList_.size();
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @param index The index of the element to return.
        * @return The columnList at the given index.
        */
-      public com.google.protobuf.ByteString getColumnList(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getColumnList(int index) {
         return columnList_.get(index);
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @param index The index to set the value at.
        * @param value The columnList to set.
        * @return This builder for chaining.
        */
-      public Builder setColumnList(
+      @java.lang.Deprecated public Builder setColumnList(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4541,11 +4663,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @param value The columnList to add.
        * @return This builder for chaining.
        */
-      public Builder addColumnList(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addColumnList(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4555,11 +4679,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @param values The columnList to add.
        * @return This builder for chaining.
        */
-      public Builder addAllColumnList(
+      @java.lang.Deprecated public Builder addAllColumnList(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureColumnListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4568,10 +4694,12 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes column_list = 1;</code>
+       * <code>repeated bytes column_list = 1 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.column_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=53
        * @return This builder for chaining.
        */
-      public Builder clearColumnList() {
+      @java.lang.Deprecated public Builder clearColumnList() {
         columnList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
@@ -4586,36 +4714,44 @@ java.lang.String defaultValue);
          }
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @return A list containing the valueList.
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getValueListList() {
         return ((bitField0_ & 0x00000002) != 0) ?
                  java.util.Collections.unmodifiableList(valueList_) : valueList_;
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @return The count of valueList.
        */
-      public int getValueListCount() {
+      @java.lang.Deprecated public int getValueListCount() {
         return valueList_.size();
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @param index The index of the element to return.
        * @return The valueList at the given index.
        */
-      public com.google.protobuf.ByteString getValueList(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getValueList(int index) {
         return valueList_.get(index);
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @param index The index to set the value at.
        * @param value The valueList to set.
        * @return This builder for chaining.
        */
-      public Builder setValueList(
+      @java.lang.Deprecated public Builder setValueList(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4626,11 +4762,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @param value The valueList to add.
        * @return This builder for chaining.
        */
-      public Builder addValueList(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addValueList(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4640,11 +4778,13 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @param values The valueList to add.
        * @return This builder for chaining.
        */
-      public Builder addAllValueList(
+      @java.lang.Deprecated public Builder addAllValueList(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureValueListIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4653,12 +4793,110 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>repeated bytes value_list = 2;</code>
+       * <code>repeated bytes value_list = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.Partition.value_list is deprecated.
+       *     See greptime/v1/meta/route.proto;l=54
        * @return This builder for chaining.
        */
-      public Builder clearValueList() {
+      @java.lang.Deprecated public Builder clearValueList() {
         valueList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object expression_ = "";
+      /**
+       * <pre>
+       * The partition expression serialized in JSON format.
+       * </pre>
+       *
+       * <code>string expression = 3;</code>
+       * @return The expression.
+       */
+      public java.lang.String getExpression() {
+        java.lang.Object ref = expression_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          expression_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression serialized in JSON format.
+       * </pre>
+       *
+       * <code>string expression = 3;</code>
+       * @return The bytes for expression.
+       */
+      public com.google.protobuf.ByteString
+          getExpressionBytes() {
+        java.lang.Object ref = expression_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          expression_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression serialized in JSON format.
+       * </pre>
+       *
+       * <code>string expression = 3;</code>
+       * @param value The expression to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpression(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        expression_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression serialized in JSON format.
+       * </pre>
+       *
+       * <code>string expression = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExpression() {
+        
+        expression_ = getDefaultInstance().getExpression();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression serialized in JSON format.
+       * </pre>
+       *
+       * <code>string expression = 3;</code>
+       * @param value The bytes for expression to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpressionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        expression_ = value;
         onChanged();
         return this;
       }
@@ -5768,8 +6006,8 @@ java.lang.String defaultValue);
   static {
     java.lang.String[] descriptorData = {
       "\n\034greptime/v1/meta/route.proto\022\020greptime" +
-      ".v1.meta\032\035greptime/v1/meta/common.proto\032" +
-      "\030greptime/v1/common.proto\"j\n\nTableRoute\022" +
+      ".v1.meta\032\030greptime/v1/common.proto\032\035grep" +
+      "time/v1/meta/common.proto\"j\n\nTableRoute\022" +
       "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022" +
       "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met" +
       "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001" +
@@ -5781,19 +6019,20 @@ java.lang.String defaultValue);
       "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti" +
       "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr" +
       "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4" +
-      "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu" +
-      "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers" +
-      "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_" +
-      "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout" +
-      "eB<Z:github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/metab\006proto3"
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"P" +
+      "\n\tPartition\022\027\n\013column_list\030\001 \003(\014B\002\030\001\022\026\n\n" +
+      "value_list\030\002 \003(\014B\002\030\001\022\022\n\nexpression\030\003 \001(\t" +
+      "\"k\n\017TableRouteValue\022%\n\005peers\030\001 \003(\0132\026.gre" +
+      "ptime.v1.meta.Peer\0221\n\013table_route\030\002 \001(\0132" +
+      "\034.greptime.v1.meta.TableRouteB<Z:github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          greptime.v1.meta.Common.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
+          greptime.v1.meta.Common.getDescriptor(),
         });
     internal_static_greptime_v1_meta_TableRoute_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5830,15 +6069,15 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_Partition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_Partition_descriptor,
-        new java.lang.String[] { "ColumnList", "ValueList", });
+        new java.lang.String[] { "ColumnList", "ValueList", "Expression", });
     internal_static_greptime_v1_meta_TableRouteValue_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_TableRouteValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_TableRouteValue_descriptor,
         new java.lang.String[] { "Peers", "TableRoute", });
-    greptime.v1.meta.Common.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
+    greptime.v1.meta.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

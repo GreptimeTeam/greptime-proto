@@ -99,6 +99,7 @@ PROTOBUF_CONSTEXPR Partition::Partition(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.column_list_)*/{}
   , /*decltype(_impl_.value_list_)*/{}
+  , /*decltype(_impl_.expression_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct PartitionDefaultTypeInternal {
   PROTOBUF_CONSTEXPR PartitionDefaultTypeInternal()
@@ -185,6 +186,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets[] PROTO
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Partition, _impl_.column_list_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Partition, _impl_.value_list_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::Partition, _impl_.expression_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TableRouteValue, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -201,7 +203,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 26, 34, -1, sizeof(::greptime::v1::meta::Region_AttrsEntry_DoNotUse)},
   { 36, -1, -1, sizeof(::greptime::v1::meta::Region)},
   { 46, -1, -1, sizeof(::greptime::v1::meta::Partition)},
-  { 54, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
+  { 55, -1, -1, sizeof(::greptime::v1::meta::TableRouteValue)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -216,8 +218,8 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\034greptime/v1/meta/route.proto\022\020greptime"
-  ".v1.meta\032\035greptime/v1/meta/common.proto\032"
-  "\030greptime/v1/common.proto\"j\n\nTableRoute\022"
+  ".v1.meta\032\030greptime/v1/common.proto\032\035grep"
+  "time/v1/meta/common.proto\"j\n\nTableRoute\022"
   "&\n\005table\030\001 \001(\0132\027.greptime.v1.meta.Table\022"
   "4\n\rregion_routes\030\002 \003(\0132\035.greptime.v1.met"
   "a.RegionRoute\"q\n\013RegionRoute\022(\n\006region\030\001"
@@ -229,13 +231,14 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto[] PROT
   "\n\004name\030\002 \001(\t\022.\n\tpartition\030\003 \001(\0132\033.grepti"
   "me.v1.meta.Partition\0222\n\005attrs\030d \003(\0132#.gr"
   "eptime.v1.meta.Region.AttrsEntry\032,\n\nAttr"
-  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"4"
-  "\n\tPartition\022\023\n\013column_list\030\001 \003(\014\022\022\n\nvalu"
-  "e_list\030\002 \003(\014\"k\n\017TableRouteValue\022%\n\005peers"
-  "\030\001 \003(\0132\026.greptime.v1.meta.Peer\0221\n\013table_"
-  "route\030\002 \001(\0132\034.greptime.v1.meta.TableRout"
-  "eB<Z:github.com/GreptimeTeam/greptime-pr"
-  "oto/go/greptime/v1/metab\006proto3"
+  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"P"
+  "\n\tPartition\022\027\n\013column_list\030\001 \003(\014B\002\030\001\022\026\n\n"
+  "value_list\030\002 \003(\014B\002\030\001\022\022\n\nexpression\030\003 \001(\t"
+  "\"k\n\017TableRouteValue\022%\n\005peers\030\001 \003(\0132\026.gre"
+  "ptime.v1.meta.Peer\0221\n\013table_route\030\002 \001(\0132"
+  "\034.greptime.v1.meta.TableRouteB<Z:github."
+  "com/GreptimeTeam/greptime-proto/go/grept"
+  "ime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -243,7 +246,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto = {
-    false, false, 831, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
+    false, false, 859, descriptor_table_protodef_greptime_2fv1_2fmeta_2froute_2eproto,
     "greptime/v1/meta/route.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2froute_2eproto_deps, 2, 7,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2froute_2eproto::offsets,
@@ -1406,9 +1409,18 @@ Partition::Partition(const Partition& from)
   new (&_impl_) Impl_{
       decltype(_impl_.column_list_){from._impl_.column_list_}
     , decltype(_impl_.value_list_){from._impl_.value_list_}
+    , decltype(_impl_.expression_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.expression_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.expression_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_expression().empty()) {
+    _this->_impl_.expression_.Set(from._internal_expression(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.Partition)
 }
 
@@ -1419,8 +1431,13 @@ inline void Partition::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.column_list_){arena}
     , decltype(_impl_.value_list_){arena}
+    , decltype(_impl_.expression_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.expression_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.expression_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Partition::~Partition() {
@@ -1436,6 +1453,7 @@ inline void Partition::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.column_list_.~RepeatedPtrField();
   _impl_.value_list_.~RepeatedPtrField();
+  _impl_.expression_.Destroy();
 }
 
 void Partition::SetCachedSize(int size) const {
@@ -1450,6 +1468,7 @@ void Partition::Clear() {
 
   _impl_.column_list_.Clear();
   _impl_.value_list_.Clear();
+  _impl_.expression_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1459,7 +1478,7 @@ const char* Partition::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated bytes column_list = 1;
+      // repeated bytes column_list = 1 [deprecated = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -1473,7 +1492,7 @@ const char* Partition::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
-      // repeated bytes value_list = 2;
+      // repeated bytes value_list = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
@@ -1484,6 +1503,16 @@ const char* Partition::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string expression = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_expression();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.Partition.expression"));
         } else
           goto handle_unusual;
         continue;
@@ -1516,16 +1545,26 @@ uint8_t* Partition::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated bytes column_list = 1;
+  // repeated bytes column_list = 1 [deprecated = true];
   for (int i = 0, n = this->_internal_column_list_size(); i < n; i++) {
     const auto& s = this->_internal_column_list(i);
     target = stream->WriteBytes(1, s, target);
   }
 
-  // repeated bytes value_list = 2;
+  // repeated bytes value_list = 2 [deprecated = true];
   for (int i = 0, n = this->_internal_value_list_size(); i < n; i++) {
     const auto& s = this->_internal_value_list(i);
     target = stream->WriteBytes(2, s, target);
+  }
+
+  // string expression = 3;
+  if (!this->_internal_expression().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_expression().data(), static_cast<int>(this->_internal_expression().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.Partition.expression");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_expression(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1544,7 +1583,7 @@ size_t Partition::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated bytes column_list = 1;
+  // repeated bytes column_list = 1 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.column_list_.size());
   for (int i = 0, n = _impl_.column_list_.size(); i < n; i++) {
@@ -1552,12 +1591,19 @@ size_t Partition::ByteSizeLong() const {
       _impl_.column_list_.Get(i));
   }
 
-  // repeated bytes value_list = 2;
+  // repeated bytes value_list = 2 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.value_list_.size());
   for (int i = 0, n = _impl_.value_list_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
       _impl_.value_list_.Get(i));
+  }
+
+  // string expression = 3;
+  if (!this->_internal_expression().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_expression());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1580,6 +1626,9 @@ void Partition::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
 
   _this->_impl_.column_list_.MergeFrom(from._impl_.column_list_);
   _this->_impl_.value_list_.MergeFrom(from._impl_.value_list_);
+  if (!from._internal_expression().empty()) {
+    _this->_internal_set_expression(from._internal_expression());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1596,9 +1645,15 @@ bool Partition::IsInitialized() const {
 
 void Partition::InternalSwap(Partition* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.column_list_.InternalSwap(&other->_impl_.column_list_);
   _impl_.value_list_.InternalSwap(&other->_impl_.value_list_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.expression_, lhs_arena,
+      &other->_impl_.expression_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Partition::GetMetadata() const {

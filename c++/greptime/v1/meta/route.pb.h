@@ -33,8 +33,8 @@
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/unknown_field_set.h>
-#include "greptime/v1/meta/common.pb.h"
 #include "greptime/v1/common.pb.h"
+#include "greptime/v1/meta/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fmeta_2froute_2eproto
@@ -1006,53 +1006,68 @@ class Partition final :
   enum : int {
     kColumnListFieldNumber = 1,
     kValueListFieldNumber = 2,
+    kExpressionFieldNumber = 3,
   };
-  // repeated bytes column_list = 1;
-  int column_list_size() const;
+  // repeated bytes column_list = 1 [deprecated = true];
+  PROTOBUF_DEPRECATED int column_list_size() const;
   private:
   int _internal_column_list_size() const;
   public:
-  void clear_column_list();
-  const std::string& column_list(int index) const;
-  std::string* mutable_column_list(int index);
-  void set_column_list(int index, const std::string& value);
-  void set_column_list(int index, std::string&& value);
-  void set_column_list(int index, const char* value);
-  void set_column_list(int index, const void* value, size_t size);
-  std::string* add_column_list();
-  void add_column_list(const std::string& value);
-  void add_column_list(std::string&& value);
-  void add_column_list(const char* value);
-  void add_column_list(const void* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& column_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_column_list();
+  PROTOBUF_DEPRECATED void clear_column_list();
+  PROTOBUF_DEPRECATED const std::string& column_list(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_column_list(int index);
+  PROTOBUF_DEPRECATED void set_column_list(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_column_list(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_column_list(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_column_list(int index, const void* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_column_list();
+  PROTOBUF_DEPRECATED void add_column_list(const std::string& value);
+  PROTOBUF_DEPRECATED void add_column_list(std::string&& value);
+  PROTOBUF_DEPRECATED void add_column_list(const char* value);
+  PROTOBUF_DEPRECATED void add_column_list(const void* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& column_list() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_column_list();
   private:
   const std::string& _internal_column_list(int index) const;
   std::string* _internal_add_column_list();
   public:
 
-  // repeated bytes value_list = 2;
-  int value_list_size() const;
+  // repeated bytes value_list = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED int value_list_size() const;
   private:
   int _internal_value_list_size() const;
   public:
-  void clear_value_list();
-  const std::string& value_list(int index) const;
-  std::string* mutable_value_list(int index);
-  void set_value_list(int index, const std::string& value);
-  void set_value_list(int index, std::string&& value);
-  void set_value_list(int index, const char* value);
-  void set_value_list(int index, const void* value, size_t size);
-  std::string* add_value_list();
-  void add_value_list(const std::string& value);
-  void add_value_list(std::string&& value);
-  void add_value_list(const char* value);
-  void add_value_list(const void* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value_list() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value_list();
+  PROTOBUF_DEPRECATED void clear_value_list();
+  PROTOBUF_DEPRECATED const std::string& value_list(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_value_list(int index);
+  PROTOBUF_DEPRECATED void set_value_list(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_value_list(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_value_list(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_value_list(int index, const void* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_value_list();
+  PROTOBUF_DEPRECATED void add_value_list(const std::string& value);
+  PROTOBUF_DEPRECATED void add_value_list(std::string&& value);
+  PROTOBUF_DEPRECATED void add_value_list(const char* value);
+  PROTOBUF_DEPRECATED void add_value_list(const void* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value_list() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value_list();
   private:
   const std::string& _internal_value_list(int index) const;
   std::string* _internal_add_value_list();
+  public:
+
+  // string expression = 3;
+  void clear_expression();
+  const std::string& expression() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_expression(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_expression();
+  PROTOBUF_NODISCARD std::string* release_expression();
+  void set_allocated_expression(std::string* expression);
+  private:
+  const std::string& _internal_expression() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expression(const std::string& value);
+  std::string* _internal_mutable_expression();
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.Partition)
@@ -1065,6 +1080,7 @@ class Partition final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> column_list_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> value_list_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expression_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1907,7 +1923,7 @@ Region::mutable_attrs() {
 
 // Partition
 
-// repeated bytes column_list = 1;
+// repeated bytes column_list = 1 [deprecated = true];
 inline int Partition::_internal_column_list_size() const {
   return _impl_.column_list_.size();
 }
@@ -1982,7 +1998,7 @@ Partition::mutable_column_list() {
   return &_impl_.column_list_;
 }
 
-// repeated bytes value_list = 2;
+// repeated bytes value_list = 2 [deprecated = true];
 inline int Partition::_internal_value_list_size() const {
   return _impl_.value_list_.size();
 }
@@ -2055,6 +2071,56 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Partition::mutable_value_list() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.Partition.value_list)
   return &_impl_.value_list_;
+}
+
+// string expression = 3;
+inline void Partition::clear_expression() {
+  _impl_.expression_.ClearToEmpty();
+}
+inline const std::string& Partition::expression() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.Partition.expression)
+  return _internal_expression();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Partition::set_expression(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.expression_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.Partition.expression)
+}
+inline std::string* Partition::mutable_expression() {
+  std::string* _s = _internal_mutable_expression();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.Partition.expression)
+  return _s;
+}
+inline const std::string& Partition::_internal_expression() const {
+  return _impl_.expression_.Get();
+}
+inline void Partition::_internal_set_expression(const std::string& value) {
+  
+  _impl_.expression_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Partition::_internal_mutable_expression() {
+  
+  return _impl_.expression_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Partition::release_expression() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.Partition.expression)
+  return _impl_.expression_.Release();
+}
+inline void Partition::set_allocated_expression(std::string* expression) {
+  if (expression != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.expression_.SetAllocated(expression, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.expression_.IsDefault()) {
+    _impl_.expression_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.Partition.expression)
 }
 
 // -------------------------------------------------------------------
