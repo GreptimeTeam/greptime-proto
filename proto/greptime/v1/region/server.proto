@@ -165,6 +165,7 @@ message AlterRequest {
     DropDefaults drop_defaults = 12;
     SetIndexes set_indexes = 13;
     UnsetIndexes unset_indexes = 14;
+    SetDefaults set_defaults = 15;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
