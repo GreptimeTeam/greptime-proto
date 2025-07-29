@@ -177,6 +177,8 @@ message TruncateTableExpr {
   string schema_name = 2;
   string table_name = 3;
   TableId table_id = 4;
+  // if empty, truncate entire table, else only truncate time ranges
+  TimeRanges time_ranges = 5;
 }
 
 message DropDatabaseExpr {

@@ -224,17 +224,6 @@ message TruncateRequest {
 /// Truncate all data in region
 message All {}
 
-/// Truncate partially by time ranges
-message TimeRanges {
-  TimeUnit time_unit = 1;
-  repeated TimeRange time_ranges = 2;
-}
-
-message TimeRange {
-  int64 start = 1;
-  int64 end = 2;
-}
-
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
