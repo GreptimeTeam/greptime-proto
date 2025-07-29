@@ -215,7 +215,22 @@ message CompactRequest {
 
 message TruncateRequest {
   uint64 region_id = 1;
+  oneof kind {
+    All all = 2;
+    TimeRanges time_ranges = 3;
+  }
 }
+
+/// Truncate all data in region
+message All {}
+
+/// Truncate partially by time ranges
+message TimeRanges {
+  TimeUnit time_unit = 1;
+  repeated int64 starts = 2;
+  repeated int64 ends = 3;
+}
+
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
