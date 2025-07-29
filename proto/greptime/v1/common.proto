@@ -154,6 +154,14 @@ message IntervalMonthDayNano {
   int64 nanoseconds = 3;
 }
 
+/// Time Unit for timestamp
+enum TimeUnit{
+  SECOND = 0;
+  MILLISECOND = 1;
+  MICROSECOND = 2;
+  NANOSECOND = 3;
+}
+
 // (hi: high 64 bits, lo: low 64 bits) are used to keep the decimal128 value.
 message Decimal128 {
   int64 hi = 1;
