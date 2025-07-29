@@ -155,7 +155,7 @@ message IntervalMonthDayNano {
 }
 
 /// Time Unit for timestamp
-enum TimeUnit{
+enum TimeUnit {
   // The default time unit is MILLISECOND
   MILLISECOND = 0;
   SECOND = 1;
