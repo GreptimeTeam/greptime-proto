@@ -89,3 +89,23 @@ message ScalarCalculate {
   // Column name of field column
   string field_column = 7;
 }
+
+message Absent {
+  // Start timestamp in millisecond
+  int64 start = 1;
+  // End timestamp in millisecond
+  int64 end = 2;
+  // Step in millisecond
+  int64 step = 3;
+  // Column name of time index column
+  string time_index_column = 4;
+  // Column name of value column
+  string value_column = 5;
+  // Fake labels as key-value pairs
+  repeated LabelPair fake_labels = 6;
+}
+
+message LabelPair {
+  string key = 1;
+  string value = 2;
+}

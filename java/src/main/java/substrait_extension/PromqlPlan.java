@@ -6444,6 +6444,2278 @@ public final class PromqlPlan {
 
   }
 
+  public interface AbsentOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.Absent)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Start timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    long getStart();
+
+    /**
+     * <pre>
+     * End timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    long getEnd();
+
+    /**
+     * <pre>
+     * Step in millisecond
+     * </pre>
+     *
+     * <code>int64 step = 3;</code>
+     * @return The step.
+     */
+    long getStep();
+
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 4;</code>
+     * @return The timeIndexColumn.
+     */
+    java.lang.String getTimeIndexColumn();
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 4;</code>
+     * @return The bytes for timeIndexColumn.
+     */
+    com.google.protobuf.ByteString
+        getTimeIndexColumnBytes();
+
+    /**
+     * <pre>
+     * Column name of value column
+     * </pre>
+     *
+     * <code>string value_column = 5;</code>
+     * @return The valueColumn.
+     */
+    java.lang.String getValueColumn();
+    /**
+     * <pre>
+     * Column name of value column
+     * </pre>
+     *
+     * <code>string value_column = 5;</code>
+     * @return The bytes for valueColumn.
+     */
+    com.google.protobuf.ByteString
+        getValueColumnBytes();
+
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    java.util.List<substrait_extension.PromqlPlan.LabelPair> 
+        getFakeLabelsList();
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    substrait_extension.PromqlPlan.LabelPair getFakeLabels(int index);
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    int getFakeLabelsCount();
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    java.util.List<? extends substrait_extension.PromqlPlan.LabelPairOrBuilder> 
+        getFakeLabelsOrBuilderList();
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    substrait_extension.PromqlPlan.LabelPairOrBuilder getFakeLabelsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code substrait_extension.Absent}
+   */
+  public static final class Absent extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.Absent)
+      AbsentOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Absent.newBuilder() to construct.
+    private Absent(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Absent() {
+      timeIndexColumn_ = "";
+      valueColumn_ = "";
+      fakeLabels_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Absent();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Absent(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              start_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              end_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              step_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timeIndexColumn_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              valueColumn_ = s;
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                fakeLabels_ = new java.util.ArrayList<substrait_extension.PromqlPlan.LabelPair>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              fakeLabels_.add(
+                  input.readMessage(substrait_extension.PromqlPlan.LabelPair.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          fakeLabels_ = java.util.Collections.unmodifiableList(fakeLabels_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_Absent_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_Absent_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.Absent.class, substrait_extension.PromqlPlan.Absent.Builder.class);
+    }
+
+    public static final int START_FIELD_NUMBER = 1;
+    private long start_;
+    /**
+     * <pre>
+     * Start timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    @java.lang.Override
+    public long getStart() {
+      return start_;
+    }
+
+    public static final int END_FIELD_NUMBER = 2;
+    private long end_;
+    /**
+     * <pre>
+     * End timestamp in millisecond
+     * </pre>
+     *
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    @java.lang.Override
+    public long getEnd() {
+      return end_;
+    }
+
+    public static final int STEP_FIELD_NUMBER = 3;
+    private long step_;
+    /**
+     * <pre>
+     * Step in millisecond
+     * </pre>
+     *
+     * <code>int64 step = 3;</code>
+     * @return The step.
+     */
+    @java.lang.Override
+    public long getStep() {
+      return step_;
+    }
+
+    public static final int TIME_INDEX_COLUMN_FIELD_NUMBER = 4;
+    private volatile java.lang.Object timeIndexColumn_;
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 4;</code>
+     * @return The timeIndexColumn.
+     */
+    @java.lang.Override
+    public java.lang.String getTimeIndexColumn() {
+      java.lang.Object ref = timeIndexColumn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeIndexColumn_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Column name of time index column
+     * </pre>
+     *
+     * <code>string time_index_column = 4;</code>
+     * @return The bytes for timeIndexColumn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTimeIndexColumnBytes() {
+      java.lang.Object ref = timeIndexColumn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeIndexColumn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_COLUMN_FIELD_NUMBER = 5;
+    private volatile java.lang.Object valueColumn_;
+    /**
+     * <pre>
+     * Column name of value column
+     * </pre>
+     *
+     * <code>string value_column = 5;</code>
+     * @return The valueColumn.
+     */
+    @java.lang.Override
+    public java.lang.String getValueColumn() {
+      java.lang.Object ref = valueColumn_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        valueColumn_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Column name of value column
+     * </pre>
+     *
+     * <code>string value_column = 5;</code>
+     * @return The bytes for valueColumn.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getValueColumnBytes() {
+      java.lang.Object ref = valueColumn_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        valueColumn_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FAKE_LABELS_FIELD_NUMBER = 6;
+    private java.util.List<substrait_extension.PromqlPlan.LabelPair> fakeLabels_;
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<substrait_extension.PromqlPlan.LabelPair> getFakeLabelsList() {
+      return fakeLabels_;
+    }
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends substrait_extension.PromqlPlan.LabelPairOrBuilder> 
+        getFakeLabelsOrBuilderList() {
+      return fakeLabels_;
+    }
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    @java.lang.Override
+    public int getFakeLabelsCount() {
+      return fakeLabels_.size();
+    }
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.LabelPair getFakeLabels(int index) {
+      return fakeLabels_.get(index);
+    }
+    /**
+     * <pre>
+     * Fake labels as key-value pairs
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+     */
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.LabelPairOrBuilder getFakeLabelsOrBuilder(
+        int index) {
+      return fakeLabels_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (start_ != 0L) {
+        output.writeInt64(1, start_);
+      }
+      if (end_ != 0L) {
+        output.writeInt64(2, end_);
+      }
+      if (step_ != 0L) {
+        output.writeInt64(3, step_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timeIndexColumn_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(valueColumn_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, valueColumn_);
+      }
+      for (int i = 0; i < fakeLabels_.size(); i++) {
+        output.writeMessage(6, fakeLabels_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (start_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, start_);
+      }
+      if (end_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, end_);
+      }
+      if (step_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, step_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timeIndexColumn_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(valueColumn_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, valueColumn_);
+      }
+      for (int i = 0; i < fakeLabels_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, fakeLabels_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.Absent)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.Absent other = (substrait_extension.PromqlPlan.Absent) obj;
+
+      if (getStart()
+          != other.getStart()) return false;
+      if (getEnd()
+          != other.getEnd()) return false;
+      if (getStep()
+          != other.getStep()) return false;
+      if (!getTimeIndexColumn()
+          .equals(other.getTimeIndexColumn())) return false;
+      if (!getValueColumn()
+          .equals(other.getValueColumn())) return false;
+      if (!getFakeLabelsList()
+          .equals(other.getFakeLabelsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + START_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStart());
+      hash = (37 * hash) + END_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEnd());
+      hash = (37 * hash) + STEP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStep());
+      hash = (37 * hash) + TIME_INDEX_COLUMN_FIELD_NUMBER;
+      hash = (53 * hash) + getTimeIndexColumn().hashCode();
+      hash = (37 * hash) + VALUE_COLUMN_FIELD_NUMBER;
+      hash = (53 * hash) + getValueColumn().hashCode();
+      if (getFakeLabelsCount() > 0) {
+        hash = (37 * hash) + FAKE_LABELS_FIELD_NUMBER;
+        hash = (53 * hash) + getFakeLabelsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.Absent parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.Absent prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.Absent}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.Absent)
+        substrait_extension.PromqlPlan.AbsentOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_Absent_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_Absent_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.Absent.class, substrait_extension.PromqlPlan.Absent.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.Absent.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFakeLabelsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        start_ = 0L;
+
+        end_ = 0L;
+
+        step_ = 0L;
+
+        timeIndexColumn_ = "";
+
+        valueColumn_ = "";
+
+        if (fakeLabelsBuilder_ == null) {
+          fakeLabels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          fakeLabelsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_Absent_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.Absent getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.Absent.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.Absent build() {
+        substrait_extension.PromqlPlan.Absent result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.Absent buildPartial() {
+        substrait_extension.PromqlPlan.Absent result = new substrait_extension.PromqlPlan.Absent(this);
+        int from_bitField0_ = bitField0_;
+        result.start_ = start_;
+        result.end_ = end_;
+        result.step_ = step_;
+        result.timeIndexColumn_ = timeIndexColumn_;
+        result.valueColumn_ = valueColumn_;
+        if (fakeLabelsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            fakeLabels_ = java.util.Collections.unmodifiableList(fakeLabels_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.fakeLabels_ = fakeLabels_;
+        } else {
+          result.fakeLabels_ = fakeLabelsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.Absent) {
+          return mergeFrom((substrait_extension.PromqlPlan.Absent)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.Absent other) {
+        if (other == substrait_extension.PromqlPlan.Absent.getDefaultInstance()) return this;
+        if (other.getStart() != 0L) {
+          setStart(other.getStart());
+        }
+        if (other.getEnd() != 0L) {
+          setEnd(other.getEnd());
+        }
+        if (other.getStep() != 0L) {
+          setStep(other.getStep());
+        }
+        if (!other.getTimeIndexColumn().isEmpty()) {
+          timeIndexColumn_ = other.timeIndexColumn_;
+          onChanged();
+        }
+        if (!other.getValueColumn().isEmpty()) {
+          valueColumn_ = other.valueColumn_;
+          onChanged();
+        }
+        if (fakeLabelsBuilder_ == null) {
+          if (!other.fakeLabels_.isEmpty()) {
+            if (fakeLabels_.isEmpty()) {
+              fakeLabels_ = other.fakeLabels_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureFakeLabelsIsMutable();
+              fakeLabels_.addAll(other.fakeLabels_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.fakeLabels_.isEmpty()) {
+            if (fakeLabelsBuilder_.isEmpty()) {
+              fakeLabelsBuilder_.dispose();
+              fakeLabelsBuilder_ = null;
+              fakeLabels_ = other.fakeLabels_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              fakeLabelsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFakeLabelsFieldBuilder() : null;
+            } else {
+              fakeLabelsBuilder_.addAllMessages(other.fakeLabels_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.Absent parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.Absent) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long start_ ;
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @return The start.
+       */
+      @java.lang.Override
+      public long getStart() {
+        return start_;
+      }
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @param value The start to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStart(long value) {
+        
+        start_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Start timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 start = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStart() {
+        
+        start_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long end_ ;
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @return The end.
+       */
+      @java.lang.Override
+      public long getEnd() {
+        return end_;
+      }
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @param value The end to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnd(long value) {
+        
+        end_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * End timestamp in millisecond
+       * </pre>
+       *
+       * <code>int64 end = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnd() {
+        
+        end_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long step_ ;
+      /**
+       * <pre>
+       * Step in millisecond
+       * </pre>
+       *
+       * <code>int64 step = 3;</code>
+       * @return The step.
+       */
+      @java.lang.Override
+      public long getStep() {
+        return step_;
+      }
+      /**
+       * <pre>
+       * Step in millisecond
+       * </pre>
+       *
+       * <code>int64 step = 3;</code>
+       * @param value The step to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStep(long value) {
+        
+        step_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Step in millisecond
+       * </pre>
+       *
+       * <code>int64 step = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStep() {
+        
+        step_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timeIndexColumn_ = "";
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 4;</code>
+       * @return The timeIndexColumn.
+       */
+      public java.lang.String getTimeIndexColumn() {
+        java.lang.Object ref = timeIndexColumn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timeIndexColumn_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 4;</code>
+       * @return The bytes for timeIndexColumn.
+       */
+      public com.google.protobuf.ByteString
+          getTimeIndexColumnBytes() {
+        java.lang.Object ref = timeIndexColumn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timeIndexColumn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 4;</code>
+       * @param value The timeIndexColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumn(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timeIndexColumn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexColumn() {
+        
+        timeIndexColumn_ = getDefaultInstance().getTimeIndexColumn();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of time index column
+       * </pre>
+       *
+       * <code>string time_index_column = 4;</code>
+       * @param value The bytes for timeIndexColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timeIndexColumn_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object valueColumn_ = "";
+      /**
+       * <pre>
+       * Column name of value column
+       * </pre>
+       *
+       * <code>string value_column = 5;</code>
+       * @return The valueColumn.
+       */
+      public java.lang.String getValueColumn() {
+        java.lang.Object ref = valueColumn_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          valueColumn_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of value column
+       * </pre>
+       *
+       * <code>string value_column = 5;</code>
+       * @return The bytes for valueColumn.
+       */
+      public com.google.protobuf.ByteString
+          getValueColumnBytes() {
+        java.lang.Object ref = valueColumn_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          valueColumn_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name of value column
+       * </pre>
+       *
+       * <code>string value_column = 5;</code>
+       * @param value The valueColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueColumn(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        valueColumn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of value column
+       * </pre>
+       *
+       * <code>string value_column = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValueColumn() {
+        
+        valueColumn_ = getDefaultInstance().getValueColumn();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name of value column
+       * </pre>
+       *
+       * <code>string value_column = 5;</code>
+       * @param value The bytes for valueColumn to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueColumnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        valueColumn_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<substrait_extension.PromqlPlan.LabelPair> fakeLabels_ =
+        java.util.Collections.emptyList();
+      private void ensureFakeLabelsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          fakeLabels_ = new java.util.ArrayList<substrait_extension.PromqlPlan.LabelPair>(fakeLabels_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          substrait_extension.PromqlPlan.LabelPair, substrait_extension.PromqlPlan.LabelPair.Builder, substrait_extension.PromqlPlan.LabelPairOrBuilder> fakeLabelsBuilder_;
+
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public java.util.List<substrait_extension.PromqlPlan.LabelPair> getFakeLabelsList() {
+        if (fakeLabelsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(fakeLabels_);
+        } else {
+          return fakeLabelsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public int getFakeLabelsCount() {
+        if (fakeLabelsBuilder_ == null) {
+          return fakeLabels_.size();
+        } else {
+          return fakeLabelsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public substrait_extension.PromqlPlan.LabelPair getFakeLabels(int index) {
+        if (fakeLabelsBuilder_ == null) {
+          return fakeLabels_.get(index);
+        } else {
+          return fakeLabelsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder setFakeLabels(
+          int index, substrait_extension.PromqlPlan.LabelPair value) {
+        if (fakeLabelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.set(index, value);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder setFakeLabels(
+          int index, substrait_extension.PromqlPlan.LabelPair.Builder builderForValue) {
+        if (fakeLabelsBuilder_ == null) {
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder addFakeLabels(substrait_extension.PromqlPlan.LabelPair value) {
+        if (fakeLabelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.add(value);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder addFakeLabels(
+          int index, substrait_extension.PromqlPlan.LabelPair value) {
+        if (fakeLabelsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.add(index, value);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder addFakeLabels(
+          substrait_extension.PromqlPlan.LabelPair.Builder builderForValue) {
+        if (fakeLabelsBuilder_ == null) {
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.add(builderForValue.build());
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder addFakeLabels(
+          int index, substrait_extension.PromqlPlan.LabelPair.Builder builderForValue) {
+        if (fakeLabelsBuilder_ == null) {
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder addAllFakeLabels(
+          java.lang.Iterable<? extends substrait_extension.PromqlPlan.LabelPair> values) {
+        if (fakeLabelsBuilder_ == null) {
+          ensureFakeLabelsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, fakeLabels_);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder clearFakeLabels() {
+        if (fakeLabelsBuilder_ == null) {
+          fakeLabels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public Builder removeFakeLabels(int index) {
+        if (fakeLabelsBuilder_ == null) {
+          ensureFakeLabelsIsMutable();
+          fakeLabels_.remove(index);
+          onChanged();
+        } else {
+          fakeLabelsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public substrait_extension.PromqlPlan.LabelPair.Builder getFakeLabelsBuilder(
+          int index) {
+        return getFakeLabelsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public substrait_extension.PromqlPlan.LabelPairOrBuilder getFakeLabelsOrBuilder(
+          int index) {
+        if (fakeLabelsBuilder_ == null) {
+          return fakeLabels_.get(index);  } else {
+          return fakeLabelsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public java.util.List<? extends substrait_extension.PromqlPlan.LabelPairOrBuilder> 
+           getFakeLabelsOrBuilderList() {
+        if (fakeLabelsBuilder_ != null) {
+          return fakeLabelsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(fakeLabels_);
+        }
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public substrait_extension.PromqlPlan.LabelPair.Builder addFakeLabelsBuilder() {
+        return getFakeLabelsFieldBuilder().addBuilder(
+            substrait_extension.PromqlPlan.LabelPair.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public substrait_extension.PromqlPlan.LabelPair.Builder addFakeLabelsBuilder(
+          int index) {
+        return getFakeLabelsFieldBuilder().addBuilder(
+            index, substrait_extension.PromqlPlan.LabelPair.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Fake labels as key-value pairs
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.LabelPair fake_labels = 6;</code>
+       */
+      public java.util.List<substrait_extension.PromqlPlan.LabelPair.Builder> 
+           getFakeLabelsBuilderList() {
+        return getFakeLabelsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          substrait_extension.PromqlPlan.LabelPair, substrait_extension.PromqlPlan.LabelPair.Builder, substrait_extension.PromqlPlan.LabelPairOrBuilder> 
+          getFakeLabelsFieldBuilder() {
+        if (fakeLabelsBuilder_ == null) {
+          fakeLabelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              substrait_extension.PromqlPlan.LabelPair, substrait_extension.PromqlPlan.LabelPair.Builder, substrait_extension.PromqlPlan.LabelPairOrBuilder>(
+                  fakeLabels_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          fakeLabels_ = null;
+        }
+        return fakeLabelsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.Absent)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.Absent)
+    private static final substrait_extension.PromqlPlan.Absent DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.Absent();
+    }
+
+    public static substrait_extension.PromqlPlan.Absent getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Absent>
+        PARSER = new com.google.protobuf.AbstractParser<Absent>() {
+      @java.lang.Override
+      public Absent parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Absent(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Absent> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Absent> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.Absent getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LabelPairOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.LabelPair)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string key = 1;</code>
+     * @return The key.
+     */
+    java.lang.String getKey();
+    /**
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
+     */
+    com.google.protobuf.ByteString
+        getKeyBytes();
+
+    /**
+     * <code>string value = 2;</code>
+     * @return The value.
+     */
+    java.lang.String getValue();
+    /**
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
+  }
+  /**
+   * Protobuf type {@code substrait_extension.LabelPair}
+   */
+  public static final class LabelPair extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.LabelPair)
+      LabelPairOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LabelPair.newBuilder() to construct.
+    private LabelPair(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LabelPair() {
+      key_ = "";
+      value_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new LabelPair();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LabelPair(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_LabelPair_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_LabelPair_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.LabelPair.class, substrait_extension.PromqlPlan.LabelPair.Builder.class);
+    }
+
+    public static final int KEY_FIELD_NUMBER = 1;
+    private volatile java.lang.Object key_;
+    /**
+     * <code>string key = 1;</code>
+     * @return The key.
+     */
+    @java.lang.Override
+    public java.lang.String getKey() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key = 1;</code>
+     * @return The bytes for key.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKeyBytes() {
+      java.lang.Object ref = key_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object value_;
+    /**
+     * <code>string value = 2;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public java.lang.String getValue() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        value_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string value = 2;</code>
+     * @return The bytes for value.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getValueBytes() {
+      java.lang.Object ref = value_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        value_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.LabelPair)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.LabelPair other = (substrait_extension.PromqlPlan.LabelPair) obj;
+
+      if (!getKey()
+          .equals(other.getKey())) return false;
+      if (!getValue()
+          .equals(other.getValue())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getKey().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getValue().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.LabelPair parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.LabelPair prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.LabelPair}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.LabelPair)
+        substrait_extension.PromqlPlan.LabelPairOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_LabelPair_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_LabelPair_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.LabelPair.class, substrait_extension.PromqlPlan.LabelPair.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.LabelPair.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        key_ = "";
+
+        value_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_LabelPair_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.LabelPair getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.LabelPair.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.LabelPair build() {
+        substrait_extension.PromqlPlan.LabelPair result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.LabelPair buildPartial() {
+        substrait_extension.PromqlPlan.LabelPair result = new substrait_extension.PromqlPlan.LabelPair(this);
+        result.key_ = key_;
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.LabelPair) {
+          return mergeFrom((substrait_extension.PromqlPlan.LabelPair)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.LabelPair other) {
+        if (other == substrait_extension.PromqlPlan.LabelPair.getDefaultInstance()) return this;
+        if (!other.getKey().isEmpty()) {
+          key_ = other.key_;
+          onChanged();
+        }
+        if (!other.getValue().isEmpty()) {
+          value_ = other.value_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.LabelPair parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.LabelPair) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object key_ = "";
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @param value The key to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKey() {
+        
+        key_ = getDefaultInstance().getKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @param value The bytes for key to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object value_ = "";
+      /**
+       * <code>string value = 2;</code>
+       * @return The value.
+       */
+      public java.lang.String getValue() {
+        java.lang.Object ref = value_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          value_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @return The bytes for value.
+       */
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        java.lang.Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string value = 2;</code>
+       * @param value The bytes for value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.LabelPair)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.LabelPair)
+    private static final substrait_extension.PromqlPlan.LabelPair DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.LabelPair();
+    }
+
+    public static substrait_extension.PromqlPlan.LabelPair getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LabelPair>
+        PARSER = new com.google.protobuf.AbstractParser<LabelPair>() {
+      @java.lang.Override
+      public LabelPair parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LabelPair(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LabelPair> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LabelPair> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.LabelPair getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_EmptyMetric_descriptor;
   private static final 
@@ -6474,6 +8746,16 @@ public final class PromqlPlan {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_Absent_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_Absent_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_LabelPair_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_LabelPair_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6499,9 +8781,14 @@ public final class PromqlPlan {
       "g_columns\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005st" +
       "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003" +
       "\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(" +
-      "\t\022\024\n\014field_column\030\007 \001(\tB?Z=github.com/Gr" +
-      "eptimeTeam/greptime-proto/go/substrait_e" +
-      "xtensionb\006proto3"
+      "\t\022\024\n\014field_column\030\007 \001(\t\"\230\001\n\006Absent\022\r\n\005st" +
+      "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\014\n\004step\030\003 \001(\003\022\031\n\021" +
+      "time_index_column\030\004 \001(\t\022\024\n\014value_column\030" +
+      "\005 \001(\t\0223\n\013fake_labels\030\006 \003(\0132\036.substrait_e" +
+      "xtension.LabelPair\"\'\n\tLabelPair\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\tB?Z=github.com/Grepti" +
+      "meTeam/greptime-proto/go/substrait_exten" +
+      "sionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6543,6 +8830,18 @@ public final class PromqlPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_ScalarCalculate_descriptor,
         new java.lang.String[] { "Start", "End", "Interval", "TimeIndex", "TagColumns", "FieldColumn", });
+    internal_static_substrait_extension_Absent_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_substrait_extension_Absent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_Absent_descriptor,
+        new java.lang.String[] { "Start", "End", "Step", "TimeIndexColumn", "ValueColumn", "FakeLabels", });
+    internal_static_substrait_extension_LabelPair_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_substrait_extension_LabelPair_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_LabelPair_descriptor,
+        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
