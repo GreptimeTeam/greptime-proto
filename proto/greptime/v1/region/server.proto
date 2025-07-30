@@ -151,12 +151,19 @@ message AlterRequest {
     DropDefaults drop_defaults = 12;
     SetIndexes set_indexes = 13;
     UnsetIndexes unset_indexes = 14;
+    SyncColumns sync_columns = 16;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
 }
 
-message AddColumns { repeated AddColumn add_columns = 1; }
+message SyncColumns {
+  repeated RegionColumnDef column_defs = 1;
+}
+
+message AddColumns {
+  repeated AddColumn add_columns = 1;
+}
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
 
