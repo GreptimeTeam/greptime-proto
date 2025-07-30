@@ -26,6 +26,7 @@ type ProcedureServiceClient interface {
 	Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error)
 	// Submits a DDL task
 	Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error)
+	// Submits a reconcile task
 	Reconcile(ctx context.Context, in *ReconcileRequest, opts ...grpc.CallOption) (*ReconcileResponse, error)
 	// Submits a region migration task
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
@@ -94,6 +95,7 @@ type ProcedureServiceServer interface {
 	Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error)
 	// Submits a DDL task
 	Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error)
+	// Submits a reconcile task
 	Reconcile(context.Context, *ReconcileRequest) (*ReconcileResponse, error)
 	// Submits a region migration task
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)

@@ -58,6 +58,7 @@ class ProcedureService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DdlTaskResponse>> PrepareAsyncddl(::grpc::ClientContext* context, const ::greptime::v1::meta::DdlTaskRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DdlTaskResponse>>(PrepareAsyncddlRaw(context, request, cq));
     }
+    // Submits a reconcile task
     virtual ::grpc::Status reconcile(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest& request, ::greptime::v1::meta::ReconcileResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ReconcileResponse>> Asyncreconcile(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ReconcileResponse>>(AsyncreconcileRaw(context, request, cq));
@@ -90,6 +91,7 @@ class ProcedureService final {
       // Submits a DDL task
       virtual void ddl(::grpc::ClientContext* context, const ::greptime::v1::meta::DdlTaskRequest* request, ::greptime::v1::meta::DdlTaskResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void ddl(::grpc::ClientContext* context, const ::greptime::v1::meta::DdlTaskRequest* request, ::greptime::v1::meta::DdlTaskResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Submits a reconcile task
       virtual void reconcile(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest* request, ::greptime::v1::meta::ReconcileResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void reconcile(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest* request, ::greptime::v1::meta::ReconcileResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Submits a region migration task
@@ -202,6 +204,7 @@ class ProcedureService final {
     virtual ::grpc::Status query(::grpc::ServerContext* context, const ::greptime::v1::meta::QueryProcedureRequest* request, ::greptime::v1::meta::ProcedureStateResponse* response);
     // Submits a DDL task
     virtual ::grpc::Status ddl(::grpc::ServerContext* context, const ::greptime::v1::meta::DdlTaskRequest* request, ::greptime::v1::meta::DdlTaskResponse* response);
+    // Submits a reconcile task
     virtual ::grpc::Status reconcile(::grpc::ServerContext* context, const ::greptime::v1::meta::ReconcileRequest* request, ::greptime::v1::meta::ReconcileResponse* response);
     // Submits a region migration task
     virtual ::grpc::Status migrate(::grpc::ServerContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response);

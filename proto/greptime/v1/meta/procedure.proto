@@ -87,6 +87,7 @@ service ProcedureService {
   // Submits a DDL task
   rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
 
+  // Submits a reconcile task
   rpc reconcile(ReconcileRequest) returns (ReconcileResponse);
 
   // Submits a region migration task
