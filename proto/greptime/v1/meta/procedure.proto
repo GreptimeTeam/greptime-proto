@@ -78,6 +78,7 @@ message ReconcileRequest {
 
 message ReconcileResponse {
   ResponseHeader header = 1;
+  ProcedureId pid = 2;
 }
 
 service ProcedureService {
