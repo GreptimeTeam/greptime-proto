@@ -352,7 +352,7 @@ message CreateTriggerExpr {
   map<string, string> labels = 6;
   // The user-defined annotations.
   map<string, string> annotations = 7;
-  google.protobuf.Duration duration = 8;
+  google.protobuf.Duration interval = 8;
 }
 
 // The notification channel for trigger.
