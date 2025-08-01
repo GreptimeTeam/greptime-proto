@@ -221,9 +221,8 @@ message TruncateRequest {
   }
 }
 
-/// Truncate all data in region
+// Truncate all data in region
 message All {}
-
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
