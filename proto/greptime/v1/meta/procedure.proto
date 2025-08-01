@@ -52,19 +52,30 @@ message ProcedureDetailResponse {
   repeated ProcedureMeta procedures = 2;
 }
 
+enum ResolveStrategy {
+  UseMetasrv = 0;
+  UseLatest = 1;
+  AbortOnConflict = 2;
+}
+
 message ReconcileTable {
   string catalog_name = 1;
   string schema_name = 2;
   string table_name = 3;
+  ResolveStrategy resolve_strategy = 4;
 }
 
 message ReconcileDatabase {
   string catalog_name = 1;
   string database_name = 2;
+  uint32 parallelism = 3;
+  ResolveStrategy resolve_strategy = 4;
 }
 
 message ReconcileCatalog {
   string catalog_name = 1;
+  uint32 parallelism = 2;
+  ResolveStrategy resolve_strategy = 3;
 }
 
 message ReconcileRequest {
