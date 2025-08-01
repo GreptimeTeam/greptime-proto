@@ -167,6 +167,123 @@ public final class Procedure {
     // @@protoc_insertion_point(enum_scope:greptime.v1.meta.ProcedureStatus)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.meta.ResolveStrategy}
+   */
+  public enum ResolveStrategy
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UseMetasrv = 0;</code>
+     */
+    UseMetasrv(0),
+    /**
+     * <code>UseLatest = 1;</code>
+     */
+    UseLatest(1),
+    /**
+     * <code>AbortOnConflict = 2;</code>
+     */
+    AbortOnConflict(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UseMetasrv = 0;</code>
+     */
+    public static final int UseMetasrv_VALUE = 0;
+    /**
+     * <code>UseLatest = 1;</code>
+     */
+    public static final int UseLatest_VALUE = 1;
+    /**
+     * <code>AbortOnConflict = 2;</code>
+     */
+    public static final int AbortOnConflict_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ResolveStrategy valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static ResolveStrategy forNumber(int value) {
+      switch (value) {
+        case 0: return UseMetasrv;
+        case 1: return UseLatest;
+        case 2: return AbortOnConflict;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ResolveStrategy>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ResolveStrategy> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ResolveStrategy>() {
+            public ResolveStrategy findValueByNumber(int number) {
+              return ResolveStrategy.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final ResolveStrategy[] VALUES = values();
+
+    public static ResolveStrategy valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ResolveStrategy(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.ResolveStrategy)
+  }
+
   public interface ProcedureMetaOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ProcedureMeta)
       com.google.protobuf.MessageOrBuilder {
@@ -4925,6 +5042,17 @@ public final class Procedure {
      */
     com.google.protobuf.ByteString
         getTableNameBytes();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ReconcileTable}
@@ -4942,6 +5070,7 @@ public final class Procedure {
       catalogName_ = "";
       schemaName_ = "";
       tableName_ = "";
+      resolveStrategy_ = 0;
     }
 
     @java.lang.Override
@@ -4990,6 +5119,12 @@ public final class Procedure {
               java.lang.String s = input.readStringRequireUtf8();
 
               tableName_ = s;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
               break;
             }
             default: {
@@ -5140,6 +5275,25 @@ public final class Procedure {
       }
     }
 
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 4;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5163,6 +5317,9 @@ public final class Procedure {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        output.writeEnum(4, resolveStrategy_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5180,6 +5337,10 @@ public final class Procedure {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, resolveStrategy_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5202,6 +5363,7 @@ public final class Procedure {
           .equals(other.getSchemaName())) return false;
       if (!getTableName()
           .equals(other.getTableName())) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5219,6 +5381,8 @@ public final class Procedure {
       hash = (53 * hash) + getSchemaName().hashCode();
       hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getTableName().hashCode();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5358,6 +5522,8 @@ public final class Procedure {
 
         tableName_ = "";
 
+        resolveStrategy_ = 0;
+
         return this;
       }
 
@@ -5387,6 +5553,7 @@ public final class Procedure {
         result.catalogName_ = catalogName_;
         result.schemaName_ = schemaName_;
         result.tableName_ = tableName_;
+        result.resolveStrategy_ = resolveStrategy_;
         onBuilt();
         return result;
       }
@@ -5446,6 +5613,9 @@ public final class Procedure {
         if (!other.getTableName().isEmpty()) {
           tableName_ = other.tableName_;
           onChanged();
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5703,6 +5873,60 @@ public final class Procedure {
         onChanged();
         return this;
       }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5783,6 +6007,23 @@ public final class Procedure {
      */
     com.google.protobuf.ByteString
         getDatabaseNameBytes();
+
+    /**
+     * <code>uint32 parallelism = 3;</code>
+     * @return The parallelism.
+     */
+    int getParallelism();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ReconcileDatabase}
@@ -5799,6 +6040,7 @@ public final class Procedure {
     private ReconcileDatabase() {
       catalogName_ = "";
       databaseName_ = "";
+      resolveStrategy_ = 0;
     }
 
     @java.lang.Override
@@ -5841,6 +6083,17 @@ public final class Procedure {
               java.lang.String s = input.readStringRequireUtf8();
 
               databaseName_ = s;
+              break;
+            }
+            case 24: {
+
+              parallelism_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
               break;
             }
             default: {
@@ -5953,6 +6206,36 @@ public final class Procedure {
       }
     }
 
+    public static final int PARALLELISM_FIELD_NUMBER = 3;
+    private int parallelism_;
+    /**
+     * <code>uint32 parallelism = 3;</code>
+     * @return The parallelism.
+     */
+    @java.lang.Override
+    public int getParallelism() {
+      return parallelism_;
+    }
+
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 4;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5973,6 +6256,12 @@ public final class Procedure {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, databaseName_);
       }
+      if (parallelism_ != 0) {
+        output.writeUInt32(3, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        output.writeEnum(4, resolveStrategy_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5987,6 +6276,14 @@ public final class Procedure {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, databaseName_);
+      }
+      if (parallelism_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, resolveStrategy_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6007,6 +6304,9 @@ public final class Procedure {
           .equals(other.getCatalogName())) return false;
       if (!getDatabaseName()
           .equals(other.getDatabaseName())) return false;
+      if (getParallelism()
+          != other.getParallelism()) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6022,6 +6322,10 @@ public final class Procedure {
       hash = (53 * hash) + getCatalogName().hashCode();
       hash = (37 * hash) + DATABASE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getDatabaseName().hashCode();
+      hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
+      hash = (53 * hash) + getParallelism();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6159,6 +6463,10 @@ public final class Procedure {
 
         databaseName_ = "";
 
+        parallelism_ = 0;
+
+        resolveStrategy_ = 0;
+
         return this;
       }
 
@@ -6187,6 +6495,8 @@ public final class Procedure {
         greptime.v1.meta.Procedure.ReconcileDatabase result = new greptime.v1.meta.Procedure.ReconcileDatabase(this);
         result.catalogName_ = catalogName_;
         result.databaseName_ = databaseName_;
+        result.parallelism_ = parallelism_;
+        result.resolveStrategy_ = resolveStrategy_;
         onBuilt();
         return result;
       }
@@ -6242,6 +6552,12 @@ public final class Procedure {
         if (!other.getDatabaseName().isEmpty()) {
           databaseName_ = other.databaseName_;
           onChanged();
+        }
+        if (other.getParallelism() != 0) {
+          setParallelism(other.getParallelism());
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6423,6 +6739,91 @@ public final class Procedure {
         onChanged();
         return this;
       }
+
+      private int parallelism_ ;
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @return The parallelism.
+       */
+      @java.lang.Override
+      public int getParallelism() {
+        return parallelism_;
+      }
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @param value The parallelism to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParallelism(int value) {
+        
+        parallelism_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParallelism() {
+        
+        parallelism_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6491,6 +6892,23 @@ public final class Procedure {
      */
     com.google.protobuf.ByteString
         getCatalogNameBytes();
+
+    /**
+     * <code>uint32 parallelism = 2;</code>
+     * @return The parallelism.
+     */
+    int getParallelism();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ReconcileCatalog}
@@ -6506,6 +6924,7 @@ public final class Procedure {
     }
     private ReconcileCatalog() {
       catalogName_ = "";
+      resolveStrategy_ = 0;
     }
 
     @java.lang.Override
@@ -6542,6 +6961,17 @@ public final class Procedure {
               java.lang.String s = input.readStringRequireUtf8();
 
               catalogName_ = s;
+              break;
+            }
+            case 16: {
+
+              parallelism_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
               break;
             }
             default: {
@@ -6616,6 +7046,36 @@ public final class Procedure {
       }
     }
 
+    public static final int PARALLELISM_FIELD_NUMBER = 2;
+    private int parallelism_;
+    /**
+     * <code>uint32 parallelism = 2;</code>
+     * @return The parallelism.
+     */
+    @java.lang.Override
+    public int getParallelism() {
+      return parallelism_;
+    }
+
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 3;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6633,6 +7093,12 @@ public final class Procedure {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
       }
+      if (parallelism_ != 0) {
+        output.writeUInt32(2, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        output.writeEnum(3, resolveStrategy_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6644,6 +7110,14 @@ public final class Procedure {
       size = 0;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (parallelism_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, resolveStrategy_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6662,6 +7136,9 @@ public final class Procedure {
 
       if (!getCatalogName()
           .equals(other.getCatalogName())) return false;
+      if (getParallelism()
+          != other.getParallelism()) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6675,6 +7152,10 @@ public final class Procedure {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
+      hash = (53 * hash) + getParallelism();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6810,6 +7291,10 @@ public final class Procedure {
         super.clear();
         catalogName_ = "";
 
+        parallelism_ = 0;
+
+        resolveStrategy_ = 0;
+
         return this;
       }
 
@@ -6837,6 +7322,8 @@ public final class Procedure {
       public greptime.v1.meta.Procedure.ReconcileCatalog buildPartial() {
         greptime.v1.meta.Procedure.ReconcileCatalog result = new greptime.v1.meta.Procedure.ReconcileCatalog(this);
         result.catalogName_ = catalogName_;
+        result.parallelism_ = parallelism_;
+        result.resolveStrategy_ = resolveStrategy_;
         onBuilt();
         return result;
       }
@@ -6888,6 +7375,12 @@ public final class Procedure {
         if (!other.getCatalogName().isEmpty()) {
           catalogName_ = other.catalogName_;
           onChanged();
+        }
+        if (other.getParallelism() != 0) {
+          setParallelism(other.getParallelism());
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6990,6 +7483,91 @@ public final class Procedure {
   checkByteStringIsUtf8(value);
         
         catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int parallelism_ ;
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @return The parallelism.
+       */
+      @java.lang.Override
+      public int getParallelism() {
+        return parallelism_;
+      }
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @param value The parallelism to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParallelism(int value) {
+        
+        parallelism_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParallelism() {
+        
+        parallelism_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
         onChanged();
         return this;
       }
@@ -8448,6 +9026,21 @@ public final class Procedure {
      * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
      */
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
+     */
+    boolean hasPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    greptime.v1.meta.Common.ProcedureId getPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.ReconcileResponse}
@@ -8503,6 +9096,19 @@ public final class Procedure {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(header_);
                 header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              greptime.v1.meta.Common.ProcedureId.Builder subBuilder = null;
+              if (pid_ != null) {
+                subBuilder = pid_.toBuilder();
+              }
+              pid_ = input.readMessage(greptime.v1.meta.Common.ProcedureId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pid_);
+                pid_ = subBuilder.buildPartial();
               }
 
               break;
@@ -8567,6 +9173,32 @@ public final class Procedure {
       return getHeader();
     }
 
+    public static final int PID_FIELD_NUMBER = 2;
+    private greptime.v1.meta.Common.ProcedureId pid_;
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
+     */
+    @java.lang.Override
+    public boolean hasPid() {
+      return pid_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureId getPid() {
+      return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+      return getPid();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8584,6 +9216,9 @@ public final class Procedure {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
+      if (pid_ != null) {
+        output.writeMessage(2, getPid());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8596,6 +9231,10 @@ public final class Procedure {
       if (header_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
+      }
+      if (pid_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getPid());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8617,6 +9256,11 @@ public final class Procedure {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
+      if (hasPid() != other.hasPid()) return false;
+      if (hasPid()) {
+        if (!getPid()
+            .equals(other.getPid())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -8631,6 +9275,10 @@ public final class Procedure {
       if (hasHeader()) {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
+      }
+      if (hasPid()) {
+        hash = (37 * hash) + PID_FIELD_NUMBER;
+        hash = (53 * hash) + getPid().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8771,6 +9419,12 @@ public final class Procedure {
           header_ = null;
           headerBuilder_ = null;
         }
+        if (pidBuilder_ == null) {
+          pid_ = null;
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
         return this;
       }
 
@@ -8801,6 +9455,11 @@ public final class Procedure {
           result.header_ = header_;
         } else {
           result.header_ = headerBuilder_.build();
+        }
+        if (pidBuilder_ == null) {
+          result.pid_ = pid_;
+        } else {
+          result.pid_ = pidBuilder_.build();
         }
         onBuilt();
         return result;
@@ -8852,6 +9511,9 @@ public final class Procedure {
         if (other == greptime.v1.meta.Procedure.ReconcileResponse.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
+        }
+        if (other.hasPid()) {
+          mergePid(other.getPid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9000,6 +9662,125 @@ public final class Procedure {
         }
         return headerBuilder_;
       }
+
+      private greptime.v1.meta.Common.ProcedureId pid_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return Whether the pid field is set.
+       */
+      public boolean hasPid() {
+        return pidBuilder_ != null || pid_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return The pid.
+       */
+      public greptime.v1.meta.Common.ProcedureId getPid() {
+        if (pidBuilder_ == null) {
+          return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        } else {
+          return pidBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder setPid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pid_ = value;
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder setPid(
+          greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
+        if (pidBuilder_ == null) {
+          pid_ = builderForValue.build();
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder mergePid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (pid_ != null) {
+            pid_ =
+              greptime.v1.meta.Common.ProcedureId.newBuilder(pid_).mergeFrom(value).buildPartial();
+          } else {
+            pid_ = value;
+          }
+          onChanged();
+        } else {
+          pidBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder clearPid() {
+        if (pidBuilder_ == null) {
+          pid_ = null;
+          onChanged();
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureId.Builder getPidBuilder() {
+        
+        onChanged();
+        return getPidFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+        if (pidBuilder_ != null) {
+          return pidBuilder_.getMessageOrBuilder();
+        } else {
+          return pid_ == null ?
+              greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
+          getPidFieldBuilder() {
+        if (pidBuilder_ == null) {
+          pidBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder>(
+                  getPid(),
+                  getParentForChildren(),
+                  isClean());
+          pid_ = null;
+        }
+        return pidBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9132,37 +9913,45 @@ public final class Procedure {
       "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h" +
       "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
       "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1." +
-      "meta.ProcedureMeta\"O\n\016ReconcileTable\022\024\n\014" +
-      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
-      "\022\n\ntable_name\030\003 \001(\t\"@\n\021ReconcileDatabase" +
-      "\022\024\n\014catalog_name\030\001 \001(\t\022\025\n\rdatabase_name\030" +
-      "\002 \001(\t\"(\n\020ReconcileCatalog\022\024\n\014catalog_nam" +
-      "e\030\001 \001(\t\"\216\002\n\020ReconcileRequest\022/\n\006header\030\001" +
-      " \001(\0132\037.greptime.v1.meta.RequestHeader\022;\n" +
-      "\017reconcile_table\030\002 \001(\0132 .greptime.v1.met" +
-      "a.ReconcileTableH\000\022A\n\022reconcile_database" +
-      "\030\003 \001(\0132#.greptime.v1.meta.ReconcileDatab" +
-      "aseH\000\022?\n\021reconcile_catalog\030\004 \001(\0132\".grept" +
-      "ime.v1.meta.ReconcileCatalogH\000B\010\n\006target" +
-      "\"E\n\021ReconcileResponse\0220\n\006header\030\001 \001(\0132 ." +
-      "greptime.v1.meta.ResponseHeader*v\n\017Proce" +
-      "dureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Ret" +
-      "rying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004" +
-      "\022\017\n\013RollingBack\020\005\022\014\n\010Poisoned\020\0062\314\003\n\020Proc" +
-      "edureService\022Z\n\005query\022\'.greptime.v1.meta" +
-      ".QueryProcedureRequest\032(.greptime.v1.met" +
-      "a.ProcedureStateResponse\022J\n\003ddl\022 .grepti" +
-      "me.v1.meta.DdlTaskRequest\032!.greptime.v1." +
-      "meta.DdlTaskResponse\022T\n\treconcile\022\".grep" +
-      "time.v1.meta.ReconcileRequest\032#.greptime" +
-      ".v1.meta.ReconcileResponse\022Z\n\007migrate\022&." +
-      "greptime.v1.meta.MigrateRegionRequest\032\'." +
-      "greptime.v1.meta.MigrateRegionResponse\022^" +
-      "\n\007details\022(.greptime.v1.meta.ProcedureDe" +
-      "tailRequest\032).greptime.v1.meta.Procedure" +
-      "DetailResponseB<Z:github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1/metab\006pr" +
-      "oto3"
+      "meta.ProcedureMeta\"\214\001\n\016ReconcileTable\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022;\n\020resolve_strategy" +
+      "\030\004 \001(\0162!.greptime.v1.meta.ResolveStrateg" +
+      "y\"\222\001\n\021ReconcileDatabase\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\023\n\013parallel" +
+      "ism\030\003 \001(\r\022;\n\020resolve_strategy\030\004 \001(\0162!.gr" +
+      "eptime.v1.meta.ResolveStrategy\"z\n\020Reconc" +
+      "ileCatalog\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013para" +
+      "llelism\030\002 \001(\r\022;\n\020resolve_strategy\030\003 \001(\0162" +
+      "!.greptime.v1.meta.ResolveStrategy\"\216\002\n\020R" +
+      "econcileRequest\022/\n\006header\030\001 \001(\0132\037.grepti" +
+      "me.v1.meta.RequestHeader\022;\n\017reconcile_ta" +
+      "ble\030\002 \001(\0132 .greptime.v1.meta.ReconcileTa" +
+      "bleH\000\022A\n\022reconcile_database\030\003 \001(\0132#.grep" +
+      "time.v1.meta.ReconcileDatabaseH\000\022?\n\021reco" +
+      "ncile_catalog\030\004 \001(\0132\".greptime.v1.meta.R" +
+      "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
+      "me.v1.meta.ProcedureId*v\n\017ProcedureStatu" +
+      "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n" +
+      "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli" +
+      "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg" +
+      "y\022\016\n\nUseMetasrv\020\000\022\r\n\tUseLatest\020\001\022\023\n\017Abor" +
+      "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu" +
+      "ery\022\'.greptime.v1.meta.QueryProcedureReq" +
+      "uest\032(.greptime.v1.meta.ProcedureStateRe" +
+      "sponse\022J\n\003ddl\022 .greptime.v1.meta.DdlTask" +
+      "Request\032!.greptime.v1.meta.DdlTaskRespon" +
+      "se\022T\n\treconcile\022\".greptime.v1.meta.Recon" +
+      "cileRequest\032#.greptime.v1.meta.Reconcile" +
+      "Response\022Z\n\007migrate\022&.greptime.v1.meta.M" +
+      "igrateRegionRequest\032\'.greptime.v1.meta.M" +
+      "igrateRegionResponse\022^\n\007details\022(.grepti" +
+      "me.v1.meta.ProcedureDetailRequest\032).grep" +
+      "time.v1.meta.ProcedureDetailResponseB<Z:" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9206,19 +9995,19 @@ public final class Procedure {
     internal_static_greptime_v1_meta_ReconcileTable_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ReconcileTable_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "ResolveStrategy", });
     internal_static_greptime_v1_meta_ReconcileDatabase_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_ReconcileDatabase_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ReconcileDatabase_descriptor,
-        new java.lang.String[] { "CatalogName", "DatabaseName", });
+        new java.lang.String[] { "CatalogName", "DatabaseName", "Parallelism", "ResolveStrategy", });
     internal_static_greptime_v1_meta_ReconcileCatalog_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_ReconcileCatalog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ReconcileCatalog_descriptor,
-        new java.lang.String[] { "CatalogName", });
+        new java.lang.String[] { "CatalogName", "Parallelism", "ResolveStrategy", });
     internal_static_greptime_v1_meta_ReconcileRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_ReconcileRequest_fieldAccessorTable = new
@@ -9230,7 +10019,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_ReconcileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ReconcileResponse_descriptor,
-        new java.lang.String[] { "Header", });
+        new java.lang.String[] { "Header", "Pid", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Ddl.getDescriptor();
     greptime.v1.meta.Region.getDescriptor();

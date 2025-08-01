@@ -130,6 +130,32 @@ inline bool ProcedureStatus_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ProcedureStatus>(
     ProcedureStatus_descriptor(), name, value);
 }
+enum ResolveStrategy : int {
+  UseMetasrv = 0,
+  UseLatest = 1,
+  AbortOnConflict = 2,
+  ResolveStrategy_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  ResolveStrategy_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool ResolveStrategy_IsValid(int value);
+constexpr ResolveStrategy ResolveStrategy_MIN = UseMetasrv;
+constexpr ResolveStrategy ResolveStrategy_MAX = AbortOnConflict;
+constexpr int ResolveStrategy_ARRAYSIZE = ResolveStrategy_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ResolveStrategy_descriptor();
+template<typename T>
+inline const std::string& ResolveStrategy_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ResolveStrategy>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ResolveStrategy_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ResolveStrategy_descriptor(), enum_t_value);
+}
+inline bool ResolveStrategy_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ResolveStrategy* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ResolveStrategy>(
+    ResolveStrategy_descriptor(), name, value);
+}
 // ===================================================================
 
 class ProcedureMeta final :
@@ -1199,6 +1225,7 @@ class ReconcileTable final :
     kCatalogNameFieldNumber = 1,
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
+    kResolveStrategyFieldNumber = 4,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1242,6 +1269,15 @@ class ReconcileTable final :
   std::string* _internal_mutable_table_name();
   public:
 
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileTable)
  private:
   class _Internal;
@@ -1253,6 +1289,7 @@ class ReconcileTable final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
+    int resolve_strategy_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1383,6 +1420,8 @@ class ReconcileDatabase final :
   enum : int {
     kCatalogNameFieldNumber = 1,
     kDatabaseNameFieldNumber = 2,
+    kParallelismFieldNumber = 3,
+    kResolveStrategyFieldNumber = 4,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1412,6 +1451,24 @@ class ReconcileDatabase final :
   std::string* _internal_mutable_database_name();
   public:
 
+  // uint32 parallelism = 3;
+  void clear_parallelism();
+  uint32_t parallelism() const;
+  void set_parallelism(uint32_t value);
+  private:
+  uint32_t _internal_parallelism() const;
+  void _internal_set_parallelism(uint32_t value);
+  public:
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileDatabase)
  private:
   class _Internal;
@@ -1422,6 +1479,8 @@ class ReconcileDatabase final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr database_name_;
+    uint32_t parallelism_;
+    int resolve_strategy_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1551,6 +1610,8 @@ class ReconcileCatalog final :
 
   enum : int {
     kCatalogNameFieldNumber = 1,
+    kParallelismFieldNumber = 2,
+    kResolveStrategyFieldNumber = 3,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -1566,6 +1627,24 @@ class ReconcileCatalog final :
   std::string* _internal_mutable_catalog_name();
   public:
 
+  // uint32 parallelism = 2;
+  void clear_parallelism();
+  uint32_t parallelism() const;
+  void set_parallelism(uint32_t value);
+  private:
+  uint32_t _internal_parallelism() const;
+  void _internal_set_parallelism(uint32_t value);
+  public:
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileCatalog)
  private:
   class _Internal;
@@ -1575,6 +1654,8 @@ class ReconcileCatalog final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    uint32_t parallelism_;
+    int resolve_strategy_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1942,6 +2023,7 @@ class ReconcileResponse final :
 
   enum : int {
     kHeaderFieldNumber = 1,
+    kPidFieldNumber = 2,
   };
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
@@ -1961,6 +2043,24 @@ class ReconcileResponse final :
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
 
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  bool has_pid() const;
+  private:
+  bool _internal_has_pid() const;
+  public:
+  void clear_pid();
+  const ::greptime::v1::meta::ProcedureId& pid() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureId* release_pid();
+  ::greptime::v1::meta::ProcedureId* mutable_pid();
+  void set_allocated_pid(::greptime::v1::meta::ProcedureId* pid);
+  private:
+  const ::greptime::v1::meta::ProcedureId& _internal_pid() const;
+  ::greptime::v1::meta::ProcedureId* _internal_mutable_pid();
+  public:
+  void unsafe_arena_set_allocated_pid(
+      ::greptime::v1::meta::ProcedureId* pid);
+  ::greptime::v1::meta::ProcedureId* unsafe_arena_release_pid();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileResponse)
  private:
   class _Internal;
@@ -1970,6 +2070,7 @@ class ReconcileResponse final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::meta::ResponseHeader* header_;
+    ::greptime::v1::meta::ProcedureId* pid_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3011,6 +3112,26 @@ inline void ReconcileTable::set_allocated_table_name(std::string* table_name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileTable.table_name)
 }
 
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+inline void ReconcileTable::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileTable::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileTable::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileTable.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileTable::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileTable::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileTable.resolve_strategy)
+}
+
 // -------------------------------------------------------------------
 
 // ReconcileDatabase
@@ -3115,6 +3236,46 @@ inline void ReconcileDatabase::set_allocated_database_name(std::string* database
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileDatabase.database_name)
 }
 
+// uint32 parallelism = 3;
+inline void ReconcileDatabase::clear_parallelism() {
+  _impl_.parallelism_ = 0u;
+}
+inline uint32_t ReconcileDatabase::_internal_parallelism() const {
+  return _impl_.parallelism_;
+}
+inline uint32_t ReconcileDatabase::parallelism() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.parallelism)
+  return _internal_parallelism();
+}
+inline void ReconcileDatabase::_internal_set_parallelism(uint32_t value) {
+  
+  _impl_.parallelism_ = value;
+}
+inline void ReconcileDatabase::set_parallelism(uint32_t value) {
+  _internal_set_parallelism(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.parallelism)
+}
+
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+inline void ReconcileDatabase::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileDatabase::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileDatabase::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileDatabase::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileDatabase::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.resolve_strategy)
+}
+
 // -------------------------------------------------------------------
 
 // ReconcileCatalog
@@ -3167,6 +3328,46 @@ inline void ReconcileCatalog::set_allocated_catalog_name(std::string* catalog_na
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileCatalog.catalog_name)
+}
+
+// uint32 parallelism = 2;
+inline void ReconcileCatalog::clear_parallelism() {
+  _impl_.parallelism_ = 0u;
+}
+inline uint32_t ReconcileCatalog::_internal_parallelism() const {
+  return _impl_.parallelism_;
+}
+inline uint32_t ReconcileCatalog::parallelism() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileCatalog.parallelism)
+  return _internal_parallelism();
+}
+inline void ReconcileCatalog::_internal_set_parallelism(uint32_t value) {
+  
+  _impl_.parallelism_ = value;
+}
+inline void ReconcileCatalog::set_parallelism(uint32_t value) {
+  _internal_set_parallelism(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileCatalog.parallelism)
+}
+
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+inline void ReconcileCatalog::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileCatalog::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileCatalog::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileCatalog.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileCatalog::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileCatalog::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileCatalog.resolve_strategy)
 }
 
 // -------------------------------------------------------------------
@@ -3578,6 +3779,91 @@ inline void ReconcileResponse::set_allocated_header(::greptime::v1::meta::Respon
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileResponse.header)
 }
 
+// .greptime.v1.meta.ProcedureId pid = 2;
+inline bool ReconcileResponse::_internal_has_pid() const {
+  return this != internal_default_instance() && _impl_.pid_ != nullptr;
+}
+inline bool ReconcileResponse::has_pid() const {
+  return _internal_has_pid();
+}
+inline const ::greptime::v1::meta::ProcedureId& ReconcileResponse::_internal_pid() const {
+  const ::greptime::v1::meta::ProcedureId* p = _impl_.pid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureId&>(
+      ::greptime::v1::meta::_ProcedureId_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureId& ReconcileResponse::pid() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileResponse.pid)
+  return _internal_pid();
+}
+inline void ReconcileResponse::unsafe_arena_set_allocated_pid(
+    ::greptime::v1::meta::ProcedureId* pid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  _impl_.pid_ = pid;
+  if (pid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileResponse.pid)
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::release_pid() {
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::unsafe_arena_release_pid() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileResponse.pid)
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::_internal_mutable_pid() {
+  
+  if (_impl_.pid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureId>(GetArenaForAllocation());
+    _impl_.pid_ = p;
+  }
+  return _impl_.pid_;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::mutable_pid() {
+  ::greptime::v1::meta::ProcedureId* _msg = _internal_mutable_pid();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileResponse.pid)
+  return _msg;
+}
+inline void ReconcileResponse::set_allocated_pid(::greptime::v1::meta::ProcedureId* pid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  if (pid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pid));
+    if (message_arena != submessage_arena) {
+      pid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.pid_ = pid;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileResponse.pid)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -3612,6 +3898,11 @@ template <> struct is_proto_enum< ::greptime::v1::meta::ProcedureStatus> : ::std
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::ProcedureStatus>() {
   return ::greptime::v1::meta::ProcedureStatus_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::meta::ResolveStrategy> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::ResolveStrategy>() {
+  return ::greptime::v1::meta::ResolveStrategy_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

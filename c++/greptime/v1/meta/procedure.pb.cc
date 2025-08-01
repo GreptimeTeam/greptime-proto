@@ -103,6 +103,7 @@ PROTOBUF_CONSTEXPR ReconcileTable::ReconcileTable(
     /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.resolve_strategy_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReconcileTableDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ReconcileTableDefaultTypeInternal()
@@ -117,6 +118,8 @@ PROTOBUF_CONSTEXPR ReconcileDatabase::ReconcileDatabase(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.database_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.parallelism_)*/0u
+  , /*decltype(_impl_.resolve_strategy_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReconcileDatabaseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ReconcileDatabaseDefaultTypeInternal()
@@ -130,6 +133,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ReconcileCatalog::ReconcileCatalog(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.parallelism_)*/0u
+  , /*decltype(_impl_.resolve_strategy_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReconcileCatalogDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ReconcileCatalogDefaultTypeInternal()
@@ -158,6 +163,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ReconcileResponse::ReconcileResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.pid_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ReconcileResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ReconcileResponseDefaultTypeInternal()
@@ -172,7 +178,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[1];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto = nullptr;
 
 const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -230,6 +236,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.catalog_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.schema_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.table_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.resolve_strategy_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -238,6 +245,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.catalog_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.database_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.parallelism_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.resolve_strategy_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -245,6 +254,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _impl_.catalog_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _impl_.parallelism_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _impl_.resolve_strategy_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -263,6 +274,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _impl_.pid_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::ProcedureMeta)},
@@ -271,10 +283,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 30, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
   { 37, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
   { 45, -1, -1, sizeof(::greptime::v1::meta::ReconcileTable)},
-  { 54, -1, -1, sizeof(::greptime::v1::meta::ReconcileDatabase)},
-  { 62, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
-  { 69, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
-  { 80, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
+  { 55, -1, -1, sizeof(::greptime::v1::meta::ReconcileDatabase)},
+  { 65, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
+  { 74, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
+  { 85, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -311,37 +323,45 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h"
   "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH"
   "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1."
-  "meta.ProcedureMeta\"O\n\016ReconcileTable\022\024\n\014"
-  "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022"
-  "\022\n\ntable_name\030\003 \001(\t\"@\n\021ReconcileDatabase"
-  "\022\024\n\014catalog_name\030\001 \001(\t\022\025\n\rdatabase_name\030"
-  "\002 \001(\t\"(\n\020ReconcileCatalog\022\024\n\014catalog_nam"
-  "e\030\001 \001(\t\"\216\002\n\020ReconcileRequest\022/\n\006header\030\001"
-  " \001(\0132\037.greptime.v1.meta.RequestHeader\022;\n"
-  "\017reconcile_table\030\002 \001(\0132 .greptime.v1.met"
-  "a.ReconcileTableH\000\022A\n\022reconcile_database"
-  "\030\003 \001(\0132#.greptime.v1.meta.ReconcileDatab"
-  "aseH\000\022\?\n\021reconcile_catalog\030\004 \001(\0132\".grept"
-  "ime.v1.meta.ReconcileCatalogH\000B\010\n\006target"
-  "\"E\n\021ReconcileResponse\0220\n\006header\030\001 \001(\0132 ."
-  "greptime.v1.meta.ResponseHeader*v\n\017Proce"
-  "dureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Ret"
-  "rying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004"
-  "\022\017\n\013RollingBack\020\005\022\014\n\010Poisoned\020\0062\314\003\n\020Proc"
-  "edureService\022Z\n\005query\022\'.greptime.v1.meta"
-  ".QueryProcedureRequest\032(.greptime.v1.met"
-  "a.ProcedureStateResponse\022J\n\003ddl\022 .grepti"
-  "me.v1.meta.DdlTaskRequest\032!.greptime.v1."
-  "meta.DdlTaskResponse\022T\n\treconcile\022\".grep"
-  "time.v1.meta.ReconcileRequest\032#.greptime"
-  ".v1.meta.ReconcileResponse\022Z\n\007migrate\022&."
-  "greptime.v1.meta.MigrateRegionRequest\032\'."
-  "greptime.v1.meta.MigrateRegionResponse\022^"
-  "\n\007details\022(.greptime.v1.meta.ProcedureDe"
-  "tailRequest\032).greptime.v1.meta.Procedure"
-  "DetailResponseB<Z:github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1/metab\006pr"
-  "oto3"
+  "meta.ProcedureMeta\"\214\001\n\016ReconcileTable\022\024\n"
+  "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t"
+  "\022\022\n\ntable_name\030\003 \001(\t\022;\n\020resolve_strategy"
+  "\030\004 \001(\0162!.greptime.v1.meta.ResolveStrateg"
+  "y\"\222\001\n\021ReconcileDatabase\022\024\n\014catalog_name\030"
+  "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\023\n\013parallel"
+  "ism\030\003 \001(\r\022;\n\020resolve_strategy\030\004 \001(\0162!.gr"
+  "eptime.v1.meta.ResolveStrategy\"z\n\020Reconc"
+  "ileCatalog\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013para"
+  "llelism\030\002 \001(\r\022;\n\020resolve_strategy\030\003 \001(\0162"
+  "!.greptime.v1.meta.ResolveStrategy\"\216\002\n\020R"
+  "econcileRequest\022/\n\006header\030\001 \001(\0132\037.grepti"
+  "me.v1.meta.RequestHeader\022;\n\017reconcile_ta"
+  "ble\030\002 \001(\0132 .greptime.v1.meta.ReconcileTa"
+  "bleH\000\022A\n\022reconcile_database\030\003 \001(\0132#.grep"
+  "time.v1.meta.ReconcileDatabaseH\000\022\?\n\021reco"
+  "ncile_catalog\030\004 \001(\0132\".greptime.v1.meta.R"
+  "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile"
+  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
+  "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti"
+  "me.v1.meta.ProcedureId*v\n\017ProcedureStatu"
+  "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n"
+  "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli"
+  "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg"
+  "y\022\016\n\nUseMetasrv\020\000\022\r\n\tUseLatest\020\001\022\023\n\017Abor"
+  "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu"
+  "ery\022\'.greptime.v1.meta.QueryProcedureReq"
+  "uest\032(.greptime.v1.meta.ProcedureStateRe"
+  "sponse\022J\n\003ddl\022 .greptime.v1.meta.DdlTask"
+  "Request\032!.greptime.v1.meta.DdlTaskRespon"
+  "se\022T\n\treconcile\022\".greptime.v1.meta.Recon"
+  "cileRequest\032#.greptime.v1.meta.Reconcile"
+  "Response\022Z\n\007migrate\022&.greptime.v1.meta.M"
+  "igrateRegionRequest\032\'.greptime.v1.meta.M"
+  "igrateRegionResponse\022^\n\007details\022(.grepti"
+  "me.v1.meta.ProcedureDetailRequest\032).grep"
+  "time.v1.meta.ProcedureDetailResponseB<Z:"
+  "github.com/GreptimeTeam/greptime-proto/g"
+  "o/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -350,7 +370,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 2004, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 2346, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
@@ -379,6 +399,21 @@ bool ProcedureStatus_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ResolveStrategy_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto);
+  return file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[1];
+}
+bool ResolveStrategy_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -1799,6 +1834,7 @@ ReconcileTable::ReconcileTable(const ReconcileTable& from)
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
+    , decltype(_impl_.resolve_strategy_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1826,6 +1862,7 @@ ReconcileTable::ReconcileTable(const ReconcileTable& from)
     _this->_impl_.table_name_.Set(from._internal_table_name(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.resolve_strategy_ = from._impl_.resolve_strategy_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileTable)
 }
 
@@ -1837,6 +1874,7 @@ inline void ReconcileTable::SharedCtor(
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
+    , decltype(_impl_.resolve_strategy_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
@@ -1882,6 +1920,7 @@ void ReconcileTable::Clear() {
   _impl_.catalog_name_.ClearToEmpty();
   _impl_.schema_name_.ClearToEmpty();
   _impl_.table_name_.ClearToEmpty();
+  _impl_.resolve_strategy_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1918,6 +1957,15 @@ const char* ReconcileTable::_InternalParse(const char* ptr, ::_pbi::ParseContext
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileTable.table_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_resolve_strategy(static_cast<::greptime::v1::meta::ResolveStrategy>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1980,6 +2028,13 @@ uint8_t* ReconcileTable::_InternalSerialize(
         3, this->_internal_table_name(), target);
   }
 
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  if (this->_internal_resolve_strategy() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_resolve_strategy(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2017,6 +2072,12 @@ size_t ReconcileTable::ByteSizeLong() const {
         this->_internal_table_name());
   }
 
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  if (this->_internal_resolve_strategy() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_resolve_strategy());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2043,6 +2104,9 @@ void ReconcileTable::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   if (!from._internal_table_name().empty()) {
     _this->_internal_set_table_name(from._internal_table_name());
+  }
+  if (from._internal_resolve_strategy() != 0) {
+    _this->_internal_set_resolve_strategy(from._internal_resolve_strategy());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2075,6 +2139,7 @@ void ReconcileTable::InternalSwap(ReconcileTable* other) {
       &_impl_.table_name_, lhs_arena,
       &other->_impl_.table_name_, rhs_arena
   );
+  swap(_impl_.resolve_strategy_, other->_impl_.resolve_strategy_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileTable::GetMetadata() const {
@@ -2101,6 +2166,8 @@ ReconcileDatabase::ReconcileDatabase(const ReconcileDatabase& from)
   new (&_impl_) Impl_{
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.database_name_){}
+    , decltype(_impl_.parallelism_){}
+    , decltype(_impl_.resolve_strategy_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2120,6 +2187,9 @@ ReconcileDatabase::ReconcileDatabase(const ReconcileDatabase& from)
     _this->_impl_.database_name_.Set(from._internal_database_name(), 
       _this->GetArenaForAllocation());
   }
+  ::memcpy(&_impl_.parallelism_, &from._impl_.parallelism_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.resolve_strategy_) -
+    reinterpret_cast<char*>(&_impl_.parallelism_)) + sizeof(_impl_.resolve_strategy_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileDatabase)
 }
 
@@ -2130,6 +2200,8 @@ inline void ReconcileDatabase::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.catalog_name_){}
     , decltype(_impl_.database_name_){}
+    , decltype(_impl_.parallelism_){0u}
+    , decltype(_impl_.resolve_strategy_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
@@ -2169,6 +2241,9 @@ void ReconcileDatabase::Clear() {
 
   _impl_.catalog_name_.ClearToEmpty();
   _impl_.database_name_.ClearToEmpty();
+  ::memset(&_impl_.parallelism_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.resolve_strategy_) -
+      reinterpret_cast<char*>(&_impl_.parallelism_)) + sizeof(_impl_.resolve_strategy_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2195,6 +2270,23 @@ const char* ReconcileDatabase::_InternalParse(const char* ptr, ::_pbi::ParseCont
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileDatabase.database_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 parallelism = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.parallelism_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_resolve_strategy(static_cast<::greptime::v1::meta::ResolveStrategy>(val));
         } else
           goto handle_unusual;
         continue;
@@ -2247,6 +2339,19 @@ uint8_t* ReconcileDatabase::_InternalSerialize(
         2, this->_internal_database_name(), target);
   }
 
+  // uint32 parallelism = 3;
+  if (this->_internal_parallelism() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_parallelism(), target);
+  }
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  if (this->_internal_resolve_strategy() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      4, this->_internal_resolve_strategy(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2277,6 +2382,17 @@ size_t ReconcileDatabase::ByteSizeLong() const {
         this->_internal_database_name());
   }
 
+  // uint32 parallelism = 3;
+  if (this->_internal_parallelism() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_parallelism());
+  }
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  if (this->_internal_resolve_strategy() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_resolve_strategy());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2300,6 +2416,12 @@ void ReconcileDatabase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   }
   if (!from._internal_database_name().empty()) {
     _this->_internal_set_database_name(from._internal_database_name());
+  }
+  if (from._internal_parallelism() != 0) {
+    _this->_internal_set_parallelism(from._internal_parallelism());
+  }
+  if (from._internal_resolve_strategy() != 0) {
+    _this->_internal_set_resolve_strategy(from._internal_resolve_strategy());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2328,6 +2450,12 @@ void ReconcileDatabase::InternalSwap(ReconcileDatabase* other) {
       &_impl_.database_name_, lhs_arena,
       &other->_impl_.database_name_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ReconcileDatabase, _impl_.resolve_strategy_)
+      + sizeof(ReconcileDatabase::_impl_.resolve_strategy_)
+      - PROTOBUF_FIELD_OFFSET(ReconcileDatabase, _impl_.parallelism_)>(
+          reinterpret_cast<char*>(&_impl_.parallelism_),
+          reinterpret_cast<char*>(&other->_impl_.parallelism_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileDatabase::GetMetadata() const {
@@ -2353,6 +2481,8 @@ ReconcileCatalog::ReconcileCatalog(const ReconcileCatalog& from)
   ReconcileCatalog* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.parallelism_){}
+    , decltype(_impl_.resolve_strategy_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2364,6 +2494,9 @@ ReconcileCatalog::ReconcileCatalog(const ReconcileCatalog& from)
     _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
       _this->GetArenaForAllocation());
   }
+  ::memcpy(&_impl_.parallelism_, &from._impl_.parallelism_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.resolve_strategy_) -
+    reinterpret_cast<char*>(&_impl_.parallelism_)) + sizeof(_impl_.resolve_strategy_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileCatalog)
 }
 
@@ -2373,6 +2506,8 @@ inline void ReconcileCatalog::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.parallelism_){0u}
+    , decltype(_impl_.resolve_strategy_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_name_.InitDefault();
@@ -2406,6 +2541,9 @@ void ReconcileCatalog::Clear() {
   (void) cached_has_bits;
 
   _impl_.catalog_name_.ClearToEmpty();
+  ::memset(&_impl_.parallelism_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.resolve_strategy_) -
+      reinterpret_cast<char*>(&_impl_.parallelism_)) + sizeof(_impl_.resolve_strategy_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2422,6 +2560,23 @@ const char* ReconcileCatalog::_InternalParse(const char* ptr, ::_pbi::ParseConte
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileCatalog.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 parallelism = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.parallelism_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_resolve_strategy(static_cast<::greptime::v1::meta::ResolveStrategy>(val));
         } else
           goto handle_unusual;
         continue;
@@ -2464,6 +2619,19 @@ uint8_t* ReconcileCatalog::_InternalSerialize(
         1, this->_internal_catalog_name(), target);
   }
 
+  // uint32 parallelism = 2;
+  if (this->_internal_parallelism() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_parallelism(), target);
+  }
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+  if (this->_internal_resolve_strategy() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_resolve_strategy(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2487,6 +2655,17 @@ size_t ReconcileCatalog::ByteSizeLong() const {
         this->_internal_catalog_name());
   }
 
+  // uint32 parallelism = 2;
+  if (this->_internal_parallelism() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_parallelism());
+  }
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+  if (this->_internal_resolve_strategy() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_resolve_strategy());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2507,6 +2686,12 @@ void ReconcileCatalog::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
 
   if (!from._internal_catalog_name().empty()) {
     _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  if (from._internal_parallelism() != 0) {
+    _this->_internal_set_parallelism(from._internal_parallelism());
+  }
+  if (from._internal_resolve_strategy() != 0) {
+    _this->_internal_set_resolve_strategy(from._internal_resolve_strategy());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2531,6 +2716,12 @@ void ReconcileCatalog::InternalSwap(ReconcileCatalog* other) {
       &_impl_.catalog_name_, lhs_arena,
       &other->_impl_.catalog_name_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ReconcileCatalog, _impl_.resolve_strategy_)
+      + sizeof(ReconcileCatalog::_impl_.resolve_strategy_)
+      - PROTOBUF_FIELD_OFFSET(ReconcileCatalog, _impl_.parallelism_)>(
+          reinterpret_cast<char*>(&_impl_.parallelism_),
+          reinterpret_cast<char*>(&other->_impl_.parallelism_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileCatalog::GetMetadata() const {
@@ -2955,17 +3146,28 @@ void ReconcileRequest::InternalSwap(ReconcileRequest* other) {
 class ReconcileResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const ReconcileResponse* msg);
+  static const ::greptime::v1::meta::ProcedureId& pid(const ReconcileResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
 ReconcileResponse::_Internal::header(const ReconcileResponse* msg) {
   return *msg->_impl_.header_;
 }
+const ::greptime::v1::meta::ProcedureId&
+ReconcileResponse::_Internal::pid(const ReconcileResponse* msg) {
+  return *msg->_impl_.pid_;
+}
 void ReconcileResponse::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+}
+void ReconcileResponse::clear_pid() {
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
 }
 ReconcileResponse::ReconcileResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2978,11 +3180,15 @@ ReconcileResponse::ReconcileResponse(const ReconcileResponse& from)
   ReconcileResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_pid()) {
+    _this->_impl_.pid_ = new ::greptime::v1::meta::ProcedureId(*from._impl_.pid_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileResponse)
 }
@@ -2993,6 +3199,7 @@ inline void ReconcileResponse::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -3009,6 +3216,7 @@ ReconcileResponse::~ReconcileResponse() {
 inline void ReconcileResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.pid_;
 }
 
 void ReconcileResponse::SetCachedSize(int size) const {
@@ -3025,6 +3233,10 @@ void ReconcileResponse::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3038,6 +3250,14 @@ const char* ReconcileResponse::_InternalParse(const char* ptr, ::_pbi::ParseCont
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureId pid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pid(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3078,6 +3298,13 @@ uint8_t* ReconcileResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::pid(this),
+        _Internal::pid(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3099,6 +3326,13 @@ size_t ReconcileResponse::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.pid_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -3123,6 +3357,10 @@ void ReconcileResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
     _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
         from._internal_header());
   }
+  if (from._internal_has_pid()) {
+    _this->_internal_mutable_pid()->::greptime::v1::meta::ProcedureId::MergeFrom(
+        from._internal_pid());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -3140,7 +3378,12 @@ bool ReconcileResponse::IsInitialized() const {
 void ReconcileResponse::InternalSwap(ReconcileResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.header_, other->_impl_.header_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(ReconcileResponse, _impl_.pid_)
+      + sizeof(ReconcileResponse::_impl_.pid_)
+      - PROTOBUF_FIELD_OFFSET(ReconcileResponse, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileResponse::GetMetadata() const {
