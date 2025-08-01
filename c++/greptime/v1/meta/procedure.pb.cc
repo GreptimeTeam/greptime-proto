@@ -98,10 +98,80 @@ struct ProcedureDetailResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureDetailResponseDefaultTypeInternal _ProcedureDetailResponse_default_instance_;
+PROTOBUF_CONSTEXPR ReconcileTable::ReconcileTable(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ReconcileTableDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ReconcileTableDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ReconcileTableDefaultTypeInternal() {}
+  union {
+    ReconcileTable _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileTableDefaultTypeInternal _ReconcileTable_default_instance_;
+PROTOBUF_CONSTEXPR ReconcileDatabase::ReconcileDatabase(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.database_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ReconcileDatabaseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ReconcileDatabaseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ReconcileDatabaseDefaultTypeInternal() {}
+  union {
+    ReconcileDatabase _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileDatabaseDefaultTypeInternal _ReconcileDatabase_default_instance_;
+PROTOBUF_CONSTEXPR ReconcileCatalog::ReconcileCatalog(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ReconcileCatalogDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ReconcileCatalogDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ReconcileCatalogDefaultTypeInternal() {}
+  union {
+    ReconcileCatalog _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileCatalogDefaultTypeInternal _ReconcileCatalog_default_instance_;
+PROTOBUF_CONSTEXPR ReconcileRequest::ReconcileRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.target_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct ReconcileRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ReconcileRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ReconcileRequestDefaultTypeInternal() {}
+  union {
+    ReconcileRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileRequestDefaultTypeInternal _ReconcileRequest_default_instance_;
+PROTOBUF_CONSTEXPR ReconcileResponse::ReconcileResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ReconcileResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ReconcileResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ReconcileResponseDefaultTypeInternal() {}
+  union {
+    ReconcileResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileResponseDefaultTypeInternal _ReconcileResponse_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[5];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto = nullptr;
 
@@ -151,6 +221,48 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureDetailResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureDetailResponse, _impl_.procedures_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.catalog_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.schema_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileTable, _impl_.table_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.catalog_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileDatabase, _impl_.database_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileCatalog, _impl_.catalog_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileRequest, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileRequest, _impl_.header_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileRequest, _impl_.target_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _impl_.header_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::ProcedureMeta)},
@@ -158,6 +270,11 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 21, -1, -1, sizeof(::greptime::v1::meta::ProcedureStateResponse)},
   { 30, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
   { 37, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
+  { 45, -1, -1, sizeof(::greptime::v1::meta::ReconcileTable)},
+  { 54, -1, -1, sizeof(::greptime::v1::meta::ReconcileDatabase)},
+  { 62, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
+  { 69, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
+  { 80, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -166,6 +283,11 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_ProcedureStateResponse_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureDetailRequest_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureDetailResponse_default_instance_._instance,
+  &::greptime::v1::meta::_ReconcileTable_default_instance_._instance,
+  &::greptime::v1::meta::_ReconcileDatabase_default_instance_._instance,
+  &::greptime::v1::meta::_ReconcileCatalog_default_instance_._instance,
+  &::greptime::v1::meta::_ReconcileRequest_default_instance_._instance,
+  &::greptime::v1::meta::_ReconcileResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -189,21 +311,37 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h"
   "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH"
   "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1."
-  "meta.ProcedureMeta*v\n\017ProcedureStatus\022\013\n"
-  "\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Fa"
-  "iled\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013RollingBa"
-  "ck\020\005\022\014\n\010Poisoned\020\0062\366\002\n\020ProcedureService\022"
-  "Z\n\005query\022\'.greptime.v1.meta.QueryProcedu"
-  "reRequest\032(.greptime.v1.meta.ProcedureSt"
-  "ateResponse\022J\n\003ddl\022 .greptime.v1.meta.Dd"
-  "lTaskRequest\032!.greptime.v1.meta.DdlTaskR"
-  "esponse\022Z\n\007migrate\022&.greptime.v1.meta.Mi"
-  "grateRegionRequest\032\'.greptime.v1.meta.Mi"
-  "grateRegionResponse\022^\n\007details\022(.greptim"
-  "e.v1.meta.ProcedureDetailRequest\032).grept"
-  "ime.v1.meta.ProcedureDetailResponseB<Z:g"
-  "ithub.com/GreptimeTeam/greptime-proto/go"
-  "/greptime/v1/metab\006proto3"
+  "meta.ProcedureMeta\"O\n\016ReconcileTable\022\024\n\014"
+  "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022"
+  "\022\n\ntable_name\030\003 \001(\t\"@\n\021ReconcileDatabase"
+  "\022\024\n\014catalog_name\030\001 \001(\t\022\025\n\rdatabase_name\030"
+  "\002 \001(\t\"(\n\020ReconcileCatalog\022\024\n\014catalog_nam"
+  "e\030\001 \001(\t\"\216\002\n\020ReconcileRequest\022/\n\006header\030\001"
+  " \001(\0132\037.greptime.v1.meta.RequestHeader\022;\n"
+  "\017reconcile_table\030\002 \001(\0132 .greptime.v1.met"
+  "a.ReconcileTableH\000\022A\n\022reconcile_database"
+  "\030\003 \001(\0132#.greptime.v1.meta.ReconcileDatab"
+  "aseH\000\022\?\n\021reconcile_catalog\030\004 \001(\0132\".grept"
+  "ime.v1.meta.ReconcileCatalogH\000B\010\n\006target"
+  "\"E\n\021ReconcileResponse\0220\n\006header\030\001 \001(\0132 ."
+  "greptime.v1.meta.ResponseHeader*v\n\017Proce"
+  "dureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Ret"
+  "rying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004"
+  "\022\017\n\013RollingBack\020\005\022\014\n\010Poisoned\020\0062\314\003\n\020Proc"
+  "edureService\022Z\n\005query\022\'.greptime.v1.meta"
+  ".QueryProcedureRequest\032(.greptime.v1.met"
+  "a.ProcedureStateResponse\022J\n\003ddl\022 .grepti"
+  "me.v1.meta.DdlTaskRequest\032!.greptime.v1."
+  "meta.DdlTaskResponse\022T\n\treconcile\022\".grep"
+  "time.v1.meta.ReconcileRequest\032#.greptime"
+  ".v1.meta.ReconcileResponse\022Z\n\007migrate\022&."
+  "greptime.v1.meta.MigrateRegionRequest\032\'."
+  "greptime.v1.meta.MigrateRegionResponse\022^"
+  "\n\007details\022(.greptime.v1.meta.ProcedureDe"
+  "tailRequest\032).greptime.v1.meta.Procedure"
+  "DetailResponseB<Z:github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1/metab\006pr"
+  "oto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -212,9 +350,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 1385, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 2004, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 5,
+    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
@@ -1642,6 +1780,1375 @@ void ProcedureDetailResponse::InternalSwap(ProcedureDetailResponse* other) {
       file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[4]);
 }
 
+// ===================================================================
+
+class ReconcileTable::_Internal {
+ public:
+};
+
+ReconcileTable::ReconcileTable(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ReconcileTable)
+}
+ReconcileTable::ReconcileTable(const ReconcileTable& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReconcileTable* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.schema_name_){}
+    , decltype(_impl_.table_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog_name().empty()) {
+    _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.schema_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_schema_name().empty()) {
+    _this->_impl_.schema_name_.Set(from._internal_schema_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_table_name().empty()) {
+    _this->_impl_.table_name_.Set(from._internal_table_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileTable)
+}
+
+inline void ReconcileTable::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.schema_name_){}
+    , decltype(_impl_.table_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.schema_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ReconcileTable::~ReconcileTable() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ReconcileTable)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ReconcileTable::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_name_.Destroy();
+  _impl_.schema_name_.Destroy();
+  _impl_.table_name_.Destroy();
+}
+
+void ReconcileTable::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ReconcileTable::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ReconcileTable)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_name_.ClearToEmpty();
+  _impl_.schema_name_.ClearToEmpty();
+  _impl_.table_name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReconcileTable::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileTable.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string schema_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_schema_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileTable.schema_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string table_name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_table_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileTable.table_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ReconcileTable::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ReconcileTable)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog_name().data(), static_cast<int>(this->_internal_catalog_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileTable.catalog_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog_name(), target);
+  }
+
+  // string schema_name = 2;
+  if (!this->_internal_schema_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_schema_name().data(), static_cast<int>(this->_internal_schema_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileTable.schema_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_schema_name(), target);
+  }
+
+  // string table_name = 3;
+  if (!this->_internal_table_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_table_name().data(), static_cast<int>(this->_internal_table_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileTable.table_name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_table_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ReconcileTable)
+  return target;
+}
+
+size_t ReconcileTable::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ReconcileTable)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog_name());
+  }
+
+  // string schema_name = 2;
+  if (!this->_internal_schema_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_schema_name());
+  }
+
+  // string table_name = 3;
+  if (!this->_internal_table_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_table_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReconcileTable::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ReconcileTable::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReconcileTable::GetClassData() const { return &_class_data_; }
+
+
+void ReconcileTable::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReconcileTable*>(&to_msg);
+  auto& from = static_cast<const ReconcileTable&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ReconcileTable)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog_name().empty()) {
+    _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  if (!from._internal_schema_name().empty()) {
+    _this->_internal_set_schema_name(from._internal_schema_name());
+  }
+  if (!from._internal_table_name().empty()) {
+    _this->_internal_set_table_name(from._internal_table_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ReconcileTable::CopyFrom(const ReconcileTable& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ReconcileTable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReconcileTable::IsInitialized() const {
+  return true;
+}
+
+void ReconcileTable::InternalSwap(ReconcileTable* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_name_, lhs_arena,
+      &other->_impl_.catalog_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.schema_name_, lhs_arena,
+      &other->_impl_.schema_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.table_name_, lhs_arena,
+      &other->_impl_.table_name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReconcileTable::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[5]);
+}
+
+// ===================================================================
+
+class ReconcileDatabase::_Internal {
+ public:
+};
+
+ReconcileDatabase::ReconcileDatabase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ReconcileDatabase)
+}
+ReconcileDatabase::ReconcileDatabase(const ReconcileDatabase& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReconcileDatabase* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.database_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog_name().empty()) {
+    _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.database_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.database_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_database_name().empty()) {
+    _this->_impl_.database_name_.Set(from._internal_database_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileDatabase)
+}
+
+inline void ReconcileDatabase::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , decltype(_impl_.database_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.database_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.database_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ReconcileDatabase::~ReconcileDatabase() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ReconcileDatabase)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ReconcileDatabase::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_name_.Destroy();
+  _impl_.database_name_.Destroy();
+}
+
+void ReconcileDatabase::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ReconcileDatabase::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ReconcileDatabase)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_name_.ClearToEmpty();
+  _impl_.database_name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReconcileDatabase::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileDatabase.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string database_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_database_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileDatabase.database_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ReconcileDatabase::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ReconcileDatabase)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog_name().data(), static_cast<int>(this->_internal_catalog_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileDatabase.catalog_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog_name(), target);
+  }
+
+  // string database_name = 2;
+  if (!this->_internal_database_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_database_name().data(), static_cast<int>(this->_internal_database_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileDatabase.database_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_database_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ReconcileDatabase)
+  return target;
+}
+
+size_t ReconcileDatabase::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ReconcileDatabase)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog_name());
+  }
+
+  // string database_name = 2;
+  if (!this->_internal_database_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_database_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReconcileDatabase::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ReconcileDatabase::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReconcileDatabase::GetClassData() const { return &_class_data_; }
+
+
+void ReconcileDatabase::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReconcileDatabase*>(&to_msg);
+  auto& from = static_cast<const ReconcileDatabase&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ReconcileDatabase)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog_name().empty()) {
+    _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  if (!from._internal_database_name().empty()) {
+    _this->_internal_set_database_name(from._internal_database_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ReconcileDatabase::CopyFrom(const ReconcileDatabase& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ReconcileDatabase)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReconcileDatabase::IsInitialized() const {
+  return true;
+}
+
+void ReconcileDatabase::InternalSwap(ReconcileDatabase* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_name_, lhs_arena,
+      &other->_impl_.catalog_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.database_name_, lhs_arena,
+      &other->_impl_.database_name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReconcileDatabase::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[6]);
+}
+
+// ===================================================================
+
+class ReconcileCatalog::_Internal {
+ public:
+};
+
+ReconcileCatalog::ReconcileCatalog(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ReconcileCatalog)
+}
+ReconcileCatalog::ReconcileCatalog(const ReconcileCatalog& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReconcileCatalog* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog_name().empty()) {
+    _this->_impl_.catalog_name_.Set(from._internal_catalog_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileCatalog)
+}
+
+inline void ReconcileCatalog::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ReconcileCatalog::~ReconcileCatalog() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ReconcileCatalog)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ReconcileCatalog::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_name_.Destroy();
+}
+
+void ReconcileCatalog::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ReconcileCatalog::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ReconcileCatalog)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReconcileCatalog::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ReconcileCatalog.catalog_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ReconcileCatalog::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ReconcileCatalog)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog_name().data(), static_cast<int>(this->_internal_catalog_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ReconcileCatalog.catalog_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ReconcileCatalog)
+  return target;
+}
+
+size_t ReconcileCatalog::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ReconcileCatalog)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog_name = 1;
+  if (!this->_internal_catalog_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReconcileCatalog::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ReconcileCatalog::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReconcileCatalog::GetClassData() const { return &_class_data_; }
+
+
+void ReconcileCatalog::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReconcileCatalog*>(&to_msg);
+  auto& from = static_cast<const ReconcileCatalog&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ReconcileCatalog)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog_name().empty()) {
+    _this->_internal_set_catalog_name(from._internal_catalog_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ReconcileCatalog::CopyFrom(const ReconcileCatalog& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ReconcileCatalog)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReconcileCatalog::IsInitialized() const {
+  return true;
+}
+
+void ReconcileCatalog::InternalSwap(ReconcileCatalog* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_name_, lhs_arena,
+      &other->_impl_.catalog_name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReconcileCatalog::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[7]);
+}
+
+// ===================================================================
+
+class ReconcileRequest::_Internal {
+ public:
+  static const ::greptime::v1::meta::RequestHeader& header(const ReconcileRequest* msg);
+  static const ::greptime::v1::meta::ReconcileTable& reconcile_table(const ReconcileRequest* msg);
+  static const ::greptime::v1::meta::ReconcileDatabase& reconcile_database(const ReconcileRequest* msg);
+  static const ::greptime::v1::meta::ReconcileCatalog& reconcile_catalog(const ReconcileRequest* msg);
+};
+
+const ::greptime::v1::meta::RequestHeader&
+ReconcileRequest::_Internal::header(const ReconcileRequest* msg) {
+  return *msg->_impl_.header_;
+}
+const ::greptime::v1::meta::ReconcileTable&
+ReconcileRequest::_Internal::reconcile_table(const ReconcileRequest* msg) {
+  return *msg->_impl_.target_.reconcile_table_;
+}
+const ::greptime::v1::meta::ReconcileDatabase&
+ReconcileRequest::_Internal::reconcile_database(const ReconcileRequest* msg) {
+  return *msg->_impl_.target_.reconcile_database_;
+}
+const ::greptime::v1::meta::ReconcileCatalog&
+ReconcileRequest::_Internal::reconcile_catalog(const ReconcileRequest* msg) {
+  return *msg->_impl_.target_.reconcile_catalog_;
+}
+void ReconcileRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+void ReconcileRequest::set_allocated_reconcile_table(::greptime::v1::meta::ReconcileTable* reconcile_table) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_target();
+  if (reconcile_table) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(reconcile_table);
+    if (message_arena != submessage_arena) {
+      reconcile_table = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, reconcile_table, submessage_arena);
+    }
+    set_has_reconcile_table();
+    _impl_.target_.reconcile_table_ = reconcile_table;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_table)
+}
+void ReconcileRequest::set_allocated_reconcile_database(::greptime::v1::meta::ReconcileDatabase* reconcile_database) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_target();
+  if (reconcile_database) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(reconcile_database);
+    if (message_arena != submessage_arena) {
+      reconcile_database = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, reconcile_database, submessage_arena);
+    }
+    set_has_reconcile_database();
+    _impl_.target_.reconcile_database_ = reconcile_database;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_database)
+}
+void ReconcileRequest::set_allocated_reconcile_catalog(::greptime::v1::meta::ReconcileCatalog* reconcile_catalog) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_target();
+  if (reconcile_catalog) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(reconcile_catalog);
+    if (message_arena != submessage_arena) {
+      reconcile_catalog = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, reconcile_catalog, submessage_arena);
+    }
+    set_has_reconcile_catalog();
+    _impl_.target_.reconcile_catalog_ = reconcile_catalog;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+}
+ReconcileRequest::ReconcileRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ReconcileRequest)
+}
+ReconcileRequest::ReconcileRequest(const ReconcileRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReconcileRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.target_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
+  }
+  clear_has_target();
+  switch (from.target_case()) {
+    case kReconcileTable: {
+      _this->_internal_mutable_reconcile_table()->::greptime::v1::meta::ReconcileTable::MergeFrom(
+          from._internal_reconcile_table());
+      break;
+    }
+    case kReconcileDatabase: {
+      _this->_internal_mutable_reconcile_database()->::greptime::v1::meta::ReconcileDatabase::MergeFrom(
+          from._internal_reconcile_database());
+      break;
+    }
+    case kReconcileCatalog: {
+      _this->_internal_mutable_reconcile_catalog()->::greptime::v1::meta::ReconcileCatalog::MergeFrom(
+          from._internal_reconcile_catalog());
+      break;
+    }
+    case TARGET_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileRequest)
+}
+
+inline void ReconcileRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.target_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_target();
+}
+
+ReconcileRequest::~ReconcileRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ReconcileRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ReconcileRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.header_;
+  if (has_target()) {
+    clear_target();
+  }
+}
+
+void ReconcileRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ReconcileRequest::clear_target() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.meta.ReconcileRequest)
+  switch (target_case()) {
+    case kReconcileTable: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.target_.reconcile_table_;
+      }
+      break;
+    }
+    case kReconcileDatabase: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.target_.reconcile_database_;
+      }
+      break;
+    }
+    case kReconcileCatalog: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.target_.reconcile_catalog_;
+      }
+      break;
+    }
+    case TARGET_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = TARGET_NOT_SET;
+}
+
+
+void ReconcileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ReconcileRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  clear_target();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReconcileRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.RequestHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ReconcileTable reconcile_table = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_reconcile_table(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ReconcileDatabase reconcile_database = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_reconcile_database(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_reconcile_catalog(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ReconcileRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ReconcileRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ReconcileTable reconcile_table = 2;
+  if (_internal_has_reconcile_table()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::reconcile_table(this),
+        _Internal::reconcile_table(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ReconcileDatabase reconcile_database = 3;
+  if (_internal_has_reconcile_database()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::reconcile_database(this),
+        _Internal::reconcile_database(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;
+  if (_internal_has_reconcile_catalog()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::reconcile_catalog(this),
+        _Internal::reconcile_catalog(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ReconcileRequest)
+  return target;
+}
+
+size_t ReconcileRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ReconcileRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  switch (target_case()) {
+    // .greptime.v1.meta.ReconcileTable reconcile_table = 2;
+    case kReconcileTable: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.target_.reconcile_table_);
+      break;
+    }
+    // .greptime.v1.meta.ReconcileDatabase reconcile_database = 3;
+    case kReconcileDatabase: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.target_.reconcile_database_);
+      break;
+    }
+    // .greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;
+    case kReconcileCatalog: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.target_.reconcile_catalog_);
+      break;
+    }
+    case TARGET_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReconcileRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ReconcileRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReconcileRequest::GetClassData() const { return &_class_data_; }
+
+
+void ReconcileRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReconcileRequest*>(&to_msg);
+  auto& from = static_cast<const ReconcileRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ReconcileRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
+        from._internal_header());
+  }
+  switch (from.target_case()) {
+    case kReconcileTable: {
+      _this->_internal_mutable_reconcile_table()->::greptime::v1::meta::ReconcileTable::MergeFrom(
+          from._internal_reconcile_table());
+      break;
+    }
+    case kReconcileDatabase: {
+      _this->_internal_mutable_reconcile_database()->::greptime::v1::meta::ReconcileDatabase::MergeFrom(
+          from._internal_reconcile_database());
+      break;
+    }
+    case kReconcileCatalog: {
+      _this->_internal_mutable_reconcile_catalog()->::greptime::v1::meta::ReconcileCatalog::MergeFrom(
+          from._internal_reconcile_catalog());
+      break;
+    }
+    case TARGET_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ReconcileRequest::CopyFrom(const ReconcileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ReconcileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReconcileRequest::IsInitialized() const {
+  return true;
+}
+
+void ReconcileRequest::InternalSwap(ReconcileRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.header_, other->_impl_.header_);
+  swap(_impl_.target_, other->_impl_.target_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReconcileRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[8]);
+}
+
+// ===================================================================
+
+class ReconcileResponse::_Internal {
+ public:
+  static const ::greptime::v1::meta::ResponseHeader& header(const ReconcileResponse* msg);
+};
+
+const ::greptime::v1::meta::ResponseHeader&
+ReconcileResponse::_Internal::header(const ReconcileResponse* msg) {
+  return *msg->_impl_.header_;
+}
+void ReconcileResponse::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+ReconcileResponse::ReconcileResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ReconcileResponse)
+}
+ReconcileResponse::ReconcileResponse(const ReconcileResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ReconcileResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ReconcileResponse)
+}
+
+inline void ReconcileResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+ReconcileResponse::~ReconcileResponse() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ReconcileResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ReconcileResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.header_;
+}
+
+void ReconcileResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ReconcileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ReconcileResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ReconcileResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.ResponseHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ReconcileResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ReconcileResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ReconcileResponse)
+  return target;
+}
+
+size_t ReconcileResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ReconcileResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ReconcileResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ReconcileResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ReconcileResponse::GetClassData() const { return &_class_data_; }
+
+
+void ReconcileResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ReconcileResponse*>(&to_msg);
+  auto& from = static_cast<const ReconcileResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ReconcileResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
+        from._internal_header());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ReconcileResponse::CopyFrom(const ReconcileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ReconcileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReconcileResponse::IsInitialized() const {
+  return true;
+}
+
+void ReconcileResponse::InternalSwap(ReconcileResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.header_, other->_impl_.header_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ReconcileResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[9]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace meta
 }  // namespace v1
@@ -1666,6 +3173,26 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureDetailRequest >(Arena*
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureDetailResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureDetailResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureDetailResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileTable*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileTable >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileTable >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileDatabase*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileDatabase >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileDatabase >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileCatalog*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileCatalog >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileCatalog >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileResponse*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
