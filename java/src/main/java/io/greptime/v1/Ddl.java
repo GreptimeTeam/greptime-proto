@@ -23503,6 +23503,33 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.TableId table_id = 4;</code>
      */
     io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     * @return Whether the timeRanges field is set.
+     */
+    boolean hasTimeRanges();
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     * @return The timeRanges.
+     */
+    io.greptime.v1.Common.TimeRanges getTimeRanges();
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     */
+    io.greptime.v1.Common.TimeRangesOrBuilder getTimeRangesOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.TruncateTableExpr}
@@ -23579,6 +23606,19 @@ java.lang.String defaultValue);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(tableId_);
                 tableId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Common.TimeRanges.Builder subBuilder = null;
+              if (timeRanges_ != null) {
+                subBuilder = timeRanges_.toBuilder();
+              }
+              timeRanges_ = input.readMessage(io.greptime.v1.Common.TimeRanges.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeRanges_);
+                timeRanges_ = subBuilder.buildPartial();
               }
 
               break;
@@ -23757,6 +23797,44 @@ java.lang.String defaultValue);
       return getTableId();
     }
 
+    public static final int TIME_RANGES_FIELD_NUMBER = 5;
+    private io.greptime.v1.Common.TimeRanges timeRanges_;
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     * @return Whether the timeRanges field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimeRanges() {
+      return timeRanges_ != null;
+    }
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     * @return The timeRanges.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.TimeRanges getTimeRanges() {
+      return timeRanges_ == null ? io.greptime.v1.Common.TimeRanges.getDefaultInstance() : timeRanges_;
+    }
+    /**
+     * <pre>
+     * if empty, truncate entire table, else only truncate time ranges
+     * </pre>
+     *
+     * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.TimeRangesOrBuilder getTimeRangesOrBuilder() {
+      return getTimeRanges();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -23783,6 +23861,9 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         output.writeMessage(4, getTableId());
       }
+      if (timeRanges_ != null) {
+        output.writeMessage(5, getTimeRanges());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -23804,6 +23885,10 @@ java.lang.String defaultValue);
       if (tableId_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getTableId());
+      }
+      if (timeRanges_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getTimeRanges());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -23831,6 +23916,11 @@ java.lang.String defaultValue);
         if (!getTableId()
             .equals(other.getTableId())) return false;
       }
+      if (hasTimeRanges() != other.hasTimeRanges()) return false;
+      if (hasTimeRanges()) {
+        if (!getTimeRanges()
+            .equals(other.getTimeRanges())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -23851,6 +23941,10 @@ java.lang.String defaultValue);
       if (hasTableId()) {
         hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
         hash = (53 * hash) + getTableId().hashCode();
+      }
+      if (hasTimeRanges()) {
+        hash = (37 * hash) + TIME_RANGES_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeRanges().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -23997,6 +24091,12 @@ java.lang.String defaultValue);
           tableId_ = null;
           tableIdBuilder_ = null;
         }
+        if (timeRangesBuilder_ == null) {
+          timeRanges_ = null;
+        } else {
+          timeRanges_ = null;
+          timeRangesBuilder_ = null;
+        }
         return this;
       }
 
@@ -24030,6 +24130,11 @@ java.lang.String defaultValue);
           result.tableId_ = tableId_;
         } else {
           result.tableId_ = tableIdBuilder_.build();
+        }
+        if (timeRangesBuilder_ == null) {
+          result.timeRanges_ = timeRanges_;
+        } else {
+          result.timeRanges_ = timeRangesBuilder_.build();
         }
         onBuilt();
         return result;
@@ -24093,6 +24198,9 @@ java.lang.String defaultValue);
         }
         if (other.hasTableId()) {
           mergeTableId(other.getTableId());
+        }
+        if (other.hasTimeRanges()) {
+          mergeTimeRanges(other.getTimeRanges());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -24468,6 +24576,161 @@ java.lang.String defaultValue);
           tableId_ = null;
         }
         return tableIdBuilder_;
+      }
+
+      private io.greptime.v1.Common.TimeRanges timeRanges_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.TimeRanges, io.greptime.v1.Common.TimeRanges.Builder, io.greptime.v1.Common.TimeRangesOrBuilder> timeRangesBuilder_;
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       * @return Whether the timeRanges field is set.
+       */
+      public boolean hasTimeRanges() {
+        return timeRangesBuilder_ != null || timeRanges_ != null;
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       * @return The timeRanges.
+       */
+      public io.greptime.v1.Common.TimeRanges getTimeRanges() {
+        if (timeRangesBuilder_ == null) {
+          return timeRanges_ == null ? io.greptime.v1.Common.TimeRanges.getDefaultInstance() : timeRanges_;
+        } else {
+          return timeRangesBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public Builder setTimeRanges(io.greptime.v1.Common.TimeRanges value) {
+        if (timeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timeRanges_ = value;
+          onChanged();
+        } else {
+          timeRangesBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public Builder setTimeRanges(
+          io.greptime.v1.Common.TimeRanges.Builder builderForValue) {
+        if (timeRangesBuilder_ == null) {
+          timeRanges_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeRangesBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public Builder mergeTimeRanges(io.greptime.v1.Common.TimeRanges value) {
+        if (timeRangesBuilder_ == null) {
+          if (timeRanges_ != null) {
+            timeRanges_ =
+              io.greptime.v1.Common.TimeRanges.newBuilder(timeRanges_).mergeFrom(value).buildPartial();
+          } else {
+            timeRanges_ = value;
+          }
+          onChanged();
+        } else {
+          timeRangesBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public Builder clearTimeRanges() {
+        if (timeRangesBuilder_ == null) {
+          timeRanges_ = null;
+          onChanged();
+        } else {
+          timeRanges_ = null;
+          timeRangesBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public io.greptime.v1.Common.TimeRanges.Builder getTimeRangesBuilder() {
+        
+        onChanged();
+        return getTimeRangesFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      public io.greptime.v1.Common.TimeRangesOrBuilder getTimeRangesOrBuilder() {
+        if (timeRangesBuilder_ != null) {
+          return timeRangesBuilder_.getMessageOrBuilder();
+        } else {
+          return timeRanges_ == null ?
+              io.greptime.v1.Common.TimeRanges.getDefaultInstance() : timeRanges_;
+        }
+      }
+      /**
+       * <pre>
+       * if empty, truncate entire table, else only truncate time ranges
+       * </pre>
+       *
+       * <code>.greptime.v1.TimeRanges time_ranges = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.TimeRanges, io.greptime.v1.Common.TimeRanges.Builder, io.greptime.v1.Common.TimeRangesOrBuilder> 
+          getTimeRangesFieldBuilder() {
+        if (timeRangesBuilder_ == null) {
+          timeRangesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.TimeRanges, io.greptime.v1.Common.TimeRanges.Builder, io.greptime.v1.Common.TimeRangesOrBuilder>(
+                  getTimeRanges(),
+                  getParentForChildren(),
+                  isClean());
+          timeRanges_ = null;
+        }
+        return timeRangesBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -49934,89 +50197,90 @@ java.lang.String defaultValue);
       "sts\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1" +
       ".CreateDatabaseExpr.OptionsEntry\032.\n\014Opti" +
       "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"z\n\021TruncateTableExpr\022\024\n\014catalog_name\030\001 " +
-      "\001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003" +
-      " \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Tab" +
-      "leId\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_e" +
-      "xists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns" +
-      "\030\001 \003(\0132\026.greptime.v1.AddColumn\"?\n\014DropDe" +
-      "faults\022/\n\rdrop_defaults\030\001 \003(\0132\030.greptime" +
-      ".v1.DropDefault\"<\n\013SetDefaults\022-\n\014set_de" +
-      "faults\030\001 \003(\0132\027.greptime.v1.SetDefault\"<\n" +
-      "\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.gre" +
-      "ptime.v1.DropColumn\"O\n\021ModifyColumnTypes" +
-      "\022:\n\023modify_column_types\030\001 \003(\0132\035.greptime" +
-      ".v1.ModifyColumnType\"%\n\013RenameTable\022\026\n\016n" +
-      "ew_table_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncol" +
-      "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n" +
-      "\010location\030\003 \001(\0132\036.greptime.v1.AddColumnL" +
-      "ocation\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020M" +
-      "odifyColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013" +
-      "target_type\030\002 \001(\0162\033.greptime.v1.ColumnDa" +
-      "taType\022C\n\025target_type_extension\030\003 \001(\0132$." +
-      "greptime.v1.ColumnDataTypeExtension\"$\n\006O" +
-      "ption\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017Set" +
-      "TableOptions\022*\n\rtable_options\030\001 \003(\0132\023.gr" +
-      "eptime.v1.Option\"!\n\021UnsetTableOptions\022\014\n" +
-      "\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"" +
-      "\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001" +
-      " \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata" +
-      "_type\030\002 \001(\0162\033.greptime.v1.ColumnDataType" +
-      "\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constra" +
-      "int\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grept" +
-      "ime.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022" +
-      "datatype_extension\030\007 \001(\0132$.greptime.v1.C" +
-      "olumnDataTypeExtension\022+\n\007options\030\010 \001(\0132" +
-      "\032.greptime.v1.ColumnOptions\"\230\001\n\021AddColum" +
-      "nLocation\022B\n\rlocation_type\030\001 \001(\0162+.grept" +
-      "ime.v1.AddColumnLocation.LocationType\022\031\n" +
-      "\021after_column_name\030\002 \001(\t\"$\n\014LocationType" +
-      "\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023" +
-      "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010a" +
-      "nalyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016" +
-      "case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034." +
-      "greptime.v1.FulltextBackend\022\023\n\013granulari" +
-      "ty\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n" +
-      "\rUnsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013S" +
-      "etInverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnset" +
-      "Inverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSki" +
-      "pping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001" +
-      "(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_inde" +
-      "x_type\030\004 \001(\0162\036.greptime.v1.SkippingIndex" +
-      "Type\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\rUns" +
-      "etSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021Alte" +
-      "rDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013s" +
-      "chema_name\030\002 \001(\t\022?\n\024set_database_options" +
-      "\030\003 \001(\0132\037.greptime.v1.SetDatabaseOptionsH" +
-      "\000\022C\n\026unset_database_options\030\004 \001(\0132!.grep" +
-      "time.v1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G" +
-      "\n\022SetDatabaseOptions\0221\n\024set_database_opt" +
-      "ions\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024Unset" +
-      "DatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n\021Create" +
-      "TriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014tri" +
-      "gger_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030" +
-      "\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.g" +
-      "reptime.v1.NotifyChannel\022:\n\006labels\030\006 \003(\013" +
-      "2*.greptime.v1.CreateTriggerExpr.LabelsE" +
-      "ntry\022D\n\013annotations\030\007 \003(\0132/.greptime.v1." +
-      "CreateTriggerExpr.AnnotationsEntry\022\020\n\010in" +
-      "terval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotif" +
-      "yChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132" +
-      "\033.greptime.v1.WebhookOptionsH\000B\016\n\014channe" +
-      "l_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n" +
-      "\004opts\030\002 \003(\0132%.greptime.v1.WebhookOptions" +
-      ".OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026" +
-      "\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyzer\022\013\n\007EN" +
-      "GLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022" +
-      "\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndex" +
-      "Type\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.greptime.v1" +
-      "B\003DdlZ5github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1b\006proto3"
+      "\"\250\001\n\021TruncateTableExpr\022\024\n\014catalog_name\030\001" +
+      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030" +
+      "\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Ta" +
+      "bleId\022,\n\013time_ranges\030\005 \001(\0132\027.greptime.v1" +
+      ".TimeRanges\"U\n\020DropDatabaseExpr\022\024\n\014catal" +
+      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dr" +
+      "op_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_" +
+      "columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"?\n" +
+      "\014DropDefaults\022/\n\rdrop_defaults\030\001 \003(\0132\030.g" +
+      "reptime.v1.DropDefault\"<\n\013SetDefaults\022-\n" +
+      "\014set_defaults\030\001 \003(\0132\027.greptime.v1.SetDef" +
+      "ault\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(" +
+      "\0132\027.greptime.v1.DropColumn\"O\n\021ModifyColu" +
+      "mnTypes\022:\n\023modify_column_types\030\001 \003(\0132\035.g" +
+      "reptime.v1.ModifyColumnType\"%\n\013RenameTab" +
+      "le\022\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tAddColumn" +
+      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
+      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
+      "ColumnLocation\022\031\n\021add_if_not_exists\030\004 \001(" +
+      "\010\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030\001 " +
+      "\001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1.C" +
+      "olumnDataType\022C\n\025target_type_extension\030\003" +
+      " \001(\0132$.greptime.v1.ColumnDataTypeExtensi" +
+      "on\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      "\"=\n\017SetTableOptions\022*\n\rtable_options\030\001 \003" +
+      "(\0132\023.greptime.v1.Option\"!\n\021UnsetTableOpt" +
+      "ions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name" +
+      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022" +
+      "\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
+      ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
+      "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_" +
+      "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162" +
+      "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 " +
+      "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti" +
+      "me.v1.ColumnDataTypeExtension\022+\n\007options" +
+      "\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021A" +
+      "ddColumnLocation\022B\n\rlocation_type\030\001 \001(\0162" +
+      "+.greptime.v1.AddColumnLocation.Location" +
+      "Type\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locat" +
+      "ionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFul" +
+      "ltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001" +
+      "(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analy" +
+      "zer\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005" +
+      " \001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013gr" +
+      "anularity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007" +
+      " \001(\001\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001" +
+      "(\t\"\"\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$" +
+      "\n\rUnsetInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n" +
+      "\013SetSkipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006ena" +
+      "ble\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skippi" +
+      "ng_index_type\030\004 \001(\0162\036.greptime.v1.Skippi" +
+      "ngIndexType\022\033\n\023false_positive_rate\030\005 \001(\001" +
+      "\"$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314" +
+      "\001\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001" +
+      "(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_" +
+      "options\030\003 \001(\0132\037.greptime.v1.SetDatabaseO" +
+      "ptionsH\000\022C\n\026unset_database_options\030\004 \001(\013" +
+      "2!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n" +
+      "\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_datab" +
+      "ase_options\030\001 \003(\0132\023.greptime.v1.Option\"$" +
+      "\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n" +
+      "\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t" +
+      "\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_" +
+      "exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 " +
+      "\003(\0132\032.greptime.v1.NotifyChannel\022:\n\006label" +
+      "s\030\006 \003(\0132*.greptime.v1.CreateTriggerExpr." +
+      "LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.grept" +
+      "ime.v1.CreateTriggerExpr.AnnotationsEntr" +
+      "y\022\020\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annotation" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]" +
+      "\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook" +
+      "\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n" +
+      "\014channel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001" +
+      " \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Webhook" +
+      "Options.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExp" +
+      "r\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030" +
+      "\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyze" +
+      "r\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextB" +
+      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippi" +
+      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.grep" +
+      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -50136,7 +50400,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_TruncateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TruncateTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "TimeRanges", });
     internal_static_greptime_v1_DropDatabaseExpr_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_DropDatabaseExpr_fieldAccessorTable = new

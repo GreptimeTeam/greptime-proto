@@ -4278,6 +4278,7 @@ class TruncateTableExpr final :
     kSchemaNameFieldNumber = 2,
     kTableNameFieldNumber = 3,
     kTableIdFieldNumber = 4,
+    kTimeRangesFieldNumber = 5,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -4339,6 +4340,24 @@ class TruncateTableExpr final :
       ::greptime::v1::TableId* table_id);
   ::greptime::v1::TableId* unsafe_arena_release_table_id();
 
+  // .greptime.v1.TimeRanges time_ranges = 5;
+  bool has_time_ranges() const;
+  private:
+  bool _internal_has_time_ranges() const;
+  public:
+  void clear_time_ranges();
+  const ::greptime::v1::TimeRanges& time_ranges() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TimeRanges* release_time_ranges();
+  ::greptime::v1::TimeRanges* mutable_time_ranges();
+  void set_allocated_time_ranges(::greptime::v1::TimeRanges* time_ranges);
+  private:
+  const ::greptime::v1::TimeRanges& _internal_time_ranges() const;
+  ::greptime::v1::TimeRanges* _internal_mutable_time_ranges();
+  public:
+  void unsafe_arena_set_allocated_time_ranges(
+      ::greptime::v1::TimeRanges* time_ranges);
+  ::greptime::v1::TimeRanges* unsafe_arena_release_time_ranges();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.TruncateTableExpr)
  private:
   class _Internal;
@@ -4351,6 +4370,7 @@ class TruncateTableExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::TableId* table_id_;
+    ::greptime::v1::TimeRanges* time_ranges_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -14910,6 +14930,91 @@ inline void TruncateTableExpr::set_allocated_table_id(::greptime::v1::TableId* t
   }
   _impl_.table_id_ = table_id;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.TruncateTableExpr.table_id)
+}
+
+// .greptime.v1.TimeRanges time_ranges = 5;
+inline bool TruncateTableExpr::_internal_has_time_ranges() const {
+  return this != internal_default_instance() && _impl_.time_ranges_ != nullptr;
+}
+inline bool TruncateTableExpr::has_time_ranges() const {
+  return _internal_has_time_ranges();
+}
+inline const ::greptime::v1::TimeRanges& TruncateTableExpr::_internal_time_ranges() const {
+  const ::greptime::v1::TimeRanges* p = _impl_.time_ranges_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::TimeRanges&>(
+      ::greptime::v1::_TimeRanges_default_instance_);
+}
+inline const ::greptime::v1::TimeRanges& TruncateTableExpr::time_ranges() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TruncateTableExpr.time_ranges)
+  return _internal_time_ranges();
+}
+inline void TruncateTableExpr::unsafe_arena_set_allocated_time_ranges(
+    ::greptime::v1::TimeRanges* time_ranges) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_ranges_);
+  }
+  _impl_.time_ranges_ = time_ranges;
+  if (time_ranges) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.TruncateTableExpr.time_ranges)
+}
+inline ::greptime::v1::TimeRanges* TruncateTableExpr::release_time_ranges() {
+  
+  ::greptime::v1::TimeRanges* temp = _impl_.time_ranges_;
+  _impl_.time_ranges_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::TimeRanges* TruncateTableExpr::unsafe_arena_release_time_ranges() {
+  // @@protoc_insertion_point(field_release:greptime.v1.TruncateTableExpr.time_ranges)
+  
+  ::greptime::v1::TimeRanges* temp = _impl_.time_ranges_;
+  _impl_.time_ranges_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::TimeRanges* TruncateTableExpr::_internal_mutable_time_ranges() {
+  
+  if (_impl_.time_ranges_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::TimeRanges>(GetArenaForAllocation());
+    _impl_.time_ranges_ = p;
+  }
+  return _impl_.time_ranges_;
+}
+inline ::greptime::v1::TimeRanges* TruncateTableExpr::mutable_time_ranges() {
+  ::greptime::v1::TimeRanges* _msg = _internal_mutable_time_ranges();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.TruncateTableExpr.time_ranges)
+  return _msg;
+}
+inline void TruncateTableExpr::set_allocated_time_ranges(::greptime::v1::TimeRanges* time_ranges) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_ranges_);
+  }
+  if (time_ranges) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(time_ranges));
+    if (message_arena != submessage_arena) {
+      time_ranges = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, time_ranges, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.time_ranges_ = time_ranges;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.TruncateTableExpr.time_ranges)
 }
 
 // -------------------------------------------------------------------

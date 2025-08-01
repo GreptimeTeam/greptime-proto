@@ -60,6 +60,9 @@ extern AddColumnDefaultTypeInternal _AddColumn_default_instance_;
 class AddColumns;
 struct AddColumnsDefaultTypeInternal;
 extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
+class All;
+struct AllDefaultTypeInternal;
+extern AllDefaultTypeInternal _All_default_instance_;
 class AlterRequest;
 struct AlterRequestDefaultTypeInternal;
 extern AlterRequestDefaultTypeInternal _AlterRequest_default_instance_;
@@ -168,6 +171,7 @@ extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::region::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumn>(Arena*);
 template<> ::greptime::v1::region::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumns>(Arena*);
+template<> ::greptime::v1::region::All* Arena::CreateMaybeMessage<::greptime::v1::region::All>(Arena*);
 template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequest>(Arena*);
 template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
 template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
@@ -5224,6 +5228,12 @@ class TruncateRequest final :
   static const TruncateRequest& default_instance() {
     return *internal_default_instance();
   }
+  enum KindCase {
+    kAll = 2,
+    kTimeRanges = 3,
+    KIND_NOT_SET = 0,
+  };
+
   static inline const TruncateRequest* internal_default_instance() {
     return reinterpret_cast<const TruncateRequest*>(
                &_TruncateRequest_default_instance_);
@@ -5303,6 +5313,8 @@ class TruncateRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kAllFieldNumber = 2,
+    kTimeRangesFieldNumber = 3,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -5313,7 +5325,179 @@ class TruncateRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // .greptime.v1.region.All all = 2;
+  bool has_all() const;
+  private:
+  bool _internal_has_all() const;
+  public:
+  void clear_all();
+  const ::greptime::v1::region::All& all() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::All* release_all();
+  ::greptime::v1::region::All* mutable_all();
+  void set_allocated_all(::greptime::v1::region::All* all);
+  private:
+  const ::greptime::v1::region::All& _internal_all() const;
+  ::greptime::v1::region::All* _internal_mutable_all();
+  public:
+  void unsafe_arena_set_allocated_all(
+      ::greptime::v1::region::All* all);
+  ::greptime::v1::region::All* unsafe_arena_release_all();
+
+  // .greptime.v1.TimeRanges time_ranges = 3;
+  bool has_time_ranges() const;
+  private:
+  bool _internal_has_time_ranges() const;
+  public:
+  void clear_time_ranges();
+  const ::greptime::v1::TimeRanges& time_ranges() const;
+  PROTOBUF_NODISCARD ::greptime::v1::TimeRanges* release_time_ranges();
+  ::greptime::v1::TimeRanges* mutable_time_ranges();
+  void set_allocated_time_ranges(::greptime::v1::TimeRanges* time_ranges);
+  private:
+  const ::greptime::v1::TimeRanges& _internal_time_ranges() const;
+  ::greptime::v1::TimeRanges* _internal_mutable_time_ranges();
+  public:
+  void unsafe_arena_set_allocated_time_ranges(
+      ::greptime::v1::TimeRanges* time_ranges);
+  ::greptime::v1::TimeRanges* unsafe_arena_release_time_ranges();
+
+  void clear_kind();
+  KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.TruncateRequest)
+ private:
+  class _Internal;
+  void set_has_all();
+  void set_has_time_ranges();
+
+  inline bool has_kind() const;
+  inline void clear_has_kind();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    union KindUnion {
+      constexpr KindUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::region::All* all_;
+      ::greptime::v1::TimeRanges* time_ranges_;
+    } kind_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class All final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.All) */ {
+ public:
+  inline All() : All(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR All(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  All(const All& from);
+  All(All&& from) noexcept
+    : All() {
+    *this = ::std::move(from);
+  }
+
+  inline All& operator=(const All& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline All& operator=(All&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const All& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const All* internal_default_instance() {
+    return reinterpret_cast<const All*>(
+               &_All_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    30;
+
+  friend void swap(All& a, All& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(All* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(All* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  All* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<All>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const All& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const All& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.All";
+  }
+  protected:
+  explicit All(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.All)
  private:
   class _Internal;
 
@@ -5321,10 +5505,7 @@ class TruncateRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint64_t region_id_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
-  union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
 };
 // -------------------------------------------------------------------
@@ -5377,7 +5558,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -5550,7 +5731,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -5730,7 +5911,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -5878,7 +6059,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -6043,7 +6224,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -6244,7 +6425,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -10568,6 +10749,159 @@ inline void TruncateRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.TruncateRequest.region_id)
 }
 
+// .greptime.v1.region.All all = 2;
+inline bool TruncateRequest::_internal_has_all() const {
+  return kind_case() == kAll;
+}
+inline bool TruncateRequest::has_all() const {
+  return _internal_has_all();
+}
+inline void TruncateRequest::set_has_all() {
+  _impl_._oneof_case_[0] = kAll;
+}
+inline void TruncateRequest::clear_all() {
+  if (_internal_has_all()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.all_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::region::All* TruncateRequest::release_all() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.TruncateRequest.all)
+  if (_internal_has_all()) {
+    clear_has_kind();
+    ::greptime::v1::region::All* temp = _impl_.kind_.all_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.all_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::All& TruncateRequest::_internal_all() const {
+  return _internal_has_all()
+      ? *_impl_.kind_.all_
+      : reinterpret_cast< ::greptime::v1::region::All&>(::greptime::v1::region::_All_default_instance_);
+}
+inline const ::greptime::v1::region::All& TruncateRequest::all() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.TruncateRequest.all)
+  return _internal_all();
+}
+inline ::greptime::v1::region::All* TruncateRequest::unsafe_arena_release_all() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.TruncateRequest.all)
+  if (_internal_has_all()) {
+    clear_has_kind();
+    ::greptime::v1::region::All* temp = _impl_.kind_.all_;
+    _impl_.kind_.all_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void TruncateRequest::unsafe_arena_set_allocated_all(::greptime::v1::region::All* all) {
+  clear_kind();
+  if (all) {
+    set_has_all();
+    _impl_.kind_.all_ = all;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.TruncateRequest.all)
+}
+inline ::greptime::v1::region::All* TruncateRequest::_internal_mutable_all() {
+  if (!_internal_has_all()) {
+    clear_kind();
+    set_has_all();
+    _impl_.kind_.all_ = CreateMaybeMessage< ::greptime::v1::region::All >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.all_;
+}
+inline ::greptime::v1::region::All* TruncateRequest::mutable_all() {
+  ::greptime::v1::region::All* _msg = _internal_mutable_all();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.TruncateRequest.all)
+  return _msg;
+}
+
+// .greptime.v1.TimeRanges time_ranges = 3;
+inline bool TruncateRequest::_internal_has_time_ranges() const {
+  return kind_case() == kTimeRanges;
+}
+inline bool TruncateRequest::has_time_ranges() const {
+  return _internal_has_time_ranges();
+}
+inline void TruncateRequest::set_has_time_ranges() {
+  _impl_._oneof_case_[0] = kTimeRanges;
+}
+inline ::greptime::v1::TimeRanges* TruncateRequest::release_time_ranges() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.TruncateRequest.time_ranges)
+  if (_internal_has_time_ranges()) {
+    clear_has_kind();
+    ::greptime::v1::TimeRanges* temp = _impl_.kind_.time_ranges_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.time_ranges_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::TimeRanges& TruncateRequest::_internal_time_ranges() const {
+  return _internal_has_time_ranges()
+      ? *_impl_.kind_.time_ranges_
+      : reinterpret_cast< ::greptime::v1::TimeRanges&>(::greptime::v1::_TimeRanges_default_instance_);
+}
+inline const ::greptime::v1::TimeRanges& TruncateRequest::time_ranges() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.TruncateRequest.time_ranges)
+  return _internal_time_ranges();
+}
+inline ::greptime::v1::TimeRanges* TruncateRequest::unsafe_arena_release_time_ranges() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.TruncateRequest.time_ranges)
+  if (_internal_has_time_ranges()) {
+    clear_has_kind();
+    ::greptime::v1::TimeRanges* temp = _impl_.kind_.time_ranges_;
+    _impl_.kind_.time_ranges_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void TruncateRequest::unsafe_arena_set_allocated_time_ranges(::greptime::v1::TimeRanges* time_ranges) {
+  clear_kind();
+  if (time_ranges) {
+    set_has_time_ranges();
+    _impl_.kind_.time_ranges_ = time_ranges;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.TruncateRequest.time_ranges)
+}
+inline ::greptime::v1::TimeRanges* TruncateRequest::_internal_mutable_time_ranges() {
+  if (!_internal_has_time_ranges()) {
+    clear_kind();
+    set_has_time_ranges();
+    _impl_.kind_.time_ranges_ = CreateMaybeMessage< ::greptime::v1::TimeRanges >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.time_ranges_;
+}
+inline ::greptime::v1::TimeRanges* TruncateRequest::mutable_time_ranges() {
+  ::greptime::v1::TimeRanges* _msg = _internal_mutable_time_ranges();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.TruncateRequest.time_ranges)
+  return _msg;
+}
+
+inline bool TruncateRequest::has_kind() const {
+  return kind_case() != KIND_NOT_SET;
+}
+inline void TruncateRequest::clear_has_kind() {
+  _impl_._oneof_case_[0] = KIND_NOT_SET;
+}
+inline TruncateRequest::KindCase TruncateRequest::kind_case() const {
+  return TruncateRequest::KindCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// All
+
 // -------------------------------------------------------------------
 
 // RegionColumnDef
@@ -11079,6 +11413,8 @@ ListMetadataRequest::mutable_region_ids() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
