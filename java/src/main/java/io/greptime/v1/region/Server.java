@@ -28060,7 +28060,7 @@ java.lang.String defaultValue);
   }
   /**
    * <pre>
-   *&#47; Truncate all data in region
+   * Truncate all data in region
    * </pre>
    *
    * Protobuf type {@code greptime.v1.region.All}
@@ -28287,7 +28287,7 @@ java.lang.String defaultValue);
     }
     /**
      * <pre>
-     *&#47; Truncate all data in region
+     * Truncate all data in region
      * </pre>
      *
      * Protobuf type {@code greptime.v1.region.All}

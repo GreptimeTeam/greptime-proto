@@ -1943,7 +1943,7 @@ func (*TruncateRequest_All) isTruncateRequest_Kind() {}
 
 func (*TruncateRequest_TimeRanges) isTruncateRequest_Kind() {}
 
-// / Truncate all data in region
+// Truncate all data in region
 type All struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
