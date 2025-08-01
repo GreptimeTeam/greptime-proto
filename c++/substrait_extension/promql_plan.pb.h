@@ -45,12 +45,18 @@ struct TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto;
 namespace substrait_extension {
+class Absent;
+struct AbsentDefaultTypeInternal;
+extern AbsentDefaultTypeInternal _Absent_default_instance_;
 class EmptyMetric;
 struct EmptyMetricDefaultTypeInternal;
 extern EmptyMetricDefaultTypeInternal _EmptyMetric_default_instance_;
 class InstantManipulate;
 struct InstantManipulateDefaultTypeInternal;
 extern InstantManipulateDefaultTypeInternal _InstantManipulate_default_instance_;
+class LabelPair;
+struct LabelPairDefaultTypeInternal;
+extern LabelPairDefaultTypeInternal _LabelPair_default_instance_;
 class RangeManipulate;
 struct RangeManipulateDefaultTypeInternal;
 extern RangeManipulateDefaultTypeInternal _RangeManipulate_default_instance_;
@@ -65,8 +71,10 @@ struct SeriesNormalizeDefaultTypeInternal;
 extern SeriesNormalizeDefaultTypeInternal _SeriesNormalize_default_instance_;
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
+template<> ::substrait_extension::Absent* Arena::CreateMaybeMessage<::substrait_extension::Absent>(Arena*);
 template<> ::substrait_extension::EmptyMetric* Arena::CreateMaybeMessage<::substrait_extension::EmptyMetric>(Arena*);
 template<> ::substrait_extension::InstantManipulate* Arena::CreateMaybeMessage<::substrait_extension::InstantManipulate>(Arena*);
+template<> ::substrait_extension::LabelPair* Arena::CreateMaybeMessage<::substrait_extension::LabelPair>(Arena*);
 template<> ::substrait_extension::RangeManipulate* Arena::CreateMaybeMessage<::substrait_extension::RangeManipulate>(Arena*);
 template<> ::substrait_extension::ScalarCalculate* Arena::CreateMaybeMessage<::substrait_extension::ScalarCalculate>(Arena*);
 template<> ::substrait_extension::SeriesDivide* Arena::CreateMaybeMessage<::substrait_extension::SeriesDivide>(Arena*);
@@ -1288,6 +1296,397 @@ class ScalarCalculate final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class Absent final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.Absent) */ {
+ public:
+  inline Absent() : Absent(nullptr) {}
+  ~Absent() override;
+  explicit PROTOBUF_CONSTEXPR Absent(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Absent(const Absent& from);
+  Absent(Absent&& from) noexcept
+    : Absent() {
+    *this = ::std::move(from);
+  }
+
+  inline Absent& operator=(const Absent& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Absent& operator=(Absent&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Absent& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Absent* internal_default_instance() {
+    return reinterpret_cast<const Absent*>(
+               &_Absent_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(Absent& a, Absent& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Absent* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Absent* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Absent* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Absent>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Absent& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Absent& from) {
+    Absent::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Absent* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.Absent";
+  }
+  protected:
+  explicit Absent(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFakeLabelsFieldNumber = 6,
+    kTimeIndexColumnFieldNumber = 4,
+    kValueColumnFieldNumber = 5,
+    kStartFieldNumber = 1,
+    kEndFieldNumber = 2,
+    kStepFieldNumber = 3,
+  };
+  // repeated .substrait_extension.LabelPair fake_labels = 6;
+  int fake_labels_size() const;
+  private:
+  int _internal_fake_labels_size() const;
+  public:
+  void clear_fake_labels();
+  ::substrait_extension::LabelPair* mutable_fake_labels(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair >*
+      mutable_fake_labels();
+  private:
+  const ::substrait_extension::LabelPair& _internal_fake_labels(int index) const;
+  ::substrait_extension::LabelPair* _internal_add_fake_labels();
+  public:
+  const ::substrait_extension::LabelPair& fake_labels(int index) const;
+  ::substrait_extension::LabelPair* add_fake_labels();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair >&
+      fake_labels() const;
+
+  // string time_index_column = 4;
+  void clear_time_index_column();
+  const std::string& time_index_column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time_index_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time_index_column();
+  PROTOBUF_NODISCARD std::string* release_time_index_column();
+  void set_allocated_time_index_column(std::string* time_index_column);
+  private:
+  const std::string& _internal_time_index_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index_column(const std::string& value);
+  std::string* _internal_mutable_time_index_column();
+  public:
+
+  // string value_column = 5;
+  void clear_value_column();
+  const std::string& value_column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_value_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_value_column();
+  PROTOBUF_NODISCARD std::string* release_value_column();
+  void set_allocated_value_column(std::string* value_column);
+  private:
+  const std::string& _internal_value_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value_column(const std::string& value);
+  std::string* _internal_mutable_value_column();
+  public:
+
+  // int64 start = 1;
+  void clear_start();
+  int64_t start() const;
+  void set_start(int64_t value);
+  private:
+  int64_t _internal_start() const;
+  void _internal_set_start(int64_t value);
+  public:
+
+  // int64 end = 2;
+  void clear_end();
+  int64_t end() const;
+  void set_end(int64_t value);
+  private:
+  int64_t _internal_end() const;
+  void _internal_set_end(int64_t value);
+  public:
+
+  // int64 step = 3;
+  void clear_step();
+  int64_t step() const;
+  void set_step(int64_t value);
+  private:
+  int64_t _internal_step() const;
+  void _internal_set_step(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.Absent)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair > fake_labels_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_column_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_column_;
+    int64_t start_;
+    int64_t end_;
+    int64_t step_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
+// -------------------------------------------------------------------
+
+class LabelPair final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.LabelPair) */ {
+ public:
+  inline LabelPair() : LabelPair(nullptr) {}
+  ~LabelPair() override;
+  explicit PROTOBUF_CONSTEXPR LabelPair(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  LabelPair(const LabelPair& from);
+  LabelPair(LabelPair&& from) noexcept
+    : LabelPair() {
+    *this = ::std::move(from);
+  }
+
+  inline LabelPair& operator=(const LabelPair& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline LabelPair& operator=(LabelPair&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const LabelPair& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const LabelPair* internal_default_instance() {
+    return reinterpret_cast<const LabelPair*>(
+               &_LabelPair_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(LabelPair& a, LabelPair& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(LabelPair* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(LabelPair* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  LabelPair* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<LabelPair>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const LabelPair& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const LabelPair& from) {
+    LabelPair::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(LabelPair* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.LabelPair";
+  }
+  protected:
+  explicit LabelPair(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeyFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // string key = 1;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // string value = 2;
+  void clear_value();
+  const std::string& value() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_value(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_value();
+  PROTOBUF_NODISCARD std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.LabelPair)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -2289,9 +2688,321 @@ inline void ScalarCalculate::set_allocated_field_column(std::string* field_colum
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.ScalarCalculate.field_column)
 }
 
+// -------------------------------------------------------------------
+
+// Absent
+
+// int64 start = 1;
+inline void Absent::clear_start() {
+  _impl_.start_ = int64_t{0};
+}
+inline int64_t Absent::_internal_start() const {
+  return _impl_.start_;
+}
+inline int64_t Absent::start() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.start)
+  return _internal_start();
+}
+inline void Absent::_internal_set_start(int64_t value) {
+  
+  _impl_.start_ = value;
+}
+inline void Absent::set_start(int64_t value) {
+  _internal_set_start(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.start)
+}
+
+// int64 end = 2;
+inline void Absent::clear_end() {
+  _impl_.end_ = int64_t{0};
+}
+inline int64_t Absent::_internal_end() const {
+  return _impl_.end_;
+}
+inline int64_t Absent::end() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.end)
+  return _internal_end();
+}
+inline void Absent::_internal_set_end(int64_t value) {
+  
+  _impl_.end_ = value;
+}
+inline void Absent::set_end(int64_t value) {
+  _internal_set_end(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.end)
+}
+
+// int64 step = 3;
+inline void Absent::clear_step() {
+  _impl_.step_ = int64_t{0};
+}
+inline int64_t Absent::_internal_step() const {
+  return _impl_.step_;
+}
+inline int64_t Absent::step() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.step)
+  return _internal_step();
+}
+inline void Absent::_internal_set_step(int64_t value) {
+  
+  _impl_.step_ = value;
+}
+inline void Absent::set_step(int64_t value) {
+  _internal_set_step(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.step)
+}
+
+// string time_index_column = 4;
+inline void Absent::clear_time_index_column() {
+  _impl_.time_index_column_.ClearToEmpty();
+}
+inline const std::string& Absent::time_index_column() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.time_index_column)
+  return _internal_time_index_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Absent::set_time_index_column(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.time_index_column_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.time_index_column)
+}
+inline std::string* Absent::mutable_time_index_column() {
+  std::string* _s = _internal_mutable_time_index_column();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.Absent.time_index_column)
+  return _s;
+}
+inline const std::string& Absent::_internal_time_index_column() const {
+  return _impl_.time_index_column_.Get();
+}
+inline void Absent::_internal_set_time_index_column(const std::string& value) {
+  
+  _impl_.time_index_column_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Absent::_internal_mutable_time_index_column() {
+  
+  return _impl_.time_index_column_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Absent::release_time_index_column() {
+  // @@protoc_insertion_point(field_release:substrait_extension.Absent.time_index_column)
+  return _impl_.time_index_column_.Release();
+}
+inline void Absent::set_allocated_time_index_column(std::string* time_index_column) {
+  if (time_index_column != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.time_index_column_.SetAllocated(time_index_column, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.time_index_column_.IsDefault()) {
+    _impl_.time_index_column_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.Absent.time_index_column)
+}
+
+// string value_column = 5;
+inline void Absent::clear_value_column() {
+  _impl_.value_column_.ClearToEmpty();
+}
+inline const std::string& Absent::value_column() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.value_column)
+  return _internal_value_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Absent::set_value_column(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.value_column_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.value_column)
+}
+inline std::string* Absent::mutable_value_column() {
+  std::string* _s = _internal_mutable_value_column();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.Absent.value_column)
+  return _s;
+}
+inline const std::string& Absent::_internal_value_column() const {
+  return _impl_.value_column_.Get();
+}
+inline void Absent::_internal_set_value_column(const std::string& value) {
+  
+  _impl_.value_column_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Absent::_internal_mutable_value_column() {
+  
+  return _impl_.value_column_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Absent::release_value_column() {
+  // @@protoc_insertion_point(field_release:substrait_extension.Absent.value_column)
+  return _impl_.value_column_.Release();
+}
+inline void Absent::set_allocated_value_column(std::string* value_column) {
+  if (value_column != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.value_column_.SetAllocated(value_column, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.value_column_.IsDefault()) {
+    _impl_.value_column_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.Absent.value_column)
+}
+
+// repeated .substrait_extension.LabelPair fake_labels = 6;
+inline int Absent::_internal_fake_labels_size() const {
+  return _impl_.fake_labels_.size();
+}
+inline int Absent::fake_labels_size() const {
+  return _internal_fake_labels_size();
+}
+inline void Absent::clear_fake_labels() {
+  _impl_.fake_labels_.Clear();
+}
+inline ::substrait_extension::LabelPair* Absent::mutable_fake_labels(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.Absent.fake_labels)
+  return _impl_.fake_labels_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair >*
+Absent::mutable_fake_labels() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.Absent.fake_labels)
+  return &_impl_.fake_labels_;
+}
+inline const ::substrait_extension::LabelPair& Absent::_internal_fake_labels(int index) const {
+  return _impl_.fake_labels_.Get(index);
+}
+inline const ::substrait_extension::LabelPair& Absent::fake_labels(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.fake_labels)
+  return _internal_fake_labels(index);
+}
+inline ::substrait_extension::LabelPair* Absent::_internal_add_fake_labels() {
+  return _impl_.fake_labels_.Add();
+}
+inline ::substrait_extension::LabelPair* Absent::add_fake_labels() {
+  ::substrait_extension::LabelPair* _add = _internal_add_fake_labels();
+  // @@protoc_insertion_point(field_add:substrait_extension.Absent.fake_labels)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair >&
+Absent::fake_labels() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.Absent.fake_labels)
+  return _impl_.fake_labels_;
+}
+
+// -------------------------------------------------------------------
+
+// LabelPair
+
+// string key = 1;
+inline void LabelPair::clear_key() {
+  _impl_.key_.ClearToEmpty();
+}
+inline const std::string& LabelPair::key() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.LabelPair.key)
+  return _internal_key();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void LabelPair::set_key(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.LabelPair.key)
+}
+inline std::string* LabelPair::mutable_key() {
+  std::string* _s = _internal_mutable_key();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.LabelPair.key)
+  return _s;
+}
+inline const std::string& LabelPair::_internal_key() const {
+  return _impl_.key_.Get();
+}
+inline void LabelPair::_internal_set_key(const std::string& value) {
+  
+  _impl_.key_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LabelPair::_internal_mutable_key() {
+  
+  return _impl_.key_.Mutable(GetArenaForAllocation());
+}
+inline std::string* LabelPair::release_key() {
+  // @@protoc_insertion_point(field_release:substrait_extension.LabelPair.key)
+  return _impl_.key_.Release();
+}
+inline void LabelPair::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.key_.IsDefault()) {
+    _impl_.key_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.LabelPair.key)
+}
+
+// string value = 2;
+inline void LabelPair::clear_value() {
+  _impl_.value_.ClearToEmpty();
+}
+inline const std::string& LabelPair::value() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.LabelPair.value)
+  return _internal_value();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void LabelPair::set_value(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.LabelPair.value)
+}
+inline std::string* LabelPair::mutable_value() {
+  std::string* _s = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.LabelPair.value)
+  return _s;
+}
+inline const std::string& LabelPair::_internal_value() const {
+  return _impl_.value_.Get();
+}
+inline void LabelPair::_internal_set_value(const std::string& value) {
+  
+  _impl_.value_.Set(value, GetArenaForAllocation());
+}
+inline std::string* LabelPair::_internal_mutable_value() {
+  
+  return _impl_.value_.Mutable(GetArenaForAllocation());
+}
+inline std::string* LabelPair::release_value() {
+  // @@protoc_insertion_point(field_release:substrait_extension.LabelPair.value)
+  return _impl_.value_.Release();
+}
+inline void LabelPair::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.value_.SetAllocated(value, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.value_.IsDefault()) {
+    _impl_.value_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.LabelPair.value)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

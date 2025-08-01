@@ -511,6 +511,154 @@ func (x *ScalarCalculate) GetFieldColumn() string {
 	return ""
 }
 
+type Absent struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Start timestamp in millisecond
+	Start int64 `protobuf:"varint,1,opt,name=start,proto3" json:"start,omitempty"`
+	// End timestamp in millisecond
+	End int64 `protobuf:"varint,2,opt,name=end,proto3" json:"end,omitempty"`
+	// Step in millisecond
+	Step int64 `protobuf:"varint,3,opt,name=step,proto3" json:"step,omitempty"`
+	// Column name of time index column
+	TimeIndexColumn string `protobuf:"bytes,4,opt,name=time_index_column,json=timeIndexColumn,proto3" json:"time_index_column,omitempty"`
+	// Column name of value column
+	ValueColumn string `protobuf:"bytes,5,opt,name=value_column,json=valueColumn,proto3" json:"value_column,omitempty"`
+	// Fake labels as key-value pairs
+	FakeLabels []*LabelPair `protobuf:"bytes,6,rep,name=fake_labels,json=fakeLabels,proto3" json:"fake_labels,omitempty"`
+}
+
+func (x *Absent) Reset() {
+	*x = Absent{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_promql_plan_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *Absent) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Absent) ProtoMessage() {}
+
+func (x *Absent) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_promql_plan_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Absent.ProtoReflect.Descriptor instead.
+func (*Absent) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_promql_plan_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Absent) GetStart() int64 {
+	if x != nil {
+		return x.Start
+	}
+	return 0
+}
+
+func (x *Absent) GetEnd() int64 {
+	if x != nil {
+		return x.End
+	}
+	return 0
+}
+
+func (x *Absent) GetStep() int64 {
+	if x != nil {
+		return x.Step
+	}
+	return 0
+}
+
+func (x *Absent) GetTimeIndexColumn() string {
+	if x != nil {
+		return x.TimeIndexColumn
+	}
+	return ""
+}
+
+func (x *Absent) GetValueColumn() string {
+	if x != nil {
+		return x.ValueColumn
+	}
+	return ""
+}
+
+func (x *Absent) GetFakeLabels() []*LabelPair {
+	if x != nil {
+		return x.FakeLabels
+	}
+	return nil
+}
+
+type LabelPair struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Key   string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value string `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+}
+
+func (x *LabelPair) Reset() {
+	*x = LabelPair{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_promql_plan_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LabelPair) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LabelPair) ProtoMessage() {}
+
+func (x *LabelPair) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_promql_plan_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LabelPair.ProtoReflect.Descriptor instead.
+func (*LabelPair) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_promql_plan_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *LabelPair) GetKey() string {
+	if x != nil {
+		return x.Key
+	}
+	return ""
+}
+
+func (x *LabelPair) GetValue() string {
+	if x != nil {
+		return x.Value
+	}
+	return ""
+}
+
 var File_substrait_extension_promql_plan_proto protoreflect.FileDescriptor
 
 var file_substrait_extension_promql_plan_proto_rawDesc = []byte{
@@ -572,11 +720,28 @@ var file_substrait_extension_promql_plan_proto_rawDesc = []byte{
 	0x28, 0x09, 0x52, 0x0a, 0x74, 0x61, 0x67, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x12, 0x21,
 	0x0a, 0x0c, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x18, 0x07,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d,
-	0x6e, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65,
-	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x73,
+	0x6e, 0x22, 0xd4, 0x01, 0x0a, 0x06, 0x41, 0x62, 0x73, 0x65, 0x6e, 0x74, 0x12, 0x14, 0x0a, 0x05,
+	0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x73, 0x74, 0x61,
+	0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x03, 0x65, 0x6e, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x73, 0x74, 0x65, 0x70, 0x18, 0x03, 0x20, 0x01,
+	0x28, 0x03, 0x52, 0x04, 0x73, 0x74, 0x65, 0x70, 0x12, 0x2a, 0x0a, 0x11, 0x74, 0x69, 0x6d, 0x65,
+	0x5f, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0f, 0x74, 0x69, 0x6d, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x43, 0x6f,
+	0x6c, 0x75, 0x6d, 0x6e, 0x12, 0x21, 0x0a, 0x0c, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x5f, 0x63, 0x6f,
+	0x6c, 0x75, 0x6d, 0x6e, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x12, 0x3f, 0x0a, 0x0b, 0x66, 0x61, 0x6b, 0x65, 0x5f,
+	0x6c, 0x61, 0x62, 0x65, 0x6c, 0x73, 0x18, 0x06, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x73,
 	0x75, 0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69,
-	0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x2e, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x50, 0x61, 0x69, 0x72, 0x52, 0x0a, 0x66, 0x61,
+	0x6b, 0x65, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x73, 0x22, 0x33, 0x0a, 0x09, 0x4c, 0x61, 0x62, 0x65,
+	0x6c, 0x50, 0x61, 0x69, 0x72, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x3f, 0x5a,
+	0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
+	0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x75, 0x62, 0x73, 0x74,
+	0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -591,7 +756,7 @@ func file_substrait_extension_promql_plan_proto_rawDescGZIP() []byte {
 	return file_substrait_extension_promql_plan_proto_rawDescData
 }
 
-var file_substrait_extension_promql_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_substrait_extension_promql_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_substrait_extension_promql_plan_proto_goTypes = []interface{}{
 	(*EmptyMetric)(nil),       // 0: substrait_extension.EmptyMetric
 	(*InstantManipulate)(nil), // 1: substrait_extension.InstantManipulate
@@ -599,13 +764,16 @@ var file_substrait_extension_promql_plan_proto_goTypes = []interface{}{
 	(*SeriesDivide)(nil),      // 3: substrait_extension.SeriesDivide
 	(*RangeManipulate)(nil),   // 4: substrait_extension.RangeManipulate
 	(*ScalarCalculate)(nil),   // 5: substrait_extension.ScalarCalculate
+	(*Absent)(nil),            // 6: substrait_extension.Absent
+	(*LabelPair)(nil),         // 7: substrait_extension.LabelPair
 }
 var file_substrait_extension_promql_plan_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	7, // 0: substrait_extension.Absent.fake_labels:type_name -> substrait_extension.LabelPair
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_substrait_extension_promql_plan_proto_init() }
@@ -686,6 +854,30 @@ func file_substrait_extension_promql_plan_proto_init() {
 				return nil
 			}
 		}
+		file_substrait_extension_promql_plan_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Absent); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_substrait_extension_promql_plan_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LabelPair); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -693,7 +885,7 @@ func file_substrait_extension_promql_plan_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_substrait_extension_promql_plan_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
