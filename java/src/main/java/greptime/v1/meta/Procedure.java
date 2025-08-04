@@ -167,6 +167,123 @@ public final class Procedure {
     // @@protoc_insertion_point(enum_scope:greptime.v1.meta.ProcedureStatus)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.meta.ResolveStrategy}
+   */
+  public enum ResolveStrategy
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>UseLatest = 0;</code>
+     */
+    UseLatest(0),
+    /**
+     * <code>UseMetasrv = 1;</code>
+     */
+    UseMetasrv(1),
+    /**
+     * <code>AbortOnConflict = 2;</code>
+     */
+    AbortOnConflict(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>UseLatest = 0;</code>
+     */
+    public static final int UseLatest_VALUE = 0;
+    /**
+     * <code>UseMetasrv = 1;</code>
+     */
+    public static final int UseMetasrv_VALUE = 1;
+    /**
+     * <code>AbortOnConflict = 2;</code>
+     */
+    public static final int AbortOnConflict_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ResolveStrategy valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static ResolveStrategy forNumber(int value) {
+      switch (value) {
+        case 0: return UseLatest;
+        case 1: return UseMetasrv;
+        case 2: return AbortOnConflict;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ResolveStrategy>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ResolveStrategy> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ResolveStrategy>() {
+            public ResolveStrategy findValueByNumber(int number) {
+              return ResolveStrategy.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final ResolveStrategy[] VALUES = values();
+
+    public static ResolveStrategy valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ResolveStrategy(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.ResolveStrategy)
+  }
+
   public interface ProcedureMetaOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ProcedureMeta)
       com.google.protobuf.MessageOrBuilder {
@@ -4886,6 +5003,4837 @@ public final class Procedure {
 
   }
 
+  public interface ReconcileTableOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ReconcileTable)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    java.lang.String getSchemaName();
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    com.google.protobuf.ByteString
+        getSchemaNameBytes();
+
+    /**
+     * <code>string table_name = 3;</code>
+     * @return The tableName.
+     */
+    java.lang.String getTableName();
+    /**
+     * <code>string table_name = 3;</code>
+     * @return The bytes for tableName.
+     */
+    com.google.protobuf.ByteString
+        getTableNameBytes();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.ReconcileTable}
+   */
+  public static final class ReconcileTable extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ReconcileTable)
+      ReconcileTableOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReconcileTable.newBuilder() to construct.
+    private ReconcileTable(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReconcileTable() {
+      catalogName_ = "";
+      schemaName_ = "";
+      tableName_ = "";
+      resolveStrategy_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReconcileTable();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReconcileTable(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schemaName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileTable_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileTable_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Procedure.ReconcileTable.class, greptime.v1.meta.Procedure.ReconcileTable.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    @java.lang.Override
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TABLE_NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object tableName_;
+    /**
+     * <code>string table_name = 3;</code>
+     * @return The tableName.
+     */
+    @java.lang.Override
+    public java.lang.String getTableName() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tableName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string table_name = 3;</code>
+     * @return The bytes for tableName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTableNameBytes() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 4;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        output.writeEnum(4, resolveStrategy_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, resolveStrategy_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Procedure.ReconcileTable)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Procedure.ReconcileTable other = (greptime.v1.meta.Procedure.ReconcileTable) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
+      if (!getTableName()
+          .equals(other.getTableName())) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
+      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTableName().hashCode();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileTable parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Procedure.ReconcileTable prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.ReconcileTable}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ReconcileTable)
+        greptime.v1.meta.Procedure.ReconcileTableOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileTable_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileTable_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Procedure.ReconcileTable.class, greptime.v1.meta.Procedure.ReconcileTable.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Procedure.ReconcileTable.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        schemaName_ = "";
+
+        tableName_ = "";
+
+        resolveStrategy_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileTable_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileTable getDefaultInstanceForType() {
+        return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileTable build() {
+        greptime.v1.meta.Procedure.ReconcileTable result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileTable buildPartial() {
+        greptime.v1.meta.Procedure.ReconcileTable result = new greptime.v1.meta.Procedure.ReconcileTable(this);
+        result.catalogName_ = catalogName_;
+        result.schemaName_ = schemaName_;
+        result.tableName_ = tableName_;
+        result.resolveStrategy_ = resolveStrategy_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Procedure.ReconcileTable) {
+          return mergeFrom((greptime.v1.meta.Procedure.ReconcileTable)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Procedure.ReconcileTable other) {
+        if (other == greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
+          onChanged();
+        }
+        if (!other.getTableName().isEmpty()) {
+          tableName_ = other.tableName_;
+          onChanged();
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Procedure.ReconcileTable parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Procedure.ReconcileTable) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object schemaName_ = "";
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
+       */
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schemaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
+       */
+      public com.google.protobuf.ByteString
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schemaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaName() {
+        
+        schemaName_ = getDefaultInstance().getSchemaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object tableName_ = "";
+      /**
+       * <code>string table_name = 3;</code>
+       * @return The tableName.
+       */
+      public java.lang.String getTableName() {
+        java.lang.Object ref = tableName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tableName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 3;</code>
+       * @return The bytes for tableName.
+       */
+      public com.google.protobuf.ByteString
+          getTableNameBytes() {
+        java.lang.Object ref = tableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tableName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string table_name = 3;</code>
+       * @param value The tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableName() {
+        
+        tableName_ = getDefaultInstance().getTableName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string table_name = 3;</code>
+       * @param value The bytes for tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ReconcileTable)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileTable)
+    private static final greptime.v1.meta.Procedure.ReconcileTable DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Procedure.ReconcileTable();
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileTable getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReconcileTable>
+        PARSER = new com.google.protobuf.AbstractParser<ReconcileTable>() {
+      @java.lang.Override
+      public ReconcileTable parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReconcileTable(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReconcileTable> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReconcileTable> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileTable getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReconcileDatabaseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ReconcileDatabase)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string database_name = 2;</code>
+     * @return The databaseName.
+     */
+    java.lang.String getDatabaseName();
+    /**
+     * <code>string database_name = 2;</code>
+     * @return The bytes for databaseName.
+     */
+    com.google.protobuf.ByteString
+        getDatabaseNameBytes();
+
+    /**
+     * <code>uint32 parallelism = 3;</code>
+     * @return The parallelism.
+     */
+    int getParallelism();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.ReconcileDatabase}
+   */
+  public static final class ReconcileDatabase extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ReconcileDatabase)
+      ReconcileDatabaseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReconcileDatabase.newBuilder() to construct.
+    private ReconcileDatabase(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReconcileDatabase() {
+      catalogName_ = "";
+      databaseName_ = "";
+      resolveStrategy_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReconcileDatabase();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReconcileDatabase(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              databaseName_ = s;
+              break;
+            }
+            case 24: {
+
+              parallelism_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileDatabase_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileDatabase_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Procedure.ReconcileDatabase.class, greptime.v1.meta.Procedure.ReconcileDatabase.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATABASE_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object databaseName_;
+    /**
+     * <code>string database_name = 2;</code>
+     * @return The databaseName.
+     */
+    @java.lang.Override
+    public java.lang.String getDatabaseName() {
+      java.lang.Object ref = databaseName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        databaseName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string database_name = 2;</code>
+     * @return The bytes for databaseName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDatabaseNameBytes() {
+      java.lang.Object ref = databaseName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        databaseName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARALLELISM_FIELD_NUMBER = 3;
+    private int parallelism_;
+    /**
+     * <code>uint32 parallelism = 3;</code>
+     * @return The parallelism.
+     */
+    @java.lang.Override
+    public int getParallelism() {
+      return parallelism_;
+    }
+
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 4;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, databaseName_);
+      }
+      if (parallelism_ != 0) {
+        output.writeUInt32(3, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        output.writeEnum(4, resolveStrategy_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(databaseName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, databaseName_);
+      }
+      if (parallelism_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, resolveStrategy_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Procedure.ReconcileDatabase)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Procedure.ReconcileDatabase other = (greptime.v1.meta.Procedure.ReconcileDatabase) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getDatabaseName()
+          .equals(other.getDatabaseName())) return false;
+      if (getParallelism()
+          != other.getParallelism()) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + DATABASE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDatabaseName().hashCode();
+      hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
+      hash = (53 * hash) + getParallelism();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileDatabase parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Procedure.ReconcileDatabase prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.ReconcileDatabase}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ReconcileDatabase)
+        greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileDatabase_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileDatabase_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Procedure.ReconcileDatabase.class, greptime.v1.meta.Procedure.ReconcileDatabase.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Procedure.ReconcileDatabase.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        databaseName_ = "";
+
+        parallelism_ = 0;
+
+        resolveStrategy_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileDatabase_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileDatabase getDefaultInstanceForType() {
+        return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileDatabase build() {
+        greptime.v1.meta.Procedure.ReconcileDatabase result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileDatabase buildPartial() {
+        greptime.v1.meta.Procedure.ReconcileDatabase result = new greptime.v1.meta.Procedure.ReconcileDatabase(this);
+        result.catalogName_ = catalogName_;
+        result.databaseName_ = databaseName_;
+        result.parallelism_ = parallelism_;
+        result.resolveStrategy_ = resolveStrategy_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Procedure.ReconcileDatabase) {
+          return mergeFrom((greptime.v1.meta.Procedure.ReconcileDatabase)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Procedure.ReconcileDatabase other) {
+        if (other == greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getDatabaseName().isEmpty()) {
+          databaseName_ = other.databaseName_;
+          onChanged();
+        }
+        if (other.getParallelism() != 0) {
+          setParallelism(other.getParallelism());
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Procedure.ReconcileDatabase parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Procedure.ReconcileDatabase) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object databaseName_ = "";
+      /**
+       * <code>string database_name = 2;</code>
+       * @return The databaseName.
+       */
+      public java.lang.String getDatabaseName() {
+        java.lang.Object ref = databaseName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          databaseName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string database_name = 2;</code>
+       * @return The bytes for databaseName.
+       */
+      public com.google.protobuf.ByteString
+          getDatabaseNameBytes() {
+        java.lang.Object ref = databaseName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          databaseName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string database_name = 2;</code>
+       * @param value The databaseName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDatabaseName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        databaseName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string database_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDatabaseName() {
+        
+        databaseName_ = getDefaultInstance().getDatabaseName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string database_name = 2;</code>
+       * @param value The bytes for databaseName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDatabaseNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        databaseName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int parallelism_ ;
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @return The parallelism.
+       */
+      @java.lang.Override
+      public int getParallelism() {
+        return parallelism_;
+      }
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @param value The parallelism to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParallelism(int value) {
+        
+        parallelism_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parallelism = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParallelism() {
+        
+        parallelism_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ReconcileDatabase)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileDatabase)
+    private static final greptime.v1.meta.Procedure.ReconcileDatabase DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Procedure.ReconcileDatabase();
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileDatabase getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReconcileDatabase>
+        PARSER = new com.google.protobuf.AbstractParser<ReconcileDatabase>() {
+      @java.lang.Override
+      public ReconcileDatabase parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReconcileDatabase(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReconcileDatabase> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReconcileDatabase> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileDatabase getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReconcileCatalogOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ReconcileCatalog)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>uint32 parallelism = 2;</code>
+     * @return The parallelism.
+     */
+    int getParallelism();
+
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    int getResolveStrategyValue();
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The resolveStrategy.
+     */
+    greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.ReconcileCatalog}
+   */
+  public static final class ReconcileCatalog extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ReconcileCatalog)
+      ReconcileCatalogOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReconcileCatalog.newBuilder() to construct.
+    private ReconcileCatalog(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReconcileCatalog() {
+      catalogName_ = "";
+      resolveStrategy_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReconcileCatalog();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReconcileCatalog(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 16: {
+
+              parallelism_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              resolveStrategy_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileCatalog_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileCatalog_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Procedure.ReconcileCatalog.class, greptime.v1.meta.Procedure.ReconcileCatalog.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARALLELISM_FIELD_NUMBER = 2;
+    private int parallelism_;
+    /**
+     * <code>uint32 parallelism = 2;</code>
+     * @return The parallelism.
+     */
+    @java.lang.Override
+    public int getParallelism() {
+      return parallelism_;
+    }
+
+    public static final int RESOLVE_STRATEGY_FIELD_NUMBER = 3;
+    private int resolveStrategy_;
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The enum numeric value on the wire for resolveStrategy.
+     */
+    @java.lang.Override public int getResolveStrategyValue() {
+      return resolveStrategy_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+     * @return The resolveStrategy.
+     */
+    @java.lang.Override public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+      @SuppressWarnings("deprecation")
+      greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+      return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (parallelism_ != 0) {
+        output.writeUInt32(2, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        output.writeEnum(3, resolveStrategy_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (parallelism_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, parallelism_);
+      }
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, resolveStrategy_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Procedure.ReconcileCatalog)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Procedure.ReconcileCatalog other = (greptime.v1.meta.Procedure.ReconcileCatalog) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (getParallelism()
+          != other.getParallelism()) return false;
+      if (resolveStrategy_ != other.resolveStrategy_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
+      hash = (53 * hash) + getParallelism();
+      hash = (37 * hash) + RESOLVE_STRATEGY_FIELD_NUMBER;
+      hash = (53 * hash) + resolveStrategy_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileCatalog parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Procedure.ReconcileCatalog prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.ReconcileCatalog}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ReconcileCatalog)
+        greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileCatalog_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileCatalog_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Procedure.ReconcileCatalog.class, greptime.v1.meta.Procedure.ReconcileCatalog.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Procedure.ReconcileCatalog.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        parallelism_ = 0;
+
+        resolveStrategy_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileCatalog_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileCatalog getDefaultInstanceForType() {
+        return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileCatalog build() {
+        greptime.v1.meta.Procedure.ReconcileCatalog result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileCatalog buildPartial() {
+        greptime.v1.meta.Procedure.ReconcileCatalog result = new greptime.v1.meta.Procedure.ReconcileCatalog(this);
+        result.catalogName_ = catalogName_;
+        result.parallelism_ = parallelism_;
+        result.resolveStrategy_ = resolveStrategy_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Procedure.ReconcileCatalog) {
+          return mergeFrom((greptime.v1.meta.Procedure.ReconcileCatalog)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Procedure.ReconcileCatalog other) {
+        if (other == greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (other.getParallelism() != 0) {
+          setParallelism(other.getParallelism());
+        }
+        if (other.resolveStrategy_ != 0) {
+          setResolveStrategyValue(other.getResolveStrategyValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Procedure.ReconcileCatalog parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Procedure.ReconcileCatalog) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int parallelism_ ;
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @return The parallelism.
+       */
+      @java.lang.Override
+      public int getParallelism() {
+        return parallelism_;
+      }
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @param value The parallelism to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParallelism(int value) {
+        
+        parallelism_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parallelism = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParallelism() {
+        
+        parallelism_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int resolveStrategy_ = 0;
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return The enum numeric value on the wire for resolveStrategy.
+       */
+      @java.lang.Override public int getResolveStrategyValue() {
+        return resolveStrategy_;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @param value The enum numeric value on the wire for resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategyValue(int value) {
+        
+        resolveStrategy_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return The resolveStrategy.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ResolveStrategy getResolveStrategy() {
+        @SuppressWarnings("deprecation")
+        greptime.v1.meta.Procedure.ResolveStrategy result = greptime.v1.meta.Procedure.ResolveStrategy.valueOf(resolveStrategy_);
+        return result == null ? greptime.v1.meta.Procedure.ResolveStrategy.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @param value The resolveStrategy to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResolveStrategy(greptime.v1.meta.Procedure.ResolveStrategy value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resolveStrategy_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResolveStrategy resolve_strategy = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResolveStrategy() {
+        
+        resolveStrategy_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ReconcileCatalog)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileCatalog)
+    private static final greptime.v1.meta.Procedure.ReconcileCatalog DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Procedure.ReconcileCatalog();
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileCatalog getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReconcileCatalog>
+        PARSER = new com.google.protobuf.AbstractParser<ReconcileCatalog>() {
+      @java.lang.Override
+      public ReconcileCatalog parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReconcileCatalog(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReconcileCatalog> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReconcileCatalog> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileCatalog getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReconcileRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ReconcileRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return The header.
+     */
+    greptime.v1.meta.Common.RequestHeader getHeader();
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     */
+    greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     * @return Whether the reconcileTable field is set.
+     */
+    boolean hasReconcileTable();
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     * @return The reconcileTable.
+     */
+    greptime.v1.meta.Procedure.ReconcileTable getReconcileTable();
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     */
+    greptime.v1.meta.Procedure.ReconcileTableOrBuilder getReconcileTableOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     * @return Whether the reconcileDatabase field is set.
+     */
+    boolean hasReconcileDatabase();
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     * @return The reconcileDatabase.
+     */
+    greptime.v1.meta.Procedure.ReconcileDatabase getReconcileDatabase();
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     */
+    greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder getReconcileDatabaseOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     * @return Whether the reconcileCatalog field is set.
+     */
+    boolean hasReconcileCatalog();
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     * @return The reconcileCatalog.
+     */
+    greptime.v1.meta.Procedure.ReconcileCatalog getReconcileCatalog();
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     */
+    greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder getReconcileCatalogOrBuilder();
+
+    public greptime.v1.meta.Procedure.ReconcileRequest.TargetCase getTargetCase();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.ReconcileRequest}
+   */
+  public static final class ReconcileRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ReconcileRequest)
+      ReconcileRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReconcileRequest.newBuilder() to construct.
+    private ReconcileRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReconcileRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReconcileRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReconcileRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              greptime.v1.meta.Common.RequestHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(greptime.v1.meta.Common.RequestHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              greptime.v1.meta.Procedure.ReconcileTable.Builder subBuilder = null;
+              if (targetCase_ == 2) {
+                subBuilder = ((greptime.v1.meta.Procedure.ReconcileTable) target_).toBuilder();
+              }
+              target_ =
+                  input.readMessage(greptime.v1.meta.Procedure.ReconcileTable.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Procedure.ReconcileTable) target_);
+                target_ = subBuilder.buildPartial();
+              }
+              targetCase_ = 2;
+              break;
+            }
+            case 26: {
+              greptime.v1.meta.Procedure.ReconcileDatabase.Builder subBuilder = null;
+              if (targetCase_ == 3) {
+                subBuilder = ((greptime.v1.meta.Procedure.ReconcileDatabase) target_).toBuilder();
+              }
+              target_ =
+                  input.readMessage(greptime.v1.meta.Procedure.ReconcileDatabase.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Procedure.ReconcileDatabase) target_);
+                target_ = subBuilder.buildPartial();
+              }
+              targetCase_ = 3;
+              break;
+            }
+            case 34: {
+              greptime.v1.meta.Procedure.ReconcileCatalog.Builder subBuilder = null;
+              if (targetCase_ == 4) {
+                subBuilder = ((greptime.v1.meta.Procedure.ReconcileCatalog) target_).toBuilder();
+              }
+              target_ =
+                  input.readMessage(greptime.v1.meta.Procedure.ReconcileCatalog.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Procedure.ReconcileCatalog) target_);
+                target_ = subBuilder.buildPartial();
+              }
+              targetCase_ = 4;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Procedure.ReconcileRequest.class, greptime.v1.meta.Procedure.ReconcileRequest.Builder.class);
+    }
+
+    private int targetCase_ = 0;
+    private java.lang.Object target_;
+    public enum TargetCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      RECONCILE_TABLE(2),
+      RECONCILE_DATABASE(3),
+      RECONCILE_CATALOG(4),
+      TARGET_NOT_SET(0);
+      private final int value;
+      private TargetCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static TargetCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static TargetCase forNumber(int value) {
+        switch (value) {
+          case 2: return RECONCILE_TABLE;
+          case 3: return RECONCILE_DATABASE;
+          case 4: return RECONCILE_CATALOG;
+          case 0: return TARGET_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public TargetCase
+    getTargetCase() {
+      return TargetCase.forNumber(
+          targetCase_);
+    }
+
+    public static final int HEADER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.RequestHeader header_;
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.RequestHeader getHeader() {
+      return header_ == null ? greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
+    }
+
+    public static final int RECONCILE_TABLE_FIELD_NUMBER = 2;
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     * @return Whether the reconcileTable field is set.
+     */
+    @java.lang.Override
+    public boolean hasReconcileTable() {
+      return targetCase_ == 2;
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     * @return The reconcileTable.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileTable getReconcileTable() {
+      if (targetCase_ == 2) {
+         return (greptime.v1.meta.Procedure.ReconcileTable) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileTableOrBuilder getReconcileTableOrBuilder() {
+      if (targetCase_ == 2) {
+         return (greptime.v1.meta.Procedure.ReconcileTable) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+    }
+
+    public static final int RECONCILE_DATABASE_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     * @return Whether the reconcileDatabase field is set.
+     */
+    @java.lang.Override
+    public boolean hasReconcileDatabase() {
+      return targetCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     * @return The reconcileDatabase.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileDatabase getReconcileDatabase() {
+      if (targetCase_ == 3) {
+         return (greptime.v1.meta.Procedure.ReconcileDatabase) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder getReconcileDatabaseOrBuilder() {
+      if (targetCase_ == 3) {
+         return (greptime.v1.meta.Procedure.ReconcileDatabase) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+    }
+
+    public static final int RECONCILE_CATALOG_FIELD_NUMBER = 4;
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     * @return Whether the reconcileCatalog field is set.
+     */
+    @java.lang.Override
+    public boolean hasReconcileCatalog() {
+      return targetCase_ == 4;
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     * @return The reconcileCatalog.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileCatalog getReconcileCatalog() {
+      if (targetCase_ == 4) {
+         return (greptime.v1.meta.Procedure.ReconcileCatalog) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder getReconcileCatalogOrBuilder() {
+      if (targetCase_ == 4) {
+         return (greptime.v1.meta.Procedure.ReconcileCatalog) target_;
+      }
+      return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (header_ != null) {
+        output.writeMessage(1, getHeader());
+      }
+      if (targetCase_ == 2) {
+        output.writeMessage(2, (greptime.v1.meta.Procedure.ReconcileTable) target_);
+      }
+      if (targetCase_ == 3) {
+        output.writeMessage(3, (greptime.v1.meta.Procedure.ReconcileDatabase) target_);
+      }
+      if (targetCase_ == 4) {
+        output.writeMessage(4, (greptime.v1.meta.Procedure.ReconcileCatalog) target_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getHeader());
+      }
+      if (targetCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (greptime.v1.meta.Procedure.ReconcileTable) target_);
+      }
+      if (targetCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (greptime.v1.meta.Procedure.ReconcileDatabase) target_);
+      }
+      if (targetCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (greptime.v1.meta.Procedure.ReconcileCatalog) target_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Procedure.ReconcileRequest)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Procedure.ReconcileRequest other = (greptime.v1.meta.Procedure.ReconcileRequest) obj;
+
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
+      if (!getTargetCase().equals(other.getTargetCase())) return false;
+      switch (targetCase_) {
+        case 2:
+          if (!getReconcileTable()
+              .equals(other.getReconcileTable())) return false;
+          break;
+        case 3:
+          if (!getReconcileDatabase()
+              .equals(other.getReconcileDatabase())) return false;
+          break;
+        case 4:
+          if (!getReconcileCatalog()
+              .equals(other.getReconcileCatalog())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
+      switch (targetCase_) {
+        case 2:
+          hash = (37 * hash) + RECONCILE_TABLE_FIELD_NUMBER;
+          hash = (53 * hash) + getReconcileTable().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + RECONCILE_DATABASE_FIELD_NUMBER;
+          hash = (53 * hash) + getReconcileDatabase().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + RECONCILE_CATALOG_FIELD_NUMBER;
+          hash = (53 * hash) + getReconcileCatalog().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Procedure.ReconcileRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.ReconcileRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ReconcileRequest)
+        greptime.v1.meta.Procedure.ReconcileRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Procedure.ReconcileRequest.class, greptime.v1.meta.Procedure.ReconcileRequest.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Procedure.ReconcileRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+        targetCase_ = 0;
+        target_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileRequest getDefaultInstanceForType() {
+        return greptime.v1.meta.Procedure.ReconcileRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileRequest build() {
+        greptime.v1.meta.Procedure.ReconcileRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileRequest buildPartial() {
+        greptime.v1.meta.Procedure.ReconcileRequest result = new greptime.v1.meta.Procedure.ReconcileRequest(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (targetCase_ == 2) {
+          if (reconcileTableBuilder_ == null) {
+            result.target_ = target_;
+          } else {
+            result.target_ = reconcileTableBuilder_.build();
+          }
+        }
+        if (targetCase_ == 3) {
+          if (reconcileDatabaseBuilder_ == null) {
+            result.target_ = target_;
+          } else {
+            result.target_ = reconcileDatabaseBuilder_.build();
+          }
+        }
+        if (targetCase_ == 4) {
+          if (reconcileCatalogBuilder_ == null) {
+            result.target_ = target_;
+          } else {
+            result.target_ = reconcileCatalogBuilder_.build();
+          }
+        }
+        result.targetCase_ = targetCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Procedure.ReconcileRequest) {
+          return mergeFrom((greptime.v1.meta.Procedure.ReconcileRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Procedure.ReconcileRequest other) {
+        if (other == greptime.v1.meta.Procedure.ReconcileRequest.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
+        switch (other.getTargetCase()) {
+          case RECONCILE_TABLE: {
+            mergeReconcileTable(other.getReconcileTable());
+            break;
+          }
+          case RECONCILE_DATABASE: {
+            mergeReconcileDatabase(other.getReconcileDatabase());
+            break;
+          }
+          case RECONCILE_CATALOG: {
+            mergeReconcileCatalog(other.getReconcileCatalog());
+            break;
+          }
+          case TARGET_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Procedure.ReconcileRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Procedure.ReconcileRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int targetCase_ = 0;
+      private java.lang.Object target_;
+      public TargetCase
+          getTargetCase() {
+        return TargetCase.forNumber(
+            targetCase_);
+      }
+
+      public Builder clearTarget() {
+        targetCase_ = 0;
+        target_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private greptime.v1.meta.Common.RequestHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       * @return The header.
+       */
+      public greptime.v1.meta.Common.RequestHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder setHeader(greptime.v1.meta.Common.RequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder setHeader(
+          greptime.v1.meta.Common.RequestHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder mergeHeader(greptime.v1.meta.Common.RequestHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              greptime.v1.meta.Common.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.RequestHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              greptime.v1.meta.Common.RequestHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.RequestHeader header = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.RequestHeader, greptime.v1.meta.Common.RequestHeader.Builder, greptime.v1.meta.Common.RequestHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileTable, greptime.v1.meta.Procedure.ReconcileTable.Builder, greptime.v1.meta.Procedure.ReconcileTableOrBuilder> reconcileTableBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       * @return Whether the reconcileTable field is set.
+       */
+      @java.lang.Override
+      public boolean hasReconcileTable() {
+        return targetCase_ == 2;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       * @return The reconcileTable.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileTable getReconcileTable() {
+        if (reconcileTableBuilder_ == null) {
+          if (targetCase_ == 2) {
+            return (greptime.v1.meta.Procedure.ReconcileTable) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+        } else {
+          if (targetCase_ == 2) {
+            return reconcileTableBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      public Builder setReconcileTable(greptime.v1.meta.Procedure.ReconcileTable value) {
+        if (reconcileTableBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          target_ = value;
+          onChanged();
+        } else {
+          reconcileTableBuilder_.setMessage(value);
+        }
+        targetCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      public Builder setReconcileTable(
+          greptime.v1.meta.Procedure.ReconcileTable.Builder builderForValue) {
+        if (reconcileTableBuilder_ == null) {
+          target_ = builderForValue.build();
+          onChanged();
+        } else {
+          reconcileTableBuilder_.setMessage(builderForValue.build());
+        }
+        targetCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      public Builder mergeReconcileTable(greptime.v1.meta.Procedure.ReconcileTable value) {
+        if (reconcileTableBuilder_ == null) {
+          if (targetCase_ == 2 &&
+              target_ != greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance()) {
+            target_ = greptime.v1.meta.Procedure.ReconcileTable.newBuilder((greptime.v1.meta.Procedure.ReconcileTable) target_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            target_ = value;
+          }
+          onChanged();
+        } else {
+          if (targetCase_ == 2) {
+            reconcileTableBuilder_.mergeFrom(value);
+          } else {
+            reconcileTableBuilder_.setMessage(value);
+          }
+        }
+        targetCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      public Builder clearReconcileTable() {
+        if (reconcileTableBuilder_ == null) {
+          if (targetCase_ == 2) {
+            targetCase_ = 0;
+            target_ = null;
+            onChanged();
+          }
+        } else {
+          if (targetCase_ == 2) {
+            targetCase_ = 0;
+            target_ = null;
+          }
+          reconcileTableBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      public greptime.v1.meta.Procedure.ReconcileTable.Builder getReconcileTableBuilder() {
+        return getReconcileTableFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileTableOrBuilder getReconcileTableOrBuilder() {
+        if ((targetCase_ == 2) && (reconcileTableBuilder_ != null)) {
+          return reconcileTableBuilder_.getMessageOrBuilder();
+        } else {
+          if (targetCase_ == 2) {
+            return (greptime.v1.meta.Procedure.ReconcileTable) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileTable reconcile_table = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileTable, greptime.v1.meta.Procedure.ReconcileTable.Builder, greptime.v1.meta.Procedure.ReconcileTableOrBuilder> 
+          getReconcileTableFieldBuilder() {
+        if (reconcileTableBuilder_ == null) {
+          if (!(targetCase_ == 2)) {
+            target_ = greptime.v1.meta.Procedure.ReconcileTable.getDefaultInstance();
+          }
+          reconcileTableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Procedure.ReconcileTable, greptime.v1.meta.Procedure.ReconcileTable.Builder, greptime.v1.meta.Procedure.ReconcileTableOrBuilder>(
+                  (greptime.v1.meta.Procedure.ReconcileTable) target_,
+                  getParentForChildren(),
+                  isClean());
+          target_ = null;
+        }
+        targetCase_ = 2;
+        onChanged();;
+        return reconcileTableBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileDatabase, greptime.v1.meta.Procedure.ReconcileDatabase.Builder, greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder> reconcileDatabaseBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       * @return Whether the reconcileDatabase field is set.
+       */
+      @java.lang.Override
+      public boolean hasReconcileDatabase() {
+        return targetCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       * @return The reconcileDatabase.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileDatabase getReconcileDatabase() {
+        if (reconcileDatabaseBuilder_ == null) {
+          if (targetCase_ == 3) {
+            return (greptime.v1.meta.Procedure.ReconcileDatabase) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+        } else {
+          if (targetCase_ == 3) {
+            return reconcileDatabaseBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      public Builder setReconcileDatabase(greptime.v1.meta.Procedure.ReconcileDatabase value) {
+        if (reconcileDatabaseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          target_ = value;
+          onChanged();
+        } else {
+          reconcileDatabaseBuilder_.setMessage(value);
+        }
+        targetCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      public Builder setReconcileDatabase(
+          greptime.v1.meta.Procedure.ReconcileDatabase.Builder builderForValue) {
+        if (reconcileDatabaseBuilder_ == null) {
+          target_ = builderForValue.build();
+          onChanged();
+        } else {
+          reconcileDatabaseBuilder_.setMessage(builderForValue.build());
+        }
+        targetCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      public Builder mergeReconcileDatabase(greptime.v1.meta.Procedure.ReconcileDatabase value) {
+        if (reconcileDatabaseBuilder_ == null) {
+          if (targetCase_ == 3 &&
+              target_ != greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance()) {
+            target_ = greptime.v1.meta.Procedure.ReconcileDatabase.newBuilder((greptime.v1.meta.Procedure.ReconcileDatabase) target_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            target_ = value;
+          }
+          onChanged();
+        } else {
+          if (targetCase_ == 3) {
+            reconcileDatabaseBuilder_.mergeFrom(value);
+          } else {
+            reconcileDatabaseBuilder_.setMessage(value);
+          }
+        }
+        targetCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      public Builder clearReconcileDatabase() {
+        if (reconcileDatabaseBuilder_ == null) {
+          if (targetCase_ == 3) {
+            targetCase_ = 0;
+            target_ = null;
+            onChanged();
+          }
+        } else {
+          if (targetCase_ == 3) {
+            targetCase_ = 0;
+            target_ = null;
+          }
+          reconcileDatabaseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      public greptime.v1.meta.Procedure.ReconcileDatabase.Builder getReconcileDatabaseBuilder() {
+        return getReconcileDatabaseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder getReconcileDatabaseOrBuilder() {
+        if ((targetCase_ == 3) && (reconcileDatabaseBuilder_ != null)) {
+          return reconcileDatabaseBuilder_.getMessageOrBuilder();
+        } else {
+          if (targetCase_ == 3) {
+            return (greptime.v1.meta.Procedure.ReconcileDatabase) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileDatabase reconcile_database = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileDatabase, greptime.v1.meta.Procedure.ReconcileDatabase.Builder, greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder> 
+          getReconcileDatabaseFieldBuilder() {
+        if (reconcileDatabaseBuilder_ == null) {
+          if (!(targetCase_ == 3)) {
+            target_ = greptime.v1.meta.Procedure.ReconcileDatabase.getDefaultInstance();
+          }
+          reconcileDatabaseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Procedure.ReconcileDatabase, greptime.v1.meta.Procedure.ReconcileDatabase.Builder, greptime.v1.meta.Procedure.ReconcileDatabaseOrBuilder>(
+                  (greptime.v1.meta.Procedure.ReconcileDatabase) target_,
+                  getParentForChildren(),
+                  isClean());
+          target_ = null;
+        }
+        targetCase_ = 3;
+        onChanged();;
+        return reconcileDatabaseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileCatalog, greptime.v1.meta.Procedure.ReconcileCatalog.Builder, greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder> reconcileCatalogBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       * @return Whether the reconcileCatalog field is set.
+       */
+      @java.lang.Override
+      public boolean hasReconcileCatalog() {
+        return targetCase_ == 4;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       * @return The reconcileCatalog.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileCatalog getReconcileCatalog() {
+        if (reconcileCatalogBuilder_ == null) {
+          if (targetCase_ == 4) {
+            return (greptime.v1.meta.Procedure.ReconcileCatalog) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+        } else {
+          if (targetCase_ == 4) {
+            return reconcileCatalogBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      public Builder setReconcileCatalog(greptime.v1.meta.Procedure.ReconcileCatalog value) {
+        if (reconcileCatalogBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          target_ = value;
+          onChanged();
+        } else {
+          reconcileCatalogBuilder_.setMessage(value);
+        }
+        targetCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      public Builder setReconcileCatalog(
+          greptime.v1.meta.Procedure.ReconcileCatalog.Builder builderForValue) {
+        if (reconcileCatalogBuilder_ == null) {
+          target_ = builderForValue.build();
+          onChanged();
+        } else {
+          reconcileCatalogBuilder_.setMessage(builderForValue.build());
+        }
+        targetCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      public Builder mergeReconcileCatalog(greptime.v1.meta.Procedure.ReconcileCatalog value) {
+        if (reconcileCatalogBuilder_ == null) {
+          if (targetCase_ == 4 &&
+              target_ != greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance()) {
+            target_ = greptime.v1.meta.Procedure.ReconcileCatalog.newBuilder((greptime.v1.meta.Procedure.ReconcileCatalog) target_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            target_ = value;
+          }
+          onChanged();
+        } else {
+          if (targetCase_ == 4) {
+            reconcileCatalogBuilder_.mergeFrom(value);
+          } else {
+            reconcileCatalogBuilder_.setMessage(value);
+          }
+        }
+        targetCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      public Builder clearReconcileCatalog() {
+        if (reconcileCatalogBuilder_ == null) {
+          if (targetCase_ == 4) {
+            targetCase_ = 0;
+            target_ = null;
+            onChanged();
+          }
+        } else {
+          if (targetCase_ == 4) {
+            targetCase_ = 0;
+            target_ = null;
+          }
+          reconcileCatalogBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      public greptime.v1.meta.Procedure.ReconcileCatalog.Builder getReconcileCatalogBuilder() {
+        return getReconcileCatalogFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder getReconcileCatalogOrBuilder() {
+        if ((targetCase_ == 4) && (reconcileCatalogBuilder_ != null)) {
+          return reconcileCatalogBuilder_.getMessageOrBuilder();
+        } else {
+          if (targetCase_ == 4) {
+            return (greptime.v1.meta.Procedure.ReconcileCatalog) target_;
+          }
+          return greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Procedure.ReconcileCatalog, greptime.v1.meta.Procedure.ReconcileCatalog.Builder, greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder> 
+          getReconcileCatalogFieldBuilder() {
+        if (reconcileCatalogBuilder_ == null) {
+          if (!(targetCase_ == 4)) {
+            target_ = greptime.v1.meta.Procedure.ReconcileCatalog.getDefaultInstance();
+          }
+          reconcileCatalogBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Procedure.ReconcileCatalog, greptime.v1.meta.Procedure.ReconcileCatalog.Builder, greptime.v1.meta.Procedure.ReconcileCatalogOrBuilder>(
+                  (greptime.v1.meta.Procedure.ReconcileCatalog) target_,
+                  getParentForChildren(),
+                  isClean());
+          target_ = null;
+        }
+        targetCase_ = 4;
+        onChanged();;
+        return reconcileCatalogBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ReconcileRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileRequest)
+    private static final greptime.v1.meta.Procedure.ReconcileRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Procedure.ReconcileRequest();
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReconcileRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ReconcileRequest>() {
+      @java.lang.Override
+      public ReconcileRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReconcileRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReconcileRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReconcileRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ReconcileResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.ReconcileResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return The header.
+     */
+    greptime.v1.meta.Common.ResponseHeader getHeader();
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     */
+    greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
+     */
+    boolean hasPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    greptime.v1.meta.Common.ProcedureId getPid();
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.ReconcileResponse}
+   */
+  public static final class ReconcileResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.ReconcileResponse)
+      ReconcileResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ReconcileResponse.newBuilder() to construct.
+    private ReconcileResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ReconcileResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ReconcileResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ReconcileResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              greptime.v1.meta.Common.ResponseHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(greptime.v1.meta.Common.ResponseHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              greptime.v1.meta.Common.ProcedureId.Builder subBuilder = null;
+              if (pid_ != null) {
+                subBuilder = pid_.toBuilder();
+              }
+              pid_ = input.readMessage(greptime.v1.meta.Common.ProcedureId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pid_);
+                pid_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Procedure.ReconcileResponse.class, greptime.v1.meta.Procedure.ReconcileResponse.Builder.class);
+    }
+
+    public static final int HEADER_FIELD_NUMBER = 1;
+    private greptime.v1.meta.Common.ResponseHeader header_;
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ResponseHeader getHeader() {
+      return header_ == null ? greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
+    }
+
+    public static final int PID_FIELD_NUMBER = 2;
+    private greptime.v1.meta.Common.ProcedureId pid_;
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return Whether the pid field is set.
+     */
+    @java.lang.Override
+    public boolean hasPid() {
+      return pid_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     * @return The pid.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureId getPid() {
+      return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+    }
+    /**
+     * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+      return getPid();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (header_ != null) {
+        output.writeMessage(1, getHeader());
+      }
+      if (pid_ != null) {
+        output.writeMessage(2, getPid());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getHeader());
+      }
+      if (pid_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getPid());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Procedure.ReconcileResponse)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Procedure.ReconcileResponse other = (greptime.v1.meta.Procedure.ReconcileResponse) obj;
+
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
+      if (hasPid() != other.hasPid()) return false;
+      if (hasPid()) {
+        if (!getPid()
+            .equals(other.getPid())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
+      if (hasPid()) {
+        hash = (37 * hash) + PID_FIELD_NUMBER;
+        hash = (53 * hash) + getPid().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Procedure.ReconcileResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Procedure.ReconcileResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.ReconcileResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.ReconcileResponse)
+        greptime.v1.meta.Procedure.ReconcileResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Procedure.ReconcileResponse.class, greptime.v1.meta.Procedure.ReconcileResponse.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Procedure.ReconcileResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+        if (pidBuilder_ == null) {
+          pid_ = null;
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Procedure.internal_static_greptime_v1_meta_ReconcileResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileResponse getDefaultInstanceForType() {
+        return greptime.v1.meta.Procedure.ReconcileResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileResponse build() {
+        greptime.v1.meta.Procedure.ReconcileResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Procedure.ReconcileResponse buildPartial() {
+        greptime.v1.meta.Procedure.ReconcileResponse result = new greptime.v1.meta.Procedure.ReconcileResponse(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (pidBuilder_ == null) {
+          result.pid_ = pid_;
+        } else {
+          result.pid_ = pidBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Procedure.ReconcileResponse) {
+          return mergeFrom((greptime.v1.meta.Procedure.ReconcileResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Procedure.ReconcileResponse other) {
+        if (other == greptime.v1.meta.Procedure.ReconcileResponse.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
+        if (other.hasPid()) {
+          mergePid(other.getPid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Procedure.ReconcileResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Procedure.ReconcileResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private greptime.v1.meta.Common.ResponseHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder> headerBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       * @return The header.
+       */
+      public greptime.v1.meta.Common.ResponseHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder setHeader(greptime.v1.meta.Common.ResponseHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder setHeader(
+          greptime.v1.meta.Common.ResponseHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder mergeHeader(greptime.v1.meta.Common.ResponseHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              greptime.v1.meta.Common.ResponseHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.ResponseHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      public greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              greptime.v1.meta.Common.ResponseHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ResponseHeader header = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ResponseHeader, greptime.v1.meta.Common.ResponseHeader.Builder, greptime.v1.meta.Common.ResponseHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
+
+      private greptime.v1.meta.Common.ProcedureId pid_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> pidBuilder_;
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return Whether the pid field is set.
+       */
+      public boolean hasPid() {
+        return pidBuilder_ != null || pid_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       * @return The pid.
+       */
+      public greptime.v1.meta.Common.ProcedureId getPid() {
+        if (pidBuilder_ == null) {
+          return pid_ == null ? greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        } else {
+          return pidBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder setPid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pid_ = value;
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder setPid(
+          greptime.v1.meta.Common.ProcedureId.Builder builderForValue) {
+        if (pidBuilder_ == null) {
+          pid_ = builderForValue.build();
+          onChanged();
+        } else {
+          pidBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder mergePid(greptime.v1.meta.Common.ProcedureId value) {
+        if (pidBuilder_ == null) {
+          if (pid_ != null) {
+            pid_ =
+              greptime.v1.meta.Common.ProcedureId.newBuilder(pid_).mergeFrom(value).buildPartial();
+          } else {
+            pid_ = value;
+          }
+          onChanged();
+        } else {
+          pidBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public Builder clearPid() {
+        if (pidBuilder_ == null) {
+          pid_ = null;
+          onChanged();
+        } else {
+          pid_ = null;
+          pidBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureId.Builder getPidBuilder() {
+        
+        onChanged();
+        return getPidFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureIdOrBuilder getPidOrBuilder() {
+        if (pidBuilder_ != null) {
+          return pidBuilder_.getMessageOrBuilder();
+        } else {
+          return pid_ == null ?
+              greptime.v1.meta.Common.ProcedureId.getDefaultInstance() : pid_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.ProcedureId pid = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder> 
+          getPidFieldBuilder() {
+        if (pidBuilder_ == null) {
+          pidBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureId, greptime.v1.meta.Common.ProcedureId.Builder, greptime.v1.meta.Common.ProcedureIdOrBuilder>(
+                  getPid(),
+                  getParentForChildren(),
+                  isClean());
+          pid_ = null;
+        }
+        return pidBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.ReconcileResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileResponse)
+    private static final greptime.v1.meta.Procedure.ReconcileResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Procedure.ReconcileResponse();
+    }
+
+    public static greptime.v1.meta.Procedure.ReconcileResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ReconcileResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ReconcileResponse>() {
+      @java.lang.Override
+      public ReconcileResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ReconcileResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReconcileResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReconcileResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Procedure.ReconcileResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_ProcedureMeta_descriptor;
   private static final 
@@ -4911,6 +9859,31 @@ public final class Procedure {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_ProcedureDetailResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ReconcileTable_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ReconcileTable_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ReconcileDatabase_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ReconcileDatabase_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ReconcileCatalog_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ReconcileCatalog_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ReconcileRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ReconcileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_ReconcileResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_ReconcileResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4940,21 +9913,45 @@ public final class Procedure {
       "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h" +
       "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH" +
       "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1." +
-      "meta.ProcedureMeta*v\n\017ProcedureStatus\022\013\n" +
-      "\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Fa" +
-      "iled\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013RollingBa" +
-      "ck\020\005\022\014\n\010Poisoned\020\0062\366\002\n\020ProcedureService\022" +
-      "Z\n\005query\022\'.greptime.v1.meta.QueryProcedu" +
-      "reRequest\032(.greptime.v1.meta.ProcedureSt" +
-      "ateResponse\022J\n\003ddl\022 .greptime.v1.meta.Dd" +
-      "lTaskRequest\032!.greptime.v1.meta.DdlTaskR" +
-      "esponse\022Z\n\007migrate\022&.greptime.v1.meta.Mi" +
-      "grateRegionRequest\032\'.greptime.v1.meta.Mi" +
-      "grateRegionResponse\022^\n\007details\022(.greptim" +
-      "e.v1.meta.ProcedureDetailRequest\032).grept" +
-      "ime.v1.meta.ProcedureDetailResponseB<Z:g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1/metab\006proto3"
+      "meta.ProcedureMeta\"\214\001\n\016ReconcileTable\022\024\n" +
+      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\022;\n\020resolve_strategy" +
+      "\030\004 \001(\0162!.greptime.v1.meta.ResolveStrateg" +
+      "y\"\222\001\n\021ReconcileDatabase\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\023\n\013parallel" +
+      "ism\030\003 \001(\r\022;\n\020resolve_strategy\030\004 \001(\0162!.gr" +
+      "eptime.v1.meta.ResolveStrategy\"z\n\020Reconc" +
+      "ileCatalog\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013para" +
+      "llelism\030\002 \001(\r\022;\n\020resolve_strategy\030\003 \001(\0162" +
+      "!.greptime.v1.meta.ResolveStrategy\"\216\002\n\020R" +
+      "econcileRequest\022/\n\006header\030\001 \001(\0132\037.grepti" +
+      "me.v1.meta.RequestHeader\022;\n\017reconcile_ta" +
+      "ble\030\002 \001(\0132 .greptime.v1.meta.ReconcileTa" +
+      "bleH\000\022A\n\022reconcile_database\030\003 \001(\0132#.grep" +
+      "time.v1.meta.ReconcileDatabaseH\000\022?\n\021reco" +
+      "ncile_catalog\030\004 \001(\0132\".greptime.v1.meta.R" +
+      "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
+      "me.v1.meta.ProcedureId*v\n\017ProcedureStatu" +
+      "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n" +
+      "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli" +
+      "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg" +
+      "y\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017Abor" +
+      "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu" +
+      "ery\022\'.greptime.v1.meta.QueryProcedureReq" +
+      "uest\032(.greptime.v1.meta.ProcedureStateRe" +
+      "sponse\022J\n\003ddl\022 .greptime.v1.meta.DdlTask" +
+      "Request\032!.greptime.v1.meta.DdlTaskRespon" +
+      "se\022T\n\treconcile\022\".greptime.v1.meta.Recon" +
+      "cileRequest\032#.greptime.v1.meta.Reconcile" +
+      "Response\022Z\n\007migrate\022&.greptime.v1.meta.M" +
+      "igrateRegionRequest\032\'.greptime.v1.meta.M" +
+      "igrateRegionResponse\022^\n\007details\022(.grepti" +
+      "me.v1.meta.ProcedureDetailRequest\032).grep" +
+      "time.v1.meta.ProcedureDetailResponseB<Z:" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4993,6 +9990,36 @@ public final class Procedure {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_ProcedureDetailResponse_descriptor,
         new java.lang.String[] { "Header", "Procedures", });
+    internal_static_greptime_v1_meta_ReconcileTable_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_greptime_v1_meta_ReconcileTable_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ReconcileTable_descriptor,
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "ResolveStrategy", });
+    internal_static_greptime_v1_meta_ReconcileDatabase_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_greptime_v1_meta_ReconcileDatabase_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ReconcileDatabase_descriptor,
+        new java.lang.String[] { "CatalogName", "DatabaseName", "Parallelism", "ResolveStrategy", });
+    internal_static_greptime_v1_meta_ReconcileCatalog_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_greptime_v1_meta_ReconcileCatalog_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ReconcileCatalog_descriptor,
+        new java.lang.String[] { "CatalogName", "Parallelism", "ResolveStrategy", });
+    internal_static_greptime_v1_meta_ReconcileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_greptime_v1_meta_ReconcileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ReconcileRequest_descriptor,
+        new java.lang.String[] { "Header", "ReconcileTable", "ReconcileDatabase", "ReconcileCatalog", "Target", });
+    internal_static_greptime_v1_meta_ReconcileResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_greptime_v1_meta_ReconcileResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_ReconcileResponse_descriptor,
+        new java.lang.String[] { "Header", "Pid", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.Ddl.getDescriptor();
     greptime.v1.meta.Region.getDescriptor();

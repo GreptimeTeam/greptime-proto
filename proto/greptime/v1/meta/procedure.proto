@@ -52,12 +52,55 @@ message ProcedureDetailResponse {
   repeated ProcedureMeta procedures = 2;
 }
 
+enum ResolveStrategy {
+  UseLatest = 0;
+  UseMetasrv = 1;
+  AbortOnConflict = 2;
+}
+
+message ReconcileTable {
+  string catalog_name = 1;
+  string schema_name = 2;
+  string table_name = 3;
+  ResolveStrategy resolve_strategy = 4;
+}
+
+message ReconcileDatabase {
+  string catalog_name = 1;
+  string database_name = 2;
+  uint32 parallelism = 3;
+  ResolveStrategy resolve_strategy = 4;
+}
+
+message ReconcileCatalog {
+  string catalog_name = 1;
+  uint32 parallelism = 2;
+  ResolveStrategy resolve_strategy = 3;
+}
+
+message ReconcileRequest {
+  RequestHeader header = 1;
+  oneof target {
+    ReconcileTable reconcile_table = 2;
+    ReconcileDatabase reconcile_database = 3;
+    ReconcileCatalog reconcile_catalog = 4;
+  }
+}
+
+message ReconcileResponse {
+  ResponseHeader header = 1;
+  ProcedureId pid = 2;
+}
+
 service ProcedureService {
   // Query a submitted procedure state
   rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
 
   // Submits a DDL task
   rpc ddl(DdlTaskRequest) returns (DdlTaskResponse);
+
+  // Submits a reconcile task
+  rpc reconcile(ReconcileRequest) returns (ReconcileResponse);
 
   // Submits a region migration task
   rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
