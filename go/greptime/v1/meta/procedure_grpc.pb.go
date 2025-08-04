@@ -28,6 +28,8 @@ type ProcedureServiceClient interface {
 	Ddl(ctx context.Context, in *DdlTaskRequest, opts ...grpc.CallOption) (*DdlTaskResponse, error)
 	// Submits a region migration task
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
+	// Submits a reconcile task
+	Reconcile(ctx context.Context, in *ReconcileRequest, opts ...grpc.CallOption) (*ReconcileResponse, error)
 	// Query all submitted procedures details
 	Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error)
 }
@@ -67,6 +69,15 @@ func (c *procedureServiceClient) Migrate(ctx context.Context, in *MigrateRegionR
 	return out, nil
 }
 
+func (c *procedureServiceClient) Reconcile(ctx context.Context, in *ReconcileRequest, opts ...grpc.CallOption) (*ReconcileResponse, error) {
+	out := new(ReconcileResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/reconcile", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *procedureServiceClient) Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error) {
 	out := new(ProcedureDetailResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/details", in, out, opts...)
@@ -86,6 +97,8 @@ type ProcedureServiceServer interface {
 	Ddl(context.Context, *DdlTaskRequest) (*DdlTaskResponse, error)
 	// Submits a region migration task
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)
+	// Submits a reconcile task
+	Reconcile(context.Context, *ReconcileRequest) (*ReconcileResponse, error)
 	// Query all submitted procedures details
 	Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error)
 	mustEmbedUnimplementedProcedureServiceServer()
@@ -103,6 +116,9 @@ func (UnimplementedProcedureServiceServer) Ddl(context.Context, *DdlTaskRequest)
 }
 func (UnimplementedProcedureServiceServer) Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Migrate not implemented")
+}
+func (UnimplementedProcedureServiceServer) Reconcile(context.Context, *ReconcileRequest) (*ReconcileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Reconcile not implemented")
 }
 func (UnimplementedProcedureServiceServer) Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Details not implemented")
@@ -174,6 +190,24 @@ func _ProcedureService_Migrate_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProcedureService_Reconcile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReconcileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcedureServiceServer).Reconcile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.ProcedureService/reconcile",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcedureServiceServer).Reconcile(ctx, req.(*ReconcileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProcedureService_Details_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProcedureDetailRequest)
 	if err := dec(in); err != nil {
@@ -210,6 +244,10 @@ var ProcedureService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "migrate",
 			Handler:    _ProcedureService_Migrate_Handler,
+		},
+		{
+			MethodName: "reconcile",
+			Handler:    _ProcedureService_Reconcile_Handler,
 		},
 		{
 			MethodName: "details",
