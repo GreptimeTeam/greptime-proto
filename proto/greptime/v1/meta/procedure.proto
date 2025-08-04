@@ -53,8 +53,8 @@ message ProcedureDetailResponse {
 }
 
 enum ResolveStrategy {
-  UseMetasrv = 0;
-  UseLatest = 1;
+  UseLatest = 0;
+  UseMetasrv = 1;
   AbortOnConflict = 2;
 }
 

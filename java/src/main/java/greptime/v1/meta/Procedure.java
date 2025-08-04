@@ -173,13 +173,13 @@ public final class Procedure {
   public enum ResolveStrategy
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>UseMetasrv = 0;</code>
+     * <code>UseLatest = 0;</code>
      */
-    UseMetasrv(0),
+    UseLatest(0),
     /**
-     * <code>UseLatest = 1;</code>
+     * <code>UseMetasrv = 1;</code>
      */
-    UseLatest(1),
+    UseMetasrv(1),
     /**
      * <code>AbortOnConflict = 2;</code>
      */
@@ -188,13 +188,13 @@ public final class Procedure {
     ;
 
     /**
-     * <code>UseMetasrv = 0;</code>
+     * <code>UseLatest = 0;</code>
      */
-    public static final int UseMetasrv_VALUE = 0;
+    public static final int UseLatest_VALUE = 0;
     /**
-     * <code>UseLatest = 1;</code>
+     * <code>UseMetasrv = 1;</code>
      */
-    public static final int UseLatest_VALUE = 1;
+    public static final int UseMetasrv_VALUE = 1;
     /**
      * <code>AbortOnConflict = 2;</code>
      */
@@ -225,8 +225,8 @@ public final class Procedure {
      */
     public static ResolveStrategy forNumber(int value) {
       switch (value) {
-        case 0: return UseMetasrv;
-        case 1: return UseLatest;
+        case 0: return UseLatest;
+        case 1: return UseMetasrv;
         case 2: return AbortOnConflict;
         default: return null;
       }
@@ -5317,7 +5317,7 @@ public final class Procedure {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         output.writeEnum(4, resolveStrategy_);
       }
       unknownFields.writeTo(output);
@@ -5338,7 +5338,7 @@ public final class Procedure {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, resolveStrategy_);
       }
@@ -6259,7 +6259,7 @@ public final class Procedure {
       if (parallelism_ != 0) {
         output.writeUInt32(3, parallelism_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         output.writeEnum(4, resolveStrategy_);
       }
       unknownFields.writeTo(output);
@@ -6281,7 +6281,7 @@ public final class Procedure {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, parallelism_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, resolveStrategy_);
       }
@@ -7096,7 +7096,7 @@ public final class Procedure {
       if (parallelism_ != 0) {
         output.writeUInt32(2, parallelism_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         output.writeEnum(3, resolveStrategy_);
       }
       unknownFields.writeTo(output);
@@ -7115,7 +7115,7 @@ public final class Procedure {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, parallelism_);
       }
-      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseMetasrv.getNumber()) {
+      if (resolveStrategy_ != greptime.v1.meta.Procedure.ResolveStrategy.UseLatest.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, resolveStrategy_);
       }
@@ -9937,7 +9937,7 @@ public final class Procedure {
       "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n" +
       "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli" +
       "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg" +
-      "y\022\016\n\nUseMetasrv\020\000\022\r\n\tUseLatest\020\001\022\023\n\017Abor" +
+      "y\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017Abor" +
       "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu" +
       "ery\022\'.greptime.v1.meta.QueryProcedureReq" +
       "uest\032(.greptime.v1.meta.ProcedureStateRe" +

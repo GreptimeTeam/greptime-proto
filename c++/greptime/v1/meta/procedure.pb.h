@@ -131,14 +131,14 @@ inline bool ProcedureStatus_Parse(
     ProcedureStatus_descriptor(), name, value);
 }
 enum ResolveStrategy : int {
-  UseMetasrv = 0,
-  UseLatest = 1,
+  UseLatest = 0,
+  UseMetasrv = 1,
   AbortOnConflict = 2,
   ResolveStrategy_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ResolveStrategy_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ResolveStrategy_IsValid(int value);
-constexpr ResolveStrategy ResolveStrategy_MIN = UseMetasrv;
+constexpr ResolveStrategy ResolveStrategy_MIN = UseLatest;
 constexpr ResolveStrategy ResolveStrategy_MAX = AbortOnConflict;
 constexpr int ResolveStrategy_ARRAYSIZE = ResolveStrategy_MAX + 1;
 

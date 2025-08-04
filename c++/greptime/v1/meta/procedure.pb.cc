@@ -347,7 +347,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n"
   "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli"
   "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg"
-  "y\022\016\n\nUseMetasrv\020\000\022\r\n\tUseLatest\020\001\022\023\n\017Abor"
+  "y\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017Abor"
   "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu"
   "ery\022\'.greptime.v1.meta.QueryProcedureReq"
   "uest\032(.greptime.v1.meta.ProcedureStateRe"
