@@ -210,6 +210,60 @@ func (ColumnDataType) EnumDescriptor() ([]byte, []int) {
 	return file_greptime_v1_common_proto_rawDescGZIP(), []int{1}
 }
 
+// / Time Unit for timestamp
+type TimeUnit int32
+
+const (
+	// The default time unit is MILLISECOND
+	TimeUnit_MILLISECOND TimeUnit = 0
+	TimeUnit_SECOND      TimeUnit = 1
+	TimeUnit_MICROSECOND TimeUnit = 2
+	TimeUnit_NANOSECOND  TimeUnit = 3
+)
+
+// Enum value maps for TimeUnit.
+var (
+	TimeUnit_name = map[int32]string{
+		0: "MILLISECOND",
+		1: "SECOND",
+		2: "MICROSECOND",
+		3: "NANOSECOND",
+	}
+	TimeUnit_value = map[string]int32{
+		"MILLISECOND": 0,
+		"SECOND":      1,
+		"MICROSECOND": 2,
+		"NANOSECOND":  3,
+	}
+)
+
+func (x TimeUnit) Enum() *TimeUnit {
+	p := new(TimeUnit)
+	*p = x
+	return p
+}
+
+func (x TimeUnit) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (TimeUnit) Descriptor() protoreflect.EnumDescriptor {
+	return file_greptime_v1_common_proto_enumTypes[2].Descriptor()
+}
+
+func (TimeUnit) Type() protoreflect.EnumType {
+	return &file_greptime_v1_common_proto_enumTypes[2]
+}
+
+func (x TimeUnit) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use TimeUnit.Descriptor instead.
+func (TimeUnit) EnumDescriptor() ([]byte, []int) {
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{2}
+}
+
 type JsonTypeExtension int32
 
 const (
@@ -237,11 +291,11 @@ func (x JsonTypeExtension) String() string {
 }
 
 func (JsonTypeExtension) Descriptor() protoreflect.EnumDescriptor {
-	return file_greptime_v1_common_proto_enumTypes[2].Descriptor()
+	return file_greptime_v1_common_proto_enumTypes[3].Descriptor()
 }
 
 func (JsonTypeExtension) Type() protoreflect.EnumType {
-	return &file_greptime_v1_common_proto_enumTypes[2]
+	return &file_greptime_v1_common_proto_enumTypes[3]
 }
 
 func (x JsonTypeExtension) Number() protoreflect.EnumNumber {
@@ -250,7 +304,7 @@ func (x JsonTypeExtension) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use JsonTypeExtension.Descriptor instead.
 func (JsonTypeExtension) EnumDescriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{2}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{3}
 }
 
 type QueryContext struct {
@@ -1158,6 +1212,117 @@ func (x *IntervalMonthDayNano) GetNanoseconds() int64 {
 	return 0
 }
 
+type TimeRange struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Start int64 `protobuf:"varint,1,opt,name=start,proto3" json:"start,omitempty"`
+	End   int64 `protobuf:"varint,2,opt,name=end,proto3" json:"end,omitempty"`
+}
+
+func (x *TimeRange) Reset() {
+	*x = TimeRange{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_common_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TimeRange) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TimeRange) ProtoMessage() {}
+
+func (x *TimeRange) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_common_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TimeRange.ProtoReflect.Descriptor instead.
+func (*TimeRange) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *TimeRange) GetStart() int64 {
+	if x != nil {
+		return x.Start
+	}
+	return 0
+}
+
+func (x *TimeRange) GetEnd() int64 {
+	if x != nil {
+		return x.End
+	}
+	return 0
+}
+
+// / Truncate partially by time ranges
+type TimeRanges struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TimeUnit   TimeUnit     `protobuf:"varint,1,opt,name=time_unit,json=timeUnit,proto3,enum=greptime.v1.TimeUnit" json:"time_unit,omitempty"`
+	TimeRanges []*TimeRange `protobuf:"bytes,2,rep,name=time_ranges,json=timeRanges,proto3" json:"time_ranges,omitempty"`
+}
+
+func (x *TimeRanges) Reset() {
+	*x = TimeRanges{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_common_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TimeRanges) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TimeRanges) ProtoMessage() {}
+
+func (x *TimeRanges) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_common_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TimeRanges.ProtoReflect.Descriptor instead.
+func (*TimeRanges) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *TimeRanges) GetTimeUnit() TimeUnit {
+	if x != nil {
+		return x.TimeUnit
+	}
+	return TimeUnit_MILLISECOND
+}
+
+func (x *TimeRanges) GetTimeRanges() []*TimeRange {
+	if x != nil {
+		return x.TimeRanges
+	}
+	return nil
+}
+
 // (hi: high 64 bits, lo: low 64 bits) are used to keep the decimal128 value.
 type Decimal128 struct {
 	state         protoimpl.MessageState
@@ -1171,7 +1336,7 @@ type Decimal128 struct {
 func (x *Decimal128) Reset() {
 	*x = Decimal128{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[15]
+		mi := &file_greptime_v1_common_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1184,7 +1349,7 @@ func (x *Decimal128) String() string {
 func (*Decimal128) ProtoMessage() {}
 
 func (x *Decimal128) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[15]
+	mi := &file_greptime_v1_common_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1197,7 +1362,7 @@ func (x *Decimal128) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Decimal128.ProtoReflect.Descriptor instead.
 func (*Decimal128) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{15}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *Decimal128) GetHi() int64 {
@@ -1231,7 +1396,7 @@ type ColumnDataTypeExtension struct {
 func (x *ColumnDataTypeExtension) Reset() {
 	*x = ColumnDataTypeExtension{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[16]
+		mi := &file_greptime_v1_common_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1244,7 +1409,7 @@ func (x *ColumnDataTypeExtension) String() string {
 func (*ColumnDataTypeExtension) ProtoMessage() {}
 
 func (x *ColumnDataTypeExtension) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[16]
+	mi := &file_greptime_v1_common_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1257,7 +1422,7 @@ func (x *ColumnDataTypeExtension) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ColumnDataTypeExtension.ProtoReflect.Descriptor instead.
 func (*ColumnDataTypeExtension) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{16}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{18}
 }
 
 func (m *ColumnDataTypeExtension) GetTypeExt() isColumnDataTypeExtension_TypeExt {
@@ -1323,7 +1488,7 @@ type DecimalTypeExtension struct {
 func (x *DecimalTypeExtension) Reset() {
 	*x = DecimalTypeExtension{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[17]
+		mi := &file_greptime_v1_common_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1336,7 +1501,7 @@ func (x *DecimalTypeExtension) String() string {
 func (*DecimalTypeExtension) ProtoMessage() {}
 
 func (x *DecimalTypeExtension) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[17]
+	mi := &file_greptime_v1_common_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1349,7 +1514,7 @@ func (x *DecimalTypeExtension) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecimalTypeExtension.ProtoReflect.Descriptor instead.
 func (*DecimalTypeExtension) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{17}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *DecimalTypeExtension) GetPrecision() int32 {
@@ -1377,7 +1542,7 @@ type VectorTypeExtension struct {
 func (x *VectorTypeExtension) Reset() {
 	*x = VectorTypeExtension{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[18]
+		mi := &file_greptime_v1_common_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1390,7 +1555,7 @@ func (x *VectorTypeExtension) String() string {
 func (*VectorTypeExtension) ProtoMessage() {}
 
 func (x *VectorTypeExtension) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[18]
+	mi := &file_greptime_v1_common_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1403,7 +1568,7 @@ func (x *VectorTypeExtension) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VectorTypeExtension.ProtoReflect.Descriptor instead.
 func (*VectorTypeExtension) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{18}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *VectorTypeExtension) GetDim() uint32 {
@@ -1445,7 +1610,7 @@ type ColumnOptions struct {
 func (x *ColumnOptions) Reset() {
 	*x = ColumnOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[19]
+		mi := &file_greptime_v1_common_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1458,7 +1623,7 @@ func (x *ColumnOptions) String() string {
 func (*ColumnOptions) ProtoMessage() {}
 
 func (x *ColumnOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[19]
+	mi := &file_greptime_v1_common_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1471,7 +1636,7 @@ func (x *ColumnOptions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ColumnOptions.ProtoReflect.Descriptor instead.
 func (*ColumnOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{19}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ColumnOptions) GetOptions() map[string]string {
@@ -1494,7 +1659,7 @@ type ArrowIpc struct {
 func (x *ArrowIpc) Reset() {
 	*x = ArrowIpc{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_common_proto_msgTypes[20]
+		mi := &file_greptime_v1_common_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1507,7 +1672,7 @@ func (x *ArrowIpc) String() string {
 func (*ArrowIpc) ProtoMessage() {}
 
 func (x *ArrowIpc) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_common_proto_msgTypes[20]
+	mi := &file_greptime_v1_common_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1520,7 +1685,7 @@ func (x *ArrowIpc) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ArrowIpc.ProtoReflect.Descriptor instead.
 func (*ArrowIpc) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_common_proto_rawDescGZIP(), []int{20}
+	return file_greptime_v1_common_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *ArrowIpc) GetSchema() []byte {
@@ -1670,7 +1835,18 @@ var file_greptime_v1_common_proto_rawDesc = []byte{
 	0x73, 0x12, 0x12, 0x0a, 0x04, 0x64, 0x61, 0x79, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52,
 	0x04, 0x64, 0x61, 0x79, 0x73, 0x12, 0x20, 0x0a, 0x0b, 0x6e, 0x61, 0x6e, 0x6f, 0x73, 0x65, 0x63,
 	0x6f, 0x6e, 0x64, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0b, 0x6e, 0x61, 0x6e, 0x6f,
-	0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73, 0x22, 0x2c, 0x0a, 0x0a, 0x44, 0x65, 0x63, 0x69, 0x6d,
+	0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x73, 0x22, 0x33, 0x0a, 0x09, 0x54, 0x69, 0x6d, 0x65, 0x52,
+	0x61, 0x6e, 0x67, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x03, 0x52, 0x05, 0x73, 0x74, 0x61, 0x72, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x65, 0x6e,
+	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x03, 0x65, 0x6e, 0x64, 0x22, 0x79, 0x0a, 0x0a,
+	0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x73, 0x12, 0x32, 0x0a, 0x09, 0x74, 0x69,
+	0x6d, 0x65, 0x5f, 0x75, 0x6e, 0x69, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x15, 0x2e,
+	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65,
+	0x55, 0x6e, 0x69, 0x74, 0x52, 0x08, 0x74, 0x69, 0x6d, 0x65, 0x55, 0x6e, 0x69, 0x74, 0x12, 0x37,
+	0x0a, 0x0b, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x72, 0x61, 0x6e, 0x67, 0x65, 0x73, 0x18, 0x02, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x16, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x52, 0x0a, 0x74, 0x69, 0x6d,
+	0x65, 0x52, 0x61, 0x6e, 0x67, 0x65, 0x73, 0x22, 0x2c, 0x0a, 0x0a, 0x44, 0x65, 0x63, 0x69, 0x6d,
 	0x61, 0x6c, 0x31, 0x32, 0x38, 0x12, 0x0e, 0x0a, 0x02, 0x68, 0x69, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x03, 0x52, 0x02, 0x68, 0x69, 0x12, 0x0e, 0x0a, 0x02, 0x6c, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28,
 	0x03, 0x52, 0x02, 0x6c, 0x6f, 0x22, 0xf1, 0x01, 0x0a, 0x17, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e,
@@ -1745,14 +1921,19 @@ var file_greptime_v1_common_proto_rawDesc = []byte{
 	0x44, 0x41, 0x59, 0x5f, 0x4e, 0x41, 0x4e, 0x4f, 0x10, 0x19, 0x12, 0x0e, 0x0a, 0x0a, 0x44, 0x45,
 	0x43, 0x49, 0x4d, 0x41, 0x4c, 0x31, 0x32, 0x38, 0x10, 0x1e, 0x12, 0x08, 0x0a, 0x04, 0x4a, 0x53,
 	0x4f, 0x4e, 0x10, 0x1f, 0x12, 0x0a, 0x0a, 0x06, 0x56, 0x45, 0x43, 0x54, 0x4f, 0x52, 0x10, 0x20,
-	0x2a, 0x24, 0x0a, 0x11, 0x4a, 0x73, 0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65,
-	0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x0f, 0x0a, 0x0b, 0x4a, 0x53, 0x4f, 0x4e, 0x5f, 0x42, 0x49,
-	0x4e, 0x41, 0x52, 0x59, 0x10, 0x00, 0x42, 0x4f, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65,
-	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e,
-	0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65,
-	0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69,
-	0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70,
-	0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x2a, 0x48, 0x0a, 0x08, 0x54, 0x69, 0x6d, 0x65, 0x55, 0x6e, 0x69, 0x74, 0x12, 0x0f, 0x0a, 0x0b,
+	0x4d, 0x49, 0x4c, 0x4c, 0x49, 0x53, 0x45, 0x43, 0x4f, 0x4e, 0x44, 0x10, 0x00, 0x12, 0x0a, 0x0a,
+	0x06, 0x53, 0x45, 0x43, 0x4f, 0x4e, 0x44, 0x10, 0x01, 0x12, 0x0f, 0x0a, 0x0b, 0x4d, 0x49, 0x43,
+	0x52, 0x4f, 0x53, 0x45, 0x43, 0x4f, 0x4e, 0x44, 0x10, 0x02, 0x12, 0x0e, 0x0a, 0x0a, 0x4e, 0x41,
+	0x4e, 0x4f, 0x53, 0x45, 0x43, 0x4f, 0x4e, 0x44, 0x10, 0x03, 0x2a, 0x24, 0x0a, 0x11, 0x4a, 0x73,
+	0x6f, 0x6e, 0x54, 0x79, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x12,
+	0x0f, 0x0a, 0x0b, 0x4a, 0x53, 0x4f, 0x4e, 0x5f, 0x42, 0x49, 0x4e, 0x41, 0x52, 0x59, 0x10, 0x00,
+	0x42, 0x4f, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
+	0x76, 0x31, 0x42, 0x06, 0x43, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68,
+	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54,
+	0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76,
+	0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1767,61 +1948,66 @@ func file_greptime_v1_common_proto_rawDescGZIP() []byte {
 	return file_greptime_v1_common_proto_rawDescData
 }
 
-var file_greptime_v1_common_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_greptime_v1_common_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_greptime_v1_common_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_greptime_v1_common_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
 var file_greptime_v1_common_proto_goTypes = []interface{}{
 	(SemanticType)(0),               // 0: greptime.v1.SemanticType
 	(ColumnDataType)(0),             // 1: greptime.v1.ColumnDataType
-	(JsonTypeExtension)(0),          // 2: greptime.v1.JsonTypeExtension
-	(*QueryContext)(nil),            // 3: greptime.v1.QueryContext
-	(*SnapshotSequences)(nil),       // 4: greptime.v1.SnapshotSequences
-	(*ExplainOptions)(nil),          // 5: greptime.v1.ExplainOptions
-	(*RequestHeader)(nil),           // 6: greptime.v1.RequestHeader
-	(*ResponseHeader)(nil),          // 7: greptime.v1.ResponseHeader
-	(*Status)(nil),                  // 8: greptime.v1.Status
-	(*AuthHeader)(nil),              // 9: greptime.v1.AuthHeader
-	(*Basic)(nil),                   // 10: greptime.v1.Basic
-	(*Token)(nil),                   // 11: greptime.v1.Token
-	(*TableName)(nil),               // 12: greptime.v1.TableName
-	(*AffectedRows)(nil),            // 13: greptime.v1.AffectedRows
-	(*Metrics)(nil),                 // 14: greptime.v1.Metrics
-	(*ExpireAfter)(nil),             // 15: greptime.v1.ExpireAfter
-	(*FlightMetadata)(nil),          // 16: greptime.v1.FlightMetadata
-	(*IntervalMonthDayNano)(nil),    // 17: greptime.v1.IntervalMonthDayNano
-	(*Decimal128)(nil),              // 18: greptime.v1.Decimal128
-	(*ColumnDataTypeExtension)(nil), // 19: greptime.v1.ColumnDataTypeExtension
-	(*DecimalTypeExtension)(nil),    // 20: greptime.v1.DecimalTypeExtension
-	(*VectorTypeExtension)(nil),     // 21: greptime.v1.VectorTypeExtension
-	(*ColumnOptions)(nil),           // 22: greptime.v1.ColumnOptions
-	(*ArrowIpc)(nil),                // 23: greptime.v1.ArrowIpc
-	nil,                             // 24: greptime.v1.QueryContext.ExtensionsEntry
-	nil,                             // 25: greptime.v1.SnapshotSequences.SstMinSequencesEntry
-	nil,                             // 26: greptime.v1.SnapshotSequences.SnapshotSeqsEntry
-	nil,                             // 27: greptime.v1.RequestHeader.TracingContextEntry
-	nil,                             // 28: greptime.v1.ColumnOptions.OptionsEntry
+	(TimeUnit)(0),                   // 2: greptime.v1.TimeUnit
+	(JsonTypeExtension)(0),          // 3: greptime.v1.JsonTypeExtension
+	(*QueryContext)(nil),            // 4: greptime.v1.QueryContext
+	(*SnapshotSequences)(nil),       // 5: greptime.v1.SnapshotSequences
+	(*ExplainOptions)(nil),          // 6: greptime.v1.ExplainOptions
+	(*RequestHeader)(nil),           // 7: greptime.v1.RequestHeader
+	(*ResponseHeader)(nil),          // 8: greptime.v1.ResponseHeader
+	(*Status)(nil),                  // 9: greptime.v1.Status
+	(*AuthHeader)(nil),              // 10: greptime.v1.AuthHeader
+	(*Basic)(nil),                   // 11: greptime.v1.Basic
+	(*Token)(nil),                   // 12: greptime.v1.Token
+	(*TableName)(nil),               // 13: greptime.v1.TableName
+	(*AffectedRows)(nil),            // 14: greptime.v1.AffectedRows
+	(*Metrics)(nil),                 // 15: greptime.v1.Metrics
+	(*ExpireAfter)(nil),             // 16: greptime.v1.ExpireAfter
+	(*FlightMetadata)(nil),          // 17: greptime.v1.FlightMetadata
+	(*IntervalMonthDayNano)(nil),    // 18: greptime.v1.IntervalMonthDayNano
+	(*TimeRange)(nil),               // 19: greptime.v1.TimeRange
+	(*TimeRanges)(nil),              // 20: greptime.v1.TimeRanges
+	(*Decimal128)(nil),              // 21: greptime.v1.Decimal128
+	(*ColumnDataTypeExtension)(nil), // 22: greptime.v1.ColumnDataTypeExtension
+	(*DecimalTypeExtension)(nil),    // 23: greptime.v1.DecimalTypeExtension
+	(*VectorTypeExtension)(nil),     // 24: greptime.v1.VectorTypeExtension
+	(*ColumnOptions)(nil),           // 25: greptime.v1.ColumnOptions
+	(*ArrowIpc)(nil),                // 26: greptime.v1.ArrowIpc
+	nil,                             // 27: greptime.v1.QueryContext.ExtensionsEntry
+	nil,                             // 28: greptime.v1.SnapshotSequences.SstMinSequencesEntry
+	nil,                             // 29: greptime.v1.SnapshotSequences.SnapshotSeqsEntry
+	nil,                             // 30: greptime.v1.RequestHeader.TracingContextEntry
+	nil,                             // 31: greptime.v1.ColumnOptions.OptionsEntry
 }
 var file_greptime_v1_common_proto_depIdxs = []int32{
-	24, // 0: greptime.v1.QueryContext.extensions:type_name -> greptime.v1.QueryContext.ExtensionsEntry
-	4,  // 1: greptime.v1.QueryContext.snapshot_seqs:type_name -> greptime.v1.SnapshotSequences
-	5,  // 2: greptime.v1.QueryContext.explain:type_name -> greptime.v1.ExplainOptions
-	25, // 3: greptime.v1.SnapshotSequences.sst_min_sequences:type_name -> greptime.v1.SnapshotSequences.SstMinSequencesEntry
-	26, // 4: greptime.v1.SnapshotSequences.snapshot_seqs:type_name -> greptime.v1.SnapshotSequences.SnapshotSeqsEntry
-	9,  // 5: greptime.v1.RequestHeader.authorization:type_name -> greptime.v1.AuthHeader
-	27, // 6: greptime.v1.RequestHeader.tracing_context:type_name -> greptime.v1.RequestHeader.TracingContextEntry
-	8,  // 7: greptime.v1.ResponseHeader.status:type_name -> greptime.v1.Status
-	10, // 8: greptime.v1.AuthHeader.basic:type_name -> greptime.v1.Basic
-	11, // 9: greptime.v1.AuthHeader.token:type_name -> greptime.v1.Token
-	13, // 10: greptime.v1.FlightMetadata.affected_rows:type_name -> greptime.v1.AffectedRows
-	14, // 11: greptime.v1.FlightMetadata.metrics:type_name -> greptime.v1.Metrics
-	20, // 12: greptime.v1.ColumnDataTypeExtension.decimal_type:type_name -> greptime.v1.DecimalTypeExtension
-	2,  // 13: greptime.v1.ColumnDataTypeExtension.json_type:type_name -> greptime.v1.JsonTypeExtension
-	21, // 14: greptime.v1.ColumnDataTypeExtension.vector_type:type_name -> greptime.v1.VectorTypeExtension
-	28, // 15: greptime.v1.ColumnOptions.options:type_name -> greptime.v1.ColumnOptions.OptionsEntry
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	27, // 0: greptime.v1.QueryContext.extensions:type_name -> greptime.v1.QueryContext.ExtensionsEntry
+	5,  // 1: greptime.v1.QueryContext.snapshot_seqs:type_name -> greptime.v1.SnapshotSequences
+	6,  // 2: greptime.v1.QueryContext.explain:type_name -> greptime.v1.ExplainOptions
+	28, // 3: greptime.v1.SnapshotSequences.sst_min_sequences:type_name -> greptime.v1.SnapshotSequences.SstMinSequencesEntry
+	29, // 4: greptime.v1.SnapshotSequences.snapshot_seqs:type_name -> greptime.v1.SnapshotSequences.SnapshotSeqsEntry
+	10, // 5: greptime.v1.RequestHeader.authorization:type_name -> greptime.v1.AuthHeader
+	30, // 6: greptime.v1.RequestHeader.tracing_context:type_name -> greptime.v1.RequestHeader.TracingContextEntry
+	9,  // 7: greptime.v1.ResponseHeader.status:type_name -> greptime.v1.Status
+	11, // 8: greptime.v1.AuthHeader.basic:type_name -> greptime.v1.Basic
+	12, // 9: greptime.v1.AuthHeader.token:type_name -> greptime.v1.Token
+	14, // 10: greptime.v1.FlightMetadata.affected_rows:type_name -> greptime.v1.AffectedRows
+	15, // 11: greptime.v1.FlightMetadata.metrics:type_name -> greptime.v1.Metrics
+	2,  // 12: greptime.v1.TimeRanges.time_unit:type_name -> greptime.v1.TimeUnit
+	19, // 13: greptime.v1.TimeRanges.time_ranges:type_name -> greptime.v1.TimeRange
+	23, // 14: greptime.v1.ColumnDataTypeExtension.decimal_type:type_name -> greptime.v1.DecimalTypeExtension
+	3,  // 15: greptime.v1.ColumnDataTypeExtension.json_type:type_name -> greptime.v1.JsonTypeExtension
+	24, // 16: greptime.v1.ColumnDataTypeExtension.vector_type:type_name -> greptime.v1.VectorTypeExtension
+	31, // 17: greptime.v1.ColumnOptions.options:type_name -> greptime.v1.ColumnOptions.OptionsEntry
+	18, // [18:18] is the sub-list for method output_type
+	18, // [18:18] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_common_proto_init() }
@@ -2011,7 +2197,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Decimal128); i {
+			switch v := v.(*TimeRange); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2023,7 +2209,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ColumnDataTypeExtension); i {
+			switch v := v.(*TimeRanges); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2035,7 +2221,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DecimalTypeExtension); i {
+			switch v := v.(*Decimal128); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2047,7 +2233,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VectorTypeExtension); i {
+			switch v := v.(*ColumnDataTypeExtension); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2059,7 +2245,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ColumnOptions); i {
+			switch v := v.(*DecimalTypeExtension); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2071,6 +2257,30 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VectorTypeExtension); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greptime_v1_common_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ColumnOptions); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greptime_v1_common_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ArrowIpc); i {
 			case 0:
 				return &v.state
@@ -2087,7 +2297,7 @@ func file_greptime_v1_common_proto_init() {
 		(*AuthHeader_Basic)(nil),
 		(*AuthHeader_Token)(nil),
 	}
-	file_greptime_v1_common_proto_msgTypes[16].OneofWrappers = []interface{}{
+	file_greptime_v1_common_proto_msgTypes[18].OneofWrappers = []interface{}{
 		(*ColumnDataTypeExtension_DecimalType)(nil),
 		(*ColumnDataTypeExtension_JsonType)(nil),
 		(*ColumnDataTypeExtension_VectorType)(nil),
@@ -2097,8 +2307,8 @@ func file_greptime_v1_common_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_common_proto_rawDesc,
-			NumEnums:      3,
-			NumMessages:   26,
+			NumEnums:      4,
+			NumMessages:   28,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

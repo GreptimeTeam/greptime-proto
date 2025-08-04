@@ -122,6 +122,12 @@ extern StatusDefaultTypeInternal _Status_default_instance_;
 class TableName;
 struct TableNameDefaultTypeInternal;
 extern TableNameDefaultTypeInternal _TableName_default_instance_;
+class TimeRange;
+struct TimeRangeDefaultTypeInternal;
+extern TimeRangeDefaultTypeInternal _TimeRange_default_instance_;
+class TimeRanges;
+struct TimeRangesDefaultTypeInternal;
+extern TimeRangesDefaultTypeInternal _TimeRanges_default_instance_;
 class Token;
 struct TokenDefaultTypeInternal;
 extern TokenDefaultTypeInternal _Token_default_instance_;
@@ -155,6 +161,8 @@ template<> ::greptime::v1::SnapshotSequences_SnapshotSeqsEntry_DoNotUse* Arena::
 template<> ::greptime::v1::SnapshotSequences_SstMinSequencesEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::SnapshotSequences_SstMinSequencesEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Status* Arena::CreateMaybeMessage<::greptime::v1::Status>(Arena*);
 template<> ::greptime::v1::TableName* Arena::CreateMaybeMessage<::greptime::v1::TableName>(Arena*);
+template<> ::greptime::v1::TimeRange* Arena::CreateMaybeMessage<::greptime::v1::TimeRange>(Arena*);
+template<> ::greptime::v1::TimeRanges* Arena::CreateMaybeMessage<::greptime::v1::TimeRanges>(Arena*);
 template<> ::greptime::v1::Token* Arena::CreateMaybeMessage<::greptime::v1::Token>(Arena*);
 template<> ::greptime::v1::VectorTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::VectorTypeExtension>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -238,6 +246,33 @@ inline bool ColumnDataType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ColumnDataType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ColumnDataType>(
     ColumnDataType_descriptor(), name, value);
+}
+enum TimeUnit : int {
+  MILLISECOND = 0,
+  SECOND = 1,
+  MICROSECOND = 2,
+  NANOSECOND = 3,
+  TimeUnit_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  TimeUnit_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool TimeUnit_IsValid(int value);
+constexpr TimeUnit TimeUnit_MIN = MILLISECOND;
+constexpr TimeUnit TimeUnit_MAX = NANOSECOND;
+constexpr int TimeUnit_ARRAYSIZE = TimeUnit_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* TimeUnit_descriptor();
+template<typename T>
+inline const std::string& TimeUnit_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, TimeUnit>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function TimeUnit_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    TimeUnit_descriptor(), enum_t_value);
+}
+inline bool TimeUnit_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, TimeUnit* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<TimeUnit>(
+    TimeUnit_descriptor(), name, value);
 }
 enum JsonTypeExtension : int {
   JSON_BINARY = 0,
@@ -3032,6 +3067,333 @@ class IntervalMonthDayNano final :
 };
 // -------------------------------------------------------------------
 
+class TimeRange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.TimeRange) */ {
+ public:
+  inline TimeRange() : TimeRange(nullptr) {}
+  ~TimeRange() override;
+  explicit PROTOBUF_CONSTEXPR TimeRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TimeRange(const TimeRange& from);
+  TimeRange(TimeRange&& from) noexcept
+    : TimeRange() {
+    *this = ::std::move(from);
+  }
+
+  inline TimeRange& operator=(const TimeRange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TimeRange& operator=(TimeRange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TimeRange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TimeRange* internal_default_instance() {
+    return reinterpret_cast<const TimeRange*>(
+               &_TimeRange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(TimeRange& a, TimeRange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TimeRange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TimeRange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TimeRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TimeRange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TimeRange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TimeRange& from) {
+    TimeRange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TimeRange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.TimeRange";
+  }
+  protected:
+  explicit TimeRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartFieldNumber = 1,
+    kEndFieldNumber = 2,
+  };
+  // int64 start = 1;
+  void clear_start();
+  int64_t start() const;
+  void set_start(int64_t value);
+  private:
+  int64_t _internal_start() const;
+  void _internal_set_start(int64_t value);
+  public:
+
+  // int64 end = 2;
+  void clear_end();
+  int64_t end() const;
+  void set_end(int64_t value);
+  private:
+  int64_t _internal_end() const;
+  void _internal_set_end(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.TimeRange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t start_;
+    int64_t end_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TimeRanges final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.TimeRanges) */ {
+ public:
+  inline TimeRanges() : TimeRanges(nullptr) {}
+  ~TimeRanges() override;
+  explicit PROTOBUF_CONSTEXPR TimeRanges(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TimeRanges(const TimeRanges& from);
+  TimeRanges(TimeRanges&& from) noexcept
+    : TimeRanges() {
+    *this = ::std::move(from);
+  }
+
+  inline TimeRanges& operator=(const TimeRanges& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TimeRanges& operator=(TimeRanges&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TimeRanges& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TimeRanges* internal_default_instance() {
+    return reinterpret_cast<const TimeRanges*>(
+               &_TimeRanges_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(TimeRanges& a, TimeRanges& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TimeRanges* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TimeRanges* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TimeRanges* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TimeRanges>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TimeRanges& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TimeRanges& from) {
+    TimeRanges::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TimeRanges* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.TimeRanges";
+  }
+  protected:
+  explicit TimeRanges(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTimeRangesFieldNumber = 2,
+    kTimeUnitFieldNumber = 1,
+  };
+  // repeated .greptime.v1.TimeRange time_ranges = 2;
+  int time_ranges_size() const;
+  private:
+  int _internal_time_ranges_size() const;
+  public:
+  void clear_time_ranges();
+  ::greptime::v1::TimeRange* mutable_time_ranges(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TimeRange >*
+      mutable_time_ranges();
+  private:
+  const ::greptime::v1::TimeRange& _internal_time_ranges(int index) const;
+  ::greptime::v1::TimeRange* _internal_add_time_ranges();
+  public:
+  const ::greptime::v1::TimeRange& time_ranges(int index) const;
+  ::greptime::v1::TimeRange* add_time_ranges();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TimeRange >&
+      time_ranges() const;
+
+  // .greptime.v1.TimeUnit time_unit = 1;
+  void clear_time_unit();
+  ::greptime::v1::TimeUnit time_unit() const;
+  void set_time_unit(::greptime::v1::TimeUnit value);
+  private:
+  ::greptime::v1::TimeUnit _internal_time_unit() const;
+  void _internal_set_time_unit(::greptime::v1::TimeUnit value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.TimeRanges)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TimeRange > time_ranges_;
+    int time_unit_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Decimal128 final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Decimal128) */ {
  public:
@@ -3080,7 +3442,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -3246,7 +3608,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3452,7 +3814,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3611,7 +3973,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -3787,7 +4149,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -3950,7 +4312,7 @@ class ArrowIpc final :
                &_ArrowIpc_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(ArrowIpc& a, ArrowIpc& b) {
     a.Swap(&b);
@@ -5885,6 +6247,114 @@ inline void IntervalMonthDayNano::set_nanoseconds(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// TimeRange
+
+// int64 start = 1;
+inline void TimeRange::clear_start() {
+  _impl_.start_ = int64_t{0};
+}
+inline int64_t TimeRange::_internal_start() const {
+  return _impl_.start_;
+}
+inline int64_t TimeRange::start() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TimeRange.start)
+  return _internal_start();
+}
+inline void TimeRange::_internal_set_start(int64_t value) {
+  
+  _impl_.start_ = value;
+}
+inline void TimeRange::set_start(int64_t value) {
+  _internal_set_start(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.TimeRange.start)
+}
+
+// int64 end = 2;
+inline void TimeRange::clear_end() {
+  _impl_.end_ = int64_t{0};
+}
+inline int64_t TimeRange::_internal_end() const {
+  return _impl_.end_;
+}
+inline int64_t TimeRange::end() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TimeRange.end)
+  return _internal_end();
+}
+inline void TimeRange::_internal_set_end(int64_t value) {
+  
+  _impl_.end_ = value;
+}
+inline void TimeRange::set_end(int64_t value) {
+  _internal_set_end(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.TimeRange.end)
+}
+
+// -------------------------------------------------------------------
+
+// TimeRanges
+
+// .greptime.v1.TimeUnit time_unit = 1;
+inline void TimeRanges::clear_time_unit() {
+  _impl_.time_unit_ = 0;
+}
+inline ::greptime::v1::TimeUnit TimeRanges::_internal_time_unit() const {
+  return static_cast< ::greptime::v1::TimeUnit >(_impl_.time_unit_);
+}
+inline ::greptime::v1::TimeUnit TimeRanges::time_unit() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TimeRanges.time_unit)
+  return _internal_time_unit();
+}
+inline void TimeRanges::_internal_set_time_unit(::greptime::v1::TimeUnit value) {
+  
+  _impl_.time_unit_ = value;
+}
+inline void TimeRanges::set_time_unit(::greptime::v1::TimeUnit value) {
+  _internal_set_time_unit(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.TimeRanges.time_unit)
+}
+
+// repeated .greptime.v1.TimeRange time_ranges = 2;
+inline int TimeRanges::_internal_time_ranges_size() const {
+  return _impl_.time_ranges_.size();
+}
+inline int TimeRanges::time_ranges_size() const {
+  return _internal_time_ranges_size();
+}
+inline void TimeRanges::clear_time_ranges() {
+  _impl_.time_ranges_.Clear();
+}
+inline ::greptime::v1::TimeRange* TimeRanges::mutable_time_ranges(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.TimeRanges.time_ranges)
+  return _impl_.time_ranges_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TimeRange >*
+TimeRanges::mutable_time_ranges() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.TimeRanges.time_ranges)
+  return &_impl_.time_ranges_;
+}
+inline const ::greptime::v1::TimeRange& TimeRanges::_internal_time_ranges(int index) const {
+  return _impl_.time_ranges_.Get(index);
+}
+inline const ::greptime::v1::TimeRange& TimeRanges::time_ranges(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.TimeRanges.time_ranges)
+  return _internal_time_ranges(index);
+}
+inline ::greptime::v1::TimeRange* TimeRanges::_internal_add_time_ranges() {
+  return _impl_.time_ranges_.Add();
+}
+inline ::greptime::v1::TimeRange* TimeRanges::add_time_ranges() {
+  ::greptime::v1::TimeRange* _add = _internal_add_time_ranges();
+  // @@protoc_insertion_point(field_add:greptime.v1.TimeRanges.time_ranges)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::TimeRange >&
+TimeRanges::time_ranges() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.TimeRanges.time_ranges)
+  return _impl_.time_ranges_;
+}
+
+// -------------------------------------------------------------------
+
 // Decimal128
 
 // int64 hi = 1;
@@ -6436,6 +6906,10 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -6453,6 +6927,11 @@ template <> struct is_proto_enum< ::greptime::v1::ColumnDataType> : ::std::true_
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::ColumnDataType>() {
   return ::greptime::v1::ColumnDataType_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::TimeUnit> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::TimeUnit>() {
+  return ::greptime::v1::TimeUnit_descriptor();
 }
 template <> struct is_proto_enum< ::greptime::v1::JsonTypeExtension> : ::std::true_type {};
 template <>
