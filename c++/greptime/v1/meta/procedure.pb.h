@@ -66,6 +66,21 @@ extern ProcedureStateResponseDefaultTypeInternal _ProcedureStateResponse_default
 class QueryProcedureRequest;
 struct QueryProcedureRequestDefaultTypeInternal;
 extern QueryProcedureRequestDefaultTypeInternal _QueryProcedureRequest_default_instance_;
+class ReconcileCatalog;
+struct ReconcileCatalogDefaultTypeInternal;
+extern ReconcileCatalogDefaultTypeInternal _ReconcileCatalog_default_instance_;
+class ReconcileDatabase;
+struct ReconcileDatabaseDefaultTypeInternal;
+extern ReconcileDatabaseDefaultTypeInternal _ReconcileDatabase_default_instance_;
+class ReconcileRequest;
+struct ReconcileRequestDefaultTypeInternal;
+extern ReconcileRequestDefaultTypeInternal _ReconcileRequest_default_instance_;
+class ReconcileResponse;
+struct ReconcileResponseDefaultTypeInternal;
+extern ReconcileResponseDefaultTypeInternal _ReconcileResponse_default_instance_;
+class ReconcileTable;
+struct ReconcileTableDefaultTypeInternal;
+extern ReconcileTableDefaultTypeInternal _ReconcileTable_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -75,6 +90,11 @@ template<> ::greptime::v1::meta::ProcedureDetailResponse* Arena::CreateMaybeMess
 template<> ::greptime::v1::meta::ProcedureMeta* Arena::CreateMaybeMessage<::greptime::v1::meta::ProcedureMeta>(Arena*);
 template<> ::greptime::v1::meta::ProcedureStateResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::ProcedureStateResponse>(Arena*);
 template<> ::greptime::v1::meta::QueryProcedureRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::QueryProcedureRequest>(Arena*);
+template<> ::greptime::v1::meta::ReconcileCatalog* Arena::CreateMaybeMessage<::greptime::v1::meta::ReconcileCatalog>(Arena*);
+template<> ::greptime::v1::meta::ReconcileDatabase* Arena::CreateMaybeMessage<::greptime::v1::meta::ReconcileDatabase>(Arena*);
+template<> ::greptime::v1::meta::ReconcileRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::ReconcileRequest>(Arena*);
+template<> ::greptime::v1::meta::ReconcileResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::ReconcileResponse>(Arena*);
+template<> ::greptime::v1::meta::ReconcileTable* Arena::CreateMaybeMessage<::greptime::v1::meta::ReconcileTable>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -109,6 +129,32 @@ inline bool ProcedureStatus_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ProcedureStatus* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ProcedureStatus>(
     ProcedureStatus_descriptor(), name, value);
+}
+enum ResolveStrategy : int {
+  UseLatest = 0,
+  UseMetasrv = 1,
+  AbortOnConflict = 2,
+  ResolveStrategy_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  ResolveStrategy_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool ResolveStrategy_IsValid(int value);
+constexpr ResolveStrategy ResolveStrategy_MIN = UseLatest;
+constexpr ResolveStrategy ResolveStrategy_MAX = AbortOnConflict;
+constexpr int ResolveStrategy_ARRAYSIZE = ResolveStrategy_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ResolveStrategy_descriptor();
+template<typename T>
+inline const std::string& ResolveStrategy_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ResolveStrategy>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ResolveStrategy_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ResolveStrategy_descriptor(), enum_t_value);
+}
+inline bool ResolveStrategy_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ResolveStrategy* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ResolveStrategy>(
+    ResolveStrategy_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1053,6 +1099,983 @@ class ProcedureDetailResponse final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ReconcileTable final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ReconcileTable) */ {
+ public:
+  inline ReconcileTable() : ReconcileTable(nullptr) {}
+  ~ReconcileTable() override;
+  explicit PROTOBUF_CONSTEXPR ReconcileTable(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReconcileTable(const ReconcileTable& from);
+  ReconcileTable(ReconcileTable&& from) noexcept
+    : ReconcileTable() {
+    *this = ::std::move(from);
+  }
+
+  inline ReconcileTable& operator=(const ReconcileTable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReconcileTable& operator=(ReconcileTable&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReconcileTable& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReconcileTable* internal_default_instance() {
+    return reinterpret_cast<const ReconcileTable*>(
+               &_ReconcileTable_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(ReconcileTable& a, ReconcileTable& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReconcileTable* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReconcileTable* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReconcileTable* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReconcileTable>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReconcileTable& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ReconcileTable& from) {
+    ReconcileTable::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReconcileTable* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ReconcileTable";
+  }
+  protected:
+  explicit ReconcileTable(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kSchemaNameFieldNumber = 2,
+    kTableNameFieldNumber = 3,
+    kResolveStrategyFieldNumber = 4,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string schema_name = 2;
+  void clear_schema_name();
+  const std::string& schema_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_schema_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_schema_name();
+  PROTOBUF_NODISCARD std::string* release_schema_name();
+  void set_allocated_schema_name(std::string* schema_name);
+  private:
+  const std::string& _internal_schema_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
+  std::string* _internal_mutable_schema_name();
+  public:
+
+  // string table_name = 3;
+  void clear_table_name();
+  const std::string& table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_table_name();
+  PROTOBUF_NODISCARD std::string* release_table_name();
+  void set_allocated_table_name(std::string* table_name);
+  private:
+  const std::string& _internal_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
+  std::string* _internal_mutable_table_name();
+  public:
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileTable)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
+    int resolve_strategy_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ReconcileDatabase final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ReconcileDatabase) */ {
+ public:
+  inline ReconcileDatabase() : ReconcileDatabase(nullptr) {}
+  ~ReconcileDatabase() override;
+  explicit PROTOBUF_CONSTEXPR ReconcileDatabase(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReconcileDatabase(const ReconcileDatabase& from);
+  ReconcileDatabase(ReconcileDatabase&& from) noexcept
+    : ReconcileDatabase() {
+    *this = ::std::move(from);
+  }
+
+  inline ReconcileDatabase& operator=(const ReconcileDatabase& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReconcileDatabase& operator=(ReconcileDatabase&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReconcileDatabase& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReconcileDatabase* internal_default_instance() {
+    return reinterpret_cast<const ReconcileDatabase*>(
+               &_ReconcileDatabase_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(ReconcileDatabase& a, ReconcileDatabase& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReconcileDatabase* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReconcileDatabase* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReconcileDatabase* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReconcileDatabase>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReconcileDatabase& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ReconcileDatabase& from) {
+    ReconcileDatabase::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReconcileDatabase* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ReconcileDatabase";
+  }
+  protected:
+  explicit ReconcileDatabase(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kDatabaseNameFieldNumber = 2,
+    kParallelismFieldNumber = 3,
+    kResolveStrategyFieldNumber = 4,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // string database_name = 2;
+  void clear_database_name();
+  const std::string& database_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_database_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_database_name();
+  PROTOBUF_NODISCARD std::string* release_database_name();
+  void set_allocated_database_name(std::string* database_name);
+  private:
+  const std::string& _internal_database_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_database_name(const std::string& value);
+  std::string* _internal_mutable_database_name();
+  public:
+
+  // uint32 parallelism = 3;
+  void clear_parallelism();
+  uint32_t parallelism() const;
+  void set_parallelism(uint32_t value);
+  private:
+  uint32_t _internal_parallelism() const;
+  void _internal_set_parallelism(uint32_t value);
+  public:
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileDatabase)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr database_name_;
+    uint32_t parallelism_;
+    int resolve_strategy_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ReconcileCatalog final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ReconcileCatalog) */ {
+ public:
+  inline ReconcileCatalog() : ReconcileCatalog(nullptr) {}
+  ~ReconcileCatalog() override;
+  explicit PROTOBUF_CONSTEXPR ReconcileCatalog(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReconcileCatalog(const ReconcileCatalog& from);
+  ReconcileCatalog(ReconcileCatalog&& from) noexcept
+    : ReconcileCatalog() {
+    *this = ::std::move(from);
+  }
+
+  inline ReconcileCatalog& operator=(const ReconcileCatalog& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReconcileCatalog& operator=(ReconcileCatalog&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReconcileCatalog& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReconcileCatalog* internal_default_instance() {
+    return reinterpret_cast<const ReconcileCatalog*>(
+               &_ReconcileCatalog_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(ReconcileCatalog& a, ReconcileCatalog& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReconcileCatalog* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReconcileCatalog* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReconcileCatalog* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReconcileCatalog>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReconcileCatalog& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ReconcileCatalog& from) {
+    ReconcileCatalog::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReconcileCatalog* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ReconcileCatalog";
+  }
+  protected:
+  explicit ReconcileCatalog(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogNameFieldNumber = 1,
+    kParallelismFieldNumber = 2,
+    kResolveStrategyFieldNumber = 3,
+  };
+  // string catalog_name = 1;
+  void clear_catalog_name();
+  const std::string& catalog_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog_name();
+  PROTOBUF_NODISCARD std::string* release_catalog_name();
+  void set_allocated_catalog_name(std::string* catalog_name);
+  private:
+  const std::string& _internal_catalog_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
+  std::string* _internal_mutable_catalog_name();
+  public:
+
+  // uint32 parallelism = 2;
+  void clear_parallelism();
+  uint32_t parallelism() const;
+  void set_parallelism(uint32_t value);
+  private:
+  uint32_t _internal_parallelism() const;
+  void _internal_set_parallelism(uint32_t value);
+  public:
+
+  // .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+  void clear_resolve_strategy();
+  ::greptime::v1::meta::ResolveStrategy resolve_strategy() const;
+  void set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  private:
+  ::greptime::v1::meta::ResolveStrategy _internal_resolve_strategy() const;
+  void _internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileCatalog)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
+    uint32_t parallelism_;
+    int resolve_strategy_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ReconcileRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ReconcileRequest) */ {
+ public:
+  inline ReconcileRequest() : ReconcileRequest(nullptr) {}
+  ~ReconcileRequest() override;
+  explicit PROTOBUF_CONSTEXPR ReconcileRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReconcileRequest(const ReconcileRequest& from);
+  ReconcileRequest(ReconcileRequest&& from) noexcept
+    : ReconcileRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ReconcileRequest& operator=(const ReconcileRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReconcileRequest& operator=(ReconcileRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReconcileRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  enum TargetCase {
+    kReconcileTable = 2,
+    kReconcileDatabase = 3,
+    kReconcileCatalog = 4,
+    TARGET_NOT_SET = 0,
+  };
+
+  static inline const ReconcileRequest* internal_default_instance() {
+    return reinterpret_cast<const ReconcileRequest*>(
+               &_ReconcileRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(ReconcileRequest& a, ReconcileRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReconcileRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReconcileRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReconcileRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReconcileRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReconcileRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ReconcileRequest& from) {
+    ReconcileRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReconcileRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ReconcileRequest";
+  }
+  protected:
+  explicit ReconcileRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+    kReconcileTableFieldNumber = 2,
+    kReconcileDatabaseFieldNumber = 3,
+    kReconcileCatalogFieldNumber = 4,
+  };
+  // .greptime.v1.meta.RequestHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::RequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::RequestHeader* release_header();
+  ::greptime::v1::meta::RequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::RequestHeader* header);
+  private:
+  const ::greptime::v1::meta::RequestHeader& _internal_header() const;
+  ::greptime::v1::meta::RequestHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::RequestHeader* header);
+  ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.meta.ReconcileTable reconcile_table = 2;
+  bool has_reconcile_table() const;
+  private:
+  bool _internal_has_reconcile_table() const;
+  public:
+  void clear_reconcile_table();
+  const ::greptime::v1::meta::ReconcileTable& reconcile_table() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ReconcileTable* release_reconcile_table();
+  ::greptime::v1::meta::ReconcileTable* mutable_reconcile_table();
+  void set_allocated_reconcile_table(::greptime::v1::meta::ReconcileTable* reconcile_table);
+  private:
+  const ::greptime::v1::meta::ReconcileTable& _internal_reconcile_table() const;
+  ::greptime::v1::meta::ReconcileTable* _internal_mutable_reconcile_table();
+  public:
+  void unsafe_arena_set_allocated_reconcile_table(
+      ::greptime::v1::meta::ReconcileTable* reconcile_table);
+  ::greptime::v1::meta::ReconcileTable* unsafe_arena_release_reconcile_table();
+
+  // .greptime.v1.meta.ReconcileDatabase reconcile_database = 3;
+  bool has_reconcile_database() const;
+  private:
+  bool _internal_has_reconcile_database() const;
+  public:
+  void clear_reconcile_database();
+  const ::greptime::v1::meta::ReconcileDatabase& reconcile_database() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ReconcileDatabase* release_reconcile_database();
+  ::greptime::v1::meta::ReconcileDatabase* mutable_reconcile_database();
+  void set_allocated_reconcile_database(::greptime::v1::meta::ReconcileDatabase* reconcile_database);
+  private:
+  const ::greptime::v1::meta::ReconcileDatabase& _internal_reconcile_database() const;
+  ::greptime::v1::meta::ReconcileDatabase* _internal_mutable_reconcile_database();
+  public:
+  void unsafe_arena_set_allocated_reconcile_database(
+      ::greptime::v1::meta::ReconcileDatabase* reconcile_database);
+  ::greptime::v1::meta::ReconcileDatabase* unsafe_arena_release_reconcile_database();
+
+  // .greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;
+  bool has_reconcile_catalog() const;
+  private:
+  bool _internal_has_reconcile_catalog() const;
+  public:
+  void clear_reconcile_catalog();
+  const ::greptime::v1::meta::ReconcileCatalog& reconcile_catalog() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ReconcileCatalog* release_reconcile_catalog();
+  ::greptime::v1::meta::ReconcileCatalog* mutable_reconcile_catalog();
+  void set_allocated_reconcile_catalog(::greptime::v1::meta::ReconcileCatalog* reconcile_catalog);
+  private:
+  const ::greptime::v1::meta::ReconcileCatalog& _internal_reconcile_catalog() const;
+  ::greptime::v1::meta::ReconcileCatalog* _internal_mutable_reconcile_catalog();
+  public:
+  void unsafe_arena_set_allocated_reconcile_catalog(
+      ::greptime::v1::meta::ReconcileCatalog* reconcile_catalog);
+  ::greptime::v1::meta::ReconcileCatalog* unsafe_arena_release_reconcile_catalog();
+
+  void clear_target();
+  TargetCase target_case() const;
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileRequest)
+ private:
+  class _Internal;
+  void set_has_reconcile_table();
+  void set_has_reconcile_database();
+  void set_has_reconcile_catalog();
+
+  inline bool has_target() const;
+  inline void clear_has_target();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::RequestHeader* header_;
+    union TargetUnion {
+      constexpr TargetUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::meta::ReconcileTable* reconcile_table_;
+      ::greptime::v1::meta::ReconcileDatabase* reconcile_database_;
+      ::greptime::v1::meta::ReconcileCatalog* reconcile_catalog_;
+    } target_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ReconcileResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.ReconcileResponse) */ {
+ public:
+  inline ReconcileResponse() : ReconcileResponse(nullptr) {}
+  ~ReconcileResponse() override;
+  explicit PROTOBUF_CONSTEXPR ReconcileResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ReconcileResponse(const ReconcileResponse& from);
+  ReconcileResponse(ReconcileResponse&& from) noexcept
+    : ReconcileResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline ReconcileResponse& operator=(const ReconcileResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ReconcileResponse& operator=(ReconcileResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ReconcileResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ReconcileResponse* internal_default_instance() {
+    return reinterpret_cast<const ReconcileResponse*>(
+               &_ReconcileResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(ReconcileResponse& a, ReconcileResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ReconcileResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ReconcileResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ReconcileResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ReconcileResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ReconcileResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ReconcileResponse& from) {
+    ReconcileResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ReconcileResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.ReconcileResponse";
+  }
+  protected:
+  explicit ReconcileResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+    kPidFieldNumber = 2,
+  };
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::ResponseHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ResponseHeader* release_header();
+  ::greptime::v1::meta::ResponseHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::ResponseHeader* header);
+  private:
+  const ::greptime::v1::meta::ResponseHeader& _internal_header() const;
+  ::greptime::v1::meta::ResponseHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::ResponseHeader* header);
+  ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  bool has_pid() const;
+  private:
+  bool _internal_has_pid() const;
+  public:
+  void clear_pid();
+  const ::greptime::v1::meta::ProcedureId& pid() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureId* release_pid();
+  ::greptime::v1::meta::ProcedureId* mutable_pid();
+  void set_allocated_pid(::greptime::v1::meta::ProcedureId* pid);
+  private:
+  const ::greptime::v1::meta::ProcedureId& _internal_pid() const;
+  ::greptime::v1::meta::ProcedureId* _internal_mutable_pid();
+  public:
+  void unsafe_arena_set_allocated_pid(
+      ::greptime::v1::meta::ProcedureId* pid);
+  ::greptime::v1::meta::ProcedureId* unsafe_arena_release_pid();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.ReconcileResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::ResponseHeader* header_;
+    ::greptime::v1::meta::ProcedureId* pid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
 // ===================================================================
 
 
@@ -1935,9 +2958,925 @@ ProcedureDetailResponse::procedures() const {
   return _impl_.procedures_;
 }
 
+// -------------------------------------------------------------------
+
+// ReconcileTable
+
+// string catalog_name = 1;
+inline void ReconcileTable::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileTable::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileTable.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileTable::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileTable.catalog_name)
+}
+inline std::string* ReconcileTable::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileTable.catalog_name)
+  return _s;
+}
+inline const std::string& ReconcileTable::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void ReconcileTable::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileTable.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void ReconcileTable::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileTable.catalog_name)
+}
+
+// string schema_name = 2;
+inline void ReconcileTable::clear_schema_name() {
+  _impl_.schema_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileTable::schema_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileTable.schema_name)
+  return _internal_schema_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileTable::set_schema_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileTable.schema_name)
+}
+inline std::string* ReconcileTable::mutable_schema_name() {
+  std::string* _s = _internal_mutable_schema_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileTable.schema_name)
+  return _s;
+}
+inline const std::string& ReconcileTable::_internal_schema_name() const {
+  return _impl_.schema_name_.Get();
+}
+inline void ReconcileTable::_internal_set_schema_name(const std::string& value) {
+  
+  _impl_.schema_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::_internal_mutable_schema_name() {
+  
+  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::release_schema_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileTable.schema_name)
+  return _impl_.schema_name_.Release();
+}
+inline void ReconcileTable::set_allocated_schema_name(std::string* schema_name) {
+  if (schema_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.schema_name_.IsDefault()) {
+    _impl_.schema_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileTable.schema_name)
+}
+
+// string table_name = 3;
+inline void ReconcileTable::clear_table_name() {
+  _impl_.table_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileTable::table_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileTable.table_name)
+  return _internal_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileTable::set_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileTable.table_name)
+}
+inline std::string* ReconcileTable::mutable_table_name() {
+  std::string* _s = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileTable.table_name)
+  return _s;
+}
+inline const std::string& ReconcileTable::_internal_table_name() const {
+  return _impl_.table_name_.Get();
+}
+inline void ReconcileTable::_internal_set_table_name(const std::string& value) {
+  
+  _impl_.table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::_internal_mutable_table_name() {
+  
+  return _impl_.table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileTable::release_table_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileTable.table_name)
+  return _impl_.table_name_.Release();
+}
+inline void ReconcileTable::set_allocated_table_name(std::string* table_name) {
+  if (table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.table_name_.IsDefault()) {
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileTable.table_name)
+}
+
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+inline void ReconcileTable::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileTable::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileTable::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileTable.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileTable::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileTable::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileTable.resolve_strategy)
+}
+
+// -------------------------------------------------------------------
+
+// ReconcileDatabase
+
+// string catalog_name = 1;
+inline void ReconcileDatabase::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileDatabase::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileDatabase::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.catalog_name)
+}
+inline std::string* ReconcileDatabase::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileDatabase.catalog_name)
+  return _s;
+}
+inline const std::string& ReconcileDatabase::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void ReconcileDatabase::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileDatabase::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileDatabase::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileDatabase.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void ReconcileDatabase::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileDatabase.catalog_name)
+}
+
+// string database_name = 2;
+inline void ReconcileDatabase::clear_database_name() {
+  _impl_.database_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileDatabase::database_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.database_name)
+  return _internal_database_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileDatabase::set_database_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.database_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.database_name)
+}
+inline std::string* ReconcileDatabase::mutable_database_name() {
+  std::string* _s = _internal_mutable_database_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileDatabase.database_name)
+  return _s;
+}
+inline const std::string& ReconcileDatabase::_internal_database_name() const {
+  return _impl_.database_name_.Get();
+}
+inline void ReconcileDatabase::_internal_set_database_name(const std::string& value) {
+  
+  _impl_.database_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileDatabase::_internal_mutable_database_name() {
+  
+  return _impl_.database_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileDatabase::release_database_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileDatabase.database_name)
+  return _impl_.database_name_.Release();
+}
+inline void ReconcileDatabase::set_allocated_database_name(std::string* database_name) {
+  if (database_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.database_name_.SetAllocated(database_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.database_name_.IsDefault()) {
+    _impl_.database_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileDatabase.database_name)
+}
+
+// uint32 parallelism = 3;
+inline void ReconcileDatabase::clear_parallelism() {
+  _impl_.parallelism_ = 0u;
+}
+inline uint32_t ReconcileDatabase::_internal_parallelism() const {
+  return _impl_.parallelism_;
+}
+inline uint32_t ReconcileDatabase::parallelism() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.parallelism)
+  return _internal_parallelism();
+}
+inline void ReconcileDatabase::_internal_set_parallelism(uint32_t value) {
+  
+  _impl_.parallelism_ = value;
+}
+inline void ReconcileDatabase::set_parallelism(uint32_t value) {
+  _internal_set_parallelism(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.parallelism)
+}
+
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 4;
+inline void ReconcileDatabase::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileDatabase::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileDatabase::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileDatabase.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileDatabase::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileDatabase::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileDatabase.resolve_strategy)
+}
+
+// -------------------------------------------------------------------
+
+// ReconcileCatalog
+
+// string catalog_name = 1;
+inline void ReconcileCatalog::clear_catalog_name() {
+  _impl_.catalog_name_.ClearToEmpty();
+}
+inline const std::string& ReconcileCatalog::catalog_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileCatalog.catalog_name)
+  return _internal_catalog_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ReconcileCatalog::set_catalog_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileCatalog.catalog_name)
+}
+inline std::string* ReconcileCatalog::mutable_catalog_name() {
+  std::string* _s = _internal_mutable_catalog_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileCatalog.catalog_name)
+  return _s;
+}
+inline const std::string& ReconcileCatalog::_internal_catalog_name() const {
+  return _impl_.catalog_name_.Get();
+}
+inline void ReconcileCatalog::_internal_set_catalog_name(const std::string& value) {
+  
+  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ReconcileCatalog::_internal_mutable_catalog_name() {
+  
+  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ReconcileCatalog::release_catalog_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileCatalog.catalog_name)
+  return _impl_.catalog_name_.Release();
+}
+inline void ReconcileCatalog::set_allocated_catalog_name(std::string* catalog_name) {
+  if (catalog_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_name_.IsDefault()) {
+    _impl_.catalog_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileCatalog.catalog_name)
+}
+
+// uint32 parallelism = 2;
+inline void ReconcileCatalog::clear_parallelism() {
+  _impl_.parallelism_ = 0u;
+}
+inline uint32_t ReconcileCatalog::_internal_parallelism() const {
+  return _impl_.parallelism_;
+}
+inline uint32_t ReconcileCatalog::parallelism() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileCatalog.parallelism)
+  return _internal_parallelism();
+}
+inline void ReconcileCatalog::_internal_set_parallelism(uint32_t value) {
+  
+  _impl_.parallelism_ = value;
+}
+inline void ReconcileCatalog::set_parallelism(uint32_t value) {
+  _internal_set_parallelism(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileCatalog.parallelism)
+}
+
+// .greptime.v1.meta.ResolveStrategy resolve_strategy = 3;
+inline void ReconcileCatalog::clear_resolve_strategy() {
+  _impl_.resolve_strategy_ = 0;
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileCatalog::_internal_resolve_strategy() const {
+  return static_cast< ::greptime::v1::meta::ResolveStrategy >(_impl_.resolve_strategy_);
+}
+inline ::greptime::v1::meta::ResolveStrategy ReconcileCatalog::resolve_strategy() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileCatalog.resolve_strategy)
+  return _internal_resolve_strategy();
+}
+inline void ReconcileCatalog::_internal_set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  
+  _impl_.resolve_strategy_ = value;
+}
+inline void ReconcileCatalog::set_resolve_strategy(::greptime::v1::meta::ResolveStrategy value) {
+  _internal_set_resolve_strategy(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.ReconcileCatalog.resolve_strategy)
+}
+
+// -------------------------------------------------------------------
+
+// ReconcileRequest
+
+// .greptime.v1.meta.RequestHeader header = 1;
+inline bool ReconcileRequest::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool ReconcileRequest::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::RequestHeader& ReconcileRequest::_internal_header() const {
+  const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
+      ::greptime::v1::meta::_RequestHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::RequestHeader& ReconcileRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileRequest.header)
+  return _internal_header();
+}
+inline void ReconcileRequest::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::RequestHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileRequest.header)
+}
+inline ::greptime::v1::meta::RequestHeader* ReconcileRequest::release_header() {
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* ReconcileRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileRequest.header)
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* ReconcileRequest::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::RequestHeader* ReconcileRequest::mutable_header() {
+  ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileRequest.header)
+  return _msg;
+}
+inline void ReconcileRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileRequest.header)
+}
+
+// .greptime.v1.meta.ReconcileTable reconcile_table = 2;
+inline bool ReconcileRequest::_internal_has_reconcile_table() const {
+  return target_case() == kReconcileTable;
+}
+inline bool ReconcileRequest::has_reconcile_table() const {
+  return _internal_has_reconcile_table();
+}
+inline void ReconcileRequest::set_has_reconcile_table() {
+  _impl_._oneof_case_[0] = kReconcileTable;
+}
+inline void ReconcileRequest::clear_reconcile_table() {
+  if (_internal_has_reconcile_table()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.target_.reconcile_table_;
+    }
+    clear_has_target();
+  }
+}
+inline ::greptime::v1::meta::ReconcileTable* ReconcileRequest::release_reconcile_table() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileRequest.reconcile_table)
+  if (_internal_has_reconcile_table()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileTable* temp = _impl_.target_.reconcile_table_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.target_.reconcile_table_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::ReconcileTable& ReconcileRequest::_internal_reconcile_table() const {
+  return _internal_has_reconcile_table()
+      ? *_impl_.target_.reconcile_table_
+      : reinterpret_cast< ::greptime::v1::meta::ReconcileTable&>(::greptime::v1::meta::_ReconcileTable_default_instance_);
+}
+inline const ::greptime::v1::meta::ReconcileTable& ReconcileRequest::reconcile_table() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileRequest.reconcile_table)
+  return _internal_reconcile_table();
+}
+inline ::greptime::v1::meta::ReconcileTable* ReconcileRequest::unsafe_arena_release_reconcile_table() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.ReconcileRequest.reconcile_table)
+  if (_internal_has_reconcile_table()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileTable* temp = _impl_.target_.reconcile_table_;
+    _impl_.target_.reconcile_table_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ReconcileRequest::unsafe_arena_set_allocated_reconcile_table(::greptime::v1::meta::ReconcileTable* reconcile_table) {
+  clear_target();
+  if (reconcile_table) {
+    set_has_reconcile_table();
+    _impl_.target_.reconcile_table_ = reconcile_table;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_table)
+}
+inline ::greptime::v1::meta::ReconcileTable* ReconcileRequest::_internal_mutable_reconcile_table() {
+  if (!_internal_has_reconcile_table()) {
+    clear_target();
+    set_has_reconcile_table();
+    _impl_.target_.reconcile_table_ = CreateMaybeMessage< ::greptime::v1::meta::ReconcileTable >(GetArenaForAllocation());
+  }
+  return _impl_.target_.reconcile_table_;
+}
+inline ::greptime::v1::meta::ReconcileTable* ReconcileRequest::mutable_reconcile_table() {
+  ::greptime::v1::meta::ReconcileTable* _msg = _internal_mutable_reconcile_table();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileRequest.reconcile_table)
+  return _msg;
+}
+
+// .greptime.v1.meta.ReconcileDatabase reconcile_database = 3;
+inline bool ReconcileRequest::_internal_has_reconcile_database() const {
+  return target_case() == kReconcileDatabase;
+}
+inline bool ReconcileRequest::has_reconcile_database() const {
+  return _internal_has_reconcile_database();
+}
+inline void ReconcileRequest::set_has_reconcile_database() {
+  _impl_._oneof_case_[0] = kReconcileDatabase;
+}
+inline void ReconcileRequest::clear_reconcile_database() {
+  if (_internal_has_reconcile_database()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.target_.reconcile_database_;
+    }
+    clear_has_target();
+  }
+}
+inline ::greptime::v1::meta::ReconcileDatabase* ReconcileRequest::release_reconcile_database() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileRequest.reconcile_database)
+  if (_internal_has_reconcile_database()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileDatabase* temp = _impl_.target_.reconcile_database_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.target_.reconcile_database_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::ReconcileDatabase& ReconcileRequest::_internal_reconcile_database() const {
+  return _internal_has_reconcile_database()
+      ? *_impl_.target_.reconcile_database_
+      : reinterpret_cast< ::greptime::v1::meta::ReconcileDatabase&>(::greptime::v1::meta::_ReconcileDatabase_default_instance_);
+}
+inline const ::greptime::v1::meta::ReconcileDatabase& ReconcileRequest::reconcile_database() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileRequest.reconcile_database)
+  return _internal_reconcile_database();
+}
+inline ::greptime::v1::meta::ReconcileDatabase* ReconcileRequest::unsafe_arena_release_reconcile_database() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.ReconcileRequest.reconcile_database)
+  if (_internal_has_reconcile_database()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileDatabase* temp = _impl_.target_.reconcile_database_;
+    _impl_.target_.reconcile_database_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ReconcileRequest::unsafe_arena_set_allocated_reconcile_database(::greptime::v1::meta::ReconcileDatabase* reconcile_database) {
+  clear_target();
+  if (reconcile_database) {
+    set_has_reconcile_database();
+    _impl_.target_.reconcile_database_ = reconcile_database;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_database)
+}
+inline ::greptime::v1::meta::ReconcileDatabase* ReconcileRequest::_internal_mutable_reconcile_database() {
+  if (!_internal_has_reconcile_database()) {
+    clear_target();
+    set_has_reconcile_database();
+    _impl_.target_.reconcile_database_ = CreateMaybeMessage< ::greptime::v1::meta::ReconcileDatabase >(GetArenaForAllocation());
+  }
+  return _impl_.target_.reconcile_database_;
+}
+inline ::greptime::v1::meta::ReconcileDatabase* ReconcileRequest::mutable_reconcile_database() {
+  ::greptime::v1::meta::ReconcileDatabase* _msg = _internal_mutable_reconcile_database();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileRequest.reconcile_database)
+  return _msg;
+}
+
+// .greptime.v1.meta.ReconcileCatalog reconcile_catalog = 4;
+inline bool ReconcileRequest::_internal_has_reconcile_catalog() const {
+  return target_case() == kReconcileCatalog;
+}
+inline bool ReconcileRequest::has_reconcile_catalog() const {
+  return _internal_has_reconcile_catalog();
+}
+inline void ReconcileRequest::set_has_reconcile_catalog() {
+  _impl_._oneof_case_[0] = kReconcileCatalog;
+}
+inline void ReconcileRequest::clear_reconcile_catalog() {
+  if (_internal_has_reconcile_catalog()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.target_.reconcile_catalog_;
+    }
+    clear_has_target();
+  }
+}
+inline ::greptime::v1::meta::ReconcileCatalog* ReconcileRequest::release_reconcile_catalog() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+  if (_internal_has_reconcile_catalog()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileCatalog* temp = _impl_.target_.reconcile_catalog_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.target_.reconcile_catalog_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::ReconcileCatalog& ReconcileRequest::_internal_reconcile_catalog() const {
+  return _internal_has_reconcile_catalog()
+      ? *_impl_.target_.reconcile_catalog_
+      : reinterpret_cast< ::greptime::v1::meta::ReconcileCatalog&>(::greptime::v1::meta::_ReconcileCatalog_default_instance_);
+}
+inline const ::greptime::v1::meta::ReconcileCatalog& ReconcileRequest::reconcile_catalog() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+  return _internal_reconcile_catalog();
+}
+inline ::greptime::v1::meta::ReconcileCatalog* ReconcileRequest::unsafe_arena_release_reconcile_catalog() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+  if (_internal_has_reconcile_catalog()) {
+    clear_has_target();
+    ::greptime::v1::meta::ReconcileCatalog* temp = _impl_.target_.reconcile_catalog_;
+    _impl_.target_.reconcile_catalog_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ReconcileRequest::unsafe_arena_set_allocated_reconcile_catalog(::greptime::v1::meta::ReconcileCatalog* reconcile_catalog) {
+  clear_target();
+  if (reconcile_catalog) {
+    set_has_reconcile_catalog();
+    _impl_.target_.reconcile_catalog_ = reconcile_catalog;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+}
+inline ::greptime::v1::meta::ReconcileCatalog* ReconcileRequest::_internal_mutable_reconcile_catalog() {
+  if (!_internal_has_reconcile_catalog()) {
+    clear_target();
+    set_has_reconcile_catalog();
+    _impl_.target_.reconcile_catalog_ = CreateMaybeMessage< ::greptime::v1::meta::ReconcileCatalog >(GetArenaForAllocation());
+  }
+  return _impl_.target_.reconcile_catalog_;
+}
+inline ::greptime::v1::meta::ReconcileCatalog* ReconcileRequest::mutable_reconcile_catalog() {
+  ::greptime::v1::meta::ReconcileCatalog* _msg = _internal_mutable_reconcile_catalog();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileRequest.reconcile_catalog)
+  return _msg;
+}
+
+inline bool ReconcileRequest::has_target() const {
+  return target_case() != TARGET_NOT_SET;
+}
+inline void ReconcileRequest::clear_has_target() {
+  _impl_._oneof_case_[0] = TARGET_NOT_SET;
+}
+inline ReconcileRequest::TargetCase ReconcileRequest::target_case() const {
+  return ReconcileRequest::TargetCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// ReconcileResponse
+
+// .greptime.v1.meta.ResponseHeader header = 1;
+inline bool ReconcileResponse::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool ReconcileResponse::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::ResponseHeader& ReconcileResponse::_internal_header() const {
+  const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
+      ::greptime::v1::meta::_ResponseHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::ResponseHeader& ReconcileResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileResponse.header)
+  return _internal_header();
+}
+inline void ReconcileResponse::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::ResponseHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileResponse.header)
+}
+inline ::greptime::v1::meta::ResponseHeader* ReconcileResponse::release_header() {
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* ReconcileResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileResponse.header)
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* ReconcileResponse::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::ResponseHeader* ReconcileResponse::mutable_header() {
+  ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileResponse.header)
+  return _msg;
+}
+inline void ReconcileResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileResponse.header)
+}
+
+// .greptime.v1.meta.ProcedureId pid = 2;
+inline bool ReconcileResponse::_internal_has_pid() const {
+  return this != internal_default_instance() && _impl_.pid_ != nullptr;
+}
+inline bool ReconcileResponse::has_pid() const {
+  return _internal_has_pid();
+}
+inline const ::greptime::v1::meta::ProcedureId& ReconcileResponse::_internal_pid() const {
+  const ::greptime::v1::meta::ProcedureId* p = _impl_.pid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureId&>(
+      ::greptime::v1::meta::_ProcedureId_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureId& ReconcileResponse::pid() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.ReconcileResponse.pid)
+  return _internal_pid();
+}
+inline void ReconcileResponse::unsafe_arena_set_allocated_pid(
+    ::greptime::v1::meta::ProcedureId* pid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  _impl_.pid_ = pid;
+  if (pid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.ReconcileResponse.pid)
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::release_pid() {
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::unsafe_arena_release_pid() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.ReconcileResponse.pid)
+  
+  ::greptime::v1::meta::ProcedureId* temp = _impl_.pid_;
+  _impl_.pid_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::_internal_mutable_pid() {
+  
+  if (_impl_.pid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureId>(GetArenaForAllocation());
+    _impl_.pid_ = p;
+  }
+  return _impl_.pid_;
+}
+inline ::greptime::v1::meta::ProcedureId* ReconcileResponse::mutable_pid() {
+  ::greptime::v1::meta::ProcedureId* _msg = _internal_mutable_pid();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.ReconcileResponse.pid)
+  return _msg;
+}
+inline void ReconcileResponse::set_allocated_pid(::greptime::v1::meta::ProcedureId* pid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.pid_);
+  }
+  if (pid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(pid));
+    if (message_arena != submessage_arena) {
+      pid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, pid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.pid_ = pid;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.ReconcileResponse.pid)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1959,6 +3898,11 @@ template <> struct is_proto_enum< ::greptime::v1::meta::ProcedureStatus> : ::std
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::ProcedureStatus>() {
   return ::greptime::v1::meta::ProcedureStatus_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::meta::ResolveStrategy> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::ResolveStrategy>() {
+  return ::greptime::v1::meta::ResolveStrategy_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

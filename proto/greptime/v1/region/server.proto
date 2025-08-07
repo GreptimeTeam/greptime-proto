@@ -55,6 +55,7 @@ message RegionRequest {
     AlterRequests alters = 15;
     BulkInsertRequest bulk_insert = 16;
     SyncRequest sync = 17;
+    ListMetadataRequest list_metadata = 18;
   }
 }
 
@@ -62,6 +63,11 @@ message RegionResponse {
   ResponseHeader header = 1;
   uint64 affected_rows = 2;
   map<string, bytes> extensions = 3;
+  // Response for ListMetadataRequest.
+  // It is a json array of region metadatas.
+  // The length of the array is equal to the number of regions in the list request.
+  // The element is null if the region is not found.
+  bytes metadata = 4;
 }
 
 message InsertRequests { repeated InsertRequest requests = 1; }
@@ -138,15 +144,26 @@ message AlterRequest {
     ModifyColumnTypes modify_column_types = 5;
     SetTableOptions set_table_options = 6;
     UnsetTableOptions unset_table_options = 9;
+    // Deprecated: use set_indexes instead.
     SetIndex set_index = 10;
+    // Deprecated: use unset_indexes instead.
     UnsetIndex unset_index = 11;
     DropDefaults drop_defaults = 12;
+    SetIndexes set_indexes = 13;
+    UnsetIndexes unset_indexes = 14;
+    SyncColumns sync_columns = 16;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
 }
 
-message AddColumns { repeated AddColumn add_columns = 1; }
+message SyncColumns {
+  repeated RegionColumnDef column_defs = 1;
+}
+
+message AddColumns {
+  repeated AddColumn add_columns = 1;
+}
 
 message DropColumns { repeated DropColumn drop_columns = 1; }
 
@@ -212,4 +229,9 @@ message SyncRequest {
     MitoManifestInfo mito_manifest_info = 2;
     MetricManifestInfo metric_manifest_info = 3;
   }
+}
+
+// Get region metadatas of a list of regions.
+message ListMetadataRequest {
+  repeated uint64 region_ids = 1;
 }

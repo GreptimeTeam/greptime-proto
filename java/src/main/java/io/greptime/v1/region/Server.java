@@ -1532,6 +1532,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.SyncRequestOrBuilder getSyncOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     * @return Whether the listMetadata field is set.
+     */
+    boolean hasListMetadata();
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     * @return The listMetadata.
+     */
+    io.greptime.v1.region.Server.ListMetadataRequest getListMetadata();
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     */
+    io.greptime.v1.region.Server.ListMetadataRequestOrBuilder getListMetadataOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -1802,6 +1817,20 @@ java.lang.String defaultValue);
               bodyCase_ = 17;
               break;
             }
+            case 146: {
+              io.greptime.v1.region.Server.ListMetadataRequest.Builder subBuilder = null;
+              if (bodyCase_ == 18) {
+                subBuilder = ((io.greptime.v1.region.Server.ListMetadataRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.region.Server.ListMetadataRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.ListMetadataRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 18;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1856,6 +1885,7 @@ java.lang.String defaultValue);
       ALTERS(15),
       BULK_INSERT(16),
       SYNC(17),
+      LIST_METADATA(18),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1888,6 +1918,7 @@ java.lang.String defaultValue);
           case 15: return ALTERS;
           case 16: return BULK_INSERT;
           case 17: return SYNC;
+          case 18: return LIST_METADATA;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -2394,6 +2425,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.SyncRequest.getDefaultInstance();
     }
 
+    public static final int LIST_METADATA_FIELD_NUMBER = 18;
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     * @return Whether the listMetadata field is set.
+     */
+    @java.lang.Override
+    public boolean hasListMetadata() {
+      return bodyCase_ == 18;
+    }
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     * @return The listMetadata.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ListMetadataRequest getListMetadata() {
+      if (bodyCase_ == 18) {
+         return (io.greptime.v1.region.Server.ListMetadataRequest) body_;
+      }
+      return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ListMetadataRequestOrBuilder getListMetadataOrBuilder() {
+      if (bodyCase_ == 18) {
+         return (io.greptime.v1.region.Server.ListMetadataRequest) body_;
+      }
+      return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2455,6 +2517,9 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 17) {
         output.writeMessage(17, (io.greptime.v1.region.Server.SyncRequest) body_);
+      }
+      if (bodyCase_ == 18) {
+        output.writeMessage(18, (io.greptime.v1.region.Server.ListMetadataRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -2528,6 +2593,10 @@ java.lang.String defaultValue);
       if (bodyCase_ == 17) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, (io.greptime.v1.region.Server.SyncRequest) body_);
+      }
+      if (bodyCase_ == 18) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, (io.greptime.v1.region.Server.ListMetadataRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2611,6 +2680,10 @@ java.lang.String defaultValue);
           if (!getSync()
               .equals(other.getSync())) return false;
           break;
+        case 18:
+          if (!getListMetadata()
+              .equals(other.getListMetadata())) return false;
+          break;
         case 0:
         default:
       }
@@ -2689,6 +2762,10 @@ java.lang.String defaultValue);
         case 17:
           hash = (37 * hash) + SYNC_FIELD_NUMBER;
           hash = (53 * hash) + getSync().hashCode();
+          break;
+        case 18:
+          hash = (37 * hash) + LIST_METADATA_FIELD_NUMBER;
+          hash = (53 * hash) + getListMetadata().hashCode();
           break;
         case 0:
         default:
@@ -2970,6 +3047,13 @@ java.lang.String defaultValue);
             result.body_ = syncBuilder_.build();
           }
         }
+        if (bodyCase_ == 18) {
+          if (listMetadataBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = listMetadataBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -3081,6 +3165,10 @@ java.lang.String defaultValue);
           }
           case SYNC: {
             mergeSync(other.getSync());
+            break;
+          }
+          case LIST_METADATA: {
+            mergeListMetadata(other.getListMetadata());
             break;
           }
           case BODY_NOT_SET: {
@@ -5379,6 +5467,148 @@ java.lang.String defaultValue);
         onChanged();;
         return syncBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.ListMetadataRequest, io.greptime.v1.region.Server.ListMetadataRequest.Builder, io.greptime.v1.region.Server.ListMetadataRequestOrBuilder> listMetadataBuilder_;
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       * @return Whether the listMetadata field is set.
+       */
+      @java.lang.Override
+      public boolean hasListMetadata() {
+        return bodyCase_ == 18;
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       * @return The listMetadata.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ListMetadataRequest getListMetadata() {
+        if (listMetadataBuilder_ == null) {
+          if (bodyCase_ == 18) {
+            return (io.greptime.v1.region.Server.ListMetadataRequest) body_;
+          }
+          return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 18) {
+            return listMetadataBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      public Builder setListMetadata(io.greptime.v1.region.Server.ListMetadataRequest value) {
+        if (listMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          listMetadataBuilder_.setMessage(value);
+        }
+        bodyCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      public Builder setListMetadata(
+          io.greptime.v1.region.Server.ListMetadataRequest.Builder builderForValue) {
+        if (listMetadataBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          listMetadataBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      public Builder mergeListMetadata(io.greptime.v1.region.Server.ListMetadataRequest value) {
+        if (listMetadataBuilder_ == null) {
+          if (bodyCase_ == 18 &&
+              body_ != io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.region.Server.ListMetadataRequest.newBuilder((io.greptime.v1.region.Server.ListMetadataRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 18) {
+            listMetadataBuilder_.mergeFrom(value);
+          } else {
+            listMetadataBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      public Builder clearListMetadata() {
+        if (listMetadataBuilder_ == null) {
+          if (bodyCase_ == 18) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 18) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          listMetadataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      public io.greptime.v1.region.Server.ListMetadataRequest.Builder getListMetadataBuilder() {
+        return getListMetadataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ListMetadataRequestOrBuilder getListMetadataOrBuilder() {
+        if ((bodyCase_ == 18) && (listMetadataBuilder_ != null)) {
+          return listMetadataBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 18) {
+            return (io.greptime.v1.region.Server.ListMetadataRequest) body_;
+          }
+          return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.ListMetadataRequest list_metadata = 18;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.ListMetadataRequest, io.greptime.v1.region.Server.ListMetadataRequest.Builder, io.greptime.v1.region.Server.ListMetadataRequestOrBuilder> 
+          getListMetadataFieldBuilder() {
+        if (listMetadataBuilder_ == null) {
+          if (!(bodyCase_ == 18)) {
+            body_ = io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+          }
+          listMetadataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.ListMetadataRequest, io.greptime.v1.region.Server.ListMetadataRequest.Builder, io.greptime.v1.region.Server.ListMetadataRequestOrBuilder>(
+                  (io.greptime.v1.region.Server.ListMetadataRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 18;
+        onChanged();;
+        return listMetadataBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5492,6 +5722,19 @@ com.google.protobuf.ByteString defaultValue);
 
     com.google.protobuf.ByteString getExtensionsOrThrow(
         java.lang.String key);
+
+    /**
+     * <pre>
+     * Response for ListMetadataRequest.
+     * It is a json array of region metadatas.
+     * The length of the array is equal to the number of regions in the list request.
+     * The element is null if the region is not found.
+     * </pre>
+     *
+     * <code>bytes metadata = 4;</code>
+     * @return The metadata.
+     */
+    com.google.protobuf.ByteString getMetadata();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionResponse}
@@ -5506,6 +5749,7 @@ com.google.protobuf.ByteString defaultValue);
       super(builder);
     }
     private RegionResponse() {
+      metadata_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -5568,6 +5812,11 @@ com.google.protobuf.ByteString defaultValue);
                   ExtensionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               extensions_.getMutableMap().put(
                   extensions__.getKey(), extensions__.getValue());
+              break;
+            }
+            case 34: {
+
+              metadata_ = input.readBytes();
               break;
             }
             default: {
@@ -5734,6 +5983,24 @@ com.google.protobuf.ByteString defaultValue);
       return map.get(key);
     }
 
+    public static final int METADATA_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString metadata_;
+    /**
+     * <pre>
+     * Response for ListMetadataRequest.
+     * It is a json array of region metadatas.
+     * The length of the array is equal to the number of regions in the list request.
+     * The element is null if the region is not found.
+     * </pre>
+     *
+     * <code>bytes metadata = 4;</code>
+     * @return The metadata.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getMetadata() {
+      return metadata_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5760,6 +6027,9 @@ com.google.protobuf.ByteString defaultValue);
           internalGetExtensions(),
           ExtensionsDefaultEntryHolder.defaultEntry,
           3);
+      if (!metadata_.isEmpty()) {
+        output.writeBytes(4, metadata_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5787,6 +6057,10 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, extensions__);
       }
+      if (!metadata_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, metadata_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5811,6 +6085,8 @@ com.google.protobuf.ByteString defaultValue);
           != other.getAffectedRows()) return false;
       if (!internalGetExtensions().equals(
           other.internalGetExtensions())) return false;
+      if (!getMetadata()
+          .equals(other.getMetadata())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5833,6 +6109,8 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtensions().hashCode();
       }
+      hash = (37 * hash) + METADATA_FIELD_NUMBER;
+      hash = (53 * hash) + getMetadata().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5997,6 +6275,8 @@ com.google.protobuf.ByteString defaultValue);
         affectedRows_ = 0L;
 
         internalGetMutableExtensions().clear();
+        metadata_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -6032,6 +6312,7 @@ com.google.protobuf.ByteString defaultValue);
         result.affectedRows_ = affectedRows_;
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
+        result.metadata_ = metadata_;
         onBuilt();
         return result;
       }
@@ -6088,6 +6369,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         internalGetMutableExtensions().mergeFrom(
             other.internalGetExtensions());
+        if (other.getMetadata() != com.google.protobuf.ByteString.EMPTY) {
+          setMetadata(other.getMetadata());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6396,6 +6680,61 @@ com.google.protobuf.ByteString defaultValue);
           java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
         internalGetMutableExtensions().getMutableMap()
             .putAll(values);
+        return this;
+      }
+
+      private com.google.protobuf.ByteString metadata_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Response for ListMetadataRequest.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
+       * </pre>
+       *
+       * <code>bytes metadata = 4;</code>
+       * @return The metadata.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getMetadata() {
+        return metadata_;
+      }
+      /**
+       * <pre>
+       * Response for ListMetadataRequest.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
+       * </pre>
+       *
+       * <code>bytes metadata = 4;</code>
+       * @param value The metadata to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetadata(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        metadata_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Response for ListMetadataRequest.
+       * It is a json array of region metadatas.
+       * The length of the array is equal to the number of regions in the list request.
+       * The element is null if the region is not found.
+       * </pre>
+       *
+       * <code>bytes metadata = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMetadata() {
+        
+        metadata_ = getDefaultInstance().getMetadata();
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -17025,31 +17364,55 @@ java.lang.String defaultValue);
     io.greptime.v1.Ddl.UnsetTableOptionsOrBuilder getUnsetTableOptionsOrBuilder();
 
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      * @return Whether the setIndex field is set.
      */
     boolean hasSetIndex();
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      * @return The setIndex.
      */
     io.greptime.v1.Ddl.SetIndex getSetIndex();
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      */
     io.greptime.v1.Ddl.SetIndexOrBuilder getSetIndexOrBuilder();
 
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      * @return Whether the unsetIndex field is set.
      */
     boolean hasUnsetIndex();
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      * @return The unsetIndex.
      */
     io.greptime.v1.Ddl.UnsetIndex getUnsetIndex();
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      */
     io.greptime.v1.Ddl.UnsetIndexOrBuilder getUnsetIndexOrBuilder();
@@ -17068,6 +17431,51 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.DropDefaults drop_defaults = 12;</code>
      */
     io.greptime.v1.Ddl.DropDefaultsOrBuilder getDropDefaultsOrBuilder();
+
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     * @return Whether the setIndexes field is set.
+     */
+    boolean hasSetIndexes();
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     * @return The setIndexes.
+     */
+    io.greptime.v1.Ddl.SetIndexes getSetIndexes();
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     */
+    io.greptime.v1.Ddl.SetIndexesOrBuilder getSetIndexesOrBuilder();
+
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     * @return Whether the unsetIndexes field is set.
+     */
+    boolean hasUnsetIndexes();
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     * @return The unsetIndexes.
+     */
+    io.greptime.v1.Ddl.UnsetIndexes getUnsetIndexes();
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     */
+    io.greptime.v1.Ddl.UnsetIndexesOrBuilder getUnsetIndexesOrBuilder();
+
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     * @return Whether the syncColumns field is set.
+     */
+    boolean hasSyncColumns();
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     * @return The syncColumns.
+     */
+    io.greptime.v1.region.Server.SyncColumns getSyncColumns();
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     */
+    io.greptime.v1.region.Server.SyncColumnsOrBuilder getSyncColumnsOrBuilder();
 
     /**
      * <pre>
@@ -17248,6 +17656,48 @@ java.lang.String defaultValue);
               kindCase_ = 12;
               break;
             }
+            case 106: {
+              io.greptime.v1.Ddl.SetIndexes.Builder subBuilder = null;
+              if (kindCase_ == 13) {
+                subBuilder = ((io.greptime.v1.Ddl.SetIndexes) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.SetIndexes.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetIndexes) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 13;
+              break;
+            }
+            case 114: {
+              io.greptime.v1.Ddl.UnsetIndexes.Builder subBuilder = null;
+              if (kindCase_ == 14) {
+                subBuilder = ((io.greptime.v1.Ddl.UnsetIndexes) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.UnsetIndexes.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.UnsetIndexes) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 14;
+              break;
+            }
+            case 130: {
+              io.greptime.v1.region.Server.SyncColumns.Builder subBuilder = null;
+              if (kindCase_ == 16) {
+                subBuilder = ((io.greptime.v1.region.Server.SyncColumns) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.region.Server.SyncColumns.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.SyncColumns) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 16;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -17295,6 +17745,9 @@ java.lang.String defaultValue);
       SET_INDEX(10),
       UNSET_INDEX(11),
       DROP_DEFAULTS(12),
+      SET_INDEXES(13),
+      UNSET_INDEXES(14),
+      SYNC_COLUMNS(16),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -17320,6 +17773,9 @@ java.lang.String defaultValue);
           case 10: return SET_INDEX;
           case 11: return UNSET_INDEX;
           case 12: return DROP_DEFAULTS;
+          case 13: return SET_INDEXES;
+          case 14: return UNSET_INDEXES;
+          case 16: return SYNC_COLUMNS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -17503,6 +17959,10 @@ java.lang.String defaultValue);
 
     public static final int SET_INDEX_FIELD_NUMBER = 10;
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      * @return Whether the setIndex field is set.
      */
@@ -17511,6 +17971,10 @@ java.lang.String defaultValue);
       return kindCase_ == 10;
     }
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      * @return The setIndex.
      */
@@ -17522,6 +17986,10 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.SetIndex.getDefaultInstance();
     }
     /**
+     * <pre>
+     * Deprecated: use set_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.SetIndex set_index = 10;</code>
      */
     @java.lang.Override
@@ -17534,6 +18002,10 @@ java.lang.String defaultValue);
 
     public static final int UNSET_INDEX_FIELD_NUMBER = 11;
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      * @return Whether the unsetIndex field is set.
      */
@@ -17542,6 +18014,10 @@ java.lang.String defaultValue);
       return kindCase_ == 11;
     }
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      * @return The unsetIndex.
      */
@@ -17553,6 +18029,10 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.UnsetIndex.getDefaultInstance();
     }
     /**
+     * <pre>
+     * Deprecated: use unset_indexes instead.
+     * </pre>
+     *
      * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
      */
     @java.lang.Override
@@ -17592,6 +18072,99 @@ java.lang.String defaultValue);
          return (io.greptime.v1.Ddl.DropDefaults) kind_;
       }
       return io.greptime.v1.Ddl.DropDefaults.getDefaultInstance();
+    }
+
+    public static final int SET_INDEXES_FIELD_NUMBER = 13;
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     * @return Whether the setIndexes field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetIndexes() {
+      return kindCase_ == 13;
+    }
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     * @return The setIndexes.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetIndexes getSetIndexes() {
+      if (kindCase_ == 13) {
+         return (io.greptime.v1.Ddl.SetIndexes) kind_;
+      }
+      return io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetIndexesOrBuilder getSetIndexesOrBuilder() {
+      if (kindCase_ == 13) {
+         return (io.greptime.v1.Ddl.SetIndexes) kind_;
+      }
+      return io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+    }
+
+    public static final int UNSET_INDEXES_FIELD_NUMBER = 14;
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     * @return Whether the unsetIndexes field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnsetIndexes() {
+      return kindCase_ == 14;
+    }
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     * @return The unsetIndexes.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetIndexes getUnsetIndexes() {
+      if (kindCase_ == 14) {
+         return (io.greptime.v1.Ddl.UnsetIndexes) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.UnsetIndexesOrBuilder getUnsetIndexesOrBuilder() {
+      if (kindCase_ == 14) {
+         return (io.greptime.v1.Ddl.UnsetIndexes) kind_;
+      }
+      return io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+    }
+
+    public static final int SYNC_COLUMNS_FIELD_NUMBER = 16;
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     * @return Whether the syncColumns field is set.
+     */
+    @java.lang.Override
+    public boolean hasSyncColumns() {
+      return kindCase_ == 16;
+    }
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     * @return The syncColumns.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.SyncColumns getSyncColumns() {
+      if (kindCase_ == 16) {
+         return (io.greptime.v1.region.Server.SyncColumns) kind_;
+      }
+      return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.SyncColumnsOrBuilder getSyncColumnsOrBuilder() {
+      if (kindCase_ == 16) {
+         return (io.greptime.v1.region.Server.SyncColumns) kind_;
+      }
+      return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
     }
 
     public static final int SCHEMA_VERSION_FIELD_NUMBER = 4;
@@ -17653,6 +18226,15 @@ java.lang.String defaultValue);
       if (kindCase_ == 12) {
         output.writeMessage(12, (io.greptime.v1.Ddl.DropDefaults) kind_);
       }
+      if (kindCase_ == 13) {
+        output.writeMessage(13, (io.greptime.v1.Ddl.SetIndexes) kind_);
+      }
+      if (kindCase_ == 14) {
+        output.writeMessage(14, (io.greptime.v1.Ddl.UnsetIndexes) kind_);
+      }
+      if (kindCase_ == 16) {
+        output.writeMessage(16, (io.greptime.v1.region.Server.SyncColumns) kind_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -17701,6 +18283,18 @@ java.lang.String defaultValue);
       if (kindCase_ == 12) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, (io.greptime.v1.Ddl.DropDefaults) kind_);
+      }
+      if (kindCase_ == 13) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, (io.greptime.v1.Ddl.SetIndexes) kind_);
+      }
+      if (kindCase_ == 14) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, (io.greptime.v1.Ddl.UnsetIndexes) kind_);
+      }
+      if (kindCase_ == 16) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, (io.greptime.v1.region.Server.SyncColumns) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17755,6 +18349,18 @@ java.lang.String defaultValue);
           if (!getDropDefaults()
               .equals(other.getDropDefaults())) return false;
           break;
+        case 13:
+          if (!getSetIndexes()
+              .equals(other.getSetIndexes())) return false;
+          break;
+        case 14:
+          if (!getUnsetIndexes()
+              .equals(other.getUnsetIndexes())) return false;
+          break;
+        case 16:
+          if (!getSyncColumns()
+              .equals(other.getSyncColumns())) return false;
+          break;
         case 0:
         default:
       }
@@ -17807,6 +18413,18 @@ java.lang.String defaultValue);
         case 12:
           hash = (37 * hash) + DROP_DEFAULTS_FIELD_NUMBER;
           hash = (53 * hash) + getDropDefaults().hashCode();
+          break;
+        case 13:
+          hash = (37 * hash) + SET_INDEXES_FIELD_NUMBER;
+          hash = (53 * hash) + getSetIndexes().hashCode();
+          break;
+        case 14:
+          hash = (37 * hash) + UNSET_INDEXES_FIELD_NUMBER;
+          hash = (53 * hash) + getUnsetIndexes().hashCode();
+          break;
+        case 16:
+          hash = (37 * hash) + SYNC_COLUMNS_FIELD_NUMBER;
+          hash = (53 * hash) + getSyncColumns().hashCode();
           break;
         case 0:
         default:
@@ -18033,6 +18651,27 @@ java.lang.String defaultValue);
             result.kind_ = dropDefaultsBuilder_.build();
           }
         }
+        if (kindCase_ == 13) {
+          if (setIndexesBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = setIndexesBuilder_.build();
+          }
+        }
+        if (kindCase_ == 14) {
+          if (unsetIndexesBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = unsetIndexesBuilder_.build();
+          }
+        }
+        if (kindCase_ == 16) {
+          if (syncColumnsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = syncColumnsBuilder_.build();
+          }
+        }
         result.schemaVersion_ = schemaVersion_;
         result.kindCase_ = kindCase_;
         onBuilt();
@@ -18120,6 +18759,18 @@ java.lang.String defaultValue);
           }
           case DROP_DEFAULTS: {
             mergeDropDefaults(other.getDropDefaults());
+            break;
+          }
+          case SET_INDEXES: {
+            mergeSetIndexes(other.getSetIndexes());
+            break;
+          }
+          case UNSET_INDEXES: {
+            mergeUnsetIndexes(other.getUnsetIndexes());
+            break;
+          }
+          case SYNC_COLUMNS: {
+            mergeSyncColumns(other.getSyncColumns());
             break;
           }
           case KIND_NOT_SET: {
@@ -18914,6 +19565,10 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.SetIndex, io.greptime.v1.Ddl.SetIndex.Builder, io.greptime.v1.Ddl.SetIndexOrBuilder> setIndexBuilder_;
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        * @return Whether the setIndex field is set.
        */
@@ -18922,6 +19577,10 @@ java.lang.String defaultValue);
         return kindCase_ == 10;
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        * @return The setIndex.
        */
@@ -18940,6 +19599,10 @@ java.lang.String defaultValue);
         }
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       public Builder setSetIndex(io.greptime.v1.Ddl.SetIndex value) {
@@ -18956,6 +19619,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       public Builder setSetIndex(
@@ -18970,6 +19637,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       public Builder mergeSetIndex(io.greptime.v1.Ddl.SetIndex value) {
@@ -18993,6 +19664,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       public Builder clearSetIndex() {
@@ -19012,12 +19687,20 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       public io.greptime.v1.Ddl.SetIndex.Builder getSetIndexBuilder() {
         return getSetIndexFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       @java.lang.Override
@@ -19032,6 +19715,10 @@ java.lang.String defaultValue);
         }
       }
       /**
+       * <pre>
+       * Deprecated: use set_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.SetIndex set_index = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -19056,6 +19743,10 @@ java.lang.String defaultValue);
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Ddl.UnsetIndex, io.greptime.v1.Ddl.UnsetIndex.Builder, io.greptime.v1.Ddl.UnsetIndexOrBuilder> unsetIndexBuilder_;
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        * @return Whether the unsetIndex field is set.
        */
@@ -19064,6 +19755,10 @@ java.lang.String defaultValue);
         return kindCase_ == 11;
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        * @return The unsetIndex.
        */
@@ -19082,6 +19777,10 @@ java.lang.String defaultValue);
         }
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       public Builder setUnsetIndex(io.greptime.v1.Ddl.UnsetIndex value) {
@@ -19098,6 +19797,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       public Builder setUnsetIndex(
@@ -19112,6 +19815,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       public Builder mergeUnsetIndex(io.greptime.v1.Ddl.UnsetIndex value) {
@@ -19135,6 +19842,10 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       public Builder clearUnsetIndex() {
@@ -19154,12 +19865,20 @@ java.lang.String defaultValue);
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       public io.greptime.v1.Ddl.UnsetIndex.Builder getUnsetIndexBuilder() {
         return getUnsetIndexFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       @java.lang.Override
@@ -19174,6 +19893,10 @@ java.lang.String defaultValue);
         }
       }
       /**
+       * <pre>
+       * Deprecated: use unset_indexes instead.
+       * </pre>
+       *
        * <code>.greptime.v1.UnsetIndex unset_index = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -19337,6 +20060,432 @@ java.lang.String defaultValue);
         return dropDefaultsBuilder_;
       }
 
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetIndexes, io.greptime.v1.Ddl.SetIndexes.Builder, io.greptime.v1.Ddl.SetIndexesOrBuilder> setIndexesBuilder_;
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       * @return Whether the setIndexes field is set.
+       */
+      @java.lang.Override
+      public boolean hasSetIndexes() {
+        return kindCase_ == 13;
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       * @return The setIndexes.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetIndexes getSetIndexes() {
+        if (setIndexesBuilder_ == null) {
+          if (kindCase_ == 13) {
+            return (io.greptime.v1.Ddl.SetIndexes) kind_;
+          }
+          return io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+        } else {
+          if (kindCase_ == 13) {
+            return setIndexesBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      public Builder setSetIndexes(io.greptime.v1.Ddl.SetIndexes value) {
+        if (setIndexesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          setIndexesBuilder_.setMessage(value);
+        }
+        kindCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      public Builder setSetIndexes(
+          io.greptime.v1.Ddl.SetIndexes.Builder builderForValue) {
+        if (setIndexesBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          setIndexesBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      public Builder mergeSetIndexes(io.greptime.v1.Ddl.SetIndexes value) {
+        if (setIndexesBuilder_ == null) {
+          if (kindCase_ == 13 &&
+              kind_ != io.greptime.v1.Ddl.SetIndexes.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.SetIndexes.newBuilder((io.greptime.v1.Ddl.SetIndexes) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 13) {
+            setIndexesBuilder_.mergeFrom(value);
+          } else {
+            setIndexesBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      public Builder clearSetIndexes() {
+        if (setIndexesBuilder_ == null) {
+          if (kindCase_ == 13) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 13) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          setIndexesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      public io.greptime.v1.Ddl.SetIndexes.Builder getSetIndexesBuilder() {
+        return getSetIndexesFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetIndexesOrBuilder getSetIndexesOrBuilder() {
+        if ((kindCase_ == 13) && (setIndexesBuilder_ != null)) {
+          return setIndexesBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 13) {
+            return (io.greptime.v1.Ddl.SetIndexes) kind_;
+          }
+          return io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetIndexes set_indexes = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetIndexes, io.greptime.v1.Ddl.SetIndexes.Builder, io.greptime.v1.Ddl.SetIndexesOrBuilder> 
+          getSetIndexesFieldBuilder() {
+        if (setIndexesBuilder_ == null) {
+          if (!(kindCase_ == 13)) {
+            kind_ = io.greptime.v1.Ddl.SetIndexes.getDefaultInstance();
+          }
+          setIndexesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetIndexes, io.greptime.v1.Ddl.SetIndexes.Builder, io.greptime.v1.Ddl.SetIndexesOrBuilder>(
+                  (io.greptime.v1.Ddl.SetIndexes) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 13;
+        onChanged();;
+        return setIndexesBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetIndexes, io.greptime.v1.Ddl.UnsetIndexes.Builder, io.greptime.v1.Ddl.UnsetIndexesOrBuilder> unsetIndexesBuilder_;
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       * @return Whether the unsetIndexes field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnsetIndexes() {
+        return kindCase_ == 14;
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       * @return The unsetIndexes.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetIndexes getUnsetIndexes() {
+        if (unsetIndexesBuilder_ == null) {
+          if (kindCase_ == 14) {
+            return (io.greptime.v1.Ddl.UnsetIndexes) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+        } else {
+          if (kindCase_ == 14) {
+            return unsetIndexesBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      public Builder setUnsetIndexes(io.greptime.v1.Ddl.UnsetIndexes value) {
+        if (unsetIndexesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          unsetIndexesBuilder_.setMessage(value);
+        }
+        kindCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      public Builder setUnsetIndexes(
+          io.greptime.v1.Ddl.UnsetIndexes.Builder builderForValue) {
+        if (unsetIndexesBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          unsetIndexesBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      public Builder mergeUnsetIndexes(io.greptime.v1.Ddl.UnsetIndexes value) {
+        if (unsetIndexesBuilder_ == null) {
+          if (kindCase_ == 14 &&
+              kind_ != io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.UnsetIndexes.newBuilder((io.greptime.v1.Ddl.UnsetIndexes) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 14) {
+            unsetIndexesBuilder_.mergeFrom(value);
+          } else {
+            unsetIndexesBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 14;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      public Builder clearUnsetIndexes() {
+        if (unsetIndexesBuilder_ == null) {
+          if (kindCase_ == 14) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 14) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          unsetIndexesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      public io.greptime.v1.Ddl.UnsetIndexes.Builder getUnsetIndexesBuilder() {
+        return getUnsetIndexesFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.UnsetIndexesOrBuilder getUnsetIndexesOrBuilder() {
+        if ((kindCase_ == 14) && (unsetIndexesBuilder_ != null)) {
+          return unsetIndexesBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 14) {
+            return (io.greptime.v1.Ddl.UnsetIndexes) kind_;
+          }
+          return io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.UnsetIndexes unset_indexes = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.UnsetIndexes, io.greptime.v1.Ddl.UnsetIndexes.Builder, io.greptime.v1.Ddl.UnsetIndexesOrBuilder> 
+          getUnsetIndexesFieldBuilder() {
+        if (unsetIndexesBuilder_ == null) {
+          if (!(kindCase_ == 14)) {
+            kind_ = io.greptime.v1.Ddl.UnsetIndexes.getDefaultInstance();
+          }
+          unsetIndexesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.UnsetIndexes, io.greptime.v1.Ddl.UnsetIndexes.Builder, io.greptime.v1.Ddl.UnsetIndexesOrBuilder>(
+                  (io.greptime.v1.Ddl.UnsetIndexes) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 14;
+        onChanged();;
+        return unsetIndexesBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.SyncColumns, io.greptime.v1.region.Server.SyncColumns.Builder, io.greptime.v1.region.Server.SyncColumnsOrBuilder> syncColumnsBuilder_;
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       * @return Whether the syncColumns field is set.
+       */
+      @java.lang.Override
+      public boolean hasSyncColumns() {
+        return kindCase_ == 16;
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       * @return The syncColumns.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.SyncColumns getSyncColumns() {
+        if (syncColumnsBuilder_ == null) {
+          if (kindCase_ == 16) {
+            return (io.greptime.v1.region.Server.SyncColumns) kind_;
+          }
+          return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+        } else {
+          if (kindCase_ == 16) {
+            return syncColumnsBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      public Builder setSyncColumns(io.greptime.v1.region.Server.SyncColumns value) {
+        if (syncColumnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          syncColumnsBuilder_.setMessage(value);
+        }
+        kindCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      public Builder setSyncColumns(
+          io.greptime.v1.region.Server.SyncColumns.Builder builderForValue) {
+        if (syncColumnsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          syncColumnsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      public Builder mergeSyncColumns(io.greptime.v1.region.Server.SyncColumns value) {
+        if (syncColumnsBuilder_ == null) {
+          if (kindCase_ == 16 &&
+              kind_ != io.greptime.v1.region.Server.SyncColumns.getDefaultInstance()) {
+            kind_ = io.greptime.v1.region.Server.SyncColumns.newBuilder((io.greptime.v1.region.Server.SyncColumns) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 16) {
+            syncColumnsBuilder_.mergeFrom(value);
+          } else {
+            syncColumnsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 16;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      public Builder clearSyncColumns() {
+        if (syncColumnsBuilder_ == null) {
+          if (kindCase_ == 16) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 16) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          syncColumnsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      public io.greptime.v1.region.Server.SyncColumns.Builder getSyncColumnsBuilder() {
+        return getSyncColumnsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.SyncColumnsOrBuilder getSyncColumnsOrBuilder() {
+        if ((kindCase_ == 16) && (syncColumnsBuilder_ != null)) {
+          return syncColumnsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 16) {
+            return (io.greptime.v1.region.Server.SyncColumns) kind_;
+          }
+          return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SyncColumns sync_columns = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.SyncColumns, io.greptime.v1.region.Server.SyncColumns.Builder, io.greptime.v1.region.Server.SyncColumnsOrBuilder> 
+          getSyncColumnsFieldBuilder() {
+        if (syncColumnsBuilder_ == null) {
+          if (!(kindCase_ == 16)) {
+            kind_ = io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+          }
+          syncColumnsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.SyncColumns, io.greptime.v1.region.Server.SyncColumns.Builder, io.greptime.v1.region.Server.SyncColumnsOrBuilder>(
+                  (io.greptime.v1.region.Server.SyncColumns) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 16;
+        onChanged();;
+        return syncColumnsBuilder_;
+      }
+
       private long schemaVersion_ ;
       /**
        * <pre>
@@ -19427,6 +20576,801 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.region.Server.AlterRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SyncColumnsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SyncColumns)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    java.util.List<io.greptime.v1.region.Server.RegionColumnDef> 
+        getColumnDefsList();
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index);
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    int getColumnDefsCount();
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
+        getColumnDefsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.SyncColumns}
+   */
+  public static final class SyncColumns extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SyncColumns)
+      SyncColumnsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SyncColumns.newBuilder() to construct.
+    private SyncColumns(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SyncColumns() {
+      columnDefs_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SyncColumns();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SyncColumns(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.RegionColumnDef>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              columnDefs_.add(
+                  input.readMessage(io.greptime.v1.region.Server.RegionColumnDef.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          columnDefs_ = java.util.Collections.unmodifiableList(columnDefs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_SyncColumns_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_SyncColumns_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.SyncColumns.class, io.greptime.v1.region.Server.SyncColumns.Builder.class);
+    }
+
+    public static final int COLUMN_DEFS_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.region.Server.RegionColumnDef> columnDefs_;
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.region.Server.RegionColumnDef> getColumnDefsList() {
+      return columnDefs_;
+    }
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
+        getColumnDefsOrBuilderList() {
+      return columnDefs_;
+    }
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    @java.lang.Override
+    public int getColumnDefsCount() {
+      return columnDefs_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index) {
+      return columnDefs_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
+        int index) {
+      return columnDefs_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < columnDefs_.size(); i++) {
+        output.writeMessage(1, columnDefs_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < columnDefs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, columnDefs_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.SyncColumns)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.SyncColumns other = (io.greptime.v1.region.Server.SyncColumns) obj;
+
+      if (!getColumnDefsList()
+          .equals(other.getColumnDefsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getColumnDefsCount() > 0) {
+        hash = (37 * hash) + COLUMN_DEFS_FIELD_NUMBER;
+        hash = (53 * hash) + getColumnDefsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.SyncColumns parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.SyncColumns prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.SyncColumns}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SyncColumns)
+        io.greptime.v1.region.Server.SyncColumnsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_SyncColumns_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_SyncColumns_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.SyncColumns.class, io.greptime.v1.region.Server.SyncColumns.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.SyncColumns.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getColumnDefsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (columnDefsBuilder_ == null) {
+          columnDefs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          columnDefsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_SyncColumns_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.SyncColumns getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.SyncColumns build() {
+        io.greptime.v1.region.Server.SyncColumns result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.SyncColumns buildPartial() {
+        io.greptime.v1.region.Server.SyncColumns result = new io.greptime.v1.region.Server.SyncColumns(this);
+        int from_bitField0_ = bitField0_;
+        if (columnDefsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            columnDefs_ = java.util.Collections.unmodifiableList(columnDefs_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.columnDefs_ = columnDefs_;
+        } else {
+          result.columnDefs_ = columnDefsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.SyncColumns) {
+          return mergeFrom((io.greptime.v1.region.Server.SyncColumns)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.SyncColumns other) {
+        if (other == io.greptime.v1.region.Server.SyncColumns.getDefaultInstance()) return this;
+        if (columnDefsBuilder_ == null) {
+          if (!other.columnDefs_.isEmpty()) {
+            if (columnDefs_.isEmpty()) {
+              columnDefs_ = other.columnDefs_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureColumnDefsIsMutable();
+              columnDefs_.addAll(other.columnDefs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.columnDefs_.isEmpty()) {
+            if (columnDefsBuilder_.isEmpty()) {
+              columnDefsBuilder_.dispose();
+              columnDefsBuilder_ = null;
+              columnDefs_ = other.columnDefs_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              columnDefsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getColumnDefsFieldBuilder() : null;
+            } else {
+              columnDefsBuilder_.addAllMessages(other.columnDefs_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.SyncColumns parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.SyncColumns) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.region.Server.RegionColumnDef> columnDefs_ =
+        java.util.Collections.emptyList();
+      private void ensureColumnDefsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          columnDefs_ = new java.util.ArrayList<io.greptime.v1.region.Server.RegionColumnDef>(columnDefs_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> columnDefsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Server.RegionColumnDef> getColumnDefsList() {
+        if (columnDefsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(columnDefs_);
+        } else {
+          return columnDefsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public int getColumnDefsCount() {
+        if (columnDefsBuilder_ == null) {
+          return columnDefs_.size();
+        } else {
+          return columnDefsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionColumnDef getColumnDefs(int index) {
+        if (columnDefsBuilder_ == null) {
+          return columnDefs_.get(index);
+        } else {
+          return columnDefsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder setColumnDefs(
+          int index, io.greptime.v1.region.Server.RegionColumnDef value) {
+        if (columnDefsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnDefsIsMutable();
+          columnDefs_.set(index, value);
+          onChanged();
+        } else {
+          columnDefsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder setColumnDefs(
+          int index, io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
+        if (columnDefsBuilder_ == null) {
+          ensureColumnDefsIsMutable();
+          columnDefs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnDefsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder addColumnDefs(io.greptime.v1.region.Server.RegionColumnDef value) {
+        if (columnDefsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnDefsIsMutable();
+          columnDefs_.add(value);
+          onChanged();
+        } else {
+          columnDefsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder addColumnDefs(
+          int index, io.greptime.v1.region.Server.RegionColumnDef value) {
+        if (columnDefsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnDefsIsMutable();
+          columnDefs_.add(index, value);
+          onChanged();
+        } else {
+          columnDefsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder addColumnDefs(
+          io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
+        if (columnDefsBuilder_ == null) {
+          ensureColumnDefsIsMutable();
+          columnDefs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          columnDefsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder addColumnDefs(
+          int index, io.greptime.v1.region.Server.RegionColumnDef.Builder builderForValue) {
+        if (columnDefsBuilder_ == null) {
+          ensureColumnDefsIsMutable();
+          columnDefs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnDefsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder addAllColumnDefs(
+          java.lang.Iterable<? extends io.greptime.v1.region.Server.RegionColumnDef> values) {
+        if (columnDefsBuilder_ == null) {
+          ensureColumnDefsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, columnDefs_);
+          onChanged();
+        } else {
+          columnDefsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder clearColumnDefs() {
+        if (columnDefsBuilder_ == null) {
+          columnDefs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          columnDefsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public Builder removeColumnDefs(int index) {
+        if (columnDefsBuilder_ == null) {
+          ensureColumnDefsIsMutable();
+          columnDefs_.remove(index);
+          onChanged();
+        } else {
+          columnDefsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder getColumnDefsBuilder(
+          int index) {
+        return getColumnDefsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionColumnDefOrBuilder getColumnDefsOrBuilder(
+          int index) {
+        if (columnDefsBuilder_ == null) {
+          return columnDefs_.get(index);  } else {
+          return columnDefsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
+           getColumnDefsOrBuilderList() {
+        if (columnDefsBuilder_ != null) {
+          return columnDefsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(columnDefs_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder addColumnDefsBuilder() {
+        return getColumnDefsFieldBuilder().addBuilder(
+            io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public io.greptime.v1.region.Server.RegionColumnDef.Builder addColumnDefsBuilder(
+          int index) {
+        return getColumnDefsFieldBuilder().addBuilder(
+            index, io.greptime.v1.region.Server.RegionColumnDef.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.region.RegionColumnDef column_defs = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Server.RegionColumnDef.Builder> 
+           getColumnDefsBuilderList() {
+        return getColumnDefsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder> 
+          getColumnDefsFieldBuilder() {
+        if (columnDefsBuilder_ == null) {
+          columnDefsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.region.Server.RegionColumnDef, io.greptime.v1.region.Server.RegionColumnDef.Builder, io.greptime.v1.region.Server.RegionColumnDefOrBuilder>(
+                  columnDefs_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          columnDefs_ = null;
+        }
+        return columnDefsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SyncColumns)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SyncColumns)
+    private static final io.greptime.v1.region.Server.SyncColumns DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.SyncColumns();
+    }
+
+    public static io.greptime.v1.region.Server.SyncColumns getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SyncColumns>
+        PARSER = new com.google.protobuf.AbstractParser<SyncColumns>() {
+      @java.lang.Override
+      public SyncColumns parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SyncColumns(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SyncColumns> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SyncColumns> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.SyncColumns getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -28955,6 +30899,631 @@ java.lang.String defaultValue);
 
   }
 
+  public interface ListMetadataRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.ListMetadataRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
+     */
+    java.util.List<java.lang.Long> getRegionIdsList();
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
+     */
+    int getRegionIdsCount();
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    long getRegionIds(int index);
+  }
+  /**
+   * <pre>
+   * Get region metadatas of a list of regions.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.ListMetadataRequest}
+   */
+  public static final class ListMetadataRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.ListMetadataRequest)
+      ListMetadataRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ListMetadataRequest.newBuilder() to construct.
+    private ListMetadataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ListMetadataRequest() {
+      regionIds_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ListMetadataRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ListMetadataRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              regionIds_.addLong(input.readUInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                regionIds_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ListMetadataRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.ListMetadataRequest.class, io.greptime.v1.region.Server.ListMetadataRequest.Builder.class);
+    }
+
+    public static final int REGION_IDS_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList regionIds_;
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return A list containing the regionIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getRegionIdsList() {
+      return regionIds_;
+    }
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @return The count of regionIds.
+     */
+    public int getRegionIdsCount() {
+      return regionIds_.size();
+    }
+    /**
+     * <code>repeated uint64 region_ids = 1;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    public long getRegionIds(int index) {
+      return regionIds_.getLong(index);
+    }
+    private int regionIdsMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getRegionIdsList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < regionIds_.size(); i++) {
+        output.writeUInt64NoTag(regionIds_.getLong(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < regionIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(regionIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getRegionIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        regionIdsMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.ListMetadataRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.ListMetadataRequest other = (io.greptime.v1.region.Server.ListMetadataRequest) obj;
+
+      if (!getRegionIdsList()
+          .equals(other.getRegionIdsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRegionIdsCount() > 0) {
+        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionIdsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ListMetadataRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.ListMetadataRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Get region metadatas of a list of regions.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.ListMetadataRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.ListMetadataRequest)
+        io.greptime.v1.region.Server.ListMetadataRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ListMetadataRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.ListMetadataRequest.class, io.greptime.v1.region.Server.ListMetadataRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.ListMetadataRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ListMetadataRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ListMetadataRequest getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ListMetadataRequest build() {
+        io.greptime.v1.region.Server.ListMetadataRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ListMetadataRequest buildPartial() {
+        io.greptime.v1.region.Server.ListMetadataRequest result = new io.greptime.v1.region.Server.ListMetadataRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.regionIds_ = regionIds_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.ListMetadataRequest) {
+          return mergeFrom((io.greptime.v1.region.Server.ListMetadataRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.ListMetadataRequest other) {
+        if (other == io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance()) return this;
+        if (!other.regionIds_.isEmpty()) {
+          if (regionIds_.isEmpty()) {
+            regionIds_ = other.regionIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureRegionIdsIsMutable();
+            regionIds_.addAll(other.regionIds_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.ListMetadataRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.ListMetadataRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList regionIds_ = emptyLongList();
+      private void ensureRegionIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          regionIds_ = mutableCopy(regionIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return A list containing the regionIds.
+       */
+      public java.util.List<java.lang.Long>
+          getRegionIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return The count of regionIds.
+       */
+      public int getRegionIdsCount() {
+        return regionIds_.size();
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param index The index of the element to return.
+       * @return The regionIds at the given index.
+       */
+      public long getRegionIds(int index) {
+        return regionIds_.getLong(index);
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The regionIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionIds(
+          int index, long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param value The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addRegionIds(long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @param values The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllRegionIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureRegionIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, regionIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint64 region_ids = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionIds() {
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.ListMetadataRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.ListMetadataRequest)
+    private static final io.greptime.v1.region.Server.ListMetadataRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.ListMetadataRequest();
+    }
+
+    public static io.greptime.v1.region.Server.ListMetadataRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ListMetadataRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ListMetadataRequest>() {
+      @java.lang.Override
+      public ListMetadataRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ListMetadataRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ListMetadataRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ListMetadataRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ListMetadataRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor;
   private static final 
@@ -29056,6 +31625,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SyncColumns_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SyncColumns_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_AddColumns_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -29125,6 +31699,11 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_ListMetadataRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -29142,7 +31721,7 @@ java.lang.String defaultValue);
       "onRequestHeader.TracingContextEntry\022\016\n\006d" +
       "bname\030\003 \001(\t\0220\n\rquery_context\030\006 \001(\0132\031.gre" +
       "ptime.v1.QueryContext\0325\n\023TracingContextE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\006\n" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\256\007\n" +
       "\rRegionRequest\0227\n\006header\030\001 \001(\0132\'.greptim" +
       "e.v1.region.RegionRequestHeader\0225\n\007inser" +
       "ts\030\003 \001(\0132\".greptime.v1.region.InsertRequ" +
@@ -29164,85 +31743,94 @@ java.lang.String defaultValue);
       "!.greptime.v1.region.AlterRequestsH\000\022<\n\013" +
       "bulk_insert\030\020 \001(\0132%.greptime.v1.region.B" +
       "ulkInsertRequestH\000\022/\n\004sync\030\021 \001(\0132\037.grept" +
-      "ime.v1.region.SyncRequestH\000B\006\n\004body\"\317\001\n\016" +
-      "RegionResponse\022+\n\006header\030\001 \001(\0132\033.greptim" +
-      "e.v1.ResponseHeader\022\025\n\raffected_rows\030\002 \001" +
-      "(\004\022F\n\nextensions\030\003 \003(\01322.greptime.v1.reg" +
-      "ion.RegionResponse.ExtensionsEntry\0321\n\017Ex" +
-      "tensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\014:\0028\001\"E\n\016InsertRequests\0223\n\010requests\030\001 \003(" +
-      "\0132!.greptime.v1.region.InsertRequest\"E\n\016" +
-      "DeleteRequests\0223\n\010requests\030\001 \003(\0132!.grept" +
-      "ime.v1.region.DeleteRequest\"C\n\rInsertReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021." +
-      "greptime.v1.Rows\"C\n\rDeleteRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1" +
-      ".Rows\"h\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'." +
-      "greptime.v1.region.RegionRequestHeader\022\021" +
-      "\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016Creat" +
-      "eRequests\0223\n\010requests\030\001 \003(\0132!.greptime.v" +
-      "1.region.CreateRequest\"\200\002\n\rCreateRequest" +
-      "\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013c" +
-      "olumn_defs\030\003 \003(\0132#.greptime.v1.region.Re" +
-      "gionColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004pa" +
-      "th\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..greptime.v1." +
-      "region.CreateRequest.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132\037.gr" +
-      "eptime.v1.region.DropRequest\"3\n\013DropRequ" +
-      "est\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(" +
-      "\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006" +
-      "engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 " +
-      "\003(\0132,.greptime.v1.region.OpenRequest.Opt" +
-      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010request" +
-      "s\030\001 \003(\0132 .greptime.v1.region.AlterReques" +
-      "t\"\372\003\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
-      "\013add_columns\030\002 \001(\0132\036.greptime.v1.region." +
-      "AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gre" +
-      "ptime.v1.region.DropColumnsH\000\022=\n\023modify_" +
-      "column_types\030\005 \001(\0132\036.greptime.v1.ModifyC" +
-      "olumnTypesH\000\0229\n\021set_table_options\030\006 \001(\0132" +
-      "\034.greptime.v1.SetTableOptionsH\000\022=\n\023unset" +
-      "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
-      "TableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grep" +
-      "time.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132" +
-      "\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defau" +
-      "lts\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022\026" +
-      "\n\016schema_version\030\004 \001(\004B\006\n\004kind\"@\n\nAddCol" +
-      "umns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1." +
-      "region.AddColumn\"C\n\013DropColumns\0224\n\014drop_" +
-      "columns\030\001 \003(\0132\036.greptime.v1.region.DropC" +
-      "olumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#" +
-      ".greptime.v1.region.RegionColumnDef\0220\n\010l" +
-      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
-      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flu" +
-      "shRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"" +
-      "&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"" +
-      "\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n" +
-      "\007regular\030\002 \001(\0132\033.greptime.v1.region.Regu" +
-      "larH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime." +
-      "v1.region.StrictWindowH\000B\t\n\007options\"$\n\017T" +
-      "runcateRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017Reg" +
-      "ionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.grept" +
-      "ime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021B" +
-      "ulkInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\ta" +
-      "rrow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000B" +
-      "\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025data_mani" +
-      "fest_version\030\001 \001(\004\"V\n\022MetricManifestInfo" +
-      "\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031metad" +
-      "ata_manifest_version\030\002 \001(\004\"\275\001\n\013SyncReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_i" +
-      "nfo\030\002 \001(\0132$.greptime.v1.region.MitoManif" +
-      "estInfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132" +
-      "&.greptime.v1.region.MetricManifestInfoH" +
-      "\000B\017\n\rmanifest_info2Y\n\006Region\022O\n\006Handle\022!" +
-      ".greptime.v1.region.RegionRequest\032\".grep" +
-      "time.v1.region.RegionResponseB]\n\025io.grep" +
-      "time.v1.regionB\006ServerZ<github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/re" +
-      "gionb\006proto3"
+      "ime.v1.region.SyncRequestH\000\022@\n\rlist_meta" +
+      "data\030\022 \001(\0132\'.greptime.v1.region.ListMeta" +
+      "dataRequestH\000B\006\n\004body\"\341\001\n\016RegionResponse" +
+      "\022+\n\006header\030\001 \001(\0132\033.greptime.v1.ResponseH" +
+      "eader\022\025\n\raffected_rows\030\002 \001(\004\022F\n\nextensio" +
+      "ns\030\003 \003(\01322.greptime.v1.region.RegionResp" +
+      "onse.ExtensionsEntry\022\020\n\010metadata\030\004 \001(\014\0321" +
+      "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n\010requests\030" +
+      "\001 \003(\0132!.greptime.v1.region.InsertRequest" +
+      "\"E\n\016DeleteRequests\0223\n\010requests\030\001 \003(\0132!.g" +
+      "reptime.v1.region.DeleteRequest\"C\n\rInser" +
+      "tRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(" +
+      "\0132\021.greptime.v1.Rows\"C\n\rDeleteRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptim" +
+      "e.v1.Rows\"h\n\014QueryRequest\0227\n\006header\030\001 \001(" +
+      "\0132\'.greptime.v1.region.RegionRequestHead" +
+      "er\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016C" +
+      "reateRequests\0223\n\010requests\030\001 \003(\0132!.grepti" +
+      "me.v1.region.CreateRequest\"\200\002\n\rCreateReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022" +
+      "8\n\013column_defs\030\003 \003(\0132#.greptime.v1.regio" +
+      "n.RegionColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014" +
+      "\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..greptime" +
+      ".v1.region.CreateRequest.OptionsEntry\032.\n" +
+      "\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132" +
+      "\037.greptime.v1.region.DropRequest\"3\n\013Drop" +
+      "Request\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030" +
+      "\002 \001(\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007option" +
+      "s\030\004 \003(\0132,.greptime.v1.region.OpenRequest" +
+      ".OptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010req" +
+      "uests\030\001 \003(\0132 .greptime.v1.region.AlterRe" +
+      "quest\"\227\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\0225\n\013add_columns\030\002 \001(\0132\036.greptime.v1.reg" +
+      "ion.AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037" +
+      ".greptime.v1.region.DropColumnsH\000\022=\n\023mod" +
+      "ify_column_types\030\005 \001(\0132\036.greptime.v1.Mod" +
+      "ifyColumnTypesH\000\0229\n\021set_table_options\030\006 " +
+      "\001(\0132\034.greptime.v1.SetTableOptionsH\000\022=\n\023u" +
+      "nset_table_options\030\t \001(\0132\036.greptime.v1.U" +
+      "nsetTableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025." +
+      "greptime.v1.SetIndexH\000\022.\n\013unset_index\030\013 " +
+      "\001(\0132\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_d" +
+      "efaults\030\014 \001(\0132\031.greptime.v1.DropDefaults" +
+      "H\000\022.\n\013set_indexes\030\r \001(\0132\027.greptime.v1.Se" +
+      "tIndexesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.grep" +
+      "time.v1.UnsetIndexesH\000\0227\n\014sync_columns\030\020" +
+      " \001(\0132\037.greptime.v1.region.SyncColumnsH\000\022" +
+      "\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n\013SyncC" +
+      "olumns\0228\n\013column_defs\030\001 \003(\0132#.greptime.v" +
+      "1.region.RegionColumnDef\"@\n\nAddColumns\0222" +
+      "\n\013add_columns\030\001 \003(\0132\035.greptime.v1.region" +
+      ".AddColumn\"C\n\013DropColumns\0224\n\014drop_column" +
+      "s\030\001 \003(\0132\036.greptime.v1.region.DropColumn\"" +
+      "v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.grept" +
+      "ime.v1.region.RegionColumnDef\0220\n\010locatio" +
+      "n\030\003 \001(\0132\036.greptime.v1.AddColumnLocation\"" +
+      "\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequ" +
+      "est\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014Str" +
+      "ictWindow\022\026\n\016window_seconds\030\001 \001(\003\"\231\001\n\016Co" +
+      "mpactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regul" +
+      "ar\030\002 \001(\0132\033.greptime.v1.region.RegularH\000\022" +
+      "9\n\rstrict_window\030\003 \001(\0132 .greptime.v1.reg" +
+      "ion.StrictWindowH\000B\t\n\007options\"$\n\017Truncat" +
+      "eRequest\022\021\n\tregion_id\030\001 \001(\004\"P\n\017RegionCol" +
+      "umnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1" +
+      ".ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkIns" +
+      "ertRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_i" +
+      "pc\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004bod" +
+      "y\"1\n\020MitoManifestInfo\022\035\n\025data_manifest_v" +
+      "ersion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025da" +
+      "ta_manifest_version\030\001 \001(\004\022!\n\031metadata_ma" +
+      "nifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 " +
+      "\001(\0132$.greptime.v1.region.MitoManifestInf" +
+      "oH\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grep" +
+      "time.v1.region.MetricManifestInfoH\000B\017\n\rm" +
+      "anifest_info\")\n\023ListMetadataRequest\022\022\n\nr" +
+      "egion_ids\030\001 \003(\0042Y\n\006Region\022O\n\006Handle\022!.gr" +
+      "eptime.v1.region.RegionRequest\032\".greptim" +
+      "e.v1.region.RegionResponseB]\n\025io.greptim" +
+      "e.v1.regionB\006ServerZ<github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1/regio" +
+      "nb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -29268,13 +31856,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionResponse_descriptor,
-        new java.lang.String[] { "Header", "AffectedRows", "Extensions", });
+        new java.lang.String[] { "Header", "AffectedRows", "Extensions", "Metadata", });
     internal_static_greptime_v1_region_RegionResponse_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_region_RegionResponse_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_RegionResponse_ExtensionsEntry_fieldAccessorTable = new
@@ -29370,91 +31958,103 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlterRequest_descriptor,
-        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SchemaVersion", "Kind", });
-    internal_static_greptime_v1_region_AddColumns_descriptor =
+        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SyncColumns", "SchemaVersion", "Kind", });
+    internal_static_greptime_v1_region_SyncColumns_descriptor =
       getDescriptor().getMessageTypes().get(16);
+    internal_static_greptime_v1_region_SyncColumns_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SyncColumns_descriptor,
+        new java.lang.String[] { "ColumnDefs", });
+    internal_static_greptime_v1_region_AddColumns_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_region_AddColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AddColumns_descriptor,
         new java.lang.String[] { "AddColumns", });
     internal_static_greptime_v1_region_DropColumns_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_region_DropColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_DropColumns_descriptor,
         new java.lang.String[] { "DropColumns", });
     internal_static_greptime_v1_region_AddColumn_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_region_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AddColumn_descriptor,
         new java.lang.String[] { "ColumnDef", "Location", });
     internal_static_greptime_v1_region_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_region_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_region_FlushRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_greptime_v1_region_FlushRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_FlushRequest_descriptor,
         new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_region_Regular_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_greptime_v1_region_Regular_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_Regular_descriptor,
         new java.lang.String[] { });
     internal_static_greptime_v1_region_StrictWindow_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_greptime_v1_region_StrictWindow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_StrictWindow_descriptor,
         new java.lang.String[] { "WindowSeconds", });
     internal_static_greptime_v1_region_CompactRequest_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
         new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Options", });
     internal_static_greptime_v1_region_TruncateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_TruncateRequest_descriptor,
         new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_region_RegionColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionColumnDef_descriptor,
         new java.lang.String[] { "ColumnDef", "ColumnId", });
     internal_static_greptime_v1_region_BulkInsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "ArrowIpc", "Body", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MitoManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", });
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MetricManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", "MetadataManifestVersion", });
     internal_static_greptime_v1_region_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SyncRequest_descriptor,
         new java.lang.String[] { "RegionId", "MitoManifestInfo", "MetricManifestInfo", "ManifestInfo", });
+    internal_static_greptime_v1_region_ListMetadataRequest_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_ListMetadataRequest_descriptor,
+        new java.lang.String[] { "RegionIds", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
