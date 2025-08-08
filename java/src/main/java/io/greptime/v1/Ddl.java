@@ -239,6 +239,18 @@ public final class Ddl {
      * <code>BLOOM_FILTER = 0;</code>
      */
     BLOOM_FILTER(0),
+    /**
+     * <code>XOR_FILTER_8 = 1;</code>
+     */
+    XOR_FILTER_8(1),
+    /**
+     * <code>XOR_FILTER_16 = 2;</code>
+     */
+    XOR_FILTER_16(2),
+    /**
+     * <code>XOR_FILTER_32 = 3;</code>
+     */
+    XOR_FILTER_32(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -246,6 +258,18 @@ public final class Ddl {
      * <code>BLOOM_FILTER = 0;</code>
      */
     public static final int BLOOM_FILTER_VALUE = 0;
+    /**
+     * <code>XOR_FILTER_8 = 1;</code>
+     */
+    public static final int XOR_FILTER_8_VALUE = 1;
+    /**
+     * <code>XOR_FILTER_16 = 2;</code>
+     */
+    public static final int XOR_FILTER_16_VALUE = 2;
+    /**
+     * <code>XOR_FILTER_32 = 3;</code>
+     */
+    public static final int XOR_FILTER_32_VALUE = 3;
 
 
     public final int getNumber() {
@@ -273,6 +297,9 @@ public final class Ddl {
     public static SkippingIndexType forNumber(int value) {
       switch (value) {
         case 0: return BLOOM_FILTER;
+        case 1: return XOR_FILTER_8;
+        case 2: return XOR_FILTER_16;
+        case 3: return XOR_FILTER_32;
         default: return null;
       }
     }
@@ -50277,10 +50304,12 @@ java.lang.String defaultValue);
       "r\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030" +
       "\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyze" +
       "r\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextB" +
-      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippi" +
-      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.grep" +
-      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*]\n\021Skippi" +
+      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000\022\020\n\014XOR_FIL" +
+      "TER_8\020\001\022\021\n\rXOR_FILTER_16\020\002\022\021\n\rXOR_FILTER" +
+      "_32\020\003BL\n\016io.greptime.v1B\003DdlZ5github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -308,6 +308,9 @@ message UnsetInverted {
 
 enum SkippingIndexType {
   BLOOM_FILTER = 0;
+  XOR_FILTER_8 = 1;
+  XOR_FILTER_16 = 2;
+  XOR_FILTER_32 = 3;
 }
 
 message SetSkipping {

@@ -343,12 +343,15 @@ inline bool FulltextBackend_Parse(
 }
 enum SkippingIndexType : int {
   BLOOM_FILTER = 0,
+  XOR_FILTER_8 = 1,
+  XOR_FILTER_16 = 2,
+  XOR_FILTER_32 = 3,
   SkippingIndexType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SkippingIndexType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SkippingIndexType_IsValid(int value);
 constexpr SkippingIndexType SkippingIndexType_MIN = BLOOM_FILTER;
-constexpr SkippingIndexType SkippingIndexType_MAX = BLOOM_FILTER;
+constexpr SkippingIndexType SkippingIndexType_MAX = XOR_FILTER_32;
 constexpr int SkippingIndexType_ARRAYSIZE = SkippingIndexType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SkippingIndexType_descriptor();
