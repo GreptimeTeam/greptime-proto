@@ -954,8 +954,8 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\037greptime/v1/region/server.proto\022\022grept"
   "ime.v1.region\032\030greptime/v1/common.proto\032"
-  "\025greptime/v1/ddl.proto\032\025greptime/v1/row."
-  "proto\032\034greptime/v1/meta/route.proto\"\344\001\n\023"
+  "\025greptime/v1/ddl.proto\032\034greptime/v1/meta"
+  "/route.proto\032\025greptime/v1/row.proto\"\344\001\n\023"
   "RegionRequestHeader\022T\n\017tracing_context\030\005"
   " \003(\0132;.greptime.v1.region.RegionRequestH"
   "eader.TracingContextEntry\022\016\n\006dbname\030\003 \001("

@@ -33172,8 +33172,8 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\037greptime/v1/region/server.proto\022\022grept" +
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
-      "\025greptime/v1/ddl.proto\032\025greptime/v1/row." +
-      "proto\032\034greptime/v1/meta/route.proto\"\344\001\n\023" +
+      "\025greptime/v1/ddl.proto\032\034greptime/v1/meta" +
+      "/route.proto\032\025greptime/v1/row.proto\"\344\001\n\023" +
       "RegionRequestHeader\022T\n\017tracing_context\030\005" +
       " \003(\0132;.greptime.v1.region.RegionRequestH" +
       "eader.TracingContextEntry\022\016\n\006dbname\030\003 \001(" +
@@ -33300,8 +33300,8 @@ java.lang.String defaultValue);
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.greptime.v1.Common.getDescriptor(),
           io.greptime.v1.Ddl.getDescriptor(),
-          io.greptime.v1.RowData.getDescriptor(),
           greptime.v1.meta.Route.getDescriptor(),
+          io.greptime.v1.RowData.getDescriptor(),
         });
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -33527,8 +33527,8 @@ java.lang.String defaultValue);
         new java.lang.String[] { "RegionIds", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
-    io.greptime.v1.RowData.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
+    io.greptime.v1.RowData.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
