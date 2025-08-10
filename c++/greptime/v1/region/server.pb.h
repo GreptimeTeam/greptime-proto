@@ -37,6 +37,7 @@
 #include "greptime/v1/common.pb.h"
 #include "greptime/v1/ddl.pb.h"
 #include "greptime/v1/row.pb.h"
+#include "greptime/v1/meta/route.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fregion_2fserver_2eproto
@@ -2348,6 +2349,7 @@ class CreateRequest final :
     kOptionsFieldNumber = 6,
     kEngineFieldNumber = 2,
     kPathFieldNumber = 5,
+    kPartitionFieldNumber = 7,
     kRegionIdFieldNumber = 1,
   };
   // repeated .greptime.v1.region.RegionColumnDef column_defs = 3;
@@ -2435,6 +2437,24 @@ class CreateRequest final :
   std::string* _internal_mutable_path();
   public:
 
+  // .greptime.v1.meta.Partition partition = 7;
+  bool has_partition() const;
+  private:
+  bool _internal_has_partition() const;
+  public:
+  void clear_partition();
+  const ::greptime::v1::meta::Partition& partition() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::Partition* release_partition();
+  ::greptime::v1::meta::Partition* mutable_partition();
+  void set_allocated_partition(::greptime::v1::meta::Partition* partition);
+  private:
+  const ::greptime::v1::meta::Partition& _internal_partition() const;
+  ::greptime::v1::meta::Partition* _internal_mutable_partition();
+  public:
+  void unsafe_arena_set_allocated_partition(
+      ::greptime::v1::meta::Partition* partition);
+  ::greptime::v1::meta::Partition* unsafe_arena_release_partition();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -2462,6 +2482,7 @@ class CreateRequest final :
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
+    ::greptime::v1::meta::Partition* partition_;
     uint64_t region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -8945,6 +8966,91 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 CreateRequest::mutable_options() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.region.CreateRequest.options)
   return _internal_mutable_options();
+}
+
+// .greptime.v1.meta.Partition partition = 7;
+inline bool CreateRequest::_internal_has_partition() const {
+  return this != internal_default_instance() && _impl_.partition_ != nullptr;
+}
+inline bool CreateRequest::has_partition() const {
+  return _internal_has_partition();
+}
+inline const ::greptime::v1::meta::Partition& CreateRequest::_internal_partition() const {
+  const ::greptime::v1::meta::Partition* p = _impl_.partition_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::Partition&>(
+      ::greptime::v1::meta::_Partition_default_instance_);
+}
+inline const ::greptime::v1::meta::Partition& CreateRequest::partition() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.partition)
+  return _internal_partition();
+}
+inline void CreateRequest::unsafe_arena_set_allocated_partition(
+    ::greptime::v1::meta::Partition* partition) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_);
+  }
+  _impl_.partition_ = partition;
+  if (partition) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CreateRequest.partition)
+}
+inline ::greptime::v1::meta::Partition* CreateRequest::release_partition() {
+  
+  ::greptime::v1::meta::Partition* temp = _impl_.partition_;
+  _impl_.partition_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::Partition* CreateRequest::unsafe_arena_release_partition() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CreateRequest.partition)
+  
+  ::greptime::v1::meta::Partition* temp = _impl_.partition_;
+  _impl_.partition_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::Partition* CreateRequest::_internal_mutable_partition() {
+  
+  if (_impl_.partition_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::Partition>(GetArenaForAllocation());
+    _impl_.partition_ = p;
+  }
+  return _impl_.partition_;
+}
+inline ::greptime::v1::meta::Partition* CreateRequest::mutable_partition() {
+  ::greptime::v1::meta::Partition* _msg = _internal_mutable_partition();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.partition)
+  return _msg;
+}
+inline void CreateRequest::set_allocated_partition(::greptime::v1::meta::Partition* partition) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.partition_);
+  }
+  if (partition) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(partition));
+    if (message_arena != submessage_arena) {
+      partition = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, partition, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.partition_ = partition;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.partition)
 }
 
 // -------------------------------------------------------------------
