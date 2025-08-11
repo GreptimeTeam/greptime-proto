@@ -134,6 +134,22 @@ struct RegionStatDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegionStatDefaultTypeInternal _RegionStat_default_instance_;
+PROTOBUF_CONSTEXPR TopicStat::TopicStat(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.topic_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.record_size_)*/uint64_t{0u}
+  , /*decltype(_impl_.record_num_)*/uint64_t{0u}
+  , /*decltype(_impl_.latest_offset_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct TopicStatDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TopicStatDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TopicStatDefaultTypeInternal() {}
+  union {
+    TopicStat _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TopicStatDefaultTypeInternal _TopicStat_default_instance_;
 PROTOBUF_CONSTEXPR FlowStat_FlowStatSizeEntry_DoNotUse::FlowStat_FlowStatSizeEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
 struct FlowStat_FlowStatSizeEntry_DoNotUseDefaultTypeInternal {
@@ -277,7 +293,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[17];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[18];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
 
@@ -355,6 +371,16 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.engine_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.role_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat, _impl_.extensions_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TopicStat, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TopicStat, _impl_.topic_name_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TopicStat, _impl_.record_size_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TopicStat, _impl_.record_num_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::TopicStat, _impl_.latest_offset_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -458,16 +484,17 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 40, -1, -1, sizeof(::greptime::v1::meta::NodeInfo)},
   { 50, 58, -1, sizeof(::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse)},
   { 60, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
-  { 73, 81, -1, sizeof(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse)},
-  { 83, 91, -1, sizeof(::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse)},
-  { 93, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
-  { 101, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
-  { 110, 118, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
-  { 120, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 129, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 139, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 146, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 154, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 73, -1, -1, sizeof(::greptime::v1::meta::TopicStat)},
+  { 83, 91, -1, sizeof(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse)},
+  { 93, 101, -1, sizeof(::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse)},
+  { 103, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
+  { 111, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
+  { 120, 128, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
+  { 130, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
+  { 139, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 149, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 156, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 164, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -478,6 +505,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_NodeInfo_default_instance_._instance,
   &::greptime::v1::meta::_RegionStat_ExtensionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::meta::_RegionStat_default_instance_._instance,
+  &::greptime::v1::meta::_TopicStat_default_instance_._instance,
   &::greptime::v1::meta::_FlowStat_FlowStatSizeEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::meta::_FlowStat_FlowLastExecTimeMapEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::meta::_FlowStat_default_instance_._instance,
@@ -519,52 +547,55 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "2\034.greptime.v1.meta.RegionRole\022@\n\nextens"
   "ions\030c \003(\0132,.greptime.v1.meta.RegionStat"
   ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k"
-  "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\227\002\n\010FlowStat"
-  "\022D\n\016flow_stat_size\030\001 \003(\0132,.greptime.v1.m"
-  "eta.FlowStat.FlowStatSizeEntry\022T\n\027flow_l"
-  "ast_exec_time_map\030\002 \003(\01323.greptime.v1.me"
-  "ta.FlowStat.FlowLastExecTimeMapEntry\0323\n\021"
-  "FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030"
-  "\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n"
-  "\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021Heartb"
-  "eatResponse\0220\n\006header\030\001 \001(\0132 .greptime.v"
-  "1.meta.ResponseHeader\0229\n\017mailbox_message"
-  "\030\002 \001(\0132 .greptime.v1.meta.MailboxMessage"
-  "\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1.met"
-  "a.RegionLease\"\306\001\n\rGrantedRegion\022\021\n\tregio"
-  "n_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.m"
-  "eta.RegionRole\022C\n\nextensions\030c \003(\0132/.gre"
-  "ptime.v1.meta.GrantedRegion.ExtensionsEn"
-  "try\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
-  "alue\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007region"
-  "s\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegion"
-  "\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_"
-  "seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 "
-  "\003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132"
-  "\037.greptime.v1.meta.RequestHeader\"m\n\021AskL"
-  "eaderResponse\0220\n\006header\030\001 \001(\0132 .greptime"
-  ".v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132"
-  "\026.greptime.v1.meta.Peer\"|\n\016MailboxMessag"
-  "e\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003"
-  " \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001"
-  "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionR"
-  "ole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgra"
-  "dingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022"
-  "\".greptime.v1.meta.HeartbeatRequest\032#.gr"
-  "eptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V"
-  "\n\tAskLeader\022\".greptime.v1.meta.AskLeader"
-  "Request\032#.greptime.v1.meta.AskLeaderResp"
-  "onse\"\000B<Z:github.com/GreptimeTeam/grepti"
-  "me-proto/go/greptime/v1/metab\006proto3"
+  "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"_\n\tTopicStat"
+  "\022\022\n\ntopic_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001("
+  "\004\022\022\n\nrecord_num\030\003 \001(\004\022\025\n\rlatest_offset\030\004"
+  " \001(\004\"\227\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003("
+  "\0132,.greptime.v1.meta.FlowStat.FlowStatSi"
+  "zeEntry\022T\n\027flow_last_exec_time_map\030\002 \003(\013"
+  "23.greptime.v1.meta.FlowStat.FlowLastExe"
+  "cTimeMapEntry\0323\n\021FlowStatSizeEntry\022\013\n\003ke"
+  "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastEx"
+  "ecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001"
+  "(\003:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006header\030\001"
+  " \001(\0132 .greptime.v1.meta.ResponseHeader\0229"
+  "\n\017mailbox_message\030\002 \001(\0132 .greptime.v1.me"
+  "ta.MailboxMessage\0223\n\014region_lease\030\003 \001(\0132"
+  "\035.greptime.v1.meta.RegionLease\"\306\001\n\rGrant"
+  "edRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001("
+  "\0162\034.greptime.v1.meta.RegionRole\022C\n\nexten"
+  "sions\030c \003(\0132/.greptime.v1.meta.GrantedRe"
+  "gion.ExtensionsEntry\0321\n\017ExtensionsEntry\022"
+  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Regi"
+  "onLease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.m"
+  "eta.GrantedRegion\022\034\n\024duration_since_epoc"
+  "h\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closea"
+  "ble_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest"
+  "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ"
+  "estHeader\"m\n\021AskLeaderResponse\0220\n\006header"
+  "\030\001 \001(\0132 .greptime.v1.meta.ResponseHeader"
+  "\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer"
+  "\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subjec"
+  "t\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020tim"
+  "estamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007p"
+  "ayload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Foll"
+  "ower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartb"
+  "eat\022Z\n\tHeartbeat\022\".greptime.v1.meta.Hear"
+  "tbeatRequest\032#.greptime.v1.meta.Heartbea"
+  "tResponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime."
+  "v1.meta.AskLeaderRequest\032#.greptime.v1.m"
+  "eta.AskLeaderResponse\"\000B<Z:github.com/Gr"
+  "eptimeTeam/greptime-proto/go/greptime/v1"
+  "/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 2596, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 2693, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 17,
+    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 18,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
@@ -2625,6 +2656,293 @@ void RegionStat::InternalSwap(RegionStat* other) {
 
 // ===================================================================
 
+class TopicStat::_Internal {
+ public:
+};
+
+TopicStat::TopicStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.TopicStat)
+}
+TopicStat::TopicStat(const TopicStat& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  TopicStat* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.topic_name_){}
+    , decltype(_impl_.record_size_){}
+    , decltype(_impl_.record_num_){}
+    , decltype(_impl_.latest_offset_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.topic_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.topic_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_topic_name().empty()) {
+    _this->_impl_.topic_name_.Set(from._internal_topic_name(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.record_size_, &from._impl_.record_size_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.latest_offset_) -
+    reinterpret_cast<char*>(&_impl_.record_size_)) + sizeof(_impl_.latest_offset_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.TopicStat)
+}
+
+inline void TopicStat::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.topic_name_){}
+    , decltype(_impl_.record_size_){uint64_t{0u}}
+    , decltype(_impl_.record_num_){uint64_t{0u}}
+    , decltype(_impl_.latest_offset_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.topic_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.topic_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+TopicStat::~TopicStat() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.TopicStat)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void TopicStat::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.topic_name_.Destroy();
+}
+
+void TopicStat::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void TopicStat::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.TopicStat)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.topic_name_.ClearToEmpty();
+  ::memset(&_impl_.record_size_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.latest_offset_) -
+      reinterpret_cast<char*>(&_impl_.record_size_)) + sizeof(_impl_.latest_offset_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TopicStat::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string topic_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_topic_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.TopicStat.topic_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 record_size = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.record_size_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 record_num = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.record_num_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 latest_offset = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.latest_offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* TopicStat::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.TopicStat)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string topic_name = 1;
+  if (!this->_internal_topic_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_topic_name().data(), static_cast<int>(this->_internal_topic_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.TopicStat.topic_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_topic_name(), target);
+  }
+
+  // uint64 record_size = 2;
+  if (this->_internal_record_size() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_record_size(), target);
+  }
+
+  // uint64 record_num = 3;
+  if (this->_internal_record_num() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_record_num(), target);
+  }
+
+  // uint64 latest_offset = 4;
+  if (this->_internal_latest_offset() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_latest_offset(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.TopicStat)
+  return target;
+}
+
+size_t TopicStat::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.TopicStat)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string topic_name = 1;
+  if (!this->_internal_topic_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_topic_name());
+  }
+
+  // uint64 record_size = 2;
+  if (this->_internal_record_size() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_record_size());
+  }
+
+  // uint64 record_num = 3;
+  if (this->_internal_record_num() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_record_num());
+  }
+
+  // uint64 latest_offset = 4;
+  if (this->_internal_latest_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_latest_offset());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TopicStat::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    TopicStat::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TopicStat::GetClassData() const { return &_class_data_; }
+
+
+void TopicStat::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<TopicStat*>(&to_msg);
+  auto& from = static_cast<const TopicStat&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.TopicStat)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_topic_name().empty()) {
+    _this->_internal_set_topic_name(from._internal_topic_name());
+  }
+  if (from._internal_record_size() != 0) {
+    _this->_internal_set_record_size(from._internal_record_size());
+  }
+  if (from._internal_record_num() != 0) {
+    _this->_internal_set_record_num(from._internal_record_num());
+  }
+  if (from._internal_latest_offset() != 0) {
+    _this->_internal_set_latest_offset(from._internal_latest_offset());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void TopicStat::CopyFrom(const TopicStat& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.TopicStat)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TopicStat::IsInitialized() const {
+  return true;
+}
+
+void TopicStat::InternalSwap(TopicStat* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.topic_name_, lhs_arena,
+      &other->_impl_.topic_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TopicStat, _impl_.latest_offset_)
+      + sizeof(TopicStat::_impl_.latest_offset_)
+      - PROTOBUF_FIELD_OFFSET(TopicStat, _impl_.record_size_)>(
+          reinterpret_cast<char*>(&_impl_.record_size_),
+          reinterpret_cast<char*>(&other->_impl_.record_size_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TopicStat::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[7]);
+}
+
+// ===================================================================
+
 FlowStat_FlowStatSizeEntry_DoNotUse::FlowStat_FlowStatSizeEntry_DoNotUse() {}
 FlowStat_FlowStatSizeEntry_DoNotUse::FlowStat_FlowStatSizeEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
@@ -2634,7 +2952,7 @@ void FlowStat_FlowStatSizeEntry_DoNotUse::MergeFrom(const FlowStat_FlowStatSizeE
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowStat_FlowStatSizeEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[7]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[8]);
 }
 
 // ===================================================================
@@ -2648,7 +2966,7 @@ void FlowStat_FlowLastExecTimeMapEntry_DoNotUse::MergeFrom(const FlowStat_FlowLa
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowStat_FlowLastExecTimeMapEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[8]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[9]);
 }
 
 // ===================================================================
@@ -2902,7 +3220,7 @@ void FlowStat::InternalSwap(FlowStat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[10]);
 }
 
 // ===================================================================
@@ -3188,7 +3506,7 @@ void HeartbeatResponse::InternalSwap(HeartbeatResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata HeartbeatResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[11]);
 }
 
 // ===================================================================
@@ -3202,7 +3520,7 @@ void GrantedRegion_ExtensionsEntry_DoNotUse::MergeFrom(const GrantedRegion_Exten
 ::PROTOBUF_NAMESPACE_ID::Metadata GrantedRegion_ExtensionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[11]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[12]);
 }
 
 // ===================================================================
@@ -3480,7 +3798,7 @@ void GrantedRegion::InternalSwap(GrantedRegion* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GrantedRegion::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[13]);
 }
 
 // ===================================================================
@@ -3767,7 +4085,7 @@ void RegionLease::InternalSwap(RegionLease* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RegionLease::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[13]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[14]);
 }
 
 // ===================================================================
@@ -3966,7 +4284,7 @@ void AskLeaderRequest::InternalSwap(AskLeaderRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AskLeaderRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[14]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[15]);
 }
 
 // ===================================================================
@@ -4217,7 +4535,7 @@ void AskLeaderResponse::InternalSwap(AskLeaderResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AskLeaderResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[15]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[16]);
 }
 
 // ===================================================================
@@ -4657,7 +4975,7 @@ void MailboxMessage::InternalSwap(MailboxMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MailboxMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[16]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[17]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -4692,6 +5010,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNo
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::RegionStat*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::RegionStat >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::RegionStat >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::TopicStat*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::TopicStat >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::TopicStat >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse >(Arena* arena) {

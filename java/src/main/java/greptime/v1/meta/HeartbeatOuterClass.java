@@ -7675,6 +7675,885 @@ com.google.protobuf.ByteString defaultValue);
 
   }
 
+  public interface TopicStatOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.TopicStat)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The topic name
+     * </pre>
+     *
+     * <code>string topic_name = 1;</code>
+     * @return The topicName.
+     */
+    java.lang.String getTopicName();
+    /**
+     * <pre>
+     * The topic name
+     * </pre>
+     *
+     * <code>string topic_name = 1;</code>
+     * @return The bytes for topicName.
+     */
+    com.google.protobuf.ByteString
+        getTopicNameBytes();
+
+    /**
+     * <pre>
+     * The total record size appended to topic since the datanode started.
+     * </pre>
+     *
+     * <code>uint64 record_size = 2;</code>
+     * @return The recordSize.
+     */
+    long getRecordSize();
+
+    /**
+     * <pre>
+     * The total record number appended to topic since the datanode started.
+     * </pre>
+     *
+     * <code>uint64 record_num = 3;</code>
+     * @return The recordNum.
+     */
+    long getRecordNum();
+
+    /**
+     * <pre>
+     * The latest offset of the topic.
+     * </pre>
+     *
+     * <code>uint64 latest_offset = 4;</code>
+     * @return The latestOffset.
+     */
+    long getLatestOffset();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.TopicStat}
+   */
+  public static final class TopicStat extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.TopicStat)
+      TopicStatOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TopicStat.newBuilder() to construct.
+    private TopicStat(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TopicStat() {
+      topicName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TopicStat();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TopicStat(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topicName_ = s;
+              break;
+            }
+            case 16: {
+
+              recordSize_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              recordNum_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              latestOffset_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_TopicStat_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.TopicStat.class, greptime.v1.meta.HeartbeatOuterClass.TopicStat.Builder.class);
+    }
+
+    public static final int TOPIC_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object topicName_;
+    /**
+     * <pre>
+     * The topic name
+     * </pre>
+     *
+     * <code>string topic_name = 1;</code>
+     * @return The topicName.
+     */
+    @java.lang.Override
+    public java.lang.String getTopicName() {
+      java.lang.Object ref = topicName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        topicName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The topic name
+     * </pre>
+     *
+     * <code>string topic_name = 1;</code>
+     * @return The bytes for topicName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTopicNameBytes() {
+      java.lang.Object ref = topicName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        topicName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RECORD_SIZE_FIELD_NUMBER = 2;
+    private long recordSize_;
+    /**
+     * <pre>
+     * The total record size appended to topic since the datanode started.
+     * </pre>
+     *
+     * <code>uint64 record_size = 2;</code>
+     * @return The recordSize.
+     */
+    @java.lang.Override
+    public long getRecordSize() {
+      return recordSize_;
+    }
+
+    public static final int RECORD_NUM_FIELD_NUMBER = 3;
+    private long recordNum_;
+    /**
+     * <pre>
+     * The total record number appended to topic since the datanode started.
+     * </pre>
+     *
+     * <code>uint64 record_num = 3;</code>
+     * @return The recordNum.
+     */
+    @java.lang.Override
+    public long getRecordNum() {
+      return recordNum_;
+    }
+
+    public static final int LATEST_OFFSET_FIELD_NUMBER = 4;
+    private long latestOffset_;
+    /**
+     * <pre>
+     * The latest offset of the topic.
+     * </pre>
+     *
+     * <code>uint64 latest_offset = 4;</code>
+     * @return The latestOffset.
+     */
+    @java.lang.Override
+    public long getLatestOffset() {
+      return latestOffset_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topicName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, topicName_);
+      }
+      if (recordSize_ != 0L) {
+        output.writeUInt64(2, recordSize_);
+      }
+      if (recordNum_ != 0L) {
+        output.writeUInt64(3, recordNum_);
+      }
+      if (latestOffset_ != 0L) {
+        output.writeUInt64(4, latestOffset_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topicName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, topicName_);
+      }
+      if (recordSize_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, recordSize_);
+      }
+      if (recordNum_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, recordNum_);
+      }
+      if (latestOffset_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, latestOffset_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.TopicStat)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.TopicStat other = (greptime.v1.meta.HeartbeatOuterClass.TopicStat) obj;
+
+      if (!getTopicName()
+          .equals(other.getTopicName())) return false;
+      if (getRecordSize()
+          != other.getRecordSize()) return false;
+      if (getRecordNum()
+          != other.getRecordNum()) return false;
+      if (getLatestOffset()
+          != other.getLatestOffset()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TOPIC_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTopicName().hashCode();
+      hash = (37 * hash) + RECORD_SIZE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRecordSize());
+      hash = (37 * hash) + RECORD_NUM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRecordNum());
+      hash = (37 * hash) + LATEST_OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLatestOffset());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.TopicStat prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.TopicStat}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.TopicStat)
+        greptime.v1.meta.HeartbeatOuterClass.TopicStatOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_TopicStat_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.TopicStat.class, greptime.v1.meta.HeartbeatOuterClass.TopicStat.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.TopicStat.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        topicName_ = "";
+
+        recordSize_ = 0L;
+
+        recordNum_ = 0L;
+
+        latestOffset_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_TopicStat_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.TopicStat getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.TopicStat.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.TopicStat build() {
+        greptime.v1.meta.HeartbeatOuterClass.TopicStat result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.TopicStat buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.TopicStat result = new greptime.v1.meta.HeartbeatOuterClass.TopicStat(this);
+        result.topicName_ = topicName_;
+        result.recordSize_ = recordSize_;
+        result.recordNum_ = recordNum_;
+        result.latestOffset_ = latestOffset_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.TopicStat) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.TopicStat)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.TopicStat other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.TopicStat.getDefaultInstance()) return this;
+        if (!other.getTopicName().isEmpty()) {
+          topicName_ = other.topicName_;
+          onChanged();
+        }
+        if (other.getRecordSize() != 0L) {
+          setRecordSize(other.getRecordSize());
+        }
+        if (other.getRecordNum() != 0L) {
+          setRecordNum(other.getRecordNum());
+        }
+        if (other.getLatestOffset() != 0L) {
+          setLatestOffset(other.getLatestOffset());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.TopicStat parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.TopicStat) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object topicName_ = "";
+      /**
+       * <pre>
+       * The topic name
+       * </pre>
+       *
+       * <code>string topic_name = 1;</code>
+       * @return The topicName.
+       */
+      public java.lang.String getTopicName() {
+        java.lang.Object ref = topicName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          topicName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The topic name
+       * </pre>
+       *
+       * <code>string topic_name = 1;</code>
+       * @return The bytes for topicName.
+       */
+      public com.google.protobuf.ByteString
+          getTopicNameBytes() {
+        java.lang.Object ref = topicName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topicName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The topic name
+       * </pre>
+       *
+       * <code>string topic_name = 1;</code>
+       * @param value The topicName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopicName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        topicName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The topic name
+       * </pre>
+       *
+       * <code>string topic_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTopicName() {
+        
+        topicName_ = getDefaultInstance().getTopicName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The topic name
+       * </pre>
+       *
+       * <code>string topic_name = 1;</code>
+       * @param value The bytes for topicName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopicNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        topicName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long recordSize_ ;
+      /**
+       * <pre>
+       * The total record size appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_size = 2;</code>
+       * @return The recordSize.
+       */
+      @java.lang.Override
+      public long getRecordSize() {
+        return recordSize_;
+      }
+      /**
+       * <pre>
+       * The total record size appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_size = 2;</code>
+       * @param value The recordSize to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRecordSize(long value) {
+        
+        recordSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The total record size appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_size = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRecordSize() {
+        
+        recordSize_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long recordNum_ ;
+      /**
+       * <pre>
+       * The total record number appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_num = 3;</code>
+       * @return The recordNum.
+       */
+      @java.lang.Override
+      public long getRecordNum() {
+        return recordNum_;
+      }
+      /**
+       * <pre>
+       * The total record number appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_num = 3;</code>
+       * @param value The recordNum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRecordNum(long value) {
+        
+        recordNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The total record number appended to topic since the datanode started.
+       * </pre>
+       *
+       * <code>uint64 record_num = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRecordNum() {
+        
+        recordNum_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long latestOffset_ ;
+      /**
+       * <pre>
+       * The latest offset of the topic.
+       * </pre>
+       *
+       * <code>uint64 latest_offset = 4;</code>
+       * @return The latestOffset.
+       */
+      @java.lang.Override
+      public long getLatestOffset() {
+        return latestOffset_;
+      }
+      /**
+       * <pre>
+       * The latest offset of the topic.
+       * </pre>
+       *
+       * <code>uint64 latest_offset = 4;</code>
+       * @param value The latestOffset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLatestOffset(long value) {
+        
+        latestOffset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The latest offset of the topic.
+       * </pre>
+       *
+       * <code>uint64 latest_offset = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLatestOffset() {
+        
+        latestOffset_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.TopicStat)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.TopicStat)
+    private static final greptime.v1.meta.HeartbeatOuterClass.TopicStat DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.TopicStat();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.TopicStat getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TopicStat>
+        PARSER = new com.google.protobuf.AbstractParser<TopicStat>() {
+      @java.lang.Override
+      public TopicStat parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TopicStat(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TopicStat> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TopicStat> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.TopicStat getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface FlowStatOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.FlowStat)
       com.google.protobuf.MessageOrBuilder {
@@ -14741,6 +15620,11 @@ com.google.protobuf.ByteString defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_TopicStat_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_FlowStat_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -14827,43 +15711,46 @@ com.google.protobuf.ByteString defaultValue);
       "2\034.greptime.v1.meta.RegionRole\022@\n\nextens" +
       "ions\030c \003(\0132,.greptime.v1.meta.RegionStat" +
       ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\227\002\n\010FlowStat" +
-      "\022D\n\016flow_stat_size\030\001 \003(\0132,.greptime.v1.m" +
-      "eta.FlowStat.FlowStatSizeEntry\022T\n\027flow_l" +
-      "ast_exec_time_map\030\002 \003(\01323.greptime.v1.me" +
-      "ta.FlowStat.FlowLastExecTimeMapEntry\0323\n\021" +
-      "FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030" +
-      "\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n" +
-      "\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021Heartb" +
-      "eatResponse\0220\n\006header\030\001 \001(\0132 .greptime.v" +
-      "1.meta.ResponseHeader\0229\n\017mailbox_message" +
-      "\030\002 \001(\0132 .greptime.v1.meta.MailboxMessage" +
-      "\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1.met" +
-      "a.RegionLease\"\306\001\n\rGrantedRegion\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.m" +
-      "eta.RegionRole\022C\n\nextensions\030c \003(\0132/.gre" +
-      "ptime.v1.meta.GrantedRegion.ExtensionsEn" +
-      "try\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007region" +
-      "s\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegion" +
-      "\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_" +
-      "seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 " +
-      "\003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132" +
-      "\037.greptime.v1.meta.RequestHeader\"m\n\021AskL" +
-      "eaderResponse\0220\n\006header\030\001 \001(\0132 .greptime" +
-      ".v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132" +
-      "\026.greptime.v1.meta.Peer\"|\n\016MailboxMessag" +
-      "e\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003" +
-      " \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001" +
-      "(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionR" +
-      "ole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgra" +
-      "dingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022" +
-      "\".greptime.v1.meta.HeartbeatRequest\032#.gr" +
-      "eptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V" +
-      "\n\tAskLeader\022\".greptime.v1.meta.AskLeader" +
-      "Request\032#.greptime.v1.meta.AskLeaderResp" +
-      "onse\"\000B<Z:github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1/metab\006proto3"
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"_\n\tTopicStat" +
+      "\022\022\n\ntopic_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(" +
+      "\004\022\022\n\nrecord_num\030\003 \001(\004\022\025\n\rlatest_offset\030\004" +
+      " \001(\004\"\227\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(" +
+      "\0132,.greptime.v1.meta.FlowStat.FlowStatSi" +
+      "zeEntry\022T\n\027flow_last_exec_time_map\030\002 \003(\013" +
+      "23.greptime.v1.meta.FlowStat.FlowLastExe" +
+      "cTimeMapEntry\0323\n\021FlowStatSizeEntry\022\013\n\003ke" +
+      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastEx" +
+      "ecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001" +
+      "(\003:\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006header\030\001" +
+      " \001(\0132 .greptime.v1.meta.ResponseHeader\0229" +
+      "\n\017mailbox_message\030\002 \001(\0132 .greptime.v1.me" +
+      "ta.MailboxMessage\0223\n\014region_lease\030\003 \001(\0132" +
+      "\035.greptime.v1.meta.RegionLease\"\306\001\n\rGrant" +
+      "edRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(" +
+      "\0162\034.greptime.v1.meta.RegionRole\022C\n\nexten" +
+      "sions\030c \003(\0132/.greptime.v1.meta.GrantedRe" +
+      "gion.ExtensionsEntry\0321\n\017ExtensionsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Regi" +
+      "onLease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.m" +
+      "eta.GrantedRegion\022\034\n\024duration_since_epoc" +
+      "h\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closea" +
+      "ble_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest" +
+      "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ" +
+      "estHeader\"m\n\021AskLeaderResponse\0220\n\006header" +
+      "\030\001 \001(\0132 .greptime.v1.meta.ResponseHeader" +
+      "\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer" +
+      "\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subjec" +
+      "t\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020tim" +
+      "estamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007p" +
+      "ayload*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Foll" +
+      "ower\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartb" +
+      "eat\022Z\n\tHeartbeat\022\".greptime.v1.meta.Hear" +
+      "tbeatRequest\032#.greptime.v1.meta.Heartbea" +
+      "tResponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime." +
+      "v1.meta.AskLeaderRequest\032#.greptime.v1.m" +
+      "eta.AskLeaderResponse\"\000B<Z:github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/greptime/v1" +
+      "/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14912,8 +15799,14 @@ com.google.protobuf.ByteString defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_meta_FlowStat_descriptor =
+    internal_static_greptime_v1_meta_TopicStat_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_TopicStat_descriptor,
+        new java.lang.String[] { "TopicName", "RecordSize", "RecordNum", "LatestOffset", });
+    internal_static_greptime_v1_meta_FlowStat_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_FlowStat_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_FlowStat_descriptor,
@@ -14931,13 +15824,13 @@ com.google.protobuf.ByteString defaultValue);
         internal_static_greptime_v1_meta_FlowStat_FlowLastExecTimeMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_HeartbeatResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
         new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
@@ -14949,25 +15842,25 @@ com.google.protobuf.ByteString defaultValue);
         internal_static_greptime_v1_meta_GrantedRegion_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_meta_RegionLease_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_meta_RegionLease_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionLease_descriptor,
         new java.lang.String[] { "Regions", "DurationSinceEpoch", "LeaseSeconds", "CloseableRegionIds", });
     internal_static_greptime_v1_meta_AskLeaderRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_meta_AskLeaderRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderRequest_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_greptime_v1_meta_AskLeaderResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,
