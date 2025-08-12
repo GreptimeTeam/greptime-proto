@@ -34,6 +34,7 @@
 #include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/duration.pb.h>
 #include "greptime/v1/common.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -9020,6 +9021,7 @@ class CreateTriggerExpr final :
     kCatalogNameFieldNumber = 1,
     kTriggerNameFieldNumber = 2,
     kSqlFieldNumber = 4,
+    kRawIntervalExprFieldNumber = 9,
     kIntervalFieldNumber = 8,
     kCreateIfNotExistsFieldNumber = 3,
   };
@@ -9117,14 +9119,37 @@ class CreateTriggerExpr final :
   std::string* _internal_mutable_sql();
   public:
 
-  // uint64 interval = 8;
-  void clear_interval();
-  uint64_t interval() const;
-  void set_interval(uint64_t value);
+  // string raw_interval_expr = 9;
+  void clear_raw_interval_expr();
+  const std::string& raw_interval_expr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_raw_interval_expr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_raw_interval_expr();
+  PROTOBUF_NODISCARD std::string* release_raw_interval_expr();
+  void set_allocated_raw_interval_expr(std::string* raw_interval_expr);
   private:
-  uint64_t _internal_interval() const;
-  void _internal_set_interval(uint64_t value);
+  const std::string& _internal_raw_interval_expr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_raw_interval_expr(const std::string& value);
+  std::string* _internal_mutable_raw_interval_expr();
   public:
+
+  // .google.protobuf.Duration interval = 8;
+  bool has_interval() const;
+  private:
+  bool _internal_has_interval() const;
+  public:
+  void clear_interval();
+  const ::PROTOBUF_NAMESPACE_ID::Duration& interval() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Duration* release_interval();
+  ::PROTOBUF_NAMESPACE_ID::Duration* mutable_interval();
+  void set_allocated_interval(::PROTOBUF_NAMESPACE_ID::Duration* interval);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Duration& _internal_interval() const;
+  ::PROTOBUF_NAMESPACE_ID::Duration* _internal_mutable_interval();
+  public:
+  void unsafe_arena_set_allocated_interval(
+      ::PROTOBUF_NAMESPACE_ID::Duration* interval);
+  ::PROTOBUF_NAMESPACE_ID::Duration* unsafe_arena_release_interval();
 
   // bool create_if_not_exists = 3;
   void clear_create_if_not_exists();
@@ -9157,7 +9182,8 @@ class CreateTriggerExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trigger_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
-    uint64_t interval_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr raw_interval_expr_;
+    ::PROTOBUF_NAMESPACE_ID::Duration* interval_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -17749,24 +17775,139 @@ CreateTriggerExpr::mutable_annotations() {
   return _internal_mutable_annotations();
 }
 
-// uint64 interval = 8;
-inline void CreateTriggerExpr::clear_interval() {
-  _impl_.interval_ = uint64_t{0u};
+// .google.protobuf.Duration interval = 8;
+inline bool CreateTriggerExpr::_internal_has_interval() const {
+  return this != internal_default_instance() && _impl_.interval_ != nullptr;
 }
-inline uint64_t CreateTriggerExpr::_internal_interval() const {
-  return _impl_.interval_;
+inline bool CreateTriggerExpr::has_interval() const {
+  return _internal_has_interval();
 }
-inline uint64_t CreateTriggerExpr::interval() const {
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::_internal_interval() const {
+  const ::PROTOBUF_NAMESPACE_ID::Duration* p = _impl_.interval_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Duration&>(
+      ::PROTOBUF_NAMESPACE_ID::_Duration_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::interval() const {
   // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.interval)
   return _internal_interval();
 }
-inline void CreateTriggerExpr::_internal_set_interval(uint64_t value) {
-  
-  _impl_.interval_ = value;
+inline void CreateTriggerExpr::unsafe_arena_set_allocated_interval(
+    ::PROTOBUF_NAMESPACE_ID::Duration* interval) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.interval_);
+  }
+  _impl_.interval_ = interval;
+  if (interval) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateTriggerExpr.interval)
 }
-inline void CreateTriggerExpr::set_interval(uint64_t value) {
-  _internal_set_interval(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.interval)
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::release_interval() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.interval_;
+  _impl_.interval_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::unsafe_arena_release_interval() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.interval)
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.interval_;
+  _impl_.interval_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::_internal_mutable_interval() {
+  
+  if (_impl_.interval_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Duration>(GetArenaForAllocation());
+    _impl_.interval_ = p;
+  }
+  return _impl_.interval_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::mutable_interval() {
+  ::PROTOBUF_NAMESPACE_ID::Duration* _msg = _internal_mutable_interval();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.interval)
+  return _msg;
+}
+inline void CreateTriggerExpr::set_allocated_interval(::PROTOBUF_NAMESPACE_ID::Duration* interval) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.interval_);
+  }
+  if (interval) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(interval));
+    if (message_arena != submessage_arena) {
+      interval = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, interval, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.interval_ = interval;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.interval)
+}
+
+// string raw_interval_expr = 9;
+inline void CreateTriggerExpr::clear_raw_interval_expr() {
+  _impl_.raw_interval_expr_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::raw_interval_expr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.raw_interval_expr)
+  return _internal_raw_interval_expr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_raw_interval_expr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.raw_interval_expr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.raw_interval_expr)
+}
+inline std::string* CreateTriggerExpr::mutable_raw_interval_expr() {
+  std::string* _s = _internal_mutable_raw_interval_expr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.raw_interval_expr)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_raw_interval_expr() const {
+  return _impl_.raw_interval_expr_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_raw_interval_expr(const std::string& value) {
+  
+  _impl_.raw_interval_expr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_raw_interval_expr() {
+  
+  return _impl_.raw_interval_expr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_raw_interval_expr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.raw_interval_expr)
+  return _impl_.raw_interval_expr_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_raw_interval_expr(std::string* raw_interval_expr) {
+  if (raw_interval_expr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.raw_interval_expr_.SetAllocated(raw_interval_expr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.raw_interval_expr_.IsDefault()) {
+    _impl_.raw_interval_expr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.raw_interval_expr)
 }
 
 // -------------------------------------------------------------------
