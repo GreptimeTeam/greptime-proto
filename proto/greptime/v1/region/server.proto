@@ -18,6 +18,7 @@ package greptime.v1.region;
 
 import "greptime/v1/common.proto";
 import "greptime/v1/ddl.proto";
+import "greptime/v1/meta/route.proto";
 import "greptime/v1/row.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/region";
@@ -116,7 +117,8 @@ message CreateRequest {
   string path = 5;
   // Options of the created region.
   map<string, string> options = 6;
-  // TODO: add partition def
+  // Partition of the created region.
+  greptime.v1.meta.Partition partition = 7;
 }
 
 // Same as CreateRequests, but for dropping regions.
