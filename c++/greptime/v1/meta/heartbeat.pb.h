@@ -290,6 +290,7 @@ class HeartbeatRequest final :
 
   enum : int {
     kRegionStatsFieldNumber = 4,
+    kTopicStatsFieldNumber = 13,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
     kReportIntervalFieldNumber = 3,
@@ -319,6 +320,24 @@ class HeartbeatRequest final :
   ::greptime::v1::meta::RegionStat* add_region_stats();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat >&
       region_stats() const;
+
+  // repeated .greptime.v1.meta.TopicStat topic_stats = 13;
+  int topic_stats_size() const;
+  private:
+  int _internal_topic_stats_size() const;
+  public:
+  void clear_topic_stats();
+  ::greptime::v1::meta::TopicStat* mutable_topic_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >*
+      mutable_topic_stats();
+  private:
+  const ::greptime::v1::meta::TopicStat& _internal_topic_stats(int index) const;
+  ::greptime::v1::meta::TopicStat* _internal_add_topic_stats();
+  public:
+  const ::greptime::v1::meta::TopicStat& topic_stats(int index) const;
+  ::greptime::v1::meta::TopicStat* add_topic_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
+      topic_stats() const;
 
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -517,6 +536,7 @@ class HeartbeatRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat > region_stats_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat > topic_stats_;
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::meta::Peer* peer_;
     ::greptime::v1::meta::TimeInterval* report_interval_;
@@ -1602,7 +1622,7 @@ class TopicStat final :
     kTopicNameFieldNumber = 1,
     kRecordSizeFieldNumber = 2,
     kRecordNumFieldNumber = 3,
-    kLatestOffsetFieldNumber = 4,
+    kLatestEntryIdFieldNumber = 4,
   };
   // string topic_name = 1;
   void clear_topic_name();
@@ -1636,13 +1656,13 @@ class TopicStat final :
   void _internal_set_record_num(uint64_t value);
   public:
 
-  // uint64 latest_offset = 4;
-  void clear_latest_offset();
-  uint64_t latest_offset() const;
-  void set_latest_offset(uint64_t value);
+  // uint64 latest_entry_id = 4;
+  void clear_latest_entry_id();
+  uint64_t latest_entry_id() const;
+  void set_latest_entry_id(uint64_t value);
   private:
-  uint64_t _internal_latest_offset() const;
-  void _internal_set_latest_offset(uint64_t value);
+  uint64_t _internal_latest_entry_id() const;
+  void _internal_set_latest_entry_id(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.TopicStat)
@@ -1656,7 +1676,7 @@ class TopicStat final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr topic_name_;
     uint64_t record_size_;
     uint64_t record_num_;
-    uint64_t latest_offset_;
+    uint64_t latest_entry_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3924,6 +3944,46 @@ inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::mutable_flowno
   return _msg;
 }
 
+// repeated .greptime.v1.meta.TopicStat topic_stats = 13;
+inline int HeartbeatRequest::_internal_topic_stats_size() const {
+  return _impl_.topic_stats_.size();
+}
+inline int HeartbeatRequest::topic_stats_size() const {
+  return _internal_topic_stats_size();
+}
+inline void HeartbeatRequest::clear_topic_stats() {
+  _impl_.topic_stats_.Clear();
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::mutable_topic_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _impl_.topic_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >*
+HeartbeatRequest::mutable_topic_stats() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return &_impl_.topic_stats_;
+}
+inline const ::greptime::v1::meta::TopicStat& HeartbeatRequest::_internal_topic_stats(int index) const {
+  return _impl_.topic_stats_.Get(index);
+}
+inline const ::greptime::v1::meta::TopicStat& HeartbeatRequest::topic_stats(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _internal_topic_stats(index);
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::_internal_add_topic_stats() {
+  return _impl_.topic_stats_.Add();
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::add_topic_stats() {
+  ::greptime::v1::meta::TopicStat* _add = _internal_add_topic_stats();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
+HeartbeatRequest::topic_stats() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _impl_.topic_stats_;
+}
+
 inline bool HeartbeatRequest::has_node_workloads() const {
   return node_workloads_case() != NODE_WORKLOADS_NOT_SET;
 }
@@ -4509,24 +4569,24 @@ inline void TopicStat::set_record_num(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.record_num)
 }
 
-// uint64 latest_offset = 4;
-inline void TopicStat::clear_latest_offset() {
-  _impl_.latest_offset_ = uint64_t{0u};
+// uint64 latest_entry_id = 4;
+inline void TopicStat::clear_latest_entry_id() {
+  _impl_.latest_entry_id_ = uint64_t{0u};
 }
-inline uint64_t TopicStat::_internal_latest_offset() const {
-  return _impl_.latest_offset_;
+inline uint64_t TopicStat::_internal_latest_entry_id() const {
+  return _impl_.latest_entry_id_;
 }
-inline uint64_t TopicStat::latest_offset() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.latest_offset)
-  return _internal_latest_offset();
+inline uint64_t TopicStat::latest_entry_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.latest_entry_id)
+  return _internal_latest_entry_id();
 }
-inline void TopicStat::_internal_set_latest_offset(uint64_t value) {
+inline void TopicStat::_internal_set_latest_entry_id(uint64_t value) {
   
-  _impl_.latest_offset_ = value;
+  _impl_.latest_entry_id_ = value;
 }
-inline void TopicStat::set_latest_offset(uint64_t value) {
-  _internal_set_latest_offset(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.latest_offset)
+inline void TopicStat::set_latest_entry_id(uint64_t value) {
+  _internal_set_latest_entry_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.latest_entry_id)
 }
 
 // -------------------------------------------------------------------
