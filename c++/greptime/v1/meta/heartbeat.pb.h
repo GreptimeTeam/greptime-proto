@@ -103,6 +103,9 @@ extern RegionStatDefaultTypeInternal _RegionStat_default_instance_;
 class RegionStat_ExtensionsEntry_DoNotUse;
 struct RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal;
 extern RegionStat_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionStat_ExtensionsEntry_DoNotUse_default_instance_;
+class TopicStat;
+struct TopicStatDefaultTypeInternal;
+extern TopicStatDefaultTypeInternal _TopicStat_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
@@ -124,6 +127,7 @@ template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime:
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::meta::TopicStat* Arena::CreateMaybeMessage<::greptime::v1::meta::TopicStat>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -286,6 +290,7 @@ class HeartbeatRequest final :
 
   enum : int {
     kRegionStatsFieldNumber = 4,
+    kTopicStatsFieldNumber = 13,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
     kReportIntervalFieldNumber = 3,
@@ -315,6 +320,24 @@ class HeartbeatRequest final :
   ::greptime::v1::meta::RegionStat* add_region_stats();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat >&
       region_stats() const;
+
+  // repeated .greptime.v1.meta.TopicStat topic_stats = 13;
+  int topic_stats_size() const;
+  private:
+  int _internal_topic_stats_size() const;
+  public:
+  void clear_topic_stats();
+  ::greptime::v1::meta::TopicStat* mutable_topic_stats(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >*
+      mutable_topic_stats();
+  private:
+  const ::greptime::v1::meta::TopicStat& _internal_topic_stats(int index) const;
+  ::greptime::v1::meta::TopicStat* _internal_add_topic_stats();
+  public:
+  const ::greptime::v1::meta::TopicStat& topic_stats(int index) const;
+  ::greptime::v1::meta::TopicStat* add_topic_stats();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
+      topic_stats() const;
 
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -513,6 +536,7 @@ class HeartbeatRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat > region_stats_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat > topic_stats_;
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::meta::Peer* peer_;
     ::greptime::v1::meta::TimeInterval* report_interval_;
@@ -1474,6 +1498,192 @@ class RegionStat final :
 };
 // -------------------------------------------------------------------
 
+class TopicStat final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TopicStat) */ {
+ public:
+  inline TopicStat() : TopicStat(nullptr) {}
+  ~TopicStat() override;
+  explicit PROTOBUF_CONSTEXPR TopicStat(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TopicStat(const TopicStat& from);
+  TopicStat(TopicStat&& from) noexcept
+    : TopicStat() {
+    *this = ::std::move(from);
+  }
+
+  inline TopicStat& operator=(const TopicStat& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TopicStat& operator=(TopicStat&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TopicStat& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TopicStat* internal_default_instance() {
+    return reinterpret_cast<const TopicStat*>(
+               &_TopicStat_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(TopicStat& a, TopicStat& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TopicStat* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TopicStat* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TopicStat* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TopicStat>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TopicStat& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TopicStat& from) {
+    TopicStat::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TopicStat* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.TopicStat";
+  }
+  protected:
+  explicit TopicStat(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTopicNameFieldNumber = 1,
+    kRecordSizeFieldNumber = 2,
+    kRecordNumFieldNumber = 3,
+    kLatestEntryIdFieldNumber = 4,
+  };
+  // string topic_name = 1;
+  void clear_topic_name();
+  const std::string& topic_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_topic_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_topic_name();
+  PROTOBUF_NODISCARD std::string* release_topic_name();
+  void set_allocated_topic_name(std::string* topic_name);
+  private:
+  const std::string& _internal_topic_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_topic_name(const std::string& value);
+  std::string* _internal_mutable_topic_name();
+  public:
+
+  // uint64 record_size = 2;
+  void clear_record_size();
+  uint64_t record_size() const;
+  void set_record_size(uint64_t value);
+  private:
+  uint64_t _internal_record_size() const;
+  void _internal_set_record_size(uint64_t value);
+  public:
+
+  // uint64 record_num = 3;
+  void clear_record_num();
+  uint64_t record_num() const;
+  void set_record_num(uint64_t value);
+  private:
+  uint64_t _internal_record_num() const;
+  void _internal_set_record_num(uint64_t value);
+  public:
+
+  // uint64 latest_entry_id = 4;
+  void clear_latest_entry_id();
+  uint64_t latest_entry_id() const;
+  void set_latest_entry_id(uint64_t value);
+  private:
+  uint64_t _internal_latest_entry_id() const;
+  void _internal_set_latest_entry_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.TopicStat)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr topic_name_;
+    uint64_t record_size_;
+    uint64_t record_num_;
+    uint64_t latest_entry_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class FlowStat_FlowStatSizeEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<FlowStat_FlowStatSizeEntry_DoNotUse, 
     uint32_t, uint64_t,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32,
@@ -1570,7 +1780,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -1756,7 +1966,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -1979,7 +2189,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -2164,7 +2374,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -2368,7 +2578,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -2525,7 +2735,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -2707,7 +2917,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -3734,6 +3944,46 @@ inline ::greptime::v1::meta::FlownodeWorkloads* HeartbeatRequest::mutable_flowno
   return _msg;
 }
 
+// repeated .greptime.v1.meta.TopicStat topic_stats = 13;
+inline int HeartbeatRequest::_internal_topic_stats_size() const {
+  return _impl_.topic_stats_.size();
+}
+inline int HeartbeatRequest::topic_stats_size() const {
+  return _internal_topic_stats_size();
+}
+inline void HeartbeatRequest::clear_topic_stats() {
+  _impl_.topic_stats_.Clear();
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::mutable_topic_stats(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _impl_.topic_stats_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >*
+HeartbeatRequest::mutable_topic_stats() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return &_impl_.topic_stats_;
+}
+inline const ::greptime::v1::meta::TopicStat& HeartbeatRequest::_internal_topic_stats(int index) const {
+  return _impl_.topic_stats_.Get(index);
+}
+inline const ::greptime::v1::meta::TopicStat& HeartbeatRequest::topic_stats(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _internal_topic_stats(index);
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::_internal_add_topic_stats() {
+  return _impl_.topic_stats_.Add();
+}
+inline ::greptime::v1::meta::TopicStat* HeartbeatRequest::add_topic_stats() {
+  ::greptime::v1::meta::TopicStat* _add = _internal_add_topic_stats();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
+HeartbeatRequest::topic_stats() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatRequest.topic_stats)
+  return _impl_.topic_stats_;
+}
+
 inline bool HeartbeatRequest::has_node_workloads() const {
   return node_workloads_case() != NODE_WORKLOADS_NOT_SET;
 }
@@ -4223,6 +4473,120 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 RegionStat::mutable_extensions() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extensions)
   return _internal_mutable_extensions();
+}
+
+// -------------------------------------------------------------------
+
+// TopicStat
+
+// string topic_name = 1;
+inline void TopicStat::clear_topic_name() {
+  _impl_.topic_name_.ClearToEmpty();
+}
+inline const std::string& TopicStat::topic_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.topic_name)
+  return _internal_topic_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void TopicStat::set_topic_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.topic_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.topic_name)
+}
+inline std::string* TopicStat::mutable_topic_name() {
+  std::string* _s = _internal_mutable_topic_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.TopicStat.topic_name)
+  return _s;
+}
+inline const std::string& TopicStat::_internal_topic_name() const {
+  return _impl_.topic_name_.Get();
+}
+inline void TopicStat::_internal_set_topic_name(const std::string& value) {
+  
+  _impl_.topic_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* TopicStat::_internal_mutable_topic_name() {
+  
+  return _impl_.topic_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* TopicStat::release_topic_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.TopicStat.topic_name)
+  return _impl_.topic_name_.Release();
+}
+inline void TopicStat::set_allocated_topic_name(std::string* topic_name) {
+  if (topic_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.topic_name_.SetAllocated(topic_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.topic_name_.IsDefault()) {
+    _impl_.topic_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.TopicStat.topic_name)
+}
+
+// uint64 record_size = 2;
+inline void TopicStat::clear_record_size() {
+  _impl_.record_size_ = uint64_t{0u};
+}
+inline uint64_t TopicStat::_internal_record_size() const {
+  return _impl_.record_size_;
+}
+inline uint64_t TopicStat::record_size() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.record_size)
+  return _internal_record_size();
+}
+inline void TopicStat::_internal_set_record_size(uint64_t value) {
+  
+  _impl_.record_size_ = value;
+}
+inline void TopicStat::set_record_size(uint64_t value) {
+  _internal_set_record_size(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.record_size)
+}
+
+// uint64 record_num = 3;
+inline void TopicStat::clear_record_num() {
+  _impl_.record_num_ = uint64_t{0u};
+}
+inline uint64_t TopicStat::_internal_record_num() const {
+  return _impl_.record_num_;
+}
+inline uint64_t TopicStat::record_num() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.record_num)
+  return _internal_record_num();
+}
+inline void TopicStat::_internal_set_record_num(uint64_t value) {
+  
+  _impl_.record_num_ = value;
+}
+inline void TopicStat::set_record_num(uint64_t value) {
+  _internal_set_record_num(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.record_num)
+}
+
+// uint64 latest_entry_id = 4;
+inline void TopicStat::clear_latest_entry_id() {
+  _impl_.latest_entry_id_ = uint64_t{0u};
+}
+inline uint64_t TopicStat::_internal_latest_entry_id() const {
+  return _impl_.latest_entry_id_;
+}
+inline uint64_t TopicStat::latest_entry_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.TopicStat.latest_entry_id)
+  return _internal_latest_entry_id();
+}
+inline void TopicStat::_internal_set_latest_entry_id(uint64_t value) {
+  
+  _impl_.latest_entry_id_ = value;
+}
+inline void TopicStat::set_latest_entry_id(uint64_t value) {
+  _internal_set_latest_entry_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.TopicStat.latest_entry_id)
 }
 
 // -------------------------------------------------------------------
@@ -5312,6 +5676,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
