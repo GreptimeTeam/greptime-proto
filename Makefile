@@ -1,6 +1,6 @@
 .PHONY: all rust go go-deps java
 
-BUILDER_CONTAINER=namely/protoc-all:1.51_1
+BUILDER_CONTAINER=namely/protoc-all:1.51_2
 
 all: rust go java cpp
 
