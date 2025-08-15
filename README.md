@@ -120,7 +120,7 @@ Rows: x". "x" represents the rows that are successfully inserted. When dealing w
 it, and deserialize the bytes as `FlightMetadata` message. You will find the "affected rows" result
 in it.
 
-We already have our SDK written in [Java][java-sdk], [Rust]() and [Go][go-sdk], feel free to take
+We already have our SDK written in [Java][java-sdk], [Rust][rust-sdk] and [Go][go-sdk], feel free to take
 any of them as an example.
 
 <!-- links -->
@@ -128,5 +128,6 @@ any of them as an example.
 [flight]: https://arrow.apache.org/docs/format/Flight.html
 [flight-rpc]: https://arrow.apache.org/docs/status.html#flight-rpc
 [flight-protobuf]: https://arrow.apache.org/docs/format/Flight.html#protocol-buffer-definitions
-[java-sdk]: https://github.com/GreptimeTeam/greptimedb-client-java
-[go-sdk]: https://github.com/GreptimeTeam/greptimedb-client-go
+[java-sdk]: https://github.com/GreptimeTeam/greptimedb-ingester-java
+[rust-sdk]: https://github.com/GreptimeTeam/greptimedb-ingester-rust
+[go-sdk]: https://github.com/GreptimeTeam/greptimedb-ingester-go
