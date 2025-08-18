@@ -16,6 +16,7 @@ syntax = "proto3";
 
 package greptime.v1;
 
+import "google/protobuf/duration.proto";
 import "greptime/v1/common.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
@@ -351,8 +352,9 @@ message CreateTriggerExpr {
   map<string, string> labels = 6;
   // The user-defined annotations.
   map<string, string> annotations = 7;
-  // The execution interval for sql query in seconds.
-  uint64 interval = 8;
+  google.protobuf.Duration interval = 8;
+  // The raw interval expression, e.g., '1 minute'::INTERVAL.
+  string raw_interval_expr = 9;
 }
 
 // The notification channel for trigger.

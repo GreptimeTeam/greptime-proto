@@ -45170,14 +45170,39 @@ java.lang.String defaultValue);
         java.lang.String key);
 
     /**
-     * <pre>
-     * The execution interval for sql query in seconds.
-     * </pre>
-     *
-     * <code>uint64 interval = 8;</code>
+     * <code>.google.protobuf.Duration interval = 8;</code>
+     * @return Whether the interval field is set.
+     */
+    boolean hasInterval();
+    /**
+     * <code>.google.protobuf.Duration interval = 8;</code>
      * @return The interval.
      */
-    long getInterval();
+    com.google.protobuf.Duration getInterval();
+    /**
+     * <code>.google.protobuf.Duration interval = 8;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getIntervalOrBuilder();
+
+    /**
+     * <pre>
+     * The raw interval expression, e.g., '1 minute'::INTERVAL.
+     * </pre>
+     *
+     * <code>string raw_interval_expr = 9;</code>
+     * @return The rawIntervalExpr.
+     */
+    java.lang.String getRawIntervalExpr();
+    /**
+     * <pre>
+     * The raw interval expression, e.g., '1 minute'::INTERVAL.
+     * </pre>
+     *
+     * <code>string raw_interval_expr = 9;</code>
+     * @return The bytes for rawIntervalExpr.
+     */
+    com.google.protobuf.ByteString
+        getRawIntervalExprBytes();
   }
   /**
    * <pre>
@@ -45200,6 +45225,7 @@ java.lang.String defaultValue);
       triggerName_ = "";
       sql_ = "";
       channels_ = java.util.Collections.emptyList();
+      rawIntervalExpr_ = "";
     }
 
     @java.lang.Override
@@ -45291,9 +45317,23 @@ java.lang.String defaultValue);
                   annotations__.getKey(), annotations__.getValue());
               break;
             }
-            case 64: {
+            case 66: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (interval_ != null) {
+                subBuilder = interval_.toBuilder();
+              }
+              interval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(interval_);
+                interval_ = subBuilder.buildPartial();
+              }
 
-              interval_ = input.readUInt64();
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rawIntervalExpr_ = s;
               break;
             }
             default: {
@@ -45735,18 +45775,75 @@ java.lang.String defaultValue);
     }
 
     public static final int INTERVAL_FIELD_NUMBER = 8;
-    private long interval_;
+    private com.google.protobuf.Duration interval_;
     /**
-     * <pre>
-     * The execution interval for sql query in seconds.
-     * </pre>
-     *
-     * <code>uint64 interval = 8;</code>
+     * <code>.google.protobuf.Duration interval = 8;</code>
+     * @return Whether the interval field is set.
+     */
+    @java.lang.Override
+    public boolean hasInterval() {
+      return interval_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Duration interval = 8;</code>
      * @return The interval.
      */
     @java.lang.Override
-    public long getInterval() {
-      return interval_;
+    public com.google.protobuf.Duration getInterval() {
+      return interval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : interval_;
+    }
+    /**
+     * <code>.google.protobuf.Duration interval = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getIntervalOrBuilder() {
+      return getInterval();
+    }
+
+    public static final int RAW_INTERVAL_EXPR_FIELD_NUMBER = 9;
+    private volatile java.lang.Object rawIntervalExpr_;
+    /**
+     * <pre>
+     * The raw interval expression, e.g., '1 minute'::INTERVAL.
+     * </pre>
+     *
+     * <code>string raw_interval_expr = 9;</code>
+     * @return The rawIntervalExpr.
+     */
+    @java.lang.Override
+    public java.lang.String getRawIntervalExpr() {
+      java.lang.Object ref = rawIntervalExpr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rawIntervalExpr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The raw interval expression, e.g., '1 minute'::INTERVAL.
+     * </pre>
+     *
+     * <code>string raw_interval_expr = 9;</code>
+     * @return The bytes for rawIntervalExpr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRawIntervalExprBytes() {
+      java.lang.Object ref = rawIntervalExpr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rawIntervalExpr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -45790,8 +45887,11 @@ java.lang.String defaultValue);
           internalGetAnnotations(),
           AnnotationsDefaultEntryHolder.defaultEntry,
           7);
-      if (interval_ != 0L) {
-        output.writeUInt64(8, interval_);
+      if (interval_ != null) {
+        output.writeMessage(8, getInterval());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawIntervalExpr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, rawIntervalExpr_);
       }
       unknownFields.writeTo(output);
     }
@@ -45839,9 +45939,12 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(7, annotations__);
       }
-      if (interval_ != 0L) {
+      if (interval_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(8, interval_);
+          .computeMessageSize(8, getInterval());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawIntervalExpr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, rawIntervalExpr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -45872,8 +45975,13 @@ java.lang.String defaultValue);
           other.internalGetLabels())) return false;
       if (!internalGetAnnotations().equals(
           other.internalGetAnnotations())) return false;
-      if (getInterval()
-          != other.getInterval()) return false;
+      if (hasInterval() != other.hasInterval()) return false;
+      if (hasInterval()) {
+        if (!getInterval()
+            .equals(other.getInterval())) return false;
+      }
+      if (!getRawIntervalExpr()
+          .equals(other.getRawIntervalExpr())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -45906,9 +46014,12 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ANNOTATIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAnnotations().hashCode();
       }
-      hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getInterval());
+      if (hasInterval()) {
+        hash = (37 * hash) + INTERVAL_FIELD_NUMBER;
+        hash = (53 * hash) + getInterval().hashCode();
+      }
+      hash = (37 * hash) + RAW_INTERVAL_EXPR_FIELD_NUMBER;
+      hash = (53 * hash) + getRawIntervalExpr().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -46089,7 +46200,13 @@ java.lang.String defaultValue);
         }
         internalGetMutableLabels().clear();
         internalGetMutableAnnotations().clear();
-        interval_ = 0L;
+        if (intervalBuilder_ == null) {
+          interval_ = null;
+        } else {
+          interval_ = null;
+          intervalBuilder_ = null;
+        }
+        rawIntervalExpr_ = "";
 
         return this;
       }
@@ -46135,7 +46252,12 @@ java.lang.String defaultValue);
         result.labels_.makeImmutable();
         result.annotations_ = internalGetAnnotations();
         result.annotations_.makeImmutable();
-        result.interval_ = interval_;
+        if (intervalBuilder_ == null) {
+          result.interval_ = interval_;
+        } else {
+          result.interval_ = intervalBuilder_.build();
+        }
+        result.rawIntervalExpr_ = rawIntervalExpr_;
         onBuilt();
         return result;
       }
@@ -46229,8 +46351,12 @@ java.lang.String defaultValue);
             other.internalGetLabels());
         internalGetMutableAnnotations().mergeFrom(
             other.internalGetAnnotations());
-        if (other.getInterval() != 0L) {
-          setInterval(other.getInterval());
+        if (other.hasInterval()) {
+          mergeInterval(other.getInterval());
+        }
+        if (!other.getRawIntervalExpr().isEmpty()) {
+          rawIntervalExpr_ = other.rawIntervalExpr_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -47171,45 +47297,217 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private long interval_ ;
+      private com.google.protobuf.Duration interval_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> intervalBuilder_;
       /**
-       * <pre>
-       * The execution interval for sql query in seconds.
-       * </pre>
-       *
-       * <code>uint64 interval = 8;</code>
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       * @return Whether the interval field is set.
+       */
+      public boolean hasInterval() {
+        return intervalBuilder_ != null || interval_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
        * @return The interval.
        */
-      @java.lang.Override
-      public long getInterval() {
-        return interval_;
+      public com.google.protobuf.Duration getInterval() {
+        if (intervalBuilder_ == null) {
+          return interval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : interval_;
+        } else {
+          return intervalBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public Builder setInterval(com.google.protobuf.Duration value) {
+        if (intervalBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          interval_ = value;
+          onChanged();
+        } else {
+          intervalBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public Builder setInterval(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (intervalBuilder_ == null) {
+          interval_ = builderForValue.build();
+          onChanged();
+        } else {
+          intervalBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public Builder mergeInterval(com.google.protobuf.Duration value) {
+        if (intervalBuilder_ == null) {
+          if (interval_ != null) {
+            interval_ =
+              com.google.protobuf.Duration.newBuilder(interval_).mergeFrom(value).buildPartial();
+          } else {
+            interval_ = value;
+          }
+          onChanged();
+        } else {
+          intervalBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public Builder clearInterval() {
+        if (intervalBuilder_ == null) {
+          interval_ = null;
+          onChanged();
+        } else {
+          interval_ = null;
+          intervalBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public com.google.protobuf.Duration.Builder getIntervalBuilder() {
+        
+        onChanged();
+        return getIntervalFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getIntervalOrBuilder() {
+        if (intervalBuilder_ != null) {
+          return intervalBuilder_.getMessageOrBuilder();
+        } else {
+          return interval_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : interval_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Duration interval = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getIntervalFieldBuilder() {
+        if (intervalBuilder_ == null) {
+          intervalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getInterval(),
+                  getParentForChildren(),
+                  isClean());
+          interval_ = null;
+        }
+        return intervalBuilder_;
+      }
+
+      private java.lang.Object rawIntervalExpr_ = "";
+      /**
+       * <pre>
+       * The raw interval expression, e.g., '1 minute'::INTERVAL.
+       * </pre>
+       *
+       * <code>string raw_interval_expr = 9;</code>
+       * @return The rawIntervalExpr.
+       */
+      public java.lang.String getRawIntervalExpr() {
+        java.lang.Object ref = rawIntervalExpr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rawIntervalExpr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
-       * The execution interval for sql query in seconds.
+       * The raw interval expression, e.g., '1 minute'::INTERVAL.
        * </pre>
        *
-       * <code>uint64 interval = 8;</code>
-       * @param value The interval to set.
+       * <code>string raw_interval_expr = 9;</code>
+       * @return The bytes for rawIntervalExpr.
+       */
+      public com.google.protobuf.ByteString
+          getRawIntervalExprBytes() {
+        java.lang.Object ref = rawIntervalExpr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rawIntervalExpr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The raw interval expression, e.g., '1 minute'::INTERVAL.
+       * </pre>
+       *
+       * <code>string raw_interval_expr = 9;</code>
+       * @param value The rawIntervalExpr to set.
        * @return This builder for chaining.
        */
-      public Builder setInterval(long value) {
-        
-        interval_ = value;
+      public Builder setRawIntervalExpr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rawIntervalExpr_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The execution interval for sql query in seconds.
+       * The raw interval expression, e.g., '1 minute'::INTERVAL.
        * </pre>
        *
-       * <code>uint64 interval = 8;</code>
+       * <code>string raw_interval_expr = 9;</code>
        * @return This builder for chaining.
        */
-      public Builder clearInterval() {
+      public Builder clearRawIntervalExpr() {
         
-        interval_ = 0L;
+        rawIntervalExpr_ = getDefaultInstance().getRawIntervalExpr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The raw interval expression, e.g., '1 minute'::INTERVAL.
+       * </pre>
+       *
+       * <code>string raw_interval_expr = 9;</code>
+       * @param value The bytes for rawIntervalExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRawIntervalExprBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rawIntervalExpr_ = value;
         onChanged();
         return this;
       }
@@ -50108,183 +50406,187 @@ java.lang.String defaultValue);
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\030gr" +
-      "eptime/v1/common.proto\"\250\004\n\nDdlRequest\022:\n" +
-      "\017create_database\030\001 \001(\0132\037.greptime.v1.Cre" +
-      "ateDatabaseExprH\000\0224\n\014create_table\030\002 \001(\0132" +
-      "\034.greptime.v1.CreateTableExprH\000\0222\n\013alter" +
-      "_table\030\003 \001(\0132\033.greptime.v1.AlterTableExp" +
-      "rH\000\0220\n\ndrop_table\030\004 \001(\0132\032.greptime.v1.Dr" +
-      "opTableExprH\000\0228\n\016truncate_table\030\007 \001(\0132\036." +
-      "greptime.v1.TruncateTableExprH\000\0222\n\013creat" +
-      "e_flow\030\010 \001(\0132\033.greptime.v1.CreateFlowExp" +
-      "rH\000\022.\n\tdrop_flow\030\t \001(\0132\031.greptime.v1.Dro" +
-      "pFlowExprH\000\0222\n\013create_view\030\n \001(\0132\033.grept" +
-      "ime.v1.CreateViewExprH\000\022.\n\tdrop_view\030\013 \001" +
-      "(\0132\031.greptime.v1.DropViewExprH\000\0228\n\016alter" +
-      "_database\030\014 \001(\0132\036.greptime.v1.AlterDatab" +
-      "aseExprH\000B\006\n\004expr\"\226\003\n\016CreateFlowExpr\022\024\n\014" +
-      "catalog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n" +
-      "\022source_table_names\030\003 \003(\0132\026.greptime.v1." +
-      "TableName\022/\n\017sink_table_name\030\004 \001(\0132\026.gre" +
-      "ptime.v1.TableName\022\022\n\nor_replace\030\005 \001(\010\022\034" +
-      "\n\024create_if_not_exists\030\006 \001(\010\022.\n\014expire_a" +
-      "fter\030\007 \001(\0132\030.greptime.v1.ExpireAfter\022\017\n\007" +
-      "comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_optio" +
-      "ns\030\n \003(\0132,.greptime.v1.CreateFlowExpr.Fl" +
-      "owOptionsEntry\0322\n\020FlowOptionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFlowEx" +
-      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 " +
-      "\001(\t\022$\n\007flow_id\030\003 \001(\0132\023.greptime.v1.FlowI" +
-      "d\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001\n\016CreateView" +
-      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
-      "e\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n\014logical_pl" +
-      "an\030\004 \001(\014\022\034\n\024create_if_not_exists\030\005 \001(\010\022\022" +
-      "\n\nor_replace\030\006 \001(\010\022+\n\013table_names\030\007 \003(\0132" +
-      "\026.greptime.v1.TableName\022\017\n\007columns\030\010 \003(\t" +
-      "\022\024\n\014plan_columns\030\t \003(\t\022\022\n\ndefinition\030\n \001" +
-      "(\t\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 \001(" +
-      "\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(" +
-      "\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.TableId" +
-      "\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTable" +
-      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_nam" +
-      "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(" +
-      "\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.Col" +
-      "umnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_ke" +
-      "ys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010\022E" +
-      "\n\rtable_options\030\t \003(\0132..greptime.v1.Crea" +
-      "teTableExpr.TableOptionsEntry\022&\n\010table_i" +
-      "d\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engine\030" +
-      "\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\"\312\005\n\016AlterTableExpr\022\024\n" +
-      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
-      "\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(" +
-      "\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_col" +
-      "umns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000\0220" +
-      "\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Renam" +
-      "eTableH\000\022=\n\023modify_column_types\030\007 \001(\0132\036." +
-      "greptime.v1.ModifyColumnTypesH\000\0229\n\021set_t" +
-      "able_options\030\010 \001(\0132\034.greptime.v1.SetTabl" +
-      "eOptionsH\000\022=\n\023unset_table_options\030\013 \001(\0132" +
-      "\036.greptime.v1.UnsetTableOptionsH\000\022*\n\tset" +
-      "_index\030\014 \001(\0132\025.greptime.v1.SetIndexH\000\022.\n" +
-      "\013unset_index\030\r \001(\0132\027.greptime.v1.UnsetIn" +
-      "dexH\000\0222\n\rdrop_defaults\030\016 \001(\0132\031.greptime." +
-      "v1.DropDefaultsH\000\022.\n\013set_indexes\030\017 \001(\0132\027" +
-      ".greptime.v1.SetIndexesH\000\0222\n\runset_index" +
-      "es\030\020 \001(\0132\031.greptime.v1.UnsetIndexesH\000\0220\n" +
-      "\014set_defaults\030\021 \001(\0132\030.greptime.v1.SetDef" +
-      "aultsH\000B\006\n\004kind\"\"\n\013DropDefault\022\023\n\013column" +
-      "_name\030\001 \001(\t\"8\n\nSetIndexes\022*\n\013set_indexes" +
-      "\030\001 \003(\0132\025.greptime.v1.SetIndex\">\n\014UnsetIn" +
-      "dexes\022.\n\runset_indexes\030\001 \003(\0132\027.greptime." +
-      "v1.UnsetIndex\"=\n\nSetDefault\022\023\n\013column_na" +
-      "me\030\001 \001(\t\022\032\n\022default_constraint\030\002 \001(\014\"\237\001\n" +
-      "\010SetIndex\022,\n\010fulltext\030\001 \001(\0132\030.greptime.v" +
-      "1.SetFulltextH\000\022,\n\010inverted\030\002 \001(\0132\030.grep" +
-      "time.v1.SetInvertedH\000\022,\n\010skipping\030\003 \001(\0132" +
-      "\030.greptime.v1.SetSkippingH\000B\t\n\007options\"\247" +
-      "\001\n\nUnsetIndex\022.\n\010fulltext\030\001 \001(\0132\032.grepti" +
-      "me.v1.UnsetFulltextH\000\022.\n\010inverted\030\002 \001(\0132" +
-      "\032.greptime.v1.UnsetInvertedH\000\022.\n\010skippin" +
-      "g\030\003 \001(\0132\032.greptime.v1.UnsetSkippingH\000B\t\n" +
-      "\007options\"\216\001\n\rDropTableExpr\022\024\n\014catalog_na" +
-      "me\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_n" +
-      "ame\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v" +
-      "1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022Cr" +
-      "eateDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
-      "\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_not_exi" +
-      "sts\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1" +
-      ".CreateDatabaseExpr.OptionsEntry\032.\n\014Opti" +
-      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\250\001\n\021TruncateTableExpr\022\024\n\014catalog_name\030\001" +
-      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030" +
-      "\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Ta" +
-      "bleId\022,\n\013time_ranges\030\005 \001(\0132\027.greptime.v1" +
-      ".TimeRanges\"U\n\020DropDatabaseExpr\022\024\n\014catal" +
-      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016dr" +
-      "op_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_" +
-      "columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"?\n" +
-      "\014DropDefaults\022/\n\rdrop_defaults\030\001 \003(\0132\030.g" +
-      "reptime.v1.DropDefault\"<\n\013SetDefaults\022-\n" +
-      "\014set_defaults\030\001 \003(\0132\027.greptime.v1.SetDef" +
-      "ault\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(" +
-      "\0132\027.greptime.v1.DropColumn\"O\n\021ModifyColu" +
-      "mnTypes\022:\n\023modify_column_types\030\001 \003(\0132\035.g" +
-      "reptime.v1.ModifyColumnType\"%\n\013RenameTab" +
-      "le\022\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tAddColumn" +
-      "\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colum" +
-      "nDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.Add" +
-      "ColumnLocation\022\031\n\021add_if_not_exists\030\004 \001(" +
-      "\010\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030\001 " +
-      "\001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1.C" +
-      "olumnDataType\022C\n\025target_type_extension\030\003" +
-      " \001(\0132$.greptime.v1.ColumnDataTypeExtensi" +
-      "on\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      "\"=\n\017SetTableOptions\022*\n\rtable_options\030\001 \003" +
-      "(\0132\023.greptime.v1.Option\"!\n\021UnsetTableOpt" +
-      "ions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name" +
-      "\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022" +
-      "\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022" +
-      ".\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnD" +
-      "ataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_" +
-      "constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162" +
-      "\031.greptime.v1.SemanticType\022\017\n\007comment\030\006 " +
-      "\001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grepti" +
-      "me.v1.ColumnDataTypeExtension\022+\n\007options" +
-      "\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021A" +
-      "ddColumnLocation\022B\n\rlocation_type\030\001 \001(\0162" +
-      "+.greptime.v1.AddColumnLocation.Location" +
-      "Type\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locat" +
-      "ionType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFul" +
-      "ltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001" +
-      "(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analy" +
-      "zer\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005" +
-      " \001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013gr" +
-      "anularity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007" +
-      " \001(\001\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001" +
-      "(\t\"\"\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$" +
-      "\n\rUnsetInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n" +
-      "\013SetSkipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006ena" +
-      "ble\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skippi" +
-      "ng_index_type\030\004 \001(\0162\036.greptime.v1.Skippi" +
-      "ngIndexType\022\033\n\023false_positive_rate\030\005 \001(\001" +
-      "\"$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314" +
-      "\001\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001" +
-      "(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_" +
-      "options\030\003 \001(\0132\037.greptime.v1.SetDatabaseO" +
-      "ptionsH\000\022C\n\026unset_database_options\030\004 \001(\013" +
-      "2!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n" +
-      "\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_datab" +
-      "ase_options\030\001 \003(\0132\023.greptime.v1.Option\"$" +
-      "\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\217\003\n" +
-      "\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t" +
-      "\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_" +
-      "exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 " +
-      "\003(\0132\032.greptime.v1.NotifyChannel\022:\n\006label" +
-      "s\030\006 \003(\0132*.greptime.v1.CreateTriggerExpr." +
-      "LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.grept" +
-      "ime.v1.CreateTriggerExpr.AnnotationsEntr" +
-      "y\022\020\n\010interval\030\010 \001(\004\032-\n\013LabelsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annotation" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]" +
-      "\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook" +
-      "\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH\000B\016\n" +
-      "\014channel_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001" +
-      " \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Webhook" +
-      "Options.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExp" +
-      "r\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name\030" +
-      "\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Analyze" +
-      "r\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextB" +
-      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippi" +
-      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io.grep" +
-      "time.v1B\003DdlZ5github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1b\006proto3"
+      "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\036go" +
+      "ogle/protobuf/duration.proto\032\030greptime/v" +
+      "1/common.proto\"\250\004\n\nDdlRequest\022:\n\017create_" +
+      "database\030\001 \001(\0132\037.greptime.v1.CreateDatab" +
+      "aseExprH\000\0224\n\014create_table\030\002 \001(\0132\034.grepti" +
+      "me.v1.CreateTableExprH\000\0222\n\013alter_table\030\003" +
+      " \001(\0132\033.greptime.v1.AlterTableExprH\000\0220\n\nd" +
+      "rop_table\030\004 \001(\0132\032.greptime.v1.DropTableE" +
+      "xprH\000\0228\n\016truncate_table\030\007 \001(\0132\036.greptime" +
+      ".v1.TruncateTableExprH\000\0222\n\013create_flow\030\010" +
+      " \001(\0132\033.greptime.v1.CreateFlowExprH\000\022.\n\td" +
+      "rop_flow\030\t \001(\0132\031.greptime.v1.DropFlowExp" +
+      "rH\000\0222\n\013create_view\030\n \001(\0132\033.greptime.v1.C" +
+      "reateViewExprH\000\022.\n\tdrop_view\030\013 \001(\0132\031.gre" +
+      "ptime.v1.DropViewExprH\000\0228\n\016alter_databas" +
+      "e\030\014 \001(\0132\036.greptime.v1.AlterDatabaseExprH" +
+      "\000B\006\n\004expr\"\226\003\n\016CreateFlowExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n\022source_" +
+      "table_names\030\003 \003(\0132\026.greptime.v1.TableNam" +
+      "e\022/\n\017sink_table_name\030\004 \001(\0132\026.greptime.v1" +
+      ".TableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024create" +
+      "_if_not_exists\030\006 \001(\010\022.\n\014expire_after\030\007 \001" +
+      "(\0132\030.greptime.v1.ExpireAfter\022\017\n\007comment\030" +
+      "\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_options\030\n \003(\013" +
+      "2,.greptime.v1.CreateFlowExpr.FlowOption" +
+      "sEntry\0322\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFlowExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\022$\n\007f" +
+      "low_id\030\003 \001(\0132\023.greptime.v1.FlowId\022\026\n\016dro" +
+      "p_if_exists\030\005 \001(\010\"\376\001\n\016CreateViewExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
+      "\021\n\tview_name\030\003 \001(\t\022\024\n\014logical_plan\030\004 \001(\014" +
+      "\022\034\n\024create_if_not_exists\030\005 \001(\010\022\022\n\nor_rep" +
+      "lace\030\006 \001(\010\022+\n\013table_names\030\007 \003(\0132\026.grepti" +
+      "me.v1.TableName\022\017\n\007columns\030\010 \003(\t\022\024\n\014plan" +
+      "_columns\030\t \003(\t\022\022\n\ndefinition\030\n \001(\t\"\213\001\n\014D" +
+      "ropViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
+      "ema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022%\n\007vie" +
+      "w_id\030\004 \001(\0132\024.greptime.v1.TableId\022\026\n\016drop" +
+      "_if_exists\030\005 \001(\010\"\207\003\n\017CreateTableExpr\022\024\n\014" +
+      "catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022" +
+      "\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022+\n\013col" +
+      "umn_defs\030\005 \003(\0132\026.greptime.v1.ColumnDef\022\022" +
+      "\n\ntime_index\030\006 \001(\t\022\024\n\014primary_keys\030\007 \003(\t" +
+      "\022\034\n\024create_if_not_exists\030\010 \001(\010\022E\n\rtable_" +
+      "options\030\t \003(\0132..greptime.v1.CreateTableE" +
+      "xpr.TableOptionsEntry\022&\n\010table_id\030\n \001(\0132" +
+      "\024.greptime.v1.TableId\022\016\n\006engine\030\014 \001(\t\0323\n" +
+      "\021TableOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"\312\005\n\016AlterTableExpr\022\024\n\014catalog" +
+      "_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntabl" +
+      "e_name\030\003 \001(\t\022.\n\013add_columns\030\004 \001(\0132\027.grep" +
+      "time.v1.AddColumnsH\000\0220\n\014drop_columns\030\005 \001" +
+      "(\0132\030.greptime.v1.DropColumnsH\000\0220\n\014rename" +
+      "_table\030\006 \001(\0132\030.greptime.v1.RenameTableH\000" +
+      "\022=\n\023modify_column_types\030\007 \001(\0132\036.greptime" +
+      ".v1.ModifyColumnTypesH\000\0229\n\021set_table_opt" +
+      "ions\030\010 \001(\0132\034.greptime.v1.SetTableOptions" +
+      "H\000\022=\n\023unset_table_options\030\013 \001(\0132\036.grepti" +
+      "me.v1.UnsetTableOptionsH\000\022*\n\tset_index\030\014" +
+      " \001(\0132\025.greptime.v1.SetIndexH\000\022.\n\013unset_i" +
+      "ndex\030\r \001(\0132\027.greptime.v1.UnsetIndexH\000\0222\n" +
+      "\rdrop_defaults\030\016 \001(\0132\031.greptime.v1.DropD" +
+      "efaultsH\000\022.\n\013set_indexes\030\017 \001(\0132\027.greptim" +
+      "e.v1.SetIndexesH\000\0222\n\runset_indexes\030\020 \001(\013" +
+      "2\031.greptime.v1.UnsetIndexesH\000\0220\n\014set_def" +
+      "aults\030\021 \001(\0132\030.greptime.v1.SetDefaultsH\000B" +
+      "\006\n\004kind\"\"\n\013DropDefault\022\023\n\013column_name\030\001 " +
+      "\001(\t\"8\n\nSetIndexes\022*\n\013set_indexes\030\001 \003(\0132\025" +
+      ".greptime.v1.SetIndex\">\n\014UnsetIndexes\022.\n" +
+      "\runset_indexes\030\001 \003(\0132\027.greptime.v1.Unset" +
+      "Index\"=\n\nSetDefault\022\023\n\013column_name\030\001 \001(\t" +
+      "\022\032\n\022default_constraint\030\002 \001(\014\"\237\001\n\010SetInde" +
+      "x\022,\n\010fulltext\030\001 \001(\0132\030.greptime.v1.SetFul" +
+      "ltextH\000\022,\n\010inverted\030\002 \001(\0132\030.greptime.v1." +
+      "SetInvertedH\000\022,\n\010skipping\030\003 \001(\0132\030.grepti" +
+      "me.v1.SetSkippingH\000B\t\n\007options\"\247\001\n\nUnset" +
+      "Index\022.\n\010fulltext\030\001 \001(\0132\032.greptime.v1.Un" +
+      "setFulltextH\000\022.\n\010inverted\030\002 \001(\0132\032.grepti" +
+      "me.v1.UnsetInvertedH\000\022.\n\010skipping\030\003 \001(\0132" +
+      "\032.greptime.v1.UnsetSkippingH\000B\t\n\007options" +
+      "\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t" +
+      "\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(" +
+      "\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableI" +
+      "d\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateData" +
+      "baseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
+      "_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(" +
+      "\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.CreateD" +
+      "atabaseExpr.OptionsEntry\032.\n\014OptionsEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\250\001\n\021Tru" +
+      "ncateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013" +
+      "schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n" +
+      "\010table_id\030\004 \001(\0132\024.greptime.v1.TableId\022,\n" +
+      "\013time_ranges\030\005 \001(\0132\027.greptime.v1.TimeRan" +
+      "ges\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_ex" +
+      "ists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030" +
+      "\001 \003(\0132\026.greptime.v1.AddColumn\"?\n\014DropDef" +
+      "aults\022/\n\rdrop_defaults\030\001 \003(\0132\030.greptime." +
+      "v1.DropDefault\"<\n\013SetDefaults\022-\n\014set_def" +
+      "aults\030\001 \003(\0132\027.greptime.v1.SetDefault\"<\n\013" +
+      "DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027.grep" +
+      "time.v1.DropColumn\"O\n\021ModifyColumnTypes\022" +
+      ":\n\023modify_column_types\030\001 \003(\0132\035.greptime." +
+      "v1.ModifyColumnType\"%\n\013RenameTable\022\026\n\016ne" +
+      "w_table_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncolu" +
+      "mn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010" +
+      "location\030\003 \001(\0132\036.greptime.v1.AddColumnLo" +
+      "cation\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020Mo" +
+      "difyColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013t" +
+      "arget_type\030\002 \001(\0162\033.greptime.v1.ColumnDat" +
+      "aType\022C\n\025target_type_extension\030\003 \001(\0132$.g" +
+      "reptime.v1.ColumnDataTypeExtension\"$\n\006Op" +
+      "tion\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetT" +
+      "ableOptions\022*\n\rtable_options\030\001 \003(\0132\023.gre" +
+      "ptime.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004" +
+      "keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025" +
+      "\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 " +
+      "\001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_" +
+      "type\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022" +
+      "\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constrai" +
+      "nt\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.grepti" +
+      "me.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022d" +
+      "atatype_extension\030\007 \001(\0132$.greptime.v1.Co" +
+      "lumnDataTypeExtension\022+\n\007options\030\010 \001(\0132\032" +
+      ".greptime.v1.ColumnOptions\"\230\001\n\021AddColumn" +
+      "Location\022B\n\rlocation_type\030\001 \001(\0162+.grepti" +
+      "me.v1.AddColumnLocation.LocationType\022\031\n\021" +
+      "after_column_name\030\002 \001(\t\"$\n\014LocationType\022" +
+      "\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n" +
+      "\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010an" +
+      "alyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016c" +
+      "ase_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.g" +
+      "reptime.v1.FulltextBackend\022\023\n\013granularit" +
+      "y\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\r" +
+      "UnsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013Se" +
+      "tInverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetI" +
+      "nverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkip" +
+      "ping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(" +
+      "\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_index" +
+      "_type\030\004 \001(\0162\036.greptime.v1.SkippingIndexT" +
+      "ype\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\rUnse" +
+      "tSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021Alter" +
+      "DatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022?\n\024set_database_options\030" +
+      "\003 \001(\0132\037.greptime.v1.SetDatabaseOptionsH\000" +
+      "\022C\n\026unset_database_options\030\004 \001(\0132!.grept" +
+      "ime.v1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n" +
+      "\022SetDatabaseOptions\0221\n\024set_database_opti" +
+      "ons\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024UnsetD" +
+      "atabaseOptions\022\014\n\004keys\030\001 \003(\t\"\305\003\n\021CreateT" +
+      "riggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trig" +
+      "ger_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003" +
+      " \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.gr" +
+      "eptime.v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132" +
+      "*.greptime.v1.CreateTriggerExpr.LabelsEn" +
+      "try\022D\n\013annotations\030\007 \003(\0132/.greptime.v1.C" +
+      "reateTriggerExpr.AnnotationsEntry\022+\n\010int" +
+      "erval\030\010 \001(\0132\031.google.protobuf.Duration\022\031" +
+      "\n\021raw_interval_expr\030\t \001(\t\032-\n\013LabelsEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Anno" +
+      "tationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007w" +
+      "ebhook\030\002 \001(\0132\033.greptime.v1.WebhookOption" +
+      "sH\000B\016\n\014channel_type\"\177\n\016WebhookOptions\022\013\n" +
+      "\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.W" +
+      "ebhookOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTrig" +
+      "gerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger" +
+      "_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010A" +
+      "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Ful" +
+      "ltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021" +
+      "SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016i" +
+      "o.greptime.v1B\003DdlZ5github.com/GreptimeT" +
+      "eam/greptime-proto/go/greptime/v1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.DurationProto.getDescriptor(),
           io.greptime.v1.Common.getDescriptor(),
         });
     internal_static_greptime_v1_DdlRequest_descriptor =
@@ -50562,7 +50864,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "TriggerName", "CreateIfNotExists", "Sql", "Channels", "Labels", "Annotations", "Interval", });
+        new java.lang.String[] { "CatalogName", "TriggerName", "CreateIfNotExists", "Sql", "Channels", "Labels", "Annotations", "Interval", "RawIntervalExpr", });
     internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor =
       internal_static_greptime_v1_CreateTriggerExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_fieldAccessorTable = new
@@ -50599,6 +50901,7 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
+    com.google.protobuf.DurationProto.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
   }
 
