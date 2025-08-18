@@ -353,6 +353,8 @@ message CreateTriggerExpr {
   // The user-defined annotations.
   map<string, string> annotations = 7;
   google.protobuf.Duration interval = 8;
+  // The raw interval expression, e.g., '1 minute'::INTERVAL.
+  string raw_interval_expr = 9;
 }
 
 // The notification channel for trigger.
