@@ -105,6 +105,11 @@ message ExpireAfter {
   int64 value = 1;
 }
 
+// Eval Interval in seconds
+message EvalInterval{
+  int64 seconds = 1;
+}
+
 message FlightMetadata {
   AffectedRows affected_rows = 1;
   Metrics metrics = 2;
