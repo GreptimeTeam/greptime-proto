@@ -426,10 +426,11 @@ type CreateFlowExpr struct {
 	OrReplace         bool         `protobuf:"varint,5,opt,name=or_replace,json=orReplace,proto3" json:"or_replace,omitempty"`
 	CreateIfNotExists bool         `protobuf:"varint,6,opt,name=create_if_not_exists,json=createIfNotExists,proto3" json:"create_if_not_exists,omitempty"`
 	// Expire data older than the given duration seconds.
-	ExpireAfter *ExpireAfter      `protobuf:"bytes,7,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
-	Comment     string            `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
-	Sql         string            `protobuf:"bytes,9,opt,name=sql,proto3" json:"sql,omitempty"`
-	FlowOptions map[string]string `protobuf:"bytes,10,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ExpireAfter  *ExpireAfter      `protobuf:"bytes,7,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
+	EvalInterval *EvalInterval     `protobuf:"bytes,11,opt,name=eval_interval,json=evalInterval,proto3" json:"eval_interval,omitempty"`
+	Comment      string            `protobuf:"bytes,8,opt,name=comment,proto3" json:"comment,omitempty"`
+	Sql          string            `protobuf:"bytes,9,opt,name=sql,proto3" json:"sql,omitempty"`
+	FlowOptions  map[string]string `protobuf:"bytes,10,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (x *CreateFlowExpr) Reset() {
@@ -509,6 +510,13 @@ func (x *CreateFlowExpr) GetCreateIfNotExists() bool {
 func (x *CreateFlowExpr) GetExpireAfter() *ExpireAfter {
 	if x != nil {
 		return x.ExpireAfter
+	}
+	return nil
+}
+
+func (x *CreateFlowExpr) GetEvalInterval() *EvalInterval {
+	if x != nil {
+		return x.EvalInterval
 	}
 	return nil
 }
@@ -3636,7 +3644,7 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x6c, 0x74,
 	0x65, 0x72, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x45, 0x78, 0x70, 0x72, 0x48, 0x00,
 	0x52, 0x0d, 0x61, 0x6c, 0x74, 0x65, 0x72, 0x44, 0x61, 0x74, 0x61, 0x62, 0x61, 0x73, 0x65, 0x42,
-	0x06, 0x0a, 0x04, 0x65, 0x78, 0x70, 0x72, 0x22, 0xa0, 0x04, 0x0a, 0x0e, 0x43, 0x72, 0x65, 0x61,
+	0x06, 0x0a, 0x04, 0x65, 0x78, 0x70, 0x72, 0x22, 0xe0, 0x04, 0x0a, 0x0e, 0x43, 0x72, 0x65, 0x61,
 	0x74, 0x65, 0x46, 0x6c, 0x6f, 0x77, 0x45, 0x78, 0x70, 0x72, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61,
 	0x74, 0x61, 0x6c, 0x6f, 0x67, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x0b, 0x63, 0x61, 0x74, 0x61, 0x6c, 0x6f, 0x67, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x1b, 0x0a,
@@ -3658,7 +3666,11 @@ var file_greptime_v1_ddl_proto_rawDesc = []byte{
 	0x12, 0x3b, 0x0a, 0x0c, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x5f, 0x61, 0x66, 0x74, 0x65, 0x72,
 	0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
 	0x65, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72,
-	0x52, 0x0b, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72, 0x12, 0x18, 0x0a,
+	0x52, 0x0b, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72, 0x12, 0x3e, 0x0a,
+	0x0d, 0x65, 0x76, 0x61, 0x6c, 0x5f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x18, 0x0b,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
+	0x76, 0x31, 0x2e, 0x45, 0x76, 0x61, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x52,
+	0x0c, 0x65, 0x76, 0x61, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c, 0x12, 0x18, 0x0a,
 	0x07, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
 	0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x73, 0x71, 0x6c, 0x18, 0x09,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x73, 0x71, 0x6c, 0x12, 0x4f, 0x0a, 0x0c, 0x66, 0x6c, 0x6f,
@@ -4228,12 +4240,13 @@ var file_greptime_v1_ddl_proto_goTypes = []interface{}{
 	nil,                                 // 55: greptime.v1.WebhookOptions.OptsEntry
 	(*TableName)(nil),                   // 56: greptime.v1.TableName
 	(*ExpireAfter)(nil),                 // 57: greptime.v1.ExpireAfter
-	(*TimeRanges)(nil),                  // 58: greptime.v1.TimeRanges
-	(ColumnDataType)(0),                 // 59: greptime.v1.ColumnDataType
-	(*ColumnDataTypeExtension)(nil),     // 60: greptime.v1.ColumnDataTypeExtension
-	(SemanticType)(0),                   // 61: greptime.v1.SemanticType
-	(*ColumnOptions)(nil),               // 62: greptime.v1.ColumnOptions
-	(*durationpb.Duration)(nil),         // 63: google.protobuf.Duration
+	(*EvalInterval)(nil),                // 58: greptime.v1.EvalInterval
+	(*TimeRanges)(nil),                  // 59: greptime.v1.TimeRanges
+	(ColumnDataType)(0),                 // 60: greptime.v1.ColumnDataType
+	(*ColumnDataTypeExtension)(nil),     // 61: greptime.v1.ColumnDataTypeExtension
+	(SemanticType)(0),                   // 62: greptime.v1.SemanticType
+	(*ColumnOptions)(nil),               // 63: greptime.v1.ColumnOptions
+	(*durationpb.Duration)(nil),         // 64: google.protobuf.Duration
 }
 var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	18, // 0: greptime.v1.DdlRequest.create_database:type_name -> greptime.v1.CreateDatabaseExpr
@@ -4249,69 +4262,70 @@ var file_greptime_v1_ddl_proto_depIdxs = []int32{
 	56, // 10: greptime.v1.CreateFlowExpr.source_table_names:type_name -> greptime.v1.TableName
 	56, // 11: greptime.v1.CreateFlowExpr.sink_table_name:type_name -> greptime.v1.TableName
 	57, // 12: greptime.v1.CreateFlowExpr.expire_after:type_name -> greptime.v1.ExpireAfter
-	50, // 13: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
-	34, // 14: greptime.v1.DropFlowExpr.flow_id:type_name -> greptime.v1.FlowId
-	56, // 15: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
-	33, // 16: greptime.v1.DropViewExpr.view_id:type_name -> greptime.v1.TableId
-	35, // 17: greptime.v1.CreateTableExpr.column_defs:type_name -> greptime.v1.ColumnDef
-	51, // 18: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
-	33, // 19: greptime.v1.CreateTableExpr.table_id:type_name -> greptime.v1.TableId
-	21, // 20: greptime.v1.AlterTableExpr.add_columns:type_name -> greptime.v1.AddColumns
-	24, // 21: greptime.v1.AlterTableExpr.drop_columns:type_name -> greptime.v1.DropColumns
-	26, // 22: greptime.v1.AlterTableExpr.rename_table:type_name -> greptime.v1.RenameTable
-	25, // 23: greptime.v1.AlterTableExpr.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
-	30, // 24: greptime.v1.AlterTableExpr.set_table_options:type_name -> greptime.v1.SetTableOptions
-	31, // 25: greptime.v1.AlterTableExpr.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
-	15, // 26: greptime.v1.AlterTableExpr.set_index:type_name -> greptime.v1.SetIndex
-	16, // 27: greptime.v1.AlterTableExpr.unset_index:type_name -> greptime.v1.UnsetIndex
-	22, // 28: greptime.v1.AlterTableExpr.drop_defaults:type_name -> greptime.v1.DropDefaults
-	12, // 29: greptime.v1.AlterTableExpr.set_indexes:type_name -> greptime.v1.SetIndexes
-	13, // 30: greptime.v1.AlterTableExpr.unset_indexes:type_name -> greptime.v1.UnsetIndexes
-	23, // 31: greptime.v1.AlterTableExpr.set_defaults:type_name -> greptime.v1.SetDefaults
-	15, // 32: greptime.v1.SetIndexes.set_indexes:type_name -> greptime.v1.SetIndex
-	16, // 33: greptime.v1.UnsetIndexes.unset_indexes:type_name -> greptime.v1.UnsetIndex
-	37, // 34: greptime.v1.SetIndex.fulltext:type_name -> greptime.v1.SetFulltext
-	39, // 35: greptime.v1.SetIndex.inverted:type_name -> greptime.v1.SetInverted
-	41, // 36: greptime.v1.SetIndex.skipping:type_name -> greptime.v1.SetSkipping
-	38, // 37: greptime.v1.UnsetIndex.fulltext:type_name -> greptime.v1.UnsetFulltext
-	40, // 38: greptime.v1.UnsetIndex.inverted:type_name -> greptime.v1.UnsetInverted
-	42, // 39: greptime.v1.UnsetIndex.skipping:type_name -> greptime.v1.UnsetSkipping
-	33, // 40: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
-	52, // 41: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
-	33, // 42: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
-	58, // 43: greptime.v1.TruncateTableExpr.time_ranges:type_name -> greptime.v1.TimeRanges
-	27, // 44: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
-	11, // 45: greptime.v1.DropDefaults.drop_defaults:type_name -> greptime.v1.DropDefault
-	14, // 46: greptime.v1.SetDefaults.set_defaults:type_name -> greptime.v1.SetDefault
-	32, // 47: greptime.v1.DropColumns.drop_columns:type_name -> greptime.v1.DropColumn
-	28, // 48: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
-	35, // 49: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
-	36, // 50: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
-	59, // 51: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
-	60, // 52: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	29, // 53: greptime.v1.SetTableOptions.table_options:type_name -> greptime.v1.Option
-	59, // 54: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
-	61, // 55: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
-	60, // 56: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	62, // 57: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
-	3,  // 58: greptime.v1.AddColumnLocation.location_type:type_name -> greptime.v1.AddColumnLocation.LocationType
-	0,  // 59: greptime.v1.SetFulltext.analyzer:type_name -> greptime.v1.Analyzer
-	1,  // 60: greptime.v1.SetFulltext.backend:type_name -> greptime.v1.FulltextBackend
-	2,  // 61: greptime.v1.SetSkipping.skipping_index_type:type_name -> greptime.v1.SkippingIndexType
-	44, // 62: greptime.v1.AlterDatabaseExpr.set_database_options:type_name -> greptime.v1.SetDatabaseOptions
-	45, // 63: greptime.v1.AlterDatabaseExpr.unset_database_options:type_name -> greptime.v1.UnsetDatabaseOptions
-	29, // 64: greptime.v1.SetDatabaseOptions.set_database_options:type_name -> greptime.v1.Option
-	47, // 65: greptime.v1.CreateTriggerExpr.channels:type_name -> greptime.v1.NotifyChannel
-	53, // 66: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
-	54, // 67: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
-	63, // 68: greptime.v1.CreateTriggerExpr.interval:type_name -> google.protobuf.Duration
-	48, // 69: greptime.v1.NotifyChannel.webhook:type_name -> greptime.v1.WebhookOptions
-	55, // 70: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
-	71, // [71:71] is the sub-list for method output_type
-	71, // [71:71] is the sub-list for method input_type
-	71, // [71:71] is the sub-list for extension type_name
-	71, // [71:71] is the sub-list for extension extendee
-	0,  // [0:71] is the sub-list for field type_name
+	58, // 13: greptime.v1.CreateFlowExpr.eval_interval:type_name -> greptime.v1.EvalInterval
+	50, // 14: greptime.v1.CreateFlowExpr.flow_options:type_name -> greptime.v1.CreateFlowExpr.FlowOptionsEntry
+	34, // 15: greptime.v1.DropFlowExpr.flow_id:type_name -> greptime.v1.FlowId
+	56, // 16: greptime.v1.CreateViewExpr.table_names:type_name -> greptime.v1.TableName
+	33, // 17: greptime.v1.DropViewExpr.view_id:type_name -> greptime.v1.TableId
+	35, // 18: greptime.v1.CreateTableExpr.column_defs:type_name -> greptime.v1.ColumnDef
+	51, // 19: greptime.v1.CreateTableExpr.table_options:type_name -> greptime.v1.CreateTableExpr.TableOptionsEntry
+	33, // 20: greptime.v1.CreateTableExpr.table_id:type_name -> greptime.v1.TableId
+	21, // 21: greptime.v1.AlterTableExpr.add_columns:type_name -> greptime.v1.AddColumns
+	24, // 22: greptime.v1.AlterTableExpr.drop_columns:type_name -> greptime.v1.DropColumns
+	26, // 23: greptime.v1.AlterTableExpr.rename_table:type_name -> greptime.v1.RenameTable
+	25, // 24: greptime.v1.AlterTableExpr.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
+	30, // 25: greptime.v1.AlterTableExpr.set_table_options:type_name -> greptime.v1.SetTableOptions
+	31, // 26: greptime.v1.AlterTableExpr.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
+	15, // 27: greptime.v1.AlterTableExpr.set_index:type_name -> greptime.v1.SetIndex
+	16, // 28: greptime.v1.AlterTableExpr.unset_index:type_name -> greptime.v1.UnsetIndex
+	22, // 29: greptime.v1.AlterTableExpr.drop_defaults:type_name -> greptime.v1.DropDefaults
+	12, // 30: greptime.v1.AlterTableExpr.set_indexes:type_name -> greptime.v1.SetIndexes
+	13, // 31: greptime.v1.AlterTableExpr.unset_indexes:type_name -> greptime.v1.UnsetIndexes
+	23, // 32: greptime.v1.AlterTableExpr.set_defaults:type_name -> greptime.v1.SetDefaults
+	15, // 33: greptime.v1.SetIndexes.set_indexes:type_name -> greptime.v1.SetIndex
+	16, // 34: greptime.v1.UnsetIndexes.unset_indexes:type_name -> greptime.v1.UnsetIndex
+	37, // 35: greptime.v1.SetIndex.fulltext:type_name -> greptime.v1.SetFulltext
+	39, // 36: greptime.v1.SetIndex.inverted:type_name -> greptime.v1.SetInverted
+	41, // 37: greptime.v1.SetIndex.skipping:type_name -> greptime.v1.SetSkipping
+	38, // 38: greptime.v1.UnsetIndex.fulltext:type_name -> greptime.v1.UnsetFulltext
+	40, // 39: greptime.v1.UnsetIndex.inverted:type_name -> greptime.v1.UnsetInverted
+	42, // 40: greptime.v1.UnsetIndex.skipping:type_name -> greptime.v1.UnsetSkipping
+	33, // 41: greptime.v1.DropTableExpr.table_id:type_name -> greptime.v1.TableId
+	52, // 42: greptime.v1.CreateDatabaseExpr.options:type_name -> greptime.v1.CreateDatabaseExpr.OptionsEntry
+	33, // 43: greptime.v1.TruncateTableExpr.table_id:type_name -> greptime.v1.TableId
+	59, // 44: greptime.v1.TruncateTableExpr.time_ranges:type_name -> greptime.v1.TimeRanges
+	27, // 45: greptime.v1.AddColumns.add_columns:type_name -> greptime.v1.AddColumn
+	11, // 46: greptime.v1.DropDefaults.drop_defaults:type_name -> greptime.v1.DropDefault
+	14, // 47: greptime.v1.SetDefaults.set_defaults:type_name -> greptime.v1.SetDefault
+	32, // 48: greptime.v1.DropColumns.drop_columns:type_name -> greptime.v1.DropColumn
+	28, // 49: greptime.v1.ModifyColumnTypes.modify_column_types:type_name -> greptime.v1.ModifyColumnType
+	35, // 50: greptime.v1.AddColumn.column_def:type_name -> greptime.v1.ColumnDef
+	36, // 51: greptime.v1.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
+	60, // 52: greptime.v1.ModifyColumnType.target_type:type_name -> greptime.v1.ColumnDataType
+	61, // 53: greptime.v1.ModifyColumnType.target_type_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	29, // 54: greptime.v1.SetTableOptions.table_options:type_name -> greptime.v1.Option
+	60, // 55: greptime.v1.ColumnDef.data_type:type_name -> greptime.v1.ColumnDataType
+	62, // 56: greptime.v1.ColumnDef.semantic_type:type_name -> greptime.v1.SemanticType
+	61, // 57: greptime.v1.ColumnDef.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	63, // 58: greptime.v1.ColumnDef.options:type_name -> greptime.v1.ColumnOptions
+	3,  // 59: greptime.v1.AddColumnLocation.location_type:type_name -> greptime.v1.AddColumnLocation.LocationType
+	0,  // 60: greptime.v1.SetFulltext.analyzer:type_name -> greptime.v1.Analyzer
+	1,  // 61: greptime.v1.SetFulltext.backend:type_name -> greptime.v1.FulltextBackend
+	2,  // 62: greptime.v1.SetSkipping.skipping_index_type:type_name -> greptime.v1.SkippingIndexType
+	44, // 63: greptime.v1.AlterDatabaseExpr.set_database_options:type_name -> greptime.v1.SetDatabaseOptions
+	45, // 64: greptime.v1.AlterDatabaseExpr.unset_database_options:type_name -> greptime.v1.UnsetDatabaseOptions
+	29, // 65: greptime.v1.SetDatabaseOptions.set_database_options:type_name -> greptime.v1.Option
+	47, // 66: greptime.v1.CreateTriggerExpr.channels:type_name -> greptime.v1.NotifyChannel
+	53, // 67: greptime.v1.CreateTriggerExpr.labels:type_name -> greptime.v1.CreateTriggerExpr.LabelsEntry
+	54, // 68: greptime.v1.CreateTriggerExpr.annotations:type_name -> greptime.v1.CreateTriggerExpr.AnnotationsEntry
+	64, // 69: greptime.v1.CreateTriggerExpr.interval:type_name -> google.protobuf.Duration
+	48, // 70: greptime.v1.NotifyChannel.webhook:type_name -> greptime.v1.WebhookOptions
+	55, // 71: greptime.v1.WebhookOptions.opts:type_name -> greptime.v1.WebhookOptions.OptsEntry
+	72, // [72:72] is the sub-list for method output_type
+	72, // [72:72] is the sub-list for method input_type
+	72, // [72:72] is the sub-list for extension type_name
+	72, // [72:72] is the sub-list for extension extendee
+	0,  // [0:72] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_ddl_proto_init() }
