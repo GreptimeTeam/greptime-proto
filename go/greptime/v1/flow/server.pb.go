@@ -490,10 +490,11 @@ type CreateRequest struct {
 	SinkTableName     *v1.TableName `protobuf:"bytes,3,opt,name=sink_table_name,json=sinkTableName,proto3" json:"sink_table_name,omitempty"`
 	CreateIfNotExists bool          `protobuf:"varint,4,opt,name=create_if_not_exists,json=createIfNotExists,proto3" json:"create_if_not_exists,omitempty"`
 	// Expire data older than the given duration seconds.
-	ExpireAfter *v1.ExpireAfter   `protobuf:"bytes,5,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
-	Comment     string            `protobuf:"bytes,6,opt,name=comment,proto3" json:"comment,omitempty"`
-	Sql         string            `protobuf:"bytes,7,opt,name=sql,proto3" json:"sql,omitempty"`
-	FlowOptions map[string]string `protobuf:"bytes,8,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+	ExpireAfter  *v1.ExpireAfter   `protobuf:"bytes,5,opt,name=expire_after,json=expireAfter,proto3" json:"expire_after,omitempty"`
+	EvalInterval *v1.EvalInterval  `protobuf:"bytes,10,opt,name=eval_interval,json=evalInterval,proto3" json:"eval_interval,omitempty"`
+	Comment      string            `protobuf:"bytes,6,opt,name=comment,proto3" json:"comment,omitempty"`
+	Sql          string            `protobuf:"bytes,7,opt,name=sql,proto3" json:"sql,omitempty"`
+	FlowOptions  map[string]string `protobuf:"bytes,8,rep,name=flow_options,json=flowOptions,proto3" json:"flow_options,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 	// Set to true if the flow should be created or replaced.
 	OrReplace bool `protobuf:"varint,9,opt,name=or_replace,json=orReplace,proto3" json:"or_replace,omitempty"`
 }
@@ -561,6 +562,13 @@ func (x *CreateRequest) GetCreateIfNotExists() bool {
 func (x *CreateRequest) GetExpireAfter() *v1.ExpireAfter {
 	if x != nil {
 		return x.ExpireAfter
+	}
+	return nil
+}
+
+func (x *CreateRequest) GetEvalInterval() *v1.EvalInterval {
+	if x != nil {
+		return x.EvalInterval
 	}
 	return nil
 }
@@ -769,7 +777,7 @@ var file_greptime_v1_flow_server_proto_rawDesc = []byte{
 	0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75,
 	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02,
-	0x38, 0x01, 0x22, 0x8b, 0x04, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
+	0x38, 0x01, 0x22, 0xcb, 0x04, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x2c, 0x0a, 0x07, 0x66, 0x6c, 0x6f, 0x77, 0x5f, 0x69, 0x64, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65,
 	0x2e, 0x76, 0x31, 0x2e, 0x46, 0x6c, 0x6f, 0x77, 0x49, 0x64, 0x52, 0x06, 0x66, 0x6c, 0x6f, 0x77,
@@ -788,6 +796,10 @@ var file_greptime_v1_flow_server_proto_rawDesc = []byte{
 	0x74, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72, 0x65, 0x70,
 	0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66,
 	0x74, 0x65, 0x72, 0x52, 0x0b, 0x65, 0x78, 0x70, 0x69, 0x72, 0x65, 0x41, 0x66, 0x74, 0x65, 0x72,
+	0x12, 0x3e, 0x0a, 0x0d, 0x65, 0x76, 0x61, 0x6c, 0x5f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61,
+	0x6c, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69,
+	0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x45, 0x76, 0x61, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x76,
+	0x61, 0x6c, 0x52, 0x0c, 0x65, 0x76, 0x61, 0x6c, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x76, 0x61, 0x6c,
 	0x12, 0x18, 0x0a, 0x07, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x07, 0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x73, 0x71,
 	0x6c, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x73, 0x71, 0x6c, 0x12, 0x53, 0x0a, 0x0c,
@@ -870,6 +882,7 @@ var file_greptime_v1_flow_server_proto_goTypes = []interface{}{
 	(*v1.TableId)(nil),          // 17: greptime.v1.TableId
 	(*v1.TableName)(nil),        // 18: greptime.v1.TableName
 	(*v1.ExpireAfter)(nil),      // 19: greptime.v1.ExpireAfter
+	(*v1.EvalInterval)(nil),     // 20: greptime.v1.EvalInterval
 }
 var file_greptime_v1_flow_server_proto_depIdxs = []int32{
 	1,  // 0: greptime.v1.flow.DirtyWindowRequests.requests:type_name -> greptime.v1.flow.DirtyWindowRequest
@@ -888,20 +901,21 @@ var file_greptime_v1_flow_server_proto_depIdxs = []int32{
 	17, // 13: greptime.v1.flow.CreateRequest.source_table_ids:type_name -> greptime.v1.TableId
 	18, // 14: greptime.v1.flow.CreateRequest.sink_table_name:type_name -> greptime.v1.TableName
 	19, // 15: greptime.v1.flow.CreateRequest.expire_after:type_name -> greptime.v1.ExpireAfter
-	12, // 16: greptime.v1.flow.CreateRequest.flow_options:type_name -> greptime.v1.flow.CreateRequest.FlowOptionsEntry
-	16, // 17: greptime.v1.flow.DropRequest.flow_id:type_name -> greptime.v1.FlowId
-	16, // 18: greptime.v1.flow.FlushFlow.flow_id:type_name -> greptime.v1.FlowId
-	5,  // 19: greptime.v1.flow.Flow.HandleCreateRemove:input_type -> greptime.v1.flow.FlowRequest
-	3,  // 20: greptime.v1.flow.Flow.HandleMirrorRequest:input_type -> greptime.v1.flow.InsertRequests
-	0,  // 21: greptime.v1.flow.Flow.HandleMarkDirtyTimeWindow:input_type -> greptime.v1.flow.DirtyWindowRequests
-	6,  // 22: greptime.v1.flow.Flow.HandleCreateRemove:output_type -> greptime.v1.flow.FlowResponse
-	6,  // 23: greptime.v1.flow.Flow.HandleMirrorRequest:output_type -> greptime.v1.flow.FlowResponse
-	6,  // 24: greptime.v1.flow.Flow.HandleMarkDirtyTimeWindow:output_type -> greptime.v1.flow.FlowResponse
-	22, // [22:25] is the sub-list for method output_type
-	19, // [19:22] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	20, // 16: greptime.v1.flow.CreateRequest.eval_interval:type_name -> greptime.v1.EvalInterval
+	12, // 17: greptime.v1.flow.CreateRequest.flow_options:type_name -> greptime.v1.flow.CreateRequest.FlowOptionsEntry
+	16, // 18: greptime.v1.flow.DropRequest.flow_id:type_name -> greptime.v1.FlowId
+	16, // 19: greptime.v1.flow.FlushFlow.flow_id:type_name -> greptime.v1.FlowId
+	5,  // 20: greptime.v1.flow.Flow.HandleCreateRemove:input_type -> greptime.v1.flow.FlowRequest
+	3,  // 21: greptime.v1.flow.Flow.HandleMirrorRequest:input_type -> greptime.v1.flow.InsertRequests
+	0,  // 22: greptime.v1.flow.Flow.HandleMarkDirtyTimeWindow:input_type -> greptime.v1.flow.DirtyWindowRequests
+	6,  // 23: greptime.v1.flow.Flow.HandleCreateRemove:output_type -> greptime.v1.flow.FlowResponse
+	6,  // 24: greptime.v1.flow.Flow.HandleMirrorRequest:output_type -> greptime.v1.flow.FlowResponse
+	6,  // 25: greptime.v1.flow.Flow.HandleMarkDirtyTimeWindow:output_type -> greptime.v1.flow.FlowResponse
+	23, // [23:26] is the sub-list for method output_type
+	20, // [20:23] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_flow_server_proto_init() }

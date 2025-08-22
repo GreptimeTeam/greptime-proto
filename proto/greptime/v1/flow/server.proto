@@ -93,6 +93,7 @@ message CreateRequest {
   bool create_if_not_exists = 4;
   // Expire data older than the given duration seconds.
   ExpireAfter expire_after = 5;
+  EvalInterval eval_interval = 10;
   string comment = 6;
   string sql = 7;
   map<string, string> flow_options = 8;

@@ -7257,6 +7257,21 @@ com.google.protobuf.ByteString defaultValue);
     io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder();
 
     /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     * @return Whether the evalInterval field is set.
+     */
+    boolean hasEvalInterval();
+    /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     * @return The evalInterval.
+     */
+    io.greptime.v1.Common.EvalInterval getEvalInterval();
+    /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     */
+    io.greptime.v1.Common.EvalIntervalOrBuilder getEvalIntervalOrBuilder();
+
+    /**
      * <code>string comment = 6;</code>
      * @return The comment.
      */
@@ -7464,6 +7479,19 @@ java.lang.String defaultValue);
               orReplace_ = input.readBool();
               break;
             }
+            case 82: {
+              io.greptime.v1.Common.EvalInterval.Builder subBuilder = null;
+              if (evalInterval_ != null) {
+                subBuilder = evalInterval_.toBuilder();
+              }
+              evalInterval_ = input.readMessage(io.greptime.v1.Common.EvalInterval.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(evalInterval_);
+                evalInterval_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7652,6 +7680,32 @@ java.lang.String defaultValue);
     @java.lang.Override
     public io.greptime.v1.Common.ExpireAfterOrBuilder getExpireAfterOrBuilder() {
       return getExpireAfter();
+    }
+
+    public static final int EVAL_INTERVAL_FIELD_NUMBER = 10;
+    private io.greptime.v1.Common.EvalInterval evalInterval_;
+    /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     * @return Whether the evalInterval field is set.
+     */
+    @java.lang.Override
+    public boolean hasEvalInterval() {
+      return evalInterval_ != null;
+    }
+    /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     * @return The evalInterval.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.EvalInterval getEvalInterval() {
+      return evalInterval_ == null ? io.greptime.v1.Common.EvalInterval.getDefaultInstance() : evalInterval_;
+    }
+    /**
+     * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.EvalIntervalOrBuilder getEvalIntervalOrBuilder() {
+      return getEvalInterval();
     }
 
     public static final int COMMENT_FIELD_NUMBER = 6;
@@ -7870,6 +7924,9 @@ java.lang.String defaultValue);
       if (orReplace_ != false) {
         output.writeBool(9, orReplace_);
       }
+      if (evalInterval_ != null) {
+        output.writeMessage(10, getEvalInterval());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7919,6 +7976,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(9, orReplace_);
       }
+      if (evalInterval_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getEvalInterval());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7952,6 +8013,11 @@ java.lang.String defaultValue);
       if (hasExpireAfter()) {
         if (!getExpireAfter()
             .equals(other.getExpireAfter())) return false;
+      }
+      if (hasEvalInterval() != other.hasEvalInterval()) return false;
+      if (hasEvalInterval()) {
+        if (!getEvalInterval()
+            .equals(other.getEvalInterval())) return false;
       }
       if (!getComment()
           .equals(other.getComment())) return false;
@@ -7990,6 +8056,10 @@ java.lang.String defaultValue);
       if (hasExpireAfter()) {
         hash = (37 * hash) + EXPIRE_AFTER_FIELD_NUMBER;
         hash = (53 * hash) + getExpireAfter().hashCode();
+      }
+      if (hasEvalInterval()) {
+        hash = (37 * hash) + EVAL_INTERVAL_FIELD_NUMBER;
+        hash = (53 * hash) + getEvalInterval().hashCode();
       }
       hash = (37 * hash) + COMMENT_FIELD_NUMBER;
       hash = (53 * hash) + getComment().hashCode();
@@ -8190,6 +8260,12 @@ java.lang.String defaultValue);
           expireAfter_ = null;
           expireAfterBuilder_ = null;
         }
+        if (evalIntervalBuilder_ == null) {
+          evalInterval_ = null;
+        } else {
+          evalInterval_ = null;
+          evalIntervalBuilder_ = null;
+        }
         comment_ = "";
 
         sql_ = "";
@@ -8248,6 +8324,11 @@ java.lang.String defaultValue);
           result.expireAfter_ = expireAfter_;
         } else {
           result.expireAfter_ = expireAfterBuilder_.build();
+        }
+        if (evalIntervalBuilder_ == null) {
+          result.evalInterval_ = evalInterval_;
+        } else {
+          result.evalInterval_ = evalIntervalBuilder_.build();
         }
         result.comment_ = comment_;
         result.sql_ = sql_;
@@ -8339,6 +8420,9 @@ java.lang.String defaultValue);
         }
         if (other.hasExpireAfter()) {
           mergeExpireAfter(other.getExpireAfter());
+        }
+        if (other.hasEvalInterval()) {
+          mergeEvalInterval(other.getEvalInterval());
         }
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
@@ -9045,6 +9129,125 @@ java.lang.String defaultValue);
           expireAfter_ = null;
         }
         return expireAfterBuilder_;
+      }
+
+      private io.greptime.v1.Common.EvalInterval evalInterval_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.EvalInterval, io.greptime.v1.Common.EvalInterval.Builder, io.greptime.v1.Common.EvalIntervalOrBuilder> evalIntervalBuilder_;
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       * @return Whether the evalInterval field is set.
+       */
+      public boolean hasEvalInterval() {
+        return evalIntervalBuilder_ != null || evalInterval_ != null;
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       * @return The evalInterval.
+       */
+      public io.greptime.v1.Common.EvalInterval getEvalInterval() {
+        if (evalIntervalBuilder_ == null) {
+          return evalInterval_ == null ? io.greptime.v1.Common.EvalInterval.getDefaultInstance() : evalInterval_;
+        } else {
+          return evalIntervalBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public Builder setEvalInterval(io.greptime.v1.Common.EvalInterval value) {
+        if (evalIntervalBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          evalInterval_ = value;
+          onChanged();
+        } else {
+          evalIntervalBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public Builder setEvalInterval(
+          io.greptime.v1.Common.EvalInterval.Builder builderForValue) {
+        if (evalIntervalBuilder_ == null) {
+          evalInterval_ = builderForValue.build();
+          onChanged();
+        } else {
+          evalIntervalBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public Builder mergeEvalInterval(io.greptime.v1.Common.EvalInterval value) {
+        if (evalIntervalBuilder_ == null) {
+          if (evalInterval_ != null) {
+            evalInterval_ =
+              io.greptime.v1.Common.EvalInterval.newBuilder(evalInterval_).mergeFrom(value).buildPartial();
+          } else {
+            evalInterval_ = value;
+          }
+          onChanged();
+        } else {
+          evalIntervalBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public Builder clearEvalInterval() {
+        if (evalIntervalBuilder_ == null) {
+          evalInterval_ = null;
+          onChanged();
+        } else {
+          evalInterval_ = null;
+          evalIntervalBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public io.greptime.v1.Common.EvalInterval.Builder getEvalIntervalBuilder() {
+        
+        onChanged();
+        return getEvalIntervalFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      public io.greptime.v1.Common.EvalIntervalOrBuilder getEvalIntervalOrBuilder() {
+        if (evalIntervalBuilder_ != null) {
+          return evalIntervalBuilder_.getMessageOrBuilder();
+        } else {
+          return evalInterval_ == null ?
+              io.greptime.v1.Common.EvalInterval.getDefaultInstance() : evalInterval_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.EvalInterval eval_interval = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.EvalInterval, io.greptime.v1.Common.EvalInterval.Builder, io.greptime.v1.Common.EvalIntervalOrBuilder> 
+          getEvalIntervalFieldBuilder() {
+        if (evalIntervalBuilder_ == null) {
+          evalIntervalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.EvalInterval, io.greptime.v1.Common.EvalInterval.Builder, io.greptime.v1.Common.EvalIntervalOrBuilder>(
+                  getEvalInterval(),
+                  getParentForChildren(),
+                  isClean());
+          evalInterval_ = null;
+        }
+        return evalIntervalBuilder_;
       }
 
       private java.lang.Object comment_ = "";
@@ -10771,30 +10974,31 @@ java.lang.String defaultValue);
       "ected_flows\030\003 \003(\0132\023.greptime.v1.FlowId\022B" +
       "\n\nextensions\030\004 \003(\0132..greptime.v1.flow.Fl" +
       "owResponse.ExtensionsEntry\0321\n\017Extensions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\003" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003" +
       "\n\rCreateRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept" +
       "ime.v1.FlowId\022.\n\020source_table_ids\030\002 \003(\0132" +
       "\024.greptime.v1.TableId\022/\n\017sink_table_name" +
       "\030\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024create" +
       "_if_not_exists\030\004 \001(\010\022.\n\014expire_after\030\005 \001" +
-      "(\0132\030.greptime.v1.ExpireAfter\022\017\n\007comment\030" +
-      "\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\013" +
-      "20.greptime.v1.flow.CreateRequest.FlowOp" +
-      "tionsEntry\022\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOp" +
-      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.gre" +
-      "ptime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030" +
-      "\001 \001(\0132\023.greptime.v1.FlowId2\230\002\n\004Flow\022S\n\022H" +
-      "andleCreateRemove\022\035.greptime.v1.flow.Flo" +
-      "wRequest\032\036.greptime.v1.flow.FlowResponse" +
-      "\022W\n\023HandleMirrorRequest\022 .greptime.v1.fl" +
-      "ow.InsertRequests\032\036.greptime.v1.flow.Flo" +
-      "wResponse\022b\n\031HandleMarkDirtyTimeWindow\022%" +
-      ".greptime.v1.flow.DirtyWindowRequests\032\036." +
-      "greptime.v1.flow.FlowResponseBY\n\023io.grep" +
-      "time.v1.flowB\006ServerZ:github.com/Greptim" +
-      "eTeam/greptime-proto/go/greptime/v1/flow" +
-      "b\006proto3"
+      "(\0132\030.greptime.v1.ExpireAfter\0220\n\reval_int" +
+      "erval\030\n \001(\0132\031.greptime.v1.EvalInterval\022\017" +
+      "\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_opt" +
+      "ions\030\010 \003(\01320.greptime.v1.flow.CreateRequ" +
+      "est.FlowOptionsEntry\022\022\n\nor_replace\030\t \001(\010" +
+      "\0322\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001" +
+      " \001(\0132\023.greptime.v1.FlowId\"1\n\tFlushFlow\022$" +
+      "\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId2\230\002\n" +
+      "\004Flow\022S\n\022HandleCreateRemove\022\035.greptime.v" +
+      "1.flow.FlowRequest\032\036.greptime.v1.flow.Fl" +
+      "owResponse\022W\n\023HandleMirrorRequest\022 .grep" +
+      "time.v1.flow.InsertRequests\032\036.greptime.v" +
+      "1.flow.FlowResponse\022b\n\031HandleMarkDirtyTi" +
+      "meWindow\022%.greptime.v1.flow.DirtyWindowR" +
+      "equests\032\036.greptime.v1.flow.FlowResponseB" +
+      "Y\n\023io.greptime.v1.flowB\006ServerZ:github.c" +
+      "om/GreptimeTeam/greptime-proto/go/grepti" +
+      "me/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10862,7 +11066,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
-        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "Comment", "Sql", "FlowOptions", "OrReplace", });
+        new java.lang.String[] { "FlowId", "SourceTableIds", "SinkTableName", "CreateIfNotExists", "ExpireAfter", "EvalInterval", "Comment", "Sql", "FlowOptions", "OrReplace", });
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor =
       internal_static_greptime_v1_flow_CreateRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_fieldAccessorTable = new

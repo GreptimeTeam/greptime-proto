@@ -1619,6 +1619,7 @@ class CreateRequest final :
     kFlowIdFieldNumber = 1,
     kSinkTableNameFieldNumber = 3,
     kExpireAfterFieldNumber = 5,
+    kEvalIntervalFieldNumber = 10,
     kCreateIfNotExistsFieldNumber = 4,
     kOrReplaceFieldNumber = 9,
   };
@@ -1739,6 +1740,24 @@ class CreateRequest final :
       ::greptime::v1::ExpireAfter* expire_after);
   ::greptime::v1::ExpireAfter* unsafe_arena_release_expire_after();
 
+  // .greptime.v1.EvalInterval eval_interval = 10;
+  bool has_eval_interval() const;
+  private:
+  bool _internal_has_eval_interval() const;
+  public:
+  void clear_eval_interval();
+  const ::greptime::v1::EvalInterval& eval_interval() const;
+  PROTOBUF_NODISCARD ::greptime::v1::EvalInterval* release_eval_interval();
+  ::greptime::v1::EvalInterval* mutable_eval_interval();
+  void set_allocated_eval_interval(::greptime::v1::EvalInterval* eval_interval);
+  private:
+  const ::greptime::v1::EvalInterval& _internal_eval_interval() const;
+  ::greptime::v1::EvalInterval* _internal_mutable_eval_interval();
+  public:
+  void unsafe_arena_set_allocated_eval_interval(
+      ::greptime::v1::EvalInterval* eval_interval);
+  ::greptime::v1::EvalInterval* unsafe_arena_release_eval_interval();
+
   // bool create_if_not_exists = 4;
   void clear_create_if_not_exists();
   bool create_if_not_exists() const;
@@ -1776,6 +1795,7 @@ class CreateRequest final :
     ::greptime::v1::FlowId* flow_id_;
     ::greptime::v1::TableName* sink_table_name_;
     ::greptime::v1::ExpireAfter* expire_after_;
+    ::greptime::v1::EvalInterval* eval_interval_;
     bool create_if_not_exists_;
     bool or_replace_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -3310,6 +3330,91 @@ inline void CreateRequest::set_allocated_expire_after(::greptime::v1::ExpireAfte
   }
   _impl_.expire_after_ = expire_after;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.expire_after)
+}
+
+// .greptime.v1.EvalInterval eval_interval = 10;
+inline bool CreateRequest::_internal_has_eval_interval() const {
+  return this != internal_default_instance() && _impl_.eval_interval_ != nullptr;
+}
+inline bool CreateRequest::has_eval_interval() const {
+  return _internal_has_eval_interval();
+}
+inline const ::greptime::v1::EvalInterval& CreateRequest::_internal_eval_interval() const {
+  const ::greptime::v1::EvalInterval* p = _impl_.eval_interval_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::EvalInterval&>(
+      ::greptime::v1::_EvalInterval_default_instance_);
+}
+inline const ::greptime::v1::EvalInterval& CreateRequest::eval_interval() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.CreateRequest.eval_interval)
+  return _internal_eval_interval();
+}
+inline void CreateRequest::unsafe_arena_set_allocated_eval_interval(
+    ::greptime::v1::EvalInterval* eval_interval) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.eval_interval_);
+  }
+  _impl_.eval_interval_ = eval_interval;
+  if (eval_interval) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.CreateRequest.eval_interval)
+}
+inline ::greptime::v1::EvalInterval* CreateRequest::release_eval_interval() {
+  
+  ::greptime::v1::EvalInterval* temp = _impl_.eval_interval_;
+  _impl_.eval_interval_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::EvalInterval* CreateRequest::unsafe_arena_release_eval_interval() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.CreateRequest.eval_interval)
+  
+  ::greptime::v1::EvalInterval* temp = _impl_.eval_interval_;
+  _impl_.eval_interval_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::EvalInterval* CreateRequest::_internal_mutable_eval_interval() {
+  
+  if (_impl_.eval_interval_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::EvalInterval>(GetArenaForAllocation());
+    _impl_.eval_interval_ = p;
+  }
+  return _impl_.eval_interval_;
+}
+inline ::greptime::v1::EvalInterval* CreateRequest::mutable_eval_interval() {
+  ::greptime::v1::EvalInterval* _msg = _internal_mutable_eval_interval();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.CreateRequest.eval_interval)
+  return _msg;
+}
+inline void CreateRequest::set_allocated_eval_interval(::greptime::v1::EvalInterval* eval_interval) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.eval_interval_);
+  }
+  if (eval_interval) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(eval_interval));
+    if (message_arena != submessage_arena) {
+      eval_interval = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, eval_interval, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.eval_interval_ = eval_interval;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.CreateRequest.eval_interval)
 }
 
 // string comment = 6;

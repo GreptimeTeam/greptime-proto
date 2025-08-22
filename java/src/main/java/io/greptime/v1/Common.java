@@ -11851,6 +11851,505 @@ java.lang.String defaultValue);
 
   }
 
+  public interface EvalIntervalOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.EvalInterval)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 seconds = 1;</code>
+     * @return The seconds.
+     */
+    long getSeconds();
+  }
+  /**
+   * <pre>
+   * Eval Interval in seconds
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.EvalInterval}
+   */
+  public static final class EvalInterval extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.EvalInterval)
+      EvalIntervalOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EvalInterval.newBuilder() to construct.
+    private EvalInterval(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EvalInterval() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EvalInterval();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EvalInterval(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              seconds_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_EvalInterval_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Common.internal_static_greptime_v1_EvalInterval_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Common.EvalInterval.class, io.greptime.v1.Common.EvalInterval.Builder.class);
+    }
+
+    public static final int SECONDS_FIELD_NUMBER = 1;
+    private long seconds_;
+    /**
+     * <code>int64 seconds = 1;</code>
+     * @return The seconds.
+     */
+    @java.lang.Override
+    public long getSeconds() {
+      return seconds_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (seconds_ != 0L) {
+        output.writeInt64(1, seconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (seconds_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, seconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Common.EvalInterval)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Common.EvalInterval other = (io.greptime.v1.Common.EvalInterval) obj;
+
+      if (getSeconds()
+          != other.getSeconds()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SECONDS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSeconds());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Common.EvalInterval parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Common.EvalInterval prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Eval Interval in seconds
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.EvalInterval}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.EvalInterval)
+        io.greptime.v1.Common.EvalIntervalOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_EvalInterval_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_EvalInterval_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Common.EvalInterval.class, io.greptime.v1.Common.EvalInterval.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Common.EvalInterval.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        seconds_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Common.internal_static_greptime_v1_EvalInterval_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.EvalInterval getDefaultInstanceForType() {
+        return io.greptime.v1.Common.EvalInterval.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.EvalInterval build() {
+        io.greptime.v1.Common.EvalInterval result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Common.EvalInterval buildPartial() {
+        io.greptime.v1.Common.EvalInterval result = new io.greptime.v1.Common.EvalInterval(this);
+        result.seconds_ = seconds_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Common.EvalInterval) {
+          return mergeFrom((io.greptime.v1.Common.EvalInterval)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Common.EvalInterval other) {
+        if (other == io.greptime.v1.Common.EvalInterval.getDefaultInstance()) return this;
+        if (other.getSeconds() != 0L) {
+          setSeconds(other.getSeconds());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Common.EvalInterval parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Common.EvalInterval) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long seconds_ ;
+      /**
+       * <code>int64 seconds = 1;</code>
+       * @return The seconds.
+       */
+      @java.lang.Override
+      public long getSeconds() {
+        return seconds_;
+      }
+      /**
+       * <code>int64 seconds = 1;</code>
+       * @param value The seconds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeconds(long value) {
+        
+        seconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 seconds = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSeconds() {
+        
+        seconds_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.EvalInterval)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.EvalInterval)
+    private static final io.greptime.v1.Common.EvalInterval DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.EvalInterval();
+    }
+
+    public static io.greptime.v1.Common.EvalInterval getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EvalInterval>
+        PARSER = new com.google.protobuf.AbstractParser<EvalInterval>() {
+      @java.lang.Override
+      public EvalInterval parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EvalInterval(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<EvalInterval> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EvalInterval> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Common.EvalInterval getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface FlightMetadataOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.FlightMetadata)
       com.google.protobuf.MessageOrBuilder {
@@ -19325,6 +19824,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ExpireAfter_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_EvalInterval_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_EvalInterval_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_FlightMetadata_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19422,47 +19926,48 @@ java.lang.String defaultValue);
       "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
       "\030\003 \001(\t\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r\"\032\n" +
       "\007Metrics\022\017\n\007metrics\030\001 \001(\014\"\034\n\013ExpireAfter" +
-      "\022\r\n\005value\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\raff" +
-      "ected_rows\030\001 \001(\0132\031.greptime.v1.AffectedR" +
-      "ows\022%\n\007metrics\030\002 \001(\0132\024.greptime.v1.Metri" +
-      "cs\"I\n\024IntervalMonthDayNano\022\016\n\006months\030\001 \001" +
-      "(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"\'\n" +
-      "\tTimeRange\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\"c" +
-      "\n\nTimeRanges\022(\n\ttime_unit\030\001 \001(\0162\025.grepti" +
-      "me.v1.TimeUnit\022+\n\013time_ranges\030\002 \003(\0132\026.gr" +
-      "eptime.v1.TimeRange\"$\n\nDecimal128\022\n\n\002hi\030" +
-      "\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExte" +
-      "nsion\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v" +
-      "1.DecimalTypeExtensionH\000\0223\n\tjson_type\030\002 " +
-      "\001(\0162\036.greptime.v1.JsonTypeExtensionH\000\0227\n" +
-      "\013vector_type\030\003 \001(\0132 .greptime.v1.VectorT" +
-      "ypeExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTyp" +
-      "eExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002" +
-      " \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r" +
-      "\"y\n\rColumnOptions\0228\n\007options\030\001 \003(\0132\'.gre" +
-      "ptime.v1.ColumnOptions.OptionsEntry\032.\n\014O" +
-      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n\013data_" +
-      "header\030\002 \001(\014\022\017\n\007payload\030\003 \001(\014*1\n\014Semanti" +
-      "cType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002" +
-      "*\354\003\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8" +
-      "\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005U" +
-      "INT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64" +
-      "\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013" +
-      "\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020" +
-      "TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISEC" +
-      "OND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIME" +
-      "STAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020T" +
-      "IME_MILLISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022" +
-      "\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MO" +
-      "NTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL" +
-      "_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022\010\n\004JSO" +
-      "N\020\037\022\n\n\006VECTOR\020 *H\n\010TimeUnit\022\017\n\013MILLISECO" +
-      "ND\020\000\022\n\n\006SECOND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNAN" +
-      "OSECOND\020\003*$\n\021JsonTypeExtension\022\017\n\013JSON_B" +
-      "INARY\020\000BO\n\016io.greptime.v1B\006CommonZ5githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1b\006proto3"
+      "\022\r\n\005value\030\001 \001(\003\"\037\n\014EvalInterval\022\017\n\007secon" +
+      "ds\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\raffected_r" +
+      "ows\030\001 \001(\0132\031.greptime.v1.AffectedRows\022%\n\007" +
+      "metrics\030\002 \001(\0132\024.greptime.v1.Metrics\"I\n\024I" +
+      "ntervalMonthDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004d" +
+      "ays\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"\'\n\tTimeRa" +
+      "nge\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\"c\n\nTimeR" +
+      "anges\022(\n\ttime_unit\030\001 \001(\0162\025.greptime.v1.T" +
+      "imeUnit\022+\n\013time_ranges\030\002 \003(\0132\026.greptime." +
+      "v1.TimeRange\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n" +
+      "\n\002lo\030\002 \001(\003\"\316\001\n\027ColumnDataTypeExtension\0229" +
+      "\n\014decimal_type\030\001 \001(\0132!.greptime.v1.Decim" +
+      "alTypeExtensionH\000\0223\n\tjson_type\030\002 \001(\0162\036.g" +
+      "reptime.v1.JsonTypeExtensionH\000\0227\n\013vector" +
+      "_type\030\003 \001(\0132 .greptime.v1.VectorTypeExte" +
+      "nsionH\000B\n\n\010type_ext\"8\n\024DecimalTypeExtens" +
+      "ion\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"\"\n" +
+      "\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"y\n\rCol" +
+      "umnOptions\0228\n\007options\030\001 \003(\0132\'.greptime.v" +
+      "1.ColumnOptions.OptionsEntry\032.\n\014OptionsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\010" +
+      "ArrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n\013data_header\030" +
+      "\002 \001(\014\022\017\n\007payload\030\003 \001(\014*1\n\014SemanticType\022\007" +
+      "\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\354\003\n\016Co" +
+      "lumnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005I" +
+      "NT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022" +
+      "\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007F" +
+      "LOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STR" +
+      "ING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTA" +
+      "MP_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031" +
+      "\n\025TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_N" +
+      "ANOSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MIL" +
+      "LISECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME" +
+      "_NANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025" +
+      "\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_" +
+      "DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022\010\n\004JSON\020\037\022\n\n\006" +
+      "VECTOR\020 *H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n" +
+      "\006SECOND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND" +
+      "\020\003*$\n\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000" +
+      "BO\n\016io.greptime.v1B\006CommonZ5github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19570,56 +20075,62 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ExpireAfter_descriptor,
         new java.lang.String[] { "Value", });
-    internal_static_greptime_v1_FlightMetadata_descriptor =
+    internal_static_greptime_v1_EvalInterval_descriptor =
       getDescriptor().getMessageTypes().get(13);
+    internal_static_greptime_v1_EvalInterval_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_EvalInterval_descriptor,
+        new java.lang.String[] { "Seconds", });
+    internal_static_greptime_v1_FlightMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_FlightMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlightMetadata_descriptor,
         new java.lang.String[] { "AffectedRows", "Metrics", });
     internal_static_greptime_v1_IntervalMonthDayNano_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_IntervalMonthDayNano_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_IntervalMonthDayNano_descriptor,
         new java.lang.String[] { "Months", "Days", "Nanoseconds", });
     internal_static_greptime_v1_TimeRange_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_TimeRange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TimeRange_descriptor,
         new java.lang.String[] { "Start", "End", });
     internal_static_greptime_v1_TimeRanges_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_TimeRanges_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TimeRanges_descriptor,
         new java.lang.String[] { "TimeUnit", "TimeRanges", });
     internal_static_greptime_v1_Decimal128_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_Decimal128_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Decimal128_descriptor,
         new java.lang.String[] { "Hi", "Lo", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDataTypeExtension_descriptor,
         new java.lang.String[] { "DecimalType", "JsonType", "VectorType", "TypeExt", });
     internal_static_greptime_v1_DecimalTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_DecimalTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DecimalTypeExtension_descriptor,
         new java.lang.String[] { "Precision", "Scale", });
     internal_static_greptime_v1_VectorTypeExtension_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_greptime_v1_VectorTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_VectorTypeExtension_descriptor,
         new java.lang.String[] { "Dim", });
     internal_static_greptime_v1_ColumnOptions_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_greptime_v1_ColumnOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnOptions_descriptor,
@@ -19631,7 +20142,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_ColumnOptions_OptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_ArrowIpc_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_greptime_v1_ArrowIpc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ArrowIpc_descriptor,
