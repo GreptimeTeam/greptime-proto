@@ -106,7 +106,7 @@ message ExpireAfter {
 }
 
 // Eval Interval in seconds
-message EvalInterval{
+message EvalInterval {
   int64 seconds = 1;
 }
 
