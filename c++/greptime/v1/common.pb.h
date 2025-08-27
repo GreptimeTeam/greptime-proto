@@ -77,6 +77,9 @@ extern Decimal128DefaultTypeInternal _Decimal128_default_instance_;
 class DecimalTypeExtension;
 struct DecimalTypeExtensionDefaultTypeInternal;
 extern DecimalTypeExtensionDefaultTypeInternal _DecimalTypeExtension_default_instance_;
+class EvalInterval;
+struct EvalIntervalDefaultTypeInternal;
+extern EvalIntervalDefaultTypeInternal _EvalInterval_default_instance_;
 class ExpireAfter;
 struct ExpireAfterDefaultTypeInternal;
 extern ExpireAfterDefaultTypeInternal _ExpireAfter_default_instance_;
@@ -146,6 +149,7 @@ template<> ::greptime::v1::ColumnOptions* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::Decimal128* Arena::CreateMaybeMessage<::greptime::v1::Decimal128>(Arena*);
 template<> ::greptime::v1::DecimalTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::DecimalTypeExtension>(Arena*);
+template<> ::greptime::v1::EvalInterval* Arena::CreateMaybeMessage<::greptime::v1::EvalInterval>(Arena*);
 template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1::ExpireAfter>(Arena*);
 template<> ::greptime::v1::ExplainOptions* Arena::CreateMaybeMessage<::greptime::v1::ExplainOptions>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
@@ -2720,6 +2724,154 @@ class ExpireAfter final :
 };
 // -------------------------------------------------------------------
 
+class EvalInterval final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.EvalInterval) */ {
+ public:
+  inline EvalInterval() : EvalInterval(nullptr) {}
+  ~EvalInterval() override;
+  explicit PROTOBUF_CONSTEXPR EvalInterval(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  EvalInterval(const EvalInterval& from);
+  EvalInterval(EvalInterval&& from) noexcept
+    : EvalInterval() {
+    *this = ::std::move(from);
+  }
+
+  inline EvalInterval& operator=(const EvalInterval& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline EvalInterval& operator=(EvalInterval&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const EvalInterval& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const EvalInterval* internal_default_instance() {
+    return reinterpret_cast<const EvalInterval*>(
+               &_EvalInterval_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(EvalInterval& a, EvalInterval& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(EvalInterval* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(EvalInterval* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  EvalInterval* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<EvalInterval>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const EvalInterval& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const EvalInterval& from) {
+    EvalInterval::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(EvalInterval* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.EvalInterval";
+  }
+  protected:
+  explicit EvalInterval(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSecondsFieldNumber = 1,
+  };
+  // int64 seconds = 1;
+  void clear_seconds();
+  int64_t seconds() const;
+  void set_seconds(int64_t value);
+  private:
+  int64_t _internal_seconds() const;
+  void _internal_set_seconds(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.EvalInterval)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t seconds_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class FlightMetadata final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.FlightMetadata) */ {
  public:
@@ -2768,7 +2920,7 @@ class FlightMetadata final :
                &_FlightMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(FlightMetadata& a, FlightMetadata& b) {
     a.Swap(&b);
@@ -2945,7 +3097,7 @@ class IntervalMonthDayNano final :
                &_IntervalMonthDayNano_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(IntervalMonthDayNano& a, IntervalMonthDayNano& b) {
     a.Swap(&b);
@@ -3115,7 +3267,7 @@ class TimeRange final :
                &_TimeRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(TimeRange& a, TimeRange& b) {
     a.Swap(&b);
@@ -3274,7 +3426,7 @@ class TimeRanges final :
                &_TimeRanges_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(TimeRanges& a, TimeRanges& b) {
     a.Swap(&b);
@@ -3442,7 +3594,7 @@ class Decimal128 final :
                &_Decimal128_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(Decimal128& a, Decimal128& b) {
     a.Swap(&b);
@@ -3608,7 +3760,7 @@ class ColumnDataTypeExtension final :
                &_ColumnDataTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(ColumnDataTypeExtension& a, ColumnDataTypeExtension& b) {
     a.Swap(&b);
@@ -3814,7 +3966,7 @@ class DecimalTypeExtension final :
                &_DecimalTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(DecimalTypeExtension& a, DecimalTypeExtension& b) {
     a.Swap(&b);
@@ -3973,7 +4125,7 @@ class VectorTypeExtension final :
                &_VectorTypeExtension_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(VectorTypeExtension& a, VectorTypeExtension& b) {
     a.Swap(&b);
@@ -4149,7 +4301,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -4312,7 +4464,7 @@ class ArrowIpc final :
                &_ArrowIpc_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(ArrowIpc& a, ArrowIpc& b) {
     a.Swap(&b);
@@ -5999,6 +6151,30 @@ inline void ExpireAfter::set_value(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// EvalInterval
+
+// int64 seconds = 1;
+inline void EvalInterval::clear_seconds() {
+  _impl_.seconds_ = int64_t{0};
+}
+inline int64_t EvalInterval::_internal_seconds() const {
+  return _impl_.seconds_;
+}
+inline int64_t EvalInterval::seconds() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.EvalInterval.seconds)
+  return _internal_seconds();
+}
+inline void EvalInterval::_internal_set_seconds(int64_t value) {
+  
+  _impl_.seconds_ = value;
+}
+inline void EvalInterval::set_seconds(int64_t value) {
+  _internal_set_seconds(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.EvalInterval.seconds)
+}
+
+// -------------------------------------------------------------------
+
 // FlightMetadata
 
 // .greptime.v1.AffectedRows affected_rows = 1;
@@ -6856,6 +7032,8 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
