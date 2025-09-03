@@ -1890,6 +1890,26 @@ public final class ClusterOuterClass {
      * @return The startTimeMs.
      */
     long getStartTimeMs();
+
+    /**
+     * <pre>
+     * The CPU cores number of the node.
+     * </pre>
+     *
+     * <code>uint32 cpus = 5;</code>
+     * @return The cpus.
+     */
+    int getCpus();
+
+    /**
+     * <pre>
+     * The memory bytes of the node.
+     * </pre>
+     *
+     * <code>uint64 memory_bytes = 6;</code>
+     * @return The memoryBytes.
+     */
+    long getMemoryBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
@@ -1966,6 +1986,16 @@ public final class ClusterOuterClass {
             case 32: {
 
               startTimeMs_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+
+              cpus_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              memoryBytes_ = input.readUInt64();
               break;
             }
             default: {
@@ -2119,6 +2149,36 @@ public final class ClusterOuterClass {
       return startTimeMs_;
     }
 
+    public static final int CPUS_FIELD_NUMBER = 5;
+    private int cpus_;
+    /**
+     * <pre>
+     * The CPU cores number of the node.
+     * </pre>
+     *
+     * <code>uint32 cpus = 5;</code>
+     * @return The cpus.
+     */
+    @java.lang.Override
+    public int getCpus() {
+      return cpus_;
+    }
+
+    public static final int MEMORY_BYTES_FIELD_NUMBER = 6;
+    private long memoryBytes_;
+    /**
+     * <pre>
+     * The memory bytes of the node.
+     * </pre>
+     *
+     * <code>uint64 memory_bytes = 6;</code>
+     * @return The memoryBytes.
+     */
+    @java.lang.Override
+    public long getMemoryBytes() {
+      return memoryBytes_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2145,6 +2205,12 @@ public final class ClusterOuterClass {
       if (startTimeMs_ != 0L) {
         output.writeUInt64(4, startTimeMs_);
       }
+      if (cpus_ != 0) {
+        output.writeUInt32(5, cpus_);
+      }
+      if (memoryBytes_ != 0L) {
+        output.writeUInt64(6, memoryBytes_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2167,6 +2233,14 @@ public final class ClusterOuterClass {
       if (startTimeMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, startTimeMs_);
+      }
+      if (cpus_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, cpus_);
+      }
+      if (memoryBytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, memoryBytes_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2194,6 +2268,10 @@ public final class ClusterOuterClass {
           .equals(other.getGitCommit())) return false;
       if (getStartTimeMs()
           != other.getStartTimeMs()) return false;
+      if (getCpus()
+          != other.getCpus()) return false;
+      if (getMemoryBytes()
+          != other.getMemoryBytes()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2216,6 +2294,11 @@ public final class ClusterOuterClass {
       hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStartTimeMs());
+      hash = (37 * hash) + CPUS_FIELD_NUMBER;
+      hash = (53 * hash) + getCpus();
+      hash = (37 * hash) + MEMORY_BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMemoryBytes());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2361,6 +2444,10 @@ public final class ClusterOuterClass {
 
         startTimeMs_ = 0L;
 
+        cpus_ = 0;
+
+        memoryBytes_ = 0L;
+
         return this;
       }
 
@@ -2395,6 +2482,8 @@ public final class ClusterOuterClass {
         result.version_ = version_;
         result.gitCommit_ = gitCommit_;
         result.startTimeMs_ = startTimeMs_;
+        result.cpus_ = cpus_;
+        result.memoryBytes_ = memoryBytes_;
         onBuilt();
         return result;
       }
@@ -2456,6 +2545,12 @@ public final class ClusterOuterClass {
         }
         if (other.getStartTimeMs() != 0L) {
           setStartTimeMs(other.getStartTimeMs());
+        }
+        if (other.getCpus() != 0) {
+          setCpus(other.getCpus());
+        }
+        if (other.getMemoryBytes() != 0L) {
+          setMemoryBytes(other.getMemoryBytes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2799,6 +2894,92 @@ public final class ClusterOuterClass {
         onChanged();
         return this;
       }
+
+      private int cpus_ ;
+      /**
+       * <pre>
+       * The CPU cores number of the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 5;</code>
+       * @return The cpus.
+       */
+      @java.lang.Override
+      public int getCpus() {
+        return cpus_;
+      }
+      /**
+       * <pre>
+       * The CPU cores number of the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 5;</code>
+       * @param value The cpus to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCpus(int value) {
+        
+        cpus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The CPU cores number of the node.
+       * </pre>
+       *
+       * <code>uint32 cpus = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCpus() {
+        
+        cpus_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long memoryBytes_ ;
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 6;</code>
+       * @return The memoryBytes.
+       */
+      @java.lang.Override
+      public long getMemoryBytes() {
+        return memoryBytes_;
+      }
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 6;</code>
+       * @param value The memoryBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoryBytes(long value) {
+        
+        memoryBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemoryBytes() {
+        
+        memoryBytes_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2885,18 +3066,19 @@ public final class ClusterOuterClass {
       "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
       "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
       "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
-      "nfo\"s\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.g" +
-      "reptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022\n" +
-      "\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001(\004" +
-      "2\205\002\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.m" +
-      "eta.BatchGetRequest\032\".greptime.v1.meta.B" +
-      "atchGetResponse\022H\n\005Range\022\036.greptime.v1.m" +
-      "eta.RangeRequest\032\037.greptime.v1.meta.Rang" +
-      "eResponse\022]\n\014MetasrvPeers\022%.greptime.v1." +
-      "meta.MetasrvPeersRequest\032&.greptime.v1.m" +
-      "eta.MetasrvPeersResponseB<Z:github.com/G" +
-      "reptimeTeam/greptime-proto/go/greptime/v" +
-      "1/metab\006proto3"
+      "nfo\"\227\001\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026." +
+      "greptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022" +
+      "\n\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001(" +
+      "\004\022\014\n\004cpus\030\005 \001(\r\022\024\n\014memory_bytes\030\006 \001(\0042\205\002" +
+      "\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.meta" +
+      ".BatchGetRequest\032\".greptime.v1.meta.Batc" +
+      "hGetResponse\022H\n\005Range\022\036.greptime.v1.meta" +
+      ".RangeRequest\032\037.greptime.v1.meta.RangeRe" +
+      "sponse\022]\n\014MetasrvPeers\022%.greptime.v1.met" +
+      "a.MetasrvPeersRequest\032&.greptime.v1.meta" +
+      ".MetasrvPeersResponseB<Z:github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/m" +
+      "etab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2921,7 +3103,7 @@ public final class ClusterOuterClass {
     internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
-        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", });
+        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", });
     greptime.v1.meta.Common.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }

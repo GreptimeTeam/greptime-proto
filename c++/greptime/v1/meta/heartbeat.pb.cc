@@ -94,6 +94,7 @@ PROTOBUF_CONSTEXPR NodeInfo::NodeInfo(
     /*decltype(_impl_.version_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.git_commit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.start_time_ms_)*/uint64_t{0u}
+  , /*decltype(_impl_.memory_bytes_)*/uint64_t{0u}
   , /*decltype(_impl_.cpus_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct NodeInfoDefaultTypeInternal {
@@ -350,6 +351,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.git_commit_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.start_time_ms_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.cpus_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::NodeInfo, _impl_.memory_bytes_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -484,19 +486,19 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 27, -1, -1, sizeof(::greptime::v1::meta::FrontendWorkloads)},
   { 34, -1, -1, sizeof(::greptime::v1::meta::FlownodeWorkloads)},
   { 41, -1, -1, sizeof(::greptime::v1::meta::NodeInfo)},
-  { 51, 59, -1, sizeof(::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse)},
-  { 61, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
-  { 74, -1, -1, sizeof(::greptime::v1::meta::TopicStat)},
-  { 84, 92, -1, sizeof(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse)},
-  { 94, 102, -1, sizeof(::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse)},
-  { 104, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
-  { 112, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
-  { 121, 129, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
-  { 131, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 140, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 150, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 157, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 165, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 52, 60, -1, sizeof(::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse)},
+  { 62, -1, -1, sizeof(::greptime::v1::meta::RegionStat)},
+  { 75, -1, -1, sizeof(::greptime::v1::meta::TopicStat)},
+  { 85, 93, -1, sizeof(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse)},
+  { 95, 103, -1, sizeof(::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse)},
+  { 105, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
+  { 113, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
+  { 122, 130, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
+  { 132, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
+  { 141, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 151, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 158, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 166, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -542,61 +544,62 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "\020\n\016node_workloads\"\"\n\021DatanodeWorkloads\022\r"
   "\n\005types\030\001 \003(\005\"\"\n\021FrontendWorkloads\022\r\n\005ty"
   "pes\030\001 \003(\005\"\"\n\021FlownodeWorkloads\022\r\n\005types\030"
-  "\001 \003(\005\"T\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngi"
+  "\001 \003(\005\"j\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngi"
   "t_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004\022\014\n"
-  "\004cpus\030\004 \001(\r\"\207\002\n\nRegionStat\022\021\n\tregion_id\030"
-  "\001 \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021app"
-  "roximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004"
-  "role\030\007 \001(\0162\034.greptime.v1.meta.RegionRole"
-  "\022@\n\nextensions\030c \003(\0132,.greptime.v1.meta."
-  "RegionStat.ExtensionsEntry\0321\n\017Extensions"
-  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"a\n"
-  "\tTopicStat\022\022\n\ntopic_name\030\001 \001(\t\022\023\n\013record"
-  "_size\030\002 \001(\004\022\022\n\nrecord_num\030\003 \001(\004\022\027\n\017lates"
-  "t_entry_id\030\004 \001(\004\"\227\002\n\010FlowStat\022D\n\016flow_st"
-  "at_size\030\001 \003(\0132,.greptime.v1.meta.FlowSta"
-  "t.FlowStatSizeEntry\022T\n\027flow_last_exec_ti"
-  "me_map\030\002 \003(\01323.greptime.v1.meta.FlowStat"
-  ".FlowLastExecTimeMapEntry\0323\n\021FlowStatSiz"
-  "eEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:"
-  "\n\030FlowLastExecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022"
-  "\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021HeartbeatResponse"
-  "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp"
-  "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr"
-  "eptime.v1.meta.MailboxMessage\0223\n\014region_"
-  "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea"
-  "se\"\306\001\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022"
-  "*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionR"
-  "ole\022C\n\nextensions\030c \003(\0132/.greptime.v1.me"
-  "ta.GrantedRegion.ExtensionsEntry\0321\n\017Exte"
-  "nsionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:"
-  "\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.g"
-  "reptime.v1.meta.GrantedRegion\022\034\n\024duratio"
-  "n_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001"
-  "(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskL"
-  "eaderRequest\022/\n\006header\030\001 \001(\0132\037.greptime."
-  "v1.meta.RequestHeader\"m\n\021AskLeaderRespon"
-  "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re"
-  "sponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime."
-  "v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001"
-  "(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030"
-  "\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030"
-  "\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Lead"
-  "er\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020"
-  "\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime."
-  "v1.meta.HeartbeatRequest\032#.greptime.v1.m"
-  "eta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader"
-  "\022\".greptime.v1.meta.AskLeaderRequest\032#.g"
-  "reptime.v1.meta.AskLeaderResponse\"\000B<Z:g"
-  "ithub.com/GreptimeTeam/greptime-proto/go"
-  "/greptime/v1/metab\006proto3"
+  "\004cpus\030\004 \001(\r\022\024\n\014memory_bytes\030\005 \001(\004\"\207\002\n\nRe"
+  "gionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030\002 \001("
+  "\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_bytes\030\004 \001"
+  "(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.grept"
+  "ime.v1.meta.RegionRole\022@\n\nextensions\030c \003"
+  "(\0132,.greptime.v1.meta.RegionStat.Extensi"
+  "onsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t"
+  "\022\r\n\005value\030\002 \001(\014:\0028\001\"a\n\tTopicStat\022\022\n\ntopi"
+  "c_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\nrec"
+  "ord_num\030\003 \001(\004\022\027\n\017latest_entry_id\030\004 \001(\004\"\227"
+  "\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.gr"
+  "eptime.v1.meta.FlowStat.FlowStatSizeEntr"
+  "y\022T\n\027flow_last_exec_time_map\030\002 \003(\01323.gre"
+  "ptime.v1.meta.FlowStat.FlowLastExecTimeM"
+  "apEntry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001("
+  "\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecTime"
+  "MapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001"
+  "\"\265\001\n\021HeartbeatResponse\0220\n\006header\030\001 \001(\0132 "
+  ".greptime.v1.meta.ResponseHeader\0229\n\017mail"
+  "box_message\030\002 \001(\0132 .greptime.v1.meta.Mai"
+  "lboxMessage\0223\n\014region_lease\030\003 \001(\0132\035.grep"
+  "time.v1.meta.RegionLease\"\306\001\n\rGrantedRegi"
+  "on\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.gr"
+  "eptime.v1.meta.RegionRole\022C\n\nextensions\030"
+  "c \003(\0132/.greptime.v1.meta.GrantedRegion.E"
+  "xtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key"
+  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLeas"
+  "e\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.Gr"
+  "antedRegion\022\034\n\024duration_since_epoch\030\002 \001("
+  "\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_re"
+  "gion_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006he"
+  "ader\030\001 \001(\0132\037.greptime.v1.meta.RequestHea"
+  "der\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\013"
+  "2 .greptime.v1.meta.ResponseHeader\022&\n\006le"
+  "ader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Ma"
+  "ilboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001("
+  "\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp"
+  "_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload"
+  "*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001"
+  "\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbeat\022Z\n"
+  "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR"
+  "equest\032#.greptime.v1.meta.HeartbeatRespo"
+  "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met"
+  "a.AskLeaderRequest\032#.greptime.v1.meta.As"
+  "kLeaderResponse\"\000B<Z:github.com/Greptime"
+  "Team/greptime-proto/go/greptime/v1/metab"
+  "\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 2745, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 2767, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 18,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -1981,6 +1984,7 @@ NodeInfo::NodeInfo(const NodeInfo& from)
       decltype(_impl_.version_){}
     , decltype(_impl_.git_commit_){}
     , decltype(_impl_.start_time_ms_){}
+    , decltype(_impl_.memory_bytes_){}
     , decltype(_impl_.cpus_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -2015,6 +2019,7 @@ inline void NodeInfo::SharedCtor(
       decltype(_impl_.version_){}
     , decltype(_impl_.git_commit_){}
     , decltype(_impl_.start_time_ms_){uint64_t{0u}}
+    , decltype(_impl_.memory_bytes_){uint64_t{0u}}
     , decltype(_impl_.cpus_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -2103,6 +2108,14 @@ const char* NodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
+      // uint64 memory_bytes = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.memory_bytes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2164,6 +2177,12 @@ uint8_t* NodeInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_cpus(), target);
   }
 
+  // uint64 memory_bytes = 5;
+  if (this->_internal_memory_bytes() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_memory_bytes(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2199,6 +2218,11 @@ size_t NodeInfo::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_start_time_ms());
   }
 
+  // uint64 memory_bytes = 5;
+  if (this->_internal_memory_bytes() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_memory_bytes());
+  }
+
   // uint32 cpus = 4;
   if (this->_internal_cpus() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_cpus());
@@ -2230,6 +2254,9 @@ void NodeInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   }
   if (from._internal_start_time_ms() != 0) {
     _this->_internal_set_start_time_ms(from._internal_start_time_ms());
+  }
+  if (from._internal_memory_bytes() != 0) {
+    _this->_internal_set_memory_bytes(from._internal_memory_bytes());
   }
   if (from._internal_cpus() != 0) {
     _this->_internal_set_cpus(from._internal_cpus());

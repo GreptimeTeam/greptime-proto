@@ -5824,13 +5824,23 @@ public final class HeartbeatOuterClass {
 
     /**
      * <pre>
-     * The CPU cores number in the node.
+     * The CPU cores number of the node.
      * </pre>
      *
      * <code>uint32 cpus = 4;</code>
      * @return The cpus.
      */
     int getCpus();
+
+    /**
+     * <pre>
+     * The memory bytes of the node.
+     * </pre>
+     *
+     * <code>uint64 memory_bytes = 5;</code>
+     * @return The memoryBytes.
+     */
+    long getMemoryBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.NodeInfo}
@@ -5899,6 +5909,11 @@ public final class HeartbeatOuterClass {
             case 32: {
 
               cpus_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              memoryBytes_ = input.readUInt64();
               break;
             }
             default: {
@@ -6046,7 +6061,7 @@ public final class HeartbeatOuterClass {
     private int cpus_;
     /**
      * <pre>
-     * The CPU cores number in the node.
+     * The CPU cores number of the node.
      * </pre>
      *
      * <code>uint32 cpus = 4;</code>
@@ -6055,6 +6070,21 @@ public final class HeartbeatOuterClass {
     @java.lang.Override
     public int getCpus() {
       return cpus_;
+    }
+
+    public static final int MEMORY_BYTES_FIELD_NUMBER = 5;
+    private long memoryBytes_;
+    /**
+     * <pre>
+     * The memory bytes of the node.
+     * </pre>
+     *
+     * <code>uint64 memory_bytes = 5;</code>
+     * @return The memoryBytes.
+     */
+    @java.lang.Override
+    public long getMemoryBytes() {
+      return memoryBytes_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6083,6 +6113,9 @@ public final class HeartbeatOuterClass {
       if (cpus_ != 0) {
         output.writeUInt32(4, cpus_);
       }
+      if (memoryBytes_ != 0L) {
+        output.writeUInt64(5, memoryBytes_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6105,6 +6138,10 @@ public final class HeartbeatOuterClass {
       if (cpus_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, cpus_);
+      }
+      if (memoryBytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, memoryBytes_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6129,6 +6166,8 @@ public final class HeartbeatOuterClass {
           != other.getStartTimeMs()) return false;
       if (getCpus()
           != other.getCpus()) return false;
+      if (getMemoryBytes()
+          != other.getMemoryBytes()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6149,6 +6188,9 @@ public final class HeartbeatOuterClass {
           getStartTimeMs());
       hash = (37 * hash) + CPUS_FIELD_NUMBER;
       hash = (53 * hash) + getCpus();
+      hash = (37 * hash) + MEMORY_BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMemoryBytes());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6290,6 +6332,8 @@ public final class HeartbeatOuterClass {
 
         cpus_ = 0;
 
+        memoryBytes_ = 0L;
+
         return this;
       }
 
@@ -6320,6 +6364,7 @@ public final class HeartbeatOuterClass {
         result.gitCommit_ = gitCommit_;
         result.startTimeMs_ = startTimeMs_;
         result.cpus_ = cpus_;
+        result.memoryBytes_ = memoryBytes_;
         onBuilt();
         return result;
       }
@@ -6381,6 +6426,9 @@ public final class HeartbeatOuterClass {
         }
         if (other.getCpus() != 0) {
           setCpus(other.getCpus());
+        }
+        if (other.getMemoryBytes() != 0L) {
+          setMemoryBytes(other.getMemoryBytes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6649,7 +6697,7 @@ public final class HeartbeatOuterClass {
       private int cpus_ ;
       /**
        * <pre>
-       * The CPU cores number in the node.
+       * The CPU cores number of the node.
        * </pre>
        *
        * <code>uint32 cpus = 4;</code>
@@ -6661,7 +6709,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * The CPU cores number in the node.
+       * The CPU cores number of the node.
        * </pre>
        *
        * <code>uint32 cpus = 4;</code>
@@ -6676,7 +6724,7 @@ public final class HeartbeatOuterClass {
       }
       /**
        * <pre>
-       * The CPU cores number in the node.
+       * The CPU cores number of the node.
        * </pre>
        *
        * <code>uint32 cpus = 4;</code>
@@ -6685,6 +6733,49 @@ public final class HeartbeatOuterClass {
       public Builder clearCpus() {
         
         cpus_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long memoryBytes_ ;
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 5;</code>
+       * @return The memoryBytes.
+       */
+      @java.lang.Override
+      public long getMemoryBytes() {
+        return memoryBytes_;
+      }
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 5;</code>
+       * @param value The memoryBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoryBytes(long value) {
+        
+        memoryBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The memory bytes of the node.
+       * </pre>
+       *
+       * <code>uint64 memory_bytes = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemoryBytes() {
+        
+        memoryBytes_ = 0L;
         onChanged();
         return this;
       }
@@ -16188,54 +16279,55 @@ com.google.protobuf.ByteString defaultValue);
       "\020\n\016node_workloads\"\"\n\021DatanodeWorkloads\022\r" +
       "\n\005types\030\001 \003(\005\"\"\n\021FrontendWorkloads\022\r\n\005ty" +
       "pes\030\001 \003(\005\"\"\n\021FlownodeWorkloads\022\r\n\005types\030" +
-      "\001 \003(\005\"T\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngi" +
+      "\001 \003(\005\"j\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngi" +
       "t_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004\022\014\n" +
-      "\004cpus\030\004 \001(\r\"\207\002\n\nRegionStat\022\021\n\tregion_id\030" +
-      "\001 \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021app" +
-      "roximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004" +
-      "role\030\007 \001(\0162\034.greptime.v1.meta.RegionRole" +
-      "\022@\n\nextensions\030c \003(\0132,.greptime.v1.meta." +
-      "RegionStat.ExtensionsEntry\0321\n\017Extensions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"a\n" +
-      "\tTopicStat\022\022\n\ntopic_name\030\001 \001(\t\022\023\n\013record" +
-      "_size\030\002 \001(\004\022\022\n\nrecord_num\030\003 \001(\004\022\027\n\017lates" +
-      "t_entry_id\030\004 \001(\004\"\227\002\n\010FlowStat\022D\n\016flow_st" +
-      "at_size\030\001 \003(\0132,.greptime.v1.meta.FlowSta" +
-      "t.FlowStatSizeEntry\022T\n\027flow_last_exec_ti" +
-      "me_map\030\002 \003(\01323.greptime.v1.meta.FlowStat" +
-      ".FlowLastExecTimeMapEntry\0323\n\021FlowStatSiz" +
-      "eEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:" +
-      "\n\030FlowLastExecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022" +
-      "\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021HeartbeatResponse" +
-      "\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Resp" +
-      "onseHeader\0229\n\017mailbox_message\030\002 \001(\0132 .gr" +
-      "eptime.v1.meta.MailboxMessage\0223\n\014region_" +
-      "lease\030\003 \001(\0132\035.greptime.v1.meta.RegionLea" +
-      "se\"\306\001\n\rGrantedRegion\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.RegionR" +
-      "ole\022C\n\nextensions\030c \003(\0132/.greptime.v1.me" +
-      "ta.GrantedRegion.ExtensionsEntry\0321\n\017Exte" +
-      "nsionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:" +
-      "\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.g" +
-      "reptime.v1.meta.GrantedRegion\022\034\n\024duratio" +
-      "n_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001" +
-      "(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskL" +
-      "eaderRequest\022/\n\006header\030\001 \001(\0132\037.greptime." +
-      "v1.meta.RequestHeader\"m\n\021AskLeaderRespon" +
-      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
-      "sponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime." +
-      "v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id\030\001 \001" +
-      "(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030" +
-      "\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030" +
-      "\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Lead" +
-      "er\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020" +
-      "\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime." +
-      "v1.meta.HeartbeatRequest\032#.greptime.v1.m" +
-      "eta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader" +
-      "\022\".greptime.v1.meta.AskLeaderRequest\032#.g" +
-      "reptime.v1.meta.AskLeaderResponse\"\000B<Z:g" +
-      "ithub.com/GreptimeTeam/greptime-proto/go" +
-      "/greptime/v1/metab\006proto3"
+      "\004cpus\030\004 \001(\r\022\024\n\014memory_bytes\030\005 \001(\004\"\207\002\n\nRe" +
+      "gionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030\002 \001(" +
+      "\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_bytes\030\004 \001" +
+      "(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.grept" +
+      "ime.v1.meta.RegionRole\022@\n\nextensions\030c \003" +
+      "(\0132,.greptime.v1.meta.RegionStat.Extensi" +
+      "onsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\014:\0028\001\"a\n\tTopicStat\022\022\n\ntopi" +
+      "c_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\nrec" +
+      "ord_num\030\003 \001(\004\022\027\n\017latest_entry_id\030\004 \001(\004\"\227" +
+      "\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.gr" +
+      "eptime.v1.meta.FlowStat.FlowStatSizeEntr" +
+      "y\022T\n\027flow_last_exec_time_map\030\002 \003(\01323.gre" +
+      "ptime.v1.meta.FlowStat.FlowLastExecTimeM" +
+      "apEntry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(" +
+      "\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecTime" +
+      "MapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001" +
+      "\"\265\001\n\021HeartbeatResponse\0220\n\006header\030\001 \001(\0132 " +
+      ".greptime.v1.meta.ResponseHeader\0229\n\017mail" +
+      "box_message\030\002 \001(\0132 .greptime.v1.meta.Mai" +
+      "lboxMessage\0223\n\014region_lease\030\003 \001(\0132\035.grep" +
+      "time.v1.meta.RegionLease\"\306\001\n\rGrantedRegi" +
+      "on\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.gr" +
+      "eptime.v1.meta.RegionRole\022C\n\nextensions\030" +
+      "c \003(\0132/.greptime.v1.meta.GrantedRegion.E" +
+      "xtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLeas" +
+      "e\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.Gr" +
+      "antedRegion\022\034\n\024duration_since_epoch\030\002 \001(" +
+      "\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_re" +
+      "gion_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006he" +
+      "ader\030\001 \001(\0132\037.greptime.v1.meta.RequestHea" +
+      "der\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(\013" +
+      "2 .greptime.v1.meta.ResponseHeader\022&\n\006le" +
+      "ader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n\016Ma" +
+      "ilboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(" +
+      "\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp" +
+      "_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload" +
+      "*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001" +
+      "\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbeat\022Z\n" +
+      "\tHeartbeat\022\".greptime.v1.meta.HeartbeatR" +
+      "equest\032#.greptime.v1.meta.HeartbeatRespo" +
+      "nse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.met" +
+      "a.AskLeaderRequest\032#.greptime.v1.meta.As" +
+      "kLeaderResponse\"\000B<Z:github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1/metab" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16271,7 +16363,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_NodeInfo_descriptor,
-        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", });
+        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", });
     internal_static_greptime_v1_meta_RegionStat_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
