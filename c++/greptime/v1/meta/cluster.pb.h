@@ -551,6 +551,8 @@ class MetasrvNodeInfo final :
     kGitCommitFieldNumber = 3,
     kPeerFieldNumber = 1,
     kStartTimeMsFieldNumber = 4,
+    kMemoryBytesFieldNumber = 6,
+    kCpusFieldNumber = 5,
   };
   // string version = 2;
   void clear_version();
@@ -607,6 +609,24 @@ class MetasrvNodeInfo final :
   void _internal_set_start_time_ms(uint64_t value);
   public:
 
+  // uint64 memory_bytes = 6;
+  void clear_memory_bytes();
+  uint64_t memory_bytes() const;
+  void set_memory_bytes(uint64_t value);
+  private:
+  uint64_t _internal_memory_bytes() const;
+  void _internal_set_memory_bytes(uint64_t value);
+  public:
+
+  // uint32 cpus = 5;
+  void clear_cpus();
+  uint32_t cpus() const;
+  void set_cpus(uint32_t value);
+  private:
+  uint32_t _internal_cpus() const;
+  void _internal_set_cpus(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetasrvNodeInfo)
  private:
   class _Internal;
@@ -619,6 +639,8 @@ class MetasrvNodeInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
     ::greptime::v1::meta::Peer* peer_;
     uint64_t start_time_ms_;
+    uint64_t memory_bytes_;
+    uint32_t cpus_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1146,6 +1168,46 @@ inline void MetasrvNodeInfo::_internal_set_start_time_ms(uint64_t value) {
 inline void MetasrvNodeInfo::set_start_time_ms(uint64_t value) {
   _internal_set_start_time_ms(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.start_time_ms)
+}
+
+// uint32 cpus = 5;
+inline void MetasrvNodeInfo::clear_cpus() {
+  _impl_.cpus_ = 0u;
+}
+inline uint32_t MetasrvNodeInfo::_internal_cpus() const {
+  return _impl_.cpus_;
+}
+inline uint32_t MetasrvNodeInfo::cpus() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.cpus)
+  return _internal_cpus();
+}
+inline void MetasrvNodeInfo::_internal_set_cpus(uint32_t value) {
+  
+  _impl_.cpus_ = value;
+}
+inline void MetasrvNodeInfo::set_cpus(uint32_t value) {
+  _internal_set_cpus(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.cpus)
+}
+
+// uint64 memory_bytes = 6;
+inline void MetasrvNodeInfo::clear_memory_bytes() {
+  _impl_.memory_bytes_ = uint64_t{0u};
+}
+inline uint64_t MetasrvNodeInfo::_internal_memory_bytes() const {
+  return _impl_.memory_bytes_;
+}
+inline uint64_t MetasrvNodeInfo::memory_bytes() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.memory_bytes)
+  return _internal_memory_bytes();
+}
+inline void MetasrvNodeInfo::_internal_set_memory_bytes(uint64_t value) {
+  
+  _impl_.memory_bytes_ = value;
+}
+inline void MetasrvNodeInfo::set_memory_bytes(uint64_t value) {
+  _internal_set_memory_bytes(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.memory_bytes)
 }
 
 #ifdef __GNUC__
