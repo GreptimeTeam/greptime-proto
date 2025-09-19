@@ -56,6 +56,7 @@ message HeartbeatRequest {
   }
   // The topic stats of the datanode.
   repeated TopicStat topic_stats = 13;
+  map<string, bytes> extensions = 99;
 }
 
 /// The workload types of the datanode.
