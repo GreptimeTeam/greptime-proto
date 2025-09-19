@@ -85,6 +85,9 @@ extern GrantedRegion_ExtensionsEntry_DoNotUseDefaultTypeInternal _GrantedRegion_
 class HeartbeatRequest;
 struct HeartbeatRequestDefaultTypeInternal;
 extern HeartbeatRequestDefaultTypeInternal _HeartbeatRequest_default_instance_;
+class HeartbeatRequest_ExtensionsEntry_DoNotUse;
+struct HeartbeatRequest_ExtensionsEntry_DoNotUseDefaultTypeInternal;
+extern HeartbeatRequest_ExtensionsEntry_DoNotUseDefaultTypeInternal _HeartbeatRequest_ExtensionsEntry_DoNotUse_default_instance_;
 class HeartbeatResponse;
 struct HeartbeatResponseDefaultTypeInternal;
 extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_;
@@ -121,6 +124,7 @@ template<> ::greptime::v1::meta::FrontendWorkloads* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
+template<> ::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
@@ -160,6 +164,32 @@ inline bool RegionRole_Parse(
     RegionRole_descriptor(), name, value);
 }
 // ===================================================================
+
+class HeartbeatRequest_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HeartbeatRequest_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HeartbeatRequest_ExtensionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> SuperType;
+  HeartbeatRequest_ExtensionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR HeartbeatRequest_ExtensionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit HeartbeatRequest_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const HeartbeatRequest_ExtensionsEntry_DoNotUse& other);
+  static const HeartbeatRequest_ExtensionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const HeartbeatRequest_ExtensionsEntry_DoNotUse*>(&_HeartbeatRequest_ExtensionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.HeartbeatRequest.ExtensionsEntry.key");
+ }
+  static bool ValidateValue(void*) { return true; }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+
+// -------------------------------------------------------------------
 
 class HeartbeatRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.HeartbeatRequest) */ {
@@ -216,7 +246,7 @@ class HeartbeatRequest final :
                &_HeartbeatRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(HeartbeatRequest& a, HeartbeatRequest& b) {
     a.Swap(&b);
@@ -277,6 +307,8 @@ class HeartbeatRequest final :
   protected:
   explicit HeartbeatRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
   public:
 
   static const ClassData _class_data_;
@@ -286,11 +318,13 @@ class HeartbeatRequest final :
 
   // nested types ----------------------------------------------------
 
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kRegionStatsFieldNumber = 4,
     kTopicStatsFieldNumber = 13,
+    kExtensionsFieldNumber = 99,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
     kReportIntervalFieldNumber = 3,
@@ -338,6 +372,23 @@ class HeartbeatRequest final :
   ::greptime::v1::meta::TopicStat* add_topic_stats();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
       topic_stats() const;
+
+  // map<string, bytes> extensions = 99;
+  int extensions_size() const;
+  private:
+  int _internal_extensions_size() const;
+  public:
+  void clear_extensions();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_extensions();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      extensions() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_extensions();
 
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -537,6 +588,11 @@ class HeartbeatRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat > region_stats_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat > topic_stats_;
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        HeartbeatRequest_ExtensionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::meta::Peer* peer_;
     ::greptime::v1::meta::TimeInterval* report_interval_;
@@ -609,7 +665,7 @@ class DatanodeWorkloads final :
                &_DatanodeWorkloads_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(DatanodeWorkloads& a, DatanodeWorkloads& b) {
     a.Swap(&b);
@@ -771,7 +827,7 @@ class FrontendWorkloads final :
                &_FrontendWorkloads_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(FrontendWorkloads& a, FrontendWorkloads& b) {
     a.Swap(&b);
@@ -933,7 +989,7 @@ class FlownodeWorkloads final :
                &_FlownodeWorkloads_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(FlownodeWorkloads& a, FlownodeWorkloads& b) {
     a.Swap(&b);
@@ -1095,7 +1151,7 @@ class NodeInfo final :
                &_NodeInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(NodeInfo& a, NodeInfo& b) {
     a.Swap(&b);
@@ -1323,7 +1379,7 @@ class RegionStat final :
                &_RegionStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(RegionStat& a, RegionStat& b) {
     a.Swap(&b);
@@ -1557,7 +1613,7 @@ class TopicStat final :
                &_TopicStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(TopicStat& a, TopicStat& b) {
     a.Swap(&b);
@@ -1791,7 +1847,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -1977,7 +2033,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -2200,7 +2256,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -2385,7 +2441,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -2589,7 +2645,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -2746,7 +2802,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -2928,7 +2984,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -3126,6 +3182,8 @@ class MailboxMessage final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // HeartbeatRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
@@ -3993,6 +4051,35 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::To
 HeartbeatRequest::topic_stats() const {
   // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatRequest.topic_stats)
   return _impl_.topic_stats_;
+}
+
+// map<string, bytes> extensions = 99;
+inline int HeartbeatRequest::_internal_extensions_size() const {
+  return _impl_.extensions_.size();
+}
+inline int HeartbeatRequest::extensions_size() const {
+  return _internal_extensions_size();
+}
+inline void HeartbeatRequest::clear_extensions() {
+  _impl_.extensions_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+HeartbeatRequest::_internal_extensions() const {
+  return _impl_.extensions_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+HeartbeatRequest::extensions() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.HeartbeatRequest.extensions)
+  return _internal_extensions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+HeartbeatRequest::_internal_mutable_extensions() {
+  return _impl_.extensions_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+HeartbeatRequest::mutable_extensions() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.HeartbeatRequest.extensions)
+  return _internal_mutable_extensions();
 }
 
 inline bool HeartbeatRequest::has_node_workloads() const {
@@ -5707,6 +5794,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
