@@ -190,6 +190,7 @@ message Decimal128 {
 message StructField {
   string name = 1;
   ColumnDataType data_type = 2;
+  ColumnDataTypeExtension datatype_extension = 3;
 }
 
 // Type extension for some complex types
@@ -219,6 +220,7 @@ message VectorTypeExtension {
 
 message ListTypeExtension {
   ColumnDataType data_type = 1;
+  ColumnDataTypeExtension datatype_extension = 2;
 }
 
 message StructTypeExtension {
