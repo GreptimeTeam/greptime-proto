@@ -229,12 +229,14 @@ enum ColumnDataType : int {
   DECIMAL128 = 30,
   JSON = 31,
   VECTOR = 32,
+  LIST = 40,
+  STRUCT = 41,
   ColumnDataType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ColumnDataType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ColumnDataType_IsValid(int value);
 constexpr ColumnDataType ColumnDataType_MIN = BOOLEAN;
-constexpr ColumnDataType ColumnDataType_MAX = VECTOR;
+constexpr ColumnDataType ColumnDataType_MAX = STRUCT;
 constexpr int ColumnDataType_ARRAYSIZE = ColumnDataType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ColumnDataType_descriptor();

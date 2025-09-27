@@ -151,6 +151,8 @@ enum ColumnDataType {
   DECIMAL128 = 30;
   JSON = 31;
   VECTOR = 32;
+  LIST = 40;
+  STRUCT = 41;
 }
 
 message IntervalMonthDayNano {

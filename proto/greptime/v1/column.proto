@@ -59,6 +59,15 @@ message Column {
     repeated IntervalMonthDayNano interval_month_day_nano_values = 26;
     repeated Decimal128 decimal128_values = 31;
   }
+
+  message ListValues {
+    repeated Values items = 1;
+  }
+
+  message StructValues {
+    repeated string keys = 1;
+    repeated Values items = 2;
+  }
   // The array of non-null values in this column.
   //
   // For example: suppose there is a column "foo" that contains some int32
