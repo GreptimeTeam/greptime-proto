@@ -15884,15 +15884,15 @@ java.lang.String defaultValue);
         getNameBytes();
 
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+     * @return The enum numeric value on the wire for datatype.
      */
-    int getDataTypeValue();
+    int getDatatypeValue();
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+     * @return The datatype.
      */
-    io.greptime.v1.Common.ColumnDataType getDataType();
+    io.greptime.v1.Common.ColumnDataType getDatatype();
 
     /**
      * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 3;</code>
@@ -15923,7 +15923,7 @@ java.lang.String defaultValue);
     }
     private StructField() {
       name_ = "";
-      dataType_ = 0;
+      datatype_ = 0;
     }
 
     @java.lang.Override
@@ -15965,7 +15965,7 @@ java.lang.String defaultValue);
             case 16: {
               int rawValue = input.readEnum();
 
-              dataType_ = rawValue;
+              datatype_ = rawValue;
               break;
             }
             case 26: {
@@ -16053,22 +16053,22 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int DATA_TYPE_FIELD_NUMBER = 2;
-    private int dataType_;
+    public static final int DATATYPE_FIELD_NUMBER = 2;
+    private int datatype_;
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+     * @return The enum numeric value on the wire for datatype.
      */
-    @java.lang.Override public int getDataTypeValue() {
-      return dataType_;
+    @java.lang.Override public int getDatatypeValue() {
+      return datatype_;
     }
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+     * @return The datatype.
      */
-    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDataType() {
+    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDatatype() {
       @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
       return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
     }
 
@@ -16115,8 +16115,8 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        output.writeEnum(2, dataType_);
+      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+        output.writeEnum(2, datatype_);
       }
       if (datatypeExtension_ != null) {
         output.writeMessage(3, getDatatypeExtension());
@@ -16133,9 +16133,9 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, dataType_);
+          .computeEnumSize(2, datatype_);
       }
       if (datatypeExtension_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -16158,7 +16158,7 @@ java.lang.String defaultValue);
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (dataType_ != other.dataType_) return false;
+      if (datatype_ != other.datatype_) return false;
       if (hasDatatypeExtension() != other.hasDatatypeExtension()) return false;
       if (hasDatatypeExtension()) {
         if (!getDatatypeExtension()
@@ -16177,8 +16177,8 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dataType_;
+      hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
+      hash = (53 * hash) + datatype_;
       if (hasDatatypeExtension()) {
         hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + getDatatypeExtension().hashCode();
@@ -16318,7 +16318,7 @@ java.lang.String defaultValue);
         super.clear();
         name_ = "";
 
-        dataType_ = 0;
+        datatype_ = 0;
 
         if (datatypeExtensionBuilder_ == null) {
           datatypeExtension_ = null;
@@ -16353,7 +16353,7 @@ java.lang.String defaultValue);
       public io.greptime.v1.Common.StructField buildPartial() {
         io.greptime.v1.Common.StructField result = new io.greptime.v1.Common.StructField(this);
         result.name_ = name_;
-        result.dataType_ = dataType_;
+        result.datatype_ = datatype_;
         if (datatypeExtensionBuilder_ == null) {
           result.datatypeExtension_ = datatypeExtension_;
         } else {
@@ -16411,8 +16411,8 @@ java.lang.String defaultValue);
           name_ = other.name_;
           onChanged();
         }
-        if (other.dataType_ != 0) {
-          setDataTypeValue(other.getDataTypeValue());
+        if (other.datatype_ != 0) {
+          setDatatypeValue(other.getDatatypeValue());
         }
         if (other.hasDatatypeExtension()) {
           mergeDatatypeExtension(other.getDatatypeExtension());
@@ -16522,56 +16522,56 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int dataType_ = 0;
+      private int datatype_ = 0;
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @return The enum numeric value on the wire for dataType.
+       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+       * @return The enum numeric value on the wire for datatype.
        */
-      @java.lang.Override public int getDataTypeValue() {
-        return dataType_;
+      @java.lang.Override public int getDatatypeValue() {
+        return datatype_;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @param value The enum numeric value on the wire for dataType to set.
+       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+       * @param value The enum numeric value on the wire for datatype to set.
        * @return This builder for chaining.
        */
-      public Builder setDataTypeValue(int value) {
+      public Builder setDatatypeValue(int value) {
         
-        dataType_ = value;
+        datatype_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @return The dataType.
+       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+       * @return The datatype.
        */
       @java.lang.Override
-      public io.greptime.v1.Common.ColumnDataType getDataType() {
+      public io.greptime.v1.Common.ColumnDataType getDatatype() {
         @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
         return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
-       * @param value The dataType to set.
+       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
+       * @param value The datatype to set.
        * @return This builder for chaining.
        */
-      public Builder setDataType(io.greptime.v1.Common.ColumnDataType value) {
+      public Builder setDatatype(io.greptime.v1.Common.ColumnDataType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        dataType_ = value.getNumber();
+        datatype_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 2;</code>
+       * <code>.greptime.v1.ColumnDataType datatype = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDataType() {
+      public Builder clearDatatype() {
         
-        dataType_ = 0;
+        datatype_ = 0;
         onChanged();
         return this;
       }
@@ -19418,15 +19418,15 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+     * @return The enum numeric value on the wire for datatype.
      */
-    int getDataTypeValue();
+    int getDatatypeValue();
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+     * @return The datatype.
      */
-    io.greptime.v1.Common.ColumnDataType getDataType();
+    io.greptime.v1.Common.ColumnDataType getDatatype();
 
     /**
      * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 2;</code>
@@ -19456,7 +19456,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private ListTypeExtension() {
-      dataType_ = 0;
+      datatype_ = 0;
     }
 
     @java.lang.Override
@@ -19492,7 +19492,7 @@ java.lang.String defaultValue);
             case 8: {
               int rawValue = input.readEnum();
 
-              dataType_ = rawValue;
+              datatype_ = rawValue;
               break;
             }
             case 18: {
@@ -19542,22 +19542,22 @@ java.lang.String defaultValue);
               io.greptime.v1.Common.ListTypeExtension.class, io.greptime.v1.Common.ListTypeExtension.Builder.class);
     }
 
-    public static final int DATA_TYPE_FIELD_NUMBER = 1;
-    private int dataType_;
+    public static final int DATATYPE_FIELD_NUMBER = 1;
+    private int datatype_;
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-     * @return The enum numeric value on the wire for dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+     * @return The enum numeric value on the wire for datatype.
      */
-    @java.lang.Override public int getDataTypeValue() {
-      return dataType_;
+    @java.lang.Override public int getDatatypeValue() {
+      return datatype_;
     }
     /**
-     * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-     * @return The dataType.
+     * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+     * @return The datatype.
      */
-    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDataType() {
+    @java.lang.Override public io.greptime.v1.Common.ColumnDataType getDatatype() {
       @SuppressWarnings("deprecation")
-      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+      io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
       return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
     }
 
@@ -19601,8 +19601,8 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
-        output.writeEnum(1, dataType_);
+      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+        output.writeEnum(1, datatype_);
       }
       if (datatypeExtension_ != null) {
         output.writeMessage(2, getDatatypeExtension());
@@ -19616,9 +19616,9 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (dataType_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
+      if (datatype_ != io.greptime.v1.Common.ColumnDataType.BOOLEAN.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, dataType_);
+          .computeEnumSize(1, datatype_);
       }
       if (datatypeExtension_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -19639,7 +19639,7 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.Common.ListTypeExtension other = (io.greptime.v1.Common.ListTypeExtension) obj;
 
-      if (dataType_ != other.dataType_) return false;
+      if (datatype_ != other.datatype_) return false;
       if (hasDatatypeExtension() != other.hasDatatypeExtension()) return false;
       if (hasDatatypeExtension()) {
         if (!getDatatypeExtension()
@@ -19656,8 +19656,8 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DATA_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + dataType_;
+      hash = (37 * hash) + DATATYPE_FIELD_NUMBER;
+      hash = (53 * hash) + datatype_;
       if (hasDatatypeExtension()) {
         hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + getDatatypeExtension().hashCode();
@@ -19795,7 +19795,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        dataType_ = 0;
+        datatype_ = 0;
 
         if (datatypeExtensionBuilder_ == null) {
           datatypeExtension_ = null;
@@ -19829,7 +19829,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Common.ListTypeExtension buildPartial() {
         io.greptime.v1.Common.ListTypeExtension result = new io.greptime.v1.Common.ListTypeExtension(this);
-        result.dataType_ = dataType_;
+        result.datatype_ = datatype_;
         if (datatypeExtensionBuilder_ == null) {
           result.datatypeExtension_ = datatypeExtension_;
         } else {
@@ -19883,8 +19883,8 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.Common.ListTypeExtension other) {
         if (other == io.greptime.v1.Common.ListTypeExtension.getDefaultInstance()) return this;
-        if (other.dataType_ != 0) {
-          setDataTypeValue(other.getDataTypeValue());
+        if (other.datatype_ != 0) {
+          setDatatypeValue(other.getDatatypeValue());
         }
         if (other.hasDatatypeExtension()) {
           mergeDatatypeExtension(other.getDatatypeExtension());
@@ -19918,56 +19918,56 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private int dataType_ = 0;
+      private int datatype_ = 0;
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-       * @return The enum numeric value on the wire for dataType.
+       * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+       * @return The enum numeric value on the wire for datatype.
        */
-      @java.lang.Override public int getDataTypeValue() {
-        return dataType_;
+      @java.lang.Override public int getDatatypeValue() {
+        return datatype_;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-       * @param value The enum numeric value on the wire for dataType to set.
+       * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+       * @param value The enum numeric value on the wire for datatype to set.
        * @return This builder for chaining.
        */
-      public Builder setDataTypeValue(int value) {
+      public Builder setDatatypeValue(int value) {
         
-        dataType_ = value;
+        datatype_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-       * @return The dataType.
+       * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+       * @return The datatype.
        */
       @java.lang.Override
-      public io.greptime.v1.Common.ColumnDataType getDataType() {
+      public io.greptime.v1.Common.ColumnDataType getDatatype() {
         @SuppressWarnings("deprecation")
-        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(dataType_);
+        io.greptime.v1.Common.ColumnDataType result = io.greptime.v1.Common.ColumnDataType.valueOf(datatype_);
         return result == null ? io.greptime.v1.Common.ColumnDataType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
-       * @param value The dataType to set.
+       * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
+       * @param value The datatype to set.
        * @return This builder for chaining.
        */
-      public Builder setDataType(io.greptime.v1.Common.ColumnDataType value) {
+      public Builder setDatatype(io.greptime.v1.Common.ColumnDataType value) {
         if (value == null) {
           throw new NullPointerException();
         }
         
-        dataType_ = value.getNumber();
+        datatype_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>.greptime.v1.ColumnDataType data_type = 1;</code>
+       * <code>.greptime.v1.ColumnDataType datatype = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDataType() {
+      public Builder clearDatatype() {
         
-        dataType_ = 0;
+        datatype_ = 0;
         onChanged();
         return this;
       }
@@ -22834,50 +22834,50 @@ java.lang.String defaultValue);
       "anges\022(\n\ttime_unit\030\001 \001(\0162\025.greptime.v1.T" +
       "imeUnit\022+\n\013time_ranges\030\002 \003(\0132\026.greptime." +
       "v1.TimeRange\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n" +
-      "\n\002lo\030\002 \001(\003\"\215\001\n\013StructField\022\014\n\004name\030\001 \001(\t" +
-      "\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Column" +
-      "DataType\022@\n\022datatype_extension\030\003 \001(\0132$.g" +
-      "reptime.v1.ColumnDataTypeExtension\"\274\002\n\027C" +
-      "olumnDataTypeExtension\0229\n\014decimal_type\030\001" +
-      " \001(\0132!.greptime.v1.DecimalTypeExtensionH" +
-      "\000\0223\n\tjson_type\030\002 \001(\0162\036.greptime.v1.JsonT" +
-      "ypeExtensionH\000\0227\n\013vector_type\030\003 \001(\0132 .gr" +
-      "eptime.v1.VectorTypeExtensionH\000\0223\n\tlist_" +
-      "type\030\004 \001(\0132\036.greptime.v1.ListTypeExtensi" +
-      "onH\000\0227\n\013struct_type\030\005 \001(\0132 .greptime.v1." +
-      "StructTypeExtensionH\000B\n\n\010type_ext\"8\n\024Dec" +
-      "imalTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005" +
-      "scale\030\002 \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003di" +
-      "m\030\001 \001(\r\"\205\001\n\021ListTypeExtension\022.\n\tdata_ty" +
-      "pe\030\001 \001(\0162\033.greptime.v1.ColumnDataType\022@\n" +
-      "\022datatype_extension\030\002 \001(\0132$.greptime.v1." +
-      "ColumnDataTypeExtension\"?\n\023StructTypeExt" +
-      "ension\022(\n\006fields\030\001 \003(\0132\030.greptime.v1.Str" +
-      "uctField\"y\n\rColumnOptions\0228\n\007options\030\001 \003" +
-      "(\0132\'.greptime.v1.ColumnOptions.OptionsEn" +
-      "try\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t:\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001 \001(\014\022" +
-      "\023\n\013data_header\030\002 \001(\014\022\017\n\007payload\030\003 \001(\014*1\n" +
-      "\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIM" +
-      "ESTAMP\020\002*\202\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000" +
-      "\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT6" +
-      "4\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n" +
-      "\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006" +
-      "BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETI" +
-      "ME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_" +
-      "MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021" +
-      "\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECON" +
-      "D\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROS" +
-      "ECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL" +
-      "_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027" +
-      "INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020" +
-      "\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006STR" +
-      "UCT\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SE" +
-      "COND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*" +
-      "$\n\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000BO\n" +
-      "\016io.greptime.v1B\006CommonZ5github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1b\006" +
-      "proto3"
+      "\n\002lo\030\002 \001(\003\"\214\001\n\013StructField\022\014\n\004name\030\001 \001(\t" +
+      "\022-\n\010datatype\030\002 \001(\0162\033.greptime.v1.ColumnD" +
+      "ataType\022@\n\022datatype_extension\030\003 \001(\0132$.gr" +
+      "eptime.v1.ColumnDataTypeExtension\"\274\002\n\027Co" +
+      "lumnDataTypeExtension\0229\n\014decimal_type\030\001 " +
+      "\001(\0132!.greptime.v1.DecimalTypeExtensionH\000" +
+      "\0223\n\tjson_type\030\002 \001(\0162\036.greptime.v1.JsonTy" +
+      "peExtensionH\000\0227\n\013vector_type\030\003 \001(\0132 .gre" +
+      "ptime.v1.VectorTypeExtensionH\000\0223\n\tlist_t" +
+      "ype\030\004 \001(\0132\036.greptime.v1.ListTypeExtensio" +
+      "nH\000\0227\n\013struct_type\030\005 \001(\0132 .greptime.v1.S" +
+      "tructTypeExtensionH\000B\n\n\010type_ext\"8\n\024Deci" +
+      "malTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005s" +
+      "cale\030\002 \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim" +
+      "\030\001 \001(\r\"\204\001\n\021ListTypeExtension\022-\n\010datatype" +
+      "\030\001 \001(\0162\033.greptime.v1.ColumnDataType\022@\n\022d" +
+      "atatype_extension\030\002 \001(\0132$.greptime.v1.Co" +
+      "lumnDataTypeExtension\"?\n\023StructTypeExten" +
+      "sion\022(\n\006fields\030\001 \003(\0132\030.greptime.v1.Struc" +
+      "tField\"y\n\rColumnOptions\0228\n\007options\030\001 \003(\013" +
+      "2\'.greptime.v1.ColumnOptions.OptionsEntr" +
+      "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n" +
+      "\013data_header\030\002 \001(\014\022\017\n\007payload\030\003 \001(\014*1\n\014S" +
+      "emanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMES" +
+      "TAMP\020\002*\202\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010" +
+      "\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020" +
+      "\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006" +
+      "UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BI" +
+      "NARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME" +
+      "\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MI" +
+      "LLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030" +
+      "\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020" +
+      "\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSEC" +
+      "OND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_Y" +
+      "EAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027IN" +
+      "TERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022" +
+      "\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006STRUC" +
+      "T\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SECO" +
+      "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*$\n" +
+      "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016i" +
+      "o.greptime.v1B\006CommonZ5github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -23026,7 +23026,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_StructField_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_StructField_descriptor,
-        new java.lang.String[] { "Name", "DataType", "DatatypeExtension", });
+        new java.lang.String[] { "Name", "Datatype", "DatatypeExtension", });
     internal_static_greptime_v1_ColumnDataTypeExtension_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_ColumnDataTypeExtension_fieldAccessorTable = new
@@ -23050,7 +23050,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_ListTypeExtension_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ListTypeExtension_descriptor,
-        new java.lang.String[] { "DataType", "DatatypeExtension", });
+        new java.lang.String[] { "Datatype", "DatatypeExtension", });
     internal_static_greptime_v1_StructTypeExtension_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_greptime_v1_StructTypeExtension_fieldAccessorTable = new

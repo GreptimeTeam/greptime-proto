@@ -189,7 +189,7 @@ message Decimal128 {
 
 message StructField {
   string name = 1;
-  ColumnDataType data_type = 2;
+  ColumnDataType datatype = 2;
   ColumnDataTypeExtension datatype_extension = 3;
 }
 
@@ -219,7 +219,7 @@ message VectorTypeExtension {
 }
 
 message ListTypeExtension {
-  ColumnDataType data_type = 1;
+  ColumnDataType datatype = 1;
   ColumnDataTypeExtension datatype_extension = 2;
 }
 

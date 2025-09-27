@@ -3842,7 +3842,7 @@ class StructField final :
   enum : int {
     kNameFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 3,
-    kDataTypeFieldNumber = 2,
+    kDatatypeFieldNumber = 2,
   };
   // string name = 1;
   void clear_name();
@@ -3876,13 +3876,13 @@ class StructField final :
       ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
   ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
 
-  // .greptime.v1.ColumnDataType data_type = 2;
-  void clear_data_type();
-  ::greptime::v1::ColumnDataType data_type() const;
-  void set_data_type(::greptime::v1::ColumnDataType value);
+  // .greptime.v1.ColumnDataType datatype = 2;
+  void clear_datatype();
+  ::greptime::v1::ColumnDataType datatype() const;
+  void set_datatype(::greptime::v1::ColumnDataType value);
   private:
-  ::greptime::v1::ColumnDataType _internal_data_type() const;
-  void _internal_set_data_type(::greptime::v1::ColumnDataType value);
+  ::greptime::v1::ColumnDataType _internal_datatype() const;
+  void _internal_set_datatype(::greptime::v1::ColumnDataType value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.StructField)
@@ -3895,7 +3895,7 @@ class StructField final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
-    int data_type_;
+    int datatype_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4589,7 +4589,7 @@ class ListTypeExtension final :
 
   enum : int {
     kDatatypeExtensionFieldNumber = 2,
-    kDataTypeFieldNumber = 1,
+    kDatatypeFieldNumber = 1,
   };
   // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
   bool has_datatype_extension() const;
@@ -4609,13 +4609,13 @@ class ListTypeExtension final :
       ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
   ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
 
-  // .greptime.v1.ColumnDataType data_type = 1;
-  void clear_data_type();
-  ::greptime::v1::ColumnDataType data_type() const;
-  void set_data_type(::greptime::v1::ColumnDataType value);
+  // .greptime.v1.ColumnDataType datatype = 1;
+  void clear_datatype();
+  ::greptime::v1::ColumnDataType datatype() const;
+  void set_datatype(::greptime::v1::ColumnDataType value);
   private:
-  ::greptime::v1::ColumnDataType _internal_data_type() const;
-  void _internal_set_data_type(::greptime::v1::ColumnDataType value);
+  ::greptime::v1::ColumnDataType _internal_datatype() const;
+  void _internal_set_datatype(::greptime::v1::ColumnDataType value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.ListTypeExtension)
@@ -4627,7 +4627,7 @@ class ListTypeExtension final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
-    int data_type_;
+    int datatype_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -7194,24 +7194,24 @@ inline void StructField::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.StructField.name)
 }
 
-// .greptime.v1.ColumnDataType data_type = 2;
-inline void StructField::clear_data_type() {
-  _impl_.data_type_ = 0;
+// .greptime.v1.ColumnDataType datatype = 2;
+inline void StructField::clear_datatype() {
+  _impl_.datatype_ = 0;
 }
-inline ::greptime::v1::ColumnDataType StructField::_internal_data_type() const {
-  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.data_type_);
+inline ::greptime::v1::ColumnDataType StructField::_internal_datatype() const {
+  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.datatype_);
 }
-inline ::greptime::v1::ColumnDataType StructField::data_type() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.StructField.data_type)
-  return _internal_data_type();
+inline ::greptime::v1::ColumnDataType StructField::datatype() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.StructField.datatype)
+  return _internal_datatype();
 }
-inline void StructField::_internal_set_data_type(::greptime::v1::ColumnDataType value) {
+inline void StructField::_internal_set_datatype(::greptime::v1::ColumnDataType value) {
   
-  _impl_.data_type_ = value;
+  _impl_.datatype_ = value;
 }
-inline void StructField::set_data_type(::greptime::v1::ColumnDataType value) {
-  _internal_set_data_type(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.StructField.data_type)
+inline void StructField::set_datatype(::greptime::v1::ColumnDataType value) {
+  _internal_set_datatype(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.StructField.datatype)
 }
 
 // .greptime.v1.ColumnDataTypeExtension datatype_extension = 3;
@@ -7723,24 +7723,24 @@ inline void VectorTypeExtension::set_dim(uint32_t value) {
 
 // ListTypeExtension
 
-// .greptime.v1.ColumnDataType data_type = 1;
-inline void ListTypeExtension::clear_data_type() {
-  _impl_.data_type_ = 0;
+// .greptime.v1.ColumnDataType datatype = 1;
+inline void ListTypeExtension::clear_datatype() {
+  _impl_.datatype_ = 0;
 }
-inline ::greptime::v1::ColumnDataType ListTypeExtension::_internal_data_type() const {
-  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.data_type_);
+inline ::greptime::v1::ColumnDataType ListTypeExtension::_internal_datatype() const {
+  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.datatype_);
 }
-inline ::greptime::v1::ColumnDataType ListTypeExtension::data_type() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.ListTypeExtension.data_type)
-  return _internal_data_type();
+inline ::greptime::v1::ColumnDataType ListTypeExtension::datatype() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ListTypeExtension.datatype)
+  return _internal_datatype();
 }
-inline void ListTypeExtension::_internal_set_data_type(::greptime::v1::ColumnDataType value) {
+inline void ListTypeExtension::_internal_set_datatype(::greptime::v1::ColumnDataType value) {
   
-  _impl_.data_type_ = value;
+  _impl_.datatype_ = value;
 }
-inline void ListTypeExtension::set_data_type(::greptime::v1::ColumnDataType value) {
-  _internal_set_data_type(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.ListTypeExtension.data_type)
+inline void ListTypeExtension::set_datatype(::greptime::v1::ColumnDataType value) {
+  _internal_set_datatype(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.ListTypeExtension.datatype)
 }
 
 // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
