@@ -803,6 +803,54 @@ public final class Columns {
        */
       io.greptime.v1.Common.Decimal128OrBuilder getDecimal128ValuesOrBuilder(
           int index);
+
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      java.util.List<io.greptime.v1.Columns.Column.ListValues> 
+          getListValuesList();
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      io.greptime.v1.Columns.Column.ListValues getListValues(int index);
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      int getListValuesCount();
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      java.util.List<? extends io.greptime.v1.Columns.Column.ListValuesOrBuilder> 
+          getListValuesOrBuilderList();
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      io.greptime.v1.Columns.Column.ListValuesOrBuilder getListValuesOrBuilder(
+          int index);
+
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      java.util.List<io.greptime.v1.Columns.Column.StructValues> 
+          getStructValuesList();
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      io.greptime.v1.Columns.Column.StructValues getStructValues(int index);
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      int getStructValuesCount();
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      java.util.List<? extends io.greptime.v1.Columns.Column.StructValuesOrBuilder> 
+          getStructValuesOrBuilderList();
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      io.greptime.v1.Columns.Column.StructValuesOrBuilder getStructValuesOrBuilder(
+          int index);
     }
     /**
      * Protobuf type {@code greptime.v1.Column.Values}
@@ -844,6 +892,8 @@ public final class Columns {
         intervalDayTimeValues_ = emptyLongList();
         intervalMonthDayNanoValues_ = java.util.Collections.emptyList();
         decimal128Values_ = java.util.Collections.emptyList();
+        listValues_ = java.util.Collections.emptyList();
+        structValues_ = java.util.Collections.emptyList();
       }
 
       @java.lang.Override
@@ -1395,6 +1445,24 @@ public final class Columns {
                     input.readMessage(io.greptime.v1.Common.Decimal128.parser(), extensionRegistry));
                 break;
               }
+              case 322: {
+                if (!((mutable_bitField0_ & 0x08000000) != 0)) {
+                  listValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.ListValues>();
+                  mutable_bitField0_ |= 0x08000000;
+                }
+                listValues_.add(
+                    input.readMessage(io.greptime.v1.Columns.Column.ListValues.parser(), extensionRegistry));
+                break;
+              }
+              case 330: {
+                if (!((mutable_bitField0_ & 0x10000000) != 0)) {
+                  structValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.StructValues>();
+                  mutable_bitField0_ |= 0x10000000;
+                }
+                structValues_.add(
+                    input.readMessage(io.greptime.v1.Columns.Column.StructValues.parser(), extensionRegistry));
+                break;
+              }
               default: {
                 if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
@@ -1492,6 +1560,12 @@ public final class Columns {
           }
           if (((mutable_bitField0_ & 0x04000000) != 0)) {
             decimal128Values_ = java.util.Collections.unmodifiableList(decimal128Values_);
+          }
+          if (((mutable_bitField0_ & 0x08000000) != 0)) {
+            listValues_ = java.util.Collections.unmodifiableList(listValues_);
+          }
+          if (((mutable_bitField0_ & 0x10000000) != 0)) {
+            structValues_ = java.util.Collections.unmodifiableList(structValues_);
           }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -2296,6 +2370,86 @@ public final class Columns {
         return decimal128Values_.get(index);
       }
 
+      public static final int LIST_VALUES_FIELD_NUMBER = 40;
+      private java.util.List<io.greptime.v1.Columns.Column.ListValues> listValues_;
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      @java.lang.Override
+      public java.util.List<io.greptime.v1.Columns.Column.ListValues> getListValuesList() {
+        return listValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      @java.lang.Override
+      public java.util.List<? extends io.greptime.v1.Columns.Column.ListValuesOrBuilder> 
+          getListValuesOrBuilderList() {
+        return listValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      @java.lang.Override
+      public int getListValuesCount() {
+        return listValues_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.ListValues getListValues(int index) {
+        return listValues_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.ListValuesOrBuilder getListValuesOrBuilder(
+          int index) {
+        return listValues_.get(index);
+      }
+
+      public static final int STRUCT_VALUES_FIELD_NUMBER = 41;
+      private java.util.List<io.greptime.v1.Columns.Column.StructValues> structValues_;
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      @java.lang.Override
+      public java.util.List<io.greptime.v1.Columns.Column.StructValues> getStructValuesList() {
+        return structValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      @java.lang.Override
+      public java.util.List<? extends io.greptime.v1.Columns.Column.StructValuesOrBuilder> 
+          getStructValuesOrBuilderList() {
+        return structValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      @java.lang.Override
+      public int getStructValuesCount() {
+        return structValues_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.StructValues getStructValues(int index) {
+        return structValues_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.StructValuesOrBuilder getStructValuesOrBuilder(
+          int index) {
+        return structValues_.get(index);
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -2483,6 +2637,12 @@ public final class Columns {
         }
         for (int i = 0; i < decimal128Values_.size(); i++) {
           output.writeMessage(31, decimal128Values_.get(i));
+        }
+        for (int i = 0; i < listValues_.size(); i++) {
+          output.writeMessage(40, listValues_.get(i));
+        }
+        for (int i = 0; i < structValues_.size(); i++) {
+          output.writeMessage(41, structValues_.get(i));
         }
         unknownFields.writeTo(output);
       }
@@ -2831,6 +2991,14 @@ public final class Columns {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(31, decimal128Values_.get(i));
         }
+        for (int i = 0; i < listValues_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(40, listValues_.get(i));
+        }
+        for (int i = 0; i < structValues_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(41, structValues_.get(i));
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -2900,6 +3068,10 @@ public final class Columns {
             .equals(other.getIntervalMonthDayNanoValuesList())) return false;
         if (!getDecimal128ValuesList()
             .equals(other.getDecimal128ValuesList())) return false;
+        if (!getListValuesList()
+            .equals(other.getListValuesList())) return false;
+        if (!getStructValuesList()
+            .equals(other.getStructValuesList())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -3018,6 +3190,14 @@ public final class Columns {
         if (getDecimal128ValuesCount() > 0) {
           hash = (37 * hash) + DECIMAL128_VALUES_FIELD_NUMBER;
           hash = (53 * hash) + getDecimal128ValuesList().hashCode();
+        }
+        if (getListValuesCount() > 0) {
+          hash = (37 * hash) + LIST_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getListValuesList().hashCode();
+        }
+        if (getStructValuesCount() > 0) {
+          hash = (37 * hash) + STRUCT_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getStructValuesList().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -3149,6 +3329,8 @@ public final class Columns {
                   .alwaysUseFieldBuilders) {
             getIntervalMonthDayNanoValuesFieldBuilder();
             getDecimal128ValuesFieldBuilder();
+            getListValuesFieldBuilder();
+            getStructValuesFieldBuilder();
           }
         }
         @java.lang.Override
@@ -3215,6 +3397,18 @@ public final class Columns {
             bitField0_ = (bitField0_ & ~0x04000000);
           } else {
             decimal128ValuesBuilder_.clear();
+          }
+          if (listValuesBuilder_ == null) {
+            listValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x08000000);
+          } else {
+            listValuesBuilder_.clear();
+          }
+          if (structValuesBuilder_ == null) {
+            structValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x10000000);
+          } else {
+            structValuesBuilder_.clear();
           }
           return this;
         }
@@ -3385,6 +3579,24 @@ public final class Columns {
             result.decimal128Values_ = decimal128Values_;
           } else {
             result.decimal128Values_ = decimal128ValuesBuilder_.build();
+          }
+          if (listValuesBuilder_ == null) {
+            if (((bitField0_ & 0x08000000) != 0)) {
+              listValues_ = java.util.Collections.unmodifiableList(listValues_);
+              bitField0_ = (bitField0_ & ~0x08000000);
+            }
+            result.listValues_ = listValues_;
+          } else {
+            result.listValues_ = listValuesBuilder_.build();
+          }
+          if (structValuesBuilder_ == null) {
+            if (((bitField0_ & 0x10000000) != 0)) {
+              structValues_ = java.util.Collections.unmodifiableList(structValues_);
+              bitField0_ = (bitField0_ & ~0x10000000);
+            }
+            result.structValues_ = structValues_;
+          } else {
+            result.structValues_ = structValuesBuilder_.build();
           }
           onBuilt();
           return result;
@@ -3733,6 +3945,58 @@ public final class Columns {
                      getDecimal128ValuesFieldBuilder() : null;
               } else {
                 decimal128ValuesBuilder_.addAllMessages(other.decimal128Values_);
+              }
+            }
+          }
+          if (listValuesBuilder_ == null) {
+            if (!other.listValues_.isEmpty()) {
+              if (listValues_.isEmpty()) {
+                listValues_ = other.listValues_;
+                bitField0_ = (bitField0_ & ~0x08000000);
+              } else {
+                ensureListValuesIsMutable();
+                listValues_.addAll(other.listValues_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.listValues_.isEmpty()) {
+              if (listValuesBuilder_.isEmpty()) {
+                listValuesBuilder_.dispose();
+                listValuesBuilder_ = null;
+                listValues_ = other.listValues_;
+                bitField0_ = (bitField0_ & ~0x08000000);
+                listValuesBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getListValuesFieldBuilder() : null;
+              } else {
+                listValuesBuilder_.addAllMessages(other.listValues_);
+              }
+            }
+          }
+          if (structValuesBuilder_ == null) {
+            if (!other.structValues_.isEmpty()) {
+              if (structValues_.isEmpty()) {
+                structValues_ = other.structValues_;
+                bitField0_ = (bitField0_ & ~0x10000000);
+              } else {
+                ensureStructValuesIsMutable();
+                structValues_.addAll(other.structValues_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.structValues_.isEmpty()) {
+              if (structValuesBuilder_.isEmpty()) {
+                structValuesBuilder_.dispose();
+                structValuesBuilder_ = null;
+                structValues_ = other.structValues_;
+                bitField0_ = (bitField0_ & ~0x10000000);
+                structValuesBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getStructValuesFieldBuilder() : null;
+              } else {
+                structValuesBuilder_.addAllMessages(other.structValues_);
               }
             }
           }
@@ -6256,6 +6520,486 @@ public final class Columns {
             decimal128Values_ = null;
           }
           return decimal128ValuesBuilder_;
+        }
+
+        private java.util.List<io.greptime.v1.Columns.Column.ListValues> listValues_ =
+          java.util.Collections.emptyList();
+        private void ensureListValuesIsMutable() {
+          if (!((bitField0_ & 0x08000000) != 0)) {
+            listValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.ListValues>(listValues_);
+            bitField0_ |= 0x08000000;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.ListValues, io.greptime.v1.Columns.Column.ListValues.Builder, io.greptime.v1.Columns.Column.ListValuesOrBuilder> listValuesBuilder_;
+
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.ListValues> getListValuesList() {
+          if (listValuesBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(listValues_);
+          } else {
+            return listValuesBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public int getListValuesCount() {
+          if (listValuesBuilder_ == null) {
+            return listValues_.size();
+          } else {
+            return listValuesBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public io.greptime.v1.Columns.Column.ListValues getListValues(int index) {
+          if (listValuesBuilder_ == null) {
+            return listValues_.get(index);
+          } else {
+            return listValuesBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder setListValues(
+            int index, io.greptime.v1.Columns.Column.ListValues value) {
+          if (listValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureListValuesIsMutable();
+            listValues_.set(index, value);
+            onChanged();
+          } else {
+            listValuesBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder setListValues(
+            int index, io.greptime.v1.Columns.Column.ListValues.Builder builderForValue) {
+          if (listValuesBuilder_ == null) {
+            ensureListValuesIsMutable();
+            listValues_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            listValuesBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder addListValues(io.greptime.v1.Columns.Column.ListValues value) {
+          if (listValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureListValuesIsMutable();
+            listValues_.add(value);
+            onChanged();
+          } else {
+            listValuesBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder addListValues(
+            int index, io.greptime.v1.Columns.Column.ListValues value) {
+          if (listValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureListValuesIsMutable();
+            listValues_.add(index, value);
+            onChanged();
+          } else {
+            listValuesBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder addListValues(
+            io.greptime.v1.Columns.Column.ListValues.Builder builderForValue) {
+          if (listValuesBuilder_ == null) {
+            ensureListValuesIsMutable();
+            listValues_.add(builderForValue.build());
+            onChanged();
+          } else {
+            listValuesBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder addListValues(
+            int index, io.greptime.v1.Columns.Column.ListValues.Builder builderForValue) {
+          if (listValuesBuilder_ == null) {
+            ensureListValuesIsMutable();
+            listValues_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            listValuesBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder addAllListValues(
+            java.lang.Iterable<? extends io.greptime.v1.Columns.Column.ListValues> values) {
+          if (listValuesBuilder_ == null) {
+            ensureListValuesIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, listValues_);
+            onChanged();
+          } else {
+            listValuesBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder clearListValues() {
+          if (listValuesBuilder_ == null) {
+            listValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x08000000);
+            onChanged();
+          } else {
+            listValuesBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public Builder removeListValues(int index) {
+          if (listValuesBuilder_ == null) {
+            ensureListValuesIsMutable();
+            listValues_.remove(index);
+            onChanged();
+          } else {
+            listValuesBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public io.greptime.v1.Columns.Column.ListValues.Builder getListValuesBuilder(
+            int index) {
+          return getListValuesFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public io.greptime.v1.Columns.Column.ListValuesOrBuilder getListValuesOrBuilder(
+            int index) {
+          if (listValuesBuilder_ == null) {
+            return listValues_.get(index);  } else {
+            return listValuesBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public java.util.List<? extends io.greptime.v1.Columns.Column.ListValuesOrBuilder> 
+             getListValuesOrBuilderList() {
+          if (listValuesBuilder_ != null) {
+            return listValuesBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(listValues_);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public io.greptime.v1.Columns.Column.ListValues.Builder addListValuesBuilder() {
+          return getListValuesFieldBuilder().addBuilder(
+              io.greptime.v1.Columns.Column.ListValues.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public io.greptime.v1.Columns.Column.ListValues.Builder addListValuesBuilder(
+            int index) {
+          return getListValuesFieldBuilder().addBuilder(
+              index, io.greptime.v1.Columns.Column.ListValues.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.ListValues list_values = 40;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.ListValues.Builder> 
+             getListValuesBuilderList() {
+          return getListValuesFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.ListValues, io.greptime.v1.Columns.Column.ListValues.Builder, io.greptime.v1.Columns.Column.ListValuesOrBuilder> 
+            getListValuesFieldBuilder() {
+          if (listValuesBuilder_ == null) {
+            listValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                io.greptime.v1.Columns.Column.ListValues, io.greptime.v1.Columns.Column.ListValues.Builder, io.greptime.v1.Columns.Column.ListValuesOrBuilder>(
+                    listValues_,
+                    ((bitField0_ & 0x08000000) != 0),
+                    getParentForChildren(),
+                    isClean());
+            listValues_ = null;
+          }
+          return listValuesBuilder_;
+        }
+
+        private java.util.List<io.greptime.v1.Columns.Column.StructValues> structValues_ =
+          java.util.Collections.emptyList();
+        private void ensureStructValuesIsMutable() {
+          if (!((bitField0_ & 0x10000000) != 0)) {
+            structValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.StructValues>(structValues_);
+            bitField0_ |= 0x10000000;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.StructValues, io.greptime.v1.Columns.Column.StructValues.Builder, io.greptime.v1.Columns.Column.StructValuesOrBuilder> structValuesBuilder_;
+
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.StructValues> getStructValuesList() {
+          if (structValuesBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(structValues_);
+          } else {
+            return structValuesBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public int getStructValuesCount() {
+          if (structValuesBuilder_ == null) {
+            return structValues_.size();
+          } else {
+            return structValuesBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public io.greptime.v1.Columns.Column.StructValues getStructValues(int index) {
+          if (structValuesBuilder_ == null) {
+            return structValues_.get(index);
+          } else {
+            return structValuesBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder setStructValues(
+            int index, io.greptime.v1.Columns.Column.StructValues value) {
+          if (structValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureStructValuesIsMutable();
+            structValues_.set(index, value);
+            onChanged();
+          } else {
+            structValuesBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder setStructValues(
+            int index, io.greptime.v1.Columns.Column.StructValues.Builder builderForValue) {
+          if (structValuesBuilder_ == null) {
+            ensureStructValuesIsMutable();
+            structValues_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            structValuesBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder addStructValues(io.greptime.v1.Columns.Column.StructValues value) {
+          if (structValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureStructValuesIsMutable();
+            structValues_.add(value);
+            onChanged();
+          } else {
+            structValuesBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder addStructValues(
+            int index, io.greptime.v1.Columns.Column.StructValues value) {
+          if (structValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureStructValuesIsMutable();
+            structValues_.add(index, value);
+            onChanged();
+          } else {
+            structValuesBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder addStructValues(
+            io.greptime.v1.Columns.Column.StructValues.Builder builderForValue) {
+          if (structValuesBuilder_ == null) {
+            ensureStructValuesIsMutable();
+            structValues_.add(builderForValue.build());
+            onChanged();
+          } else {
+            structValuesBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder addStructValues(
+            int index, io.greptime.v1.Columns.Column.StructValues.Builder builderForValue) {
+          if (structValuesBuilder_ == null) {
+            ensureStructValuesIsMutable();
+            structValues_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            structValuesBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder addAllStructValues(
+            java.lang.Iterable<? extends io.greptime.v1.Columns.Column.StructValues> values) {
+          if (structValuesBuilder_ == null) {
+            ensureStructValuesIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, structValues_);
+            onChanged();
+          } else {
+            structValuesBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder clearStructValues() {
+          if (structValuesBuilder_ == null) {
+            structValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x10000000);
+            onChanged();
+          } else {
+            structValuesBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public Builder removeStructValues(int index) {
+          if (structValuesBuilder_ == null) {
+            ensureStructValuesIsMutable();
+            structValues_.remove(index);
+            onChanged();
+          } else {
+            structValuesBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public io.greptime.v1.Columns.Column.StructValues.Builder getStructValuesBuilder(
+            int index) {
+          return getStructValuesFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public io.greptime.v1.Columns.Column.StructValuesOrBuilder getStructValuesOrBuilder(
+            int index) {
+          if (structValuesBuilder_ == null) {
+            return structValues_.get(index);  } else {
+            return structValuesBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public java.util.List<? extends io.greptime.v1.Columns.Column.StructValuesOrBuilder> 
+             getStructValuesOrBuilderList() {
+          if (structValuesBuilder_ != null) {
+            return structValuesBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(structValues_);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public io.greptime.v1.Columns.Column.StructValues.Builder addStructValuesBuilder() {
+          return getStructValuesFieldBuilder().addBuilder(
+              io.greptime.v1.Columns.Column.StructValues.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public io.greptime.v1.Columns.Column.StructValues.Builder addStructValuesBuilder(
+            int index) {
+          return getStructValuesFieldBuilder().addBuilder(
+              index, io.greptime.v1.Columns.Column.StructValues.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.StructValues struct_values = 41;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.StructValues.Builder> 
+             getStructValuesBuilderList() {
+          return getStructValuesFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.StructValues, io.greptime.v1.Columns.Column.StructValues.Builder, io.greptime.v1.Columns.Column.StructValuesOrBuilder> 
+            getStructValuesFieldBuilder() {
+          if (structValuesBuilder_ == null) {
+            structValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                io.greptime.v1.Columns.Column.StructValues, io.greptime.v1.Columns.Column.StructValues.Builder, io.greptime.v1.Columns.Column.StructValuesOrBuilder>(
+                    structValues_,
+                    ((bitField0_ & 0x10000000) != 0),
+                    getParentForChildren(),
+                    isClean());
+            structValues_ = null;
+          }
+          return structValuesBuilder_;
         }
         @java.lang.Override
         public final Builder setUnknownFields(
@@ -9443,7 +10187,7 @@ public final class Columns {
   static {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/column.proto\022\013greptime.v1\032" +
-      "\030greptime/v1/common.proto\"\267\t\n\006Column\022\023\n\013" +
+      "\030greptime/v1/common.proto\"\245\n\n\006Column\022\023\n\013" +
       "column_name\030\001 \001(\t\0220\n\rsemantic_type\030\002 \001(\016" +
       "2\031.greptime.v1.SemanticType\022*\n\006values\030\003 " +
       "\001(\0132\032.greptime.v1.Column.Values\022\021\n\tnull_" +
@@ -9451,7 +10195,7 @@ public final class Columns {
       "v1.ColumnDataType\022@\n\022datatype_extension\030" +
       "\006 \001(\0132$.greptime.v1.ColumnDataTypeExtens" +
       "ion\022+\n\007options\030\007 \001(\0132\032.greptime.v1.Colum" +
-      "nOptions\032\224\006\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022" +
+      "nOptions\032\202\007\n\006Values\022\021\n\ti8_values\030\001 \003(\005\022\022" +
       "\n\ni16_values\030\002 \003(\005\022\022\n\ni32_values\030\003 \003(\005\022\022" +
       "\n\ni64_values\030\004 \003(\003\022\021\n\tu8_values\030\005 \003(\r\022\022\n" +
       "\nu16_values\030\006 \003(\r\022\022\n\nu32_values\030\007 \003(\r\022\022\n" +
@@ -9470,13 +10214,15 @@ public final class Columns {
       "\n\030interval_day_time_values\030\031 \003(\003\022I\n\036inte" +
       "rval_month_day_nano_values\030\032 \003(\0132!.grept" +
       "ime.v1.IntervalMonthDayNano\0222\n\021decimal12" +
-      "8_values\030\037 \003(\0132\027.greptime.v1.Decimal128\032" +
-      "7\n\nListValues\022)\n\005items\030\001 \003(\0132\032.greptime." +
-      "v1.Column.Values\0329\n\014StructValues\022)\n\005item" +
-      "s\030\002 \003(\0132\032.greptime.v1.Column.ValuesBP\n\016i" +
-      "o.greptime.v1B\007ColumnsZ5github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1b\006p" +
-      "roto3"
+      "8_values\030\037 \003(\0132\027.greptime.v1.Decimal128\022" +
+      "3\n\013list_values\030( \003(\0132\036.greptime.v1.Colum" +
+      "n.ListValues\0227\n\rstruct_values\030) \003(\0132 .gr" +
+      "eptime.v1.Column.StructValues\0327\n\nListVal" +
+      "ues\022)\n\005items\030\001 \003(\0132\032.greptime.v1.Column." +
+      "Values\0329\n\014StructValues\022)\n\005items\030\002 \003(\0132\032." +
+      "greptime.v1.Column.ValuesBP\n\016io.greptime" +
+      ".v1B\007ColumnsZ5github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9494,7 +10240,7 @@ public final class Columns {
     internal_static_greptime_v1_Column_Values_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Column_Values_descriptor,
-        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TimestampSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "Decimal128Values", });
+        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TimestampSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "Decimal128Values", "ListValues", "StructValues", });
     internal_static_greptime_v1_Column_ListValues_descriptor =
       internal_static_greptime_v1_Column_descriptor.getNestedTypes().get(1);
     internal_static_greptime_v1_Column_ListValues_fieldAccessorTable = new

@@ -220,6 +220,8 @@ class Column_Values final :
     kIntervalDayTimeValuesFieldNumber = 25,
     kIntervalMonthDayNanoValuesFieldNumber = 26,
     kDecimal128ValuesFieldNumber = 31,
+    kListValuesFieldNumber = 40,
+    kStructValuesFieldNumber = 41,
   };
   // repeated int32 i8_values = 1;
   int i8_values_size() const;
@@ -811,6 +813,42 @@ class Column_Values final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal128 >&
       decimal128_values() const;
 
+  // repeated .greptime.v1.Column.ListValues list_values = 40;
+  int list_values_size() const;
+  private:
+  int _internal_list_values_size() const;
+  public:
+  void clear_list_values();
+  ::greptime::v1::Column_ListValues* mutable_list_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >*
+      mutable_list_values();
+  private:
+  const ::greptime::v1::Column_ListValues& _internal_list_values(int index) const;
+  ::greptime::v1::Column_ListValues* _internal_add_list_values();
+  public:
+  const ::greptime::v1::Column_ListValues& list_values(int index) const;
+  ::greptime::v1::Column_ListValues* add_list_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >&
+      list_values() const;
+
+  // repeated .greptime.v1.Column.StructValues struct_values = 41;
+  int struct_values_size() const;
+  private:
+  int _internal_struct_values_size() const;
+  public:
+  void clear_struct_values();
+  ::greptime::v1::Column_StructValues* mutable_struct_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >*
+      mutable_struct_values();
+  private:
+  const ::greptime::v1::Column_StructValues& _internal_struct_values(int index) const;
+  ::greptime::v1::Column_StructValues* _internal_add_struct_values();
+  public:
+  const ::greptime::v1::Column_StructValues& struct_values(int index) const;
+  ::greptime::v1::Column_StructValues* add_struct_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >&
+      struct_values() const;
+
   // @@protoc_insertion_point(class_scope:greptime.v1.Column.Values)
  private:
   class _Internal;
@@ -866,6 +904,8 @@ class Column_Values final :
     mutable std::atomic<int> _interval_day_time_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::IntervalMonthDayNano > interval_month_day_nano_values_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal128 > decimal128_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues > list_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues > struct_values_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2754,6 +2794,86 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal1
 Column_Values::decimal128_values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.decimal128_values)
   return _impl_.decimal128_values_;
+}
+
+// repeated .greptime.v1.Column.ListValues list_values = 40;
+inline int Column_Values::_internal_list_values_size() const {
+  return _impl_.list_values_.size();
+}
+inline int Column_Values::list_values_size() const {
+  return _internal_list_values_size();
+}
+inline void Column_Values::clear_list_values() {
+  _impl_.list_values_.Clear();
+}
+inline ::greptime::v1::Column_ListValues* Column_Values::mutable_list_values(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.Values.list_values)
+  return _impl_.list_values_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >*
+Column_Values::mutable_list_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.list_values)
+  return &_impl_.list_values_;
+}
+inline const ::greptime::v1::Column_ListValues& Column_Values::_internal_list_values(int index) const {
+  return _impl_.list_values_.Get(index);
+}
+inline const ::greptime::v1::Column_ListValues& Column_Values::list_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.list_values)
+  return _internal_list_values(index);
+}
+inline ::greptime::v1::Column_ListValues* Column_Values::_internal_add_list_values() {
+  return _impl_.list_values_.Add();
+}
+inline ::greptime::v1::Column_ListValues* Column_Values::add_list_values() {
+  ::greptime::v1::Column_ListValues* _add = _internal_add_list_values();
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.list_values)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >&
+Column_Values::list_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.list_values)
+  return _impl_.list_values_;
+}
+
+// repeated .greptime.v1.Column.StructValues struct_values = 41;
+inline int Column_Values::_internal_struct_values_size() const {
+  return _impl_.struct_values_.size();
+}
+inline int Column_Values::struct_values_size() const {
+  return _internal_struct_values_size();
+}
+inline void Column_Values::clear_struct_values() {
+  _impl_.struct_values_.Clear();
+}
+inline ::greptime::v1::Column_StructValues* Column_Values::mutable_struct_values(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.Values.struct_values)
+  return _impl_.struct_values_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >*
+Column_Values::mutable_struct_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.struct_values)
+  return &_impl_.struct_values_;
+}
+inline const ::greptime::v1::Column_StructValues& Column_Values::_internal_struct_values(int index) const {
+  return _impl_.struct_values_.Get(index);
+}
+inline const ::greptime::v1::Column_StructValues& Column_Values::struct_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.struct_values)
+  return _internal_struct_values(index);
+}
+inline ::greptime::v1::Column_StructValues* Column_Values::_internal_add_struct_values() {
+  return _impl_.struct_values_.Add();
+}
+inline ::greptime::v1::Column_StructValues* Column_Values::add_struct_values() {
+  ::greptime::v1::Column_StructValues* _add = _internal_add_struct_values();
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.struct_values)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >&
+Column_Values::struct_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.struct_values)
+  return _impl_.struct_values_;
 }
 
 // -------------------------------------------------------------------

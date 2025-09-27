@@ -58,6 +58,9 @@ message Column {
     repeated int64 interval_day_time_values = 25;
     repeated IntervalMonthDayNano interval_month_day_nano_values = 26;
     repeated Decimal128 decimal128_values = 31;
+
+    repeated ListValues list_values = 40;
+    repeated StructValues struct_values = 41;
   }
 
   message ListValues {
