@@ -1151,33 +1151,8 @@ class Column_StructValues final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kKeysFieldNumber = 1,
     kItemsFieldNumber = 2,
   };
-  // repeated string keys = 1;
-  int keys_size() const;
-  private:
-  int _internal_keys_size() const;
-  public:
-  void clear_keys();
-  const std::string& keys(int index) const;
-  std::string* mutable_keys(int index);
-  void set_keys(int index, const std::string& value);
-  void set_keys(int index, std::string&& value);
-  void set_keys(int index, const char* value);
-  void set_keys(int index, const char* value, size_t size);
-  std::string* add_keys();
-  void add_keys(const std::string& value);
-  void add_keys(std::string&& value);
-  void add_keys(const char* value);
-  void add_keys(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& keys() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_keys();
-  private:
-  const std::string& _internal_keys(int index) const;
-  std::string* _internal_add_keys();
-  public:
-
   // repeated .greptime.v1.Column.Values items = 2;
   int items_size() const;
   private:
@@ -1204,7 +1179,6 @@ class Column_StructValues final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> keys_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values > items_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2829,81 +2803,6 @@ Column_ListValues::items() const {
 // -------------------------------------------------------------------
 
 // Column_StructValues
-
-// repeated string keys = 1;
-inline int Column_StructValues::_internal_keys_size() const {
-  return _impl_.keys_.size();
-}
-inline int Column_StructValues::keys_size() const {
-  return _internal_keys_size();
-}
-inline void Column_StructValues::clear_keys() {
-  _impl_.keys_.Clear();
-}
-inline std::string* Column_StructValues::add_keys() {
-  std::string* _s = _internal_add_keys();
-  // @@protoc_insertion_point(field_add_mutable:greptime.v1.Column.StructValues.keys)
-  return _s;
-}
-inline const std::string& Column_StructValues::_internal_keys(int index) const {
-  return _impl_.keys_.Get(index);
-}
-inline const std::string& Column_StructValues::keys(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Column.StructValues.keys)
-  return _internal_keys(index);
-}
-inline std::string* Column_StructValues::mutable_keys(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.StructValues.keys)
-  return _impl_.keys_.Mutable(index);
-}
-inline void Column_StructValues::set_keys(int index, const std::string& value) {
-  _impl_.keys_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::set_keys(int index, std::string&& value) {
-  _impl_.keys_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::set_keys(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.keys_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::set_keys(int index, const char* value, size_t size) {
-  _impl_.keys_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:greptime.v1.Column.StructValues.keys)
-}
-inline std::string* Column_StructValues::_internal_add_keys() {
-  return _impl_.keys_.Add();
-}
-inline void Column_StructValues::add_keys(const std::string& value) {
-  _impl_.keys_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::add_keys(std::string&& value) {
-  _impl_.keys_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::add_keys(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.keys_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:greptime.v1.Column.StructValues.keys)
-}
-inline void Column_StructValues::add_keys(const char* value, size_t size) {
-  _impl_.keys_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:greptime.v1.Column.StructValues.keys)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-Column_StructValues::keys() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Column.StructValues.keys)
-  return _impl_.keys_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-Column_StructValues::mutable_keys() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.StructValues.keys)
-  return &_impl_.keys_;
-}
 
 // repeated .greptime.v1.Column.Values items = 2;
 inline int Column_StructValues::_internal_items_size() const {

@@ -65,7 +65,6 @@ message Column {
   }
 
   message StructValues {
-    repeated string keys = 1;
     repeated Values items = 2;
   }
   // The array of non-null values in this column.
