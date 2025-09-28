@@ -66,6 +66,32 @@ struct RowDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowDefaultTypeInternal _Row_default_instance_;
+PROTOBUF_CONSTEXPR Value_ListValue::Value_ListValue(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.item_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct Value_ListValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Value_ListValueDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Value_ListValueDefaultTypeInternal() {}
+  union {
+    Value_ListValue _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Value_ListValueDefaultTypeInternal _Value_ListValue_default_instance_;
+PROTOBUF_CONSTEXPR Value_StructValue::Value_StructValue(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.item_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct Value_StructValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR Value_StructValueDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~Value_StructValueDefaultTypeInternal() {}
+  union {
+    Value_StructValue _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Value_StructValueDefaultTypeInternal _Value_StructValue_default_instance_;
 PROTOBUF_CONSTEXPR Value::Value(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.value_data_)*/{}
@@ -82,7 +108,7 @@ struct ValueDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ValueDefaultTypeInternal _Value_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2frow_2eproto[4];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2frow_2eproto[6];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2frow_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2frow_2eproto = nullptr;
 
@@ -113,6 +139,20 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Row, _impl_.values_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_ListValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_ListValue, _impl_.item_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_StructValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_StructValue, _impl_.item_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -146,19 +186,25 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_data_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Rows)},
   { 8, -1, -1, sizeof(::greptime::v1::ColumnSchema)},
   { 19, -1, -1, sizeof(::greptime::v1::Row)},
-  { 26, -1, -1, sizeof(::greptime::v1::Value)},
+  { 26, -1, -1, sizeof(::greptime::v1::Value_ListValue)},
+  { 33, -1, -1, sizeof(::greptime::v1::Value_StructValue)},
+  { 40, -1, -1, sizeof(::greptime::v1::Value)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_Rows_default_instance_._instance,
   &::greptime::v1::_ColumnSchema_default_instance_._instance,
   &::greptime::v1::_Row_default_instance_._instance,
+  &::greptime::v1::_Value_ListValue_default_instance_._instance,
+  &::greptime::v1::_Value_StructValue_default_instance_._instance,
   &::greptime::v1::_Value_default_instance_._instance,
 };
 
@@ -173,7 +219,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
   "v1.ColumnDataTypeExtension\022+\n\007options\030\005 "
   "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\""
-  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\274\006\n\005V"
+  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\210\010\n\005V"
   "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 "
   "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030"
   "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value"
@@ -194,18 +240,23 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "H\000\022J\n\035interval_month_day_nano_value\030\032 \001("
   "\0132!.greptime.v1.IntervalMonthDayNanoH\000\0223"
   "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D"
-  "ecimal128H\000B\014\n\nvalue_dataBP\n\016io.greptime"
-  ".v1B\007RowDataZ5github.com/GreptimeTeam/gr"
-  "eptime-proto/go/greptime/v1b\006proto3"
+  "ecimal128H\000\0222\n\nlist_value\030( \001(\0132\034.grepti"
+  "me.v1.Value.ListValueH\000\0226\n\014struct_value\030"
+  ") \001(\0132\036.greptime.v1.Value.StructValueH\000\032"
+  "-\n\tListValue\022 \n\004item\030\001 \003(\0132\022.greptime.v1"
+  ".Value\032/\n\013StructValue\022 \n\004item\030\001 \003(\0132\022.gr"
+  "eptime.v1.ValueB\014\n\nvalue_dataBP\n\016io.grep"
+  "time.v1B\007RowDataZ5github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1355, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1559, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
-    &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 4,
+    &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 6,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2frow_2eproto, file_level_enum_descriptors_greptime_2fv1_2frow_2eproto,
     file_level_service_descriptors_greptime_2fv1_2frow_2eproto,
@@ -988,10 +1039,382 @@ void Row::InternalSwap(Row* other) {
 
 // ===================================================================
 
+class Value_ListValue::_Internal {
+ public:
+};
+
+Value_ListValue::Value_ListValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.Value.ListValue)
+}
+Value_ListValue::Value_ListValue(const Value_ListValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Value_ListValue* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_){from._impl_.item_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.Value.ListValue)
+}
+
+inline void Value_ListValue::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Value_ListValue::~Value_ListValue() {
+  // @@protoc_insertion_point(destructor:greptime.v1.Value.ListValue)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Value_ListValue::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.item_.~RepeatedPtrField();
+}
+
+void Value_ListValue::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Value_ListValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.Value.ListValue)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.item_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Value_ListValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .greptime.v1.Value item = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_item(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Value_ListValue::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.Value.ListValue)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.Value item = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_item_size()); i < n; i++) {
+    const auto& repfield = this->_internal_item(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.Value.ListValue)
+  return target;
+}
+
+size_t Value_ListValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.Value.ListValue)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.Value item = 1;
+  total_size += 1UL * this->_internal_item_size();
+  for (const auto& msg : this->_impl_.item_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Value_ListValue::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Value_ListValue::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Value_ListValue::GetClassData() const { return &_class_data_; }
+
+
+void Value_ListValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Value_ListValue*>(&to_msg);
+  auto& from = static_cast<const Value_ListValue&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.Value.ListValue)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.item_.MergeFrom(from._impl_.item_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Value_ListValue::CopyFrom(const Value_ListValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.Value.ListValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Value_ListValue::IsInitialized() const {
+  return true;
+}
+
+void Value_ListValue::InternalSwap(Value_ListValue* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.item_.InternalSwap(&other->_impl_.item_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Value_ListValue::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[3]);
+}
+
+// ===================================================================
+
+class Value_StructValue::_Internal {
+ public:
+};
+
+Value_StructValue::Value_StructValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.Value.StructValue)
+}
+Value_StructValue::Value_StructValue(const Value_StructValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Value_StructValue* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_){from._impl_.item_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.Value.StructValue)
+}
+
+inline void Value_StructValue::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Value_StructValue::~Value_StructValue() {
+  // @@protoc_insertion_point(destructor:greptime.v1.Value.StructValue)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Value_StructValue::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.item_.~RepeatedPtrField();
+}
+
+void Value_StructValue::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Value_StructValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.Value.StructValue)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.item_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Value_StructValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .greptime.v1.Value item = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_item(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Value_StructValue::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.Value.StructValue)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.Value item = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_item_size()); i < n; i++) {
+    const auto& repfield = this->_internal_item(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.Value.StructValue)
+  return target;
+}
+
+size_t Value_StructValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.Value.StructValue)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.Value item = 1;
+  total_size += 1UL * this->_internal_item_size();
+  for (const auto& msg : this->_impl_.item_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Value_StructValue::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Value_StructValue::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Value_StructValue::GetClassData() const { return &_class_data_; }
+
+
+void Value_StructValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Value_StructValue*>(&to_msg);
+  auto& from = static_cast<const Value_StructValue&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.Value.StructValue)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.item_.MergeFrom(from._impl_.item_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Value_StructValue::CopyFrom(const Value_StructValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.Value.StructValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Value_StructValue::IsInitialized() const {
+  return true;
+}
+
+void Value_StructValue::InternalSwap(Value_StructValue* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.item_.InternalSwap(&other->_impl_.item_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Value_StructValue::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[4]);
+}
+
+// ===================================================================
+
 class Value::_Internal {
  public:
   static const ::greptime::v1::IntervalMonthDayNano& interval_month_day_nano_value(const Value* msg);
   static const ::greptime::v1::Decimal128& decimal128_value(const Value* msg);
+  static const ::greptime::v1::Value_ListValue& list_value(const Value* msg);
+  static const ::greptime::v1::Value_StructValue& struct_value(const Value* msg);
 };
 
 const ::greptime::v1::IntervalMonthDayNano&
@@ -1001,6 +1424,14 @@ Value::_Internal::interval_month_day_nano_value(const Value* msg) {
 const ::greptime::v1::Decimal128&
 Value::_Internal::decimal128_value(const Value* msg) {
   return *msg->_impl_.value_data_.decimal128_value_;
+}
+const ::greptime::v1::Value_ListValue&
+Value::_Internal::list_value(const Value* msg) {
+  return *msg->_impl_.value_data_.list_value_;
+}
+const ::greptime::v1::Value_StructValue&
+Value::_Internal::struct_value(const Value* msg) {
+  return *msg->_impl_.value_data_.struct_value_;
 }
 void Value::set_allocated_interval_month_day_nano_value(::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_value) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1049,6 +1480,36 @@ void Value::clear_decimal128_value() {
     }
     clear_has_value_data();
   }
+}
+void Value::set_allocated_list_value(::greptime::v1::Value_ListValue* list_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value_data();
+  if (list_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(list_value);
+    if (message_arena != submessage_arena) {
+      list_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, list_value, submessage_arena);
+    }
+    set_has_list_value();
+    _impl_.value_data_.list_value_ = list_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.list_value)
+}
+void Value::set_allocated_struct_value(::greptime::v1::Value_StructValue* struct_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value_data();
+  if (struct_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(struct_value);
+    if (message_arena != submessage_arena) {
+      struct_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, struct_value, submessage_arena);
+    }
+    set_has_struct_value();
+    _impl_.value_data_.struct_value_ = struct_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.struct_value)
 }
 Value::Value(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1175,6 +1636,16 @@ Value::Value(const Value& from)
     case kDecimal128Value: {
       _this->_internal_mutable_decimal128_value()->::greptime::v1::Decimal128::MergeFrom(
           from._internal_decimal128_value());
+      break;
+    }
+    case kListValue: {
+      _this->_internal_mutable_list_value()->::greptime::v1::Value_ListValue::MergeFrom(
+          from._internal_list_value());
+      break;
+    }
+    case kStructValue: {
+      _this->_internal_mutable_struct_value()->::greptime::v1::Value_StructValue::MergeFrom(
+          from._internal_struct_value());
       break;
     }
     case VALUE_DATA_NOT_SET: {
@@ -1328,6 +1799,18 @@ void Value::clear_value_data() {
     case kDecimal128Value: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.value_data_.decimal128_value_;
+      }
+      break;
+    }
+    case kListValue: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_data_.list_value_;
+      }
+      break;
+    }
+    case kStructValue: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_data_.struct_value_;
       }
       break;
     }
@@ -1574,6 +2057,22 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
+      // .greptime.v1.Value.ListValue list_value = 40;
+      case 40:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_list_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.Value.StructValue struct_value = 41;
+      case 41:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ctx->ParseMessage(_internal_mutable_struct_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1771,6 +2270,20 @@ uint8_t* Value::_InternalSerialize(
         _Internal::decimal128_value(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.Value.ListValue list_value = 40;
+  if (_internal_has_list_value()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(40, _Internal::list_value(this),
+        _Internal::list_value(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.Value.StructValue struct_value = 41;
+  if (_internal_has_struct_value()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(41, _Internal::struct_value(this),
+        _Internal::struct_value(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1951,6 +2464,20 @@ size_t Value::ByteSizeLong() const {
           *_impl_.value_data_.decimal128_value_);
       break;
     }
+    // .greptime.v1.Value.ListValue list_value = 40;
+    case kListValue: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_data_.list_value_);
+      break;
+    }
+    // .greptime.v1.Value.StructValue struct_value = 41;
+    case kStructValue: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_data_.struct_value_);
+      break;
+    }
     case VALUE_DATA_NOT_SET: {
       break;
     }
@@ -2084,6 +2611,16 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
           from._internal_decimal128_value());
       break;
     }
+    case kListValue: {
+      _this->_internal_mutable_list_value()->::greptime::v1::Value_ListValue::MergeFrom(
+          from._internal_list_value());
+      break;
+    }
+    case kStructValue: {
+      _this->_internal_mutable_struct_value()->::greptime::v1::Value_StructValue::MergeFrom(
+          from._internal_struct_value());
+      break;
+    }
     case VALUE_DATA_NOT_SET: {
       break;
     }
@@ -2112,7 +2649,7 @@ void Value::InternalSwap(Value* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Value::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
-      file_level_metadata_greptime_2fv1_2frow_2eproto[3]);
+      file_level_metadata_greptime_2fv1_2frow_2eproto[5]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2130,6 +2667,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::ColumnSchema >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::Row*
 Arena::CreateMaybeMessage< ::greptime::v1::Row >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::Row >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::Value_ListValue*
+Arena::CreateMaybeMessage< ::greptime::v1::Value_ListValue >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::Value_ListValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::Value_StructValue*
+Arena::CreateMaybeMessage< ::greptime::v1::Value_StructValue >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::Value_StructValue >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::Value*
 Arena::CreateMaybeMessage< ::greptime::v1::Value >(Arena* arena) {

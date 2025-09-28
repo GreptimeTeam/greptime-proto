@@ -59,6 +59,12 @@ extern RowsDefaultTypeInternal _Rows_default_instance_;
 class Value;
 struct ValueDefaultTypeInternal;
 extern ValueDefaultTypeInternal _Value_default_instance_;
+class Value_ListValue;
+struct Value_ListValueDefaultTypeInternal;
+extern Value_ListValueDefaultTypeInternal _Value_ListValue_default_instance_;
+class Value_StructValue;
+struct Value_StructValueDefaultTypeInternal;
+extern Value_StructValueDefaultTypeInternal _Value_StructValue_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
@@ -66,6 +72,8 @@ template<> ::greptime::v1::ColumnSchema* Arena::CreateMaybeMessage<::greptime::v
 template<> ::greptime::v1::Row* Arena::CreateMaybeMessage<::greptime::v1::Row>(Arena*);
 template<> ::greptime::v1::Rows* Arena::CreateMaybeMessage<::greptime::v1::Rows>(Arena*);
 template<> ::greptime::v1::Value* Arena::CreateMaybeMessage<::greptime::v1::Value>(Arena*);
+template<> ::greptime::v1::Value_ListValue* Arena::CreateMaybeMessage<::greptime::v1::Value_ListValue>(Arena*);
+template<> ::greptime::v1::Value_StructValue* Arena::CreateMaybeMessage<::greptime::v1::Value_StructValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -621,6 +629,320 @@ class Row final :
 };
 // -------------------------------------------------------------------
 
+class Value_ListValue final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Value.ListValue) */ {
+ public:
+  inline Value_ListValue() : Value_ListValue(nullptr) {}
+  ~Value_ListValue() override;
+  explicit PROTOBUF_CONSTEXPR Value_ListValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Value_ListValue(const Value_ListValue& from);
+  Value_ListValue(Value_ListValue&& from) noexcept
+    : Value_ListValue() {
+    *this = ::std::move(from);
+  }
+
+  inline Value_ListValue& operator=(const Value_ListValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Value_ListValue& operator=(Value_ListValue&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Value_ListValue& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Value_ListValue* internal_default_instance() {
+    return reinterpret_cast<const Value_ListValue*>(
+               &_Value_ListValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Value_ListValue& a, Value_ListValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Value_ListValue* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Value_ListValue* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Value_ListValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Value_ListValue>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Value_ListValue& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Value_ListValue& from) {
+    Value_ListValue::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Value_ListValue* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Value.ListValue";
+  }
+  protected:
+  explicit Value_ListValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemFieldNumber = 1,
+  };
+  // repeated .greptime.v1.Value item = 1;
+  int item_size() const;
+  private:
+  int _internal_item_size() const;
+  public:
+  void clear_item();
+  ::greptime::v1::Value* mutable_item(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
+      mutable_item();
+  private:
+  const ::greptime::v1::Value& _internal_item(int index) const;
+  ::greptime::v1::Value* _internal_add_item();
+  public:
+  const ::greptime::v1::Value& item(int index) const;
+  ::greptime::v1::Value* add_item();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
+      item() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Value.ListValue)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > item_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Value_StructValue final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Value.StructValue) */ {
+ public:
+  inline Value_StructValue() : Value_StructValue(nullptr) {}
+  ~Value_StructValue() override;
+  explicit PROTOBUF_CONSTEXPR Value_StructValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Value_StructValue(const Value_StructValue& from);
+  Value_StructValue(Value_StructValue&& from) noexcept
+    : Value_StructValue() {
+    *this = ::std::move(from);
+  }
+
+  inline Value_StructValue& operator=(const Value_StructValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Value_StructValue& operator=(Value_StructValue&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Value_StructValue& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Value_StructValue* internal_default_instance() {
+    return reinterpret_cast<const Value_StructValue*>(
+               &_Value_StructValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(Value_StructValue& a, Value_StructValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Value_StructValue* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Value_StructValue* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Value_StructValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Value_StructValue>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Value_StructValue& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Value_StructValue& from) {
+    Value_StructValue::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Value_StructValue* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Value.StructValue";
+  }
+  protected:
+  explicit Value_StructValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemFieldNumber = 1,
+  };
+  // repeated .greptime.v1.Value item = 1;
+  int item_size() const;
+  private:
+  int _internal_item_size() const;
+  public:
+  void clear_item();
+  ::greptime::v1::Value* mutable_item(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
+      mutable_item();
+  private:
+  const ::greptime::v1::Value& _internal_item(int index) const;
+  ::greptime::v1::Value* _internal_add_item();
+  public:
+  const ::greptime::v1::Value& item(int index) const;
+  ::greptime::v1::Value* add_item();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
+      item() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Value.StructValue)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > item_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Value final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Value) */ {
  public:
@@ -692,6 +1014,8 @@ class Value final :
     kIntervalDayTimeValue = 25,
     kIntervalMonthDayNanoValue = 26,
     kDecimal128Value = 31,
+    kListValue = 40,
+    kStructValue = 41,
     VALUE_DATA_NOT_SET = 0,
   };
 
@@ -700,7 +1024,7 @@ class Value final :
                &_Value_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(Value& a, Value& b) {
     a.Swap(&b);
@@ -770,6 +1094,9 @@ class Value final :
 
   // nested types ----------------------------------------------------
 
+  typedef Value_ListValue ListValue;
+  typedef Value_StructValue StructValue;
+
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -800,6 +1127,8 @@ class Value final :
     kIntervalDayTimeValueFieldNumber = 25,
     kIntervalMonthDayNanoValueFieldNumber = 26,
     kDecimal128ValueFieldNumber = 31,
+    kListValueFieldNumber = 40,
+    kStructValueFieldNumber = 41,
   };
   // int32 i8_value = 1;
   bool has_i8_value() const;
@@ -1172,6 +1501,42 @@ class Value final :
       ::greptime::v1::Decimal128* decimal128_value);
   ::greptime::v1::Decimal128* unsafe_arena_release_decimal128_value();
 
+  // .greptime.v1.Value.ListValue list_value = 40;
+  bool has_list_value() const;
+  private:
+  bool _internal_has_list_value() const;
+  public:
+  void clear_list_value();
+  const ::greptime::v1::Value_ListValue& list_value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Value_ListValue* release_list_value();
+  ::greptime::v1::Value_ListValue* mutable_list_value();
+  void set_allocated_list_value(::greptime::v1::Value_ListValue* list_value);
+  private:
+  const ::greptime::v1::Value_ListValue& _internal_list_value() const;
+  ::greptime::v1::Value_ListValue* _internal_mutable_list_value();
+  public:
+  void unsafe_arena_set_allocated_list_value(
+      ::greptime::v1::Value_ListValue* list_value);
+  ::greptime::v1::Value_ListValue* unsafe_arena_release_list_value();
+
+  // .greptime.v1.Value.StructValue struct_value = 41;
+  bool has_struct_value() const;
+  private:
+  bool _internal_has_struct_value() const;
+  public:
+  void clear_struct_value();
+  const ::greptime::v1::Value_StructValue& struct_value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Value_StructValue* release_struct_value();
+  ::greptime::v1::Value_StructValue* mutable_struct_value();
+  void set_allocated_struct_value(::greptime::v1::Value_StructValue* struct_value);
+  private:
+  const ::greptime::v1::Value_StructValue& _internal_struct_value() const;
+  ::greptime::v1::Value_StructValue* _internal_mutable_struct_value();
+  public:
+  void unsafe_arena_set_allocated_struct_value(
+      ::greptime::v1::Value_StructValue* struct_value);
+  ::greptime::v1::Value_StructValue* unsafe_arena_release_struct_value();
+
   void clear_value_data();
   ValueDataCase value_data_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
@@ -1204,6 +1569,8 @@ class Value final :
   void set_has_interval_day_time_value();
   void set_has_interval_month_day_nano_value();
   void set_has_decimal128_value();
+  void set_has_list_value();
+  void set_has_struct_value();
 
   inline bool has_value_data() const;
   inline void clear_has_value_data();
@@ -1242,6 +1609,8 @@ class Value final :
       int64_t interval_day_time_value_;
       ::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_value_;
       ::greptime::v1::Decimal128* decimal128_value_;
+      ::greptime::v1::Value_ListValue* list_value_;
+      ::greptime::v1::Value_StructValue* struct_value_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1647,6 +2016,94 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
 Row::values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Row.values)
   return _impl_.values_;
+}
+
+// -------------------------------------------------------------------
+
+// Value_ListValue
+
+// repeated .greptime.v1.Value item = 1;
+inline int Value_ListValue::_internal_item_size() const {
+  return _impl_.item_.size();
+}
+inline int Value_ListValue::item_size() const {
+  return _internal_item_size();
+}
+inline void Value_ListValue::clear_item() {
+  _impl_.item_.Clear();
+}
+inline ::greptime::v1::Value* Value_ListValue::mutable_item(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.ListValue.item)
+  return _impl_.item_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
+Value_ListValue::mutable_item() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.ListValue.item)
+  return &_impl_.item_;
+}
+inline const ::greptime::v1::Value& Value_ListValue::_internal_item(int index) const {
+  return _impl_.item_.Get(index);
+}
+inline const ::greptime::v1::Value& Value_ListValue::item(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.ListValue.item)
+  return _internal_item(index);
+}
+inline ::greptime::v1::Value* Value_ListValue::_internal_add_item() {
+  return _impl_.item_.Add();
+}
+inline ::greptime::v1::Value* Value_ListValue::add_item() {
+  ::greptime::v1::Value* _add = _internal_add_item();
+  // @@protoc_insertion_point(field_add:greptime.v1.Value.ListValue.item)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
+Value_ListValue::item() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Value.ListValue.item)
+  return _impl_.item_;
+}
+
+// -------------------------------------------------------------------
+
+// Value_StructValue
+
+// repeated .greptime.v1.Value item = 1;
+inline int Value_StructValue::_internal_item_size() const {
+  return _impl_.item_.size();
+}
+inline int Value_StructValue::item_size() const {
+  return _internal_item_size();
+}
+inline void Value_StructValue::clear_item() {
+  _impl_.item_.Clear();
+}
+inline ::greptime::v1::Value* Value_StructValue::mutable_item(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.StructValue.item)
+  return _impl_.item_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
+Value_StructValue::mutable_item() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.StructValue.item)
+  return &_impl_.item_;
+}
+inline const ::greptime::v1::Value& Value_StructValue::_internal_item(int index) const {
+  return _impl_.item_.Get(index);
+}
+inline const ::greptime::v1::Value& Value_StructValue::item(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.StructValue.item)
+  return _internal_item(index);
+}
+inline ::greptime::v1::Value* Value_StructValue::_internal_add_item() {
+  return _impl_.item_.Add();
+}
+inline ::greptime::v1::Value* Value_StructValue::add_item() {
+  ::greptime::v1::Value* _add = _internal_add_item();
+  // @@protoc_insertion_point(field_add:greptime.v1.Value.StructValue.item)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
+Value_StructValue::item() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Value.StructValue.item)
+  return _impl_.item_;
 }
 
 // -------------------------------------------------------------------
@@ -2813,6 +3270,154 @@ inline ::greptime::v1::Decimal128* Value::mutable_decimal128_value() {
   return _msg;
 }
 
+// .greptime.v1.Value.ListValue list_value = 40;
+inline bool Value::_internal_has_list_value() const {
+  return value_data_case() == kListValue;
+}
+inline bool Value::has_list_value() const {
+  return _internal_has_list_value();
+}
+inline void Value::set_has_list_value() {
+  _impl_._oneof_case_[0] = kListValue;
+}
+inline void Value::clear_list_value() {
+  if (_internal_has_list_value()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_data_.list_value_;
+    }
+    clear_has_value_data();
+  }
+}
+inline ::greptime::v1::Value_ListValue* Value::release_list_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Value.list_value)
+  if (_internal_has_list_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value_ListValue* temp = _impl_.value_data_.list_value_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_data_.list_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::Value_ListValue& Value::_internal_list_value() const {
+  return _internal_has_list_value()
+      ? *_impl_.value_data_.list_value_
+      : reinterpret_cast< ::greptime::v1::Value_ListValue&>(::greptime::v1::_Value_ListValue_default_instance_);
+}
+inline const ::greptime::v1::Value_ListValue& Value::list_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.list_value)
+  return _internal_list_value();
+}
+inline ::greptime::v1::Value_ListValue* Value::unsafe_arena_release_list_value() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.list_value)
+  if (_internal_has_list_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value_ListValue* temp = _impl_.value_data_.list_value_;
+    _impl_.value_data_.list_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Value::unsafe_arena_set_allocated_list_value(::greptime::v1::Value_ListValue* list_value) {
+  clear_value_data();
+  if (list_value) {
+    set_has_list_value();
+    _impl_.value_data_.list_value_ = list_value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.list_value)
+}
+inline ::greptime::v1::Value_ListValue* Value::_internal_mutable_list_value() {
+  if (!_internal_has_list_value()) {
+    clear_value_data();
+    set_has_list_value();
+    _impl_.value_data_.list_value_ = CreateMaybeMessage< ::greptime::v1::Value_ListValue >(GetArenaForAllocation());
+  }
+  return _impl_.value_data_.list_value_;
+}
+inline ::greptime::v1::Value_ListValue* Value::mutable_list_value() {
+  ::greptime::v1::Value_ListValue* _msg = _internal_mutable_list_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.list_value)
+  return _msg;
+}
+
+// .greptime.v1.Value.StructValue struct_value = 41;
+inline bool Value::_internal_has_struct_value() const {
+  return value_data_case() == kStructValue;
+}
+inline bool Value::has_struct_value() const {
+  return _internal_has_struct_value();
+}
+inline void Value::set_has_struct_value() {
+  _impl_._oneof_case_[0] = kStructValue;
+}
+inline void Value::clear_struct_value() {
+  if (_internal_has_struct_value()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_data_.struct_value_;
+    }
+    clear_has_value_data();
+  }
+}
+inline ::greptime::v1::Value_StructValue* Value::release_struct_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Value.struct_value)
+  if (_internal_has_struct_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value_StructValue* temp = _impl_.value_data_.struct_value_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_data_.struct_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::Value_StructValue& Value::_internal_struct_value() const {
+  return _internal_has_struct_value()
+      ? *_impl_.value_data_.struct_value_
+      : reinterpret_cast< ::greptime::v1::Value_StructValue&>(::greptime::v1::_Value_StructValue_default_instance_);
+}
+inline const ::greptime::v1::Value_StructValue& Value::struct_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.struct_value)
+  return _internal_struct_value();
+}
+inline ::greptime::v1::Value_StructValue* Value::unsafe_arena_release_struct_value() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.struct_value)
+  if (_internal_has_struct_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value_StructValue* temp = _impl_.value_data_.struct_value_;
+    _impl_.value_data_.struct_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Value::unsafe_arena_set_allocated_struct_value(::greptime::v1::Value_StructValue* struct_value) {
+  clear_value_data();
+  if (struct_value) {
+    set_has_struct_value();
+    _impl_.value_data_.struct_value_ = struct_value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.struct_value)
+}
+inline ::greptime::v1::Value_StructValue* Value::_internal_mutable_struct_value() {
+  if (!_internal_has_struct_value()) {
+    clear_value_data();
+    set_has_struct_value();
+    _impl_.value_data_.struct_value_ = CreateMaybeMessage< ::greptime::v1::Value_StructValue >(GetArenaForAllocation());
+  }
+  return _impl_.value_data_.struct_value_;
+}
+inline ::greptime::v1::Value_StructValue* Value::mutable_struct_value() {
+  ::greptime::v1::Value_StructValue* _msg = _internal_mutable_struct_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.struct_value)
+  return _msg;
+}
+
 inline bool Value::has_value_data() const {
   return value_data_case() != VALUE_DATA_NOT_SET;
 }
@@ -2825,6 +3430,10 @@ inline Value::ValueDataCase Value::value_data_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

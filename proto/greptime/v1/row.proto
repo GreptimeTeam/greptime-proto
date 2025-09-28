@@ -76,5 +76,16 @@ message Value {
     int64 interval_day_time_value = 25;
     IntervalMonthDayNano interval_month_day_nano_value = 26;
     Decimal128 decimal128_value = 31;
+
+    ListValue list_value = 40;
+    StructValue struct_value = 41;
+  }
+
+  message ListValue {
+    repeated Value item = 1;
+  }
+
+  message StructValue {
+    repeated Value item = 1;
   }
 }
