@@ -82,10 +82,10 @@ message Value {
   }
 
   message ListValue {
-    repeated Value item = 1;
+    repeated Value items = 1;
   }
 
   message StructValue {
-    repeated Value item = 1;
+    repeated Value items = 1;
   }
 }

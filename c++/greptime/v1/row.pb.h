@@ -750,25 +750,25 @@ class Value_ListValue final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kItemFieldNumber = 1,
+    kItemsFieldNumber = 1,
   };
-  // repeated .greptime.v1.Value item = 1;
-  int item_size() const;
+  // repeated .greptime.v1.Value items = 1;
+  int items_size() const;
   private:
-  int _internal_item_size() const;
+  int _internal_items_size() const;
   public:
-  void clear_item();
-  ::greptime::v1::Value* mutable_item(int index);
+  void clear_items();
+  ::greptime::v1::Value* mutable_items(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
-      mutable_item();
+      mutable_items();
   private:
-  const ::greptime::v1::Value& _internal_item(int index) const;
-  ::greptime::v1::Value* _internal_add_item();
+  const ::greptime::v1::Value& _internal_items(int index) const;
+  ::greptime::v1::Value* _internal_add_items();
   public:
-  const ::greptime::v1::Value& item(int index) const;
-  ::greptime::v1::Value* add_item();
+  const ::greptime::v1::Value& items(int index) const;
+  ::greptime::v1::Value* add_items();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
-      item() const;
+      items() const;
 
   // @@protoc_insertion_point(class_scope:greptime.v1.Value.ListValue)
  private:
@@ -778,7 +778,7 @@ class Value_ListValue final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > item_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > items_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -907,25 +907,25 @@ class Value_StructValue final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kItemFieldNumber = 1,
+    kItemsFieldNumber = 1,
   };
-  // repeated .greptime.v1.Value item = 1;
-  int item_size() const;
+  // repeated .greptime.v1.Value items = 1;
+  int items_size() const;
   private:
-  int _internal_item_size() const;
+  int _internal_items_size() const;
   public:
-  void clear_item();
-  ::greptime::v1::Value* mutable_item(int index);
+  void clear_items();
+  ::greptime::v1::Value* mutable_items(int index);
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
-      mutable_item();
+      mutable_items();
   private:
-  const ::greptime::v1::Value& _internal_item(int index) const;
-  ::greptime::v1::Value* _internal_add_item();
+  const ::greptime::v1::Value& _internal_items(int index) const;
+  ::greptime::v1::Value* _internal_add_items();
   public:
-  const ::greptime::v1::Value& item(int index) const;
-  ::greptime::v1::Value* add_item();
+  const ::greptime::v1::Value& items(int index) const;
+  ::greptime::v1::Value* add_items();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
-      item() const;
+      items() const;
 
   // @@protoc_insertion_point(class_scope:greptime.v1.Value.StructValue)
  private:
@@ -935,7 +935,7 @@ class Value_StructValue final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > item_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > items_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2022,88 +2022,88 @@ Row::values() const {
 
 // Value_ListValue
 
-// repeated .greptime.v1.Value item = 1;
-inline int Value_ListValue::_internal_item_size() const {
-  return _impl_.item_.size();
+// repeated .greptime.v1.Value items = 1;
+inline int Value_ListValue::_internal_items_size() const {
+  return _impl_.items_.size();
 }
-inline int Value_ListValue::item_size() const {
-  return _internal_item_size();
+inline int Value_ListValue::items_size() const {
+  return _internal_items_size();
 }
-inline void Value_ListValue::clear_item() {
-  _impl_.item_.Clear();
+inline void Value_ListValue::clear_items() {
+  _impl_.items_.Clear();
 }
-inline ::greptime::v1::Value* Value_ListValue::mutable_item(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.ListValue.item)
-  return _impl_.item_.Mutable(index);
+inline ::greptime::v1::Value* Value_ListValue::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.ListValue.items)
+  return _impl_.items_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
-Value_ListValue::mutable_item() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.ListValue.item)
-  return &_impl_.item_;
+Value_ListValue::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.ListValue.items)
+  return &_impl_.items_;
 }
-inline const ::greptime::v1::Value& Value_ListValue::_internal_item(int index) const {
-  return _impl_.item_.Get(index);
+inline const ::greptime::v1::Value& Value_ListValue::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
 }
-inline const ::greptime::v1::Value& Value_ListValue::item(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.ListValue.item)
-  return _internal_item(index);
+inline const ::greptime::v1::Value& Value_ListValue::items(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.ListValue.items)
+  return _internal_items(index);
 }
-inline ::greptime::v1::Value* Value_ListValue::_internal_add_item() {
-  return _impl_.item_.Add();
+inline ::greptime::v1::Value* Value_ListValue::_internal_add_items() {
+  return _impl_.items_.Add();
 }
-inline ::greptime::v1::Value* Value_ListValue::add_item() {
-  ::greptime::v1::Value* _add = _internal_add_item();
-  // @@protoc_insertion_point(field_add:greptime.v1.Value.ListValue.item)
+inline ::greptime::v1::Value* Value_ListValue::add_items() {
+  ::greptime::v1::Value* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:greptime.v1.Value.ListValue.items)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
-Value_ListValue::item() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Value.ListValue.item)
-  return _impl_.item_;
+Value_ListValue::items() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Value.ListValue.items)
+  return _impl_.items_;
 }
 
 // -------------------------------------------------------------------
 
 // Value_StructValue
 
-// repeated .greptime.v1.Value item = 1;
-inline int Value_StructValue::_internal_item_size() const {
-  return _impl_.item_.size();
+// repeated .greptime.v1.Value items = 1;
+inline int Value_StructValue::_internal_items_size() const {
+  return _impl_.items_.size();
 }
-inline int Value_StructValue::item_size() const {
-  return _internal_item_size();
+inline int Value_StructValue::items_size() const {
+  return _internal_items_size();
 }
-inline void Value_StructValue::clear_item() {
-  _impl_.item_.Clear();
+inline void Value_StructValue::clear_items() {
+  _impl_.items_.Clear();
 }
-inline ::greptime::v1::Value* Value_StructValue::mutable_item(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.StructValue.item)
-  return _impl_.item_.Mutable(index);
+inline ::greptime::v1::Value* Value_StructValue::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.StructValue.items)
+  return _impl_.items_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >*
-Value_StructValue::mutable_item() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.StructValue.item)
-  return &_impl_.item_;
+Value_StructValue::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Value.StructValue.items)
+  return &_impl_.items_;
 }
-inline const ::greptime::v1::Value& Value_StructValue::_internal_item(int index) const {
-  return _impl_.item_.Get(index);
+inline const ::greptime::v1::Value& Value_StructValue::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
 }
-inline const ::greptime::v1::Value& Value_StructValue::item(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Value.StructValue.item)
-  return _internal_item(index);
+inline const ::greptime::v1::Value& Value_StructValue::items(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.StructValue.items)
+  return _internal_items(index);
 }
-inline ::greptime::v1::Value* Value_StructValue::_internal_add_item() {
-  return _impl_.item_.Add();
+inline ::greptime::v1::Value* Value_StructValue::_internal_add_items() {
+  return _impl_.items_.Add();
 }
-inline ::greptime::v1::Value* Value_StructValue::add_item() {
-  ::greptime::v1::Value* _add = _internal_add_item();
-  // @@protoc_insertion_point(field_add:greptime.v1.Value.StructValue.item)
+inline ::greptime::v1::Value* Value_StructValue::add_items() {
+  ::greptime::v1::Value* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:greptime.v1.Value.StructValue.items)
   return _add;
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value >&
-Value_StructValue::item() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Value.StructValue.item)
-  return _impl_.item_;
+Value_StructValue::items() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Value.StructValue.items)
+  return _impl_.items_;
 }
 
 // -------------------------------------------------------------------

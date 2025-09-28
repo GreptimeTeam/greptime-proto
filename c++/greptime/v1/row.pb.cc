@@ -68,7 +68,7 @@ struct RowDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RowDefaultTypeInternal _Row_default_instance_;
 PROTOBUF_CONSTEXPR Value_ListValue::Value_ListValue(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.item_)*/{}
+    /*decltype(_impl_.items_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Value_ListValueDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Value_ListValueDefaultTypeInternal()
@@ -81,7 +81,7 @@ struct Value_ListValueDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Value_ListValueDefaultTypeInternal _Value_ListValue_default_instance_;
 PROTOBUF_CONSTEXPR Value_StructValue::Value_StructValue(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.item_)*/{}
+    /*decltype(_impl_.items_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Value_StructValueDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Value_StructValueDefaultTypeInternal()
@@ -145,14 +145,14 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_ListValue, _impl_.item_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_ListValue, _impl_.items_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_StructValue, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_StructValue, _impl_.item_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Value_StructValue, _impl_.items_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -219,7 +219,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
   "v1.ColumnDataTypeExtension\022+\n\007options\030\005 "
   "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\""
-  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\210\010\n\005V"
+  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\212\010\n\005V"
   "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 "
   "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030"
   "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value"
@@ -243,18 +243,19 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "ecimal128H\000\0222\n\nlist_value\030( \001(\0132\034.grepti"
   "me.v1.Value.ListValueH\000\0226\n\014struct_value\030"
   ") \001(\0132\036.greptime.v1.Value.StructValueH\000\032"
-  "-\n\tListValue\022 \n\004item\030\001 \003(\0132\022.greptime.v1"
-  ".Value\032/\n\013StructValue\022 \n\004item\030\001 \003(\0132\022.gr"
-  "eptime.v1.ValueB\014\n\nvalue_dataBP\n\016io.grep"
-  "time.v1B\007RowDataZ5github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1b\006proto3"
+  ".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.greptime.v"
+  "1.Value\0320\n\013StructValue\022!\n\005items\030\001 \003(\0132\022."
+  "greptime.v1.ValueB\014\n\nvalue_dataBP\n\016io.gr"
+  "eptime.v1B\007RowDataZ5github.com/GreptimeT"
+  "eam/greptime-proto/go/greptime/v1b\006proto"
+  "3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1559, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1561, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 6,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -1053,7 +1054,7 @@ Value_ListValue::Value_ListValue(const Value_ListValue& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Value_ListValue* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.item_){from._impl_.item_}
+      decltype(_impl_.items_){from._impl_.items_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1065,7 +1066,7 @@ inline void Value_ListValue::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.item_){arena}
+      decltype(_impl_.items_){arena}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1081,7 +1082,7 @@ Value_ListValue::~Value_ListValue() {
 
 inline void Value_ListValue::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.item_.~RepeatedPtrField();
+  _impl_.items_.~RepeatedPtrField();
 }
 
 void Value_ListValue::SetCachedSize(int size) const {
@@ -1094,7 +1095,7 @@ void Value_ListValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.item_.Clear();
+  _impl_.items_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1104,13 +1105,13 @@ const char* Value_ListValue::_InternalParse(const char* ptr, ::_pbi::ParseContex
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .greptime.v1.Value item = 1;
+      // repeated .greptime.v1.Value items = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_item(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_items(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -1146,10 +1147,10 @@ uint8_t* Value_ListValue::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.Value item = 1;
+  // repeated .greptime.v1.Value items = 1;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_item_size()); i < n; i++) {
-    const auto& repfield = this->_internal_item(i);
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
@@ -1170,9 +1171,9 @@ size_t Value_ListValue::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.Value item = 1;
-  total_size += 1UL * this->_internal_item_size();
-  for (const auto& msg : this->_impl_.item_) {
+  // repeated .greptime.v1.Value items = 1;
+  total_size += 1UL * this->_internal_items_size();
+  for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1195,7 +1196,7 @@ void Value_ListValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.item_.MergeFrom(from._impl_.item_);
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1213,7 +1214,7 @@ bool Value_ListValue::IsInitialized() const {
 void Value_ListValue::InternalSwap(Value_ListValue* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.item_.InternalSwap(&other->_impl_.item_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Value_ListValue::GetMetadata() const {
@@ -1238,7 +1239,7 @@ Value_StructValue::Value_StructValue(const Value_StructValue& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Value_StructValue* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.item_){from._impl_.item_}
+      decltype(_impl_.items_){from._impl_.items_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1250,7 +1251,7 @@ inline void Value_StructValue::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.item_){arena}
+      decltype(_impl_.items_){arena}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1266,7 +1267,7 @@ Value_StructValue::~Value_StructValue() {
 
 inline void Value_StructValue::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.item_.~RepeatedPtrField();
+  _impl_.items_.~RepeatedPtrField();
 }
 
 void Value_StructValue::SetCachedSize(int size) const {
@@ -1279,7 +1280,7 @@ void Value_StructValue::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.item_.Clear();
+  _impl_.items_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1289,13 +1290,13 @@ const char* Value_StructValue::_InternalParse(const char* ptr, ::_pbi::ParseCont
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .greptime.v1.Value item = 1;
+      // repeated .greptime.v1.Value items = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_item(), ptr);
+            ptr = ctx->ParseMessage(_internal_add_items(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -1331,10 +1332,10 @@ uint8_t* Value_StructValue::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.Value item = 1;
+  // repeated .greptime.v1.Value items = 1;
   for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_item_size()); i < n; i++) {
-    const auto& repfield = this->_internal_item(i);
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
@@ -1355,9 +1356,9 @@ size_t Value_StructValue::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .greptime.v1.Value item = 1;
-  total_size += 1UL * this->_internal_item_size();
-  for (const auto& msg : this->_impl_.item_) {
+  // repeated .greptime.v1.Value items = 1;
+  total_size += 1UL * this->_internal_items_size();
+  for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1380,7 +1381,7 @@ void Value_StructValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.item_.MergeFrom(from._impl_.item_);
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1398,7 +1399,7 @@ bool Value_StructValue::IsInitialized() const {
 void Value_StructValue::InternalSwap(Value_StructValue* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.item_.InternalSwap(&other->_impl_.item_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Value_StructValue::GetMetadata() const {
