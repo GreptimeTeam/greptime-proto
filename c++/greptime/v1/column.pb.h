@@ -31,6 +31,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
+#include "greptime/v1/row.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_greptime_2fv1_2fcolumn_2eproto
@@ -50,12 +51,6 @@ namespace v1 {
 class Column;
 struct ColumnDefaultTypeInternal;
 extern ColumnDefaultTypeInternal _Column_default_instance_;
-class Column_ListValues;
-struct Column_ListValuesDefaultTypeInternal;
-extern Column_ListValuesDefaultTypeInternal _Column_ListValues_default_instance_;
-class Column_StructValues;
-struct Column_StructValuesDefaultTypeInternal;
-extern Column_StructValuesDefaultTypeInternal _Column_StructValues_default_instance_;
 class Column_Values;
 struct Column_ValuesDefaultTypeInternal;
 extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
@@ -63,8 +58,6 @@ extern Column_ValuesDefaultTypeInternal _Column_Values_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::Column* Arena::CreateMaybeMessage<::greptime::v1::Column>(Arena*);
-template<> ::greptime::v1::Column_ListValues* Arena::CreateMaybeMessage<::greptime::v1::Column_ListValues>(Arena*);
-template<> ::greptime::v1::Column_StructValues* Arena::CreateMaybeMessage<::greptime::v1::Column_StructValues>(Arena*);
 template<> ::greptime::v1::Column_Values* Arena::CreateMaybeMessage<::greptime::v1::Column_Values>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
@@ -813,40 +806,40 @@ class Column_Values final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal128 >&
       decimal128_values() const;
 
-  // repeated .greptime.v1.Column.ListValues list_values = 40;
+  // repeated .greptime.v1.ListValue list_values = 40;
   int list_values_size() const;
   private:
   int _internal_list_values_size() const;
   public:
   void clear_list_values();
-  ::greptime::v1::Column_ListValues* mutable_list_values(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >*
+  ::greptime::v1::ListValue* mutable_list_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue >*
       mutable_list_values();
   private:
-  const ::greptime::v1::Column_ListValues& _internal_list_values(int index) const;
-  ::greptime::v1::Column_ListValues* _internal_add_list_values();
+  const ::greptime::v1::ListValue& _internal_list_values(int index) const;
+  ::greptime::v1::ListValue* _internal_add_list_values();
   public:
-  const ::greptime::v1::Column_ListValues& list_values(int index) const;
-  ::greptime::v1::Column_ListValues* add_list_values();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >&
+  const ::greptime::v1::ListValue& list_values(int index) const;
+  ::greptime::v1::ListValue* add_list_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue >&
       list_values() const;
 
-  // repeated .greptime.v1.Column.StructValues struct_values = 41;
+  // repeated .greptime.v1.StructValue struct_values = 41;
   int struct_values_size() const;
   private:
   int _internal_struct_values_size() const;
   public:
   void clear_struct_values();
-  ::greptime::v1::Column_StructValues* mutable_struct_values(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >*
+  ::greptime::v1::StructValue* mutable_struct_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue >*
       mutable_struct_values();
   private:
-  const ::greptime::v1::Column_StructValues& _internal_struct_values(int index) const;
-  ::greptime::v1::Column_StructValues* _internal_add_struct_values();
+  const ::greptime::v1::StructValue& _internal_struct_values(int index) const;
+  ::greptime::v1::StructValue* _internal_add_struct_values();
   public:
-  const ::greptime::v1::Column_StructValues& struct_values(int index) const;
-  ::greptime::v1::Column_StructValues* add_struct_values();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >&
+  const ::greptime::v1::StructValue& struct_values(int index) const;
+  ::greptime::v1::StructValue* add_struct_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue >&
       struct_values() const;
 
   // @@protoc_insertion_point(class_scope:greptime.v1.Column.Values)
@@ -904,322 +897,8 @@ class Column_Values final :
     mutable std::atomic<int> _interval_day_time_values_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::IntervalMonthDayNano > interval_month_day_nano_values_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal128 > decimal128_values_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues > list_values_;
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues > struct_values_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fcolumn_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Column_ListValues final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Column.ListValues) */ {
- public:
-  inline Column_ListValues() : Column_ListValues(nullptr) {}
-  ~Column_ListValues() override;
-  explicit PROTOBUF_CONSTEXPR Column_ListValues(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Column_ListValues(const Column_ListValues& from);
-  Column_ListValues(Column_ListValues&& from) noexcept
-    : Column_ListValues() {
-    *this = ::std::move(from);
-  }
-
-  inline Column_ListValues& operator=(const Column_ListValues& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Column_ListValues& operator=(Column_ListValues&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Column_ListValues& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Column_ListValues* internal_default_instance() {
-    return reinterpret_cast<const Column_ListValues*>(
-               &_Column_ListValues_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    1;
-
-  friend void swap(Column_ListValues& a, Column_ListValues& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Column_ListValues* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Column_ListValues* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Column_ListValues* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Column_ListValues>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Column_ListValues& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Column_ListValues& from) {
-    Column_ListValues::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Column_ListValues* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.Column.ListValues";
-  }
-  protected:
-  explicit Column_ListValues(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kItemsFieldNumber = 1,
-  };
-  // repeated .greptime.v1.Column.Values items = 1;
-  int items_size() const;
-  private:
-  int _internal_items_size() const;
-  public:
-  void clear_items();
-  ::greptime::v1::Column_Values* mutable_items(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
-      mutable_items();
-  private:
-  const ::greptime::v1::Column_Values& _internal_items(int index) const;
-  ::greptime::v1::Column_Values* _internal_add_items();
-  public:
-  const ::greptime::v1::Column_Values& items(int index) const;
-  ::greptime::v1::Column_Values* add_items();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
-      items() const;
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.Column.ListValues)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values > items_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_greptime_2fv1_2fcolumn_2eproto;
-};
-// -------------------------------------------------------------------
-
-class Column_StructValues final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Column.StructValues) */ {
- public:
-  inline Column_StructValues() : Column_StructValues(nullptr) {}
-  ~Column_StructValues() override;
-  explicit PROTOBUF_CONSTEXPR Column_StructValues(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  Column_StructValues(const Column_StructValues& from);
-  Column_StructValues(Column_StructValues&& from) noexcept
-    : Column_StructValues() {
-    *this = ::std::move(from);
-  }
-
-  inline Column_StructValues& operator=(const Column_StructValues& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Column_StructValues& operator=(Column_StructValues&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Column_StructValues& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Column_StructValues* internal_default_instance() {
-    return reinterpret_cast<const Column_StructValues*>(
-               &_Column_StructValues_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(Column_StructValues& a, Column_StructValues& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(Column_StructValues* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Column_StructValues* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Column_StructValues* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<Column_StructValues>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const Column_StructValues& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const Column_StructValues& from) {
-    Column_StructValues::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(Column_StructValues* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.Column.StructValues";
-  }
-  protected:
-  explicit Column_StructValues(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kItemsFieldNumber = 2,
-  };
-  // repeated .greptime.v1.Column.Values items = 2;
-  int items_size() const;
-  private:
-  int _internal_items_size() const;
-  public:
-  void clear_items();
-  ::greptime::v1::Column_Values* mutable_items(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
-      mutable_items();
-  private:
-  const ::greptime::v1::Column_Values& _internal_items(int index) const;
-  ::greptime::v1::Column_Values* _internal_add_items();
-  public:
-  const ::greptime::v1::Column_Values& items(int index) const;
-  ::greptime::v1::Column_Values* add_items();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
-      items() const;
-
-  // @@protoc_insertion_point(class_scope:greptime.v1.Column.StructValues)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values > items_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue > list_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue > struct_values_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1275,7 +954,7 @@ class Column final :
                &_Column_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    1;
 
   friend void swap(Column& a, Column& b) {
     a.Swap(&b);
@@ -1346,8 +1025,6 @@ class Column final :
   // nested types ----------------------------------------------------
 
   typedef Column_Values Values;
-  typedef Column_ListValues ListValues;
-  typedef Column_StructValues StructValues;
 
   // accessors -------------------------------------------------------
 
@@ -2796,172 +2473,78 @@ Column_Values::decimal128_values() const {
   return _impl_.decimal128_values_;
 }
 
-// repeated .greptime.v1.Column.ListValues list_values = 40;
+// repeated .greptime.v1.ListValue list_values = 40;
 inline int Column_Values::_internal_list_values_size() const {
   return _impl_.list_values_.size();
 }
 inline int Column_Values::list_values_size() const {
   return _internal_list_values_size();
 }
-inline void Column_Values::clear_list_values() {
-  _impl_.list_values_.Clear();
-}
-inline ::greptime::v1::Column_ListValues* Column_Values::mutable_list_values(int index) {
+inline ::greptime::v1::ListValue* Column_Values::mutable_list_values(int index) {
   // @@protoc_insertion_point(field_mutable:greptime.v1.Column.Values.list_values)
   return _impl_.list_values_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue >*
 Column_Values::mutable_list_values() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.list_values)
   return &_impl_.list_values_;
 }
-inline const ::greptime::v1::Column_ListValues& Column_Values::_internal_list_values(int index) const {
+inline const ::greptime::v1::ListValue& Column_Values::_internal_list_values(int index) const {
   return _impl_.list_values_.Get(index);
 }
-inline const ::greptime::v1::Column_ListValues& Column_Values::list_values(int index) const {
+inline const ::greptime::v1::ListValue& Column_Values::list_values(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.list_values)
   return _internal_list_values(index);
 }
-inline ::greptime::v1::Column_ListValues* Column_Values::_internal_add_list_values() {
+inline ::greptime::v1::ListValue* Column_Values::_internal_add_list_values() {
   return _impl_.list_values_.Add();
 }
-inline ::greptime::v1::Column_ListValues* Column_Values::add_list_values() {
-  ::greptime::v1::Column_ListValues* _add = _internal_add_list_values();
+inline ::greptime::v1::ListValue* Column_Values::add_list_values() {
+  ::greptime::v1::ListValue* _add = _internal_add_list_values();
   // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.list_values)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_ListValues >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue >&
 Column_Values::list_values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.list_values)
   return _impl_.list_values_;
 }
 
-// repeated .greptime.v1.Column.StructValues struct_values = 41;
+// repeated .greptime.v1.StructValue struct_values = 41;
 inline int Column_Values::_internal_struct_values_size() const {
   return _impl_.struct_values_.size();
 }
 inline int Column_Values::struct_values_size() const {
   return _internal_struct_values_size();
 }
-inline void Column_Values::clear_struct_values() {
-  _impl_.struct_values_.Clear();
-}
-inline ::greptime::v1::Column_StructValues* Column_Values::mutable_struct_values(int index) {
+inline ::greptime::v1::StructValue* Column_Values::mutable_struct_values(int index) {
   // @@protoc_insertion_point(field_mutable:greptime.v1.Column.Values.struct_values)
   return _impl_.struct_values_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue >*
 Column_Values::mutable_struct_values() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.struct_values)
   return &_impl_.struct_values_;
 }
-inline const ::greptime::v1::Column_StructValues& Column_Values::_internal_struct_values(int index) const {
+inline const ::greptime::v1::StructValue& Column_Values::_internal_struct_values(int index) const {
   return _impl_.struct_values_.Get(index);
 }
-inline const ::greptime::v1::Column_StructValues& Column_Values::struct_values(int index) const {
+inline const ::greptime::v1::StructValue& Column_Values::struct_values(int index) const {
   // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.struct_values)
   return _internal_struct_values(index);
 }
-inline ::greptime::v1::Column_StructValues* Column_Values::_internal_add_struct_values() {
+inline ::greptime::v1::StructValue* Column_Values::_internal_add_struct_values() {
   return _impl_.struct_values_.Add();
 }
-inline ::greptime::v1::Column_StructValues* Column_Values::add_struct_values() {
-  ::greptime::v1::Column_StructValues* _add = _internal_add_struct_values();
+inline ::greptime::v1::StructValue* Column_Values::add_struct_values() {
+  ::greptime::v1::StructValue* _add = _internal_add_struct_values();
   // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.struct_values)
   return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_StructValues >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue >&
 Column_Values::struct_values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.struct_values)
   return _impl_.struct_values_;
-}
-
-// -------------------------------------------------------------------
-
-// Column_ListValues
-
-// repeated .greptime.v1.Column.Values items = 1;
-inline int Column_ListValues::_internal_items_size() const {
-  return _impl_.items_.size();
-}
-inline int Column_ListValues::items_size() const {
-  return _internal_items_size();
-}
-inline void Column_ListValues::clear_items() {
-  _impl_.items_.Clear();
-}
-inline ::greptime::v1::Column_Values* Column_ListValues::mutable_items(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.ListValues.items)
-  return _impl_.items_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
-Column_ListValues::mutable_items() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.ListValues.items)
-  return &_impl_.items_;
-}
-inline const ::greptime::v1::Column_Values& Column_ListValues::_internal_items(int index) const {
-  return _impl_.items_.Get(index);
-}
-inline const ::greptime::v1::Column_Values& Column_ListValues::items(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Column.ListValues.items)
-  return _internal_items(index);
-}
-inline ::greptime::v1::Column_Values* Column_ListValues::_internal_add_items() {
-  return _impl_.items_.Add();
-}
-inline ::greptime::v1::Column_Values* Column_ListValues::add_items() {
-  ::greptime::v1::Column_Values* _add = _internal_add_items();
-  // @@protoc_insertion_point(field_add:greptime.v1.Column.ListValues.items)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
-Column_ListValues::items() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Column.ListValues.items)
-  return _impl_.items_;
-}
-
-// -------------------------------------------------------------------
-
-// Column_StructValues
-
-// repeated .greptime.v1.Column.Values items = 2;
-inline int Column_StructValues::_internal_items_size() const {
-  return _impl_.items_.size();
-}
-inline int Column_StructValues::items_size() const {
-  return _internal_items_size();
-}
-inline void Column_StructValues::clear_items() {
-  _impl_.items_.Clear();
-}
-inline ::greptime::v1::Column_Values* Column_StructValues::mutable_items(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.StructValues.items)
-  return _impl_.items_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
-Column_StructValues::mutable_items() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.StructValues.items)
-  return &_impl_.items_;
-}
-inline const ::greptime::v1::Column_Values& Column_StructValues::_internal_items(int index) const {
-  return _impl_.items_.Get(index);
-}
-inline const ::greptime::v1::Column_Values& Column_StructValues::items(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Column.StructValues.items)
-  return _internal_items(index);
-}
-inline ::greptime::v1::Column_Values* Column_StructValues::_internal_add_items() {
-  return _impl_.items_.Add();
-}
-inline ::greptime::v1::Column_Values* Column_StructValues::add_items() {
-  ::greptime::v1::Column_Values* _add = _internal_add_items();
-  // @@protoc_insertion_point(field_add:greptime.v1.Column.StructValues.items)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
-Column_StructValues::items() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.Column.StructValues.items)
-  return _impl_.items_;
 }
 
 // -------------------------------------------------------------------
@@ -3371,10 +2954,6 @@ inline void Column::set_allocated_options(::greptime::v1::ColumnOptions* options
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 

@@ -80,12 +80,12 @@ message Value {
     ListValue list_value = 40;
     StructValue struct_value = 41;
   }
+}
 
-  message ListValue {
-    repeated Value items = 1;
-  }
+message ListValue {
+  repeated Value items = 1;
+}
 
-  message StructValue {
-    repeated Value items = 1;
-  }
+message StructValue {
+  repeated Value items = 2;
 }

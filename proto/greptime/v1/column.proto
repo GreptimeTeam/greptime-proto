@@ -17,6 +17,7 @@ syntax = "proto3";
 package greptime.v1;
 
 import "greptime/v1/common.proto";
+import "greptime/v1/row.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1";
 option java_outer_classname = "Columns";
@@ -59,17 +60,10 @@ message Column {
     repeated IntervalMonthDayNano interval_month_day_nano_values = 26;
     repeated Decimal128 decimal128_values = 31;
 
-    repeated ListValues list_values = 40;
-    repeated StructValues struct_values = 41;
+    repeated ListValue list_values = 40;
+    repeated StructValue struct_values = 41;
   }
 
-  message ListValues {
-    repeated Values items = 1;
-  }
-
-  message StructValues {
-    repeated Values items = 2;
-  }
   // The array of non-null values in this column.
   //
   // For example: suppose there is a column "foo" that contains some int32
