@@ -98,6 +98,8 @@ message NodeInfo {
   uint32 cpus = 4;
   // The memory bytes of the node.
   uint64 memory_bytes = 5;
+  // The hostname of the node.
+  string hostname = 6;
 }
 
 message RegionStat {
