@@ -1858,58 +1858,19 @@ public final class ClusterOuterClass {
     greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder();
 
     /**
-     * <code>string version = 2;</code>
-     * @return The version.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+     * @return Whether the info field is set.
      */
-    java.lang.String getVersion();
+    boolean hasInfo();
     /**
-     * <code>string version = 2;</code>
-     * @return The bytes for version.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+     * @return The info.
      */
-    com.google.protobuf.ByteString
-        getVersionBytes();
-
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo();
     /**
-     * <code>string git_commit = 3;</code>
-     * @return The gitCommit.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
      */
-    java.lang.String getGitCommit();
-    /**
-     * <code>string git_commit = 3;</code>
-     * @return The bytes for gitCommit.
-     */
-    com.google.protobuf.ByteString
-        getGitCommitBytes();
-
-    /**
-     * <pre>
-     * The node start timestamp in milliseconds.
-     * </pre>
-     *
-     * <code>uint64 start_time_ms = 4;</code>
-     * @return The startTimeMs.
-     */
-    long getStartTimeMs();
-
-    /**
-     * <pre>
-     * The CPU cores number of the node.
-     * </pre>
-     *
-     * <code>uint32 cpus = 5;</code>
-     * @return The cpus.
-     */
-    int getCpus();
-
-    /**
-     * <pre>
-     * The memory bytes of the node.
-     * </pre>
-     *
-     * <code>uint64 memory_bytes = 6;</code>
-     * @return The memoryBytes.
-     */
-    long getMemoryBytes();
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
@@ -1924,8 +1885,6 @@ public final class ClusterOuterClass {
       super(builder);
     }
     private MetasrvNodeInfo() {
-      version_ = "";
-      gitCommit_ = "";
     }
 
     @java.lang.Override
@@ -1972,30 +1931,16 @@ public final class ClusterOuterClass {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder subBuilder = null;
+              if (info_ != null) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.NodeInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
 
-              version_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gitCommit_ = s;
-              break;
-            }
-            case 32: {
-
-              startTimeMs_ = input.readUInt64();
-              break;
-            }
-            case 40: {
-
-              cpus_ = input.readUInt32();
-              break;
-            }
-            case 48: {
-
-              memoryBytes_ = input.readUInt64();
               break;
             }
             default: {
@@ -2058,125 +2003,30 @@ public final class ClusterOuterClass {
       return getPeer();
     }
 
-    public static final int VERSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object version_;
+    public static final int INFO_FIELD_NUMBER = 2;
+    private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
     /**
-     * <code>string version = 2;</code>
-     * @return The version.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+     * @return Whether the info field is set.
      */
     @java.lang.Override
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        version_ = s;
-        return s;
-      }
+    public boolean hasInfo() {
+      return info_ != null;
     }
     /**
-     * <code>string version = 2;</code>
-     * @return The bytes for version.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+     * @return The info.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getVersionBytes() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        version_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int GIT_COMMIT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object gitCommit_;
-    /**
-     * <code>string git_commit = 3;</code>
-     * @return The gitCommit.
-     */
-    @java.lang.Override
-    public java.lang.String getGitCommit() {
-      java.lang.Object ref = gitCommit_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        gitCommit_ = s;
-        return s;
-      }
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+      return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
     }
     /**
-     * <code>string git_commit = 3;</code>
-     * @return The bytes for gitCommit.
+     * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getGitCommitBytes() {
-      java.lang.Object ref = gitCommit_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        gitCommit_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int START_TIME_MS_FIELD_NUMBER = 4;
-    private long startTimeMs_;
-    /**
-     * <pre>
-     * The node start timestamp in milliseconds.
-     * </pre>
-     *
-     * <code>uint64 start_time_ms = 4;</code>
-     * @return The startTimeMs.
-     */
-    @java.lang.Override
-    public long getStartTimeMs() {
-      return startTimeMs_;
-    }
-
-    public static final int CPUS_FIELD_NUMBER = 5;
-    private int cpus_;
-    /**
-     * <pre>
-     * The CPU cores number of the node.
-     * </pre>
-     *
-     * <code>uint32 cpus = 5;</code>
-     * @return The cpus.
-     */
-    @java.lang.Override
-    public int getCpus() {
-      return cpus_;
-    }
-
-    public static final int MEMORY_BYTES_FIELD_NUMBER = 6;
-    private long memoryBytes_;
-    /**
-     * <pre>
-     * The memory bytes of the node.
-     * </pre>
-     *
-     * <code>uint64 memory_bytes = 6;</code>
-     * @return The memoryBytes.
-     */
-    @java.lang.Override
-    public long getMemoryBytes() {
-      return memoryBytes_;
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+      return getInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2196,20 +2046,8 @@ public final class ClusterOuterClass {
       if (peer_ != null) {
         output.writeMessage(1, getPeer());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, gitCommit_);
-      }
-      if (startTimeMs_ != 0L) {
-        output.writeUInt64(4, startTimeMs_);
-      }
-      if (cpus_ != 0) {
-        output.writeUInt32(5, cpus_);
-      }
-      if (memoryBytes_ != 0L) {
-        output.writeUInt64(6, memoryBytes_);
+      if (info_ != null) {
+        output.writeMessage(2, getInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -2224,23 +2062,9 @@ public final class ClusterOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPeer());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gitCommit_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, gitCommit_);
-      }
-      if (startTimeMs_ != 0L) {
+      if (info_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, startTimeMs_);
-      }
-      if (cpus_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, cpus_);
-      }
-      if (memoryBytes_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(6, memoryBytes_);
+          .computeMessageSize(2, getInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2262,16 +2086,11 @@ public final class ClusterOuterClass {
         if (!getPeer()
             .equals(other.getPeer())) return false;
       }
-      if (!getVersion()
-          .equals(other.getVersion())) return false;
-      if (!getGitCommit()
-          .equals(other.getGitCommit())) return false;
-      if (getStartTimeMs()
-          != other.getStartTimeMs()) return false;
-      if (getCpus()
-          != other.getCpus()) return false;
-      if (getMemoryBytes()
-          != other.getMemoryBytes()) return false;
+      if (hasInfo() != other.hasInfo()) return false;
+      if (hasInfo()) {
+        if (!getInfo()
+            .equals(other.getInfo())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2287,18 +2106,10 @@ public final class ClusterOuterClass {
         hash = (37 * hash) + PEER_FIELD_NUMBER;
         hash = (53 * hash) + getPeer().hashCode();
       }
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion().hashCode();
-      hash = (37 * hash) + GIT_COMMIT_FIELD_NUMBER;
-      hash = (53 * hash) + getGitCommit().hashCode();
-      hash = (37 * hash) + START_TIME_MS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStartTimeMs());
-      hash = (37 * hash) + CPUS_FIELD_NUMBER;
-      hash = (53 * hash) + getCpus();
-      hash = (37 * hash) + MEMORY_BYTES_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getMemoryBytes());
+      if (hasInfo()) {
+        hash = (37 * hash) + INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getInfo().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2438,16 +2249,12 @@ public final class ClusterOuterClass {
           peer_ = null;
           peerBuilder_ = null;
         }
-        version_ = "";
-
-        gitCommit_ = "";
-
-        startTimeMs_ = 0L;
-
-        cpus_ = 0;
-
-        memoryBytes_ = 0L;
-
+        if (infoBuilder_ == null) {
+          info_ = null;
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
         return this;
       }
 
@@ -2479,11 +2286,11 @@ public final class ClusterOuterClass {
         } else {
           result.peer_ = peerBuilder_.build();
         }
-        result.version_ = version_;
-        result.gitCommit_ = gitCommit_;
-        result.startTimeMs_ = startTimeMs_;
-        result.cpus_ = cpus_;
-        result.memoryBytes_ = memoryBytes_;
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2535,22 +2342,8 @@ public final class ClusterOuterClass {
         if (other.hasPeer()) {
           mergePeer(other.getPeer());
         }
-        if (!other.getVersion().isEmpty()) {
-          version_ = other.version_;
-          onChanged();
-        }
-        if (!other.getGitCommit().isEmpty()) {
-          gitCommit_ = other.gitCommit_;
-          onChanged();
-        }
-        if (other.getStartTimeMs() != 0L) {
-          setStartTimeMs(other.getStartTimeMs());
-        }
-        if (other.getCpus() != 0) {
-          setCpus(other.getCpus());
-        }
-        if (other.getMemoryBytes() != 0L) {
-          setMemoryBytes(other.getMemoryBytes());
+        if (other.hasInfo()) {
+          mergeInfo(other.getInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2700,285 +2493,123 @@ public final class ClusterOuterClass {
         return peerBuilder_;
       }
 
-      private java.lang.Object version_ = "";
+      private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> infoBuilder_;
       /**
-       * <code>string version = 2;</code>
-       * @return The version.
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       * @return Whether the info field is set.
        */
-      public java.lang.String getVersion() {
-        java.lang.Object ref = version_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          version_ = s;
-          return s;
+      public boolean hasInfo() {
+        return infoBuilder_ != null || info_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       * @return The info.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+        if (infoBuilder_ == null) {
+          return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
         } else {
-          return (java.lang.String) ref;
+          return infoBuilder_.getMessage();
         }
       }
       /**
-       * <code>string version = 2;</code>
-       * @return The bytes for version.
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getVersionBytes() {
-        java.lang.Object ref = version_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          version_ = b;
-          return b;
+      public Builder setInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          info_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          infoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       */
+      public Builder setInfo(
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          info_ = builderForValue.build();
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       */
+      public Builder mergeInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (info_ != null) {
+            info_ =
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+          } else {
+            info_ = value;
+          }
+          onChanged();
+        } else {
+          infoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = null;
+          onChanged();
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder getInfoBuilder() {
+        
+        onChanged();
+        return getInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilder();
+        } else {
+          return info_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
         }
       }
       /**
-       * <code>string version = 2;</code>
-       * @param value The version to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.NodeInfo info = 2;</code>
        */
-      public Builder setVersion(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string version = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearVersion() {
-        
-        version_ = getDefaultInstance().getVersion();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string version = 2;</code>
-       * @param value The bytes for version to set.
-       * @return This builder for chaining.
-       */
-      public Builder setVersionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object gitCommit_ = "";
-      /**
-       * <code>string git_commit = 3;</code>
-       * @return The gitCommit.
-       */
-      public java.lang.String getGitCommit() {
-        java.lang.Object ref = gitCommit_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          gitCommit_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder>(
+                  getInfo(),
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
         }
-      }
-      /**
-       * <code>string git_commit = 3;</code>
-       * @return The bytes for gitCommit.
-       */
-      public com.google.protobuf.ByteString
-          getGitCommitBytes() {
-        java.lang.Object ref = gitCommit_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          gitCommit_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string git_commit = 3;</code>
-       * @param value The gitCommit to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGitCommit(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        gitCommit_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string git_commit = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearGitCommit() {
-        
-        gitCommit_ = getDefaultInstance().getGitCommit();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string git_commit = 3;</code>
-       * @param value The bytes for gitCommit to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGitCommitBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        gitCommit_ = value;
-        onChanged();
-        return this;
-      }
-
-      private long startTimeMs_ ;
-      /**
-       * <pre>
-       * The node start timestamp in milliseconds.
-       * </pre>
-       *
-       * <code>uint64 start_time_ms = 4;</code>
-       * @return The startTimeMs.
-       */
-      @java.lang.Override
-      public long getStartTimeMs() {
-        return startTimeMs_;
-      }
-      /**
-       * <pre>
-       * The node start timestamp in milliseconds.
-       * </pre>
-       *
-       * <code>uint64 start_time_ms = 4;</code>
-       * @param value The startTimeMs to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStartTimeMs(long value) {
-        
-        startTimeMs_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The node start timestamp in milliseconds.
-       * </pre>
-       *
-       * <code>uint64 start_time_ms = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStartTimeMs() {
-        
-        startTimeMs_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private int cpus_ ;
-      /**
-       * <pre>
-       * The CPU cores number of the node.
-       * </pre>
-       *
-       * <code>uint32 cpus = 5;</code>
-       * @return The cpus.
-       */
-      @java.lang.Override
-      public int getCpus() {
-        return cpus_;
-      }
-      /**
-       * <pre>
-       * The CPU cores number of the node.
-       * </pre>
-       *
-       * <code>uint32 cpus = 5;</code>
-       * @param value The cpus to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCpus(int value) {
-        
-        cpus_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The CPU cores number of the node.
-       * </pre>
-       *
-       * <code>uint32 cpus = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCpus() {
-        
-        cpus_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private long memoryBytes_ ;
-      /**
-       * <pre>
-       * The memory bytes of the node.
-       * </pre>
-       *
-       * <code>uint64 memory_bytes = 6;</code>
-       * @return The memoryBytes.
-       */
-      @java.lang.Override
-      public long getMemoryBytes() {
-        return memoryBytes_;
-      }
-      /**
-       * <pre>
-       * The memory bytes of the node.
-       * </pre>
-       *
-       * <code>uint64 memory_bytes = 6;</code>
-       * @param value The memoryBytes to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMemoryBytes(long value) {
-        
-        memoryBytes_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The memory bytes of the node.
-       * </pre>
-       *
-       * <code>uint64 memory_bytes = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMemoryBytes() {
-        
-        memoryBytes_ = 0L;
-        onChanged();
-        return this;
+        return infoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3059,31 +2690,31 @@ public final class ClusterOuterClass {
     java.lang.String[] descriptorData = {
       "\n\036greptime/v1/meta/cluster.proto\022\020grepti" +
       "me.v1.meta\032\035greptime/v1/meta/common.prot" +
-      "o\032\034greptime/v1/meta/store.proto\"F\n\023Metas" +
-      "rvPeersRequest\022/\n\006header\030\001 \001(\0132\037.greptim" +
-      "e.v1.meta.RequestHeader\"\261\001\n\024MetasrvPeers" +
-      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
-      "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
-      "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
-      "nfo\"\227\001\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026." +
-      "greptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022" +
-      "\n\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001(" +
-      "\004\022\014\n\004cpus\030\005 \001(\r\022\024\n\014memory_bytes\030\006 \001(\0042\205\002" +
-      "\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.meta" +
-      ".BatchGetRequest\032\".greptime.v1.meta.Batc" +
-      "hGetResponse\022H\n\005Range\022\036.greptime.v1.meta" +
-      ".RangeRequest\032\037.greptime.v1.meta.RangeRe" +
-      "sponse\022]\n\014MetasrvPeers\022%.greptime.v1.met" +
-      "a.MetasrvPeersRequest\032&.greptime.v1.meta" +
-      ".MetasrvPeersResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "o\032 greptime/v1/meta/heartbeat.proto\032\034gre" +
+      "ptime/v1/meta/store.proto\"F\n\023MetasrvPeer" +
+      "sRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.m" +
+      "eta.RequestHeader\"\261\001\n\024MetasrvPeersRespon" +
+      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
+      "sponseHeader\0221\n\006leader\030\002 \001(\0132!.greptime." +
+      "v1.meta.MetasrvNodeInfo\0224\n\tfollowers\030\003 \003" +
+      "(\0132!.greptime.v1.meta.MetasrvNodeInfo\"a\n" +
+      "\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.greptim" +
+      "e.v1.meta.Peer\022(\n\004info\030\002 \001(\0132\032.greptime." +
+      "v1.meta.NodeInfo2\205\002\n\007Cluster\022Q\n\010BatchGet" +
+      "\022!.greptime.v1.meta.BatchGetRequest\032\".gr" +
+      "eptime.v1.meta.BatchGetResponse\022H\n\005Range" +
+      "\022\036.greptime.v1.meta.RangeRequest\032\037.grept" +
+      "ime.v1.meta.RangeResponse\022]\n\014MetasrvPeer" +
+      "s\022%.greptime.v1.meta.MetasrvPeersRequest" +
+      "\032&.greptime.v1.meta.MetasrvPeersResponse" +
+      "B<Z:github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           greptime.v1.meta.Common.getDescriptor(),
+          greptime.v1.meta.HeartbeatOuterClass.getDescriptor(),
           greptime.v1.meta.StoreOuterClass.getDescriptor(),
         });
     internal_static_greptime_v1_meta_MetasrvPeersRequest_descriptor =
@@ -3103,8 +2734,9 @@ public final class ClusterOuterClass {
     internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
-        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", });
+        new java.lang.String[] { "Peer", "Info", });
     greptime.v1.meta.Common.getDescriptor();
+    greptime.v1.meta.HeartbeatOuterClass.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }
 
