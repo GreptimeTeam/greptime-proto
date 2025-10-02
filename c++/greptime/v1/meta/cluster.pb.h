@@ -31,6 +31,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/meta/common.pb.h"
+#include "greptime/v1/meta/heartbeat.pb.h"
 #include "greptime/v1/meta/store.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -550,32 +551,33 @@ class MetasrvNodeInfo final :
     kVersionFieldNumber = 2,
     kGitCommitFieldNumber = 3,
     kPeerFieldNumber = 1,
+    kInfoFieldNumber = 7,
     kStartTimeMsFieldNumber = 4,
     kMemoryBytesFieldNumber = 6,
     kCpusFieldNumber = 5,
   };
-  // string version = 2;
-  void clear_version();
-  const std::string& version() const;
+  // string version = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_version();
+  PROTOBUF_DEPRECATED const std::string& version() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_version(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_version();
-  PROTOBUF_NODISCARD std::string* release_version();
-  void set_allocated_version(std::string* version);
+  PROTOBUF_DEPRECATED void set_version(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_version();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_version();
+  PROTOBUF_DEPRECATED void set_allocated_version(std::string* version);
   private:
   const std::string& _internal_version() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_version(const std::string& value);
   std::string* _internal_mutable_version();
   public:
 
-  // string git_commit = 3;
-  void clear_git_commit();
-  const std::string& git_commit() const;
+  // string git_commit = 3 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_git_commit();
+  PROTOBUF_DEPRECATED const std::string& git_commit() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_git_commit(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_git_commit();
-  PROTOBUF_NODISCARD std::string* release_git_commit();
-  void set_allocated_git_commit(std::string* git_commit);
+  PROTOBUF_DEPRECATED void set_git_commit(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_git_commit();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_git_commit();
+  PROTOBUF_DEPRECATED void set_allocated_git_commit(std::string* git_commit);
   private:
   const std::string& _internal_git_commit() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_git_commit(const std::string& value);
@@ -600,28 +602,46 @@ class MetasrvNodeInfo final :
       ::greptime::v1::meta::Peer* peer);
   ::greptime::v1::meta::Peer* unsafe_arena_release_peer();
 
-  // uint64 start_time_ms = 4;
-  void clear_start_time_ms();
-  uint64_t start_time_ms() const;
-  void set_start_time_ms(uint64_t value);
+  // .greptime.v1.meta.NodeInfo info = 7;
+  bool has_info() const;
+  private:
+  bool _internal_has_info() const;
+  public:
+  void clear_info();
+  const ::greptime::v1::meta::NodeInfo& info() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::NodeInfo* release_info();
+  ::greptime::v1::meta::NodeInfo* mutable_info();
+  void set_allocated_info(::greptime::v1::meta::NodeInfo* info);
+  private:
+  const ::greptime::v1::meta::NodeInfo& _internal_info() const;
+  ::greptime::v1::meta::NodeInfo* _internal_mutable_info();
+  public:
+  void unsafe_arena_set_allocated_info(
+      ::greptime::v1::meta::NodeInfo* info);
+  ::greptime::v1::meta::NodeInfo* unsafe_arena_release_info();
+
+  // uint64 start_time_ms = 4 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_start_time_ms();
+  PROTOBUF_DEPRECATED uint64_t start_time_ms() const;
+  PROTOBUF_DEPRECATED void set_start_time_ms(uint64_t value);
   private:
   uint64_t _internal_start_time_ms() const;
   void _internal_set_start_time_ms(uint64_t value);
   public:
 
-  // uint64 memory_bytes = 6;
-  void clear_memory_bytes();
-  uint64_t memory_bytes() const;
-  void set_memory_bytes(uint64_t value);
+  // uint64 memory_bytes = 6 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_memory_bytes();
+  PROTOBUF_DEPRECATED uint64_t memory_bytes() const;
+  PROTOBUF_DEPRECATED void set_memory_bytes(uint64_t value);
   private:
   uint64_t _internal_memory_bytes() const;
   void _internal_set_memory_bytes(uint64_t value);
   public:
 
-  // uint32 cpus = 5;
-  void clear_cpus();
-  uint32_t cpus() const;
-  void set_cpus(uint32_t value);
+  // uint32 cpus = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_cpus();
+  PROTOBUF_DEPRECATED uint32_t cpus() const;
+  PROTOBUF_DEPRECATED void set_cpus(uint32_t value);
   private:
   uint32_t _internal_cpus() const;
   void _internal_set_cpus(uint32_t value);
@@ -638,6 +658,7 @@ class MetasrvNodeInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
     ::greptime::v1::meta::Peer* peer_;
+    ::greptime::v1::meta::NodeInfo* info_;
     uint64_t start_time_ms_;
     uint64_t memory_bytes_;
     uint32_t cpus_;
@@ -1050,7 +1071,7 @@ inline void MetasrvNodeInfo::set_allocated_peer(::greptime::v1::meta::Peer* peer
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.peer)
 }
 
-// string version = 2;
+// string version = 2 [deprecated = true];
 inline void MetasrvNodeInfo::clear_version() {
   _impl_.version_.ClearToEmpty();
 }
@@ -1100,7 +1121,7 @@ inline void MetasrvNodeInfo::set_allocated_version(std::string* version) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.version)
 }
 
-// string git_commit = 3;
+// string git_commit = 3 [deprecated = true];
 inline void MetasrvNodeInfo::clear_git_commit() {
   _impl_.git_commit_.ClearToEmpty();
 }
@@ -1150,7 +1171,7 @@ inline void MetasrvNodeInfo::set_allocated_git_commit(std::string* git_commit) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.git_commit)
 }
 
-// uint64 start_time_ms = 4;
+// uint64 start_time_ms = 4 [deprecated = true];
 inline void MetasrvNodeInfo::clear_start_time_ms() {
   _impl_.start_time_ms_ = uint64_t{0u};
 }
@@ -1170,7 +1191,7 @@ inline void MetasrvNodeInfo::set_start_time_ms(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.start_time_ms)
 }
 
-// uint32 cpus = 5;
+// uint32 cpus = 5 [deprecated = true];
 inline void MetasrvNodeInfo::clear_cpus() {
   _impl_.cpus_ = 0u;
 }
@@ -1190,7 +1211,7 @@ inline void MetasrvNodeInfo::set_cpus(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.cpus)
 }
 
-// uint64 memory_bytes = 6;
+// uint64 memory_bytes = 6 [deprecated = true];
 inline void MetasrvNodeInfo::clear_memory_bytes() {
   _impl_.memory_bytes_ = uint64_t{0u};
 }
@@ -1208,6 +1229,91 @@ inline void MetasrvNodeInfo::_internal_set_memory_bytes(uint64_t value) {
 inline void MetasrvNodeInfo::set_memory_bytes(uint64_t value) {
   _internal_set_memory_bytes(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.MetasrvNodeInfo.memory_bytes)
+}
+
+// .greptime.v1.meta.NodeInfo info = 7;
+inline bool MetasrvNodeInfo::_internal_has_info() const {
+  return this != internal_default_instance() && _impl_.info_ != nullptr;
+}
+inline bool MetasrvNodeInfo::has_info() const {
+  return _internal_has_info();
+}
+inline const ::greptime::v1::meta::NodeInfo& MetasrvNodeInfo::_internal_info() const {
+  const ::greptime::v1::meta::NodeInfo* p = _impl_.info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::NodeInfo&>(
+      ::greptime::v1::meta::_NodeInfo_default_instance_);
+}
+inline const ::greptime::v1::meta::NodeInfo& MetasrvNodeInfo::info() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MetasrvNodeInfo.info)
+  return _internal_info();
+}
+inline void MetasrvNodeInfo::unsafe_arena_set_allocated_info(
+    ::greptime::v1::meta::NodeInfo* info) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.info_);
+  }
+  _impl_.info_ = info;
+  if (info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MetasrvNodeInfo.info)
+}
+inline ::greptime::v1::meta::NodeInfo* MetasrvNodeInfo::release_info() {
+  
+  ::greptime::v1::meta::NodeInfo* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::NodeInfo* MetasrvNodeInfo::unsafe_arena_release_info() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MetasrvNodeInfo.info)
+  
+  ::greptime::v1::meta::NodeInfo* temp = _impl_.info_;
+  _impl_.info_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::NodeInfo* MetasrvNodeInfo::_internal_mutable_info() {
+  
+  if (_impl_.info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(GetArenaForAllocation());
+    _impl_.info_ = p;
+  }
+  return _impl_.info_;
+}
+inline ::greptime::v1::meta::NodeInfo* MetasrvNodeInfo::mutable_info() {
+  ::greptime::v1::meta::NodeInfo* _msg = _internal_mutable_info();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MetasrvNodeInfo.info)
+  return _msg;
+}
+inline void MetasrvNodeInfo::set_allocated_info(::greptime::v1::meta::NodeInfo* info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.info_);
+  }
+  if (info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(info));
+    if (message_arena != submessage_arena) {
+      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.info_ = info;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MetasrvNodeInfo.info)
 }
 
 #ifdef __GNUC__
