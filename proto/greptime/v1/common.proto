@@ -151,6 +151,8 @@ enum ColumnDataType {
   DECIMAL128 = 30;
   JSON = 31;
   VECTOR = 32;
+  LIST = 40;
+  STRUCT = 41;
 }
 
 message IntervalMonthDayNano {
@@ -185,6 +187,12 @@ message Decimal128 {
   int64 lo = 2;
 }
 
+message StructField {
+  string name = 1;
+  ColumnDataType datatype = 2;
+  ColumnDataTypeExtension datatype_extension = 3;
+}
+
 // Type extension for some complex types
 message ColumnDataTypeExtension {
   oneof type_ext {
@@ -192,6 +200,8 @@ message ColumnDataTypeExtension {
     // Marks the binary column in proto is actually a JSON column.
     JsonTypeExtension json_type = 2;
     VectorTypeExtension vector_type = 3;
+    ListTypeExtension list_type = 4;
+    StructTypeExtension struct_type = 5;
   }
 }
 
@@ -206,6 +216,15 @@ enum JsonTypeExtension {
 
 message VectorTypeExtension {
   uint32 dim = 1;
+}
+
+message ListTypeExtension {
+  ColumnDataType datatype = 1;
+  ColumnDataTypeExtension datatype_extension = 2;
+}
+
+message StructTypeExtension {
+  repeated StructField fields = 1;
 }
 
 // Additional options for the column.

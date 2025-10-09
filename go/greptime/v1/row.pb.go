@@ -251,6 +251,8 @@ type Value struct {
 	//	*Value_IntervalDayTimeValue
 	//	*Value_IntervalMonthDayNanoValue
 	//	*Value_Decimal128Value
+	//	*Value_ListValue
+	//	*Value_StructValue
 	ValueData isValue_ValueData `protobuf_oneof:"value_data"`
 }
 
@@ -482,6 +484,20 @@ func (x *Value) GetDecimal128Value() *Decimal128 {
 	return nil
 }
 
+func (x *Value) GetListValue() *ListValue {
+	if x, ok := x.GetValueData().(*Value_ListValue); ok {
+		return x.ListValue
+	}
+	return nil
+}
+
+func (x *Value) GetStructValue() *StructValue {
+	if x, ok := x.GetValueData().(*Value_StructValue); ok {
+		return x.StructValue
+	}
+	return nil
+}
+
 type isValue_ValueData interface {
 	isValue_ValueData()
 }
@@ -594,6 +610,14 @@ type Value_Decimal128Value struct {
 	Decimal128Value *Decimal128 `protobuf:"bytes,31,opt,name=decimal128_value,json=decimal128Value,proto3,oneof"`
 }
 
+type Value_ListValue struct {
+	ListValue *ListValue `protobuf:"bytes,40,opt,name=list_value,json=listValue,proto3,oneof"`
+}
+
+type Value_StructValue struct {
+	StructValue *StructValue `protobuf:"bytes,41,opt,name=struct_value,json=structValue,proto3,oneof"`
+}
+
 func (*Value_I8Value) isValue_ValueData() {}
 
 func (*Value_I16Value) isValue_ValueData() {}
@@ -648,6 +672,104 @@ func (*Value_IntervalMonthDayNanoValue) isValue_ValueData() {}
 
 func (*Value_Decimal128Value) isValue_ValueData() {}
 
+func (*Value_ListValue) isValue_ValueData() {}
+
+func (*Value_StructValue) isValue_ValueData() {}
+
+type ListValue struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Items []*Value `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
+}
+
+func (x *ListValue) Reset() {
+	*x = ListValue{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_row_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListValue) ProtoMessage() {}
+
+func (x *ListValue) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_row_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListValue.ProtoReflect.Descriptor instead.
+func (*ListValue) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_row_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ListValue) GetItems() []*Value {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
+type StructValue struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Items []*Value `protobuf:"bytes,2,rep,name=items,proto3" json:"items,omitempty"`
+}
+
+func (x *StructValue) Reset() {
+	*x = StructValue{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_row_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StructValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StructValue) ProtoMessage() {}
+
+func (x *StructValue) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_row_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StructValue.ProtoReflect.Descriptor instead.
+func (*StructValue) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_row_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *StructValue) GetItems() []*Value {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
 var File_greptime_v1_row_proto protoreflect.FileDescriptor
 
 var file_greptime_v1_row_proto_rawDesc = []byte{
@@ -683,7 +805,7 @@ var file_greptime_v1_row_proto_rawDesc = []byte{
 	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x22, 0x31, 0x0a, 0x03, 0x52, 0x6f, 0x77, 0x12, 0x2a, 0x0a, 0x06,
 	0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x67,
 	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x61, 0x6c, 0x75, 0x65,
-	0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0xef, 0x09, 0x0a, 0x05, 0x56, 0x61, 0x6c,
+	0x52, 0x06, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x73, 0x22, 0xe7, 0x0a, 0x0a, 0x05, 0x56, 0x61, 0x6c,
 	0x75, 0x65, 0x12, 0x1b, 0x0a, 0x08, 0x69, 0x38, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x05, 0x48, 0x00, 0x52, 0x07, 0x69, 0x38, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12,
 	0x1d, 0x0a, 0x09, 0x69, 0x31, 0x36, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01,
@@ -761,14 +883,28 @@ var file_greptime_v1_row_proto_rawDesc = []byte{
 	0x6c, 0x31, 0x32, 0x38, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x1f, 0x20, 0x01, 0x28, 0x0b,
 	0x32, 0x17, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x44,
 	0x65, 0x63, 0x69, 0x6d, 0x61, 0x6c, 0x31, 0x32, 0x38, 0x48, 0x00, 0x52, 0x0f, 0x64, 0x65, 0x63,
-	0x69, 0x6d, 0x61, 0x6c, 0x31, 0x32, 0x38, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x0c, 0x0a, 0x0a,
-	0x76, 0x61, 0x6c, 0x75, 0x65, 0x5f, 0x64, 0x61, 0x74, 0x61, 0x42, 0x50, 0x0a, 0x0e, 0x69, 0x6f,
-	0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x07, 0x52, 0x6f,
-	0x77, 0x44, 0x61, 0x74, 0x61, 0x5a, 0x35, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67,
-	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f,
-	0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6d, 0x61, 0x6c, 0x31, 0x32, 0x38, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x37, 0x0a, 0x0a,
+	0x6c, 0x69, 0x73, 0x74, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x28, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x16, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x4c,
+	0x69, 0x73, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x48, 0x00, 0x52, 0x09, 0x6c, 0x69, 0x73, 0x74,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x3d, 0x0a, 0x0c, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x5f,
+	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x29, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x67, 0x72,
+	0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x74, 0x72, 0x75, 0x63, 0x74,
+	0x56, 0x61, 0x6c, 0x75, 0x65, 0x48, 0x00, 0x52, 0x0b, 0x73, 0x74, 0x72, 0x75, 0x63, 0x74, 0x56,
+	0x61, 0x6c, 0x75, 0x65, 0x42, 0x0c, 0x0a, 0x0a, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x5f, 0x64, 0x61,
+	0x74, 0x61, 0x22, 0x35, 0x0a, 0x09, 0x4c, 0x69, 0x73, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12,
+	0x28, 0x0a, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12,
+	0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x61, 0x6c,
+	0x75, 0x65, 0x52, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x22, 0x37, 0x0a, 0x0b, 0x53, 0x74, 0x72,
+	0x75, 0x63, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x28, 0x0a, 0x05, 0x69, 0x74, 0x65, 0x6d,
+	0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69,
+	0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x05, 0x69, 0x74, 0x65,
+	0x6d, 0x73, 0x42, 0x50, 0x0a, 0x0e, 0x69, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
+	0x65, 0x2e, 0x76, 0x31, 0x42, 0x07, 0x52, 0x6f, 0x77, 0x44, 0x61, 0x74, 0x61, 0x5a, 0x35, 0x67,
+	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69,
+	0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d,
+	0x65, 0x2f, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -783,34 +919,40 @@ func file_greptime_v1_row_proto_rawDescGZIP() []byte {
 	return file_greptime_v1_row_proto_rawDescData
 }
 
-var file_greptime_v1_row_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_greptime_v1_row_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_greptime_v1_row_proto_goTypes = []interface{}{
 	(*Rows)(nil),                    // 0: greptime.v1.Rows
 	(*ColumnSchema)(nil),            // 1: greptime.v1.ColumnSchema
 	(*Row)(nil),                     // 2: greptime.v1.Row
 	(*Value)(nil),                   // 3: greptime.v1.Value
-	(ColumnDataType)(0),             // 4: greptime.v1.ColumnDataType
-	(SemanticType)(0),               // 5: greptime.v1.SemanticType
-	(*ColumnDataTypeExtension)(nil), // 6: greptime.v1.ColumnDataTypeExtension
-	(*ColumnOptions)(nil),           // 7: greptime.v1.ColumnOptions
-	(*IntervalMonthDayNano)(nil),    // 8: greptime.v1.IntervalMonthDayNano
-	(*Decimal128)(nil),              // 9: greptime.v1.Decimal128
+	(*ListValue)(nil),               // 4: greptime.v1.ListValue
+	(*StructValue)(nil),             // 5: greptime.v1.StructValue
+	(ColumnDataType)(0),             // 6: greptime.v1.ColumnDataType
+	(SemanticType)(0),               // 7: greptime.v1.SemanticType
+	(*ColumnDataTypeExtension)(nil), // 8: greptime.v1.ColumnDataTypeExtension
+	(*ColumnOptions)(nil),           // 9: greptime.v1.ColumnOptions
+	(*IntervalMonthDayNano)(nil),    // 10: greptime.v1.IntervalMonthDayNano
+	(*Decimal128)(nil),              // 11: greptime.v1.Decimal128
 }
 var file_greptime_v1_row_proto_depIdxs = []int32{
-	1, // 0: greptime.v1.Rows.schema:type_name -> greptime.v1.ColumnSchema
-	2, // 1: greptime.v1.Rows.rows:type_name -> greptime.v1.Row
-	4, // 2: greptime.v1.ColumnSchema.datatype:type_name -> greptime.v1.ColumnDataType
-	5, // 3: greptime.v1.ColumnSchema.semantic_type:type_name -> greptime.v1.SemanticType
-	6, // 4: greptime.v1.ColumnSchema.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
-	7, // 5: greptime.v1.ColumnSchema.options:type_name -> greptime.v1.ColumnOptions
-	3, // 6: greptime.v1.Row.values:type_name -> greptime.v1.Value
-	8, // 7: greptime.v1.Value.interval_month_day_nano_value:type_name -> greptime.v1.IntervalMonthDayNano
-	9, // 8: greptime.v1.Value.decimal128_value:type_name -> greptime.v1.Decimal128
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+	1,  // 0: greptime.v1.Rows.schema:type_name -> greptime.v1.ColumnSchema
+	2,  // 1: greptime.v1.Rows.rows:type_name -> greptime.v1.Row
+	6,  // 2: greptime.v1.ColumnSchema.datatype:type_name -> greptime.v1.ColumnDataType
+	7,  // 3: greptime.v1.ColumnSchema.semantic_type:type_name -> greptime.v1.SemanticType
+	8,  // 4: greptime.v1.ColumnSchema.datatype_extension:type_name -> greptime.v1.ColumnDataTypeExtension
+	9,  // 5: greptime.v1.ColumnSchema.options:type_name -> greptime.v1.ColumnOptions
+	3,  // 6: greptime.v1.Row.values:type_name -> greptime.v1.Value
+	10, // 7: greptime.v1.Value.interval_month_day_nano_value:type_name -> greptime.v1.IntervalMonthDayNano
+	11, // 8: greptime.v1.Value.decimal128_value:type_name -> greptime.v1.Decimal128
+	4,  // 9: greptime.v1.Value.list_value:type_name -> greptime.v1.ListValue
+	5,  // 10: greptime.v1.Value.struct_value:type_name -> greptime.v1.StructValue
+	3,  // 11: greptime.v1.ListValue.items:type_name -> greptime.v1.Value
+	3,  // 12: greptime.v1.StructValue.items:type_name -> greptime.v1.Value
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_row_proto_init() }
@@ -868,6 +1010,30 @@ func file_greptime_v1_row_proto_init() {
 				return nil
 			}
 		}
+		file_greptime_v1_row_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListValue); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greptime_v1_row_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StructValue); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	file_greptime_v1_row_proto_msgTypes[3].OneofWrappers = []interface{}{
 		(*Value_I8Value)(nil),
@@ -897,6 +1063,8 @@ func file_greptime_v1_row_proto_init() {
 		(*Value_IntervalDayTimeValue)(nil),
 		(*Value_IntervalMonthDayNanoValue)(nil),
 		(*Value_Decimal128Value)(nil),
+		(*Value_ListValue)(nil),
+		(*Value_StructValue)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -904,7 +1072,7 @@ func file_greptime_v1_row_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_row_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
