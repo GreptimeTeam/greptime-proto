@@ -329,6 +329,127 @@ public final class Ddl {
     // @@protoc_insertion_point(enum_scope:greptime.v1.SkippingIndexType)
   }
 
+  /**
+   * <pre>
+   * The type of object to comment on
+   * </pre>
+   *
+   * Protobuf enum {@code greptime.v1.CommentObjectType}
+   */
+  public enum CommentObjectType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>TABLE = 0;</code>
+     */
+    TABLE(0),
+    /**
+     * <code>COLUMN = 1;</code>
+     */
+    COLUMN(1),
+    /**
+     * <code>FLOW = 2;</code>
+     */
+    FLOW(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>TABLE = 0;</code>
+     */
+    public static final int TABLE_VALUE = 0;
+    /**
+     * <code>COLUMN = 1;</code>
+     */
+    public static final int COLUMN_VALUE = 1;
+    /**
+     * <code>FLOW = 2;</code>
+     */
+    public static final int FLOW_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CommentObjectType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static CommentObjectType forNumber(int value) {
+      switch (value) {
+        case 0: return TABLE;
+        case 1: return COLUMN;
+        case 2: return FLOW;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CommentObjectType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CommentObjectType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CommentObjectType>() {
+            public CommentObjectType findValueByNumber(int number) {
+              return CommentObjectType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final CommentObjectType[] VALUES = values();
+
+    public static CommentObjectType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CommentObjectType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.CommentObjectType)
+  }
+
   public interface DdlRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.DdlRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -482,6 +603,21 @@ public final class Ddl {
      * <code>.greptime.v1.AlterDatabaseExpr alter_database = 12;</code>
      */
     io.greptime.v1.Ddl.AlterDatabaseExprOrBuilder getAlterDatabaseOrBuilder();
+
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     * @return Whether the commentOn field is set.
+     */
+    boolean hasCommentOn();
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     * @return The commentOn.
+     */
+    io.greptime.v1.Ddl.CommentOnExpr getCommentOn();
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     */
+    io.greptime.v1.Ddl.CommentOnExprOrBuilder getCommentOnOrBuilder();
 
     public io.greptime.v1.Ddl.DdlRequest.ExprCase getExprCase();
   }
@@ -677,6 +813,20 @@ public final class Ddl {
               exprCase_ = 12;
               break;
             }
+            case 106: {
+              io.greptime.v1.Ddl.CommentOnExpr.Builder subBuilder = null;
+              if (exprCase_ == 13) {
+                subBuilder = ((io.greptime.v1.Ddl.CommentOnExpr) expr_).toBuilder();
+              }
+              expr_ =
+                  input.readMessage(io.greptime.v1.Ddl.CommentOnExpr.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.CommentOnExpr) expr_);
+                expr_ = subBuilder.buildPartial();
+              }
+              exprCase_ = 13;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -726,6 +876,7 @@ public final class Ddl {
       CREATE_VIEW(10),
       DROP_VIEW(11),
       ALTER_DATABASE(12),
+      COMMENT_ON(13),
       EXPR_NOT_SET(0);
       private final int value;
       private ExprCase(int value) {
@@ -753,6 +904,7 @@ public final class Ddl {
           case 10: return CREATE_VIEW;
           case 11: return DROP_VIEW;
           case 12: return ALTER_DATABASE;
+          case 13: return COMMENT_ON;
           case 0: return EXPR_NOT_SET;
           default: return null;
         }
@@ -1078,6 +1230,37 @@ public final class Ddl {
       return io.greptime.v1.Ddl.AlterDatabaseExpr.getDefaultInstance();
     }
 
+    public static final int COMMENT_ON_FIELD_NUMBER = 13;
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     * @return Whether the commentOn field is set.
+     */
+    @java.lang.Override
+    public boolean hasCommentOn() {
+      return exprCase_ == 13;
+    }
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     * @return The commentOn.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CommentOnExpr getCommentOn() {
+      if (exprCase_ == 13) {
+         return (io.greptime.v1.Ddl.CommentOnExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CommentOnExprOrBuilder getCommentOnOrBuilder() {
+      if (exprCase_ == 13) {
+         return (io.greptime.v1.Ddl.CommentOnExpr) expr_;
+      }
+      return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1121,6 +1304,9 @@ public final class Ddl {
       }
       if (exprCase_ == 12) {
         output.writeMessage(12, (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_);
+      }
+      if (exprCase_ == 13) {
+        output.writeMessage(13, (io.greptime.v1.Ddl.CommentOnExpr) expr_);
       }
       unknownFields.writeTo(output);
     }
@@ -1170,6 +1356,10 @@ public final class Ddl {
       if (exprCase_ == 12) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, (io.greptime.v1.Ddl.AlterDatabaseExpr) expr_);
+      }
+      if (exprCase_ == 13) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, (io.greptime.v1.Ddl.CommentOnExpr) expr_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1228,6 +1418,10 @@ public final class Ddl {
           if (!getAlterDatabase()
               .equals(other.getAlterDatabase())) return false;
           break;
+        case 13:
+          if (!getCommentOn()
+              .equals(other.getCommentOn())) return false;
+          break;
         case 0:
         default:
       }
@@ -1282,6 +1476,10 @@ public final class Ddl {
         case 12:
           hash = (37 * hash) + ALTER_DATABASE_FIELD_NUMBER;
           hash = (53 * hash) + getAlterDatabase().hashCode();
+          break;
+        case 13:
+          hash = (37 * hash) + COMMENT_ON_FIELD_NUMBER;
+          hash = (53 * hash) + getCommentOn().hashCode();
           break;
         case 0:
         default:
@@ -1524,6 +1722,13 @@ public final class Ddl {
             result.expr_ = alterDatabaseBuilder_.build();
           }
         }
+        if (exprCase_ == 13) {
+          if (commentOnBuilder_ == null) {
+            result.expr_ = expr_;
+          } else {
+            result.expr_ = commentOnBuilder_.build();
+          }
+        }
         result.exprCase_ = exprCase_;
         onBuilt();
         return result;
@@ -1612,6 +1817,10 @@ public final class Ddl {
           }
           case ALTER_DATABASE: {
             mergeAlterDatabase(other.getAlterDatabase());
+            break;
+          }
+          case COMMENT_ON: {
+            mergeCommentOn(other.getCommentOn());
             break;
           }
           case EXPR_NOT_SET: {
@@ -3080,6 +3289,148 @@ public final class Ddl {
         exprCase_ = 12;
         onChanged();;
         return alterDatabaseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CommentOnExpr, io.greptime.v1.Ddl.CommentOnExpr.Builder, io.greptime.v1.Ddl.CommentOnExprOrBuilder> commentOnBuilder_;
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       * @return Whether the commentOn field is set.
+       */
+      @java.lang.Override
+      public boolean hasCommentOn() {
+        return exprCase_ == 13;
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       * @return The commentOn.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentOnExpr getCommentOn() {
+        if (commentOnBuilder_ == null) {
+          if (exprCase_ == 13) {
+            return (io.greptime.v1.Ddl.CommentOnExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+        } else {
+          if (exprCase_ == 13) {
+            return commentOnBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      public Builder setCommentOn(io.greptime.v1.Ddl.CommentOnExpr value) {
+        if (commentOnBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          expr_ = value;
+          onChanged();
+        } else {
+          commentOnBuilder_.setMessage(value);
+        }
+        exprCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      public Builder setCommentOn(
+          io.greptime.v1.Ddl.CommentOnExpr.Builder builderForValue) {
+        if (commentOnBuilder_ == null) {
+          expr_ = builderForValue.build();
+          onChanged();
+        } else {
+          commentOnBuilder_.setMessage(builderForValue.build());
+        }
+        exprCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      public Builder mergeCommentOn(io.greptime.v1.Ddl.CommentOnExpr value) {
+        if (commentOnBuilder_ == null) {
+          if (exprCase_ == 13 &&
+              expr_ != io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance()) {
+            expr_ = io.greptime.v1.Ddl.CommentOnExpr.newBuilder((io.greptime.v1.Ddl.CommentOnExpr) expr_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            expr_ = value;
+          }
+          onChanged();
+        } else {
+          if (exprCase_ == 13) {
+            commentOnBuilder_.mergeFrom(value);
+          } else {
+            commentOnBuilder_.setMessage(value);
+          }
+        }
+        exprCase_ = 13;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      public Builder clearCommentOn() {
+        if (commentOnBuilder_ == null) {
+          if (exprCase_ == 13) {
+            exprCase_ = 0;
+            expr_ = null;
+            onChanged();
+          }
+        } else {
+          if (exprCase_ == 13) {
+            exprCase_ = 0;
+            expr_ = null;
+          }
+          commentOnBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      public io.greptime.v1.Ddl.CommentOnExpr.Builder getCommentOnBuilder() {
+        return getCommentOnFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentOnExprOrBuilder getCommentOnOrBuilder() {
+        if ((exprCase_ == 13) && (commentOnBuilder_ != null)) {
+          return commentOnBuilder_.getMessageOrBuilder();
+        } else {
+          if (exprCase_ == 13) {
+            return (io.greptime.v1.Ddl.CommentOnExpr) expr_;
+          }
+          return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.CommentOnExpr comment_on = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.CommentOnExpr, io.greptime.v1.Ddl.CommentOnExpr.Builder, io.greptime.v1.Ddl.CommentOnExprOrBuilder> 
+          getCommentOnFieldBuilder() {
+        if (commentOnBuilder_ == null) {
+          if (!(exprCase_ == 13)) {
+            expr_ = io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+          }
+          commentOnBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.CommentOnExpr, io.greptime.v1.Ddl.CommentOnExpr.Builder, io.greptime.v1.Ddl.CommentOnExprOrBuilder>(
+                  (io.greptime.v1.Ddl.CommentOnExpr) expr_,
+                  getParentForChildren(),
+                  isClean());
+          expr_ = null;
+        }
+        exprCase_ = 13;
+        onChanged();;
+        return commentOnBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -50340,6 +50691,1363 @@ java.lang.String defaultValue);
 
   }
 
+  public interface CommentOnExprOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.CommentOnExpr)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    java.lang.String getCatalogName();
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    com.google.protobuf.ByteString
+        getCatalogNameBytes();
+
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    java.lang.String getSchemaName();
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    com.google.protobuf.ByteString
+        getSchemaNameBytes();
+
+    /**
+     * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+     * @return The enum numeric value on the wire for objectType.
+     */
+    int getObjectTypeValue();
+    /**
+     * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+     * @return The objectType.
+     */
+    io.greptime.v1.Ddl.CommentObjectType getObjectType();
+
+    /**
+     * <code>string object_name = 4;</code>
+     * @return The objectName.
+     */
+    java.lang.String getObjectName();
+    /**
+     * <code>string object_name = 4;</code>
+     * @return The bytes for objectName.
+     */
+    com.google.protobuf.ByteString
+        getObjectNameBytes();
+
+    /**
+     * <pre>
+     * Column name (only for Column comments)
+     * </pre>
+     *
+     * <code>string column_name = 5;</code>
+     * @return The columnName.
+     */
+    java.lang.String getColumnName();
+    /**
+     * <pre>
+     * Column name (only for Column comments)
+     * </pre>
+     *
+     * <code>string column_name = 5;</code>
+     * @return The bytes for columnName.
+     */
+    com.google.protobuf.ByteString
+        getColumnNameBytes();
+
+    /**
+     * <pre>
+     * The comment text (null to remove comment)
+     * </pre>
+     *
+     * <code>string comment = 6;</code>
+     * @return The comment.
+     */
+    java.lang.String getComment();
+    /**
+     * <pre>
+     * The comment text (null to remove comment)
+     * </pre>
+     *
+     * <code>string comment = 6;</code>
+     * @return The bytes for comment.
+     */
+    com.google.protobuf.ByteString
+        getCommentBytes();
+  }
+  /**
+   * <pre>
+   * Comment on a table, column, or flow
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.CommentOnExpr}
+   */
+  public static final class CommentOnExpr extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.CommentOnExpr)
+      CommentOnExprOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CommentOnExpr.newBuilder() to construct.
+    private CommentOnExpr(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CommentOnExpr() {
+      catalogName_ = "";
+      schemaName_ = "";
+      objectType_ = 0;
+      objectName_ = "";
+      columnName_ = "";
+      comment_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CommentOnExpr();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CommentOnExpr(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              catalogName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              schemaName_ = s;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              objectType_ = rawValue;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              objectName_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              columnName_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              comment_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CommentOnExpr_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.CommentOnExpr.class, io.greptime.v1.Ddl.CommentOnExpr.Builder.class);
+    }
+
+    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object catalogName_;
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The catalogName.
+     */
+    @java.lang.Override
+    public java.lang.String getCatalogName() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        catalogName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string catalog_name = 1;</code>
+     * @return The bytes for catalogName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCatalogNameBytes() {
+      java.lang.Object ref = catalogName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        catalogName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object schemaName_;
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The schemaName.
+     */
+    @java.lang.Override
+    public java.lang.String getSchemaName() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        schemaName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string schema_name = 2;</code>
+     * @return The bytes for schemaName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSchemaNameBytes() {
+      java.lang.Object ref = schemaName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        schemaName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OBJECT_TYPE_FIELD_NUMBER = 3;
+    private int objectType_;
+    /**
+     * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+     * @return The enum numeric value on the wire for objectType.
+     */
+    @java.lang.Override public int getObjectTypeValue() {
+      return objectType_;
+    }
+    /**
+     * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+     * @return The objectType.
+     */
+    @java.lang.Override public io.greptime.v1.Ddl.CommentObjectType getObjectType() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Ddl.CommentObjectType result = io.greptime.v1.Ddl.CommentObjectType.valueOf(objectType_);
+      return result == null ? io.greptime.v1.Ddl.CommentObjectType.UNRECOGNIZED : result;
+    }
+
+    public static final int OBJECT_NAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object objectName_;
+    /**
+     * <code>string object_name = 4;</code>
+     * @return The objectName.
+     */
+    @java.lang.Override
+    public java.lang.String getObjectName() {
+      java.lang.Object ref = objectName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        objectName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string object_name = 4;</code>
+     * @return The bytes for objectName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getObjectNameBytes() {
+      java.lang.Object ref = objectName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        objectName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COLUMN_NAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object columnName_;
+    /**
+     * <pre>
+     * Column name (only for Column comments)
+     * </pre>
+     *
+     * <code>string column_name = 5;</code>
+     * @return The columnName.
+     */
+    @java.lang.Override
+    public java.lang.String getColumnName() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        columnName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Column name (only for Column comments)
+     * </pre>
+     *
+     * <code>string column_name = 5;</code>
+     * @return The bytes for columnName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColumnNameBytes() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        columnName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COMMENT_FIELD_NUMBER = 6;
+    private volatile java.lang.Object comment_;
+    /**
+     * <pre>
+     * The comment text (null to remove comment)
+     * </pre>
+     *
+     * <code>string comment = 6;</code>
+     * @return The comment.
+     */
+    @java.lang.Override
+    public java.lang.String getComment() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        comment_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The comment text (null to remove comment)
+     * </pre>
+     *
+     * <code>string comment = 6;</code>
+     * @return The bytes for comment.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCommentBytes() {
+      java.lang.Object ref = comment_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        comment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
+      }
+      if (objectType_ != io.greptime.v1.Ddl.CommentObjectType.TABLE.getNumber()) {
+        output.writeEnum(3, objectType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(objectName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, objectName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, columnName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, comment_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
+      }
+      if (objectType_ != io.greptime.v1.Ddl.CommentObjectType.TABLE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, objectType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(objectName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, objectName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, columnName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(comment_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, comment_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.CommentOnExpr)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.CommentOnExpr other = (io.greptime.v1.Ddl.CommentOnExpr) obj;
+
+      if (!getCatalogName()
+          .equals(other.getCatalogName())) return false;
+      if (!getSchemaName()
+          .equals(other.getSchemaName())) return false;
+      if (objectType_ != other.objectType_) return false;
+      if (!getObjectName()
+          .equals(other.getObjectName())) return false;
+      if (!getColumnName()
+          .equals(other.getColumnName())) return false;
+      if (!getComment()
+          .equals(other.getComment())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getCatalogName().hashCode();
+      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getSchemaName().hashCode();
+      hash = (37 * hash) + OBJECT_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + objectType_;
+      hash = (37 * hash) + OBJECT_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getObjectName().hashCode();
+      hash = (37 * hash) + COLUMN_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnName().hashCode();
+      hash = (37 * hash) + COMMENT_FIELD_NUMBER;
+      hash = (53 * hash) + getComment().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.CommentOnExpr parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.CommentOnExpr prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Comment on a table, column, or flow
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.CommentOnExpr}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.CommentOnExpr)
+        io.greptime.v1.Ddl.CommentOnExprOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CommentOnExpr_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.CommentOnExpr.class, io.greptime.v1.Ddl.CommentOnExpr.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.CommentOnExpr.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        catalogName_ = "";
+
+        schemaName_ = "";
+
+        objectType_ = 0;
+
+        objectName_ = "";
+
+        columnName_ = "";
+
+        comment_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_CommentOnExpr_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentOnExpr getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentOnExpr build() {
+        io.greptime.v1.Ddl.CommentOnExpr result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentOnExpr buildPartial() {
+        io.greptime.v1.Ddl.CommentOnExpr result = new io.greptime.v1.Ddl.CommentOnExpr(this);
+        result.catalogName_ = catalogName_;
+        result.schemaName_ = schemaName_;
+        result.objectType_ = objectType_;
+        result.objectName_ = objectName_;
+        result.columnName_ = columnName_;
+        result.comment_ = comment_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.CommentOnExpr) {
+          return mergeFrom((io.greptime.v1.Ddl.CommentOnExpr)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.CommentOnExpr other) {
+        if (other == io.greptime.v1.Ddl.CommentOnExpr.getDefaultInstance()) return this;
+        if (!other.getCatalogName().isEmpty()) {
+          catalogName_ = other.catalogName_;
+          onChanged();
+        }
+        if (!other.getSchemaName().isEmpty()) {
+          schemaName_ = other.schemaName_;
+          onChanged();
+        }
+        if (other.objectType_ != 0) {
+          setObjectTypeValue(other.getObjectTypeValue());
+        }
+        if (!other.getObjectName().isEmpty()) {
+          objectName_ = other.objectName_;
+          onChanged();
+        }
+        if (!other.getColumnName().isEmpty()) {
+          columnName_ = other.columnName_;
+          onChanged();
+        }
+        if (!other.getComment().isEmpty()) {
+          comment_ = other.comment_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.CommentOnExpr parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.CommentOnExpr) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object catalogName_ = "";
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The catalogName.
+       */
+      public java.lang.String getCatalogName() {
+        java.lang.Object ref = catalogName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          catalogName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return The bytes for catalogName.
+       */
+      public com.google.protobuf.ByteString
+          getCatalogNameBytes() {
+        java.lang.Object ref = catalogName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          catalogName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCatalogName() {
+        
+        catalogName_ = getDefaultInstance().getCatalogName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string catalog_name = 1;</code>
+       * @param value The bytes for catalogName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCatalogNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        catalogName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object schemaName_ = "";
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The schemaName.
+       */
+      public java.lang.String getSchemaName() {
+        java.lang.Object ref = schemaName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          schemaName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return The bytes for schemaName.
+       */
+      public com.google.protobuf.ByteString
+          getSchemaNameBytes() {
+        java.lang.Object ref = schemaName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schemaName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaName() {
+        
+        schemaName_ = getDefaultInstance().getSchemaName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string schema_name = 2;</code>
+       * @param value The bytes for schemaName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        schemaName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int objectType_ = 0;
+      /**
+       * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+       * @return The enum numeric value on the wire for objectType.
+       */
+      @java.lang.Override public int getObjectTypeValue() {
+        return objectType_;
+      }
+      /**
+       * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+       * @param value The enum numeric value on the wire for objectType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectTypeValue(int value) {
+        
+        objectType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+       * @return The objectType.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.CommentObjectType getObjectType() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Ddl.CommentObjectType result = io.greptime.v1.Ddl.CommentObjectType.valueOf(objectType_);
+        return result == null ? io.greptime.v1.Ddl.CommentObjectType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+       * @param value The objectType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectType(io.greptime.v1.Ddl.CommentObjectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        objectType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.CommentObjectType object_type = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearObjectType() {
+        
+        objectType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object objectName_ = "";
+      /**
+       * <code>string object_name = 4;</code>
+       * @return The objectName.
+       */
+      public java.lang.String getObjectName() {
+        java.lang.Object ref = objectName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          objectName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string object_name = 4;</code>
+       * @return The bytes for objectName.
+       */
+      public com.google.protobuf.ByteString
+          getObjectNameBytes() {
+        java.lang.Object ref = objectName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          objectName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string object_name = 4;</code>
+       * @param value The objectName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        objectName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object_name = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearObjectName() {
+        
+        objectName_ = getDefaultInstance().getObjectName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string object_name = 4;</code>
+       * @param value The bytes for objectName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setObjectNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        objectName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object columnName_ = "";
+      /**
+       * <pre>
+       * Column name (only for Column comments)
+       * </pre>
+       *
+       * <code>string column_name = 5;</code>
+       * @return The columnName.
+       */
+      public java.lang.String getColumnName() {
+        java.lang.Object ref = columnName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          columnName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name (only for Column comments)
+       * </pre>
+       *
+       * <code>string column_name = 5;</code>
+       * @return The bytes for columnName.
+       */
+      public com.google.protobuf.ByteString
+          getColumnNameBytes() {
+        java.lang.Object ref = columnName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          columnName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Column name (only for Column comments)
+       * </pre>
+       *
+       * <code>string column_name = 5;</code>
+       * @param value The columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name (only for Column comments)
+       * </pre>
+       *
+       * <code>string column_name = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumnName() {
+        
+        columnName_ = getDefaultInstance().getColumnName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column name (only for Column comments)
+       * </pre>
+       *
+       * <code>string column_name = 5;</code>
+       * @param value The bytes for columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object comment_ = "";
+      /**
+       * <pre>
+       * The comment text (null to remove comment)
+       * </pre>
+       *
+       * <code>string comment = 6;</code>
+       * @return The comment.
+       */
+      public java.lang.String getComment() {
+        java.lang.Object ref = comment_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          comment_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The comment text (null to remove comment)
+       * </pre>
+       *
+       * <code>string comment = 6;</code>
+       * @return The bytes for comment.
+       */
+      public com.google.protobuf.ByteString
+          getCommentBytes() {
+        java.lang.Object ref = comment_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          comment_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The comment text (null to remove comment)
+       * </pre>
+       *
+       * <code>string comment = 6;</code>
+       * @param value The comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setComment(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The comment text (null to remove comment)
+       * </pre>
+       *
+       * <code>string comment = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearComment() {
+        
+        comment_ = getDefaultInstance().getComment();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The comment text (null to remove comment)
+       * </pre>
+       *
+       * <code>string comment = 6;</code>
+       * @param value The bytes for comment to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        comment_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.CommentOnExpr)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.CommentOnExpr)
+    private static final io.greptime.v1.Ddl.CommentOnExpr DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.CommentOnExpr();
+    }
+
+    public static io.greptime.v1.Ddl.CommentOnExpr getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CommentOnExpr>
+        PARSER = new com.google.protobuf.AbstractParser<CommentOnExpr>() {
+      @java.lang.Override
+      public CommentOnExpr parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CommentOnExpr(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CommentOnExpr> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CommentOnExpr> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.CommentOnExpr getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DdlRequest_descriptor;
   private static final 
@@ -50600,6 +52308,11 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_DropTriggerExpr_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_CommentOnExpr_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -50611,7 +52324,7 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n\025greptime/v1/ddl.proto\022\013greptime.v1\032\036go" +
       "ogle/protobuf/duration.proto\032\030greptime/v" +
-      "1/common.proto\"\250\004\n\nDdlRequest\022:\n\017create_" +
+      "1/common.proto\"\332\004\n\nDdlRequest\022:\n\017create_" +
       "database\030\001 \001(\0132\037.greptime.v1.CreateDatab" +
       "aseExprH\000\0224\n\014create_table\030\002 \001(\0132\034.grepti" +
       "me.v1.CreateTableExprH\000\0222\n\013alter_table\030\003" +
@@ -50625,167 +52338,174 @@ java.lang.String defaultValue);
       "reateViewExprH\000\022.\n\tdrop_view\030\013 \001(\0132\031.gre" +
       "ptime.v1.DropViewExprH\000\0228\n\016alter_databas" +
       "e\030\014 \001(\0132\036.greptime.v1.AlterDatabaseExprH" +
-      "\000B\006\n\004expr\"\310\003\n\016CreateFlowExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\0222\n\022source_" +
-      "table_names\030\003 \003(\0132\026.greptime.v1.TableNam" +
-      "e\022/\n\017sink_table_name\030\004 \001(\0132\026.greptime.v1" +
-      ".TableName\022\022\n\nor_replace\030\005 \001(\010\022\034\n\024create" +
-      "_if_not_exists\030\006 \001(\010\022.\n\014expire_after\030\007 \001" +
-      "(\0132\030.greptime.v1.ExpireAfter\0220\n\reval_int" +
-      "erval\030\013 \001(\0132\031.greptime.v1.EvalInterval\022\017" +
-      "\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B\n\014flow_opt" +
-      "ions\030\n \003(\0132,.greptime.v1.CreateFlowExpr." +
-      "FlowOptionsEntry\0322\n\020FlowOptionsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u\n\014DropFlow" +
-      "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_name\030" +
-      "\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.greptime.v1.Flo" +
-      "wId\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001\n\016CreateVi" +
-      "ewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
-      "ame\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024\n\014logical_" +
-      "plan\030\004 \001(\014\022\034\n\024create_if_not_exists\030\005 \001(\010" +
-      "\022\022\n\nor_replace\030\006 \001(\010\022+\n\013table_names\030\007 \003(" +
-      "\0132\026.greptime.v1.TableName\022\017\n\007columns\030\010 \003" +
-      "(\t\022\024\n\014plan_columns\030\t \003(\t\022\022\n\ndefinition\030\n" +
-      " \001(\t\"\213\001\n\014DropViewExpr\022\024\n\014catalog_name\030\001 " +
-      "\001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 " +
-      "\001(\t\022%\n\007view_id\030\004 \001(\0132\024.greptime.v1.Table" +
-      "Id\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n\017CreateTab" +
-      "leExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
-      "ame\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022\014\n\004desc\030\004 " +
-      "\001(\t\022+\n\013column_defs\030\005 \003(\0132\026.greptime.v1.C" +
-      "olumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024\n\014primary_" +
-      "keys\030\007 \003(\t\022\034\n\024create_if_not_exists\030\010 \001(\010" +
-      "\022E\n\rtable_options\030\t \003(\0132..greptime.v1.Cr" +
-      "eateTableExpr.TableOptionsEntry\022&\n\010table" +
-      "_id\030\n \001(\0132\024.greptime.v1.TableId\022\016\n\006engin" +
-      "e\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\312\005\n\016AlterTableExpr\022" +
-      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
-      "(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_columns\030\004 " +
-      "\001(\0132\027.greptime.v1.AddColumnsH\000\0220\n\014drop_c" +
-      "olumns\030\005 \001(\0132\030.greptime.v1.DropColumnsH\000" +
-      "\0220\n\014rename_table\030\006 \001(\0132\030.greptime.v1.Ren" +
-      "ameTableH\000\022=\n\023modify_column_types\030\007 \001(\0132" +
-      "\036.greptime.v1.ModifyColumnTypesH\000\0229\n\021set" +
-      "_table_options\030\010 \001(\0132\034.greptime.v1.SetTa" +
-      "bleOptionsH\000\022=\n\023unset_table_options\030\013 \001(" +
-      "\0132\036.greptime.v1.UnsetTableOptionsH\000\022*\n\ts" +
-      "et_index\030\014 \001(\0132\025.greptime.v1.SetIndexH\000\022" +
-      ".\n\013unset_index\030\r \001(\0132\027.greptime.v1.Unset" +
-      "IndexH\000\0222\n\rdrop_defaults\030\016 \001(\0132\031.greptim" +
-      "e.v1.DropDefaultsH\000\022.\n\013set_indexes\030\017 \001(\013" +
-      "2\027.greptime.v1.SetIndexesH\000\0222\n\runset_ind" +
-      "exes\030\020 \001(\0132\031.greptime.v1.UnsetIndexesH\000\022" +
-      "0\n\014set_defaults\030\021 \001(\0132\030.greptime.v1.SetD" +
-      "efaultsH\000B\006\n\004kind\"\"\n\013DropDefault\022\023\n\013colu" +
-      "mn_name\030\001 \001(\t\"8\n\nSetIndexes\022*\n\013set_index" +
-      "es\030\001 \003(\0132\025.greptime.v1.SetIndex\">\n\014Unset" +
-      "Indexes\022.\n\runset_indexes\030\001 \003(\0132\027.greptim" +
-      "e.v1.UnsetIndex\"=\n\nSetDefault\022\023\n\013column_" +
-      "name\030\001 \001(\t\022\032\n\022default_constraint\030\002 \001(\014\"\237" +
-      "\001\n\010SetIndex\022,\n\010fulltext\030\001 \001(\0132\030.greptime" +
-      ".v1.SetFulltextH\000\022,\n\010inverted\030\002 \001(\0132\030.gr" +
-      "eptime.v1.SetInvertedH\000\022,\n\010skipping\030\003 \001(" +
-      "\0132\030.greptime.v1.SetSkippingH\000B\t\n\007options" +
-      "\"\247\001\n\nUnsetIndex\022.\n\010fulltext\030\001 \001(\0132\032.grep" +
-      "time.v1.UnsetFulltextH\000\022.\n\010inverted\030\002 \001(" +
-      "\0132\032.greptime.v1.UnsetInvertedH\000\022.\n\010skipp" +
-      "ing\030\003 \001(\0132\032.greptime.v1.UnsetSkippingH\000B" +
-      "\t\n\007options\"\216\001\n\rDropTableExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable" +
-      "_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime" +
-      ".v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022" +
-      "CreateDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t" +
-      "\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if_not_e" +
-      "xists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime." +
-      "v1.CreateDatabaseExpr.OptionsEntry\032.\n\014Op" +
-      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\"\250\001\n\021TruncateTableExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_nam" +
-      "e\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1." +
-      "TableId\022,\n\013time_ranges\030\005 \001(\0132\027.greptime." +
-      "v1.TimeRanges\"U\n\020DropDatabaseExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016" +
-      "drop_if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013ad" +
-      "d_columns\030\001 \003(\0132\026.greptime.v1.AddColumn\"" +
-      "?\n\014DropDefaults\022/\n\rdrop_defaults\030\001 \003(\0132\030" +
-      ".greptime.v1.DropDefault\"<\n\013SetDefaults\022" +
-      "-\n\014set_defaults\030\001 \003(\0132\027.greptime.v1.SetD" +
-      "efault\"<\n\013DropColumns\022-\n\014drop_columns\030\001 " +
-      "\003(\0132\027.greptime.v1.DropColumn\"O\n\021ModifyCo" +
-      "lumnTypes\022:\n\023modify_column_types\030\001 \003(\0132\035" +
-      ".greptime.v1.ModifyColumnType\"%\n\013RenameT" +
-      "able\022\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tAddColu" +
-      "mn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Col" +
-      "umnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.A" +
-      "ddColumnLocation\022\031\n\021add_if_not_exists\030\004 " +
-      "\001(\010\"\236\001\n\020ModifyColumnType\022\023\n\013column_name\030" +
-      "\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1" +
-      ".ColumnDataType\022C\n\025target_type_extension" +
-      "\030\003 \001(\0132$.greptime.v1.ColumnDataTypeExten" +
-      "sion\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t\"=\n\017SetTableOptions\022*\n\rtable_options\030\001" +
-      " \003(\0132\023.greptime.v1.Option\"!\n\021UnsetTableO" +
-      "ptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004na" +
-      "me\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowI" +
-      "d\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(" +
-      "\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1.Colum" +
-      "nDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022defaul" +
-      "t_constraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(" +
-      "\0162\031.greptime.v1.SemanticType\022\017\n\007comment\030" +
-      "\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$.grep" +
-      "time.v1.ColumnDataTypeExtension\022+\n\007optio" +
-      "ns\030\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n" +
-      "\021AddColumnLocation\022B\n\rlocation_type\030\001 \001(" +
-      "\0162+.greptime.v1.AddColumnLocation.Locati" +
-      "onType\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Loc" +
-      "ationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetF" +
-      "ulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002" +
-      " \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Ana" +
-      "lyzer\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend" +
-      "\030\005 \001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013" +
-      "granularity\030\006 \001(\004\022\033\n\023false_positive_rate" +
-      "\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001" +
-      " \001(\t\"\"\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t" +
-      "\"$\n\rUnsetInverted\022\023\n\013column_name\030\001 \001(\t\"\241" +
-      "\001\n\013SetSkipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006e" +
-      "nable\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skip" +
-      "ping_index_type\030\004 \001(\0162\036.greptime.v1.Skip" +
-      "pingIndexType\022\033\n\023false_positive_rate\030\005 \001" +
-      "(\001\"$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t" +
-      "\"\314\001\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001" +
-      " \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_databas" +
-      "e_options\030\003 \001(\0132\037.greptime.v1.SetDatabas" +
-      "eOptionsH\000\022C\n\026unset_database_options\030\004 \001" +
-      "(\0132!.greptime.v1.UnsetDatabaseOptionsH\000B" +
-      "\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_dat" +
-      "abase_options\030\001 \003(\0132\023.greptime.v1.Option" +
-      "\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\305" +
-      "\003\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001" +
-      "(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_no" +
-      "t_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030" +
-      "\005 \003(\0132\032.greptime.v1.NotifyChannel\022:\n\006lab" +
-      "els\030\006 \003(\0132*.greptime.v1.CreateTriggerExp" +
-      "r.LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.gre" +
-      "ptime.v1.CreateTriggerExpr.AnnotationsEn" +
-      "try\022+\n\010interval\030\010 \001(\0132\031.google.protobuf." +
-      "Duration\022\031\n\021raw_interval_expr\030\t \001(\t\032-\n\013L" +
-      "abelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030" +
-      "\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.Web" +
-      "hookOptionsH\000B\016\n\014channel_type\"\177\n\016Webhook" +
-      "Options\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.gre" +
-      "ptime.v1.WebhookOptions.OptsEntry\032+\n\tOpt" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U" +
-      "\n\017DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030" +
-      "\003 \001(\010*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINES" +
-      "E\020\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005B" +
-      "LOOM\020\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FIL" +
-      "TER\020\000BL\n\016io.greptime.v1B\003DdlZ5github.com" +
-      "/GreptimeTeam/greptime-proto/go/greptime" +
-      "/v1b\006proto3"
+      "\000\0220\n\ncomment_on\030\r \001(\0132\032.greptime.v1.Comm" +
+      "entOnExprH\000B\006\n\004expr\"\310\003\n\016CreateFlowExpr\022\024" +
+      "\n\014catalog_name\030\001 \001(\t\022\021\n\tflow_name\030\002 \001(\t\022" +
+      "2\n\022source_table_names\030\003 \003(\0132\026.greptime.v" +
+      "1.TableName\022/\n\017sink_table_name\030\004 \001(\0132\026.g" +
+      "reptime.v1.TableName\022\022\n\nor_replace\030\005 \001(\010" +
+      "\022\034\n\024create_if_not_exists\030\006 \001(\010\022.\n\014expire" +
+      "_after\030\007 \001(\0132\030.greptime.v1.ExpireAfter\0220" +
+      "\n\reval_interval\030\013 \001(\0132\031.greptime.v1.Eval" +
+      "Interval\022\017\n\007comment\030\010 \001(\t\022\013\n\003sql\030\t \001(\t\022B" +
+      "\n\014flow_options\030\n \003(\0132,.greptime.v1.Creat" +
+      "eFlowExpr.FlowOptionsEntry\0322\n\020FlowOption" +
+      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"u" +
+      "\n\014DropFlowExpr\022\024\n\014catalog_name\030\001 \001(\t\022\021\n\t" +
+      "flow_name\030\002 \001(\t\022$\n\007flow_id\030\003 \001(\0132\023.grept" +
+      "ime.v1.FlowId\022\026\n\016drop_if_exists\030\005 \001(\010\"\376\001" +
+      "\n\016CreateViewExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
+      "\n\013schema_name\030\002 \001(\t\022\021\n\tview_name\030\003 \001(\t\022\024" +
+      "\n\014logical_plan\030\004 \001(\014\022\034\n\024create_if_not_ex" +
+      "ists\030\005 \001(\010\022\022\n\nor_replace\030\006 \001(\010\022+\n\013table_" +
+      "names\030\007 \003(\0132\026.greptime.v1.TableName\022\017\n\007c" +
+      "olumns\030\010 \003(\t\022\024\n\014plan_columns\030\t \003(\t\022\022\n\nde" +
+      "finition\030\n \001(\t\"\213\001\n\014DropViewExpr\022\024\n\014catal" +
+      "og_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\021\n\tvi" +
+      "ew_name\030\003 \001(\t\022%\n\007view_id\030\004 \001(\0132\024.greptim" +
+      "e.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\207\003\n" +
+      "\017CreateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
+      "\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022" +
+      "\014\n\004desc\030\004 \001(\t\022+\n\013column_defs\030\005 \003(\0132\026.gre" +
+      "ptime.v1.ColumnDef\022\022\n\ntime_index\030\006 \001(\t\022\024" +
+      "\n\014primary_keys\030\007 \003(\t\022\034\n\024create_if_not_ex" +
+      "ists\030\010 \001(\010\022E\n\rtable_options\030\t \003(\0132..grep" +
+      "time.v1.CreateTableExpr.TableOptionsEntr" +
+      "y\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableI" +
+      "d\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\312\005\n\016Alter" +
+      "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
+      "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_" +
+      "columns\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000" +
+      "\0220\n\014drop_columns\030\005 \001(\0132\030.greptime.v1.Dro" +
+      "pColumnsH\000\0220\n\014rename_table\030\006 \001(\0132\030.grept" +
+      "ime.v1.RenameTableH\000\022=\n\023modify_column_ty" +
+      "pes\030\007 \001(\0132\036.greptime.v1.ModifyColumnType" +
+      "sH\000\0229\n\021set_table_options\030\010 \001(\0132\034.greptim" +
+      "e.v1.SetTableOptionsH\000\022=\n\023unset_table_op" +
+      "tions\030\013 \001(\0132\036.greptime.v1.UnsetTableOpti" +
+      "onsH\000\022*\n\tset_index\030\014 \001(\0132\025.greptime.v1.S" +
+      "etIndexH\000\022.\n\013unset_index\030\r \001(\0132\027.greptim" +
+      "e.v1.UnsetIndexH\000\0222\n\rdrop_defaults\030\016 \001(\013" +
+      "2\031.greptime.v1.DropDefaultsH\000\022.\n\013set_ind" +
+      "exes\030\017 \001(\0132\027.greptime.v1.SetIndexesH\000\0222\n" +
+      "\runset_indexes\030\020 \001(\0132\031.greptime.v1.Unset" +
+      "IndexesH\000\0220\n\014set_defaults\030\021 \001(\0132\030.grepti" +
+      "me.v1.SetDefaultsH\000B\006\n\004kind\"\"\n\013DropDefau" +
+      "lt\022\023\n\013column_name\030\001 \001(\t\"8\n\nSetIndexes\022*\n" +
+      "\013set_indexes\030\001 \003(\0132\025.greptime.v1.SetInde" +
+      "x\">\n\014UnsetIndexes\022.\n\runset_indexes\030\001 \003(\013" +
+      "2\027.greptime.v1.UnsetIndex\"=\n\nSetDefault\022" +
+      "\023\n\013column_name\030\001 \001(\t\022\032\n\022default_constrai" +
+      "nt\030\002 \001(\014\"\237\001\n\010SetIndex\022,\n\010fulltext\030\001 \001(\0132" +
+      "\030.greptime.v1.SetFulltextH\000\022,\n\010inverted\030" +
+      "\002 \001(\0132\030.greptime.v1.SetInvertedH\000\022,\n\010ski" +
+      "pping\030\003 \001(\0132\030.greptime.v1.SetSkippingH\000B" +
+      "\t\n\007options\"\247\001\n\nUnsetIndex\022.\n\010fulltext\030\001 " +
+      "\001(\0132\032.greptime.v1.UnsetFulltextH\000\022.\n\010inv" +
+      "erted\030\002 \001(\0132\032.greptime.v1.UnsetInvertedH" +
+      "\000\022.\n\010skipping\030\003 \001(\0132\032.greptime.v1.UnsetS" +
+      "kippingH\000B\t\n\007options\"\216\001\n\rDropTableExpr\022\024" +
+      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
+      "\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132" +
+      "\024.greptime.v1.TableId\022\026\n\016drop_if_exists\030" +
+      "\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024creat" +
+      "e_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132," +
+      ".greptime.v1.CreateDatabaseExpr.OptionsE" +
+      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\250\001\n\021TruncateTableExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
+      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
+      "eptime.v1.TableId\022,\n\013time_ranges\030\005 \001(\0132\027" +
+      ".greptime.v1.TimeRanges\"U\n\020DropDatabaseE" +
+      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
+      "\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddCol" +
+      "umns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1." +
+      "AddColumn\"?\n\014DropDefaults\022/\n\rdrop_defaul" +
+      "ts\030\001 \003(\0132\030.greptime.v1.DropDefault\"<\n\013Se" +
+      "tDefaults\022-\n\014set_defaults\030\001 \003(\0132\027.grepti" +
+      "me.v1.SetDefault\"<\n\013DropColumns\022-\n\014drop_" +
+      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O" +
+      "\n\021ModifyColumnTypes\022:\n\023modify_column_typ" +
+      "es\030\001 \003(\0132\035.greptime.v1.ModifyColumnType\"" +
+      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"\204" +
+      "\001\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grept" +
+      "ime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.gre" +
+      "ptime.v1.AddColumnLocation\022\031\n\021add_if_not" +
+      "_exists\030\004 \001(\010\"\236\001\n\020ModifyColumnType\022\023\n\013co" +
+      "lumn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.g" +
+      "reptime.v1.ColumnDataType\022C\n\025target_type" +
+      "_extension\030\003 \001(\0132$.greptime.v1.ColumnDat" +
+      "aTypeExtension\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t\"=\n\017SetTableOptions\022*\n\rtable" +
+      "_options\030\001 \003(\0132\023.greptime.v1.Option\"!\n\021U" +
+      "nsetTableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropCo" +
+      "lumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(" +
+      "\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n" +
+      "\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptim" +
+      "e.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010" +
+      "\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic" +
+      "_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017" +
+      "\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 " +
+      "\001(\0132$.greptime.v1.ColumnDataTypeExtensio" +
+      "n\022+\n\007options\030\010 \001(\0132\032.greptime.v1.ColumnO" +
+      "ptions\"\230\001\n\021AddColumnLocation\022B\n\rlocation" +
+      "_type\030\001 \001(\0162+.greptime.v1.AddColumnLocat" +
+      "ion.LocationType\022\031\n\021after_column_name\030\002 " +
+      "\001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020" +
+      "\001\"\324\001\n\013SetFulltext\022\023\n\013column_name\030\001 \001(\t\022\016" +
+      "\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.grept" +
+      "ime.v1.Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\022" +
+      "-\n\007backend\030\005 \001(\0162\034.greptime.v1.FulltextB" +
+      "ackend\022\023\n\013granularity\030\006 \001(\004\022\033\n\023false_pos" +
+      "itive_rate\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013col" +
+      "umn_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_" +
+      "name\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_na" +
+      "me\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n\013column_name\030" +
+      "\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 \001" +
+      "(\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.grepti" +
+      "me.v1.SkippingIndexType\022\033\n\023false_positiv" +
+      "e_rate\030\005 \001(\001\"$\n\rUnsetSkipping\022\023\n\013column_" +
+      "name\030\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014cata" +
+      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024s" +
+      "et_database_options\030\003 \001(\0132\037.greptime.v1." +
+      "SetDatabaseOptionsH\000\022C\n\026unset_database_o" +
+      "ptions\030\004 \001(\0132!.greptime.v1.UnsetDatabase" +
+      "OptionsH\000B\006\n\004kind\"G\n\022SetDatabaseOptions\022" +
+      "1\n\024set_database_options\030\001 \003(\0132\023.greptime" +
+      ".v1.Option\"$\n\024UnsetDatabaseOptions\022\014\n\004ke" +
+      "ys\030\001 \003(\t\"\305\003\n\021CreateTriggerExpr\022\024\n\014catalo" +
+      "g_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024cr" +
+      "eate_if_not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n" +
+      "\010channels\030\005 \003(\0132\032.greptime.v1.NotifyChan" +
+      "nel\022:\n\006labels\030\006 \003(\0132*.greptime.v1.Create" +
+      "TriggerExpr.LabelsEntry\022D\n\013annotations\030\007" +
+      " \003(\0132/.greptime.v1.CreateTriggerExpr.Ann" +
+      "otationsEntry\022+\n\010interval\030\010 \001(\0132\031.google" +
+      ".protobuf.Duration\022\031\n\021raw_interval_expr\030" +
+      "\t \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChanne" +
+      "l\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.grept" +
+      "ime.v1.WebhookOptionsH\000B\016\n\014channel_type\"" +
+      "\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002" +
+      " \003(\0132%.greptime.v1.WebhookOptions.OptsEn" +
+      "try\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014catalog_n" +
+      "ame\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_" +
+      "if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n\013" +
+      "object_type\030\003 \001(\0162\036.greptime.v1.CommentO" +
+      "bjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n\013column" +
+      "_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010Analyzer" +
+      "\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBa" +
+      "ckend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippin" +
+      "gIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021CommentO" +
+      "bjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLOW" +
+      "\020\002BL\n\016io.greptime.v1B\003DdlZ5github.com/Gr" +
+      "eptimeTeam/greptime-proto/go/greptime/v1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -50798,7 +52518,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_DdlRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DdlRequest_descriptor,
-        new java.lang.String[] { "CreateDatabase", "CreateTable", "AlterTable", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "CreateView", "DropView", "AlterDatabase", "Expr", });
+        new java.lang.String[] { "CreateDatabase", "CreateTable", "AlterTable", "DropTable", "TruncateTable", "CreateFlow", "DropFlow", "CreateView", "DropView", "AlterDatabase", "CommentOn", "Expr", });
     internal_static_greptime_v1_CreateFlowExpr_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_greptime_v1_CreateFlowExpr_fieldAccessorTable = new
@@ -51105,6 +52825,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
+    internal_static_greptime_v1_CommentOnExpr_descriptor =
+      getDescriptor().getMessageTypes().get(46);
+    internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_CommentOnExpr_descriptor,
+        new java.lang.String[] { "CatalogName", "SchemaName", "ObjectType", "ObjectName", "ColumnName", "Comment", });
     com.google.protobuf.DurationProto.getDescriptor();
     io.greptime.v1.Common.getDescriptor();
   }

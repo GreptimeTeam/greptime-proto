@@ -61,6 +61,9 @@ extern AlterTableTaskDefaultTypeInternal _AlterTableTask_default_instance_;
 class AlterTableTasks;
 struct AlterTableTasksDefaultTypeInternal;
 extern AlterTableTasksDefaultTypeInternal _AlterTableTasks_default_instance_;
+class CommentOnTask;
+struct CommentOnTaskDefaultTypeInternal;
+extern CommentOnTaskDefaultTypeInternal _CommentOnTask_default_instance_;
 class CreateDatabaseTask;
 struct CreateDatabaseTaskDefaultTypeInternal;
 extern CreateDatabaseTaskDefaultTypeInternal _CreateDatabaseTask_default_instance_;
@@ -113,6 +116,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::meta::AlterDatabaseTask* Arena::CreateMaybeMessage<::greptime::v1::meta::AlterDatabaseTask>(Arena*);
 template<> ::greptime::v1::meta::AlterTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::AlterTableTask>(Arena*);
 template<> ::greptime::v1::meta::AlterTableTasks* Arena::CreateMaybeMessage<::greptime::v1::meta::AlterTableTasks>(Arena*);
+template<> ::greptime::v1::meta::CommentOnTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CommentOnTask>(Arena*);
 template<> ::greptime::v1::meta::CreateDatabaseTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateDatabaseTask>(Arena*);
 template<> ::greptime::v1::meta::CreateFlowTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateFlowTask>(Arena*);
 template<> ::greptime::v1::meta::CreateTableTask* Arena::CreateMaybeMessage<::greptime::v1::meta::CreateTableTask>(Arena*);
@@ -2724,6 +2728,163 @@ class DropTriggerTask final :
 };
 // -------------------------------------------------------------------
 
+class CommentOnTask final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.CommentOnTask) */ {
+ public:
+  inline CommentOnTask() : CommentOnTask(nullptr) {}
+  ~CommentOnTask() override;
+  explicit PROTOBUF_CONSTEXPR CommentOnTask(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CommentOnTask(const CommentOnTask& from);
+  CommentOnTask(CommentOnTask&& from) noexcept
+    : CommentOnTask() {
+    *this = ::std::move(from);
+  }
+
+  inline CommentOnTask& operator=(const CommentOnTask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CommentOnTask& operator=(CommentOnTask&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CommentOnTask& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CommentOnTask* internal_default_instance() {
+    return reinterpret_cast<const CommentOnTask*>(
+               &_CommentOnTask_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(CommentOnTask& a, CommentOnTask& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CommentOnTask* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CommentOnTask* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CommentOnTask* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CommentOnTask>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CommentOnTask& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CommentOnTask& from) {
+    CommentOnTask::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CommentOnTask* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.CommentOnTask";
+  }
+  protected:
+  explicit CommentOnTask(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCommentOnFieldNumber = 1,
+  };
+  // .greptime.v1.CommentOnExpr comment_on = 1;
+  bool has_comment_on() const;
+  private:
+  bool _internal_has_comment_on() const;
+  public:
+  void clear_comment_on();
+  const ::greptime::v1::CommentOnExpr& comment_on() const;
+  PROTOBUF_NODISCARD ::greptime::v1::CommentOnExpr* release_comment_on();
+  ::greptime::v1::CommentOnExpr* mutable_comment_on();
+  void set_allocated_comment_on(::greptime::v1::CommentOnExpr* comment_on);
+  private:
+  const ::greptime::v1::CommentOnExpr& _internal_comment_on() const;
+  ::greptime::v1::CommentOnExpr* _internal_mutable_comment_on();
+  public:
+  void unsafe_arena_set_allocated_comment_on(
+      ::greptime::v1::CommentOnExpr* comment_on);
+  ::greptime::v1::CommentOnExpr* unsafe_arena_release_comment_on();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.CommentOnTask)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::CommentOnExpr* comment_on_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DdlTaskRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.DdlTaskRequest) */ {
  public:
@@ -2784,6 +2945,7 @@ class DdlTaskRequest final :
     kAlterDatabaseTask = 15,
     kCreateTriggerTask = 16,
     kDropTriggerTask = 17,
+    kCommentOnTask = 18,
     TASK_NOT_SET = 0,
   };
 
@@ -2792,7 +2954,7 @@ class DdlTaskRequest final :
                &_DdlTaskRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(DdlTaskRequest& a, DdlTaskRequest& b) {
     a.Swap(&b);
@@ -2883,6 +3045,7 @@ class DdlTaskRequest final :
     kAlterDatabaseTaskFieldNumber = 15,
     kCreateTriggerTaskFieldNumber = 16,
     kDropTriggerTaskFieldNumber = 17,
+    kCommentOnTaskFieldNumber = 18,
   };
   // .greptime.v1.meta.RequestHeader header = 1;
   bool has_header() const;
@@ -3208,6 +3371,24 @@ class DdlTaskRequest final :
       ::greptime::v1::meta::DropTriggerTask* drop_trigger_task);
   ::greptime::v1::meta::DropTriggerTask* unsafe_arena_release_drop_trigger_task();
 
+  // .greptime.v1.meta.CommentOnTask comment_on_task = 18;
+  bool has_comment_on_task() const;
+  private:
+  bool _internal_has_comment_on_task() const;
+  public:
+  void clear_comment_on_task();
+  const ::greptime::v1::meta::CommentOnTask& comment_on_task() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::CommentOnTask* release_comment_on_task();
+  ::greptime::v1::meta::CommentOnTask* mutable_comment_on_task();
+  void set_allocated_comment_on_task(::greptime::v1::meta::CommentOnTask* comment_on_task);
+  private:
+  const ::greptime::v1::meta::CommentOnTask& _internal_comment_on_task() const;
+  ::greptime::v1::meta::CommentOnTask* _internal_mutable_comment_on_task();
+  public:
+  void unsafe_arena_set_allocated_comment_on_task(
+      ::greptime::v1::meta::CommentOnTask* comment_on_task);
+  ::greptime::v1::meta::CommentOnTask* unsafe_arena_release_comment_on_task();
+
   void clear_task();
   TaskCase task_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.DdlTaskRequest)
@@ -3229,6 +3410,7 @@ class DdlTaskRequest final :
   void set_has_alter_database_task();
   void set_has_create_trigger_task();
   void set_has_drop_trigger_task();
+  void set_has_comment_on_task();
 
   inline bool has_task() const;
   inline void clear_has_task();
@@ -3258,6 +3440,7 @@ class DdlTaskRequest final :
       ::greptime::v1::meta::AlterDatabaseTask* alter_database_task_;
       ::greptime::v1::meta::CreateTriggerTask* create_trigger_task_;
       ::greptime::v1::meta::DropTriggerTask* drop_trigger_task_;
+      ::greptime::v1::meta::CommentOnTask* comment_on_task_;
     } task_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3316,7 +3499,7 @@ class DdlTaskResponse final :
                &_DdlTaskResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(DdlTaskResponse& a, DdlTaskResponse& b) {
     a.Swap(&b);
@@ -4898,6 +5081,95 @@ inline void DropTriggerTask::set_allocated_drop_trigger(::greptime::v1::DropTrig
 
 // -------------------------------------------------------------------
 
+// CommentOnTask
+
+// .greptime.v1.CommentOnExpr comment_on = 1;
+inline bool CommentOnTask::_internal_has_comment_on() const {
+  return this != internal_default_instance() && _impl_.comment_on_ != nullptr;
+}
+inline bool CommentOnTask::has_comment_on() const {
+  return _internal_has_comment_on();
+}
+inline const ::greptime::v1::CommentOnExpr& CommentOnTask::_internal_comment_on() const {
+  const ::greptime::v1::CommentOnExpr* p = _impl_.comment_on_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::CommentOnExpr&>(
+      ::greptime::v1::_CommentOnExpr_default_instance_);
+}
+inline const ::greptime::v1::CommentOnExpr& CommentOnTask::comment_on() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.CommentOnTask.comment_on)
+  return _internal_comment_on();
+}
+inline void CommentOnTask::unsafe_arena_set_allocated_comment_on(
+    ::greptime::v1::CommentOnExpr* comment_on) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.comment_on_);
+  }
+  _impl_.comment_on_ = comment_on;
+  if (comment_on) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.CommentOnTask.comment_on)
+}
+inline ::greptime::v1::CommentOnExpr* CommentOnTask::release_comment_on() {
+  
+  ::greptime::v1::CommentOnExpr* temp = _impl_.comment_on_;
+  _impl_.comment_on_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::CommentOnExpr* CommentOnTask::unsafe_arena_release_comment_on() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.CommentOnTask.comment_on)
+  
+  ::greptime::v1::CommentOnExpr* temp = _impl_.comment_on_;
+  _impl_.comment_on_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::CommentOnExpr* CommentOnTask::_internal_mutable_comment_on() {
+  
+  if (_impl_.comment_on_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::CommentOnExpr>(GetArenaForAllocation());
+    _impl_.comment_on_ = p;
+  }
+  return _impl_.comment_on_;
+}
+inline ::greptime::v1::CommentOnExpr* CommentOnTask::mutable_comment_on() {
+  ::greptime::v1::CommentOnExpr* _msg = _internal_mutable_comment_on();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.CommentOnTask.comment_on)
+  return _msg;
+}
+inline void CommentOnTask::set_allocated_comment_on(::greptime::v1::CommentOnExpr* comment_on) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.comment_on_);
+  }
+  if (comment_on) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(comment_on));
+    if (message_arena != submessage_arena) {
+      comment_on = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, comment_on, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.comment_on_ = comment_on;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.CommentOnTask.comment_on)
+}
+
+// -------------------------------------------------------------------
+
 // DdlTaskRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
@@ -6254,6 +6526,80 @@ inline ::greptime::v1::meta::DropTriggerTask* DdlTaskRequest::mutable_drop_trigg
   return _msg;
 }
 
+// .greptime.v1.meta.CommentOnTask comment_on_task = 18;
+inline bool DdlTaskRequest::_internal_has_comment_on_task() const {
+  return task_case() == kCommentOnTask;
+}
+inline bool DdlTaskRequest::has_comment_on_task() const {
+  return _internal_has_comment_on_task();
+}
+inline void DdlTaskRequest::set_has_comment_on_task() {
+  _impl_._oneof_case_[0] = kCommentOnTask;
+}
+inline void DdlTaskRequest::clear_comment_on_task() {
+  if (_internal_has_comment_on_task()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.task_.comment_on_task_;
+    }
+    clear_has_task();
+  }
+}
+inline ::greptime::v1::meta::CommentOnTask* DdlTaskRequest::release_comment_on_task() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.comment_on_task)
+  if (_internal_has_comment_on_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::CommentOnTask* temp = _impl_.task_.comment_on_task_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.task_.comment_on_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::meta::CommentOnTask& DdlTaskRequest::_internal_comment_on_task() const {
+  return _internal_has_comment_on_task()
+      ? *_impl_.task_.comment_on_task_
+      : reinterpret_cast< ::greptime::v1::meta::CommentOnTask&>(::greptime::v1::meta::_CommentOnTask_default_instance_);
+}
+inline const ::greptime::v1::meta::CommentOnTask& DdlTaskRequest::comment_on_task() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.comment_on_task)
+  return _internal_comment_on_task();
+}
+inline ::greptime::v1::meta::CommentOnTask* DdlTaskRequest::unsafe_arena_release_comment_on_task() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.meta.DdlTaskRequest.comment_on_task)
+  if (_internal_has_comment_on_task()) {
+    clear_has_task();
+    ::greptime::v1::meta::CommentOnTask* temp = _impl_.task_.comment_on_task_;
+    _impl_.task_.comment_on_task_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void DdlTaskRequest::unsafe_arena_set_allocated_comment_on_task(::greptime::v1::meta::CommentOnTask* comment_on_task) {
+  clear_task();
+  if (comment_on_task) {
+    set_has_comment_on_task();
+    _impl_.task_.comment_on_task_ = comment_on_task;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.comment_on_task)
+}
+inline ::greptime::v1::meta::CommentOnTask* DdlTaskRequest::_internal_mutable_comment_on_task() {
+  if (!_internal_has_comment_on_task()) {
+    clear_task();
+    set_has_comment_on_task();
+    _impl_.task_.comment_on_task_ = CreateMaybeMessage< ::greptime::v1::meta::CommentOnTask >(GetArenaForAllocation());
+  }
+  return _impl_.task_.comment_on_task_;
+}
+inline ::greptime::v1::meta::CommentOnTask* DdlTaskRequest::mutable_comment_on_task() {
+  ::greptime::v1::meta::CommentOnTask* _msg = _internal_mutable_comment_on_task();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.comment_on_task)
+  return _msg;
+}
+
 inline bool DdlTaskRequest::has_task() const {
   return task_case() != TASK_NOT_SET;
 }
@@ -6477,6 +6823,8 @@ DdlTaskResponse::table_ids() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

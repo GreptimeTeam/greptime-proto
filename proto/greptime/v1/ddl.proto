@@ -39,6 +39,7 @@ message DdlRequest {
     CreateViewExpr create_view = 10;
     DropViewExpr drop_view = 11;
     AlterDatabaseExpr alter_database = 12;
+    CommentOnExpr comment_on = 13;
   }
 }
 
@@ -376,4 +377,23 @@ message DropTriggerExpr {
   string catalog_name = 1;
   string trigger_name = 2;
   bool drop_if_exists = 3;
+}
+
+// The type of object to comment on
+enum CommentObjectType {
+  TABLE = 0;
+  COLUMN = 1;
+  FLOW = 2;
+}
+
+// Comment on a table, column, or flow
+message CommentOnExpr {
+  string catalog_name = 1;
+  string schema_name = 2;
+  CommentObjectType object_type = 3;
+  string object_name = 4;
+  // Column name (only for Column comments)
+  string column_name = 5;
+  // The comment text (null to remove comment)
+  string comment = 6;
 }
