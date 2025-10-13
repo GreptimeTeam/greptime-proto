@@ -198,10 +198,13 @@ message ColumnDataTypeExtension {
   oneof type_ext {
     DecimalTypeExtension decimal_type = 1;
     // Marks the binary column in proto is actually a JSON column.
+    // Deprecated
     JsonTypeExtension json_type = 2;
     VectorTypeExtension vector_type = 3;
     ListTypeExtension list_type = 4;
     StructTypeExtension struct_type = 5;
+    // Marks the data type is a logical json data
+    JsonNativeTypeExtension json_native_type = 6;
   }
 }
 
@@ -210,9 +213,9 @@ message DecimalTypeExtension {
   int32 scale = 2;
 }
 
+// Deprecated
 enum JsonTypeExtension {
   JSON_BINARY = 0;
-  NATIVE = 1;
 }
 
 message VectorTypeExtension {
@@ -226,6 +229,11 @@ message ListTypeExtension {
 
 message StructTypeExtension {
   repeated StructField fields = 1;
+}
+
+message JsonNativeTypeExtension {
+  ColumnDataType datatype = 1;
+  ColumnDataTypeExtension datatype_extension = 2;
 }
 
 // Additional options for the column.

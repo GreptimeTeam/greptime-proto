@@ -92,6 +92,9 @@ extern FlightMetadataDefaultTypeInternal _FlightMetadata_default_instance_;
 class IntervalMonthDayNano;
 struct IntervalMonthDayNanoDefaultTypeInternal;
 extern IntervalMonthDayNanoDefaultTypeInternal _IntervalMonthDayNano_default_instance_;
+class JsonNativeTypeExtension;
+struct JsonNativeTypeExtensionDefaultTypeInternal;
+extern JsonNativeTypeExtensionDefaultTypeInternal _JsonNativeTypeExtension_default_instance_;
 class ListTypeExtension;
 struct ListTypeExtensionDefaultTypeInternal;
 extern ListTypeExtensionDefaultTypeInternal _ListTypeExtension_default_instance_;
@@ -163,6 +166,7 @@ template<> ::greptime::v1::ExpireAfter* Arena::CreateMaybeMessage<::greptime::v1
 template<> ::greptime::v1::ExplainOptions* Arena::CreateMaybeMessage<::greptime::v1::ExplainOptions>(Arena*);
 template<> ::greptime::v1::FlightMetadata* Arena::CreateMaybeMessage<::greptime::v1::FlightMetadata>(Arena*);
 template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::greptime::v1::IntervalMonthDayNano>(Arena*);
+template<> ::greptime::v1::JsonNativeTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::JsonNativeTypeExtension>(Arena*);
 template<> ::greptime::v1::ListTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ListTypeExtension>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
 template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
@@ -294,13 +298,12 @@ inline bool TimeUnit_Parse(
 }
 enum JsonTypeExtension : int {
   JSON_BINARY = 0,
-  NATIVE = 1,
   JsonTypeExtension_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   JsonTypeExtension_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool JsonTypeExtension_IsValid(int value);
 constexpr JsonTypeExtension JsonTypeExtension_MIN = JSON_BINARY;
-constexpr JsonTypeExtension JsonTypeExtension_MAX = NATIVE;
+constexpr JsonTypeExtension JsonTypeExtension_MAX = JSON_BINARY;
 constexpr int JsonTypeExtension_ARRAYSIZE = JsonTypeExtension_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* JsonTypeExtension_descriptor();
@@ -3953,6 +3956,7 @@ class ColumnDataTypeExtension final :
     kVectorType = 3,
     kListType = 4,
     kStructType = 5,
+    kJsonNativeType = 6,
     TYPE_EXT_NOT_SET = 0,
   };
 
@@ -4039,6 +4043,7 @@ class ColumnDataTypeExtension final :
     kVectorTypeFieldNumber = 3,
     kListTypeFieldNumber = 4,
     kStructTypeFieldNumber = 5,
+    kJsonNativeTypeFieldNumber = 6,
   };
   // .greptime.v1.DecimalTypeExtension decimal_type = 1;
   bool has_decimal_type() const;
@@ -4125,6 +4130,24 @@ class ColumnDataTypeExtension final :
       ::greptime::v1::StructTypeExtension* struct_type);
   ::greptime::v1::StructTypeExtension* unsafe_arena_release_struct_type();
 
+  // .greptime.v1.JsonNativeTypeExtension json_native_type = 6;
+  bool has_json_native_type() const;
+  private:
+  bool _internal_has_json_native_type() const;
+  public:
+  void clear_json_native_type();
+  const ::greptime::v1::JsonNativeTypeExtension& json_native_type() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonNativeTypeExtension* release_json_native_type();
+  ::greptime::v1::JsonNativeTypeExtension* mutable_json_native_type();
+  void set_allocated_json_native_type(::greptime::v1::JsonNativeTypeExtension* json_native_type);
+  private:
+  const ::greptime::v1::JsonNativeTypeExtension& _internal_json_native_type() const;
+  ::greptime::v1::JsonNativeTypeExtension* _internal_mutable_json_native_type();
+  public:
+  void unsafe_arena_set_allocated_json_native_type(
+      ::greptime::v1::JsonNativeTypeExtension* json_native_type);
+  ::greptime::v1::JsonNativeTypeExtension* unsafe_arena_release_json_native_type();
+
   void clear_type_ext();
   TypeExtCase type_ext_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.ColumnDataTypeExtension)
@@ -4135,6 +4158,7 @@ class ColumnDataTypeExtension final :
   void set_has_vector_type();
   void set_has_list_type();
   void set_has_struct_type();
+  void set_has_json_native_type();
 
   inline bool has_type_ext() const;
   inline void clear_has_type_ext();
@@ -4151,6 +4175,7 @@ class ColumnDataTypeExtension final :
       ::greptime::v1::VectorTypeExtension* vector_type_;
       ::greptime::v1::ListTypeExtension* list_type_;
       ::greptime::v1::StructTypeExtension* struct_type_;
+      ::greptime::v1::JsonNativeTypeExtension* json_native_type_;
     } type_ext_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4793,6 +4818,174 @@ class StructTypeExtension final :
 };
 // -------------------------------------------------------------------
 
+class JsonNativeTypeExtension final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonNativeTypeExtension) */ {
+ public:
+  inline JsonNativeTypeExtension() : JsonNativeTypeExtension(nullptr) {}
+  ~JsonNativeTypeExtension() override;
+  explicit PROTOBUF_CONSTEXPR JsonNativeTypeExtension(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonNativeTypeExtension(const JsonNativeTypeExtension& from);
+  JsonNativeTypeExtension(JsonNativeTypeExtension&& from) noexcept
+    : JsonNativeTypeExtension() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonNativeTypeExtension& operator=(const JsonNativeTypeExtension& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonNativeTypeExtension& operator=(JsonNativeTypeExtension&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonNativeTypeExtension& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonNativeTypeExtension* internal_default_instance() {
+    return reinterpret_cast<const JsonNativeTypeExtension*>(
+               &_JsonNativeTypeExtension_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    29;
+
+  friend void swap(JsonNativeTypeExtension& a, JsonNativeTypeExtension& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonNativeTypeExtension* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonNativeTypeExtension* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonNativeTypeExtension* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonNativeTypeExtension>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonNativeTypeExtension& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonNativeTypeExtension& from) {
+    JsonNativeTypeExtension::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonNativeTypeExtension* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonNativeTypeExtension";
+  }
+  protected:
+  explicit JsonNativeTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDatatypeExtensionFieldNumber = 2,
+    kDatatypeFieldNumber = 1,
+  };
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
+  bool has_datatype_extension() const;
+  private:
+  bool _internal_has_datatype_extension() const;
+  public:
+  void clear_datatype_extension();
+  const ::greptime::v1::ColumnDataTypeExtension& datatype_extension() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ColumnDataTypeExtension* release_datatype_extension();
+  ::greptime::v1::ColumnDataTypeExtension* mutable_datatype_extension();
+  void set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  private:
+  const ::greptime::v1::ColumnDataTypeExtension& _internal_datatype_extension() const;
+  ::greptime::v1::ColumnDataTypeExtension* _internal_mutable_datatype_extension();
+  public:
+  void unsafe_arena_set_allocated_datatype_extension(
+      ::greptime::v1::ColumnDataTypeExtension* datatype_extension);
+  ::greptime::v1::ColumnDataTypeExtension* unsafe_arena_release_datatype_extension();
+
+  // .greptime.v1.ColumnDataType datatype = 1;
+  void clear_datatype();
+  ::greptime::v1::ColumnDataType datatype() const;
+  void set_datatype(::greptime::v1::ColumnDataType value);
+  private:
+  ::greptime::v1::ColumnDataType _internal_datatype() const;
+  void _internal_set_datatype(::greptime::v1::ColumnDataType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonNativeTypeExtension)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
+    int datatype_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
+// -------------------------------------------------------------------
+
 class ColumnOptions_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<ColumnOptions_OptionsEntry_DoNotUse, 
     std::string, std::string,
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
@@ -4869,7 +5062,7 @@ class ColumnOptions final :
                &_ColumnOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(ColumnOptions& a, ColumnOptions& b) {
     a.Swap(&b);
@@ -5032,7 +5225,7 @@ class ArrowIpc final :
                &_ArrowIpc_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(ArrowIpc& a, ArrowIpc& b) {
     a.Swap(&b);
@@ -7643,6 +7836,80 @@ inline ::greptime::v1::StructTypeExtension* ColumnDataTypeExtension::mutable_str
   return _msg;
 }
 
+// .greptime.v1.JsonNativeTypeExtension json_native_type = 6;
+inline bool ColumnDataTypeExtension::_internal_has_json_native_type() const {
+  return type_ext_case() == kJsonNativeType;
+}
+inline bool ColumnDataTypeExtension::has_json_native_type() const {
+  return _internal_has_json_native_type();
+}
+inline void ColumnDataTypeExtension::set_has_json_native_type() {
+  _impl_._oneof_case_[0] = kJsonNativeType;
+}
+inline void ColumnDataTypeExtension::clear_json_native_type() {
+  if (_internal_has_json_native_type()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.type_ext_.json_native_type_;
+    }
+    clear_has_type_ext();
+  }
+}
+inline ::greptime::v1::JsonNativeTypeExtension* ColumnDataTypeExtension::release_json_native_type() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ColumnDataTypeExtension.json_native_type)
+  if (_internal_has_json_native_type()) {
+    clear_has_type_ext();
+    ::greptime::v1::JsonNativeTypeExtension* temp = _impl_.type_ext_.json_native_type_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.type_ext_.json_native_type_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::JsonNativeTypeExtension& ColumnDataTypeExtension::_internal_json_native_type() const {
+  return _internal_has_json_native_type()
+      ? *_impl_.type_ext_.json_native_type_
+      : reinterpret_cast< ::greptime::v1::JsonNativeTypeExtension&>(::greptime::v1::_JsonNativeTypeExtension_default_instance_);
+}
+inline const ::greptime::v1::JsonNativeTypeExtension& ColumnDataTypeExtension::json_native_type() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ColumnDataTypeExtension.json_native_type)
+  return _internal_json_native_type();
+}
+inline ::greptime::v1::JsonNativeTypeExtension* ColumnDataTypeExtension::unsafe_arena_release_json_native_type() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.ColumnDataTypeExtension.json_native_type)
+  if (_internal_has_json_native_type()) {
+    clear_has_type_ext();
+    ::greptime::v1::JsonNativeTypeExtension* temp = _impl_.type_ext_.json_native_type_;
+    _impl_.type_ext_.json_native_type_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ColumnDataTypeExtension::unsafe_arena_set_allocated_json_native_type(::greptime::v1::JsonNativeTypeExtension* json_native_type) {
+  clear_type_ext();
+  if (json_native_type) {
+    set_has_json_native_type();
+    _impl_.type_ext_.json_native_type_ = json_native_type;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ColumnDataTypeExtension.json_native_type)
+}
+inline ::greptime::v1::JsonNativeTypeExtension* ColumnDataTypeExtension::_internal_mutable_json_native_type() {
+  if (!_internal_has_json_native_type()) {
+    clear_type_ext();
+    set_has_json_native_type();
+    _impl_.type_ext_.json_native_type_ = CreateMaybeMessage< ::greptime::v1::JsonNativeTypeExtension >(GetArenaForAllocation());
+  }
+  return _impl_.type_ext_.json_native_type_;
+}
+inline ::greptime::v1::JsonNativeTypeExtension* ColumnDataTypeExtension::mutable_json_native_type() {
+  ::greptime::v1::JsonNativeTypeExtension* _msg = _internal_mutable_json_native_type();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ColumnDataTypeExtension.json_native_type)
+  return _msg;
+}
+
 inline bool ColumnDataTypeExtension::has_type_ext() const {
   return type_ext_case() != TYPE_EXT_NOT_SET;
 }
@@ -7880,6 +8147,120 @@ StructTypeExtension::fields() const {
 
 // -------------------------------------------------------------------
 
+// JsonNativeTypeExtension
+
+// .greptime.v1.ColumnDataType datatype = 1;
+inline void JsonNativeTypeExtension::clear_datatype() {
+  _impl_.datatype_ = 0;
+}
+inline ::greptime::v1::ColumnDataType JsonNativeTypeExtension::_internal_datatype() const {
+  return static_cast< ::greptime::v1::ColumnDataType >(_impl_.datatype_);
+}
+inline ::greptime::v1::ColumnDataType JsonNativeTypeExtension::datatype() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonNativeTypeExtension.datatype)
+  return _internal_datatype();
+}
+inline void JsonNativeTypeExtension::_internal_set_datatype(::greptime::v1::ColumnDataType value) {
+  
+  _impl_.datatype_ = value;
+}
+inline void JsonNativeTypeExtension::set_datatype(::greptime::v1::ColumnDataType value) {
+  _internal_set_datatype(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonNativeTypeExtension.datatype)
+}
+
+// .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
+inline bool JsonNativeTypeExtension::_internal_has_datatype_extension() const {
+  return this != internal_default_instance() && _impl_.datatype_extension_ != nullptr;
+}
+inline bool JsonNativeTypeExtension::has_datatype_extension() const {
+  return _internal_has_datatype_extension();
+}
+inline void JsonNativeTypeExtension::clear_datatype_extension() {
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& JsonNativeTypeExtension::_internal_datatype_extension() const {
+  const ::greptime::v1::ColumnDataTypeExtension* p = _impl_.datatype_extension_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnDataTypeExtension&>(
+      ::greptime::v1::_ColumnDataTypeExtension_default_instance_);
+}
+inline const ::greptime::v1::ColumnDataTypeExtension& JsonNativeTypeExtension::datatype_extension() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonNativeTypeExtension.datatype_extension)
+  return _internal_datatype_extension();
+}
+inline void JsonNativeTypeExtension::unsafe_arena_set_allocated_datatype_extension(
+    ::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.datatype_extension_);
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  if (datatype_extension) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.JsonNativeTypeExtension.datatype_extension)
+}
+inline ::greptime::v1::ColumnDataTypeExtension* JsonNativeTypeExtension::release_datatype_extension() {
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* JsonNativeTypeExtension::unsafe_arena_release_datatype_extension() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonNativeTypeExtension.datatype_extension)
+  
+  ::greptime::v1::ColumnDataTypeExtension* temp = _impl_.datatype_extension_;
+  _impl_.datatype_extension_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* JsonNativeTypeExtension::_internal_mutable_datatype_extension() {
+  
+  if (_impl_.datatype_extension_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ColumnDataTypeExtension>(GetArenaForAllocation());
+    _impl_.datatype_extension_ = p;
+  }
+  return _impl_.datatype_extension_;
+}
+inline ::greptime::v1::ColumnDataTypeExtension* JsonNativeTypeExtension::mutable_datatype_extension() {
+  ::greptime::v1::ColumnDataTypeExtension* _msg = _internal_mutable_datatype_extension();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonNativeTypeExtension.datatype_extension)
+  return _msg;
+}
+inline void JsonNativeTypeExtension::set_allocated_datatype_extension(::greptime::v1::ColumnDataTypeExtension* datatype_extension) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  if (datatype_extension) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(datatype_extension);
+    if (message_arena != submessage_arena) {
+      datatype_extension = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, datatype_extension, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.datatype_extension_ = datatype_extension;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonNativeTypeExtension.datatype_extension)
+}
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // ColumnOptions
@@ -8070,6 +8451,8 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
