@@ -212,6 +212,7 @@ message DecimalTypeExtension {
 
 enum JsonTypeExtension {
   JSON_BINARY = 0;
+  JSON_NATIVE = 1;
 }
 
 message VectorTypeExtension {
