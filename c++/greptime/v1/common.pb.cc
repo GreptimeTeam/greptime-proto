@@ -894,15 +894,15 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "TERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022"
   "\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006STRUC"
   "T\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SECO"
-  "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*5\n"
-  "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000\022\017\n\013J"
-  "SON_NATIVE\020\001BO\n\016io.greptime.v1B\006CommonZ5"
-  "github.com/GreptimeTeam/greptime-proto/g"
-  "o/greptime/v1b\006proto3"
+  "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*0\n"
+  "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000\022\n\n\006N"
+  "ATIVE\020\001BO\n\016io.greptime.v1B\006CommonZ5githu"
+  "b.com/GreptimeTeam/greptime-proto/go/gre"
+  "ptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 3501, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 3496, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 32,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,

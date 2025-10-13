@@ -648,9 +648,9 @@ public final class Common {
      */
     JSON_BINARY(0),
     /**
-     * <code>JSON_NATIVE = 1;</code>
+     * <code>NATIVE = 1;</code>
      */
-    JSON_NATIVE(1),
+    NATIVE(1),
     UNRECOGNIZED(-1),
     ;
 
@@ -659,9 +659,9 @@ public final class Common {
      */
     public static final int JSON_BINARY_VALUE = 0;
     /**
-     * <code>JSON_NATIVE = 1;</code>
+     * <code>NATIVE = 1;</code>
      */
-    public static final int JSON_NATIVE_VALUE = 1;
+    public static final int NATIVE_VALUE = 1;
 
 
     public final int getNumber() {
@@ -689,7 +689,7 @@ public final class Common {
     public static JsonTypeExtension forNumber(int value) {
       switch (value) {
         case 0: return JSON_BINARY;
-        case 1: return JSON_NATIVE;
+        case 1: return NATIVE;
         default: return null;
       }
     }
@@ -22882,11 +22882,11 @@ java.lang.String defaultValue);
       "TERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022" +
       "\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006STRUC" +
       "T\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SECO" +
-      "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*5\n" +
-      "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000\022\017\n\013J" +
-      "SON_NATIVE\020\001BO\n\016io.greptime.v1B\006CommonZ5" +
-      "github.com/GreptimeTeam/greptime-proto/g" +
-      "o/greptime/v1b\006proto3"
+      "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*0\n" +
+      "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000\022\n\n\006N" +
+      "ATIVE\020\001BO\n\016io.greptime.v1B\006CommonZ5githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -294,13 +294,13 @@ inline bool TimeUnit_Parse(
 }
 enum JsonTypeExtension : int {
   JSON_BINARY = 0,
-  JSON_NATIVE = 1,
+  NATIVE = 1,
   JsonTypeExtension_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   JsonTypeExtension_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool JsonTypeExtension_IsValid(int value);
 constexpr JsonTypeExtension JsonTypeExtension_MIN = JSON_BINARY;
-constexpr JsonTypeExtension JsonTypeExtension_MAX = JSON_NATIVE;
+constexpr JsonTypeExtension JsonTypeExtension_MAX = NATIVE;
 constexpr int JsonTypeExtension_ARRAYSIZE = JsonTypeExtension_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* JsonTypeExtension_descriptor();
