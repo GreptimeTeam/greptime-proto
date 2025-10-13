@@ -213,6 +213,7 @@ message CompactRequest {
     Regular regular = 2;
     StrictWindow strict_window = 3;
   }
+  uint32 parallelism = 4;
 }
 
 message TruncateRequest {

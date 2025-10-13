@@ -5127,6 +5127,7 @@ class CompactRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kParallelismFieldNumber = 4,
     kRegularFieldNumber = 2,
     kStrictWindowFieldNumber = 3,
   };
@@ -5137,6 +5138,15 @@ class CompactRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint32 parallelism = 4;
+  void clear_parallelism();
+  uint32_t parallelism() const;
+  void set_parallelism(uint32_t value);
+  private:
+  uint32_t _internal_parallelism() const;
+  void _internal_set_parallelism(uint32_t value);
   public:
 
   // .greptime.v1.region.Regular regular = 2;
@@ -5191,6 +5201,7 @@ class CompactRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    uint32_t parallelism_;
     union OptionsUnion {
       constexpr OptionsUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -10820,6 +10831,26 @@ inline ::greptime::v1::region::StrictWindow* CompactRequest::mutable_strict_wind
   ::greptime::v1::region::StrictWindow* _msg = _internal_mutable_strict_window();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.CompactRequest.strict_window)
   return _msg;
+}
+
+// uint32 parallelism = 4;
+inline void CompactRequest::clear_parallelism() {
+  _impl_.parallelism_ = 0u;
+}
+inline uint32_t CompactRequest::_internal_parallelism() const {
+  return _impl_.parallelism_;
+}
+inline uint32_t CompactRequest::parallelism() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactRequest.parallelism)
+  return _internal_parallelism();
+}
+inline void CompactRequest::_internal_set_parallelism(uint32_t value) {
+  
+  _impl_.parallelism_ = value;
+}
+inline void CompactRequest::set_parallelism(uint32_t value) {
+  _internal_set_parallelism(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CompactRequest.parallelism)
 }
 
 inline bool CompactRequest::has_options() const {
