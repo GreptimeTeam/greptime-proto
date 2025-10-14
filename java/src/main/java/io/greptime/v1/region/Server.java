@@ -1547,21 +1547,6 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.ListMetadataRequestOrBuilder getListMetadataOrBuilder();
 
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     * @return Whether the buildIndex field is set.
-     */
-    boolean hasBuildIndex();
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     * @return The buildIndex.
-     */
-    io.greptime.v1.region.Server.BuildIndexRequest getBuildIndex();
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     */
-    io.greptime.v1.region.Server.BuildIndexRequestOrBuilder getBuildIndexOrBuilder();
-
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -1846,20 +1831,6 @@ java.lang.String defaultValue);
               bodyCase_ = 18;
               break;
             }
-            case 154: {
-              io.greptime.v1.region.Server.BuildIndexRequest.Builder subBuilder = null;
-              if (bodyCase_ == 19) {
-                subBuilder = ((io.greptime.v1.region.Server.BuildIndexRequest) body_).toBuilder();
-              }
-              body_ =
-                  input.readMessage(io.greptime.v1.region.Server.BuildIndexRequest.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest) body_);
-                body_ = subBuilder.buildPartial();
-              }
-              bodyCase_ = 19;
-              break;
-            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1915,7 +1886,6 @@ java.lang.String defaultValue);
       BULK_INSERT(16),
       SYNC(17),
       LIST_METADATA(18),
-      BUILD_INDEX(19),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1949,7 +1919,6 @@ java.lang.String defaultValue);
           case 16: return BULK_INSERT;
           case 17: return SYNC;
           case 18: return LIST_METADATA;
-          case 19: return BUILD_INDEX;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -2487,37 +2456,6 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.ListMetadataRequest.getDefaultInstance();
     }
 
-    public static final int BUILD_INDEX_FIELD_NUMBER = 19;
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     * @return Whether the buildIndex field is set.
-     */
-    @java.lang.Override
-    public boolean hasBuildIndex() {
-      return bodyCase_ == 19;
-    }
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     * @return The buildIndex.
-     */
-    @java.lang.Override
-    public io.greptime.v1.region.Server.BuildIndexRequest getBuildIndex() {
-      if (bodyCase_ == 19) {
-         return (io.greptime.v1.region.Server.BuildIndexRequest) body_;
-      }
-      return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-    }
-    /**
-     * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.region.Server.BuildIndexRequestOrBuilder getBuildIndexOrBuilder() {
-      if (bodyCase_ == 19) {
-         return (io.greptime.v1.region.Server.BuildIndexRequest) body_;
-      }
-      return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2582,9 +2520,6 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 18) {
         output.writeMessage(18, (io.greptime.v1.region.Server.ListMetadataRequest) body_);
-      }
-      if (bodyCase_ == 19) {
-        output.writeMessage(19, (io.greptime.v1.region.Server.BuildIndexRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -2662,10 +2597,6 @@ java.lang.String defaultValue);
       if (bodyCase_ == 18) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, (io.greptime.v1.region.Server.ListMetadataRequest) body_);
-      }
-      if (bodyCase_ == 19) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(19, (io.greptime.v1.region.Server.BuildIndexRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2753,10 +2684,6 @@ java.lang.String defaultValue);
           if (!getListMetadata()
               .equals(other.getListMetadata())) return false;
           break;
-        case 19:
-          if (!getBuildIndex()
-              .equals(other.getBuildIndex())) return false;
-          break;
         case 0:
         default:
       }
@@ -2839,10 +2766,6 @@ java.lang.String defaultValue);
         case 18:
           hash = (37 * hash) + LIST_METADATA_FIELD_NUMBER;
           hash = (53 * hash) + getListMetadata().hashCode();
-          break;
-        case 19:
-          hash = (37 * hash) + BUILD_INDEX_FIELD_NUMBER;
-          hash = (53 * hash) + getBuildIndex().hashCode();
           break;
         case 0:
         default:
@@ -3131,13 +3054,6 @@ java.lang.String defaultValue);
             result.body_ = listMetadataBuilder_.build();
           }
         }
-        if (bodyCase_ == 19) {
-          if (buildIndexBuilder_ == null) {
-            result.body_ = body_;
-          } else {
-            result.body_ = buildIndexBuilder_.build();
-          }
-        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -3253,10 +3169,6 @@ java.lang.String defaultValue);
           }
           case LIST_METADATA: {
             mergeListMetadata(other.getListMetadata());
-            break;
-          }
-          case BUILD_INDEX: {
-            mergeBuildIndex(other.getBuildIndex());
             break;
           }
           case BODY_NOT_SET: {
@@ -5696,148 +5608,6 @@ java.lang.String defaultValue);
         bodyCase_ = 18;
         onChanged();;
         return listMetadataBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.BuildIndexRequest, io.greptime.v1.region.Server.BuildIndexRequest.Builder, io.greptime.v1.region.Server.BuildIndexRequestOrBuilder> buildIndexBuilder_;
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       * @return Whether the buildIndex field is set.
-       */
-      @java.lang.Override
-      public boolean hasBuildIndex() {
-        return bodyCase_ == 19;
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       * @return The buildIndex.
-       */
-      @java.lang.Override
-      public io.greptime.v1.region.Server.BuildIndexRequest getBuildIndex() {
-        if (buildIndexBuilder_ == null) {
-          if (bodyCase_ == 19) {
-            return (io.greptime.v1.region.Server.BuildIndexRequest) body_;
-          }
-          return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-        } else {
-          if (bodyCase_ == 19) {
-            return buildIndexBuilder_.getMessage();
-          }
-          return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      public Builder setBuildIndex(io.greptime.v1.region.Server.BuildIndexRequest value) {
-        if (buildIndexBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          body_ = value;
-          onChanged();
-        } else {
-          buildIndexBuilder_.setMessage(value);
-        }
-        bodyCase_ = 19;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      public Builder setBuildIndex(
-          io.greptime.v1.region.Server.BuildIndexRequest.Builder builderForValue) {
-        if (buildIndexBuilder_ == null) {
-          body_ = builderForValue.build();
-          onChanged();
-        } else {
-          buildIndexBuilder_.setMessage(builderForValue.build());
-        }
-        bodyCase_ = 19;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      public Builder mergeBuildIndex(io.greptime.v1.region.Server.BuildIndexRequest value) {
-        if (buildIndexBuilder_ == null) {
-          if (bodyCase_ == 19 &&
-              body_ != io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance()) {
-            body_ = io.greptime.v1.region.Server.BuildIndexRequest.newBuilder((io.greptime.v1.region.Server.BuildIndexRequest) body_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            body_ = value;
-          }
-          onChanged();
-        } else {
-          if (bodyCase_ == 19) {
-            buildIndexBuilder_.mergeFrom(value);
-          } else {
-            buildIndexBuilder_.setMessage(value);
-          }
-        }
-        bodyCase_ = 19;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      public Builder clearBuildIndex() {
-        if (buildIndexBuilder_ == null) {
-          if (bodyCase_ == 19) {
-            bodyCase_ = 0;
-            body_ = null;
-            onChanged();
-          }
-        } else {
-          if (bodyCase_ == 19) {
-            bodyCase_ = 0;
-            body_ = null;
-          }
-          buildIndexBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      public io.greptime.v1.region.Server.BuildIndexRequest.Builder getBuildIndexBuilder() {
-        return getBuildIndexFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.region.Server.BuildIndexRequestOrBuilder getBuildIndexOrBuilder() {
-        if ((bodyCase_ == 19) && (buildIndexBuilder_ != null)) {
-          return buildIndexBuilder_.getMessageOrBuilder();
-        } else {
-          if (bodyCase_ == 19) {
-            return (io.greptime.v1.region.Server.BuildIndexRequest) body_;
-          }
-          return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.region.BuildIndexRequest build_index = 19;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.BuildIndexRequest, io.greptime.v1.region.Server.BuildIndexRequest.Builder, io.greptime.v1.region.Server.BuildIndexRequestOrBuilder> 
-          getBuildIndexFieldBuilder() {
-        if (buildIndexBuilder_ == null) {
-          if (!(bodyCase_ == 19)) {
-            body_ = io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-          }
-          buildIndexBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Server.BuildIndexRequest, io.greptime.v1.region.Server.BuildIndexRequest.Builder, io.greptime.v1.region.Server.BuildIndexRequestOrBuilder>(
-                  (io.greptime.v1.region.Server.BuildIndexRequest) body_,
-                  getParentForChildren(),
-                  isClean());
-          body_ = null;
-        }
-        bodyCase_ = 19;
-        onChanged();;
-        return buildIndexBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -33206,497 +32976,6 @@ java.lang.String defaultValue);
 
   }
 
-  public interface BuildIndexRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.region.BuildIndexRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    long getRegionId();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.region.BuildIndexRequest}
-   */
-  public static final class BuildIndexRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.region.BuildIndexRequest)
-      BuildIndexRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use BuildIndexRequest.newBuilder() to construct.
-    private BuildIndexRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private BuildIndexRequest() {
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new BuildIndexRequest();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private BuildIndexRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              regionId_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.region.Server.BuildIndexRequest.class, io.greptime.v1.region.Server.BuildIndexRequest.Builder.class);
-    }
-
-    public static final int REGION_ID_FIELD_NUMBER = 1;
-    private long regionId_;
-    /**
-     * <code>uint64 region_id = 1;</code>
-     * @return The regionId.
-     */
-    @java.lang.Override
-    public long getRegionId() {
-      return regionId_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (regionId_ != 0L) {
-        output.writeUInt64(1, regionId_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (regionId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, regionId_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.region.Server.BuildIndexRequest)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.region.Server.BuildIndexRequest other = (io.greptime.v1.region.Server.BuildIndexRequest) obj;
-
-      if (getRegionId()
-          != other.getRegionId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRegionId());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.region.Server.BuildIndexRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.region.Server.BuildIndexRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.region.BuildIndexRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.region.BuildIndexRequest)
-        io.greptime.v1.region.Server.BuildIndexRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Server.BuildIndexRequest.class, io.greptime.v1.region.Server.BuildIndexRequest.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.region.Server.BuildIndexRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        regionId_ = 0L;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.BuildIndexRequest getDefaultInstanceForType() {
-        return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.BuildIndexRequest build() {
-        io.greptime.v1.region.Server.BuildIndexRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.region.Server.BuildIndexRequest buildPartial() {
-        io.greptime.v1.region.Server.BuildIndexRequest result = new io.greptime.v1.region.Server.BuildIndexRequest(this);
-        result.regionId_ = regionId_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.region.Server.BuildIndexRequest) {
-          return mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.region.Server.BuildIndexRequest other) {
-        if (other == io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance()) return this;
-        if (other.getRegionId() != 0L) {
-          setRegionId(other.getRegionId());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.region.Server.BuildIndexRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.region.Server.BuildIndexRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long regionId_ ;
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @return The regionId.
-       */
-      @java.lang.Override
-      public long getRegionId() {
-        return regionId_;
-      }
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @param value The regionId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRegionId(long value) {
-        
-        regionId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint64 region_id = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRegionId() {
-        
-        regionId_ = 0L;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.region.BuildIndexRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest)
-    private static final io.greptime.v1.region.Server.BuildIndexRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.BuildIndexRequest();
-    }
-
-    public static io.greptime.v1.region.Server.BuildIndexRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<BuildIndexRequest>
-        PARSER = new com.google.protobuf.AbstractParser<BuildIndexRequest>() {
-      @java.lang.Override
-      public BuildIndexRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BuildIndexRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<BuildIndexRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BuildIndexRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.region.Server.BuildIndexRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor;
   private static final 
@@ -33882,11 +33161,6 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_BuildIndexRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33905,7 +33179,7 @@ java.lang.String defaultValue);
       "eader.TracingContextEntry\022\016\n\006dbname\030\003 \001(" +
       "\t\0220\n\rquery_context\030\006 \001(\0132\031.greptime.v1.Q" +
       "ueryContext\0325\n\023TracingContextEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\007\n\rRegionReq" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\256\007\n\rRegionReq" +
       "uest\0227\n\006header\030\001 \001(\0132\'.greptime.v1.regio" +
       "n.RegionRequestHeader\0225\n\007inserts\030\003 \001(\0132\"" +
       ".greptime.v1.region.InsertRequestsH\000\0225\n\007" +
@@ -33929,99 +33203,97 @@ java.lang.String defaultValue);
       "equestH\000\022/\n\004sync\030\021 \001(\0132\037.greptime.v1.reg" +
       "ion.SyncRequestH\000\022@\n\rlist_metadata\030\022 \001(\013" +
       "2\'.greptime.v1.region.ListMetadataReques" +
-      "tH\000\022<\n\013build_index\030\023 \001(\0132%.greptime.v1.r" +
-      "egion.BuildIndexRequestH\000B\006\n\004body\"\341\001\n\016Re" +
-      "gionResponse\022+\n\006header\030\001 \001(\0132\033.greptime." +
-      "v1.ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004" +
-      "\022F\n\nextensions\030\003 \003(\01322.greptime.v1.regio" +
-      "n.RegionResponse.ExtensionsEntry\022\020\n\010meta" +
-      "data\030\004 \001(\014\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\022" +
-      "3\n\010requests\030\001 \003(\0132!.greptime.v1.region.I" +
-      "nsertRequest\"E\n\016DeleteRequests\0223\n\010reques" +
-      "ts\030\001 \003(\0132!.greptime.v1.region.DeleteRequ" +
-      "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
-      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
-      "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
-      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
-      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests\030\001 " +
-      "\003(\0132!.greptime.v1.region.CreateRequest\"\260" +
-      "\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006e" +
-      "ngine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.grept" +
-      "ime.v1.region.RegionColumnDef\022\023\n\013primary" +
-      "_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(" +
-      "\0132..greptime.v1.region.CreateRequest.Opt" +
-      "ionsEntry\022.\n\tpartition\030\007 \001(\0132\033.greptime." +
-      "v1.meta.Partition\032.\n\014OptionsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"A\n\014DropRequest" +
-      "s\0221\n\010requests\030\001 \003(\0132\037.greptime.v1.region" +
-      ".DropRequest\"3\n\013DropRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(\010\"\255\001\n\013OpenReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004" +
-      "path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v" +
-      "1.region.OpenRequest.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"C\n\r" +
-      "AlterRequests\0222\n\010requests\030\001 \003(\0132 .grepti" +
-      "me.v1.region.AlterRequest\"\311\005\n\014AlterReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001" +
-      "(\0132\036.greptime.v1.region.AddColumnsH\000\0227\n\014" +
-      "drop_columns\030\003 \001(\0132\037.greptime.v1.region." +
-      "DropColumnsH\000\022=\n\023modify_column_types\030\005 \001" +
-      "(\0132\036.greptime.v1.ModifyColumnTypesH\000\0229\n\021" +
-      "set_table_options\030\006 \001(\0132\034.greptime.v1.Se" +
-      "tTableOptionsH\000\022=\n\023unset_table_options\030\t" +
-      " \001(\0132\036.greptime.v1.UnsetTableOptionsH\000\022*" +
-      "\n\tset_index\030\n \001(\0132\025.greptime.v1.SetIndex" +
-      "H\000\022.\n\013unset_index\030\013 \001(\0132\027.greptime.v1.Un" +
-      "setIndexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.grep" +
-      "time.v1.DropDefaultsH\000\022.\n\013set_indexes\030\r " +
-      "\001(\0132\027.greptime.v1.SetIndexesH\000\0222\n\runset_" +
-      "indexes\030\016 \001(\0132\031.greptime.v1.UnsetIndexes" +
-      "H\000\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v1.S" +
-      "etDefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.gre" +
-      "ptime.v1.region.SyncColumnsH\000\022\026\n\016schema_" +
-      "version\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013" +
-      "column_defs\030\001 \003(\0132#.greptime.v1.region.R" +
-      "egionColumnDef\"@\n\nAddColumns\0222\n\013add_colu" +
-      "mns\030\001 \003(\0132\035.greptime.v1.region.AddColumn" +
-      "\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036." +
-      "greptime.v1.region.DropColumn\"v\n\tAddColu" +
-      "mn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.reg" +
-      "ion.RegionColumnDef\0220\n\010location\030\003 \001(\0132\036." +
-      "greptime.v1.AddColumnLocation\"\032\n\nDropCol" +
-      "umn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022" +
-      "\026\n\016window_seconds\030\001 \001(\003\"\231\001\n\016CompactReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033" +
-      ".greptime.v1.region.RegularH\000\0229\n\rstrict_" +
-      "window\030\003 \001(\0132 .greptime.v1.region.Strict" +
-      "WindowH\000B\t\n\007options\"\204\001\n\017TruncateRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.grepti" +
-      "me.v1.region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132" +
-      "\027.greptime.v1.TimeRangesH\000B\006\n\004kind\"\005\n\003Al" +
-      "l\"P\n\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\013" +
-      "2\026.greptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 " +
-      "\001(\r\"Z\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 " +
-      "\001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.Arr" +
-      "owIpcH\000B\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025d" +
-      "ata_manifest_version\030\001 \001(\004\"V\n\022MetricMani" +
-      "festInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022" +
-      "!\n\031metadata_manifest_version\030\002 \001(\004\"\275\001\n\013S" +
-      "yncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_ma" +
-      "nifest_info\030\002 \001(\0132$.greptime.v1.region.M" +
-      "itoManifestInfoH\000\022F\n\024metric_manifest_inf" +
-      "o\030\003 \001(\0132&.greptime.v1.region.MetricManif" +
-      "estInfoH\000B\017\n\rmanifest_info\")\n\023ListMetada" +
-      "taRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIn" +
-      "dexRequest\022\021\n\tregion_id\030\001 \001(\0042Y\n\006Region\022" +
-      "O\n\006Handle\022!.greptime.v1.region.RegionReq" +
-      "uest\032\".greptime.v1.region.RegionResponse" +
-      "B]\n\025io.greptime.v1.regionB\006ServerZ<githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1/regionb\006proto3"
+      "tH\000B\006\n\004body\"\341\001\n\016RegionResponse\022+\n\006header" +
+      "\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025\n\ra" +
+      "ffected_rows\030\002 \001(\004\022F\n\nextensions\030\003 \003(\01322" +
+      ".greptime.v1.region.RegionResponse.Exten" +
+      "sionsEntry\022\020\n\010metadata\030\004 \001(\014\0321\n\017Extensio" +
+      "nsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"" +
+      "E\n\016InsertRequests\0223\n\010requests\030\001 \003(\0132!.gr" +
+      "eptime.v1.region.InsertRequest\"E\n\016Delete" +
+      "Requests\0223\n\010requests\030\001 \003(\0132!.greptime.v1" +
+      ".region.DeleteRequest\"C\n\rInsertRequest\022\021" +
+      "\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.grepti" +
+      "me.v1.Rows\"C\n\rDeleteRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"" +
+      "h\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'.grepti" +
+      "me.v1.region.RegionRequestHeader\022\021\n\tregi" +
+      "on_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016CreateReque" +
+      "sts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regi" +
+      "on.CreateRequest\"\260\002\n\rCreateRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_" +
+      "defs\030\003 \003(\0132#.greptime.v1.region.RegionCo" +
+      "lumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005 \001" +
+      "(\t\022?\n\007options\030\006 \003(\0132..greptime.v1.region" +
+      ".CreateRequest.OptionsEntry\022.\n\tpartition" +
+      "\030\007 \001(\0132\033.greptime.v1.meta.Partition\032.\n\014O" +
+      "ptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132\037." +
+      "greptime.v1.region.DropRequest\"3\n\013DropRe" +
+      "quest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002 " +
+      "\001(\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016" +
+      "\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030" +
+      "\004 \003(\0132,.greptime.v1.region.OpenRequest.O" +
+      "ptionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tr" +
+      "egion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010reque" +
+      "sts\030\001 \003(\0132 .greptime.v1.region.AlterRequ" +
+      "est\"\311\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
+      "5\n\013add_columns\030\002 \001(\0132\036.greptime.v1.regio" +
+      "n.AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.g" +
+      "reptime.v1.region.DropColumnsH\000\022=\n\023modif" +
+      "y_column_types\030\005 \001(\0132\036.greptime.v1.Modif" +
+      "yColumnTypesH\000\0229\n\021set_table_options\030\006 \001(" +
+      "\0132\034.greptime.v1.SetTableOptionsH\000\022=\n\023uns" +
+      "et_table_options\030\t \001(\0132\036.greptime.v1.Uns" +
+      "etTableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.gr" +
+      "eptime.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(" +
+      "\0132\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_def" +
+      "aults\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000" +
+      "\022.\n\013set_indexes\030\r \001(\0132\027.greptime.v1.SetI" +
+      "ndexesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.grepti" +
+      "me.v1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001" +
+      "(\0132\030.greptime.v1.SetDefaultsH\000\0227\n\014sync_c" +
+      "olumns\030\020 \001(\0132\037.greptime.v1.region.SyncCo" +
+      "lumnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"" +
+      "G\n\013SyncColumns\0228\n\013column_defs\030\001 \003(\0132#.gr" +
+      "eptime.v1.region.RegionColumnDef\"@\n\nAddC" +
+      "olumns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v" +
+      "1.region.AddColumn\"C\n\013DropColumns\0224\n\014dro" +
+      "p_columns\030\001 \003(\0132\036.greptime.v1.region.Dro" +
+      "pColumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\013" +
+      "2#.greptime.v1.region.RegionColumnDef\0220\n" +
+      "\010location\030\003 \001(\0132\036.greptime.v1.AddColumnL" +
+      "ocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014F" +
+      "lushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regula" +
+      "r\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(" +
+      "\003\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
+      ".\n\007regular\030\002 \001(\0132\033.greptime.v1.region.Re" +
+      "gularH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptim" +
+      "e.v1.region.StrictWindowH\000B\t\n\007options\"\204\001" +
+      "\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003" +
+      "all\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022.\n\013" +
+      "time_ranges\030\003 \001(\0132\027.greptime.v1.TimeRang" +
+      "esH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022*" +
+      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
+      "ef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\013" +
+      "2\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020Mit" +
+      "oManifestInfo\022\035\n\025data_manifest_version\030\001" +
+      " \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manif" +
+      "est_version\030\001 \001(\004\022!\n\031metadata_manifest_v" +
+      "ersion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.gr" +
+      "eptime.v1.region.MitoManifestInfoH\000\022F\n\024m" +
+      "etric_manifest_info\030\003 \001(\0132&.greptime.v1." +
+      "region.MetricManifestInfoH\000B\017\n\rmanifest_" +
+      "info\")\n\023ListMetadataRequest\022\022\n\nregion_id" +
+      "s\030\001 \003(\0042Y\n\006Region\022O\n\006Handle\022!.greptime.v" +
+      "1.region.RegionRequest\032\".greptime.v1.reg" +
+      "ion.RegionResponseB]\n\025io.greptime.v1.reg" +
+      "ionB\006ServerZ<github.com/GreptimeTeam/gre" +
+      "ptime-proto/go/greptime/v1/regionb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34048,7 +33320,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
@@ -34253,12 +33525,6 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ListMetadataRequest_descriptor,
         new java.lang.String[] { "RegionIds", });
-    internal_static_greptime_v1_region_BuildIndexRequest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
-    internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
-        new java.lang.String[] { "RegionId", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
