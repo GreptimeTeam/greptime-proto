@@ -79,6 +79,7 @@ message Value {
 
     ListValue list_value = 40;
     StructValue struct_value = 41;
+    Value json_value = 42;
   }
 }
 
