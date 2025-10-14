@@ -9042,7 +9042,11 @@ class CreateTriggerExpr final :
     kTriggerNameFieldNumber = 2,
     kSqlFieldNumber = 4,
     kRawIntervalExprFieldNumber = 9,
+    kForRawExprFieldNumber = 11,
+    kKeepFiringForRawExprFieldNumber = 13,
     kIntervalFieldNumber = 8,
+    kForFieldNumber = 10,
+    kKeepFiringForFieldNumber = 12,
     kCreateIfNotExistsFieldNumber = 3,
   };
   // repeated .greptime.v1.NotifyChannel channels = 5;
@@ -9153,6 +9157,34 @@ class CreateTriggerExpr final :
   std::string* _internal_mutable_raw_interval_expr();
   public:
 
+  // string for_raw_expr = 11;
+  void clear_for_raw_expr();
+  const std::string& for_raw_expr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_for_raw_expr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_for_raw_expr();
+  PROTOBUF_NODISCARD std::string* release_for_raw_expr();
+  void set_allocated_for_raw_expr(std::string* for_raw_expr);
+  private:
+  const std::string& _internal_for_raw_expr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_for_raw_expr(const std::string& value);
+  std::string* _internal_mutable_for_raw_expr();
+  public:
+
+  // string keep_firing_for_raw_expr = 13;
+  void clear_keep_firing_for_raw_expr();
+  const std::string& keep_firing_for_raw_expr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_keep_firing_for_raw_expr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_keep_firing_for_raw_expr();
+  PROTOBUF_NODISCARD std::string* release_keep_firing_for_raw_expr();
+  void set_allocated_keep_firing_for_raw_expr(std::string* keep_firing_for_raw_expr);
+  private:
+  const std::string& _internal_keep_firing_for_raw_expr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_keep_firing_for_raw_expr(const std::string& value);
+  std::string* _internal_mutable_keep_firing_for_raw_expr();
+  public:
+
   // .google.protobuf.Duration interval = 8;
   bool has_interval() const;
   private:
@@ -9170,6 +9202,42 @@ class CreateTriggerExpr final :
   void unsafe_arena_set_allocated_interval(
       ::PROTOBUF_NAMESPACE_ID::Duration* interval);
   ::PROTOBUF_NAMESPACE_ID::Duration* unsafe_arena_release_interval();
+
+  // .google.protobuf.Duration for = 10;
+  bool has_for_() const;
+  private:
+  bool _internal_has_for_() const;
+  public:
+  void clear_for_();
+  const ::PROTOBUF_NAMESPACE_ID::Duration& for_() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Duration* release_for_();
+  ::PROTOBUF_NAMESPACE_ID::Duration* mutable_for_();
+  void set_allocated_for_(::PROTOBUF_NAMESPACE_ID::Duration* for_);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Duration& _internal_for_() const;
+  ::PROTOBUF_NAMESPACE_ID::Duration* _internal_mutable_for_();
+  public:
+  void unsafe_arena_set_allocated_for_(
+      ::PROTOBUF_NAMESPACE_ID::Duration* for_);
+  ::PROTOBUF_NAMESPACE_ID::Duration* unsafe_arena_release_for_();
+
+  // .google.protobuf.Duration keep_firing_for = 12;
+  bool has_keep_firing_for() const;
+  private:
+  bool _internal_has_keep_firing_for() const;
+  public:
+  void clear_keep_firing_for();
+  const ::PROTOBUF_NAMESPACE_ID::Duration& keep_firing_for() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Duration* release_keep_firing_for();
+  ::PROTOBUF_NAMESPACE_ID::Duration* mutable_keep_firing_for();
+  void set_allocated_keep_firing_for(::PROTOBUF_NAMESPACE_ID::Duration* keep_firing_for);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Duration& _internal_keep_firing_for() const;
+  ::PROTOBUF_NAMESPACE_ID::Duration* _internal_mutable_keep_firing_for();
+  public:
+  void unsafe_arena_set_allocated_keep_firing_for(
+      ::PROTOBUF_NAMESPACE_ID::Duration* keep_firing_for);
+  ::PROTOBUF_NAMESPACE_ID::Duration* unsafe_arena_release_keep_firing_for();
 
   // bool create_if_not_exists = 3;
   void clear_create_if_not_exists();
@@ -9203,7 +9271,11 @@ class CreateTriggerExpr final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr trigger_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sql_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr raw_interval_expr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr for_raw_expr_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr keep_firing_for_raw_expr_;
     ::PROTOBUF_NAMESPACE_ID::Duration* interval_;
+    ::PROTOBUF_NAMESPACE_ID::Duration* for__;
+    ::PROTOBUF_NAMESPACE_ID::Duration* keep_firing_for_;
     bool create_if_not_exists_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -18013,6 +18085,276 @@ inline void CreateTriggerExpr::set_allocated_raw_interval_expr(std::string* raw_
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.raw_interval_expr)
+}
+
+// .google.protobuf.Duration for = 10;
+inline bool CreateTriggerExpr::_internal_has_for_() const {
+  return this != internal_default_instance() && _impl_.for__ != nullptr;
+}
+inline bool CreateTriggerExpr::has_for_() const {
+  return _internal_has_for_();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::_internal_for_() const {
+  const ::PROTOBUF_NAMESPACE_ID::Duration* p = _impl_.for__;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Duration&>(
+      ::PROTOBUF_NAMESPACE_ID::_Duration_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::for_() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.for)
+  return _internal_for_();
+}
+inline void CreateTriggerExpr::unsafe_arena_set_allocated_for_(
+    ::PROTOBUF_NAMESPACE_ID::Duration* for_) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.for__);
+  }
+  _impl_.for__ = for_;
+  if (for_) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateTriggerExpr.for)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::release_for_() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.for__;
+  _impl_.for__ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::unsafe_arena_release_for_() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.for)
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.for__;
+  _impl_.for__ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::_internal_mutable_for_() {
+  
+  if (_impl_.for__ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Duration>(GetArenaForAllocation());
+    _impl_.for__ = p;
+  }
+  return _impl_.for__;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::mutable_for_() {
+  ::PROTOBUF_NAMESPACE_ID::Duration* _msg = _internal_mutable_for_();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.for)
+  return _msg;
+}
+inline void CreateTriggerExpr::set_allocated_for_(::PROTOBUF_NAMESPACE_ID::Duration* for_) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.for__);
+  }
+  if (for_) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(for_));
+    if (message_arena != submessage_arena) {
+      for_ = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, for_, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.for__ = for_;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.for)
+}
+
+// string for_raw_expr = 11;
+inline void CreateTriggerExpr::clear_for_raw_expr() {
+  _impl_.for_raw_expr_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::for_raw_expr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.for_raw_expr)
+  return _internal_for_raw_expr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_for_raw_expr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.for_raw_expr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.for_raw_expr)
+}
+inline std::string* CreateTriggerExpr::mutable_for_raw_expr() {
+  std::string* _s = _internal_mutable_for_raw_expr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.for_raw_expr)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_for_raw_expr() const {
+  return _impl_.for_raw_expr_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_for_raw_expr(const std::string& value) {
+  
+  _impl_.for_raw_expr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_for_raw_expr() {
+  
+  return _impl_.for_raw_expr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_for_raw_expr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.for_raw_expr)
+  return _impl_.for_raw_expr_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_for_raw_expr(std::string* for_raw_expr) {
+  if (for_raw_expr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.for_raw_expr_.SetAllocated(for_raw_expr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.for_raw_expr_.IsDefault()) {
+    _impl_.for_raw_expr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.for_raw_expr)
+}
+
+// .google.protobuf.Duration keep_firing_for = 12;
+inline bool CreateTriggerExpr::_internal_has_keep_firing_for() const {
+  return this != internal_default_instance() && _impl_.keep_firing_for_ != nullptr;
+}
+inline bool CreateTriggerExpr::has_keep_firing_for() const {
+  return _internal_has_keep_firing_for();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::_internal_keep_firing_for() const {
+  const ::PROTOBUF_NAMESPACE_ID::Duration* p = _impl_.keep_firing_for_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Duration&>(
+      ::PROTOBUF_NAMESPACE_ID::_Duration_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Duration& CreateTriggerExpr::keep_firing_for() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.keep_firing_for)
+  return _internal_keep_firing_for();
+}
+inline void CreateTriggerExpr::unsafe_arena_set_allocated_keep_firing_for(
+    ::PROTOBUF_NAMESPACE_ID::Duration* keep_firing_for) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.keep_firing_for_);
+  }
+  _impl_.keep_firing_for_ = keep_firing_for;
+  if (keep_firing_for) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.CreateTriggerExpr.keep_firing_for)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::release_keep_firing_for() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.keep_firing_for_;
+  _impl_.keep_firing_for_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::unsafe_arena_release_keep_firing_for() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.keep_firing_for)
+  
+  ::PROTOBUF_NAMESPACE_ID::Duration* temp = _impl_.keep_firing_for_;
+  _impl_.keep_firing_for_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::_internal_mutable_keep_firing_for() {
+  
+  if (_impl_.keep_firing_for_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Duration>(GetArenaForAllocation());
+    _impl_.keep_firing_for_ = p;
+  }
+  return _impl_.keep_firing_for_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Duration* CreateTriggerExpr::mutable_keep_firing_for() {
+  ::PROTOBUF_NAMESPACE_ID::Duration* _msg = _internal_mutable_keep_firing_for();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.keep_firing_for)
+  return _msg;
+}
+inline void CreateTriggerExpr::set_allocated_keep_firing_for(::PROTOBUF_NAMESPACE_ID::Duration* keep_firing_for) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.keep_firing_for_);
+  }
+  if (keep_firing_for) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(keep_firing_for));
+    if (message_arena != submessage_arena) {
+      keep_firing_for = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, keep_firing_for, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.keep_firing_for_ = keep_firing_for;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.keep_firing_for)
+}
+
+// string keep_firing_for_raw_expr = 13;
+inline void CreateTriggerExpr::clear_keep_firing_for_raw_expr() {
+  _impl_.keep_firing_for_raw_expr_.ClearToEmpty();
+}
+inline const std::string& CreateTriggerExpr::keep_firing_for_raw_expr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr)
+  return _internal_keep_firing_for_raw_expr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CreateTriggerExpr::set_keep_firing_for_raw_expr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.keep_firing_for_raw_expr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr)
+}
+inline std::string* CreateTriggerExpr::mutable_keep_firing_for_raw_expr() {
+  std::string* _s = _internal_mutable_keep_firing_for_raw_expr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr)
+  return _s;
+}
+inline const std::string& CreateTriggerExpr::_internal_keep_firing_for_raw_expr() const {
+  return _impl_.keep_firing_for_raw_expr_.Get();
+}
+inline void CreateTriggerExpr::_internal_set_keep_firing_for_raw_expr(const std::string& value) {
+  
+  _impl_.keep_firing_for_raw_expr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::_internal_mutable_keep_firing_for_raw_expr() {
+  
+  return _impl_.keep_firing_for_raw_expr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CreateTriggerExpr::release_keep_firing_for_raw_expr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr)
+  return _impl_.keep_firing_for_raw_expr_.Release();
+}
+inline void CreateTriggerExpr::set_allocated_keep_firing_for_raw_expr(std::string* keep_firing_for_raw_expr) {
+  if (keep_firing_for_raw_expr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.keep_firing_for_raw_expr_.SetAllocated(keep_firing_for_raw_expr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.keep_firing_for_raw_expr_.IsDefault()) {
+    _impl_.keep_firing_for_raw_expr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr)
 }
 
 // -------------------------------------------------------------------

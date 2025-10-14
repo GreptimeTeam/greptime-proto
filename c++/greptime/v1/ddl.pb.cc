@@ -715,7 +715,11 @@ PROTOBUF_CONSTEXPR CreateTriggerExpr::CreateTriggerExpr(
   , /*decltype(_impl_.trigger_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sql_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.raw_interval_expr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.for_raw_expr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.keep_firing_for_raw_expr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.interval_)*/nullptr
+  , /*decltype(_impl_.for__)*/nullptr
+  , /*decltype(_impl_.keep_firing_for_)*/nullptr
   , /*decltype(_impl_.create_if_not_exists_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CreateTriggerExprDefaultTypeInternal {
@@ -1256,6 +1260,10 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.annotations_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.interval_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.raw_interval_expr_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.for__),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.for_raw_expr_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.keep_firing_for_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::CreateTriggerExpr, _impl_.keep_firing_for_raw_expr_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::NotifyChannel, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1342,10 +1350,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 432, 440, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
   { 442, 450, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
   { 452, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
-  { 467, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
-  { 476, 484, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
-  { 486, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
-  { 494, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
+  { 471, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
+  { 480, 488, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
+  { 490, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
+  { 498, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1555,8 +1563,8 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "(\0132!.greptime.v1.UnsetDatabaseOptionsH\000B"
   "\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_dat"
   "abase_options\030\001 \003(\0132\023.greptime.v1.Option"
-  "\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\305"
-  "\003\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001"
+  "\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331"
+  "\004\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001"
   "(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_no"
   "t_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030"
   "\005 \003(\0132\032.greptime.v1.NotifyChannel\022:\n\006lab"
@@ -1564,23 +1572,26 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "r.LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.gre"
   "ptime.v1.CreateTriggerExpr.AnnotationsEn"
   "try\022+\n\010interval\030\010 \001(\0132\031.google.protobuf."
-  "Duration\022\031\n\021raw_interval_expr\030\t \001(\t\032-\n\013L"
-  "abelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002"
-  "8\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
-  "alue\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030"
-  "\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.Web"
-  "hookOptionsH\000B\016\n\014channel_type\"\177\n\016Webhook"
-  "Options\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.gre"
-  "ptime.v1.WebhookOptions.OptsEntry\032+\n\tOpt"
-  "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U"
-  "\n\017DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022"
-  "\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030"
-  "\003 \001(\010*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINES"
-  "E\020\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005B"
-  "LOOM\020\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FIL"
-  "TER\020\000BL\n\016io.greptime.v1B\003DdlZ5github.com"
-  "/GreptimeTeam/greptime-proto/go/greptime"
-  "/v1b\006proto3"
+  "Duration\022\031\n\021raw_interval_expr\030\t \001(\t\022&\n\003f"
+  "or\030\n \001(\0132\031.google.protobuf.Duration\022\024\n\014f"
+  "or_raw_expr\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001"
+  "(\0132\031.google.protobuf.Duration\022 \n\030keep_fi"
+  "ring_for_raw_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013"
+  "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annota"
+  "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002"
+  "8\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007web"
+  "hook\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH"
+  "\000B\016\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003u"
+  "rl\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Web"
+  "hookOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003ke"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTrigge"
+  "rExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_n"
+  "ame\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Ana"
+  "lyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Fullt"
+  "extBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Sk"
+  "ippingIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io."
+  "greptime.v1B\003DdlZ5github.com/GreptimeTea"
+  "m/greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
@@ -1588,7 +1599,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 7051, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 7199, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 2, 52,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -14973,17 +14984,39 @@ void CreateTriggerExpr_AnnotationsEntry_DoNotUse::MergeFrom(const CreateTriggerE
 class CreateTriggerExpr::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Duration& interval(const CreateTriggerExpr* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Duration& for_(const CreateTriggerExpr* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Duration& keep_firing_for(const CreateTriggerExpr* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Duration&
 CreateTriggerExpr::_Internal::interval(const CreateTriggerExpr* msg) {
   return *msg->_impl_.interval_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Duration&
+CreateTriggerExpr::_Internal::for_(const CreateTriggerExpr* msg) {
+  return *msg->_impl_.for__;
+}
+const ::PROTOBUF_NAMESPACE_ID::Duration&
+CreateTriggerExpr::_Internal::keep_firing_for(const CreateTriggerExpr* msg) {
+  return *msg->_impl_.keep_firing_for_;
+}
 void CreateTriggerExpr::clear_interval() {
   if (GetArenaForAllocation() == nullptr && _impl_.interval_ != nullptr) {
     delete _impl_.interval_;
   }
   _impl_.interval_ = nullptr;
+}
+void CreateTriggerExpr::clear_for_() {
+  if (GetArenaForAllocation() == nullptr && _impl_.for__ != nullptr) {
+    delete _impl_.for__;
+  }
+  _impl_.for__ = nullptr;
+}
+void CreateTriggerExpr::clear_keep_firing_for() {
+  if (GetArenaForAllocation() == nullptr && _impl_.keep_firing_for_ != nullptr) {
+    delete _impl_.keep_firing_for_;
+  }
+  _impl_.keep_firing_for_ = nullptr;
 }
 CreateTriggerExpr::CreateTriggerExpr(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -15005,7 +15038,11 @@ CreateTriggerExpr::CreateTriggerExpr(const CreateTriggerExpr& from)
     , decltype(_impl_.trigger_name_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.raw_interval_expr_){}
+    , decltype(_impl_.for_raw_expr_){}
+    , decltype(_impl_.keep_firing_for_raw_expr_){}
     , decltype(_impl_.interval_){nullptr}
+    , decltype(_impl_.for__){nullptr}
+    , decltype(_impl_.keep_firing_for_){nullptr}
     , decltype(_impl_.create_if_not_exists_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -15044,8 +15081,30 @@ CreateTriggerExpr::CreateTriggerExpr(const CreateTriggerExpr& from)
     _this->_impl_.raw_interval_expr_.Set(from._internal_raw_interval_expr(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.for_raw_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.for_raw_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_for_raw_expr().empty()) {
+    _this->_impl_.for_raw_expr_.Set(from._internal_for_raw_expr(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.keep_firing_for_raw_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.keep_firing_for_raw_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_keep_firing_for_raw_expr().empty()) {
+    _this->_impl_.keep_firing_for_raw_expr_.Set(from._internal_keep_firing_for_raw_expr(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_interval()) {
     _this->_impl_.interval_ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.interval_);
+  }
+  if (from._internal_has_for_()) {
+    _this->_impl_.for__ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.for__);
+  }
+  if (from._internal_has_keep_firing_for()) {
+    _this->_impl_.keep_firing_for_ = new ::PROTOBUF_NAMESPACE_ID::Duration(*from._impl_.keep_firing_for_);
   }
   _this->_impl_.create_if_not_exists_ = from._impl_.create_if_not_exists_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.CreateTriggerExpr)
@@ -15063,7 +15122,11 @@ inline void CreateTriggerExpr::SharedCtor(
     , decltype(_impl_.trigger_name_){}
     , decltype(_impl_.sql_){}
     , decltype(_impl_.raw_interval_expr_){}
+    , decltype(_impl_.for_raw_expr_){}
+    , decltype(_impl_.keep_firing_for_raw_expr_){}
     , decltype(_impl_.interval_){nullptr}
+    , decltype(_impl_.for__){nullptr}
+    , decltype(_impl_.keep_firing_for_){nullptr}
     , decltype(_impl_.create_if_not_exists_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -15082,6 +15145,14 @@ inline void CreateTriggerExpr::SharedCtor(
   _impl_.raw_interval_expr_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.raw_interval_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.for_raw_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.for_raw_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.keep_firing_for_raw_expr_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.keep_firing_for_raw_expr_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -15106,7 +15177,11 @@ inline void CreateTriggerExpr::SharedDtor() {
   _impl_.trigger_name_.Destroy();
   _impl_.sql_.Destroy();
   _impl_.raw_interval_expr_.Destroy();
+  _impl_.for_raw_expr_.Destroy();
+  _impl_.keep_firing_for_raw_expr_.Destroy();
   if (this != internal_default_instance()) delete _impl_.interval_;
+  if (this != internal_default_instance()) delete _impl_.for__;
+  if (this != internal_default_instance()) delete _impl_.keep_firing_for_;
 }
 
 void CreateTriggerExpr::ArenaDtor(void* object) {
@@ -15131,10 +15206,20 @@ void CreateTriggerExpr::Clear() {
   _impl_.trigger_name_.ClearToEmpty();
   _impl_.sql_.ClearToEmpty();
   _impl_.raw_interval_expr_.ClearToEmpty();
+  _impl_.for_raw_expr_.ClearToEmpty();
+  _impl_.keep_firing_for_raw_expr_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.interval_ != nullptr) {
     delete _impl_.interval_;
   }
   _impl_.interval_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.for__ != nullptr) {
+    delete _impl_.for__;
+  }
+  _impl_.for__ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.keep_firing_for_ != nullptr) {
+    delete _impl_.keep_firing_for_;
+  }
+  _impl_.keep_firing_for_ = nullptr;
   _impl_.create_if_not_exists_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -15237,6 +15322,42 @@ const char* CreateTriggerExpr::_InternalParse(const char* ptr, ::_pbi::ParseCont
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.raw_interval_expr"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Duration for = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_for_(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string for_raw_expr = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          auto str = _internal_mutable_for_raw_expr();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.for_raw_expr"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Duration keep_firing_for = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ctx->ParseMessage(_internal_mutable_keep_firing_for(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string keep_firing_for_raw_expr = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+          auto str = _internal_mutable_keep_firing_for_raw_expr();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr"));
         } else
           goto handle_unusual;
         continue;
@@ -15390,6 +15511,40 @@ uint8_t* CreateTriggerExpr::_InternalSerialize(
         9, this->_internal_raw_interval_expr(), target);
   }
 
+  // .google.protobuf.Duration for = 10;
+  if (this->_internal_has_for_()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(10, _Internal::for_(this),
+        _Internal::for_(this).GetCachedSize(), target, stream);
+  }
+
+  // string for_raw_expr = 11;
+  if (!this->_internal_for_raw_expr().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_for_raw_expr().data(), static_cast<int>(this->_internal_for_raw_expr().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.CreateTriggerExpr.for_raw_expr");
+    target = stream->WriteStringMaybeAliased(
+        11, this->_internal_for_raw_expr(), target);
+  }
+
+  // .google.protobuf.Duration keep_firing_for = 12;
+  if (this->_internal_has_keep_firing_for()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(12, _Internal::keep_firing_for(this),
+        _Internal::keep_firing_for(this).GetCachedSize(), target, stream);
+  }
+
+  // string keep_firing_for_raw_expr = 13;
+  if (!this->_internal_keep_firing_for_raw_expr().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_keep_firing_for_raw_expr().data(), static_cast<int>(this->_internal_keep_firing_for_raw_expr().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.CreateTriggerExpr.keep_firing_for_raw_expr");
+    target = stream->WriteStringMaybeAliased(
+        13, this->_internal_keep_firing_for_raw_expr(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -15459,11 +15614,39 @@ size_t CreateTriggerExpr::ByteSizeLong() const {
         this->_internal_raw_interval_expr());
   }
 
+  // string for_raw_expr = 11;
+  if (!this->_internal_for_raw_expr().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_for_raw_expr());
+  }
+
+  // string keep_firing_for_raw_expr = 13;
+  if (!this->_internal_keep_firing_for_raw_expr().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_keep_firing_for_raw_expr());
+  }
+
   // .google.protobuf.Duration interval = 8;
   if (this->_internal_has_interval()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.interval_);
+  }
+
+  // .google.protobuf.Duration for = 10;
+  if (this->_internal_has_for_()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.for__);
+  }
+
+  // .google.protobuf.Duration keep_firing_for = 12;
+  if (this->_internal_has_keep_firing_for()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.keep_firing_for_);
   }
 
   // bool create_if_not_exists = 3;
@@ -15504,9 +15687,23 @@ void CreateTriggerExpr::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   if (!from._internal_raw_interval_expr().empty()) {
     _this->_internal_set_raw_interval_expr(from._internal_raw_interval_expr());
   }
+  if (!from._internal_for_raw_expr().empty()) {
+    _this->_internal_set_for_raw_expr(from._internal_for_raw_expr());
+  }
+  if (!from._internal_keep_firing_for_raw_expr().empty()) {
+    _this->_internal_set_keep_firing_for_raw_expr(from._internal_keep_firing_for_raw_expr());
+  }
   if (from._internal_has_interval()) {
     _this->_internal_mutable_interval()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
         from._internal_interval());
+  }
+  if (from._internal_has_for_()) {
+    _this->_internal_mutable_for_()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
+        from._internal_for_());
+  }
+  if (from._internal_has_keep_firing_for()) {
+    _this->_internal_mutable_keep_firing_for()->::PROTOBUF_NAMESPACE_ID::Duration::MergeFrom(
+        from._internal_keep_firing_for());
   }
   if (from._internal_create_if_not_exists() != 0) {
     _this->_internal_set_create_if_not_exists(from._internal_create_if_not_exists());
@@ -15548,6 +15745,14 @@ void CreateTriggerExpr::InternalSwap(CreateTriggerExpr* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.raw_interval_expr_, lhs_arena,
       &other->_impl_.raw_interval_expr_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.for_raw_expr_, lhs_arena,
+      &other->_impl_.for_raw_expr_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.keep_firing_for_raw_expr_, lhs_arena,
+      &other->_impl_.keep_firing_for_raw_expr_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CreateTriggerExpr, _impl_.create_if_not_exists_)
