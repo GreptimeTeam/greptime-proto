@@ -3631,6 +3631,21 @@ public final class RowData {
      */
     io.greptime.v1.RowData.StructValueOrBuilder getStructValueOrBuilder();
 
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     * @return Whether the jsonValue field is set.
+     */
+    boolean hasJsonValue();
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     * @return The jsonValue.
+     */
+    io.greptime.v1.RowData.Value getJsonValue();
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     */
+    io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder();
+
     public io.greptime.v1.RowData.Value.ValueDataCase getValueDataCase();
   }
   /**
@@ -3860,6 +3875,20 @@ public final class RowData {
               valueDataCase_ = 41;
               break;
             }
+            case 338: {
+              io.greptime.v1.RowData.Value.Builder subBuilder = null;
+              if (valueDataCase_ == 42) {
+                subBuilder = ((io.greptime.v1.RowData.Value) valueData_).toBuilder();
+              }
+              valueData_ =
+                  input.readMessage(io.greptime.v1.RowData.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.RowData.Value) valueData_);
+                valueData_ = subBuilder.buildPartial();
+              }
+              valueDataCase_ = 42;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3928,6 +3957,7 @@ public final class RowData {
       DECIMAL128_VALUE(31),
       LIST_VALUE(40),
       STRUCT_VALUE(41),
+      JSON_VALUE(42),
       VALUEDATA_NOT_SET(0);
       private final int value;
       private ValueDataCase(int value) {
@@ -3974,6 +4004,7 @@ public final class RowData {
           case 31: return DECIMAL128_VALUE;
           case 40: return LIST_VALUE;
           case 41: return STRUCT_VALUE;
+          case 42: return JSON_VALUE;
           case 0: return VALUEDATA_NOT_SET;
           default: return null;
         }
@@ -4669,6 +4700,37 @@ public final class RowData {
       return io.greptime.v1.RowData.StructValue.getDefaultInstance();
     }
 
+    public static final int JSON_VALUE_FIELD_NUMBER = 42;
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     * @return Whether the jsonValue field is set.
+     */
+    @java.lang.Override
+    public boolean hasJsonValue() {
+      return valueDataCase_ == 42;
+    }
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     * @return The jsonValue.
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.Value getJsonValue() {
+      if (valueDataCase_ == 42) {
+         return (io.greptime.v1.RowData.Value) valueData_;
+      }
+      return io.greptime.v1.RowData.Value.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.Value json_value = 42;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder() {
+      if (valueDataCase_ == 42) {
+         return (io.greptime.v1.RowData.Value) valueData_;
+      }
+      return io.greptime.v1.RowData.Value.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4793,6 +4855,9 @@ public final class RowData {
       }
       if (valueDataCase_ == 41) {
         output.writeMessage(41, (io.greptime.v1.RowData.StructValue) valueData_);
+      }
+      if (valueDataCase_ == 42) {
+        output.writeMessage(42, (io.greptime.v1.RowData.Value) valueData_);
       }
       unknownFields.writeTo(output);
     }
@@ -4942,6 +5007,10 @@ public final class RowData {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(41, (io.greptime.v1.RowData.StructValue) valueData_);
       }
+      if (valueDataCase_ == 42) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(42, (io.greptime.v1.RowData.Value) valueData_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5076,6 +5145,10 @@ public final class RowData {
         case 41:
           if (!getStructValue()
               .equals(other.getStructValue())) return false;
+          break;
+        case 42:
+          if (!getJsonValue()
+              .equals(other.getJsonValue())) return false;
           break;
         case 0:
         default:
@@ -5222,6 +5295,10 @@ public final class RowData {
         case 41:
           hash = (37 * hash) + STRUCT_VALUE_FIELD_NUMBER;
           hash = (53 * hash) + getStructValue().hashCode();
+          break;
+        case 42:
+          hash = (37 * hash) + JSON_VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + getJsonValue().hashCode();
           break;
         case 0:
         default:
@@ -5490,6 +5567,13 @@ public final class RowData {
             result.valueData_ = structValueBuilder_.build();
           }
         }
+        if (valueDataCase_ == 42) {
+          if (jsonValueBuilder_ == null) {
+            result.valueData_ = valueData_;
+          } else {
+            result.valueData_ = jsonValueBuilder_.build();
+          }
+        }
         result.valueDataCase_ = valueDataCase_;
         onBuilt();
         return result;
@@ -5656,6 +5740,10 @@ public final class RowData {
           }
           case STRUCT_VALUE: {
             mergeStructValue(other.getStructValue());
+            break;
+          }
+          case JSON_VALUE: {
+            mergeJsonValue(other.getJsonValue());
             break;
           }
           case VALUEDATA_NOT_SET: {
@@ -7357,6 +7445,148 @@ public final class RowData {
         onChanged();;
         return structValueBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> jsonValueBuilder_;
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       * @return Whether the jsonValue field is set.
+       */
+      @java.lang.Override
+      public boolean hasJsonValue() {
+        return valueDataCase_ == 42;
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       * @return The jsonValue.
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.Value getJsonValue() {
+        if (jsonValueBuilder_ == null) {
+          if (valueDataCase_ == 42) {
+            return (io.greptime.v1.RowData.Value) valueData_;
+          }
+          return io.greptime.v1.RowData.Value.getDefaultInstance();
+        } else {
+          if (valueDataCase_ == 42) {
+            return jsonValueBuilder_.getMessage();
+          }
+          return io.greptime.v1.RowData.Value.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      public Builder setJsonValue(io.greptime.v1.RowData.Value value) {
+        if (jsonValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          valueData_ = value;
+          onChanged();
+        } else {
+          jsonValueBuilder_.setMessage(value);
+        }
+        valueDataCase_ = 42;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      public Builder setJsonValue(
+          io.greptime.v1.RowData.Value.Builder builderForValue) {
+        if (jsonValueBuilder_ == null) {
+          valueData_ = builderForValue.build();
+          onChanged();
+        } else {
+          jsonValueBuilder_.setMessage(builderForValue.build());
+        }
+        valueDataCase_ = 42;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      public Builder mergeJsonValue(io.greptime.v1.RowData.Value value) {
+        if (jsonValueBuilder_ == null) {
+          if (valueDataCase_ == 42 &&
+              valueData_ != io.greptime.v1.RowData.Value.getDefaultInstance()) {
+            valueData_ = io.greptime.v1.RowData.Value.newBuilder((io.greptime.v1.RowData.Value) valueData_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            valueData_ = value;
+          }
+          onChanged();
+        } else {
+          if (valueDataCase_ == 42) {
+            jsonValueBuilder_.mergeFrom(value);
+          } else {
+            jsonValueBuilder_.setMessage(value);
+          }
+        }
+        valueDataCase_ = 42;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      public Builder clearJsonValue() {
+        if (jsonValueBuilder_ == null) {
+          if (valueDataCase_ == 42) {
+            valueDataCase_ = 0;
+            valueData_ = null;
+            onChanged();
+          }
+        } else {
+          if (valueDataCase_ == 42) {
+            valueDataCase_ = 0;
+            valueData_ = null;
+          }
+          jsonValueBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      public io.greptime.v1.RowData.Value.Builder getJsonValueBuilder() {
+        return getJsonValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder() {
+        if ((valueDataCase_ == 42) && (jsonValueBuilder_ != null)) {
+          return jsonValueBuilder_.getMessageOrBuilder();
+        } else {
+          if (valueDataCase_ == 42) {
+            return (io.greptime.v1.RowData.Value) valueData_;
+          }
+          return io.greptime.v1.RowData.Value.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Value json_value = 42;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> 
+          getJsonValueFieldBuilder() {
+        if (jsonValueBuilder_ == null) {
+          if (!(valueDataCase_ == 42)) {
+            valueData_ = io.greptime.v1.RowData.Value.getDefaultInstance();
+          }
+          jsonValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder>(
+                  (io.greptime.v1.RowData.Value) valueData_,
+                  getParentForChildren(),
+                  isClean());
+          valueData_ = null;
+        }
+        valueDataCase_ = 42;
+        onChanged();;
+        return jsonValueBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9049,7 +9279,7 @@ public final class RowData {
       "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime." +
       "v1.ColumnDataTypeExtension\022+\n\007options\030\005 " +
       "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\"" +
-      "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\234\007\n\005V" +
+      "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\306\007\n\005V" +
       "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 " +
       "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030" +
       "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value" +
@@ -9072,12 +9302,13 @@ public final class RowData {
       "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D" +
       "ecimal128H\000\022,\n\nlist_value\030( \001(\0132\026.grepti" +
       "me.v1.ListValueH\000\0220\n\014struct_value\030) \001(\0132" +
-      "\030.greptime.v1.StructValueH\000B\014\n\nvalue_dat" +
-      "a\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.greptime" +
-      ".v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003(\0132" +
-      "\022.greptime.v1.ValueBP\n\016io.greptime.v1B\007R" +
-      "owDataZ5github.com/GreptimeTeam/greptime" +
-      "-proto/go/greptime/v1b\006proto3"
+      "\030.greptime.v1.StructValueH\000\022(\n\njson_valu" +
+      "e\030* \001(\0132\022.greptime.v1.ValueH\000B\014\n\nvalue_d" +
+      "ata\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.grepti" +
+      "me.v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003(" +
+      "\0132\022.greptime.v1.ValueBP\n\016io.greptime.v1B" +
+      "\007RowDataZ5github.com/GreptimeTeam/grepti" +
+      "me-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9107,7 +9338,7 @@ public final class RowData {
     internal_static_greptime_v1_Value_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Value_descriptor,
-        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TimestampSecondValue", "TimestampMillisecondValue", "TimestampMicrosecondValue", "TimestampNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "IntervalYearMonthValue", "IntervalDayTimeValue", "IntervalMonthDayNanoValue", "Decimal128Value", "ListValue", "StructValue", "ValueData", });
+        new java.lang.String[] { "I8Value", "I16Value", "I32Value", "I64Value", "U8Value", "U16Value", "U32Value", "U64Value", "F32Value", "F64Value", "BoolValue", "BinaryValue", "StringValue", "DateValue", "DatetimeValue", "TimestampSecondValue", "TimestampMillisecondValue", "TimestampMicrosecondValue", "TimestampNanosecondValue", "TimeSecondValue", "TimeMillisecondValue", "TimeMicrosecondValue", "TimeNanosecondValue", "IntervalYearMonthValue", "IntervalDayTimeValue", "IntervalMonthDayNanoValue", "Decimal128Value", "ListValue", "StructValue", "JsonValue", "ValueData", });
     internal_static_greptime_v1_ListValue_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_ListValue_fieldAccessorTable = new

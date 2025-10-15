@@ -62,6 +62,7 @@ message Column {
 
     repeated ListValue list_values = 40;
     repeated StructValue struct_values = 41;
+    repeated Values json_values = 42;
   }
 
   // The array of non-null values in this column.
