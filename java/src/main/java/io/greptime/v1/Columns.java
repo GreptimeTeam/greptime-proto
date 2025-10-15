@@ -851,6 +851,30 @@ public final class Columns {
        */
       io.greptime.v1.RowData.StructValueOrBuilder getStructValuesOrBuilder(
           int index);
+
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      java.util.List<io.greptime.v1.Columns.Column.Values> 
+          getJsonValuesList();
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      io.greptime.v1.Columns.Column.Values getJsonValues(int index);
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      int getJsonValuesCount();
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      java.util.List<? extends io.greptime.v1.Columns.Column.ValuesOrBuilder> 
+          getJsonValuesOrBuilderList();
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      io.greptime.v1.Columns.Column.ValuesOrBuilder getJsonValuesOrBuilder(
+          int index);
     }
     /**
      * Protobuf type {@code greptime.v1.Column.Values}
@@ -894,6 +918,7 @@ public final class Columns {
         decimal128Values_ = java.util.Collections.emptyList();
         listValues_ = java.util.Collections.emptyList();
         structValues_ = java.util.Collections.emptyList();
+        jsonValues_ = java.util.Collections.emptyList();
       }
 
       @java.lang.Override
@@ -1463,6 +1488,15 @@ public final class Columns {
                     input.readMessage(io.greptime.v1.RowData.StructValue.parser(), extensionRegistry));
                 break;
               }
+              case 338: {
+                if (!((mutable_bitField0_ & 0x20000000) != 0)) {
+                  jsonValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.Values>();
+                  mutable_bitField0_ |= 0x20000000;
+                }
+                jsonValues_.add(
+                    input.readMessage(io.greptime.v1.Columns.Column.Values.parser(), extensionRegistry));
+                break;
+              }
               default: {
                 if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
@@ -1566,6 +1600,9 @@ public final class Columns {
           }
           if (((mutable_bitField0_ & 0x10000000) != 0)) {
             structValues_ = java.util.Collections.unmodifiableList(structValues_);
+          }
+          if (((mutable_bitField0_ & 0x20000000) != 0)) {
+            jsonValues_ = java.util.Collections.unmodifiableList(jsonValues_);
           }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -2450,6 +2487,46 @@ public final class Columns {
         return structValues_.get(index);
       }
 
+      public static final int JSON_VALUES_FIELD_NUMBER = 42;
+      private java.util.List<io.greptime.v1.Columns.Column.Values> jsonValues_;
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      @java.lang.Override
+      public java.util.List<io.greptime.v1.Columns.Column.Values> getJsonValuesList() {
+        return jsonValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      @java.lang.Override
+      public java.util.List<? extends io.greptime.v1.Columns.Column.ValuesOrBuilder> 
+          getJsonValuesOrBuilderList() {
+        return jsonValues_;
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      @java.lang.Override
+      public int getJsonValuesCount() {
+        return jsonValues_.size();
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.Values getJsonValues(int index) {
+        return jsonValues_.get(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Columns.Column.ValuesOrBuilder getJsonValuesOrBuilder(
+          int index) {
+        return jsonValues_.get(index);
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -2643,6 +2720,9 @@ public final class Columns {
         }
         for (int i = 0; i < structValues_.size(); i++) {
           output.writeMessage(41, structValues_.get(i));
+        }
+        for (int i = 0; i < jsonValues_.size(); i++) {
+          output.writeMessage(42, jsonValues_.get(i));
         }
         unknownFields.writeTo(output);
       }
@@ -2999,6 +3079,10 @@ public final class Columns {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(41, structValues_.get(i));
         }
+        for (int i = 0; i < jsonValues_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(42, jsonValues_.get(i));
+        }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
@@ -3072,6 +3156,8 @@ public final class Columns {
             .equals(other.getListValuesList())) return false;
         if (!getStructValuesList()
             .equals(other.getStructValuesList())) return false;
+        if (!getJsonValuesList()
+            .equals(other.getJsonValuesList())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -3198,6 +3284,10 @@ public final class Columns {
         if (getStructValuesCount() > 0) {
           hash = (37 * hash) + STRUCT_VALUES_FIELD_NUMBER;
           hash = (53 * hash) + getStructValuesList().hashCode();
+        }
+        if (getJsonValuesCount() > 0) {
+          hash = (37 * hash) + JSON_VALUES_FIELD_NUMBER;
+          hash = (53 * hash) + getJsonValuesList().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -3331,6 +3421,7 @@ public final class Columns {
             getDecimal128ValuesFieldBuilder();
             getListValuesFieldBuilder();
             getStructValuesFieldBuilder();
+            getJsonValuesFieldBuilder();
           }
         }
         @java.lang.Override
@@ -3409,6 +3500,12 @@ public final class Columns {
             bitField0_ = (bitField0_ & ~0x10000000);
           } else {
             structValuesBuilder_.clear();
+          }
+          if (jsonValuesBuilder_ == null) {
+            jsonValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x20000000);
+          } else {
+            jsonValuesBuilder_.clear();
           }
           return this;
         }
@@ -3597,6 +3694,15 @@ public final class Columns {
             result.structValues_ = structValues_;
           } else {
             result.structValues_ = structValuesBuilder_.build();
+          }
+          if (jsonValuesBuilder_ == null) {
+            if (((bitField0_ & 0x20000000) != 0)) {
+              jsonValues_ = java.util.Collections.unmodifiableList(jsonValues_);
+              bitField0_ = (bitField0_ & ~0x20000000);
+            }
+            result.jsonValues_ = jsonValues_;
+          } else {
+            result.jsonValues_ = jsonValuesBuilder_.build();
           }
           onBuilt();
           return result;
@@ -3997,6 +4103,32 @@ public final class Columns {
                      getStructValuesFieldBuilder() : null;
               } else {
                 structValuesBuilder_.addAllMessages(other.structValues_);
+              }
+            }
+          }
+          if (jsonValuesBuilder_ == null) {
+            if (!other.jsonValues_.isEmpty()) {
+              if (jsonValues_.isEmpty()) {
+                jsonValues_ = other.jsonValues_;
+                bitField0_ = (bitField0_ & ~0x20000000);
+              } else {
+                ensureJsonValuesIsMutable();
+                jsonValues_.addAll(other.jsonValues_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.jsonValues_.isEmpty()) {
+              if (jsonValuesBuilder_.isEmpty()) {
+                jsonValuesBuilder_.dispose();
+                jsonValuesBuilder_ = null;
+                jsonValues_ = other.jsonValues_;
+                bitField0_ = (bitField0_ & ~0x20000000);
+                jsonValuesBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getJsonValuesFieldBuilder() : null;
+              } else {
+                jsonValuesBuilder_.addAllMessages(other.jsonValues_);
               }
             }
           }
@@ -7001,6 +7133,246 @@ public final class Columns {
           }
           return structValuesBuilder_;
         }
+
+        private java.util.List<io.greptime.v1.Columns.Column.Values> jsonValues_ =
+          java.util.Collections.emptyList();
+        private void ensureJsonValuesIsMutable() {
+          if (!((bitField0_ & 0x20000000) != 0)) {
+            jsonValues_ = new java.util.ArrayList<io.greptime.v1.Columns.Column.Values>(jsonValues_);
+            bitField0_ |= 0x20000000;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.Values, io.greptime.v1.Columns.Column.Values.Builder, io.greptime.v1.Columns.Column.ValuesOrBuilder> jsonValuesBuilder_;
+
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.Values> getJsonValuesList() {
+          if (jsonValuesBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(jsonValues_);
+          } else {
+            return jsonValuesBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public int getJsonValuesCount() {
+          if (jsonValuesBuilder_ == null) {
+            return jsonValues_.size();
+          } else {
+            return jsonValuesBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public io.greptime.v1.Columns.Column.Values getJsonValues(int index) {
+          if (jsonValuesBuilder_ == null) {
+            return jsonValues_.get(index);
+          } else {
+            return jsonValuesBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder setJsonValues(
+            int index, io.greptime.v1.Columns.Column.Values value) {
+          if (jsonValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureJsonValuesIsMutable();
+            jsonValues_.set(index, value);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder setJsonValues(
+            int index, io.greptime.v1.Columns.Column.Values.Builder builderForValue) {
+          if (jsonValuesBuilder_ == null) {
+            ensureJsonValuesIsMutable();
+            jsonValues_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            jsonValuesBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder addJsonValues(io.greptime.v1.Columns.Column.Values value) {
+          if (jsonValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureJsonValuesIsMutable();
+            jsonValues_.add(value);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder addJsonValues(
+            int index, io.greptime.v1.Columns.Column.Values value) {
+          if (jsonValuesBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureJsonValuesIsMutable();
+            jsonValues_.add(index, value);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder addJsonValues(
+            io.greptime.v1.Columns.Column.Values.Builder builderForValue) {
+          if (jsonValuesBuilder_ == null) {
+            ensureJsonValuesIsMutable();
+            jsonValues_.add(builderForValue.build());
+            onChanged();
+          } else {
+            jsonValuesBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder addJsonValues(
+            int index, io.greptime.v1.Columns.Column.Values.Builder builderForValue) {
+          if (jsonValuesBuilder_ == null) {
+            ensureJsonValuesIsMutable();
+            jsonValues_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            jsonValuesBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder addAllJsonValues(
+            java.lang.Iterable<? extends io.greptime.v1.Columns.Column.Values> values) {
+          if (jsonValuesBuilder_ == null) {
+            ensureJsonValuesIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, jsonValues_);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder clearJsonValues() {
+          if (jsonValuesBuilder_ == null) {
+            jsonValues_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x20000000);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public Builder removeJsonValues(int index) {
+          if (jsonValuesBuilder_ == null) {
+            ensureJsonValuesIsMutable();
+            jsonValues_.remove(index);
+            onChanged();
+          } else {
+            jsonValuesBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public io.greptime.v1.Columns.Column.Values.Builder getJsonValuesBuilder(
+            int index) {
+          return getJsonValuesFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public io.greptime.v1.Columns.Column.ValuesOrBuilder getJsonValuesOrBuilder(
+            int index) {
+          if (jsonValuesBuilder_ == null) {
+            return jsonValues_.get(index);  } else {
+            return jsonValuesBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public java.util.List<? extends io.greptime.v1.Columns.Column.ValuesOrBuilder> 
+             getJsonValuesOrBuilderList() {
+          if (jsonValuesBuilder_ != null) {
+            return jsonValuesBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(jsonValues_);
+          }
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public io.greptime.v1.Columns.Column.Values.Builder addJsonValuesBuilder() {
+          return getJsonValuesFieldBuilder().addBuilder(
+              io.greptime.v1.Columns.Column.Values.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public io.greptime.v1.Columns.Column.Values.Builder addJsonValuesBuilder(
+            int index) {
+          return getJsonValuesFieldBuilder().addBuilder(
+              index, io.greptime.v1.Columns.Column.Values.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .greptime.v1.Column.Values json_values = 42;</code>
+         */
+        public java.util.List<io.greptime.v1.Columns.Column.Values.Builder> 
+             getJsonValuesBuilderList() {
+          return getJsonValuesFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            io.greptime.v1.Columns.Column.Values, io.greptime.v1.Columns.Column.Values.Builder, io.greptime.v1.Columns.Column.ValuesOrBuilder> 
+            getJsonValuesFieldBuilder() {
+          if (jsonValuesBuilder_ == null) {
+            jsonValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                io.greptime.v1.Columns.Column.Values, io.greptime.v1.Columns.Column.Values.Builder, io.greptime.v1.Columns.Column.ValuesOrBuilder>(
+                    jsonValues_,
+                    ((bitField0_ & 0x20000000) != 0),
+                    getParentForChildren(),
+                    isClean());
+            jsonValues_ = null;
+          }
+          return jsonValuesBuilder_;
+        }
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8588,14 +8960,14 @@ public final class Columns {
     java.lang.String[] descriptorData = {
       "\n\030greptime/v1/column.proto\022\013greptime.v1\032" +
       "\030greptime/v1/common.proto\032\025greptime/v1/r" +
-      "ow.proto\"\241\t\n\006Column\022\023\n\013column_name\030\001 \001(\t" +
+      "ow.proto\"\322\t\n\006Column\022\023\n\013column_name\030\001 \001(\t" +
       "\0220\n\rsemantic_type\030\002 \001(\0162\031.greptime.v1.Se" +
       "manticType\022*\n\006values\030\003 \001(\0132\032.greptime.v1" +
       ".Column.Values\022\021\n\tnull_mask\030\004 \001(\014\022-\n\010dat" +
       "atype\030\005 \001(\0162\033.greptime.v1.ColumnDataType" +
       "\022@\n\022datatype_extension\030\006 \001(\0132$.greptime." +
       "v1.ColumnDataTypeExtension\022+\n\007options\030\007 " +
-      "\001(\0132\032.greptime.v1.ColumnOptions\032\362\006\n\006Valu" +
+      "\001(\0132\032.greptime.v1.ColumnOptions\032\243\007\n\006Valu" +
       "es\022\021\n\ti8_values\030\001 \003(\005\022\022\n\ni16_values\030\002 \003(" +
       "\005\022\022\n\ni32_values\030\003 \003(\005\022\022\n\ni64_values\030\004 \003(" +
       "\003\022\021\n\tu8_values\030\005 \003(\r\022\022\n\nu16_values\030\006 \003(\r" +
@@ -8617,10 +8989,11 @@ public final class Columns {
       "nthDayNano\0222\n\021decimal128_values\030\037 \003(\0132\027." +
       "greptime.v1.Decimal128\022+\n\013list_values\030( " +
       "\003(\0132\026.greptime.v1.ListValue\022/\n\rstruct_va" +
-      "lues\030) \003(\0132\030.greptime.v1.StructValueBP\n\016" +
-      "io.greptime.v1B\007ColumnsZ5github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1b\006" +
-      "proto3"
+      "lues\030) \003(\0132\030.greptime.v1.StructValue\022/\n\013" +
+      "json_values\030* \003(\0132\032.greptime.v1.Column.V" +
+      "aluesBP\n\016io.greptime.v1B\007ColumnsZ5github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8639,7 +9012,7 @@ public final class Columns {
     internal_static_greptime_v1_Column_Values_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Column_Values_descriptor,
-        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TimestampSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "Decimal128Values", "ListValues", "StructValues", });
+        new java.lang.String[] { "I8Values", "I16Values", "I32Values", "I64Values", "U8Values", "U16Values", "U32Values", "U64Values", "F32Values", "F64Values", "BoolValues", "BinaryValues", "StringValues", "DateValues", "DatetimeValues", "TimestampSecondValues", "TimestampMillisecondValues", "TimestampMicrosecondValues", "TimestampNanosecondValues", "TimeSecondValues", "TimeMillisecondValues", "TimeMicrosecondValues", "TimeNanosecondValues", "IntervalYearMonthValues", "IntervalDayTimeValues", "IntervalMonthDayNanoValues", "Decimal128Values", "ListValues", "StructValues", "JsonValues", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
   }

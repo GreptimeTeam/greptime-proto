@@ -174,6 +174,7 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Value, _impl_.value_data_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ListValue, _internal_metadata_),
@@ -195,8 +196,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 8, -1, -1, sizeof(::greptime::v1::ColumnSchema)},
   { 19, -1, -1, sizeof(::greptime::v1::Row)},
   { 26, -1, -1, sizeof(::greptime::v1::Value)},
-  { 62, -1, -1, sizeof(::greptime::v1::ListValue)},
-  { 69, -1, -1, sizeof(::greptime::v1::StructValue)},
+  { 63, -1, -1, sizeof(::greptime::v1::ListValue)},
+  { 70, -1, -1, sizeof(::greptime::v1::StructValue)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -219,7 +220,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
   "v1.ColumnDataTypeExtension\022+\n\007options\030\005 "
   "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\""
-  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\234\007\n\005V"
+  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\306\007\n\005V"
   "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 "
   "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030"
   "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value"
@@ -242,19 +243,20 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D"
   "ecimal128H\000\022,\n\nlist_value\030( \001(\0132\026.grepti"
   "me.v1.ListValueH\000\0220\n\014struct_value\030) \001(\0132"
-  "\030.greptime.v1.StructValueH\000B\014\n\nvalue_dat"
-  "a\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.greptime"
-  ".v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003(\0132"
-  "\022.greptime.v1.ValueBP\n\016io.greptime.v1B\007R"
-  "owDataZ5github.com/GreptimeTeam/greptime"
-  "-proto/go/greptime/v1b\006proto3"
+  "\030.greptime.v1.StructValueH\000\022(\n\njson_valu"
+  "e\030* \001(\0132\022.greptime.v1.ValueH\000B\014\n\nvalue_d"
+  "ata\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.grepti"
+  "me.v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003("
+  "\0132\022.greptime.v1.ValueBP\n\016io.greptime.v1B"
+  "\007RowDataZ5github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1549, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1591, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 6,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -1045,6 +1047,7 @@ class Value::_Internal {
   static const ::greptime::v1::Decimal128& decimal128_value(const Value* msg);
   static const ::greptime::v1::ListValue& list_value(const Value* msg);
   static const ::greptime::v1::StructValue& struct_value(const Value* msg);
+  static const ::greptime::v1::Value& json_value(const Value* msg);
 };
 
 const ::greptime::v1::IntervalMonthDayNano&
@@ -1062,6 +1065,10 @@ Value::_Internal::list_value(const Value* msg) {
 const ::greptime::v1::StructValue&
 Value::_Internal::struct_value(const Value* msg) {
   return *msg->_impl_.value_data_.struct_value_;
+}
+const ::greptime::v1::Value&
+Value::_Internal::json_value(const Value* msg) {
+  return *msg->_impl_.value_data_.json_value_;
 }
 void Value::set_allocated_interval_month_day_nano_value(::greptime::v1::IntervalMonthDayNano* interval_month_day_nano_value) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1140,6 +1147,21 @@ void Value::set_allocated_struct_value(::greptime::v1::StructValue* struct_value
     _impl_.value_data_.struct_value_ = struct_value;
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.struct_value)
+}
+void Value::set_allocated_json_value(::greptime::v1::Value* json_value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value_data();
+  if (json_value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(json_value);
+    if (message_arena != submessage_arena) {
+      json_value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, json_value, submessage_arena);
+    }
+    set_has_json_value();
+    _impl_.value_data_.json_value_ = json_value;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.json_value)
 }
 Value::Value(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1276,6 +1298,11 @@ Value::Value(const Value& from)
     case kStructValue: {
       _this->_internal_mutable_struct_value()->::greptime::v1::StructValue::MergeFrom(
           from._internal_struct_value());
+      break;
+    }
+    case kJsonValue: {
+      _this->_internal_mutable_json_value()->::greptime::v1::Value::MergeFrom(
+          from._internal_json_value());
       break;
     }
     case VALUE_DATA_NOT_SET: {
@@ -1441,6 +1468,12 @@ void Value::clear_value_data() {
     case kStructValue: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.value_data_.struct_value_;
+      }
+      break;
+    }
+    case kJsonValue: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_data_.json_value_;
       }
       break;
     }
@@ -1703,6 +1736,14 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
+      // .greptime.v1.Value json_value = 42;
+      case 42:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_json_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1914,6 +1955,13 @@ uint8_t* Value::_InternalSerialize(
         _Internal::struct_value(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.Value json_value = 42;
+  if (_internal_has_json_value()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(42, _Internal::json_value(this),
+        _Internal::json_value(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2108,6 +2156,13 @@ size_t Value::ByteSizeLong() const {
           *_impl_.value_data_.struct_value_);
       break;
     }
+    // .greptime.v1.Value json_value = 42;
+    case kJsonValue: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_data_.json_value_);
+      break;
+    }
     case VALUE_DATA_NOT_SET: {
       break;
     }
@@ -2249,6 +2304,11 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
     case kStructValue: {
       _this->_internal_mutable_struct_value()->::greptime::v1::StructValue::MergeFrom(
           from._internal_struct_value());
+      break;
+    }
+    case kJsonValue: {
+      _this->_internal_mutable_json_value()->::greptime::v1::Value::MergeFrom(
+          from._internal_json_value());
       break;
     }
     case VALUE_DATA_NOT_SET: {

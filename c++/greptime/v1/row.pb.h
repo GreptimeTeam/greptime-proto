@@ -702,6 +702,7 @@ class Value final :
     kDecimal128Value = 31,
     kListValue = 40,
     kStructValue = 41,
+    kJsonValue = 42,
     VALUE_DATA_NOT_SET = 0,
   };
 
@@ -812,6 +813,7 @@ class Value final :
     kDecimal128ValueFieldNumber = 31,
     kListValueFieldNumber = 40,
     kStructValueFieldNumber = 41,
+    kJsonValueFieldNumber = 42,
   };
   // int32 i8_value = 1;
   bool has_i8_value() const;
@@ -1220,6 +1222,24 @@ class Value final :
       ::greptime::v1::StructValue* struct_value);
   ::greptime::v1::StructValue* unsafe_arena_release_struct_value();
 
+  // .greptime.v1.Value json_value = 42;
+  bool has_json_value() const;
+  private:
+  bool _internal_has_json_value() const;
+  public:
+  void clear_json_value();
+  const ::greptime::v1::Value& json_value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Value* release_json_value();
+  ::greptime::v1::Value* mutable_json_value();
+  void set_allocated_json_value(::greptime::v1::Value* json_value);
+  private:
+  const ::greptime::v1::Value& _internal_json_value() const;
+  ::greptime::v1::Value* _internal_mutable_json_value();
+  public:
+  void unsafe_arena_set_allocated_json_value(
+      ::greptime::v1::Value* json_value);
+  ::greptime::v1::Value* unsafe_arena_release_json_value();
+
   void clear_value_data();
   ValueDataCase value_data_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.Value)
@@ -1254,6 +1274,7 @@ class Value final :
   void set_has_decimal128_value();
   void set_has_list_value();
   void set_has_struct_value();
+  void set_has_json_value();
 
   inline bool has_value_data() const;
   inline void clear_has_value_data();
@@ -1294,6 +1315,7 @@ class Value final :
       ::greptime::v1::Decimal128* decimal128_value_;
       ::greptime::v1::ListValue* list_value_;
       ::greptime::v1::StructValue* struct_value_;
+      ::greptime::v1::Value* json_value_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3324,6 +3346,80 @@ inline ::greptime::v1::StructValue* Value::_internal_mutable_struct_value() {
 inline ::greptime::v1::StructValue* Value::mutable_struct_value() {
   ::greptime::v1::StructValue* _msg = _internal_mutable_struct_value();
   // @@protoc_insertion_point(field_mutable:greptime.v1.Value.struct_value)
+  return _msg;
+}
+
+// .greptime.v1.Value json_value = 42;
+inline bool Value::_internal_has_json_value() const {
+  return value_data_case() == kJsonValue;
+}
+inline bool Value::has_json_value() const {
+  return _internal_has_json_value();
+}
+inline void Value::set_has_json_value() {
+  _impl_._oneof_case_[0] = kJsonValue;
+}
+inline void Value::clear_json_value() {
+  if (_internal_has_json_value()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_data_.json_value_;
+    }
+    clear_has_value_data();
+  }
+}
+inline ::greptime::v1::Value* Value::release_json_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Value.json_value)
+  if (_internal_has_json_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value* temp = _impl_.value_data_.json_value_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_data_.json_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::Value& Value::_internal_json_value() const {
+  return _internal_has_json_value()
+      ? *_impl_.value_data_.json_value_
+      : reinterpret_cast< ::greptime::v1::Value&>(::greptime::v1::_Value_default_instance_);
+}
+inline const ::greptime::v1::Value& Value::json_value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Value.json_value)
+  return _internal_json_value();
+}
+inline ::greptime::v1::Value* Value::unsafe_arena_release_json_value() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.json_value)
+  if (_internal_has_json_value()) {
+    clear_has_value_data();
+    ::greptime::v1::Value* temp = _impl_.value_data_.json_value_;
+    _impl_.value_data_.json_value_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Value::unsafe_arena_set_allocated_json_value(::greptime::v1::Value* json_value) {
+  clear_value_data();
+  if (json_value) {
+    set_has_json_value();
+    _impl_.value_data_.json_value_ = json_value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.json_value)
+}
+inline ::greptime::v1::Value* Value::_internal_mutable_json_value() {
+  if (!_internal_has_json_value()) {
+    clear_value_data();
+    set_has_json_value();
+    _impl_.value_data_.json_value_ = CreateMaybeMessage< ::greptime::v1::Value >(GetArenaForAllocation());
+  }
+  return _impl_.value_data_.json_value_;
+}
+inline ::greptime::v1::Value* Value::mutable_json_value() {
+  ::greptime::v1::Value* _msg = _internal_mutable_json_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Value.json_value)
   return _msg;
 }
 

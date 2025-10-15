@@ -419,6 +419,20 @@ struct StructTypeExtensionDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StructTypeExtensionDefaultTypeInternal _StructTypeExtension_default_instance_;
+PROTOBUF_CONSTEXPR JsonNativeTypeExtension::JsonNativeTypeExtension(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.datatype_extension_)*/nullptr
+  , /*decltype(_impl_.datatype_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct JsonNativeTypeExtensionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JsonNativeTypeExtensionDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JsonNativeTypeExtensionDefaultTypeInternal() {}
+  union {
+    JsonNativeTypeExtension _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JsonNativeTypeExtensionDefaultTypeInternal _JsonNativeTypeExtension_default_instance_;
 PROTOBUF_CONSTEXPR ColumnOptions_OptionsEntry_DoNotUse::ColumnOptions_OptionsEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
 struct ColumnOptions_OptionsEntry_DoNotUseDefaultTypeInternal {
@@ -460,7 +474,7 @@ struct ArrowIpcDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ArrowIpcDefaultTypeInternal _ArrowIpc_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[32];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[33];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto[4];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto = nullptr;
 
@@ -682,6 +696,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnDataTypeExtension, _impl_.type_ext_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::DecimalTypeExtension, _internal_metadata_),
@@ -713,6 +728,14 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::StructTypeExtension, _impl_.fields_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonNativeTypeExtension, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonNativeTypeExtension, _impl_.datatype_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonNativeTypeExtension, _impl_.datatype_extension_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -766,13 +789,14 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 189, -1, -1, sizeof(::greptime::v1::Decimal128)},
   { 197, -1, -1, sizeof(::greptime::v1::StructField)},
   { 206, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 218, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
-  { 226, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
-  { 233, -1, -1, sizeof(::greptime::v1::ListTypeExtension)},
-  { 241, -1, -1, sizeof(::greptime::v1::StructTypeExtension)},
-  { 248, 256, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
-  { 258, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
-  { 265, -1, -1, sizeof(::greptime::v1::ArrowIpc)},
+  { 219, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 227, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
+  { 234, -1, -1, sizeof(::greptime::v1::ListTypeExtension)},
+  { 242, -1, -1, sizeof(::greptime::v1::StructTypeExtension)},
+  { 249, -1, -1, sizeof(::greptime::v1::JsonNativeTypeExtension)},
+  { 257, 265, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
+  { 267, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
+  { 274, -1, -1, sizeof(::greptime::v1::ArrowIpc)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -805,6 +829,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_VectorTypeExtension_default_instance_._instance,
   &::greptime::v1::_ListTypeExtension_default_instance_._instance,
   &::greptime::v1::_StructTypeExtension_default_instance_._instance,
+  &::greptime::v1::_JsonNativeTypeExtension_default_instance_._instance,
   &::greptime::v1::_ColumnOptions_OptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_ColumnOptions_default_instance_._instance,
   &::greptime::v1::_ArrowIpc_default_instance_._instance,
@@ -858,7 +883,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "\n\002lo\030\002 \001(\003\"\214\001\n\013StructField\022\014\n\004name\030\001 \001(\t"
   "\022-\n\010datatype\030\002 \001(\0162\033.greptime.v1.ColumnD"
   "ataType\022@\n\022datatype_extension\030\003 \001(\0132$.gr"
-  "eptime.v1.ColumnDataTypeExtension\"\274\002\n\027Co"
+  "eptime.v1.ColumnDataTypeExtension\"\376\002\n\027Co"
   "lumnDataTypeExtension\0229\n\014decimal_type\030\001 "
   "\001(\0132!.greptime.v1.DecimalTypeExtensionH\000"
   "\0223\n\tjson_type\030\002 \001(\0162\036.greptime.v1.JsonTy"
@@ -866,45 +891,50 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "ptime.v1.VectorTypeExtensionH\000\0223\n\tlist_t"
   "ype\030\004 \001(\0132\036.greptime.v1.ListTypeExtensio"
   "nH\000\0227\n\013struct_type\030\005 \001(\0132 .greptime.v1.S"
-  "tructTypeExtensionH\000B\n\n\010type_ext\"8\n\024Deci"
-  "malTypeExtension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005s"
-  "cale\030\002 \001(\005\"\"\n\023VectorTypeExtension\022\013\n\003dim"
-  "\030\001 \001(\r\"\204\001\n\021ListTypeExtension\022-\n\010datatype"
-  "\030\001 \001(\0162\033.greptime.v1.ColumnDataType\022@\n\022d"
-  "atatype_extension\030\002 \001(\0132$.greptime.v1.Co"
-  "lumnDataTypeExtension\"\?\n\023StructTypeExten"
-  "sion\022(\n\006fields\030\001 \003(\0132\030.greptime.v1.Struc"
-  "tField\"y\n\rColumnOptions\0228\n\007options\030\001 \003(\013"
-  "2\'.greptime.v1.ColumnOptions.OptionsEntr"
-  "y\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\t:\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n"
-  "\013data_header\030\002 \001(\014\022\017\n\007payload\030\003 \001(\014*1\n\014S"
-  "emanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMES"
-  "TAMP\020\002*\202\004\n\016ColumnDataType\022\013\n\007BOOLEAN\020\000\022\010"
-  "\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020"
-  "\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006"
-  "UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BI"
-  "NARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME"
-  "\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTAMP_MI"
-  "LLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECOND\020\021\022\030"
-  "\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SECOND\020"
-  "\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MICROSEC"
-  "OND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTERVAL_Y"
-  "EAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022\033\n\027IN"
-  "TERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL128\020\036\022"
-  "\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006STRUC"
-  "T\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SECO"
-  "ND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*$\n"
-  "\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016i"
-  "o.greptime.v1B\006CommonZ5github.com/Grepti"
-  "meTeam/greptime-proto/go/greptime/v1b\006pr"
-  "oto3"
+  "tructTypeExtensionH\000\022@\n\020json_native_type"
+  "\030\006 \001(\0132$.greptime.v1.JsonNativeTypeExten"
+  "sionH\000B\n\n\010type_ext\"8\n\024DecimalTypeExtensi"
+  "on\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"\"\n\023"
+  "VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"\204\001\n\021Lis"
+  "tTypeExtension\022-\n\010datatype\030\001 \001(\0162\033.grept"
+  "ime.v1.ColumnDataType\022@\n\022datatype_extens"
+  "ion\030\002 \001(\0132$.greptime.v1.ColumnDataTypeEx"
+  "tension\"\?\n\023StructTypeExtension\022(\n\006fields"
+  "\030\001 \003(\0132\030.greptime.v1.StructField\"\212\001\n\027Jso"
+  "nNativeTypeExtension\022-\n\010datatype\030\001 \001(\0162\033"
+  ".greptime.v1.ColumnDataType\022@\n\022datatype_"
+  "extension\030\002 \001(\0132$.greptime.v1.ColumnData"
+  "TypeExtension\"y\n\rColumnOptions\0228\n\007option"
+  "s\030\001 \003(\0132\'.greptime.v1.ColumnOptions.Opti"
+  "onsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
+  "\005value\030\002 \001(\t:\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001"
+  " \001(\014\022\023\n\013data_header\030\002 \001(\014\022\017\n\007payload\030\003 \001"
+  "(\014*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r"
+  "\n\tTIMESTAMP\020\002*\202\004\n\016ColumnDataType\022\013\n\007BOOL"
+  "EAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n"
+  "\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT3"
+  "2\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020"
+  "\n\022\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010D"
+  "ATETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMES"
+  "TAMP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSEC"
+  "OND\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_"
+  "SECOND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_M"
+  "ICROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INT"
+  "ERVAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020"
+  "\030\022\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMA"
+  "L128\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n"
+  "\n\006STRUCT\020)*H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022"
+  "\n\n\006SECOND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECO"
+  "ND\020\003*$\n\021JsonTypeExtension\022\017\n\013JSON_BINARY"
+  "\020\000BO\n\016io.greptime.v1B\006CommonZ5github.com"
+  "/GreptimeTeam/greptime-proto/go/greptime"
+  "/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 3484, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 3691, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
-    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 32,
+    &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 33,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fcommon_2eproto, file_level_enum_descriptors_greptime_2fv1_2fcommon_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fcommon_2eproto,
@@ -6058,6 +6088,7 @@ class ColumnDataTypeExtension::_Internal {
   static const ::greptime::v1::VectorTypeExtension& vector_type(const ColumnDataTypeExtension* msg);
   static const ::greptime::v1::ListTypeExtension& list_type(const ColumnDataTypeExtension* msg);
   static const ::greptime::v1::StructTypeExtension& struct_type(const ColumnDataTypeExtension* msg);
+  static const ::greptime::v1::JsonNativeTypeExtension& json_native_type(const ColumnDataTypeExtension* msg);
 };
 
 const ::greptime::v1::DecimalTypeExtension&
@@ -6075,6 +6106,10 @@ ColumnDataTypeExtension::_Internal::list_type(const ColumnDataTypeExtension* msg
 const ::greptime::v1::StructTypeExtension&
 ColumnDataTypeExtension::_Internal::struct_type(const ColumnDataTypeExtension* msg) {
   return *msg->_impl_.type_ext_.struct_type_;
+}
+const ::greptime::v1::JsonNativeTypeExtension&
+ColumnDataTypeExtension::_Internal::json_native_type(const ColumnDataTypeExtension* msg) {
+  return *msg->_impl_.type_ext_.json_native_type_;
 }
 void ColumnDataTypeExtension::set_allocated_decimal_type(::greptime::v1::DecimalTypeExtension* decimal_type) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -6136,6 +6171,21 @@ void ColumnDataTypeExtension::set_allocated_struct_type(::greptime::v1::StructTy
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDataTypeExtension.struct_type)
 }
+void ColumnDataTypeExtension::set_allocated_json_native_type(::greptime::v1::JsonNativeTypeExtension* json_native_type) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_type_ext();
+  if (json_native_type) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(json_native_type);
+    if (message_arena != submessage_arena) {
+      json_native_type = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, json_native_type, submessage_arena);
+    }
+    set_has_json_native_type();
+    _impl_.type_ext_.json_native_type_ = json_native_type;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ColumnDataTypeExtension.json_native_type)
+}
 ColumnDataTypeExtension::ColumnDataTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -6175,6 +6225,11 @@ ColumnDataTypeExtension::ColumnDataTypeExtension(const ColumnDataTypeExtension& 
     case kStructType: {
       _this->_internal_mutable_struct_type()->::greptime::v1::StructTypeExtension::MergeFrom(
           from._internal_struct_type());
+      break;
+    }
+    case kJsonNativeType: {
+      _this->_internal_mutable_json_native_type()->::greptime::v1::JsonNativeTypeExtension::MergeFrom(
+          from._internal_json_native_type());
       break;
     }
     case TYPE_EXT_NOT_SET: {
@@ -6247,6 +6302,12 @@ void ColumnDataTypeExtension::clear_type_ext() {
       }
       break;
     }
+    case kJsonNativeType: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.type_ext_.json_native_type_;
+      }
+      break;
+    }
     case TYPE_EXT_NOT_SET: {
       break;
     }
@@ -6308,6 +6369,14 @@ const char* ColumnDataTypeExtension::_InternalParse(const char* ptr, ::_pbi::Par
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_struct_type(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.JsonNativeTypeExtension json_native_type = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_json_native_type(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6376,6 +6445,13 @@ uint8_t* ColumnDataTypeExtension::_InternalSerialize(
         _Internal::struct_type(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.JsonNativeTypeExtension json_native_type = 6;
+  if (_internal_has_json_native_type()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, _Internal::json_native_type(this),
+        _Internal::json_native_type(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6427,6 +6503,13 @@ size_t ColumnDataTypeExtension::ByteSizeLong() const {
           *_impl_.type_ext_.struct_type_);
       break;
     }
+    // .greptime.v1.JsonNativeTypeExtension json_native_type = 6;
+    case kJsonNativeType: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.type_ext_.json_native_type_);
+      break;
+    }
     case TYPE_EXT_NOT_SET: {
       break;
     }
@@ -6472,6 +6555,11 @@ void ColumnDataTypeExtension::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg
     case kStructType: {
       _this->_internal_mutable_struct_type()->::greptime::v1::StructTypeExtension::MergeFrom(
           from._internal_struct_type());
+      break;
+    }
+    case kJsonNativeType: {
+      _this->_internal_mutable_json_native_type()->::greptime::v1::JsonNativeTypeExtension::MergeFrom(
+          from._internal_json_native_type());
       break;
     }
     case TYPE_EXT_NOT_SET: {
@@ -7308,6 +7396,233 @@ void StructTypeExtension::InternalSwap(StructTypeExtension* other) {
 
 // ===================================================================
 
+class JsonNativeTypeExtension::_Internal {
+ public:
+  static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const JsonNativeTypeExtension* msg);
+};
+
+const ::greptime::v1::ColumnDataTypeExtension&
+JsonNativeTypeExtension::_Internal::datatype_extension(const JsonNativeTypeExtension* msg) {
+  return *msg->_impl_.datatype_extension_;
+}
+JsonNativeTypeExtension::JsonNativeTypeExtension(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.JsonNativeTypeExtension)
+}
+JsonNativeTypeExtension::JsonNativeTypeExtension(const JsonNativeTypeExtension& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JsonNativeTypeExtension* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.datatype_extension_){nullptr}
+    , decltype(_impl_.datatype_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_datatype_extension()) {
+    _this->_impl_.datatype_extension_ = new ::greptime::v1::ColumnDataTypeExtension(*from._impl_.datatype_extension_);
+  }
+  _this->_impl_.datatype_ = from._impl_.datatype_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.JsonNativeTypeExtension)
+}
+
+inline void JsonNativeTypeExtension::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.datatype_extension_){nullptr}
+    , decltype(_impl_.datatype_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+JsonNativeTypeExtension::~JsonNativeTypeExtension() {
+  // @@protoc_insertion_point(destructor:greptime.v1.JsonNativeTypeExtension)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JsonNativeTypeExtension::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.datatype_extension_;
+}
+
+void JsonNativeTypeExtension::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JsonNativeTypeExtension::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.JsonNativeTypeExtension)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
+  _impl_.datatype_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JsonNativeTypeExtension::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.ColumnDataType datatype = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_datatype(static_cast<::greptime::v1::ColumnDataType>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_datatype_extension(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JsonNativeTypeExtension::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.JsonNativeTypeExtension)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.ColumnDataType datatype = 1;
+  if (this->_internal_datatype() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      1, this->_internal_datatype(), target);
+  }
+
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
+  if (this->_internal_has_datatype_extension()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::datatype_extension(this),
+        _Internal::datatype_extension(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.JsonNativeTypeExtension)
+  return target;
+}
+
+size_t JsonNativeTypeExtension::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.JsonNativeTypeExtension)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 2;
+  if (this->_internal_has_datatype_extension()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.datatype_extension_);
+  }
+
+  // .greptime.v1.ColumnDataType datatype = 1;
+  if (this->_internal_datatype() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_datatype());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JsonNativeTypeExtension::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JsonNativeTypeExtension::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JsonNativeTypeExtension::GetClassData() const { return &_class_data_; }
+
+
+void JsonNativeTypeExtension::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JsonNativeTypeExtension*>(&to_msg);
+  auto& from = static_cast<const JsonNativeTypeExtension&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.JsonNativeTypeExtension)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_datatype_extension()) {
+    _this->_internal_mutable_datatype_extension()->::greptime::v1::ColumnDataTypeExtension::MergeFrom(
+        from._internal_datatype_extension());
+  }
+  if (from._internal_datatype() != 0) {
+    _this->_internal_set_datatype(from._internal_datatype());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JsonNativeTypeExtension::CopyFrom(const JsonNativeTypeExtension& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.JsonNativeTypeExtension)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsonNativeTypeExtension::IsInitialized() const {
+  return true;
+}
+
+void JsonNativeTypeExtension::InternalSwap(JsonNativeTypeExtension* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(JsonNativeTypeExtension, _impl_.datatype_)
+      + sizeof(JsonNativeTypeExtension::_impl_.datatype_)
+      - PROTOBUF_FIELD_OFFSET(JsonNativeTypeExtension, _impl_.datatype_extension_)>(
+          reinterpret_cast<char*>(&_impl_.datatype_extension_),
+          reinterpret_cast<char*>(&other->_impl_.datatype_extension_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JsonNativeTypeExtension::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[29]);
+}
+
+// ===================================================================
+
 ColumnOptions_OptionsEntry_DoNotUse::ColumnOptions_OptionsEntry_DoNotUse() {}
 ColumnOptions_OptionsEntry_DoNotUse::ColumnOptions_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
     : SuperType(arena) {}
@@ -7317,7 +7632,7 @@ void ColumnOptions_OptionsEntry_DoNotUse::MergeFrom(const ColumnOptions_OptionsE
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnOptions_OptionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[29]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[30]);
 }
 
 // ===================================================================
@@ -7536,7 +7851,7 @@ void ColumnOptions::InternalSwap(ColumnOptions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ColumnOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[30]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[31]);
 }
 
 // ===================================================================
@@ -7824,7 +8139,7 @@ void ArrowIpc::InternalSwap(ArrowIpc* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ArrowIpc::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fcommon_2eproto[31]);
+      file_level_metadata_greptime_2fv1_2fcommon_2eproto[32]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -7946,6 +8261,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::ListTypeExtension >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::StructTypeExtension*
 Arena::CreateMaybeMessage< ::greptime::v1::StructTypeExtension >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::StructTypeExtension >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::JsonNativeTypeExtension*
+Arena::CreateMaybeMessage< ::greptime::v1::JsonNativeTypeExtension >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::JsonNativeTypeExtension >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse*
 Arena::CreateMaybeMessage< ::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse >(Arena* arena) {
