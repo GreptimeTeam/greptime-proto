@@ -59,6 +59,7 @@ message RegionRequest {
     BulkInsertRequest bulk_insert = 16;
     SyncRequest sync = 17;
     ListMetadataRequest list_metadata = 18;
+    BuildIndexRequest build_index = 19;
   }
 }
 
@@ -266,4 +267,8 @@ message SyncRequest {
 // Get region metadatas of a list of regions.
 message ListMetadataRequest {
   repeated uint64 region_ids = 1;
+}
+
+message BuildIndexRequest {
+  uint64 region_id = 1;
 }
