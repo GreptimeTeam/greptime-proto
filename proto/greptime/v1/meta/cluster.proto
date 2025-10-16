@@ -17,6 +17,7 @@ syntax = "proto3";
 package greptime.v1.meta;
 
 import "greptime/v1/meta/common.proto";
+import "greptime/v1/meta/heartbeat.proto";
 import "greptime/v1/meta/store.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
@@ -46,12 +47,16 @@ message MetasrvPeersResponse {
 
 message MetasrvNodeInfo {
   Peer peer = 1;
-  string version = 2;
-  string git_commit = 3;
-  // The node start timestamp in milliseconds.
-  uint64 start_time_ms = 4;
-  // The CPU cores number of the node.
-  uint32 cpus = 5;
-  // The memory bytes of the node.
-  uint64 memory_bytes = 6;
+  // Deprecated: Use NodeInfo instead. The version of the node.
+  string version = 2 [deprecated = true];
+  // Deprecated: Use NodeInfo instead. The git commit hash of the node.
+  string git_commit = 3 [deprecated = true];
+  // Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
+  uint64 start_time_ms = 4 [deprecated = true];
+  // Deprecated: Use NodeInfo instead. The CPU cores number of the node.
+  uint32 cpus = 5 [deprecated = true];
+  // Deprecated: Use NodeInfo instead. The memory bytes of the node.
+  uint64 memory_bytes = 6 [deprecated = true];
+  // The node info.
+  NodeInfo info = 7;
 }

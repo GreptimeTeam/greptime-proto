@@ -1226,6 +1226,7 @@ class NodeInfo final :
   enum : int {
     kVersionFieldNumber = 1,
     kGitCommitFieldNumber = 2,
+    kHostnameFieldNumber = 6,
     kStartTimeMsFieldNumber = 3,
     kMemoryBytesFieldNumber = 5,
     kCpusFieldNumber = 4,
@@ -1256,6 +1257,20 @@ class NodeInfo final :
   const std::string& _internal_git_commit() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_git_commit(const std::string& value);
   std::string* _internal_mutable_git_commit();
+  public:
+
+  // string hostname = 6;
+  void clear_hostname();
+  const std::string& hostname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_hostname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_hostname();
+  PROTOBUF_NODISCARD std::string* release_hostname();
+  void set_allocated_hostname(std::string* hostname);
+  private:
+  const std::string& _internal_hostname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_hostname(const std::string& value);
+  std::string* _internal_mutable_hostname();
   public:
 
   // uint64 start_time_ms = 3;
@@ -1295,6 +1310,7 @@ class NodeInfo final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr git_commit_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hostname_;
     uint64_t start_time_ms_;
     uint64_t memory_bytes_;
     uint32_t cpus_;
@@ -4406,6 +4422,56 @@ inline void NodeInfo::_internal_set_memory_bytes(uint64_t value) {
 inline void NodeInfo::set_memory_bytes(uint64_t value) {
   _internal_set_memory_bytes(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.memory_bytes)
+}
+
+// string hostname = 6;
+inline void NodeInfo::clear_hostname() {
+  _impl_.hostname_.ClearToEmpty();
+}
+inline const std::string& NodeInfo::hostname() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.NodeInfo.hostname)
+  return _internal_hostname();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NodeInfo::set_hostname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.hostname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.NodeInfo.hostname)
+}
+inline std::string* NodeInfo::mutable_hostname() {
+  std::string* _s = _internal_mutable_hostname();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.NodeInfo.hostname)
+  return _s;
+}
+inline const std::string& NodeInfo::_internal_hostname() const {
+  return _impl_.hostname_.Get();
+}
+inline void NodeInfo::_internal_set_hostname(const std::string& value) {
+  
+  _impl_.hostname_.Set(value, GetArenaForAllocation());
+}
+inline std::string* NodeInfo::_internal_mutable_hostname() {
+  
+  return _impl_.hostname_.Mutable(GetArenaForAllocation());
+}
+inline std::string* NodeInfo::release_hostname() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.NodeInfo.hostname)
+  return _impl_.hostname_.Release();
+}
+inline void NodeInfo::set_allocated_hostname(std::string* hostname) {
+  if (hostname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.hostname_.SetAllocated(hostname, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.hostname_.IsDefault()) {
+    _impl_.hostname_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.NodeInfo.hostname)
 }
 
 // -------------------------------------------------------------------
