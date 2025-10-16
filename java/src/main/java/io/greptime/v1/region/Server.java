@@ -26313,6 +26313,12 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.StrictWindowOrBuilder getStrictWindowOrBuilder();
 
+    /**
+     * <code>uint32 parallelism = 4;</code>
+     * @return The parallelism.
+     */
+    int getParallelism();
+
     public io.greptime.v1.region.Server.CompactRequest.OptionsCase getOptionsCase();
   }
   /**
@@ -26391,6 +26397,11 @@ java.lang.String defaultValue);
                 options_ = subBuilder.buildPartial();
               }
               optionsCase_ = 3;
+              break;
+            }
+            case 32: {
+
+              parallelism_ = input.readUInt32();
               break;
             }
             default: {
@@ -26541,6 +26552,17 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.StrictWindow.getDefaultInstance();
     }
 
+    public static final int PARALLELISM_FIELD_NUMBER = 4;
+    private int parallelism_;
+    /**
+     * <code>uint32 parallelism = 4;</code>
+     * @return The parallelism.
+     */
+    @java.lang.Override
+    public int getParallelism() {
+      return parallelism_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -26564,6 +26586,9 @@ java.lang.String defaultValue);
       if (optionsCase_ == 3) {
         output.writeMessage(3, (io.greptime.v1.region.Server.StrictWindow) options_);
       }
+      if (parallelism_ != 0) {
+        output.writeUInt32(4, parallelism_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -26585,6 +26610,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.greptime.v1.region.Server.StrictWindow) options_);
       }
+      if (parallelism_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, parallelism_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -26602,6 +26631,8 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
+      if (getParallelism()
+          != other.getParallelism()) return false;
       if (!getOptionsCase().equals(other.getOptionsCase())) return false;
       switch (optionsCase_) {
         case 2:
@@ -26629,6 +26660,8 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
+      hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
+      hash = (53 * hash) + getParallelism();
       switch (optionsCase_) {
         case 2:
           hash = (37 * hash) + REGULAR_FIELD_NUMBER;
@@ -26776,6 +26809,8 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
+        parallelism_ = 0;
+
         optionsCase_ = 0;
         options_ = null;
         return this;
@@ -26819,6 +26854,7 @@ java.lang.String defaultValue);
             result.options_ = strictWindowBuilder_.build();
           }
         }
+        result.parallelism_ = parallelism_;
         result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
@@ -26870,6 +26906,9 @@ java.lang.String defaultValue);
         if (other == io.greptime.v1.region.Server.CompactRequest.getDefaultInstance()) return this;
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
+        }
+        if (other.getParallelism() != 0) {
+          setParallelism(other.getParallelism());
         }
         switch (other.getOptionsCase()) {
           case REGULAR: {
@@ -27241,6 +27280,37 @@ java.lang.String defaultValue);
         optionsCase_ = 3;
         onChanged();;
         return strictWindowBuilder_;
+      }
+
+      private int parallelism_ ;
+      /**
+       * <code>uint32 parallelism = 4;</code>
+       * @return The parallelism.
+       */
+      @java.lang.Override
+      public int getParallelism() {
+        return parallelism_;
+      }
+      /**
+       * <code>uint32 parallelism = 4;</code>
+       * @param value The parallelism to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParallelism(int value) {
+        
+        parallelism_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parallelism = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParallelism() {
+        
+        parallelism_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -33267,33 +33337,33 @@ java.lang.String defaultValue);
       "ocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014F" +
       "lushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regula" +
       "r\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(" +
-      "\003\"\231\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
+      "\003\"\256\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
       ".\n\007regular\030\002 \001(\0132\033.greptime.v1.region.Re" +
       "gularH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptim" +
-      "e.v1.region.StrictWindowH\000B\t\n\007options\"\204\001" +
-      "\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003" +
-      "all\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022.\n\013" +
-      "time_ranges\030\003 \001(\0132\027.greptime.v1.TimeRang" +
-      "esH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022*" +
-      "\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnD" +
-      "ef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\013" +
-      "2\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020Mit" +
-      "oManifestInfo\022\035\n\025data_manifest_version\030\001" +
-      " \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manif" +
-      "est_version\030\001 \001(\004\022!\n\031metadata_manifest_v" +
-      "ersion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_i" +
-      "d\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.gr" +
-      "eptime.v1.region.MitoManifestInfoH\000\022F\n\024m" +
-      "etric_manifest_info\030\003 \001(\0132&.greptime.v1." +
-      "region.MetricManifestInfoH\000B\017\n\rmanifest_" +
-      "info\")\n\023ListMetadataRequest\022\022\n\nregion_id" +
-      "s\030\001 \003(\0042Y\n\006Region\022O\n\006Handle\022!.greptime.v" +
-      "1.region.RegionRequest\032\".greptime.v1.reg" +
-      "ion.RegionResponseB]\n\025io.greptime.v1.reg" +
-      "ionB\006ServerZ<github.com/GreptimeTeam/gre" +
-      "ptime-proto/go/greptime/v1/regionb\006proto" +
-      "3"
+      "e.v1.region.StrictWindowH\000\022\023\n\013parallelis" +
+      "m\030\004 \001(\rB\t\n\007options\"\204\001\n\017TruncateRequest\022\021" +
+      "\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptim" +
+      "e.v1.region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027" +
+      ".greptime.v1.TimeRangesH\000B\006\n\004kind\"\005\n\003All" +
+      "\"P\n\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132" +
+      "\026.greptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001" +
+      "(\r\"Z\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.Arro" +
+      "wIpcH\000B\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025da" +
+      "ta_manifest_version\030\001 \001(\004\"V\n\022MetricManif" +
+      "estInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!" +
+      "\n\031metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sy" +
+      "ncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_man" +
+      "ifest_info\030\002 \001(\0132$.greptime.v1.region.Mi" +
+      "toManifestInfoH\000\022F\n\024metric_manifest_info" +
+      "\030\003 \001(\0132&.greptime.v1.region.MetricManife" +
+      "stInfoH\000B\017\n\rmanifest_info\")\n\023ListMetadat" +
+      "aRequest\022\022\n\nregion_ids\030\001 \003(\0042Y\n\006Region\022O" +
+      "\n\006Handle\022!.greptime.v1.region.RegionRequ" +
+      "est\032\".greptime.v1.region.RegionResponseB" +
+      "]\n\025io.greptime.v1.regionB\006ServerZ<github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -33476,7 +33546,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Options", });
+        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Parallelism", "Options", });
     internal_static_greptime_v1_region_TruncateRequest_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
