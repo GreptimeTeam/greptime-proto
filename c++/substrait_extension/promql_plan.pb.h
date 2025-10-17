@@ -381,29 +381,31 @@ class InstantManipulate final :
     kEndFieldNumber = 2,
     kIntervalFieldNumber = 3,
     kLookbackDeltaFieldNumber = 4,
+    kTimeIndexIdxFieldNumber = 7,
+    kFieldIndexIdxFieldNumber = 8,
   };
-  // string time_index = 5;
-  void clear_time_index();
-  const std::string& time_index() const;
+  // string time_index = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index();
+  PROTOBUF_DEPRECATED const std::string& time_index() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index();
-  PROTOBUF_NODISCARD std::string* release_time_index();
-  void set_allocated_time_index(std::string* time_index);
+  PROTOBUF_DEPRECATED void set_time_index(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index();
+  PROTOBUF_DEPRECATED void set_allocated_time_index(std::string* time_index);
   private:
   const std::string& _internal_time_index() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index(const std::string& value);
   std::string* _internal_mutable_time_index();
   public:
 
-  // string field_index = 6;
-  void clear_field_index();
-  const std::string& field_index() const;
+  // string field_index = 6 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_field_index();
+  PROTOBUF_DEPRECATED const std::string& field_index() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_field_index(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_field_index();
-  PROTOBUF_NODISCARD std::string* release_field_index();
-  void set_allocated_field_index(std::string* field_index);
+  PROTOBUF_DEPRECATED void set_field_index(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_field_index();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_field_index();
+  PROTOBUF_DEPRECATED void set_allocated_field_index(std::string* field_index);
   private:
   const std::string& _internal_field_index() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_field_index(const std::string& value);
@@ -446,6 +448,24 @@ class InstantManipulate final :
   void _internal_set_lookback_delta(int64_t value);
   public:
 
+  // uint64 time_index_idx = 7;
+  void clear_time_index_idx();
+  uint64_t time_index_idx() const;
+  void set_time_index_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_idx() const;
+  void _internal_set_time_index_idx(uint64_t value);
+  public:
+
+  // uint64 field_index_idx = 8;
+  void clear_field_index_idx();
+  uint64_t field_index_idx() const;
+  void set_field_index_idx(uint64_t value);
+  private:
+  uint64_t _internal_field_index_idx() const;
+  void _internal_set_field_index_idx(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.InstantManipulate)
  private:
   class _Internal;
@@ -460,6 +480,8 @@ class InstantManipulate final :
     int64_t end_;
     int64_t interval_;
     int64_t lookback_delta_;
+    uint64_t time_index_idx_;
+    uint64_t field_index_idx_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -589,42 +611,66 @@ class SeriesNormalize final :
 
   enum : int {
     kTagColumnsFieldNumber = 4,
+    kTagColumnIndicesFieldNumber = 6,
     kTimeIndexFieldNumber = 2,
     kOffsetFieldNumber = 1,
+    kTimeIndexIdxFieldNumber = 5,
     kFilterNanFieldNumber = 3,
   };
-  // repeated string tag_columns = 4;
-  int tag_columns_size() const;
+  // repeated string tag_columns = 4 [deprecated = true];
+  PROTOBUF_DEPRECATED int tag_columns_size() const;
   private:
   int _internal_tag_columns_size() const;
   public:
-  void clear_tag_columns();
-  const std::string& tag_columns(int index) const;
-  std::string* mutable_tag_columns(int index);
-  void set_tag_columns(int index, const std::string& value);
-  void set_tag_columns(int index, std::string&& value);
-  void set_tag_columns(int index, const char* value);
-  void set_tag_columns(int index, const char* value, size_t size);
-  std::string* add_tag_columns();
-  void add_tag_columns(const std::string& value);
-  void add_tag_columns(std::string&& value);
-  void add_tag_columns(const char* value);
-  void add_tag_columns(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  PROTOBUF_DEPRECATED void clear_tag_columns();
+  PROTOBUF_DEPRECATED const std::string& tag_columns(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_tag_columns(int index);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_tag_columns();
+  PROTOBUF_DEPRECATED void add_tag_columns(const std::string& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(std::string&& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
   private:
   const std::string& _internal_tag_columns(int index) const;
   std::string* _internal_add_tag_columns();
   public:
 
-  // string time_index = 2;
-  void clear_time_index();
-  const std::string& time_index() const;
+  // repeated uint64 tag_column_indices = 6;
+  int tag_column_indices_size() const;
+  private:
+  int _internal_tag_column_indices_size() const;
+  public:
+  void clear_tag_column_indices();
+  private:
+  uint64_t _internal_tag_column_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_tag_column_indices() const;
+  void _internal_add_tag_column_indices(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_tag_column_indices();
+  public:
+  uint64_t tag_column_indices(int index) const;
+  void set_tag_column_indices(int index, uint64_t value);
+  void add_tag_column_indices(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      tag_column_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_tag_column_indices();
+
+  // string time_index = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index();
+  PROTOBUF_DEPRECATED const std::string& time_index() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index();
-  PROTOBUF_NODISCARD std::string* release_time_index();
-  void set_allocated_time_index(std::string* time_index);
+  PROTOBUF_DEPRECATED void set_time_index(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index();
+  PROTOBUF_DEPRECATED void set_allocated_time_index(std::string* time_index);
   private:
   const std::string& _internal_time_index() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index(const std::string& value);
@@ -638,6 +684,15 @@ class SeriesNormalize final :
   private:
   int64_t _internal_offset() const;
   void _internal_set_offset(int64_t value);
+  public:
+
+  // uint64 time_index_idx = 5;
+  void clear_time_index_idx();
+  uint64_t time_index_idx() const;
+  void set_time_index_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_idx() const;
+  void _internal_set_time_index_idx(uint64_t value);
   public:
 
   // bool filter_nan = 3;
@@ -658,8 +713,11 @@ class SeriesNormalize final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > tag_column_indices_;
+    mutable std::atomic<int> _tag_column_indices_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_;
     int64_t offset_;
+    uint64_t time_index_idx_;
     bool filter_nan_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -790,44 +848,77 @@ class SeriesDivide final :
 
   enum : int {
     kTagColumnsFieldNumber = 1,
+    kTagColumnIndicesFieldNumber = 3,
     kTimeIndexColumnFieldNumber = 2,
+    kTimeIndexColumnIdxFieldNumber = 4,
   };
-  // repeated string tag_columns = 1;
-  int tag_columns_size() const;
+  // repeated string tag_columns = 1 [deprecated = true];
+  PROTOBUF_DEPRECATED int tag_columns_size() const;
   private:
   int _internal_tag_columns_size() const;
   public:
-  void clear_tag_columns();
-  const std::string& tag_columns(int index) const;
-  std::string* mutable_tag_columns(int index);
-  void set_tag_columns(int index, const std::string& value);
-  void set_tag_columns(int index, std::string&& value);
-  void set_tag_columns(int index, const char* value);
-  void set_tag_columns(int index, const char* value, size_t size);
-  std::string* add_tag_columns();
-  void add_tag_columns(const std::string& value);
-  void add_tag_columns(std::string&& value);
-  void add_tag_columns(const char* value);
-  void add_tag_columns(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  PROTOBUF_DEPRECATED void clear_tag_columns();
+  PROTOBUF_DEPRECATED const std::string& tag_columns(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_tag_columns(int index);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_tag_columns();
+  PROTOBUF_DEPRECATED void add_tag_columns(const std::string& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(std::string&& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
   private:
   const std::string& _internal_tag_columns(int index) const;
   std::string* _internal_add_tag_columns();
   public:
 
-  // string time_index_column = 2;
-  void clear_time_index_column();
-  const std::string& time_index_column() const;
+  // repeated uint64 tag_column_indices = 3;
+  int tag_column_indices_size() const;
+  private:
+  int _internal_tag_column_indices_size() const;
+  public:
+  void clear_tag_column_indices();
+  private:
+  uint64_t _internal_tag_column_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_tag_column_indices() const;
+  void _internal_add_tag_column_indices(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_tag_column_indices();
+  public:
+  uint64_t tag_column_indices(int index) const;
+  void set_tag_column_indices(int index, uint64_t value);
+  void add_tag_column_indices(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      tag_column_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_tag_column_indices();
+
+  // string time_index_column = 2 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index_column();
+  PROTOBUF_DEPRECATED const std::string& time_index_column() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index_column(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index_column();
-  PROTOBUF_NODISCARD std::string* release_time_index_column();
-  void set_allocated_time_index_column(std::string* time_index_column);
+  PROTOBUF_DEPRECATED void set_time_index_column(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index_column();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index_column();
+  PROTOBUF_DEPRECATED void set_allocated_time_index_column(std::string* time_index_column);
   private:
   const std::string& _internal_time_index_column() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index_column(const std::string& value);
   std::string* _internal_mutable_time_index_column();
+  public:
+
+  // uint64 time_index_column_idx = 4;
+  void clear_time_index_column_idx();
+  uint64_t time_index_column_idx() const;
+  void set_time_index_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_column_idx() const;
+  void _internal_set_time_index_column_idx(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:substrait_extension.SeriesDivide)
@@ -839,7 +930,10 @@ class SeriesDivide final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > tag_column_indices_;
+    mutable std::atomic<int> _tag_column_indices_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_column_;
+    uint64_t time_index_column_idx_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -969,44 +1063,68 @@ class RangeManipulate final :
 
   enum : int {
     kTagColumnsFieldNumber = 6,
+    kTagColumnIndicesFieldNumber = 8,
     kTimeIndexFieldNumber = 5,
     kStartFieldNumber = 1,
     kEndFieldNumber = 2,
     kIntervalFieldNumber = 3,
     kRangeFieldNumber = 4,
+    kTimeIndexIdxFieldNumber = 7,
   };
-  // repeated string tag_columns = 6;
-  int tag_columns_size() const;
+  // repeated string tag_columns = 6 [deprecated = true];
+  PROTOBUF_DEPRECATED int tag_columns_size() const;
   private:
   int _internal_tag_columns_size() const;
   public:
-  void clear_tag_columns();
-  const std::string& tag_columns(int index) const;
-  std::string* mutable_tag_columns(int index);
-  void set_tag_columns(int index, const std::string& value);
-  void set_tag_columns(int index, std::string&& value);
-  void set_tag_columns(int index, const char* value);
-  void set_tag_columns(int index, const char* value, size_t size);
-  std::string* add_tag_columns();
-  void add_tag_columns(const std::string& value);
-  void add_tag_columns(std::string&& value);
-  void add_tag_columns(const char* value);
-  void add_tag_columns(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  PROTOBUF_DEPRECATED void clear_tag_columns();
+  PROTOBUF_DEPRECATED const std::string& tag_columns(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_tag_columns(int index);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_tag_columns();
+  PROTOBUF_DEPRECATED void add_tag_columns(const std::string& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(std::string&& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
   private:
   const std::string& _internal_tag_columns(int index) const;
   std::string* _internal_add_tag_columns();
   public:
 
-  // string time_index = 5;
-  void clear_time_index();
-  const std::string& time_index() const;
+  // repeated uint64 tag_column_indices = 8;
+  int tag_column_indices_size() const;
+  private:
+  int _internal_tag_column_indices_size() const;
+  public:
+  void clear_tag_column_indices();
+  private:
+  uint64_t _internal_tag_column_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_tag_column_indices() const;
+  void _internal_add_tag_column_indices(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_tag_column_indices();
+  public:
+  uint64_t tag_column_indices(int index) const;
+  void set_tag_column_indices(int index, uint64_t value);
+  void add_tag_column_indices(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      tag_column_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_tag_column_indices();
+
+  // string time_index = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index();
+  PROTOBUF_DEPRECATED const std::string& time_index() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index();
-  PROTOBUF_NODISCARD std::string* release_time_index();
-  void set_allocated_time_index(std::string* time_index);
+  PROTOBUF_DEPRECATED void set_time_index(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index();
+  PROTOBUF_DEPRECATED void set_allocated_time_index(std::string* time_index);
   private:
   const std::string& _internal_time_index() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index(const std::string& value);
@@ -1049,6 +1167,15 @@ class RangeManipulate final :
   void _internal_set_range(int64_t value);
   public:
 
+  // uint64 time_index_idx = 7;
+  void clear_time_index_idx();
+  uint64_t time_index_idx() const;
+  void set_time_index_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_idx() const;
+  void _internal_set_time_index_idx(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.RangeManipulate)
  private:
   class _Internal;
@@ -1058,11 +1185,14 @@ class RangeManipulate final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > tag_column_indices_;
+    mutable std::atomic<int> _tag_column_indices_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_;
     int64_t start_;
     int64_t end_;
     int64_t interval_;
     int64_t range_;
+    uint64_t time_index_idx_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1192,58 +1322,83 @@ class ScalarCalculate final :
 
   enum : int {
     kTagColumnsFieldNumber = 6,
+    kTagColumnIndicesFieldNumber = 9,
     kTimeIndexFieldNumber = 5,
     kFieldColumnFieldNumber = 7,
     kStartFieldNumber = 1,
     kEndFieldNumber = 2,
     kIntervalFieldNumber = 3,
+    kTimeIndexIdxFieldNumber = 8,
+    kFieldColumnIdxFieldNumber = 10,
   };
-  // repeated string tag_columns = 6;
-  int tag_columns_size() const;
+  // repeated string tag_columns = 6 [deprecated = true];
+  PROTOBUF_DEPRECATED int tag_columns_size() const;
   private:
   int _internal_tag_columns_size() const;
   public:
-  void clear_tag_columns();
-  const std::string& tag_columns(int index) const;
-  std::string* mutable_tag_columns(int index);
-  void set_tag_columns(int index, const std::string& value);
-  void set_tag_columns(int index, std::string&& value);
-  void set_tag_columns(int index, const char* value);
-  void set_tag_columns(int index, const char* value, size_t size);
-  std::string* add_tag_columns();
-  void add_tag_columns(const std::string& value);
-  void add_tag_columns(std::string&& value);
-  void add_tag_columns(const char* value);
-  void add_tag_columns(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
+  PROTOBUF_DEPRECATED void clear_tag_columns();
+  PROTOBUF_DEPRECATED const std::string& tag_columns(int index) const;
+  PROTOBUF_DEPRECATED std::string* mutable_tag_columns(int index);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const std::string& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, std::string&& value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value);
+  PROTOBUF_DEPRECATED void set_tag_columns(int index, const char* value, size_t size);
+  PROTOBUF_DEPRECATED std::string* add_tag_columns();
+  PROTOBUF_DEPRECATED void add_tag_columns(const std::string& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(std::string&& value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value);
+  PROTOBUF_DEPRECATED void add_tag_columns(const char* value, size_t size);
+  PROTOBUF_DEPRECATED const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tag_columns() const;
+  PROTOBUF_DEPRECATED ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tag_columns();
   private:
   const std::string& _internal_tag_columns(int index) const;
   std::string* _internal_add_tag_columns();
   public:
 
-  // string time_index = 5;
-  void clear_time_index();
-  const std::string& time_index() const;
+  // repeated uint64 tag_column_indices = 9;
+  int tag_column_indices_size() const;
+  private:
+  int _internal_tag_column_indices_size() const;
+  public:
+  void clear_tag_column_indices();
+  private:
+  uint64_t _internal_tag_column_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_tag_column_indices() const;
+  void _internal_add_tag_column_indices(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_tag_column_indices();
+  public:
+  uint64_t tag_column_indices(int index) const;
+  void set_tag_column_indices(int index, uint64_t value);
+  void add_tag_column_indices(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      tag_column_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_tag_column_indices();
+
+  // string time_index = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index();
+  PROTOBUF_DEPRECATED const std::string& time_index() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index();
-  PROTOBUF_NODISCARD std::string* release_time_index();
-  void set_allocated_time_index(std::string* time_index);
+  PROTOBUF_DEPRECATED void set_time_index(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index();
+  PROTOBUF_DEPRECATED void set_allocated_time_index(std::string* time_index);
   private:
   const std::string& _internal_time_index() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index(const std::string& value);
   std::string* _internal_mutable_time_index();
   public:
 
-  // string field_column = 7;
-  void clear_field_column();
-  const std::string& field_column() const;
+  // string field_column = 7 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_field_column();
+  PROTOBUF_DEPRECATED const std::string& field_column() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_field_column(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_field_column();
-  PROTOBUF_NODISCARD std::string* release_field_column();
-  void set_allocated_field_column(std::string* field_column);
+  PROTOBUF_DEPRECATED void set_field_column(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_field_column();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_field_column();
+  PROTOBUF_DEPRECATED void set_allocated_field_column(std::string* field_column);
   private:
   const std::string& _internal_field_column() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_field_column(const std::string& value);
@@ -1277,6 +1432,24 @@ class ScalarCalculate final :
   void _internal_set_interval(int64_t value);
   public:
 
+  // uint64 time_index_idx = 8;
+  void clear_time_index_idx();
+  uint64_t time_index_idx() const;
+  void set_time_index_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_idx() const;
+  void _internal_set_time_index_idx(uint64_t value);
+  public:
+
+  // uint64 field_column_idx = 10;
+  void clear_field_column_idx();
+  uint64_t field_column_idx() const;
+  void set_field_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_field_column_idx() const;
+  void _internal_set_field_column_idx(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.ScalarCalculate)
  private:
   class _Internal;
@@ -1286,11 +1459,15 @@ class ScalarCalculate final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tag_columns_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > tag_column_indices_;
+    mutable std::atomic<int> _tag_column_indices_cached_byte_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_index_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr field_column_;
     int64_t start_;
     int64_t end_;
     int64_t interval_;
+    uint64_t time_index_idx_;
+    uint64_t field_column_idx_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1425,6 +1602,8 @@ class Absent final :
     kStartFieldNumber = 1,
     kEndFieldNumber = 2,
     kStepFieldNumber = 3,
+    kTimeIndexColumnIdxFieldNumber = 7,
+    kValueColumnIdxFieldNumber = 8,
   };
   // repeated .substrait_extension.LabelPair fake_labels = 6;
   int fake_labels_size() const;
@@ -1444,28 +1623,28 @@ class Absent final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::LabelPair >&
       fake_labels() const;
 
-  // string time_index_column = 4;
-  void clear_time_index_column();
-  const std::string& time_index_column() const;
+  // string time_index_column = 4 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_time_index_column();
+  PROTOBUF_DEPRECATED const std::string& time_index_column() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_time_index_column(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_time_index_column();
-  PROTOBUF_NODISCARD std::string* release_time_index_column();
-  void set_allocated_time_index_column(std::string* time_index_column);
+  PROTOBUF_DEPRECATED void set_time_index_column(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_time_index_column();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_time_index_column();
+  PROTOBUF_DEPRECATED void set_allocated_time_index_column(std::string* time_index_column);
   private:
   const std::string& _internal_time_index_column() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_time_index_column(const std::string& value);
   std::string* _internal_mutable_time_index_column();
   public:
 
-  // string value_column = 5;
-  void clear_value_column();
-  const std::string& value_column() const;
+  // string value_column = 5 [deprecated = true];
+  PROTOBUF_DEPRECATED void clear_value_column();
+  PROTOBUF_DEPRECATED const std::string& value_column() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_value_column(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_value_column();
-  PROTOBUF_NODISCARD std::string* release_value_column();
-  void set_allocated_value_column(std::string* value_column);
+  PROTOBUF_DEPRECATED void set_value_column(ArgT0&& arg0, ArgT... args);
+  PROTOBUF_DEPRECATED std::string* mutable_value_column();
+  PROTOBUF_NODISCARD PROTOBUF_DEPRECATED std::string* release_value_column();
+  PROTOBUF_DEPRECATED void set_allocated_value_column(std::string* value_column);
   private:
   const std::string& _internal_value_column() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_value_column(const std::string& value);
@@ -1499,6 +1678,24 @@ class Absent final :
   void _internal_set_step(int64_t value);
   public:
 
+  // uint64 time_index_column_idx = 7;
+  void clear_time_index_column_idx();
+  uint64_t time_index_column_idx() const;
+  void set_time_index_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_time_index_column_idx() const;
+  void _internal_set_time_index_column_idx(uint64_t value);
+  public:
+
+  // uint64 value_column_idx = 8;
+  void clear_value_column_idx();
+  uint64_t value_column_idx() const;
+  void set_value_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_value_column_idx() const;
+  void _internal_set_value_column_idx(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.Absent)
  private:
   class _Internal;
@@ -1513,6 +1710,8 @@ class Absent final :
     int64_t start_;
     int64_t end_;
     int64_t step_;
+    uint64_t time_index_column_idx_;
+    uint64_t value_column_idx_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1842,7 +2041,7 @@ inline void InstantManipulate::set_lookback_delta(int64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.InstantManipulate.lookback_delta)
 }
 
-// string time_index = 5;
+// string time_index = 5 [deprecated = true];
 inline void InstantManipulate::clear_time_index() {
   _impl_.time_index_.ClearToEmpty();
 }
@@ -1892,7 +2091,7 @@ inline void InstantManipulate::set_allocated_time_index(std::string* time_index)
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.InstantManipulate.time_index)
 }
 
-// string field_index = 6;
+// string field_index = 6 [deprecated = true];
 inline void InstantManipulate::clear_field_index() {
   _impl_.field_index_.ClearToEmpty();
 }
@@ -1942,6 +2141,46 @@ inline void InstantManipulate::set_allocated_field_index(std::string* field_inde
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.InstantManipulate.field_index)
 }
 
+// uint64 time_index_idx = 7;
+inline void InstantManipulate::clear_time_index_idx() {
+  _impl_.time_index_idx_ = uint64_t{0u};
+}
+inline uint64_t InstantManipulate::_internal_time_index_idx() const {
+  return _impl_.time_index_idx_;
+}
+inline uint64_t InstantManipulate::time_index_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.InstantManipulate.time_index_idx)
+  return _internal_time_index_idx();
+}
+inline void InstantManipulate::_internal_set_time_index_idx(uint64_t value) {
+  
+  _impl_.time_index_idx_ = value;
+}
+inline void InstantManipulate::set_time_index_idx(uint64_t value) {
+  _internal_set_time_index_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.InstantManipulate.time_index_idx)
+}
+
+// uint64 field_index_idx = 8;
+inline void InstantManipulate::clear_field_index_idx() {
+  _impl_.field_index_idx_ = uint64_t{0u};
+}
+inline uint64_t InstantManipulate::_internal_field_index_idx() const {
+  return _impl_.field_index_idx_;
+}
+inline uint64_t InstantManipulate::field_index_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.InstantManipulate.field_index_idx)
+  return _internal_field_index_idx();
+}
+inline void InstantManipulate::_internal_set_field_index_idx(uint64_t value) {
+  
+  _impl_.field_index_idx_ = value;
+}
+inline void InstantManipulate::set_field_index_idx(uint64_t value) {
+  _internal_set_field_index_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.InstantManipulate.field_index_idx)
+}
+
 // -------------------------------------------------------------------
 
 // SeriesNormalize
@@ -1966,7 +2205,7 @@ inline void SeriesNormalize::set_offset(int64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.offset)
 }
 
-// string time_index = 2;
+// string time_index = 2 [deprecated = true];
 inline void SeriesNormalize::clear_time_index() {
   _impl_.time_index_.ClearToEmpty();
 }
@@ -2036,7 +2275,7 @@ inline void SeriesNormalize::set_filter_nan(bool value) {
   // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.filter_nan)
 }
 
-// repeated string tag_columns = 4;
+// repeated string tag_columns = 4 [deprecated = true];
 inline int SeriesNormalize::_internal_tag_columns_size() const {
   return _impl_.tag_columns_.size();
 }
@@ -2111,11 +2350,78 @@ SeriesNormalize::mutable_tag_columns() {
   return &_impl_.tag_columns_;
 }
 
+// uint64 time_index_idx = 5;
+inline void SeriesNormalize::clear_time_index_idx() {
+  _impl_.time_index_idx_ = uint64_t{0u};
+}
+inline uint64_t SeriesNormalize::_internal_time_index_idx() const {
+  return _impl_.time_index_idx_;
+}
+inline uint64_t SeriesNormalize::time_index_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesNormalize.time_index_idx)
+  return _internal_time_index_idx();
+}
+inline void SeriesNormalize::_internal_set_time_index_idx(uint64_t value) {
+  
+  _impl_.time_index_idx_ = value;
+}
+inline void SeriesNormalize::set_time_index_idx(uint64_t value) {
+  _internal_set_time_index_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.time_index_idx)
+}
+
+// repeated uint64 tag_column_indices = 6;
+inline int SeriesNormalize::_internal_tag_column_indices_size() const {
+  return _impl_.tag_column_indices_.size();
+}
+inline int SeriesNormalize::tag_column_indices_size() const {
+  return _internal_tag_column_indices_size();
+}
+inline void SeriesNormalize::clear_tag_column_indices() {
+  _impl_.tag_column_indices_.Clear();
+}
+inline uint64_t SeriesNormalize::_internal_tag_column_indices(int index) const {
+  return _impl_.tag_column_indices_.Get(index);
+}
+inline uint64_t SeriesNormalize::tag_column_indices(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesNormalize.tag_column_indices)
+  return _internal_tag_column_indices(index);
+}
+inline void SeriesNormalize::set_tag_column_indices(int index, uint64_t value) {
+  _impl_.tag_column_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesNormalize.tag_column_indices)
+}
+inline void SeriesNormalize::_internal_add_tag_column_indices(uint64_t value) {
+  _impl_.tag_column_indices_.Add(value);
+}
+inline void SeriesNormalize::add_tag_column_indices(uint64_t value) {
+  _internal_add_tag_column_indices(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.SeriesNormalize.tag_column_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SeriesNormalize::_internal_tag_column_indices() const {
+  return _impl_.tag_column_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SeriesNormalize::tag_column_indices() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.SeriesNormalize.tag_column_indices)
+  return _internal_tag_column_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SeriesNormalize::_internal_mutable_tag_column_indices() {
+  return &_impl_.tag_column_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SeriesNormalize::mutable_tag_column_indices() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.SeriesNormalize.tag_column_indices)
+  return _internal_mutable_tag_column_indices();
+}
+
 // -------------------------------------------------------------------
 
 // SeriesDivide
 
-// repeated string tag_columns = 1;
+// repeated string tag_columns = 1 [deprecated = true];
 inline int SeriesDivide::_internal_tag_columns_size() const {
   return _impl_.tag_columns_.size();
 }
@@ -2190,7 +2496,7 @@ SeriesDivide::mutable_tag_columns() {
   return &_impl_.tag_columns_;
 }
 
-// string time_index_column = 2;
+// string time_index_column = 2 [deprecated = true];
 inline void SeriesDivide::clear_time_index_column() {
   _impl_.time_index_column_.ClearToEmpty();
 }
@@ -2238,6 +2544,73 @@ inline void SeriesDivide::set_allocated_time_index_column(std::string* time_inde
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.SeriesDivide.time_index_column)
+}
+
+// repeated uint64 tag_column_indices = 3;
+inline int SeriesDivide::_internal_tag_column_indices_size() const {
+  return _impl_.tag_column_indices_.size();
+}
+inline int SeriesDivide::tag_column_indices_size() const {
+  return _internal_tag_column_indices_size();
+}
+inline void SeriesDivide::clear_tag_column_indices() {
+  _impl_.tag_column_indices_.Clear();
+}
+inline uint64_t SeriesDivide::_internal_tag_column_indices(int index) const {
+  return _impl_.tag_column_indices_.Get(index);
+}
+inline uint64_t SeriesDivide::tag_column_indices(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesDivide.tag_column_indices)
+  return _internal_tag_column_indices(index);
+}
+inline void SeriesDivide::set_tag_column_indices(int index, uint64_t value) {
+  _impl_.tag_column_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesDivide.tag_column_indices)
+}
+inline void SeriesDivide::_internal_add_tag_column_indices(uint64_t value) {
+  _impl_.tag_column_indices_.Add(value);
+}
+inline void SeriesDivide::add_tag_column_indices(uint64_t value) {
+  _internal_add_tag_column_indices(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.SeriesDivide.tag_column_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SeriesDivide::_internal_tag_column_indices() const {
+  return _impl_.tag_column_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+SeriesDivide::tag_column_indices() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.SeriesDivide.tag_column_indices)
+  return _internal_tag_column_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SeriesDivide::_internal_mutable_tag_column_indices() {
+  return &_impl_.tag_column_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+SeriesDivide::mutable_tag_column_indices() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.SeriesDivide.tag_column_indices)
+  return _internal_mutable_tag_column_indices();
+}
+
+// uint64 time_index_column_idx = 4;
+inline void SeriesDivide::clear_time_index_column_idx() {
+  _impl_.time_index_column_idx_ = uint64_t{0u};
+}
+inline uint64_t SeriesDivide::_internal_time_index_column_idx() const {
+  return _impl_.time_index_column_idx_;
+}
+inline uint64_t SeriesDivide::time_index_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.SeriesDivide.time_index_column_idx)
+  return _internal_time_index_column_idx();
+}
+inline void SeriesDivide::_internal_set_time_index_column_idx(uint64_t value) {
+  
+  _impl_.time_index_column_idx_ = value;
+}
+inline void SeriesDivide::set_time_index_column_idx(uint64_t value) {
+  _internal_set_time_index_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.SeriesDivide.time_index_column_idx)
 }
 
 // -------------------------------------------------------------------
@@ -2324,7 +2697,7 @@ inline void RangeManipulate::set_range(int64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.RangeManipulate.range)
 }
 
-// string time_index = 5;
+// string time_index = 5 [deprecated = true];
 inline void RangeManipulate::clear_time_index() {
   _impl_.time_index_.ClearToEmpty();
 }
@@ -2374,7 +2747,7 @@ inline void RangeManipulate::set_allocated_time_index(std::string* time_index) {
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.RangeManipulate.time_index)
 }
 
-// repeated string tag_columns = 6;
+// repeated string tag_columns = 6 [deprecated = true];
 inline int RangeManipulate::_internal_tag_columns_size() const {
   return _impl_.tag_columns_.size();
 }
@@ -2449,6 +2822,73 @@ RangeManipulate::mutable_tag_columns() {
   return &_impl_.tag_columns_;
 }
 
+// uint64 time_index_idx = 7;
+inline void RangeManipulate::clear_time_index_idx() {
+  _impl_.time_index_idx_ = uint64_t{0u};
+}
+inline uint64_t RangeManipulate::_internal_time_index_idx() const {
+  return _impl_.time_index_idx_;
+}
+inline uint64_t RangeManipulate::time_index_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RangeManipulate.time_index_idx)
+  return _internal_time_index_idx();
+}
+inline void RangeManipulate::_internal_set_time_index_idx(uint64_t value) {
+  
+  _impl_.time_index_idx_ = value;
+}
+inline void RangeManipulate::set_time_index_idx(uint64_t value) {
+  _internal_set_time_index_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RangeManipulate.time_index_idx)
+}
+
+// repeated uint64 tag_column_indices = 8;
+inline int RangeManipulate::_internal_tag_column_indices_size() const {
+  return _impl_.tag_column_indices_.size();
+}
+inline int RangeManipulate::tag_column_indices_size() const {
+  return _internal_tag_column_indices_size();
+}
+inline void RangeManipulate::clear_tag_column_indices() {
+  _impl_.tag_column_indices_.Clear();
+}
+inline uint64_t RangeManipulate::_internal_tag_column_indices(int index) const {
+  return _impl_.tag_column_indices_.Get(index);
+}
+inline uint64_t RangeManipulate::tag_column_indices(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RangeManipulate.tag_column_indices)
+  return _internal_tag_column_indices(index);
+}
+inline void RangeManipulate::set_tag_column_indices(int index, uint64_t value) {
+  _impl_.tag_column_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RangeManipulate.tag_column_indices)
+}
+inline void RangeManipulate::_internal_add_tag_column_indices(uint64_t value) {
+  _impl_.tag_column_indices_.Add(value);
+}
+inline void RangeManipulate::add_tag_column_indices(uint64_t value) {
+  _internal_add_tag_column_indices(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.RangeManipulate.tag_column_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RangeManipulate::_internal_tag_column_indices() const {
+  return _impl_.tag_column_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RangeManipulate::tag_column_indices() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.RangeManipulate.tag_column_indices)
+  return _internal_tag_column_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RangeManipulate::_internal_mutable_tag_column_indices() {
+  return &_impl_.tag_column_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RangeManipulate::mutable_tag_column_indices() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.RangeManipulate.tag_column_indices)
+  return _internal_mutable_tag_column_indices();
+}
+
 // -------------------------------------------------------------------
 
 // ScalarCalculate
@@ -2513,7 +2953,7 @@ inline void ScalarCalculate::set_interval(int64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.interval)
 }
 
-// string time_index = 5;
+// string time_index = 5 [deprecated = true];
 inline void ScalarCalculate::clear_time_index() {
   _impl_.time_index_.ClearToEmpty();
 }
@@ -2563,7 +3003,7 @@ inline void ScalarCalculate::set_allocated_time_index(std::string* time_index) {
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.ScalarCalculate.time_index)
 }
 
-// repeated string tag_columns = 6;
+// repeated string tag_columns = 6 [deprecated = true];
 inline int ScalarCalculate::_internal_tag_columns_size() const {
   return _impl_.tag_columns_.size();
 }
@@ -2638,7 +3078,7 @@ ScalarCalculate::mutable_tag_columns() {
   return &_impl_.tag_columns_;
 }
 
-// string field_column = 7;
+// string field_column = 7 [deprecated = true];
 inline void ScalarCalculate::clear_field_column() {
   _impl_.field_column_.ClearToEmpty();
 }
@@ -2686,6 +3126,93 @@ inline void ScalarCalculate::set_allocated_field_column(std::string* field_colum
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.ScalarCalculate.field_column)
+}
+
+// uint64 time_index_idx = 8;
+inline void ScalarCalculate::clear_time_index_idx() {
+  _impl_.time_index_idx_ = uint64_t{0u};
+}
+inline uint64_t ScalarCalculate::_internal_time_index_idx() const {
+  return _impl_.time_index_idx_;
+}
+inline uint64_t ScalarCalculate::time_index_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.time_index_idx)
+  return _internal_time_index_idx();
+}
+inline void ScalarCalculate::_internal_set_time_index_idx(uint64_t value) {
+  
+  _impl_.time_index_idx_ = value;
+}
+inline void ScalarCalculate::set_time_index_idx(uint64_t value) {
+  _internal_set_time_index_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.time_index_idx)
+}
+
+// repeated uint64 tag_column_indices = 9;
+inline int ScalarCalculate::_internal_tag_column_indices_size() const {
+  return _impl_.tag_column_indices_.size();
+}
+inline int ScalarCalculate::tag_column_indices_size() const {
+  return _internal_tag_column_indices_size();
+}
+inline void ScalarCalculate::clear_tag_column_indices() {
+  _impl_.tag_column_indices_.Clear();
+}
+inline uint64_t ScalarCalculate::_internal_tag_column_indices(int index) const {
+  return _impl_.tag_column_indices_.Get(index);
+}
+inline uint64_t ScalarCalculate::tag_column_indices(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.tag_column_indices)
+  return _internal_tag_column_indices(index);
+}
+inline void ScalarCalculate::set_tag_column_indices(int index, uint64_t value) {
+  _impl_.tag_column_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.tag_column_indices)
+}
+inline void ScalarCalculate::_internal_add_tag_column_indices(uint64_t value) {
+  _impl_.tag_column_indices_.Add(value);
+}
+inline void ScalarCalculate::add_tag_column_indices(uint64_t value) {
+  _internal_add_tag_column_indices(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.ScalarCalculate.tag_column_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+ScalarCalculate::_internal_tag_column_indices() const {
+  return _impl_.tag_column_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+ScalarCalculate::tag_column_indices() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.ScalarCalculate.tag_column_indices)
+  return _internal_tag_column_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+ScalarCalculate::_internal_mutable_tag_column_indices() {
+  return &_impl_.tag_column_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+ScalarCalculate::mutable_tag_column_indices() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.ScalarCalculate.tag_column_indices)
+  return _internal_mutable_tag_column_indices();
+}
+
+// uint64 field_column_idx = 10;
+inline void ScalarCalculate::clear_field_column_idx() {
+  _impl_.field_column_idx_ = uint64_t{0u};
+}
+inline uint64_t ScalarCalculate::_internal_field_column_idx() const {
+  return _impl_.field_column_idx_;
+}
+inline uint64_t ScalarCalculate::field_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.ScalarCalculate.field_column_idx)
+  return _internal_field_column_idx();
+}
+inline void ScalarCalculate::_internal_set_field_column_idx(uint64_t value) {
+  
+  _impl_.field_column_idx_ = value;
+}
+inline void ScalarCalculate::set_field_column_idx(uint64_t value) {
+  _internal_set_field_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.ScalarCalculate.field_column_idx)
 }
 
 // -------------------------------------------------------------------
@@ -2752,7 +3279,7 @@ inline void Absent::set_step(int64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.Absent.step)
 }
 
-// string time_index_column = 4;
+// string time_index_column = 4 [deprecated = true];
 inline void Absent::clear_time_index_column() {
   _impl_.time_index_column_.ClearToEmpty();
 }
@@ -2802,7 +3329,7 @@ inline void Absent::set_allocated_time_index_column(std::string* time_index_colu
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.Absent.time_index_column)
 }
 
-// string value_column = 5;
+// string value_column = 5 [deprecated = true];
 inline void Absent::clear_value_column() {
   _impl_.value_column_.ClearToEmpty();
 }
@@ -2890,6 +3417,46 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::L
 Absent::fake_labels() const {
   // @@protoc_insertion_point(field_list:substrait_extension.Absent.fake_labels)
   return _impl_.fake_labels_;
+}
+
+// uint64 time_index_column_idx = 7;
+inline void Absent::clear_time_index_column_idx() {
+  _impl_.time_index_column_idx_ = uint64_t{0u};
+}
+inline uint64_t Absent::_internal_time_index_column_idx() const {
+  return _impl_.time_index_column_idx_;
+}
+inline uint64_t Absent::time_index_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.time_index_column_idx)
+  return _internal_time_index_column_idx();
+}
+inline void Absent::_internal_set_time_index_column_idx(uint64_t value) {
+  
+  _impl_.time_index_column_idx_ = value;
+}
+inline void Absent::set_time_index_column_idx(uint64_t value) {
+  _internal_set_time_index_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.time_index_column_idx)
+}
+
+// uint64 value_column_idx = 8;
+inline void Absent::clear_value_column_idx() {
+  _impl_.value_column_idx_ = uint64_t{0u};
+}
+inline uint64_t Absent::_internal_value_column_idx() const {
+  return _impl_.value_column_idx_;
+}
+inline uint64_t Absent::value_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.Absent.value_column_idx)
+  return _internal_value_column_idx();
+}
+inline void Absent::_internal_set_value_column_idx(uint64_t value) {
+  
+  _impl_.value_column_idx_ = value;
+}
+inline void Absent::set_value_column_idx(uint64_t value) {
+  _internal_set_value_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.Absent.value_column_idx)
 }
 
 // -------------------------------------------------------------------

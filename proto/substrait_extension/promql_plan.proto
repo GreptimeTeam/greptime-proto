@@ -36,28 +36,46 @@ message InstantManipulate {
   int64 interval = 3;
   // Look-back delta in millisecond
   int64 lookback_delta = 4;
-  // Column name of time index column
-  string time_index = 5;
-  // Optional field column name for validating staleness
-  string field_index = 6;
+  // [DEPRECATED] Column name of time index column.
+  // Use `time_index_idx` instead.
+  string time_index = 5 [deprecated = true];
+  // [DEPRECATED] Optional field column name for validating staleness.
+  // Use `field_index_idx` instead.
+  string field_index = 6 [deprecated = true];
+  // Column index of time index column
+  uint64 time_index_idx = 7;
+  // Optional field column index for validating staleness
+  uint64 field_index_idx = 8;
 }
 
 message SeriesNormalize {
   // Offset in millisecond
   int64 offset = 1;
-  // Column name of time index column
-  string time_index = 2;
+  // [DEPRECATED] Column name of time index column.
+  // Use `time_index_idx` instead.
+  string time_index = 2 [deprecated = true];
   // Whether to filter out NaN value
   bool filter_nan = 3;
-  // Names of tag columns
-  repeated string tag_columns = 4;
+  // [DEPRECATED] Names of tag columns.
+  // Use `tag_column_indices` instead.
+  repeated string tag_columns = 4 [deprecated = true];
+  // Column index of time index column
+  uint64 time_index_idx = 5;
+  // Indices of tag columns
+  repeated uint64 tag_column_indices = 6;
 }
 
 message SeriesDivide {
-  // Names of tag columns
-  repeated string tag_columns = 1;
-  // Name of time index column
-  string time_index_column = 2;
+  // [DEPRECATED] Names of tag columns.
+  // Use `tag_column_indices` instead.
+  repeated string tag_columns = 1 [deprecated = true];
+  // [DEPRECATED] Name of time index column.
+  // Use `time_index_column_idx` instead.
+  string time_index_column = 2 [deprecated = true];
+  // Indices of tag columns
+  repeated uint64 tag_column_indices = 3;
+  // Index of time index column
+  uint64 time_index_column_idx = 4;
 }
 
 message RangeManipulate {
@@ -69,10 +87,16 @@ message RangeManipulate {
   int64 interval = 3;
   // Range in millisecond
   int64 range = 4;
-  // Column name of time index column
-  string time_index = 5;
-  // Names of tag columns
-  repeated string tag_columns = 6;
+  // [DEPRECATED] Column name of time index column.
+  // Use `time_index_idx` instead.
+  string time_index = 5 [deprecated = true];
+  // [DEPRECATED] Names of tag columns.
+  // Use `tag_column_indices` instead.
+  repeated string tag_columns = 6 [deprecated = true];
+  // Column index of time index column
+  uint64 time_index_idx = 7;
+  // Indices of tag columns
+  repeated uint64 tag_column_indices = 8;
 }
 
 message ScalarCalculate {
@@ -82,12 +106,21 @@ message ScalarCalculate {
   int64 end = 2;
   // Interval in millisecond
   int64 interval = 3;
-  // Column name of time index column
-  string time_index = 5;
-  // Names of tag columns
-  repeated string tag_columns = 6;
-  // Column name of field column
-  string field_column = 7;
+  // [DEPRECATED] Column name of time index column.
+  // Use `time_index_idx` instead.
+  string time_index = 5 [deprecated = true];
+  // [DEPRECATED] Names of tag columns.
+  // Use `tag_column_indices` instead.
+  repeated string tag_columns = 6 [deprecated = true];
+  // [DEPRECATED] Column name of field column.
+  // Use `field_column_idx` instead.
+  string field_column = 7 [deprecated = true];
+  // Column index of time index column
+  uint64 time_index_idx = 8;
+  // Indices of tag columns
+  repeated uint64 tag_column_indices = 9;
+  // Column index of field column
+  uint64 field_column_idx = 10;
 }
 
 message Absent {
@@ -97,12 +130,18 @@ message Absent {
   int64 end = 2;
   // Step in millisecond
   int64 step = 3;
-  // Column name of time index column
-  string time_index_column = 4;
-  // Column name of value column
-  string value_column = 5;
+  // [DEPRECATED] Column name of time index column.
+  // Use `time_index_column_idx` instead.
+  string time_index_column = 4 [deprecated = true];
+  // [DEPRECATED] Column name of value column.
+  // Use `value_column_idx` instead.
+  string value_column = 5 [deprecated = true];
   // Fake labels as key-value pairs
   repeated LabelPair fake_labels = 6;
+  // Column index of time index column
+  uint64 time_index_column_idx = 7;
+  // Column index of value column
+  uint64 value_column_idx = 8;
 }
 
 message LabelPair {
