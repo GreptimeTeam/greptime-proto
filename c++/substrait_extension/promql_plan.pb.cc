@@ -44,6 +44,8 @@ PROTOBUF_CONSTEXPR InstantManipulate::InstantManipulate(
   , /*decltype(_impl_.end_)*/int64_t{0}
   , /*decltype(_impl_.interval_)*/int64_t{0}
   , /*decltype(_impl_.lookback_delta_)*/int64_t{0}
+  , /*decltype(_impl_.time_index_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.field_index_idx_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct InstantManipulateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR InstantManipulateDefaultTypeInternal()
@@ -57,8 +59,11 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR SeriesNormalize::SeriesNormalize(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.tag_column_indices_)*/{}
+  , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
   , /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.offset_)*/int64_t{0}
+  , /*decltype(_impl_.time_index_idx_)*/uint64_t{0u}
   , /*decltype(_impl_.filter_nan_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SeriesNormalizeDefaultTypeInternal {
@@ -73,7 +78,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR SeriesDivide::SeriesDivide(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.tag_column_indices_)*/{}
+  , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
   , /*decltype(_impl_.time_index_column_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.time_index_column_idx_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SeriesDivideDefaultTypeInternal {
   PROTOBUF_CONSTEXPR SeriesDivideDefaultTypeInternal()
@@ -87,11 +95,14 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR RangeManipulate::RangeManipulate(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.tag_column_indices_)*/{}
+  , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
   , /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.start_)*/int64_t{0}
   , /*decltype(_impl_.end_)*/int64_t{0}
   , /*decltype(_impl_.interval_)*/int64_t{0}
   , /*decltype(_impl_.range_)*/int64_t{0}
+  , /*decltype(_impl_.time_index_idx_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RangeManipulateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RangeManipulateDefaultTypeInternal()
@@ -105,11 +116,15 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ScalarCalculate::ScalarCalculate(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.tag_columns_)*/{}
+  , /*decltype(_impl_.tag_column_indices_)*/{}
+  , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
   , /*decltype(_impl_.time_index_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.field_column_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.start_)*/int64_t{0}
   , /*decltype(_impl_.end_)*/int64_t{0}
   , /*decltype(_impl_.interval_)*/int64_t{0}
+  , /*decltype(_impl_.time_index_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.field_column_idx_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ScalarCalculateDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ScalarCalculateDefaultTypeInternal()
@@ -128,6 +143,8 @@ PROTOBUF_CONSTEXPR Absent::Absent(
   , /*decltype(_impl_.start_)*/int64_t{0}
   , /*decltype(_impl_.end_)*/int64_t{0}
   , /*decltype(_impl_.step_)*/int64_t{0}
+  , /*decltype(_impl_.time_index_column_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.value_column_idx_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct AbsentDefaultTypeInternal {
   PROTOBUF_CONSTEXPR AbsentDefaultTypeInternal()
@@ -179,6 +196,8 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::InstantManipulate, _impl_.lookback_delta_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::InstantManipulate, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::InstantManipulate, _impl_.field_index_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::InstantManipulate, _impl_.time_index_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::InstantManipulate, _impl_.field_index_idx_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -189,6 +208,8 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.filter_nan_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.tag_columns_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.time_index_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesNormalize, _impl_.tag_column_indices_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -197,6 +218,8 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.tag_columns_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.time_index_column_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.tag_column_indices_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::SeriesDivide, _impl_.time_index_column_idx_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -209,6 +232,8 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.range_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.tag_columns_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.time_index_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeManipulate, _impl_.tag_column_indices_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -221,6 +246,9 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.time_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.tag_columns_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.field_column_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.time_index_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.tag_column_indices_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::ScalarCalculate, _impl_.field_column_idx_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -233,6 +261,8 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _impl_.time_index_column_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _impl_.value_column_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _impl_.fake_labels_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _impl_.time_index_column_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::Absent, _impl_.value_column_idx_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::LabelPair, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -245,12 +275,12 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::substrait_extension::EmptyMetric)},
   { 9, -1, -1, sizeof(::substrait_extension::InstantManipulate)},
-  { 21, -1, -1, sizeof(::substrait_extension::SeriesNormalize)},
-  { 31, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
-  { 39, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
-  { 51, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
-  { 63, -1, -1, sizeof(::substrait_extension::Absent)},
-  { 75, -1, -1, sizeof(::substrait_extension::LabelPair)},
+  { 23, -1, -1, sizeof(::substrait_extension::SeriesNormalize)},
+  { 35, -1, -1, sizeof(::substrait_extension::SeriesDivide)},
+  { 45, -1, -1, sizeof(::substrait_extension::RangeManipulate)},
+  { 59, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
+  { 74, -1, -1, sizeof(::substrait_extension::Absent)},
+  { 88, -1, -1, sizeof(::substrait_extension::LabelPair)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -268,31 +298,41 @@ const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2epro
   "\n%substrait_extension/promql_plan.proto\022"
   "\023substrait_extension\";\n\013EmptyMetric\022\r\n\005s"
   "tart\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001("
-  "\003\"\202\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013"
+  "\003\"\273\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013"
   "\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\026\n\016lookbac"
-  "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie"
-  "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off"
-  "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_"
-  "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\">\n\014Series"
-  "Divide\022\023\n\013tag_columns\030\001 \003(\t\022\031\n\021time_inde"
-  "x_column\030\002 \001(\t\"w\n\017RangeManipulate\022\r\n\005sta"
-  "rt\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022"
-  "\r\n\005range\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013ta"
-  "g_columns\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005st"
-  "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003"
-  "\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003("
-  "\t\022\024\n\014field_column\030\007 \001(\t\"\230\001\n\006Absent\022\r\n\005st"
-  "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\014\n\004step\030\003 \001(\003\022\031\n\021"
-  "time_index_column\030\004 \001(\t\022\024\n\014value_column\030"
-  "\005 \001(\t\0223\n\013fake_labels\030\006 \003(\0132\036.substrait_e"
-  "xtension.LabelPair\"\'\n\tLabelPair\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\tB\?Z=github.com/Grepti"
-  "meTeam/greptime-proto/go/substrait_exten"
-  "sionb\006proto3"
+  "k_delta\030\004 \001(\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n"
+  "\013field_index\030\006 \001(\tB\002\030\001\022\026\n\016time_index_idx"
+  "\030\007 \001(\004\022\027\n\017field_index_idx\030\010 \001(\004\"\232\001\n\017Seri"
+  "esNormalize\022\016\n\006offset\030\001 \001(\003\022\026\n\ntime_inde"
+  "x\030\002 \001(\tB\002\030\001\022\022\n\nfilter_nan\030\003 \001(\010\022\027\n\013tag_c"
+  "olumns\030\004 \003(\tB\002\030\001\022\026\n\016time_index_idx\030\005 \001(\004"
+  "\022\032\n\022tag_column_indices\030\006 \003(\004\"\201\001\n\014SeriesD"
+  "ivide\022\027\n\013tag_columns\030\001 \003(\tB\002\030\001\022\035\n\021time_i"
+  "ndex_column\030\002 \001(\tB\002\030\001\022\032\n\022tag_column_indi"
+  "ces\030\003 \003(\004\022\035\n\025time_index_column_idx\030\004 \001(\004"
+  "\"\263\001\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003\022\013\n\003e"
+  "nd\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range\030\004 \001("
+  "\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n\013tag_columns"
+  "\030\006 \003(\tB\002\030\001\022\026\n\016time_index_idx\030\007 \001(\004\022\032\n\022ta"
+  "g_column_indices\030\010 \003(\004\"\330\001\n\017ScalarCalcula"
+  "te\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interv"
+  "al\030\003 \001(\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n\013tag_"
+  "columns\030\006 \003(\tB\002\030\001\022\030\n\014field_column\030\007 \001(\tB"
+  "\002\030\001\022\026\n\016time_index_idx\030\010 \001(\004\022\032\n\022tag_colum"
+  "n_indices\030\t \003(\004\022\030\n\020field_column_idx\030\n \001("
+  "\004\"\331\001\n\006Absent\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003"
+  "\022\014\n\004step\030\003 \001(\003\022\035\n\021time_index_column\030\004 \001("
+  "\tB\002\030\001\022\030\n\014value_column\030\005 \001(\tB\002\030\001\0223\n\013fake_"
+  "labels\030\006 \003(\0132\036.substrait_extension.Label"
+  "Pair\022\035\n\025time_index_column_idx\030\007 \001(\004\022\030\n\020v"
+  "alue_column_idx\030\010 \001(\004\"\'\n\tLabelPair\022\013\n\003ke"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\tB\?Z=github.com/Gre"
+  "ptimeTeam/greptime-proto/go/substrait_ex"
+  "tensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto = {
-    false, false, 932, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
+    false, false, 1335, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
     "substrait_extension/promql_plan.proto",
     &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 8,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offsets,
@@ -564,6 +604,8 @@ InstantManipulate::InstantManipulate(const InstantManipulate& from)
     , decltype(_impl_.end_){}
     , decltype(_impl_.interval_){}
     , decltype(_impl_.lookback_delta_){}
+    , decltype(_impl_.time_index_idx_){}
+    , decltype(_impl_.field_index_idx_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -584,8 +626,8 @@ InstantManipulate::InstantManipulate(const InstantManipulate& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.start_, &from._impl_.start_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.lookback_delta_) -
-    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.lookback_delta_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.field_index_idx_) -
+    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.field_index_idx_));
   // @@protoc_insertion_point(copy_constructor:substrait_extension.InstantManipulate)
 }
 
@@ -600,6 +642,8 @@ inline void InstantManipulate::SharedCtor(
     , decltype(_impl_.end_){int64_t{0}}
     , decltype(_impl_.interval_){int64_t{0}}
     , decltype(_impl_.lookback_delta_){int64_t{0}}
+    , decltype(_impl_.time_index_idx_){uint64_t{0u}}
+    , decltype(_impl_.field_index_idx_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.time_index_.InitDefault();
@@ -640,8 +684,8 @@ void InstantManipulate::Clear() {
   _impl_.time_index_.ClearToEmpty();
   _impl_.field_index_.ClearToEmpty();
   ::memset(&_impl_.start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.lookback_delta_) -
-      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.lookback_delta_));
+      reinterpret_cast<char*>(&_impl_.field_index_idx_) -
+      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.field_index_idx_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -683,7 +727,7 @@ const char* InstantManipulate::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // string time_index = 5;
+      // string time_index = 5 [deprecated = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_time_index();
@@ -693,13 +737,29 @@ const char* InstantManipulate::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // string field_index = 6;
+      // string field_index = 6 [deprecated = true];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           auto str = _internal_mutable_field_index();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.InstantManipulate.field_index"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_idx = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.time_index_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 field_index_idx = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.field_index_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -756,7 +816,7 @@ uint8_t* InstantManipulate::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(4, this->_internal_lookback_delta(), target);
   }
 
-  // string time_index = 5;
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index().data(), static_cast<int>(this->_internal_time_index().length()),
@@ -766,7 +826,7 @@ uint8_t* InstantManipulate::_InternalSerialize(
         5, this->_internal_time_index(), target);
   }
 
-  // string field_index = 6;
+  // string field_index = 6 [deprecated = true];
   if (!this->_internal_field_index().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_field_index().data(), static_cast<int>(this->_internal_field_index().length()),
@@ -774,6 +834,18 @@ uint8_t* InstantManipulate::_InternalSerialize(
       "substrait_extension.InstantManipulate.field_index");
     target = stream->WriteStringMaybeAliased(
         6, this->_internal_field_index(), target);
+  }
+
+  // uint64 time_index_idx = 7;
+  if (this->_internal_time_index_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_time_index_idx(), target);
+  }
+
+  // uint64 field_index_idx = 8;
+  if (this->_internal_field_index_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_field_index_idx(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -792,14 +864,14 @@ size_t InstantManipulate::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string time_index = 5;
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_time_index());
   }
 
-  // string field_index = 6;
+  // string field_index = 6 [deprecated = true];
   if (!this->_internal_field_index().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -824,6 +896,16 @@ size_t InstantManipulate::ByteSizeLong() const {
   // int64 lookback_delta = 4;
   if (this->_internal_lookback_delta() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_lookback_delta());
+  }
+
+  // uint64 time_index_idx = 7;
+  if (this->_internal_time_index_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_idx());
+  }
+
+  // uint64 field_index_idx = 8;
+  if (this->_internal_field_index_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_field_index_idx());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -862,6 +944,12 @@ void InstantManipulate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   if (from._internal_lookback_delta() != 0) {
     _this->_internal_set_lookback_delta(from._internal_lookback_delta());
   }
+  if (from._internal_time_index_idx() != 0) {
+    _this->_internal_set_time_index_idx(from._internal_time_index_idx());
+  }
+  if (from._internal_field_index_idx() != 0) {
+    _this->_internal_set_field_index_idx(from._internal_field_index_idx());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -890,8 +978,8 @@ void InstantManipulate::InternalSwap(InstantManipulate* other) {
       &other->_impl_.field_index_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(InstantManipulate, _impl_.lookback_delta_)
-      + sizeof(InstantManipulate::_impl_.lookback_delta_)
+      PROTOBUF_FIELD_OFFSET(InstantManipulate, _impl_.field_index_idx_)
+      + sizeof(InstantManipulate::_impl_.field_index_idx_)
       - PROTOBUF_FIELD_OFFSET(InstantManipulate, _impl_.start_)>(
           reinterpret_cast<char*>(&_impl_.start_),
           reinterpret_cast<char*>(&other->_impl_.start_));
@@ -920,8 +1008,11 @@ SeriesNormalize::SeriesNormalize(const SeriesNormalize& from)
   SeriesNormalize* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.tag_column_indices_){from._impl_.tag_column_indices_}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.offset_){}
+    , decltype(_impl_.time_index_idx_){}
     , decltype(_impl_.filter_nan_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -946,8 +1037,11 @@ inline void SeriesNormalize::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.tag_column_indices_){arena}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.offset_){int64_t{0}}
+    , decltype(_impl_.time_index_idx_){uint64_t{0u}}
     , decltype(_impl_.filter_nan_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -969,6 +1063,7 @@ SeriesNormalize::~SeriesNormalize() {
 inline void SeriesNormalize::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.tag_column_indices_.~RepeatedField();
   _impl_.time_index_.Destroy();
 }
 
@@ -983,6 +1078,7 @@ void SeriesNormalize::Clear() {
   (void) cached_has_bits;
 
   _impl_.tag_columns_.Clear();
+  _impl_.tag_column_indices_.Clear();
   _impl_.time_index_.ClearToEmpty();
   ::memset(&_impl_.offset_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.filter_nan_) -
@@ -1004,7 +1100,7 @@ const char* SeriesNormalize::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string time_index = 2;
+      // string time_index = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_time_index();
@@ -1022,7 +1118,7 @@ const char* SeriesNormalize::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // repeated string tag_columns = 4;
+      // repeated string tag_columns = 4 [deprecated = true];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr -= 1;
@@ -1034,6 +1130,25 @@ const char* SeriesNormalize::_InternalParse(const char* ptr, ::_pbi::ParseContex
             CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.SeriesNormalize.tag_columns"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_idx = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.time_index_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint64 tag_column_indices = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_tag_column_indices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 48) {
+          _internal_add_tag_column_indices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1072,7 +1187,7 @@ uint8_t* SeriesNormalize::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_offset(), target);
   }
 
-  // string time_index = 2;
+  // string time_index = 2 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index().data(), static_cast<int>(this->_internal_time_index().length()),
@@ -1088,7 +1203,7 @@ uint8_t* SeriesNormalize::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_filter_nan(), target);
   }
 
-  // repeated string tag_columns = 4;
+  // repeated string tag_columns = 4 [deprecated = true];
   for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
     const auto& s = this->_internal_tag_columns(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -1096,6 +1211,21 @@ uint8_t* SeriesNormalize::_InternalSerialize(
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "substrait_extension.SeriesNormalize.tag_columns");
     target = stream->WriteString(4, s, target);
+  }
+
+  // uint64 time_index_idx = 5;
+  if (this->_internal_time_index_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(5, this->_internal_time_index_idx(), target);
+  }
+
+  // repeated uint64 tag_column_indices = 6;
+  {
+    int byte_size = _impl_._tag_column_indices_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          6, _internal_tag_column_indices(), byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1114,7 +1244,7 @@ size_t SeriesNormalize::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tag_columns = 4;
+  // repeated string tag_columns = 4 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
   for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
@@ -1122,7 +1252,21 @@ size_t SeriesNormalize::ByteSizeLong() const {
       _impl_.tag_columns_.Get(i));
   }
 
-  // string time_index = 2;
+  // repeated uint64 tag_column_indices = 6;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.tag_column_indices_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._tag_column_indices_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string time_index = 2 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1132,6 +1276,11 @@ size_t SeriesNormalize::ByteSizeLong() const {
   // int64 offset = 1;
   if (this->_internal_offset() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_offset());
+  }
+
+  // uint64 time_index_idx = 5;
+  if (this->_internal_time_index_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_idx());
   }
 
   // bool filter_nan = 3;
@@ -1158,11 +1307,15 @@ void SeriesNormalize::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   (void) cached_has_bits;
 
   _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  _this->_impl_.tag_column_indices_.MergeFrom(from._impl_.tag_column_indices_);
   if (!from._internal_time_index().empty()) {
     _this->_internal_set_time_index(from._internal_time_index());
   }
   if (from._internal_offset() != 0) {
     _this->_internal_set_offset(from._internal_offset());
+  }
+  if (from._internal_time_index_idx() != 0) {
+    _this->_internal_set_time_index_idx(from._internal_time_index_idx());
   }
   if (from._internal_filter_nan() != 0) {
     _this->_internal_set_filter_nan(from._internal_filter_nan());
@@ -1187,6 +1340,7 @@ void SeriesNormalize::InternalSwap(SeriesNormalize* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  _impl_.tag_column_indices_.InternalSwap(&other->_impl_.tag_column_indices_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_index_, lhs_arena,
       &other->_impl_.time_index_, rhs_arena
@@ -1222,7 +1376,10 @@ SeriesDivide::SeriesDivide(const SeriesDivide& from)
   SeriesDivide* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.tag_column_indices_){from._impl_.tag_column_indices_}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_column_){}
+    , decltype(_impl_.time_index_column_idx_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1234,6 +1391,7 @@ SeriesDivide::SeriesDivide(const SeriesDivide& from)
     _this->_impl_.time_index_column_.Set(from._internal_time_index_column(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.time_index_column_idx_ = from._impl_.time_index_column_idx_;
   // @@protoc_insertion_point(copy_constructor:substrait_extension.SeriesDivide)
 }
 
@@ -1243,7 +1401,10 @@ inline void SeriesDivide::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.tag_column_indices_){arena}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_column_){}
+    , decltype(_impl_.time_index_column_idx_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.time_index_column_.InitDefault();
@@ -1264,6 +1425,7 @@ SeriesDivide::~SeriesDivide() {
 inline void SeriesDivide::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.tag_column_indices_.~RepeatedField();
   _impl_.time_index_column_.Destroy();
 }
 
@@ -1278,7 +1440,9 @@ void SeriesDivide::Clear() {
   (void) cached_has_bits;
 
   _impl_.tag_columns_.Clear();
+  _impl_.tag_column_indices_.Clear();
   _impl_.time_index_column_.ClearToEmpty();
+  _impl_.time_index_column_idx_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1288,7 +1452,7 @@ const char* SeriesDivide::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated string tag_columns = 1;
+      // repeated string tag_columns = 1 [deprecated = true];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr -= 1;
@@ -1303,13 +1467,32 @@ const char* SeriesDivide::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // string time_index_column = 2;
+      // string time_index_column = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_time_index_column();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.SeriesDivide.time_index_column"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint64 tag_column_indices = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_tag_column_indices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 24) {
+          _internal_add_tag_column_indices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_column_idx = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.time_index_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1342,7 +1525,7 @@ uint8_t* SeriesDivide::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string tag_columns = 1;
+  // repeated string tag_columns = 1 [deprecated = true];
   for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
     const auto& s = this->_internal_tag_columns(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -1352,7 +1535,7 @@ uint8_t* SeriesDivide::_InternalSerialize(
     target = stream->WriteString(1, s, target);
   }
 
-  // string time_index_column = 2;
+  // string time_index_column = 2 [deprecated = true];
   if (!this->_internal_time_index_column().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index_column().data(), static_cast<int>(this->_internal_time_index_column().length()),
@@ -1360,6 +1543,21 @@ uint8_t* SeriesDivide::_InternalSerialize(
       "substrait_extension.SeriesDivide.time_index_column");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_time_index_column(), target);
+  }
+
+  // repeated uint64 tag_column_indices = 3;
+  {
+    int byte_size = _impl_._tag_column_indices_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          3, _internal_tag_column_indices(), byte_size, target);
+    }
+  }
+
+  // uint64 time_index_column_idx = 4;
+  if (this->_internal_time_index_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_time_index_column_idx(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1378,7 +1576,7 @@ size_t SeriesDivide::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tag_columns = 1;
+  // repeated string tag_columns = 1 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
   for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
@@ -1386,11 +1584,30 @@ size_t SeriesDivide::ByteSizeLong() const {
       _impl_.tag_columns_.Get(i));
   }
 
-  // string time_index_column = 2;
+  // repeated uint64 tag_column_indices = 3;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.tag_column_indices_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._tag_column_indices_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string time_index_column = 2 [deprecated = true];
   if (!this->_internal_time_index_column().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_time_index_column());
+  }
+
+  // uint64 time_index_column_idx = 4;
+  if (this->_internal_time_index_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_column_idx());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1412,8 +1629,12 @@ void SeriesDivide::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   (void) cached_has_bits;
 
   _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  _this->_impl_.tag_column_indices_.MergeFrom(from._impl_.tag_column_indices_);
   if (!from._internal_time_index_column().empty()) {
     _this->_internal_set_time_index_column(from._internal_time_index_column());
+  }
+  if (from._internal_time_index_column_idx() != 0) {
+    _this->_internal_set_time_index_column_idx(from._internal_time_index_column_idx());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1435,10 +1656,12 @@ void SeriesDivide::InternalSwap(SeriesDivide* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  _impl_.tag_column_indices_.InternalSwap(&other->_impl_.tag_column_indices_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_index_column_, lhs_arena,
       &other->_impl_.time_index_column_, rhs_arena
   );
+  swap(_impl_.time_index_column_idx_, other->_impl_.time_index_column_idx_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SeriesDivide::GetMetadata() const {
@@ -1464,11 +1687,14 @@ RangeManipulate::RangeManipulate(const RangeManipulate& from)
   RangeManipulate* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.tag_column_indices_){from._impl_.tag_column_indices_}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.start_){}
     , decltype(_impl_.end_){}
     , decltype(_impl_.interval_){}
     , decltype(_impl_.range_){}
+    , decltype(_impl_.time_index_idx_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1481,8 +1707,8 @@ RangeManipulate::RangeManipulate(const RangeManipulate& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.start_, &from._impl_.start_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.range_) -
-    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.range_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.time_index_idx_) -
+    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.time_index_idx_));
   // @@protoc_insertion_point(copy_constructor:substrait_extension.RangeManipulate)
 }
 
@@ -1492,11 +1718,14 @@ inline void RangeManipulate::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.tag_column_indices_){arena}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.start_){int64_t{0}}
     , decltype(_impl_.end_){int64_t{0}}
     , decltype(_impl_.interval_){int64_t{0}}
     , decltype(_impl_.range_){int64_t{0}}
+    , decltype(_impl_.time_index_idx_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.time_index_.InitDefault();
@@ -1517,6 +1746,7 @@ RangeManipulate::~RangeManipulate() {
 inline void RangeManipulate::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.tag_column_indices_.~RepeatedField();
   _impl_.time_index_.Destroy();
 }
 
@@ -1531,10 +1761,11 @@ void RangeManipulate::Clear() {
   (void) cached_has_bits;
 
   _impl_.tag_columns_.Clear();
+  _impl_.tag_column_indices_.Clear();
   _impl_.time_index_.ClearToEmpty();
   ::memset(&_impl_.start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.range_) -
-      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.range_));
+      reinterpret_cast<char*>(&_impl_.time_index_idx_) -
+      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.time_index_idx_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1576,7 +1807,7 @@ const char* RangeManipulate::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string time_index = 5;
+      // string time_index = 5 [deprecated = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_time_index();
@@ -1586,7 +1817,7 @@ const char* RangeManipulate::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // repeated string tag_columns = 6;
+      // repeated string tag_columns = 6 [deprecated = true];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr -= 1;
@@ -1598,6 +1829,25 @@ const char* RangeManipulate::_InternalParse(const char* ptr, ::_pbi::ParseContex
             CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.RangeManipulate.tag_columns"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_idx = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.time_index_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint64 tag_column_indices = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_tag_column_indices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 64) {
+          _internal_add_tag_column_indices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1654,7 +1904,7 @@ uint8_t* RangeManipulate::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(4, this->_internal_range(), target);
   }
 
-  // string time_index = 5;
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index().data(), static_cast<int>(this->_internal_time_index().length()),
@@ -1664,7 +1914,7 @@ uint8_t* RangeManipulate::_InternalSerialize(
         5, this->_internal_time_index(), target);
   }
 
-  // repeated string tag_columns = 6;
+  // repeated string tag_columns = 6 [deprecated = true];
   for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
     const auto& s = this->_internal_tag_columns(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -1672,6 +1922,21 @@ uint8_t* RangeManipulate::_InternalSerialize(
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "substrait_extension.RangeManipulate.tag_columns");
     target = stream->WriteString(6, s, target);
+  }
+
+  // uint64 time_index_idx = 7;
+  if (this->_internal_time_index_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_time_index_idx(), target);
+  }
+
+  // repeated uint64 tag_column_indices = 8;
+  {
+    int byte_size = _impl_._tag_column_indices_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          8, _internal_tag_column_indices(), byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1690,7 +1955,7 @@ size_t RangeManipulate::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tag_columns = 6;
+  // repeated string tag_columns = 6 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
   for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
@@ -1698,7 +1963,21 @@ size_t RangeManipulate::ByteSizeLong() const {
       _impl_.tag_columns_.Get(i));
   }
 
-  // string time_index = 5;
+  // repeated uint64 tag_column_indices = 8;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.tag_column_indices_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._tag_column_indices_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1725,6 +2004,11 @@ size_t RangeManipulate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_range());
   }
 
+  // uint64 time_index_idx = 7;
+  if (this->_internal_time_index_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_idx());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1744,6 +2028,7 @@ void RangeManipulate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   (void) cached_has_bits;
 
   _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  _this->_impl_.tag_column_indices_.MergeFrom(from._impl_.tag_column_indices_);
   if (!from._internal_time_index().empty()) {
     _this->_internal_set_time_index(from._internal_time_index());
   }
@@ -1758,6 +2043,9 @@ void RangeManipulate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   }
   if (from._internal_range() != 0) {
     _this->_internal_set_range(from._internal_range());
+  }
+  if (from._internal_time_index_idx() != 0) {
+    _this->_internal_set_time_index_idx(from._internal_time_index_idx());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1779,13 +2067,14 @@ void RangeManipulate::InternalSwap(RangeManipulate* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  _impl_.tag_column_indices_.InternalSwap(&other->_impl_.tag_column_indices_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_index_, lhs_arena,
       &other->_impl_.time_index_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RangeManipulate, _impl_.range_)
-      + sizeof(RangeManipulate::_impl_.range_)
+      PROTOBUF_FIELD_OFFSET(RangeManipulate, _impl_.time_index_idx_)
+      + sizeof(RangeManipulate::_impl_.time_index_idx_)
       - PROTOBUF_FIELD_OFFSET(RangeManipulate, _impl_.start_)>(
           reinterpret_cast<char*>(&_impl_.start_),
           reinterpret_cast<char*>(&other->_impl_.start_));
@@ -1814,11 +2103,15 @@ ScalarCalculate::ScalarCalculate(const ScalarCalculate& from)
   ScalarCalculate* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){from._impl_.tag_columns_}
+    , decltype(_impl_.tag_column_indices_){from._impl_.tag_column_indices_}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.field_column_){}
     , decltype(_impl_.start_){}
     , decltype(_impl_.end_){}
     , decltype(_impl_.interval_){}
+    , decltype(_impl_.time_index_idx_){}
+    , decltype(_impl_.field_column_idx_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1839,8 +2132,8 @@ ScalarCalculate::ScalarCalculate(const ScalarCalculate& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.start_, &from._impl_.start_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.interval_) -
-    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.interval_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.field_column_idx_) -
+    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.field_column_idx_));
   // @@protoc_insertion_point(copy_constructor:substrait_extension.ScalarCalculate)
 }
 
@@ -1850,11 +2143,15 @@ inline void ScalarCalculate::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.tag_columns_){arena}
+    , decltype(_impl_.tag_column_indices_){arena}
+    , /*decltype(_impl_._tag_column_indices_cached_byte_size_)*/{0}
     , decltype(_impl_.time_index_){}
     , decltype(_impl_.field_column_){}
     , decltype(_impl_.start_){int64_t{0}}
     , decltype(_impl_.end_){int64_t{0}}
     , decltype(_impl_.interval_){int64_t{0}}
+    , decltype(_impl_.time_index_idx_){uint64_t{0u}}
+    , decltype(_impl_.field_column_idx_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.time_index_.InitDefault();
@@ -1879,6 +2176,7 @@ ScalarCalculate::~ScalarCalculate() {
 inline void ScalarCalculate::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.tag_columns_.~RepeatedPtrField();
+  _impl_.tag_column_indices_.~RepeatedField();
   _impl_.time_index_.Destroy();
   _impl_.field_column_.Destroy();
 }
@@ -1894,11 +2192,12 @@ void ScalarCalculate::Clear() {
   (void) cached_has_bits;
 
   _impl_.tag_columns_.Clear();
+  _impl_.tag_column_indices_.Clear();
   _impl_.time_index_.ClearToEmpty();
   _impl_.field_column_.ClearToEmpty();
   ::memset(&_impl_.start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.interval_) -
-      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.interval_));
+      reinterpret_cast<char*>(&_impl_.field_column_idx_) -
+      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.field_column_idx_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1932,7 +2231,7 @@ const char* ScalarCalculate::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string time_index = 5;
+      // string time_index = 5 [deprecated = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_time_index();
@@ -1942,7 +2241,7 @@ const char* ScalarCalculate::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // repeated string tag_columns = 6;
+      // repeated string tag_columns = 6 [deprecated = true];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           ptr -= 1;
@@ -1957,13 +2256,40 @@ const char* ScalarCalculate::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string field_column = 7;
+      // string field_column = 7 [deprecated = true];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
           auto str = _internal_mutable_field_column();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.ScalarCalculate.field_column"));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_idx = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.time_index_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint64 tag_column_indices = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_tag_column_indices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 72) {
+          _internal_add_tag_column_indices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 field_column_idx = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.field_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -2014,7 +2340,7 @@ uint8_t* ScalarCalculate::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_interval(), target);
   }
 
-  // string time_index = 5;
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index().data(), static_cast<int>(this->_internal_time_index().length()),
@@ -2024,7 +2350,7 @@ uint8_t* ScalarCalculate::_InternalSerialize(
         5, this->_internal_time_index(), target);
   }
 
-  // repeated string tag_columns = 6;
+  // repeated string tag_columns = 6 [deprecated = true];
   for (int i = 0, n = this->_internal_tag_columns_size(); i < n; i++) {
     const auto& s = this->_internal_tag_columns(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
@@ -2034,7 +2360,7 @@ uint8_t* ScalarCalculate::_InternalSerialize(
     target = stream->WriteString(6, s, target);
   }
 
-  // string field_column = 7;
+  // string field_column = 7 [deprecated = true];
   if (!this->_internal_field_column().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_field_column().data(), static_cast<int>(this->_internal_field_column().length()),
@@ -2042,6 +2368,27 @@ uint8_t* ScalarCalculate::_InternalSerialize(
       "substrait_extension.ScalarCalculate.field_column");
     target = stream->WriteStringMaybeAliased(
         7, this->_internal_field_column(), target);
+  }
+
+  // uint64 time_index_idx = 8;
+  if (this->_internal_time_index_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_time_index_idx(), target);
+  }
+
+  // repeated uint64 tag_column_indices = 9;
+  {
+    int byte_size = _impl_._tag_column_indices_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          9, _internal_tag_column_indices(), byte_size, target);
+    }
+  }
+
+  // uint64 field_column_idx = 10;
+  if (this->_internal_field_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(10, this->_internal_field_column_idx(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2060,7 +2407,7 @@ size_t ScalarCalculate::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tag_columns = 6;
+  // repeated string tag_columns = 6 [deprecated = true];
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.tag_columns_.size());
   for (int i = 0, n = _impl_.tag_columns_.size(); i < n; i++) {
@@ -2068,14 +2415,28 @@ size_t ScalarCalculate::ByteSizeLong() const {
       _impl_.tag_columns_.Get(i));
   }
 
-  // string time_index = 5;
+  // repeated uint64 tag_column_indices = 9;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.tag_column_indices_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._tag_column_indices_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string time_index = 5 [deprecated = true];
   if (!this->_internal_time_index().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_time_index());
   }
 
-  // string field_column = 7;
+  // string field_column = 7 [deprecated = true];
   if (!this->_internal_field_column().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -2097,6 +2458,16 @@ size_t ScalarCalculate::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_interval());
   }
 
+  // uint64 time_index_idx = 8;
+  if (this->_internal_time_index_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_idx());
+  }
+
+  // uint64 field_column_idx = 10;
+  if (this->_internal_field_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_field_column_idx());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -2116,6 +2487,7 @@ void ScalarCalculate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   (void) cached_has_bits;
 
   _this->_impl_.tag_columns_.MergeFrom(from._impl_.tag_columns_);
+  _this->_impl_.tag_column_indices_.MergeFrom(from._impl_.tag_column_indices_);
   if (!from._internal_time_index().empty()) {
     _this->_internal_set_time_index(from._internal_time_index());
   }
@@ -2130,6 +2502,12 @@ void ScalarCalculate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   }
   if (from._internal_interval() != 0) {
     _this->_internal_set_interval(from._internal_interval());
+  }
+  if (from._internal_time_index_idx() != 0) {
+    _this->_internal_set_time_index_idx(from._internal_time_index_idx());
+  }
+  if (from._internal_field_column_idx() != 0) {
+    _this->_internal_set_field_column_idx(from._internal_field_column_idx());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2151,6 +2529,7 @@ void ScalarCalculate::InternalSwap(ScalarCalculate* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.tag_columns_.InternalSwap(&other->_impl_.tag_columns_);
+  _impl_.tag_column_indices_.InternalSwap(&other->_impl_.tag_column_indices_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.time_index_, lhs_arena,
       &other->_impl_.time_index_, rhs_arena
@@ -2160,8 +2539,8 @@ void ScalarCalculate::InternalSwap(ScalarCalculate* other) {
       &other->_impl_.field_column_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ScalarCalculate, _impl_.interval_)
-      + sizeof(ScalarCalculate::_impl_.interval_)
+      PROTOBUF_FIELD_OFFSET(ScalarCalculate, _impl_.field_column_idx_)
+      + sizeof(ScalarCalculate::_impl_.field_column_idx_)
       - PROTOBUF_FIELD_OFFSET(ScalarCalculate, _impl_.start_)>(
           reinterpret_cast<char*>(&_impl_.start_),
           reinterpret_cast<char*>(&other->_impl_.start_));
@@ -2195,6 +2574,8 @@ Absent::Absent(const Absent& from)
     , decltype(_impl_.start_){}
     , decltype(_impl_.end_){}
     , decltype(_impl_.step_){}
+    , decltype(_impl_.time_index_column_idx_){}
+    , decltype(_impl_.value_column_idx_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -2215,8 +2596,8 @@ Absent::Absent(const Absent& from)
       _this->GetArenaForAllocation());
   }
   ::memcpy(&_impl_.start_, &from._impl_.start_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.step_) -
-    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.step_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.value_column_idx_) -
+    reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.value_column_idx_));
   // @@protoc_insertion_point(copy_constructor:substrait_extension.Absent)
 }
 
@@ -2231,6 +2612,8 @@ inline void Absent::SharedCtor(
     , decltype(_impl_.start_){int64_t{0}}
     , decltype(_impl_.end_){int64_t{0}}
     , decltype(_impl_.step_){int64_t{0}}
+    , decltype(_impl_.time_index_column_idx_){uint64_t{0u}}
+    , decltype(_impl_.value_column_idx_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.time_index_column_.InitDefault();
@@ -2273,8 +2656,8 @@ void Absent::Clear() {
   _impl_.time_index_column_.ClearToEmpty();
   _impl_.value_column_.ClearToEmpty();
   ::memset(&_impl_.start_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.step_) -
-      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.step_));
+      reinterpret_cast<char*>(&_impl_.value_column_idx_) -
+      reinterpret_cast<char*>(&_impl_.start_)) + sizeof(_impl_.value_column_idx_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2308,7 +2691,7 @@ const char* Absent::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // string time_index_column = 4;
+      // string time_index_column = 4 [deprecated = true];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_time_index_column();
@@ -2318,7 +2701,7 @@ const char* Absent::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // string value_column = 5;
+      // string value_column = 5 [deprecated = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_value_column();
@@ -2338,6 +2721,22 @@ const char* Absent::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 time_index_column_idx = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _impl_.time_index_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 value_column_idx = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 64)) {
+          _impl_.value_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -2388,7 +2787,7 @@ uint8_t* Absent::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_step(), target);
   }
 
-  // string time_index_column = 4;
+  // string time_index_column = 4 [deprecated = true];
   if (!this->_internal_time_index_column().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_time_index_column().data(), static_cast<int>(this->_internal_time_index_column().length()),
@@ -2398,7 +2797,7 @@ uint8_t* Absent::_InternalSerialize(
         4, this->_internal_time_index_column(), target);
   }
 
-  // string value_column = 5;
+  // string value_column = 5 [deprecated = true];
   if (!this->_internal_value_column().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_value_column().data(), static_cast<int>(this->_internal_value_column().length()),
@@ -2414,6 +2813,18 @@ uint8_t* Absent::_InternalSerialize(
     const auto& repfield = this->_internal_fake_labels(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
         InternalWriteMessage(6, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // uint64 time_index_column_idx = 7;
+  if (this->_internal_time_index_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(7, this->_internal_time_index_column_idx(), target);
+  }
+
+  // uint64 value_column_idx = 8;
+  if (this->_internal_value_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(8, this->_internal_value_column_idx(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2439,14 +2850,14 @@ size_t Absent::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // string time_index_column = 4;
+  // string time_index_column = 4 [deprecated = true];
   if (!this->_internal_time_index_column().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_time_index_column());
   }
 
-  // string value_column = 5;
+  // string value_column = 5 [deprecated = true];
   if (!this->_internal_value_column().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -2466,6 +2877,16 @@ size_t Absent::ByteSizeLong() const {
   // int64 step = 3;
   if (this->_internal_step() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_step());
+  }
+
+  // uint64 time_index_column_idx = 7;
+  if (this->_internal_time_index_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_index_column_idx());
+  }
+
+  // uint64 value_column_idx = 8;
+  if (this->_internal_value_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_value_column_idx());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -2502,6 +2923,12 @@ void Absent::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (from._internal_step() != 0) {
     _this->_internal_set_step(from._internal_step());
   }
+  if (from._internal_time_index_column_idx() != 0) {
+    _this->_internal_set_time_index_column_idx(from._internal_time_index_column_idx());
+  }
+  if (from._internal_value_column_idx() != 0) {
+    _this->_internal_set_value_column_idx(from._internal_value_column_idx());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2531,8 +2958,8 @@ void Absent::InternalSwap(Absent* other) {
       &other->_impl_.value_column_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Absent, _impl_.step_)
-      + sizeof(Absent::_impl_.step_)
+      PROTOBUF_FIELD_OFFSET(Absent, _impl_.value_column_idx_)
+      + sizeof(Absent::_impl_.value_column_idx_)
       - PROTOBUF_FIELD_OFFSET(Absent, _impl_.start_)>(
           reinterpret_cast<char*>(&_impl_.start_),
           reinterpret_cast<char*>(&other->_impl_.start_));
