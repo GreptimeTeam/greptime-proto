@@ -94,12 +94,20 @@ message NodeInfo {
   string git_commit = 2;
   // The node start timestamp
   uint64 start_time_ms = 3;
-  // The CPU cores number of the node.
-  uint32 cpus = 4;
-  // The memory bytes of the node.
-  uint64 memory_bytes = 5;
+  // Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
+  uint32 cpus = 4 [deprecated = true];
+  // Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
+  uint64 memory_bytes = 5 [deprecated = true];
   // The hostname of the node.
   string hostname = 6;
+  // The total CPU millicores of the node.
+  int64 total_cpu_millicores = 7;
+  // The total memory bytes of the node.
+  int64 total_memory_bytes = 8;
+  // The CPU usage millicores of the node.
+  int64 cpu_usage_millicores = 9;
+  // The memory usage bytes of the node.
+  int64 memory_usage_bytes = 10;
 }
 
 message RegionStat {
