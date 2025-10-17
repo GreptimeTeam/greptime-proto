@@ -356,6 +356,16 @@ message CreateTriggerExpr {
   google.protobuf.Duration interval = 8;
   // The raw interval expression, e.g., '1 minute'::INTERVAL.
   string raw_interval_expr = 9;
+  // The duration that the condition must be met continuously before firing the
+  // trigger.
+  google.protobuf.Duration for = 10;
+  // The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+  string for_raw_expr = 11;
+  // The duration to keep firing after the condition is no longer met.
+  google.protobuf.Duration keep_firing_for = 12;
+  // The raw SQL expression for 'keep_firing_for' duration, e.g.,
+  // '10 minutes'::INTERVAL.
+  string keep_firing_for_raw_expr = 13;
 }
 
 // The notification channel for trigger.

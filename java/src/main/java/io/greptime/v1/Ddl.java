@@ -45406,6 +45406,105 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getRawIntervalExprBytes();
+
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     * @return Whether the for field is set.
+     */
+    boolean hasFor();
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     * @return The for.
+     */
+    com.google.protobuf.Duration getFor();
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getForOrBuilder();
+
+    /**
+     * <pre>
+     * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string for_raw_expr = 11;</code>
+     * @return The forRawExpr.
+     */
+    java.lang.String getForRawExpr();
+    /**
+     * <pre>
+     * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string for_raw_expr = 11;</code>
+     * @return The bytes for forRawExpr.
+     */
+    com.google.protobuf.ByteString
+        getForRawExprBytes();
+
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     * @return Whether the keepFiringFor field is set.
+     */
+    boolean hasKeepFiringFor();
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     * @return The keepFiringFor.
+     */
+    com.google.protobuf.Duration getKeepFiringFor();
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     */
+    com.google.protobuf.DurationOrBuilder getKeepFiringForOrBuilder();
+
+    /**
+     * <pre>
+     * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+     * '10 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string keep_firing_for_raw_expr = 13;</code>
+     * @return The keepFiringForRawExpr.
+     */
+    java.lang.String getKeepFiringForRawExpr();
+    /**
+     * <pre>
+     * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+     * '10 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string keep_firing_for_raw_expr = 13;</code>
+     * @return The bytes for keepFiringForRawExpr.
+     */
+    com.google.protobuf.ByteString
+        getKeepFiringForRawExprBytes();
   }
   /**
    * <pre>
@@ -45429,6 +45528,8 @@ java.lang.String defaultValue);
       sql_ = "";
       channels_ = java.util.Collections.emptyList();
       rawIntervalExpr_ = "";
+      forRawExpr_ = "";
+      keepFiringForRawExpr_ = "";
     }
 
     @java.lang.Override
@@ -45537,6 +45638,44 @@ java.lang.String defaultValue);
               java.lang.String s = input.readStringRequireUtf8();
 
               rawIntervalExpr_ = s;
+              break;
+            }
+            case 82: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (for_ != null) {
+                subBuilder = for_.toBuilder();
+              }
+              for_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(for_);
+                for_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              forRawExpr_ = s;
+              break;
+            }
+            case 98: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (keepFiringFor_ != null) {
+                subBuilder = keepFiringFor_.toBuilder();
+              }
+              keepFiringFor_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(keepFiringFor_);
+                keepFiringFor_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              keepFiringForRawExpr_ = s;
               break;
             }
             default: {
@@ -46049,6 +46188,179 @@ java.lang.String defaultValue);
       }
     }
 
+    public static final int FOR_FIELD_NUMBER = 10;
+    private com.google.protobuf.Duration for_;
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     * @return Whether the for field is set.
+     */
+    @java.lang.Override
+    public boolean hasFor() {
+      return for_ != null;
+    }
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     * @return The for.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getFor() {
+      return for_ == null ? com.google.protobuf.Duration.getDefaultInstance() : for_;
+    }
+    /**
+     * <pre>
+     * The duration that the condition must be met continuously before firing the
+     * trigger.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration for = 10;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getForOrBuilder() {
+      return getFor();
+    }
+
+    public static final int FOR_RAW_EXPR_FIELD_NUMBER = 11;
+    private volatile java.lang.Object forRawExpr_;
+    /**
+     * <pre>
+     * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string for_raw_expr = 11;</code>
+     * @return The forRawExpr.
+     */
+    @java.lang.Override
+    public java.lang.String getForRawExpr() {
+      java.lang.Object ref = forRawExpr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        forRawExpr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string for_raw_expr = 11;</code>
+     * @return The bytes for forRawExpr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getForRawExprBytes() {
+      java.lang.Object ref = forRawExpr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        forRawExpr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KEEP_FIRING_FOR_FIELD_NUMBER = 12;
+    private com.google.protobuf.Duration keepFiringFor_;
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     * @return Whether the keepFiringFor field is set.
+     */
+    @java.lang.Override
+    public boolean hasKeepFiringFor() {
+      return keepFiringFor_ != null;
+    }
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     * @return The keepFiringFor.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Duration getKeepFiringFor() {
+      return keepFiringFor_ == null ? com.google.protobuf.Duration.getDefaultInstance() : keepFiringFor_;
+    }
+    /**
+     * <pre>
+     * The duration to keep firing after the condition is no longer met.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.DurationOrBuilder getKeepFiringForOrBuilder() {
+      return getKeepFiringFor();
+    }
+
+    public static final int KEEP_FIRING_FOR_RAW_EXPR_FIELD_NUMBER = 13;
+    private volatile java.lang.Object keepFiringForRawExpr_;
+    /**
+     * <pre>
+     * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+     * '10 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string keep_firing_for_raw_expr = 13;</code>
+     * @return The keepFiringForRawExpr.
+     */
+    @java.lang.Override
+    public java.lang.String getKeepFiringForRawExpr() {
+      java.lang.Object ref = keepFiringForRawExpr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        keepFiringForRawExpr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+     * '10 minutes'::INTERVAL.
+     * </pre>
+     *
+     * <code>string keep_firing_for_raw_expr = 13;</code>
+     * @return The bytes for keepFiringForRawExpr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKeepFiringForRawExprBytes() {
+      java.lang.Object ref = keepFiringForRawExpr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        keepFiringForRawExpr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -46095,6 +46407,18 @@ java.lang.String defaultValue);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawIntervalExpr_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, rawIntervalExpr_);
+      }
+      if (for_ != null) {
+        output.writeMessage(10, getFor());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(forRawExpr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, forRawExpr_);
+      }
+      if (keepFiringFor_ != null) {
+        output.writeMessage(12, getKeepFiringFor());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keepFiringForRawExpr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, keepFiringForRawExpr_);
       }
       unknownFields.writeTo(output);
     }
@@ -46149,6 +46473,20 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawIntervalExpr_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, rawIntervalExpr_);
       }
+      if (for_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getFor());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(forRawExpr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, forRawExpr_);
+      }
+      if (keepFiringFor_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, getKeepFiringFor());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keepFiringForRawExpr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, keepFiringForRawExpr_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -46185,6 +46523,20 @@ java.lang.String defaultValue);
       }
       if (!getRawIntervalExpr()
           .equals(other.getRawIntervalExpr())) return false;
+      if (hasFor() != other.hasFor()) return false;
+      if (hasFor()) {
+        if (!getFor()
+            .equals(other.getFor())) return false;
+      }
+      if (!getForRawExpr()
+          .equals(other.getForRawExpr())) return false;
+      if (hasKeepFiringFor() != other.hasKeepFiringFor()) return false;
+      if (hasKeepFiringFor()) {
+        if (!getKeepFiringFor()
+            .equals(other.getKeepFiringFor())) return false;
+      }
+      if (!getKeepFiringForRawExpr()
+          .equals(other.getKeepFiringForRawExpr())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -46223,6 +46575,18 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + RAW_INTERVAL_EXPR_FIELD_NUMBER;
       hash = (53 * hash) + getRawIntervalExpr().hashCode();
+      if (hasFor()) {
+        hash = (37 * hash) + FOR_FIELD_NUMBER;
+        hash = (53 * hash) + getFor().hashCode();
+      }
+      hash = (37 * hash) + FOR_RAW_EXPR_FIELD_NUMBER;
+      hash = (53 * hash) + getForRawExpr().hashCode();
+      if (hasKeepFiringFor()) {
+        hash = (37 * hash) + KEEP_FIRING_FOR_FIELD_NUMBER;
+        hash = (53 * hash) + getKeepFiringFor().hashCode();
+      }
+      hash = (37 * hash) + KEEP_FIRING_FOR_RAW_EXPR_FIELD_NUMBER;
+      hash = (53 * hash) + getKeepFiringForRawExpr().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -46411,6 +46775,22 @@ java.lang.String defaultValue);
         }
         rawIntervalExpr_ = "";
 
+        if (forBuilder_ == null) {
+          for_ = null;
+        } else {
+          for_ = null;
+          forBuilder_ = null;
+        }
+        forRawExpr_ = "";
+
+        if (keepFiringForBuilder_ == null) {
+          keepFiringFor_ = null;
+        } else {
+          keepFiringFor_ = null;
+          keepFiringForBuilder_ = null;
+        }
+        keepFiringForRawExpr_ = "";
+
         return this;
       }
 
@@ -46461,6 +46841,18 @@ java.lang.String defaultValue);
           result.interval_ = intervalBuilder_.build();
         }
         result.rawIntervalExpr_ = rawIntervalExpr_;
+        if (forBuilder_ == null) {
+          result.for_ = for_;
+        } else {
+          result.for_ = forBuilder_.build();
+        }
+        result.forRawExpr_ = forRawExpr_;
+        if (keepFiringForBuilder_ == null) {
+          result.keepFiringFor_ = keepFiringFor_;
+        } else {
+          result.keepFiringFor_ = keepFiringForBuilder_.build();
+        }
+        result.keepFiringForRawExpr_ = keepFiringForRawExpr_;
         onBuilt();
         return result;
       }
@@ -46559,6 +46951,20 @@ java.lang.String defaultValue);
         }
         if (!other.getRawIntervalExpr().isEmpty()) {
           rawIntervalExpr_ = other.rawIntervalExpr_;
+          onChanged();
+        }
+        if (other.hasFor()) {
+          mergeFor(other.getFor());
+        }
+        if (!other.getForRawExpr().isEmpty()) {
+          forRawExpr_ = other.forRawExpr_;
+          onChanged();
+        }
+        if (other.hasKeepFiringFor()) {
+          mergeKeepFiringFor(other.getKeepFiringFor());
+        }
+        if (!other.getKeepFiringForRawExpr().isEmpty()) {
+          keepFiringForRawExpr_ = other.keepFiringForRawExpr_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -47711,6 +48117,522 @@ java.lang.String defaultValue);
   checkByteStringIsUtf8(value);
         
         rawIntervalExpr_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Duration for_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> forBuilder_;
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       * @return Whether the for field is set.
+       */
+      public boolean hasFor() {
+        return forBuilder_ != null || for_ != null;
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       * @return The for.
+       */
+      public com.google.protobuf.Duration getFor() {
+        if (forBuilder_ == null) {
+          return for_ == null ? com.google.protobuf.Duration.getDefaultInstance() : for_;
+        } else {
+          return forBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public Builder setFor(com.google.protobuf.Duration value) {
+        if (forBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          for_ = value;
+          onChanged();
+        } else {
+          forBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public Builder setFor(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (forBuilder_ == null) {
+          for_ = builderForValue.build();
+          onChanged();
+        } else {
+          forBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public Builder mergeFor(com.google.protobuf.Duration value) {
+        if (forBuilder_ == null) {
+          if (for_ != null) {
+            for_ =
+              com.google.protobuf.Duration.newBuilder(for_).mergeFrom(value).buildPartial();
+          } else {
+            for_ = value;
+          }
+          onChanged();
+        } else {
+          forBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public Builder clearFor() {
+        if (forBuilder_ == null) {
+          for_ = null;
+          onChanged();
+        } else {
+          for_ = null;
+          forBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public com.google.protobuf.Duration.Builder getForBuilder() {
+        
+        onChanged();
+        return getForFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getForOrBuilder() {
+        if (forBuilder_ != null) {
+          return forBuilder_.getMessageOrBuilder();
+        } else {
+          return for_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : for_;
+        }
+      }
+      /**
+       * <pre>
+       * The duration that the condition must be met continuously before firing the
+       * trigger.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration for = 10;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getForFieldBuilder() {
+        if (forBuilder_ == null) {
+          forBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getFor(),
+                  getParentForChildren(),
+                  isClean());
+          for_ = null;
+        }
+        return forBuilder_;
+      }
+
+      private java.lang.Object forRawExpr_ = "";
+      /**
+       * <pre>
+       * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string for_raw_expr = 11;</code>
+       * @return The forRawExpr.
+       */
+      public java.lang.String getForRawExpr() {
+        java.lang.Object ref = forRawExpr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          forRawExpr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string for_raw_expr = 11;</code>
+       * @return The bytes for forRawExpr.
+       */
+      public com.google.protobuf.ByteString
+          getForRawExprBytes() {
+        java.lang.Object ref = forRawExpr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          forRawExpr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string for_raw_expr = 11;</code>
+       * @param value The forRawExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setForRawExpr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        forRawExpr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string for_raw_expr = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearForRawExpr() {
+        
+        forRawExpr_ = getDefaultInstance().getForRawExpr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'for' duration, e.g., '5 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string for_raw_expr = 11;</code>
+       * @param value The bytes for forRawExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setForRawExprBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        forRawExpr_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Duration keepFiringFor_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> keepFiringForBuilder_;
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       * @return Whether the keepFiringFor field is set.
+       */
+      public boolean hasKeepFiringFor() {
+        return keepFiringForBuilder_ != null || keepFiringFor_ != null;
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       * @return The keepFiringFor.
+       */
+      public com.google.protobuf.Duration getKeepFiringFor() {
+        if (keepFiringForBuilder_ == null) {
+          return keepFiringFor_ == null ? com.google.protobuf.Duration.getDefaultInstance() : keepFiringFor_;
+        } else {
+          return keepFiringForBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public Builder setKeepFiringFor(com.google.protobuf.Duration value) {
+        if (keepFiringForBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          keepFiringFor_ = value;
+          onChanged();
+        } else {
+          keepFiringForBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public Builder setKeepFiringFor(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (keepFiringForBuilder_ == null) {
+          keepFiringFor_ = builderForValue.build();
+          onChanged();
+        } else {
+          keepFiringForBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public Builder mergeKeepFiringFor(com.google.protobuf.Duration value) {
+        if (keepFiringForBuilder_ == null) {
+          if (keepFiringFor_ != null) {
+            keepFiringFor_ =
+              com.google.protobuf.Duration.newBuilder(keepFiringFor_).mergeFrom(value).buildPartial();
+          } else {
+            keepFiringFor_ = value;
+          }
+          onChanged();
+        } else {
+          keepFiringForBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public Builder clearKeepFiringFor() {
+        if (keepFiringForBuilder_ == null) {
+          keepFiringFor_ = null;
+          onChanged();
+        } else {
+          keepFiringFor_ = null;
+          keepFiringForBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public com.google.protobuf.Duration.Builder getKeepFiringForBuilder() {
+        
+        onChanged();
+        return getKeepFiringForFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getKeepFiringForOrBuilder() {
+        if (keepFiringForBuilder_ != null) {
+          return keepFiringForBuilder_.getMessageOrBuilder();
+        } else {
+          return keepFiringFor_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : keepFiringFor_;
+        }
+      }
+      /**
+       * <pre>
+       * The duration to keep firing after the condition is no longer met.
+       * </pre>
+       *
+       * <code>.google.protobuf.Duration keep_firing_for = 12;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getKeepFiringForFieldBuilder() {
+        if (keepFiringForBuilder_ == null) {
+          keepFiringForBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getKeepFiringFor(),
+                  getParentForChildren(),
+                  isClean());
+          keepFiringFor_ = null;
+        }
+        return keepFiringForBuilder_;
+      }
+
+      private java.lang.Object keepFiringForRawExpr_ = "";
+      /**
+       * <pre>
+       * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+       * '10 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string keep_firing_for_raw_expr = 13;</code>
+       * @return The keepFiringForRawExpr.
+       */
+      public java.lang.String getKeepFiringForRawExpr() {
+        java.lang.Object ref = keepFiringForRawExpr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          keepFiringForRawExpr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+       * '10 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string keep_firing_for_raw_expr = 13;</code>
+       * @return The bytes for keepFiringForRawExpr.
+       */
+      public com.google.protobuf.ByteString
+          getKeepFiringForRawExprBytes() {
+        java.lang.Object ref = keepFiringForRawExpr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          keepFiringForRawExpr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+       * '10 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string keep_firing_for_raw_expr = 13;</code>
+       * @param value The keepFiringForRawExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeepFiringForRawExpr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        keepFiringForRawExpr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+       * '10 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string keep_firing_for_raw_expr = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeepFiringForRawExpr() {
+        
+        keepFiringForRawExpr_ = getDefaultInstance().getKeepFiringForRawExpr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The raw SQL expression for 'keep_firing_for' duration, e.g.,
+       * '10 minutes'::INTERVAL.
+       * </pre>
+       *
+       * <code>string keep_firing_for_raw_expr = 13;</code>
+       * @param value The bytes for keepFiringForRawExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeepFiringForRawExprBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        keepFiringForRawExpr_ = value;
         onChanged();
         return this;
       }
@@ -50760,8 +51682,8 @@ java.lang.String defaultValue);
       "(\0132!.greptime.v1.UnsetDatabaseOptionsH\000B" +
       "\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024set_dat" +
       "abase_options\030\001 \003(\0132\023.greptime.v1.Option" +
-      "\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\305" +
-      "\003\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001" +
+      "\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331" +
+      "\004\n\021CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001" +
       "(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_no" +
       "t_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030" +
       "\005 \003(\0132\032.greptime.v1.NotifyChannel\022:\n\006lab" +
@@ -50769,23 +51691,26 @@ java.lang.String defaultValue);
       "r.LabelsEntry\022D\n\013annotations\030\007 \003(\0132/.gre" +
       "ptime.v1.CreateTriggerExpr.AnnotationsEn" +
       "try\022+\n\010interval\030\010 \001(\0132\031.google.protobuf." +
-      "Duration\022\031\n\021raw_interval_expr\030\t \001(\t\032-\n\013L" +
-      "abelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
-      "8\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
-      "alue\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030" +
-      "\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.Web" +
-      "hookOptionsH\000B\016\n\014channel_type\"\177\n\016Webhook" +
-      "Options\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.gre" +
-      "ptime.v1.WebhookOptions.OptsEntry\032+\n\tOpt" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U" +
-      "\n\017DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
-      "\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030" +
-      "\003 \001(\010*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINES" +
-      "E\020\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005B" +
-      "LOOM\020\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FIL" +
-      "TER\020\000BL\n\016io.greptime.v1B\003DdlZ5github.com" +
-      "/GreptimeTeam/greptime-proto/go/greptime" +
-      "/v1b\006proto3"
+      "Duration\022\031\n\021raw_interval_expr\030\t \001(\t\022&\n\003f" +
+      "or\030\n \001(\0132\031.google.protobuf.Duration\022\024\n\014f" +
+      "or_raw_expr\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001" +
+      "(\0132\031.google.protobuf.Duration\022 \n\030keep_fi" +
+      "ring_for_raw_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annota" +
+      "tionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\002" +
+      "8\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007web" +
+      "hook\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH" +
+      "\000B\016\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003u" +
+      "rl\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Web" +
+      "hookOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTrigge" +
+      "rExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_n" +
+      "ame\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010*$\n\010Ana" +
+      "lyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Fullt" +
+      "extBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Sk" +
+      "ippingIndexType\022\020\n\014BLOOM_FILTER\020\000BL\n\016io." +
+      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -51068,7 +51993,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "TriggerName", "CreateIfNotExists", "Sql", "Channels", "Labels", "Annotations", "Interval", "RawIntervalExpr", });
+        new java.lang.String[] { "CatalogName", "TriggerName", "CreateIfNotExists", "Sql", "Channels", "Labels", "Annotations", "Interval", "RawIntervalExpr", "For", "ForRawExpr", "KeepFiringFor", "KeepFiringForRawExpr", });
     internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_descriptor =
       internal_static_greptime_v1_CreateTriggerExpr_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_CreateTriggerExpr_LabelsEntry_fieldAccessorTable = new
