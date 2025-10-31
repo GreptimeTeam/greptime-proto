@@ -70,6 +70,9 @@ extern AlterRequestDefaultTypeInternal _AlterRequest_default_instance_;
 class AlterRequests;
 struct AlterRequestsDefaultTypeInternal;
 extern AlterRequestsDefaultTypeInternal _AlterRequests_default_instance_;
+class ApplyStagedManifestRequest;
+struct ApplyStagedManifestRequestDefaultTypeInternal;
+extern ApplyStagedManifestRequestDefaultTypeInternal _ApplyStagedManifestRequest_default_instance_;
 class BulkInsertRequest;
 struct BulkInsertRequestDefaultTypeInternal;
 extern BulkInsertRequestDefaultTypeInternal _BulkInsertRequest_default_instance_;
@@ -130,6 +133,12 @@ extern OpenRequestDefaultTypeInternal _OpenRequest_default_instance_;
 class OpenRequest_OptionsEntry_DoNotUse;
 struct OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal;
 extern OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal _OpenRequest_OptionsEntry_DoNotUse_default_instance_;
+class PauseRequest;
+struct PauseRequestDefaultTypeInternal;
+extern PauseRequestDefaultTypeInternal _PauseRequest_default_instance_;
+class PublishRegionRuleRequest;
+struct PublishRegionRuleRequestDefaultTypeInternal;
+extern PublishRegionRuleRequestDefaultTypeInternal _PublishRegionRuleRequest_default_instance_;
 class QueryRequest;
 struct QueryRequestDefaultTypeInternal;
 extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
@@ -154,6 +163,21 @@ extern RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionRespons
 class Regular;
 struct RegularDefaultTypeInternal;
 extern RegularDefaultTypeInternal _Regular_default_instance_;
+class RemapManifestRequest;
+struct RemapManifestRequestDefaultTypeInternal;
+extern RemapManifestRequestDefaultTypeInternal _RemapManifestRequest_default_instance_;
+class RemapManifestSource;
+struct RemapManifestSourceDefaultTypeInternal;
+extern RemapManifestSourceDefaultTypeInternal _RemapManifestSource_default_instance_;
+class RemapManifestTarget;
+struct RemapManifestTargetDefaultTypeInternal;
+extern RemapManifestTargetDefaultTypeInternal _RemapManifestTarget_default_instance_;
+class ResumeRequest;
+struct ResumeRequestDefaultTypeInternal;
+extern ResumeRequestDefaultTypeInternal _ResumeRequest_default_instance_;
+class StageRegionRuleRequest;
+struct StageRegionRuleRequestDefaultTypeInternal;
+extern StageRegionRuleRequestDefaultTypeInternal _StageRegionRuleRequest_default_instance_;
 class StrictWindow;
 struct StrictWindowDefaultTypeInternal;
 extern StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
@@ -175,6 +199,7 @@ template<> ::greptime::v1::region::AddColumns* Arena::CreateMaybeMessage<::grept
 template<> ::greptime::v1::region::All* Arena::CreateMaybeMessage<::greptime::v1::region::All>(Arena*);
 template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequest>(Arena*);
 template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
+template<> ::greptime::v1::region::ApplyStagedManifestRequest* Arena::CreateMaybeMessage<::greptime::v1::region::ApplyStagedManifestRequest>(Arena*);
 template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
 template<> ::greptime::v1::region::CompactRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CompactRequest>(Arena*);
@@ -195,6 +220,8 @@ template<> ::greptime::v1::region::MetricManifestInfo* Arena::CreateMaybeMessage
 template<> ::greptime::v1::region::MitoManifestInfo* Arena::CreateMaybeMessage<::greptime::v1::region::MitoManifestInfo>(Arena*);
 template<> ::greptime::v1::region::OpenRequest* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest>(Arena*);
 template<> ::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::region::PauseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::PauseRequest>(Arena*);
+template<> ::greptime::v1::region::PublishRegionRuleRequest* Arena::CreateMaybeMessage<::greptime::v1::region::PublishRegionRuleRequest>(Arena*);
 template<> ::greptime::v1::region::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::region::QueryRequest>(Arena*);
 template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::greptime::v1::region::RegionColumnDef>(Arena*);
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
@@ -203,6 +230,11 @@ template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNot
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
+template<> ::greptime::v1::region::RemapManifestRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RemapManifestRequest>(Arena*);
+template<> ::greptime::v1::region::RemapManifestSource* Arena::CreateMaybeMessage<::greptime::v1::region::RemapManifestSource>(Arena*);
+template<> ::greptime::v1::region::RemapManifestTarget* Arena::CreateMaybeMessage<::greptime::v1::region::RemapManifestTarget>(Arena*);
+template<> ::greptime::v1::region::ResumeRequest* Arena::CreateMaybeMessage<::greptime::v1::region::ResumeRequest>(Arena*);
+template<> ::greptime::v1::region::StageRegionRuleRequest* Arena::CreateMaybeMessage<::greptime::v1::region::StageRegionRuleRequest>(Arena*);
 template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::SyncColumns* Arena::CreateMaybeMessage<::greptime::v1::region::SyncColumns>(Arena*);
 template<> ::greptime::v1::region::SyncRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SyncRequest>(Arena*);
@@ -501,6 +533,12 @@ class RegionRequest final :
     kBulkInsert = 16,
     kSync = 17,
     kListMetadata = 18,
+    kPause = 19,
+    kResume = 20,
+    kStageRegionRule = 21,
+    kPublishRegionRule = 22,
+    kRemapManifest = 23,
+    kApplyStagedManifest = 24,
     BODY_NOT_SET = 0,
   };
 
@@ -599,6 +637,12 @@ class RegionRequest final :
     kBulkInsertFieldNumber = 16,
     kSyncFieldNumber = 17,
     kListMetadataFieldNumber = 18,
+    kPauseFieldNumber = 19,
+    kResumeFieldNumber = 20,
+    kStageRegionRuleFieldNumber = 21,
+    kPublishRegionRuleFieldNumber = 22,
+    kRemapManifestFieldNumber = 23,
+    kApplyStagedManifestFieldNumber = 24,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -906,6 +950,114 @@ class RegionRequest final :
       ::greptime::v1::region::ListMetadataRequest* list_metadata);
   ::greptime::v1::region::ListMetadataRequest* unsafe_arena_release_list_metadata();
 
+  // .greptime.v1.region.PauseRequest pause = 19;
+  bool has_pause() const;
+  private:
+  bool _internal_has_pause() const;
+  public:
+  void clear_pause();
+  const ::greptime::v1::region::PauseRequest& pause() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::PauseRequest* release_pause();
+  ::greptime::v1::region::PauseRequest* mutable_pause();
+  void set_allocated_pause(::greptime::v1::region::PauseRequest* pause);
+  private:
+  const ::greptime::v1::region::PauseRequest& _internal_pause() const;
+  ::greptime::v1::region::PauseRequest* _internal_mutable_pause();
+  public:
+  void unsafe_arena_set_allocated_pause(
+      ::greptime::v1::region::PauseRequest* pause);
+  ::greptime::v1::region::PauseRequest* unsafe_arena_release_pause();
+
+  // .greptime.v1.region.ResumeRequest resume = 20;
+  bool has_resume() const;
+  private:
+  bool _internal_has_resume() const;
+  public:
+  void clear_resume();
+  const ::greptime::v1::region::ResumeRequest& resume() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::ResumeRequest* release_resume();
+  ::greptime::v1::region::ResumeRequest* mutable_resume();
+  void set_allocated_resume(::greptime::v1::region::ResumeRequest* resume);
+  private:
+  const ::greptime::v1::region::ResumeRequest& _internal_resume() const;
+  ::greptime::v1::region::ResumeRequest* _internal_mutable_resume();
+  public:
+  void unsafe_arena_set_allocated_resume(
+      ::greptime::v1::region::ResumeRequest* resume);
+  ::greptime::v1::region::ResumeRequest* unsafe_arena_release_resume();
+
+  // .greptime.v1.region.StageRegionRuleRequest stage_region_rule = 21;
+  bool has_stage_region_rule() const;
+  private:
+  bool _internal_has_stage_region_rule() const;
+  public:
+  void clear_stage_region_rule();
+  const ::greptime::v1::region::StageRegionRuleRequest& stage_region_rule() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::StageRegionRuleRequest* release_stage_region_rule();
+  ::greptime::v1::region::StageRegionRuleRequest* mutable_stage_region_rule();
+  void set_allocated_stage_region_rule(::greptime::v1::region::StageRegionRuleRequest* stage_region_rule);
+  private:
+  const ::greptime::v1::region::StageRegionRuleRequest& _internal_stage_region_rule() const;
+  ::greptime::v1::region::StageRegionRuleRequest* _internal_mutable_stage_region_rule();
+  public:
+  void unsafe_arena_set_allocated_stage_region_rule(
+      ::greptime::v1::region::StageRegionRuleRequest* stage_region_rule);
+  ::greptime::v1::region::StageRegionRuleRequest* unsafe_arena_release_stage_region_rule();
+
+  // .greptime.v1.region.PublishRegionRuleRequest publish_region_rule = 22;
+  bool has_publish_region_rule() const;
+  private:
+  bool _internal_has_publish_region_rule() const;
+  public:
+  void clear_publish_region_rule();
+  const ::greptime::v1::region::PublishRegionRuleRequest& publish_region_rule() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::PublishRegionRuleRequest* release_publish_region_rule();
+  ::greptime::v1::region::PublishRegionRuleRequest* mutable_publish_region_rule();
+  void set_allocated_publish_region_rule(::greptime::v1::region::PublishRegionRuleRequest* publish_region_rule);
+  private:
+  const ::greptime::v1::region::PublishRegionRuleRequest& _internal_publish_region_rule() const;
+  ::greptime::v1::region::PublishRegionRuleRequest* _internal_mutable_publish_region_rule();
+  public:
+  void unsafe_arena_set_allocated_publish_region_rule(
+      ::greptime::v1::region::PublishRegionRuleRequest* publish_region_rule);
+  ::greptime::v1::region::PublishRegionRuleRequest* unsafe_arena_release_publish_region_rule();
+
+  // .greptime.v1.region.RemapManifestRequest remap_manifest = 23;
+  bool has_remap_manifest() const;
+  private:
+  bool _internal_has_remap_manifest() const;
+  public:
+  void clear_remap_manifest();
+  const ::greptime::v1::region::RemapManifestRequest& remap_manifest() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RemapManifestRequest* release_remap_manifest();
+  ::greptime::v1::region::RemapManifestRequest* mutable_remap_manifest();
+  void set_allocated_remap_manifest(::greptime::v1::region::RemapManifestRequest* remap_manifest);
+  private:
+  const ::greptime::v1::region::RemapManifestRequest& _internal_remap_manifest() const;
+  ::greptime::v1::region::RemapManifestRequest* _internal_mutable_remap_manifest();
+  public:
+  void unsafe_arena_set_allocated_remap_manifest(
+      ::greptime::v1::region::RemapManifestRequest* remap_manifest);
+  ::greptime::v1::region::RemapManifestRequest* unsafe_arena_release_remap_manifest();
+
+  // .greptime.v1.region.ApplyStagedManifestRequest apply_staged_manifest = 24;
+  bool has_apply_staged_manifest() const;
+  private:
+  bool _internal_has_apply_staged_manifest() const;
+  public:
+  void clear_apply_staged_manifest();
+  const ::greptime::v1::region::ApplyStagedManifestRequest& apply_staged_manifest() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::ApplyStagedManifestRequest* release_apply_staged_manifest();
+  ::greptime::v1::region::ApplyStagedManifestRequest* mutable_apply_staged_manifest();
+  void set_allocated_apply_staged_manifest(::greptime::v1::region::ApplyStagedManifestRequest* apply_staged_manifest);
+  private:
+  const ::greptime::v1::region::ApplyStagedManifestRequest& _internal_apply_staged_manifest() const;
+  ::greptime::v1::region::ApplyStagedManifestRequest* _internal_mutable_apply_staged_manifest();
+  public:
+  void unsafe_arena_set_allocated_apply_staged_manifest(
+      ::greptime::v1::region::ApplyStagedManifestRequest* apply_staged_manifest);
+  ::greptime::v1::region::ApplyStagedManifestRequest* unsafe_arena_release_apply_staged_manifest();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -927,6 +1079,12 @@ class RegionRequest final :
   void set_has_bulk_insert();
   void set_has_sync();
   void set_has_list_metadata();
+  void set_has_pause();
+  void set_has_resume();
+  void set_has_stage_region_rule();
+  void set_has_publish_region_rule();
+  void set_has_remap_manifest();
+  void set_has_apply_staged_manifest();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -955,6 +1113,12 @@ class RegionRequest final :
       ::greptime::v1::region::BulkInsertRequest* bulk_insert_;
       ::greptime::v1::region::SyncRequest* sync_;
       ::greptime::v1::region::ListMetadataRequest* list_metadata_;
+      ::greptime::v1::region::PauseRequest* pause_;
+      ::greptime::v1::region::ResumeRequest* resume_;
+      ::greptime::v1::region::StageRegionRuleRequest* stage_region_rule_;
+      ::greptime::v1::region::PublishRegionRuleRequest* publish_region_rule_;
+      ::greptime::v1::region::RemapManifestRequest* remap_manifest_;
+      ::greptime::v1::region::ApplyStagedManifestRequest* apply_staged_manifest_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3041,6 +3205,747 @@ class OpenRequest final :
 };
 // -------------------------------------------------------------------
 
+class RemapManifestSource final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemapManifestSource) */ {
+ public:
+  inline RemapManifestSource() : RemapManifestSource(nullptr) {}
+  ~RemapManifestSource() override;
+  explicit PROTOBUF_CONSTEXPR RemapManifestSource(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemapManifestSource(const RemapManifestSource& from);
+  RemapManifestSource(RemapManifestSource&& from) noexcept
+    : RemapManifestSource() {
+    *this = ::std::move(from);
+  }
+
+  inline RemapManifestSource& operator=(const RemapManifestSource& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemapManifestSource& operator=(RemapManifestSource&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemapManifestSource& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemapManifestSource* internal_default_instance() {
+    return reinterpret_cast<const RemapManifestSource*>(
+               &_RemapManifestSource_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(RemapManifestSource& a, RemapManifestSource& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemapManifestSource* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemapManifestSource* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemapManifestSource* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemapManifestSource>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemapManifestSource& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemapManifestSource& from) {
+    RemapManifestSource::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemapManifestSource* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemapManifestSource";
+  }
+  protected:
+  explicit RemapManifestSource(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTargetRegionIdsFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // repeated uint64 target_region_ids = 2;
+  int target_region_ids_size() const;
+  private:
+  int _internal_target_region_ids_size() const;
+  public:
+  void clear_target_region_ids();
+  private:
+  uint64_t _internal_target_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_target_region_ids() const;
+  void _internal_add_target_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_target_region_ids();
+  public:
+  uint64_t target_region_ids(int index) const;
+  void set_target_region_ids(int index, uint64_t value);
+  void add_target_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      target_region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_target_region_ids();
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemapManifestSource)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > target_region_ids_;
+    mutable std::atomic<int> _target_region_ids_cached_byte_size_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemapManifestTarget final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemapManifestTarget) */ {
+ public:
+  inline RemapManifestTarget() : RemapManifestTarget(nullptr) {}
+  ~RemapManifestTarget() override;
+  explicit PROTOBUF_CONSTEXPR RemapManifestTarget(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemapManifestTarget(const RemapManifestTarget& from);
+  RemapManifestTarget(RemapManifestTarget&& from) noexcept
+    : RemapManifestTarget() {
+    *this = ::std::move(from);
+  }
+
+  inline RemapManifestTarget& operator=(const RemapManifestTarget& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemapManifestTarget& operator=(RemapManifestTarget&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemapManifestTarget& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemapManifestTarget* internal_default_instance() {
+    return reinterpret_cast<const RemapManifestTarget*>(
+               &_RemapManifestTarget_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(RemapManifestTarget& a, RemapManifestTarget& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemapManifestTarget* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemapManifestTarget* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemapManifestTarget* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemapManifestTarget>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemapManifestTarget& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemapManifestTarget& from) {
+    RemapManifestTarget::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemapManifestTarget* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemapManifestTarget";
+  }
+  protected:
+  explicit RemapManifestTarget(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPartitionExprFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // string partition_expr = 2;
+  void clear_partition_expr();
+  const std::string& partition_expr() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_partition_expr(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_partition_expr();
+  PROTOBUF_NODISCARD std::string* release_partition_expr();
+  void set_allocated_partition_expr(std::string* partition_expr);
+  private:
+  const std::string& _internal_partition_expr() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_partition_expr(const std::string& value);
+  std::string* _internal_mutable_partition_expr();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemapManifestTarget)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr partition_expr_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemapManifestRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemapManifestRequest) */ {
+ public:
+  inline RemapManifestRequest() : RemapManifestRequest(nullptr) {}
+  ~RemapManifestRequest() override;
+  explicit PROTOBUF_CONSTEXPR RemapManifestRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemapManifestRequest(const RemapManifestRequest& from);
+  RemapManifestRequest(RemapManifestRequest&& from) noexcept
+    : RemapManifestRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RemapManifestRequest& operator=(const RemapManifestRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemapManifestRequest& operator=(RemapManifestRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemapManifestRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemapManifestRequest* internal_default_instance() {
+    return reinterpret_cast<const RemapManifestRequest*>(
+               &_RemapManifestRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(RemapManifestRequest& a, RemapManifestRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemapManifestRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemapManifestRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemapManifestRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemapManifestRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemapManifestRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemapManifestRequest& from) {
+    RemapManifestRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemapManifestRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemapManifestRequest";
+  }
+  protected:
+  explicit RemapManifestRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSourcesFieldNumber = 3,
+    kTargetsFieldNumber = 4,
+    kGroupIdFieldNumber = 2,
+    kTableIdFieldNumber = 1,
+  };
+  // repeated .greptime.v1.region.RemapManifestSource sources = 3;
+  int sources_size() const;
+  private:
+  int _internal_sources_size() const;
+  public:
+  void clear_sources();
+  ::greptime::v1::region::RemapManifestSource* mutable_sources(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestSource >*
+      mutable_sources();
+  private:
+  const ::greptime::v1::region::RemapManifestSource& _internal_sources(int index) const;
+  ::greptime::v1::region::RemapManifestSource* _internal_add_sources();
+  public:
+  const ::greptime::v1::region::RemapManifestSource& sources(int index) const;
+  ::greptime::v1::region::RemapManifestSource* add_sources();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestSource >&
+      sources() const;
+
+  // repeated .greptime.v1.region.RemapManifestTarget targets = 4;
+  int targets_size() const;
+  private:
+  int _internal_targets_size() const;
+  public:
+  void clear_targets();
+  ::greptime::v1::region::RemapManifestTarget* mutable_targets(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestTarget >*
+      mutable_targets();
+  private:
+  const ::greptime::v1::region::RemapManifestTarget& _internal_targets(int index) const;
+  ::greptime::v1::region::RemapManifestTarget* _internal_add_targets();
+  public:
+  const ::greptime::v1::region::RemapManifestTarget& targets(int index) const;
+  ::greptime::v1::region::RemapManifestTarget* add_targets();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestTarget >&
+      targets() const;
+
+  // string group_id = 2;
+  void clear_group_id();
+  const std::string& group_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_group_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_group_id();
+  PROTOBUF_NODISCARD std::string* release_group_id();
+  void set_allocated_group_id(std::string* group_id);
+  private:
+  const std::string& _internal_group_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_group_id(const std::string& value);
+  std::string* _internal_mutable_group_id();
+  public:
+
+  // uint64 table_id = 1;
+  void clear_table_id();
+  uint64_t table_id() const;
+  void set_table_id(uint64_t value);
+  private:
+  uint64_t _internal_table_id() const;
+  void _internal_set_table_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemapManifestRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestSource > sources_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestTarget > targets_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_id_;
+    uint64_t table_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ApplyStagedManifestRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.ApplyStagedManifestRequest) */ {
+ public:
+  inline ApplyStagedManifestRequest() : ApplyStagedManifestRequest(nullptr) {}
+  ~ApplyStagedManifestRequest() override;
+  explicit PROTOBUF_CONSTEXPR ApplyStagedManifestRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ApplyStagedManifestRequest(const ApplyStagedManifestRequest& from);
+  ApplyStagedManifestRequest(ApplyStagedManifestRequest&& from) noexcept
+    : ApplyStagedManifestRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ApplyStagedManifestRequest& operator=(const ApplyStagedManifestRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ApplyStagedManifestRequest& operator=(ApplyStagedManifestRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ApplyStagedManifestRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ApplyStagedManifestRequest* internal_default_instance() {
+    return reinterpret_cast<const ApplyStagedManifestRequest*>(
+               &_ApplyStagedManifestRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(ApplyStagedManifestRequest& a, ApplyStagedManifestRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ApplyStagedManifestRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ApplyStagedManifestRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ApplyStagedManifestRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ApplyStagedManifestRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ApplyStagedManifestRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ApplyStagedManifestRequest& from) {
+    ApplyStagedManifestRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ApplyStagedManifestRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.ApplyStagedManifestRequest";
+  }
+  protected:
+  explicit ApplyStagedManifestRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdsFieldNumber = 3,
+    kGroupIdFieldNumber = 2,
+    kTableIdFieldNumber = 1,
+    kPublishFieldNumber = 4,
+  };
+  // repeated uint64 region_ids = 3;
+  int region_ids_size() const;
+  private:
+  int _internal_region_ids_size() const;
+  public:
+  void clear_region_ids();
+  private:
+  uint64_t _internal_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_region_ids() const;
+  void _internal_add_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_region_ids();
+  public:
+  uint64_t region_ids(int index) const;
+  void set_region_ids(int index, uint64_t value);
+  void add_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_region_ids();
+
+  // string group_id = 2;
+  void clear_group_id();
+  const std::string& group_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_group_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_group_id();
+  PROTOBUF_NODISCARD std::string* release_group_id();
+  void set_allocated_group_id(std::string* group_id);
+  private:
+  const std::string& _internal_group_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_group_id(const std::string& value);
+  std::string* _internal_mutable_group_id();
+  public:
+
+  // uint64 table_id = 1;
+  void clear_table_id();
+  uint64_t table_id() const;
+  void set_table_id(uint64_t value);
+  private:
+  uint64_t _internal_table_id() const;
+  void _internal_set_table_id(uint64_t value);
+  public:
+
+  // bool publish = 4;
+  void clear_publish();
+  bool publish() const;
+  void set_publish(bool value);
+  private:
+  bool _internal_publish() const;
+  void _internal_set_publish(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.ApplyStagedManifestRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
+    mutable std::atomic<int> _region_ids_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr group_id_;
+    uint64_t table_id_;
+    bool publish_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CloseRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CloseRequest) */ {
  public:
@@ -3089,7 +3994,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    21;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3237,7 +4142,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    22;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -3410,7 +4315,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    23;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -3832,7 +4737,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    24;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -3989,7 +4894,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    25;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4146,7 +5051,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    26;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4303,7 +5208,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    27;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -4480,7 +5385,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    28;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -4633,7 +5538,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    29;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -4780,7 +5685,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    30;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -4899,7 +5804,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    31;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -5053,7 +5958,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    32;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -5271,7 +6176,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    33;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -5471,7 +6376,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    34;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -5590,7 +6495,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    35;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -5763,7 +6668,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    36;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -5895,6 +6800,646 @@ class BulkInsertRequest final :
 };
 // -------------------------------------------------------------------
 
+class PauseRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.PauseRequest) */ {
+ public:
+  inline PauseRequest() : PauseRequest(nullptr) {}
+  ~PauseRequest() override;
+  explicit PROTOBUF_CONSTEXPR PauseRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PauseRequest(const PauseRequest& from);
+  PauseRequest(PauseRequest&& from) noexcept
+    : PauseRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PauseRequest& operator=(const PauseRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PauseRequest& operator=(PauseRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PauseRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PauseRequest* internal_default_instance() {
+    return reinterpret_cast<const PauseRequest*>(
+               &_PauseRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    37;
+
+  friend void swap(PauseRequest& a, PauseRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PauseRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PauseRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PauseRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PauseRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PauseRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PauseRequest& from) {
+    PauseRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PauseRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.PauseRequest";
+  }
+  protected:
+  explicit PauseRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.PauseRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ResumeRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.ResumeRequest) */ {
+ public:
+  inline ResumeRequest() : ResumeRequest(nullptr) {}
+  ~ResumeRequest() override;
+  explicit PROTOBUF_CONSTEXPR ResumeRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ResumeRequest(const ResumeRequest& from);
+  ResumeRequest(ResumeRequest&& from) noexcept
+    : ResumeRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline ResumeRequest& operator=(const ResumeRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ResumeRequest& operator=(ResumeRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ResumeRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ResumeRequest* internal_default_instance() {
+    return reinterpret_cast<const ResumeRequest*>(
+               &_ResumeRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(ResumeRequest& a, ResumeRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ResumeRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ResumeRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ResumeRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ResumeRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ResumeRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ResumeRequest& from) {
+    ResumeRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ResumeRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.ResumeRequest";
+  }
+  protected:
+  explicit ResumeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRuleVersionFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // string rule_version = 2;
+  void clear_rule_version();
+  const std::string& rule_version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rule_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rule_version();
+  PROTOBUF_NODISCARD std::string* release_rule_version();
+  void set_allocated_rule_version(std::string* rule_version);
+  private:
+  const std::string& _internal_rule_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rule_version(const std::string& value);
+  std::string* _internal_mutable_rule_version();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.ResumeRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rule_version_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class StageRegionRuleRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.StageRegionRuleRequest) */ {
+ public:
+  inline StageRegionRuleRequest() : StageRegionRuleRequest(nullptr) {}
+  ~StageRegionRuleRequest() override;
+  explicit PROTOBUF_CONSTEXPR StageRegionRuleRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StageRegionRuleRequest(const StageRegionRuleRequest& from);
+  StageRegionRuleRequest(StageRegionRuleRequest&& from) noexcept
+    : StageRegionRuleRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline StageRegionRuleRequest& operator=(const StageRegionRuleRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StageRegionRuleRequest& operator=(StageRegionRuleRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StageRegionRuleRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StageRegionRuleRequest* internal_default_instance() {
+    return reinterpret_cast<const StageRegionRuleRequest*>(
+               &_StageRegionRuleRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    39;
+
+  friend void swap(StageRegionRuleRequest& a, StageRegionRuleRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StageRegionRuleRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StageRegionRuleRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StageRegionRuleRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<StageRegionRuleRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const StageRegionRuleRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const StageRegionRuleRequest& from) {
+    StageRegionRuleRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StageRegionRuleRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.StageRegionRuleRequest";
+  }
+  protected:
+  explicit StageRegionRuleRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRuleVersionFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // string rule_version = 2;
+  void clear_rule_version();
+  const std::string& rule_version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rule_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rule_version();
+  PROTOBUF_NODISCARD std::string* release_rule_version();
+  void set_allocated_rule_version(std::string* rule_version);
+  private:
+  const std::string& _internal_rule_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rule_version(const std::string& value);
+  std::string* _internal_mutable_rule_version();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.StageRegionRuleRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rule_version_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PublishRegionRuleRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.PublishRegionRuleRequest) */ {
+ public:
+  inline PublishRegionRuleRequest() : PublishRegionRuleRequest(nullptr) {}
+  ~PublishRegionRuleRequest() override;
+  explicit PROTOBUF_CONSTEXPR PublishRegionRuleRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PublishRegionRuleRequest(const PublishRegionRuleRequest& from);
+  PublishRegionRuleRequest(PublishRegionRuleRequest&& from) noexcept
+    : PublishRegionRuleRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PublishRegionRuleRequest& operator=(const PublishRegionRuleRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PublishRegionRuleRequest& operator=(PublishRegionRuleRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PublishRegionRuleRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PublishRegionRuleRequest* internal_default_instance() {
+    return reinterpret_cast<const PublishRegionRuleRequest*>(
+               &_PublishRegionRuleRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(PublishRegionRuleRequest& a, PublishRegionRuleRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PublishRegionRuleRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PublishRegionRuleRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PublishRegionRuleRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PublishRegionRuleRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PublishRegionRuleRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PublishRegionRuleRequest& from) {
+    PublishRegionRuleRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PublishRegionRuleRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.PublishRegionRuleRequest";
+  }
+  protected:
+  explicit PublishRegionRuleRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRuleVersionFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // string rule_version = 2;
+  void clear_rule_version();
+  const std::string& rule_version() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_rule_version(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_rule_version();
+  PROTOBUF_NODISCARD std::string* release_rule_version();
+  void set_allocated_rule_version(std::string* rule_version);
+  private:
+  const std::string& _internal_rule_version() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_rule_version(const std::string& value);
+  std::string* _internal_mutable_rule_version();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.PublishRegionRuleRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr rule_version_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class MitoManifestInfo final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.MitoManifestInfo) */ {
  public:
@@ -5943,7 +7488,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    41;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -6091,7 +7636,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    42;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -6256,7 +7801,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    43;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -6457,7 +8002,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    44;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -8024,6 +9569,450 @@ inline ::greptime::v1::region::ListMetadataRequest* RegionRequest::mutable_list_
   return _msg;
 }
 
+// .greptime.v1.region.PauseRequest pause = 19;
+inline bool RegionRequest::_internal_has_pause() const {
+  return body_case() == kPause;
+}
+inline bool RegionRequest::has_pause() const {
+  return _internal_has_pause();
+}
+inline void RegionRequest::set_has_pause() {
+  _impl_._oneof_case_[0] = kPause;
+}
+inline void RegionRequest::clear_pause() {
+  if (_internal_has_pause()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.pause_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::PauseRequest* RegionRequest::release_pause() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.pause)
+  if (_internal_has_pause()) {
+    clear_has_body();
+    ::greptime::v1::region::PauseRequest* temp = _impl_.body_.pause_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.pause_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::PauseRequest& RegionRequest::_internal_pause() const {
+  return _internal_has_pause()
+      ? *_impl_.body_.pause_
+      : reinterpret_cast< ::greptime::v1::region::PauseRequest&>(::greptime::v1::region::_PauseRequest_default_instance_);
+}
+inline const ::greptime::v1::region::PauseRequest& RegionRequest::pause() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.pause)
+  return _internal_pause();
+}
+inline ::greptime::v1::region::PauseRequest* RegionRequest::unsafe_arena_release_pause() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.pause)
+  if (_internal_has_pause()) {
+    clear_has_body();
+    ::greptime::v1::region::PauseRequest* temp = _impl_.body_.pause_;
+    _impl_.body_.pause_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_pause(::greptime::v1::region::PauseRequest* pause) {
+  clear_body();
+  if (pause) {
+    set_has_pause();
+    _impl_.body_.pause_ = pause;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.pause)
+}
+inline ::greptime::v1::region::PauseRequest* RegionRequest::_internal_mutable_pause() {
+  if (!_internal_has_pause()) {
+    clear_body();
+    set_has_pause();
+    _impl_.body_.pause_ = CreateMaybeMessage< ::greptime::v1::region::PauseRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.pause_;
+}
+inline ::greptime::v1::region::PauseRequest* RegionRequest::mutable_pause() {
+  ::greptime::v1::region::PauseRequest* _msg = _internal_mutable_pause();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.pause)
+  return _msg;
+}
+
+// .greptime.v1.region.ResumeRequest resume = 20;
+inline bool RegionRequest::_internal_has_resume() const {
+  return body_case() == kResume;
+}
+inline bool RegionRequest::has_resume() const {
+  return _internal_has_resume();
+}
+inline void RegionRequest::set_has_resume() {
+  _impl_._oneof_case_[0] = kResume;
+}
+inline void RegionRequest::clear_resume() {
+  if (_internal_has_resume()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.resume_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::ResumeRequest* RegionRequest::release_resume() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.resume)
+  if (_internal_has_resume()) {
+    clear_has_body();
+    ::greptime::v1::region::ResumeRequest* temp = _impl_.body_.resume_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.resume_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::ResumeRequest& RegionRequest::_internal_resume() const {
+  return _internal_has_resume()
+      ? *_impl_.body_.resume_
+      : reinterpret_cast< ::greptime::v1::region::ResumeRequest&>(::greptime::v1::region::_ResumeRequest_default_instance_);
+}
+inline const ::greptime::v1::region::ResumeRequest& RegionRequest::resume() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.resume)
+  return _internal_resume();
+}
+inline ::greptime::v1::region::ResumeRequest* RegionRequest::unsafe_arena_release_resume() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.resume)
+  if (_internal_has_resume()) {
+    clear_has_body();
+    ::greptime::v1::region::ResumeRequest* temp = _impl_.body_.resume_;
+    _impl_.body_.resume_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_resume(::greptime::v1::region::ResumeRequest* resume) {
+  clear_body();
+  if (resume) {
+    set_has_resume();
+    _impl_.body_.resume_ = resume;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.resume)
+}
+inline ::greptime::v1::region::ResumeRequest* RegionRequest::_internal_mutable_resume() {
+  if (!_internal_has_resume()) {
+    clear_body();
+    set_has_resume();
+    _impl_.body_.resume_ = CreateMaybeMessage< ::greptime::v1::region::ResumeRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.resume_;
+}
+inline ::greptime::v1::region::ResumeRequest* RegionRequest::mutable_resume() {
+  ::greptime::v1::region::ResumeRequest* _msg = _internal_mutable_resume();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.resume)
+  return _msg;
+}
+
+// .greptime.v1.region.StageRegionRuleRequest stage_region_rule = 21;
+inline bool RegionRequest::_internal_has_stage_region_rule() const {
+  return body_case() == kStageRegionRule;
+}
+inline bool RegionRequest::has_stage_region_rule() const {
+  return _internal_has_stage_region_rule();
+}
+inline void RegionRequest::set_has_stage_region_rule() {
+  _impl_._oneof_case_[0] = kStageRegionRule;
+}
+inline void RegionRequest::clear_stage_region_rule() {
+  if (_internal_has_stage_region_rule()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.stage_region_rule_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::StageRegionRuleRequest* RegionRequest::release_stage_region_rule() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.stage_region_rule)
+  if (_internal_has_stage_region_rule()) {
+    clear_has_body();
+    ::greptime::v1::region::StageRegionRuleRequest* temp = _impl_.body_.stage_region_rule_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.stage_region_rule_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::StageRegionRuleRequest& RegionRequest::_internal_stage_region_rule() const {
+  return _internal_has_stage_region_rule()
+      ? *_impl_.body_.stage_region_rule_
+      : reinterpret_cast< ::greptime::v1::region::StageRegionRuleRequest&>(::greptime::v1::region::_StageRegionRuleRequest_default_instance_);
+}
+inline const ::greptime::v1::region::StageRegionRuleRequest& RegionRequest::stage_region_rule() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.stage_region_rule)
+  return _internal_stage_region_rule();
+}
+inline ::greptime::v1::region::StageRegionRuleRequest* RegionRequest::unsafe_arena_release_stage_region_rule() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.stage_region_rule)
+  if (_internal_has_stage_region_rule()) {
+    clear_has_body();
+    ::greptime::v1::region::StageRegionRuleRequest* temp = _impl_.body_.stage_region_rule_;
+    _impl_.body_.stage_region_rule_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_stage_region_rule(::greptime::v1::region::StageRegionRuleRequest* stage_region_rule) {
+  clear_body();
+  if (stage_region_rule) {
+    set_has_stage_region_rule();
+    _impl_.body_.stage_region_rule_ = stage_region_rule;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.stage_region_rule)
+}
+inline ::greptime::v1::region::StageRegionRuleRequest* RegionRequest::_internal_mutable_stage_region_rule() {
+  if (!_internal_has_stage_region_rule()) {
+    clear_body();
+    set_has_stage_region_rule();
+    _impl_.body_.stage_region_rule_ = CreateMaybeMessage< ::greptime::v1::region::StageRegionRuleRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.stage_region_rule_;
+}
+inline ::greptime::v1::region::StageRegionRuleRequest* RegionRequest::mutable_stage_region_rule() {
+  ::greptime::v1::region::StageRegionRuleRequest* _msg = _internal_mutable_stage_region_rule();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.stage_region_rule)
+  return _msg;
+}
+
+// .greptime.v1.region.PublishRegionRuleRequest publish_region_rule = 22;
+inline bool RegionRequest::_internal_has_publish_region_rule() const {
+  return body_case() == kPublishRegionRule;
+}
+inline bool RegionRequest::has_publish_region_rule() const {
+  return _internal_has_publish_region_rule();
+}
+inline void RegionRequest::set_has_publish_region_rule() {
+  _impl_._oneof_case_[0] = kPublishRegionRule;
+}
+inline void RegionRequest::clear_publish_region_rule() {
+  if (_internal_has_publish_region_rule()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.publish_region_rule_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::PublishRegionRuleRequest* RegionRequest::release_publish_region_rule() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.publish_region_rule)
+  if (_internal_has_publish_region_rule()) {
+    clear_has_body();
+    ::greptime::v1::region::PublishRegionRuleRequest* temp = _impl_.body_.publish_region_rule_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.publish_region_rule_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::PublishRegionRuleRequest& RegionRequest::_internal_publish_region_rule() const {
+  return _internal_has_publish_region_rule()
+      ? *_impl_.body_.publish_region_rule_
+      : reinterpret_cast< ::greptime::v1::region::PublishRegionRuleRequest&>(::greptime::v1::region::_PublishRegionRuleRequest_default_instance_);
+}
+inline const ::greptime::v1::region::PublishRegionRuleRequest& RegionRequest::publish_region_rule() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.publish_region_rule)
+  return _internal_publish_region_rule();
+}
+inline ::greptime::v1::region::PublishRegionRuleRequest* RegionRequest::unsafe_arena_release_publish_region_rule() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.publish_region_rule)
+  if (_internal_has_publish_region_rule()) {
+    clear_has_body();
+    ::greptime::v1::region::PublishRegionRuleRequest* temp = _impl_.body_.publish_region_rule_;
+    _impl_.body_.publish_region_rule_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_publish_region_rule(::greptime::v1::region::PublishRegionRuleRequest* publish_region_rule) {
+  clear_body();
+  if (publish_region_rule) {
+    set_has_publish_region_rule();
+    _impl_.body_.publish_region_rule_ = publish_region_rule;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.publish_region_rule)
+}
+inline ::greptime::v1::region::PublishRegionRuleRequest* RegionRequest::_internal_mutable_publish_region_rule() {
+  if (!_internal_has_publish_region_rule()) {
+    clear_body();
+    set_has_publish_region_rule();
+    _impl_.body_.publish_region_rule_ = CreateMaybeMessage< ::greptime::v1::region::PublishRegionRuleRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.publish_region_rule_;
+}
+inline ::greptime::v1::region::PublishRegionRuleRequest* RegionRequest::mutable_publish_region_rule() {
+  ::greptime::v1::region::PublishRegionRuleRequest* _msg = _internal_mutable_publish_region_rule();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.publish_region_rule)
+  return _msg;
+}
+
+// .greptime.v1.region.RemapManifestRequest remap_manifest = 23;
+inline bool RegionRequest::_internal_has_remap_manifest() const {
+  return body_case() == kRemapManifest;
+}
+inline bool RegionRequest::has_remap_manifest() const {
+  return _internal_has_remap_manifest();
+}
+inline void RegionRequest::set_has_remap_manifest() {
+  _impl_._oneof_case_[0] = kRemapManifest;
+}
+inline void RegionRequest::clear_remap_manifest() {
+  if (_internal_has_remap_manifest()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.remap_manifest_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::RemapManifestRequest* RegionRequest::release_remap_manifest() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.remap_manifest)
+  if (_internal_has_remap_manifest()) {
+    clear_has_body();
+    ::greptime::v1::region::RemapManifestRequest* temp = _impl_.body_.remap_manifest_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.remap_manifest_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::RemapManifestRequest& RegionRequest::_internal_remap_manifest() const {
+  return _internal_has_remap_manifest()
+      ? *_impl_.body_.remap_manifest_
+      : reinterpret_cast< ::greptime::v1::region::RemapManifestRequest&>(::greptime::v1::region::_RemapManifestRequest_default_instance_);
+}
+inline const ::greptime::v1::region::RemapManifestRequest& RegionRequest::remap_manifest() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.remap_manifest)
+  return _internal_remap_manifest();
+}
+inline ::greptime::v1::region::RemapManifestRequest* RegionRequest::unsafe_arena_release_remap_manifest() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.remap_manifest)
+  if (_internal_has_remap_manifest()) {
+    clear_has_body();
+    ::greptime::v1::region::RemapManifestRequest* temp = _impl_.body_.remap_manifest_;
+    _impl_.body_.remap_manifest_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_remap_manifest(::greptime::v1::region::RemapManifestRequest* remap_manifest) {
+  clear_body();
+  if (remap_manifest) {
+    set_has_remap_manifest();
+    _impl_.body_.remap_manifest_ = remap_manifest;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.remap_manifest)
+}
+inline ::greptime::v1::region::RemapManifestRequest* RegionRequest::_internal_mutable_remap_manifest() {
+  if (!_internal_has_remap_manifest()) {
+    clear_body();
+    set_has_remap_manifest();
+    _impl_.body_.remap_manifest_ = CreateMaybeMessage< ::greptime::v1::region::RemapManifestRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.remap_manifest_;
+}
+inline ::greptime::v1::region::RemapManifestRequest* RegionRequest::mutable_remap_manifest() {
+  ::greptime::v1::region::RemapManifestRequest* _msg = _internal_mutable_remap_manifest();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.remap_manifest)
+  return _msg;
+}
+
+// .greptime.v1.region.ApplyStagedManifestRequest apply_staged_manifest = 24;
+inline bool RegionRequest::_internal_has_apply_staged_manifest() const {
+  return body_case() == kApplyStagedManifest;
+}
+inline bool RegionRequest::has_apply_staged_manifest() const {
+  return _internal_has_apply_staged_manifest();
+}
+inline void RegionRequest::set_has_apply_staged_manifest() {
+  _impl_._oneof_case_[0] = kApplyStagedManifest;
+}
+inline void RegionRequest::clear_apply_staged_manifest() {
+  if (_internal_has_apply_staged_manifest()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.apply_staged_manifest_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::ApplyStagedManifestRequest* RegionRequest::release_apply_staged_manifest() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.apply_staged_manifest)
+  if (_internal_has_apply_staged_manifest()) {
+    clear_has_body();
+    ::greptime::v1::region::ApplyStagedManifestRequest* temp = _impl_.body_.apply_staged_manifest_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.apply_staged_manifest_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::ApplyStagedManifestRequest& RegionRequest::_internal_apply_staged_manifest() const {
+  return _internal_has_apply_staged_manifest()
+      ? *_impl_.body_.apply_staged_manifest_
+      : reinterpret_cast< ::greptime::v1::region::ApplyStagedManifestRequest&>(::greptime::v1::region::_ApplyStagedManifestRequest_default_instance_);
+}
+inline const ::greptime::v1::region::ApplyStagedManifestRequest& RegionRequest::apply_staged_manifest() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.apply_staged_manifest)
+  return _internal_apply_staged_manifest();
+}
+inline ::greptime::v1::region::ApplyStagedManifestRequest* RegionRequest::unsafe_arena_release_apply_staged_manifest() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.apply_staged_manifest)
+  if (_internal_has_apply_staged_manifest()) {
+    clear_has_body();
+    ::greptime::v1::region::ApplyStagedManifestRequest* temp = _impl_.body_.apply_staged_manifest_;
+    _impl_.body_.apply_staged_manifest_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_apply_staged_manifest(::greptime::v1::region::ApplyStagedManifestRequest* apply_staged_manifest) {
+  clear_body();
+  if (apply_staged_manifest) {
+    set_has_apply_staged_manifest();
+    _impl_.body_.apply_staged_manifest_ = apply_staged_manifest;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.apply_staged_manifest)
+}
+inline ::greptime::v1::region::ApplyStagedManifestRequest* RegionRequest::_internal_mutable_apply_staged_manifest() {
+  if (!_internal_has_apply_staged_manifest()) {
+    clear_body();
+    set_has_apply_staged_manifest();
+    _impl_.body_.apply_staged_manifest_ = CreateMaybeMessage< ::greptime::v1::region::ApplyStagedManifestRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.apply_staged_manifest_;
+}
+inline ::greptime::v1::region::ApplyStagedManifestRequest* RegionRequest::mutable_apply_staged_manifest() {
+  ::greptime::v1::region::ApplyStagedManifestRequest* _msg = _internal_mutable_apply_staged_manifest();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.apply_staged_manifest)
+  return _msg;
+}
+
 inline bool RegionRequest::has_body() const {
   return body_case() != BODY_NOT_SET;
 }
@@ -9305,6 +11294,446 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 OpenRequest::mutable_options() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.region.OpenRequest.options)
   return _internal_mutable_options();
+}
+
+// -------------------------------------------------------------------
+
+// RemapManifestSource
+
+// uint64 region_id = 1;
+inline void RemapManifestSource::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t RemapManifestSource::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t RemapManifestSource::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestSource.region_id)
+  return _internal_region_id();
+}
+inline void RemapManifestSource::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void RemapManifestSource::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestSource.region_id)
+}
+
+// repeated uint64 target_region_ids = 2;
+inline int RemapManifestSource::_internal_target_region_ids_size() const {
+  return _impl_.target_region_ids_.size();
+}
+inline int RemapManifestSource::target_region_ids_size() const {
+  return _internal_target_region_ids_size();
+}
+inline void RemapManifestSource::clear_target_region_ids() {
+  _impl_.target_region_ids_.Clear();
+}
+inline uint64_t RemapManifestSource::_internal_target_region_ids(int index) const {
+  return _impl_.target_region_ids_.Get(index);
+}
+inline uint64_t RemapManifestSource::target_region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestSource.target_region_ids)
+  return _internal_target_region_ids(index);
+}
+inline void RemapManifestSource::set_target_region_ids(int index, uint64_t value) {
+  _impl_.target_region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestSource.target_region_ids)
+}
+inline void RemapManifestSource::_internal_add_target_region_ids(uint64_t value) {
+  _impl_.target_region_ids_.Add(value);
+}
+inline void RemapManifestSource::add_target_region_ids(uint64_t value) {
+  _internal_add_target_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.region.RemapManifestSource.target_region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RemapManifestSource::_internal_target_region_ids() const {
+  return _impl_.target_region_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+RemapManifestSource::target_region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.RemapManifestSource.target_region_ids)
+  return _internal_target_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RemapManifestSource::_internal_mutable_target_region_ids() {
+  return &_impl_.target_region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+RemapManifestSource::mutable_target_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.RemapManifestSource.target_region_ids)
+  return _internal_mutable_target_region_ids();
+}
+
+// -------------------------------------------------------------------
+
+// RemapManifestTarget
+
+// uint64 region_id = 1;
+inline void RemapManifestTarget::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t RemapManifestTarget::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t RemapManifestTarget::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestTarget.region_id)
+  return _internal_region_id();
+}
+inline void RemapManifestTarget::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void RemapManifestTarget::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestTarget.region_id)
+}
+
+// string partition_expr = 2;
+inline void RemapManifestTarget::clear_partition_expr() {
+  _impl_.partition_expr_.ClearToEmpty();
+}
+inline const std::string& RemapManifestTarget::partition_expr() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestTarget.partition_expr)
+  return _internal_partition_expr();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemapManifestTarget::set_partition_expr(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.partition_expr_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestTarget.partition_expr)
+}
+inline std::string* RemapManifestTarget::mutable_partition_expr() {
+  std::string* _s = _internal_mutable_partition_expr();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemapManifestTarget.partition_expr)
+  return _s;
+}
+inline const std::string& RemapManifestTarget::_internal_partition_expr() const {
+  return _impl_.partition_expr_.Get();
+}
+inline void RemapManifestTarget::_internal_set_partition_expr(const std::string& value) {
+  
+  _impl_.partition_expr_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemapManifestTarget::_internal_mutable_partition_expr() {
+  
+  return _impl_.partition_expr_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemapManifestTarget::release_partition_expr() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemapManifestTarget.partition_expr)
+  return _impl_.partition_expr_.Release();
+}
+inline void RemapManifestTarget::set_allocated_partition_expr(std::string* partition_expr) {
+  if (partition_expr != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.partition_expr_.SetAllocated(partition_expr, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.partition_expr_.IsDefault()) {
+    _impl_.partition_expr_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemapManifestTarget.partition_expr)
+}
+
+// -------------------------------------------------------------------
+
+// RemapManifestRequest
+
+// uint64 table_id = 1;
+inline void RemapManifestRequest::clear_table_id() {
+  _impl_.table_id_ = uint64_t{0u};
+}
+inline uint64_t RemapManifestRequest::_internal_table_id() const {
+  return _impl_.table_id_;
+}
+inline uint64_t RemapManifestRequest::table_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestRequest.table_id)
+  return _internal_table_id();
+}
+inline void RemapManifestRequest::_internal_set_table_id(uint64_t value) {
+  
+  _impl_.table_id_ = value;
+}
+inline void RemapManifestRequest::set_table_id(uint64_t value) {
+  _internal_set_table_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestRequest.table_id)
+}
+
+// string group_id = 2;
+inline void RemapManifestRequest::clear_group_id() {
+  _impl_.group_id_.ClearToEmpty();
+}
+inline const std::string& RemapManifestRequest::group_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestRequest.group_id)
+  return _internal_group_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemapManifestRequest::set_group_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.group_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemapManifestRequest.group_id)
+}
+inline std::string* RemapManifestRequest::mutable_group_id() {
+  std::string* _s = _internal_mutable_group_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemapManifestRequest.group_id)
+  return _s;
+}
+inline const std::string& RemapManifestRequest::_internal_group_id() const {
+  return _impl_.group_id_.Get();
+}
+inline void RemapManifestRequest::_internal_set_group_id(const std::string& value) {
+  
+  _impl_.group_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemapManifestRequest::_internal_mutable_group_id() {
+  
+  return _impl_.group_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemapManifestRequest::release_group_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemapManifestRequest.group_id)
+  return _impl_.group_id_.Release();
+}
+inline void RemapManifestRequest::set_allocated_group_id(std::string* group_id) {
+  if (group_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.group_id_.SetAllocated(group_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.group_id_.IsDefault()) {
+    _impl_.group_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemapManifestRequest.group_id)
+}
+
+// repeated .greptime.v1.region.RemapManifestSource sources = 3;
+inline int RemapManifestRequest::_internal_sources_size() const {
+  return _impl_.sources_.size();
+}
+inline int RemapManifestRequest::sources_size() const {
+  return _internal_sources_size();
+}
+inline void RemapManifestRequest::clear_sources() {
+  _impl_.sources_.Clear();
+}
+inline ::greptime::v1::region::RemapManifestSource* RemapManifestRequest::mutable_sources(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemapManifestRequest.sources)
+  return _impl_.sources_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestSource >*
+RemapManifestRequest::mutable_sources() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.RemapManifestRequest.sources)
+  return &_impl_.sources_;
+}
+inline const ::greptime::v1::region::RemapManifestSource& RemapManifestRequest::_internal_sources(int index) const {
+  return _impl_.sources_.Get(index);
+}
+inline const ::greptime::v1::region::RemapManifestSource& RemapManifestRequest::sources(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestRequest.sources)
+  return _internal_sources(index);
+}
+inline ::greptime::v1::region::RemapManifestSource* RemapManifestRequest::_internal_add_sources() {
+  return _impl_.sources_.Add();
+}
+inline ::greptime::v1::region::RemapManifestSource* RemapManifestRequest::add_sources() {
+  ::greptime::v1::region::RemapManifestSource* _add = _internal_add_sources();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.RemapManifestRequest.sources)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestSource >&
+RemapManifestRequest::sources() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.RemapManifestRequest.sources)
+  return _impl_.sources_;
+}
+
+// repeated .greptime.v1.region.RemapManifestTarget targets = 4;
+inline int RemapManifestRequest::_internal_targets_size() const {
+  return _impl_.targets_.size();
+}
+inline int RemapManifestRequest::targets_size() const {
+  return _internal_targets_size();
+}
+inline void RemapManifestRequest::clear_targets() {
+  _impl_.targets_.Clear();
+}
+inline ::greptime::v1::region::RemapManifestTarget* RemapManifestRequest::mutable_targets(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemapManifestRequest.targets)
+  return _impl_.targets_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestTarget >*
+RemapManifestRequest::mutable_targets() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.RemapManifestRequest.targets)
+  return &_impl_.targets_;
+}
+inline const ::greptime::v1::region::RemapManifestTarget& RemapManifestRequest::_internal_targets(int index) const {
+  return _impl_.targets_.Get(index);
+}
+inline const ::greptime::v1::region::RemapManifestTarget& RemapManifestRequest::targets(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemapManifestRequest.targets)
+  return _internal_targets(index);
+}
+inline ::greptime::v1::region::RemapManifestTarget* RemapManifestRequest::_internal_add_targets() {
+  return _impl_.targets_.Add();
+}
+inline ::greptime::v1::region::RemapManifestTarget* RemapManifestRequest::add_targets() {
+  ::greptime::v1::region::RemapManifestTarget* _add = _internal_add_targets();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.RemapManifestRequest.targets)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RemapManifestTarget >&
+RemapManifestRequest::targets() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.RemapManifestRequest.targets)
+  return _impl_.targets_;
+}
+
+// -------------------------------------------------------------------
+
+// ApplyStagedManifestRequest
+
+// uint64 table_id = 1;
+inline void ApplyStagedManifestRequest::clear_table_id() {
+  _impl_.table_id_ = uint64_t{0u};
+}
+inline uint64_t ApplyStagedManifestRequest::_internal_table_id() const {
+  return _impl_.table_id_;
+}
+inline uint64_t ApplyStagedManifestRequest::table_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagedManifestRequest.table_id)
+  return _internal_table_id();
+}
+inline void ApplyStagedManifestRequest::_internal_set_table_id(uint64_t value) {
+  
+  _impl_.table_id_ = value;
+}
+inline void ApplyStagedManifestRequest::set_table_id(uint64_t value) {
+  _internal_set_table_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagedManifestRequest.table_id)
+}
+
+// string group_id = 2;
+inline void ApplyStagedManifestRequest::clear_group_id() {
+  _impl_.group_id_.ClearToEmpty();
+}
+inline const std::string& ApplyStagedManifestRequest::group_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagedManifestRequest.group_id)
+  return _internal_group_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ApplyStagedManifestRequest::set_group_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.group_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagedManifestRequest.group_id)
+}
+inline std::string* ApplyStagedManifestRequest::mutable_group_id() {
+  std::string* _s = _internal_mutable_group_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ApplyStagedManifestRequest.group_id)
+  return _s;
+}
+inline const std::string& ApplyStagedManifestRequest::_internal_group_id() const {
+  return _impl_.group_id_.Get();
+}
+inline void ApplyStagedManifestRequest::_internal_set_group_id(const std::string& value) {
+  
+  _impl_.group_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ApplyStagedManifestRequest::_internal_mutable_group_id() {
+  
+  return _impl_.group_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ApplyStagedManifestRequest::release_group_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.ApplyStagedManifestRequest.group_id)
+  return _impl_.group_id_.Release();
+}
+inline void ApplyStagedManifestRequest::set_allocated_group_id(std::string* group_id) {
+  if (group_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.group_id_.SetAllocated(group_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.group_id_.IsDefault()) {
+    _impl_.group_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ApplyStagedManifestRequest.group_id)
+}
+
+// repeated uint64 region_ids = 3;
+inline int ApplyStagedManifestRequest::_internal_region_ids_size() const {
+  return _impl_.region_ids_.size();
+}
+inline int ApplyStagedManifestRequest::region_ids_size() const {
+  return _internal_region_ids_size();
+}
+inline void ApplyStagedManifestRequest::clear_region_ids() {
+  _impl_.region_ids_.Clear();
+}
+inline uint64_t ApplyStagedManifestRequest::_internal_region_ids(int index) const {
+  return _impl_.region_ids_.Get(index);
+}
+inline uint64_t ApplyStagedManifestRequest::region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagedManifestRequest.region_ids)
+  return _internal_region_ids(index);
+}
+inline void ApplyStagedManifestRequest::set_region_ids(int index, uint64_t value) {
+  _impl_.region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagedManifestRequest.region_ids)
+}
+inline void ApplyStagedManifestRequest::_internal_add_region_ids(uint64_t value) {
+  _impl_.region_ids_.Add(value);
+}
+inline void ApplyStagedManifestRequest::add_region_ids(uint64_t value) {
+  _internal_add_region_ids(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.region.ApplyStagedManifestRequest.region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+ApplyStagedManifestRequest::_internal_region_ids() const {
+  return _impl_.region_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+ApplyStagedManifestRequest::region_ids() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.ApplyStagedManifestRequest.region_ids)
+  return _internal_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+ApplyStagedManifestRequest::_internal_mutable_region_ids() {
+  return &_impl_.region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+ApplyStagedManifestRequest::mutable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.ApplyStagedManifestRequest.region_ids)
+  return _internal_mutable_region_ids();
+}
+
+// bool publish = 4;
+inline void ApplyStagedManifestRequest::clear_publish() {
+  _impl_.publish_ = false;
+}
+inline bool ApplyStagedManifestRequest::_internal_publish() const {
+  return _impl_.publish_;
+}
+inline bool ApplyStagedManifestRequest::publish() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagedManifestRequest.publish)
+  return _internal_publish();
+}
+inline void ApplyStagedManifestRequest::_internal_set_publish(bool value) {
+  
+  _impl_.publish_ = value;
+}
+inline void ApplyStagedManifestRequest::set_publish(bool value) {
+  _internal_set_publish(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagedManifestRequest.publish)
 }
 
 // -------------------------------------------------------------------
@@ -11249,6 +13678,252 @@ inline BulkInsertRequest::BodyCase BulkInsertRequest::body_case() const {
 }
 // -------------------------------------------------------------------
 
+// PauseRequest
+
+// uint64 region_id = 1;
+inline void PauseRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t PauseRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t PauseRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.PauseRequest.region_id)
+  return _internal_region_id();
+}
+inline void PauseRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void PauseRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.PauseRequest.region_id)
+}
+
+// -------------------------------------------------------------------
+
+// ResumeRequest
+
+// uint64 region_id = 1;
+inline void ResumeRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t ResumeRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t ResumeRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ResumeRequest.region_id)
+  return _internal_region_id();
+}
+inline void ResumeRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void ResumeRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ResumeRequest.region_id)
+}
+
+// string rule_version = 2;
+inline void ResumeRequest::clear_rule_version() {
+  _impl_.rule_version_.ClearToEmpty();
+}
+inline const std::string& ResumeRequest::rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ResumeRequest.rule_version)
+  return _internal_rule_version();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ResumeRequest::set_rule_version(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rule_version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ResumeRequest.rule_version)
+}
+inline std::string* ResumeRequest::mutable_rule_version() {
+  std::string* _s = _internal_mutable_rule_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ResumeRequest.rule_version)
+  return _s;
+}
+inline const std::string& ResumeRequest::_internal_rule_version() const {
+  return _impl_.rule_version_.Get();
+}
+inline void ResumeRequest::_internal_set_rule_version(const std::string& value) {
+  
+  _impl_.rule_version_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ResumeRequest::_internal_mutable_rule_version() {
+  
+  return _impl_.rule_version_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ResumeRequest::release_rule_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.ResumeRequest.rule_version)
+  return _impl_.rule_version_.Release();
+}
+inline void ResumeRequest::set_allocated_rule_version(std::string* rule_version) {
+  if (rule_version != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rule_version_.SetAllocated(rule_version, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rule_version_.IsDefault()) {
+    _impl_.rule_version_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ResumeRequest.rule_version)
+}
+
+// -------------------------------------------------------------------
+
+// StageRegionRuleRequest
+
+// uint64 region_id = 1;
+inline void StageRegionRuleRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t StageRegionRuleRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t StageRegionRuleRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.StageRegionRuleRequest.region_id)
+  return _internal_region_id();
+}
+inline void StageRegionRuleRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void StageRegionRuleRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.StageRegionRuleRequest.region_id)
+}
+
+// string rule_version = 2;
+inline void StageRegionRuleRequest::clear_rule_version() {
+  _impl_.rule_version_.ClearToEmpty();
+}
+inline const std::string& StageRegionRuleRequest::rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.StageRegionRuleRequest.rule_version)
+  return _internal_rule_version();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void StageRegionRuleRequest::set_rule_version(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rule_version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.StageRegionRuleRequest.rule_version)
+}
+inline std::string* StageRegionRuleRequest::mutable_rule_version() {
+  std::string* _s = _internal_mutable_rule_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.StageRegionRuleRequest.rule_version)
+  return _s;
+}
+inline const std::string& StageRegionRuleRequest::_internal_rule_version() const {
+  return _impl_.rule_version_.Get();
+}
+inline void StageRegionRuleRequest::_internal_set_rule_version(const std::string& value) {
+  
+  _impl_.rule_version_.Set(value, GetArenaForAllocation());
+}
+inline std::string* StageRegionRuleRequest::_internal_mutable_rule_version() {
+  
+  return _impl_.rule_version_.Mutable(GetArenaForAllocation());
+}
+inline std::string* StageRegionRuleRequest::release_rule_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.StageRegionRuleRequest.rule_version)
+  return _impl_.rule_version_.Release();
+}
+inline void StageRegionRuleRequest::set_allocated_rule_version(std::string* rule_version) {
+  if (rule_version != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rule_version_.SetAllocated(rule_version, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rule_version_.IsDefault()) {
+    _impl_.rule_version_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.StageRegionRuleRequest.rule_version)
+}
+
+// -------------------------------------------------------------------
+
+// PublishRegionRuleRequest
+
+// uint64 region_id = 1;
+inline void PublishRegionRuleRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t PublishRegionRuleRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t PublishRegionRuleRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.PublishRegionRuleRequest.region_id)
+  return _internal_region_id();
+}
+inline void PublishRegionRuleRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void PublishRegionRuleRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.PublishRegionRuleRequest.region_id)
+}
+
+// string rule_version = 2;
+inline void PublishRegionRuleRequest::clear_rule_version() {
+  _impl_.rule_version_.ClearToEmpty();
+}
+inline const std::string& PublishRegionRuleRequest::rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.PublishRegionRuleRequest.rule_version)
+  return _internal_rule_version();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void PublishRegionRuleRequest::set_rule_version(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.rule_version_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.PublishRegionRuleRequest.rule_version)
+}
+inline std::string* PublishRegionRuleRequest::mutable_rule_version() {
+  std::string* _s = _internal_mutable_rule_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.PublishRegionRuleRequest.rule_version)
+  return _s;
+}
+inline const std::string& PublishRegionRuleRequest::_internal_rule_version() const {
+  return _impl_.rule_version_.Get();
+}
+inline void PublishRegionRuleRequest::_internal_set_rule_version(const std::string& value) {
+  
+  _impl_.rule_version_.Set(value, GetArenaForAllocation());
+}
+inline std::string* PublishRegionRuleRequest::_internal_mutable_rule_version() {
+  
+  return _impl_.rule_version_.Mutable(GetArenaForAllocation());
+}
+inline std::string* PublishRegionRuleRequest::release_rule_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.PublishRegionRuleRequest.rule_version)
+  return _impl_.rule_version_.Release();
+}
+inline void PublishRegionRuleRequest::set_allocated_rule_version(std::string* rule_version) {
+  if (rule_version != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.rule_version_.SetAllocated(rule_version, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.rule_version_.IsDefault()) {
+    _impl_.rule_version_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.PublishRegionRuleRequest.rule_version)
+}
+
+// -------------------------------------------------------------------
+
 // MitoManifestInfo
 
 // uint64 data_manifest_version = 1;
@@ -11550,6 +14225,22 @@ ListMetadataRequest::mutable_region_ids() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

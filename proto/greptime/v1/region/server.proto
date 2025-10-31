@@ -59,6 +59,12 @@ message RegionRequest {
     BulkInsertRequest bulk_insert = 16;
     SyncRequest sync = 17;
     ListMetadataRequest list_metadata = 18;
+    PauseRequest pause = 19;
+    ResumeRequest resume = 20;
+    StageRegionRuleRequest stage_region_rule = 21;
+    PublishRegionRuleRequest publish_region_rule = 22;
+    RemapManifestRequest remap_manifest = 23;
+    ApplyStagedManifestRequest apply_staged_manifest = 24;
   }
 }
 
@@ -142,6 +148,38 @@ message OpenRequest {
   string path = 3;
   // Options of the opened region.
   map<string, string> options = 4;
+}
+
+message RemapManifestSource {
+  uint64 region_id = 1;
+  repeated uint64 target_region_ids = 2;
+}
+
+message RemapManifestTarget {
+  uint64 region_id = 1;
+  string partition_expr = 2;
+}
+
+message RemapManifestRequest {
+  // Table identifier for bookkeeping.
+  uint64 table_id = 1;
+  // Procedure group identifier used by metasrv for tracing.
+  string group_id = 2;
+  // Source regions participating in the manifest remap.
+  repeated RemapManifestSource sources = 3;
+  // Target regions that should receive remapped manifests.
+  repeated RemapManifestTarget targets = 4;
+}
+
+message ApplyStagedManifestRequest {
+  // Table identifier for bookkeeping.
+  uint64 table_id = 1;
+  // Procedure group identifier used by metasrv for tracing.
+  string group_id = 2;
+  // Regions to apply staged manifests on.
+  repeated uint64 region_ids = 3;
+  // If true, publish staged manifests; otherwise discard them.
+  bool publish = 4;
 }
 
 message CloseRequest {
@@ -242,6 +280,25 @@ message BulkInsertRequest {
   oneof body {
     ArrowIpc arrow_ipc = 2;
   }
+}
+
+message PauseRequest {
+  uint64 region_id = 1;
+}
+
+message ResumeRequest {
+  uint64 region_id = 1;
+  string rule_version = 2;
+}
+
+message StageRegionRuleRequest {
+  uint64 region_id = 1;
+  string rule_version = 2;
+}
+
+message PublishRegionRuleRequest {
+  uint64 region_id = 1;
+  string rule_version = 2;
 }
 
 // Manifest info for mito engine.
