@@ -80,6 +80,8 @@ message Value {
     ListValue list_value = 40;
     StructValue struct_value = 41;
     Value json_value = 42;
+    DictionaryValue dictionary_value = 43;
+    int64 duration_value = 44;
   }
 }
 
@@ -89,4 +91,9 @@ message ListValue {
 
 message StructValue {
   repeated Value items = 2;
+}
+
+message DictionaryValue {
+  Value key = 1;
+  Value value = 2;
 }

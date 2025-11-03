@@ -63,6 +63,8 @@ message Column {
     repeated ListValue list_values = 40;
     repeated StructValue struct_values = 41;
     repeated Values json_values = 42;
+    repeated DictionaryValue dictionary_values = 43;
+    repeated int64 duration_values = 44;
   }
 
   // The array of non-null values in this column.

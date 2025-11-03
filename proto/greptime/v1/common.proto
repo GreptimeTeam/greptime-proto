@@ -153,6 +153,9 @@ enum ColumnDataType {
   VECTOR = 32;
   LIST = 40;
   STRUCT = 41;
+  NULL = 42;
+  DICTIONARY = 43;
+  DURATION = 44;
 }
 
 message IntervalMonthDayNano {
@@ -205,6 +208,8 @@ message ColumnDataTypeExtension {
     StructTypeExtension struct_type = 5;
     // Marks the data type is a logical json data
     JsonNativeTypeExtension json_native_type = 6;
+    DictionaryTypeExtension dictionary_type = 7;
+    DurationTypeExtension duration_type = 8;
   }
 }
 
@@ -234,6 +239,17 @@ message StructTypeExtension {
 message JsonNativeTypeExtension {
   ColumnDataType datatype = 1;
   ColumnDataTypeExtension datatype_extension = 2;
+}
+
+message DictionaryTypeExtension {
+  ColumnDataType key_type = 1;
+  ColumnDataTypeExtension key_type_extension = 2;
+  ColumnDataType value_type = 3;
+  ColumnDataTypeExtension value_type_extension = 4;
+}
+
+message DurationTypeExtension {
+  TimeUnit time_unit = 1;
 }
 
 // Additional options for the column.
