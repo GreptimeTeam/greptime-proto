@@ -88,5 +88,6 @@ message ListValue {
 }
 
 message StructValue {
+  repeated StructField fields = 1;
   repeated Value items = 2;
 }
