@@ -3632,19 +3632,19 @@ public final class RowData {
     io.greptime.v1.RowData.StructValueOrBuilder getStructValueOrBuilder();
 
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      * @return Whether the jsonValue field is set.
      */
     boolean hasJsonValue();
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      * @return The jsonValue.
      */
-    io.greptime.v1.RowData.Value getJsonValue();
+    io.greptime.v1.RowData.JsonValue getJsonValue();
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      */
-    io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder();
+    io.greptime.v1.RowData.JsonValueOrBuilder getJsonValueOrBuilder();
 
     public io.greptime.v1.RowData.Value.ValueDataCase getValueDataCase();
   }
@@ -3876,14 +3876,14 @@ public final class RowData {
               break;
             }
             case 338: {
-              io.greptime.v1.RowData.Value.Builder subBuilder = null;
+              io.greptime.v1.RowData.JsonValue.Builder subBuilder = null;
               if (valueDataCase_ == 42) {
-                subBuilder = ((io.greptime.v1.RowData.Value) valueData_).toBuilder();
+                subBuilder = ((io.greptime.v1.RowData.JsonValue) valueData_).toBuilder();
               }
               valueData_ =
-                  input.readMessage(io.greptime.v1.RowData.Value.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.RowData.JsonValue.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.RowData.Value) valueData_);
+                subBuilder.mergeFrom((io.greptime.v1.RowData.JsonValue) valueData_);
                 valueData_ = subBuilder.buildPartial();
               }
               valueDataCase_ = 42;
@@ -4702,7 +4702,7 @@ public final class RowData {
 
     public static final int JSON_VALUE_FIELD_NUMBER = 42;
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      * @return Whether the jsonValue field is set.
      */
     @java.lang.Override
@@ -4710,25 +4710,25 @@ public final class RowData {
       return valueDataCase_ == 42;
     }
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      * @return The jsonValue.
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.Value getJsonValue() {
+    public io.greptime.v1.RowData.JsonValue getJsonValue() {
       if (valueDataCase_ == 42) {
-         return (io.greptime.v1.RowData.Value) valueData_;
+         return (io.greptime.v1.RowData.JsonValue) valueData_;
       }
-      return io.greptime.v1.RowData.Value.getDefaultInstance();
+      return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.Value json_value = 42;</code>
+     * <code>.greptime.v1.JsonValue json_value = 42;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder() {
+    public io.greptime.v1.RowData.JsonValueOrBuilder getJsonValueOrBuilder() {
       if (valueDataCase_ == 42) {
-         return (io.greptime.v1.RowData.Value) valueData_;
+         return (io.greptime.v1.RowData.JsonValue) valueData_;
       }
-      return io.greptime.v1.RowData.Value.getDefaultInstance();
+      return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4857,7 +4857,7 @@ public final class RowData {
         output.writeMessage(41, (io.greptime.v1.RowData.StructValue) valueData_);
       }
       if (valueDataCase_ == 42) {
-        output.writeMessage(42, (io.greptime.v1.RowData.Value) valueData_);
+        output.writeMessage(42, (io.greptime.v1.RowData.JsonValue) valueData_);
       }
       unknownFields.writeTo(output);
     }
@@ -5009,7 +5009,7 @@ public final class RowData {
       }
       if (valueDataCase_ == 42) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(42, (io.greptime.v1.RowData.Value) valueData_);
+          .computeMessageSize(42, (io.greptime.v1.RowData.JsonValue) valueData_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7447,9 +7447,9 @@ public final class RowData {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> jsonValueBuilder_;
+          io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> jsonValueBuilder_;
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        * @return Whether the jsonValue field is set.
        */
       @java.lang.Override
@@ -7457,27 +7457,27 @@ public final class RowData {
         return valueDataCase_ == 42;
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        * @return The jsonValue.
        */
       @java.lang.Override
-      public io.greptime.v1.RowData.Value getJsonValue() {
+      public io.greptime.v1.RowData.JsonValue getJsonValue() {
         if (jsonValueBuilder_ == null) {
           if (valueDataCase_ == 42) {
-            return (io.greptime.v1.RowData.Value) valueData_;
+            return (io.greptime.v1.RowData.JsonValue) valueData_;
           }
-          return io.greptime.v1.RowData.Value.getDefaultInstance();
+          return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
         } else {
           if (valueDataCase_ == 42) {
             return jsonValueBuilder_.getMessage();
           }
-          return io.greptime.v1.RowData.Value.getDefaultInstance();
+          return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
-      public Builder setJsonValue(io.greptime.v1.RowData.Value value) {
+      public Builder setJsonValue(io.greptime.v1.RowData.JsonValue value) {
         if (jsonValueBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -7491,10 +7491,10 @@ public final class RowData {
         return this;
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
       public Builder setJsonValue(
-          io.greptime.v1.RowData.Value.Builder builderForValue) {
+          io.greptime.v1.RowData.JsonValue.Builder builderForValue) {
         if (jsonValueBuilder_ == null) {
           valueData_ = builderForValue.build();
           onChanged();
@@ -7505,13 +7505,13 @@ public final class RowData {
         return this;
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
-      public Builder mergeJsonValue(io.greptime.v1.RowData.Value value) {
+      public Builder mergeJsonValue(io.greptime.v1.RowData.JsonValue value) {
         if (jsonValueBuilder_ == null) {
           if (valueDataCase_ == 42 &&
-              valueData_ != io.greptime.v1.RowData.Value.getDefaultInstance()) {
-            valueData_ = io.greptime.v1.RowData.Value.newBuilder((io.greptime.v1.RowData.Value) valueData_)
+              valueData_ != io.greptime.v1.RowData.JsonValue.getDefaultInstance()) {
+            valueData_ = io.greptime.v1.RowData.JsonValue.newBuilder((io.greptime.v1.RowData.JsonValue) valueData_)
                 .mergeFrom(value).buildPartial();
           } else {
             valueData_ = value;
@@ -7528,7 +7528,7 @@ public final class RowData {
         return this;
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
       public Builder clearJsonValue() {
         if (jsonValueBuilder_ == null) {
@@ -7547,38 +7547,38 @@ public final class RowData {
         return this;
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
-      public io.greptime.v1.RowData.Value.Builder getJsonValueBuilder() {
+      public io.greptime.v1.RowData.JsonValue.Builder getJsonValueBuilder() {
         return getJsonValueFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.RowData.ValueOrBuilder getJsonValueOrBuilder() {
+      public io.greptime.v1.RowData.JsonValueOrBuilder getJsonValueOrBuilder() {
         if ((valueDataCase_ == 42) && (jsonValueBuilder_ != null)) {
           return jsonValueBuilder_.getMessageOrBuilder();
         } else {
           if (valueDataCase_ == 42) {
-            return (io.greptime.v1.RowData.Value) valueData_;
+            return (io.greptime.v1.RowData.JsonValue) valueData_;
           }
-          return io.greptime.v1.RowData.Value.getDefaultInstance();
+          return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.Value json_value = 42;</code>
+       * <code>.greptime.v1.JsonValue json_value = 42;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> 
+          io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> 
           getJsonValueFieldBuilder() {
         if (jsonValueBuilder_ == null) {
           if (!(valueDataCase_ == 42)) {
-            valueData_ = io.greptime.v1.RowData.Value.getDefaultInstance();
+            valueData_ = io.greptime.v1.RowData.JsonValue.getDefaultInstance();
           }
           jsonValueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder>(
-                  (io.greptime.v1.RowData.Value) valueData_,
+              io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder>(
+                  (io.greptime.v1.RowData.JsonValue) valueData_,
                   getParentForChildren(),
                   isClean());
           valueData_ = null;
@@ -9230,6 +9230,3938 @@ public final class RowData {
 
   }
 
+  public interface JsonValueOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.JsonValue)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool boolean = 1;</code>
+     * @return Whether the boolean field is set.
+     */
+    boolean hasBoolean();
+    /**
+     * <code>bool boolean = 1;</code>
+     * @return The boolean.
+     */
+    boolean getBoolean();
+
+    /**
+     * <code>int64 int = 2;</code>
+     * @return Whether the int field is set.
+     */
+    boolean hasInt();
+    /**
+     * <code>int64 int = 2;</code>
+     * @return The int.
+     */
+    long getInt();
+
+    /**
+     * <code>uint64 uint = 3;</code>
+     * @return Whether the uint field is set.
+     */
+    boolean hasUint();
+    /**
+     * <code>uint64 uint = 3;</code>
+     * @return The uint.
+     */
+    long getUint();
+
+    /**
+     * <code>double float = 4;</code>
+     * @return Whether the float field is set.
+     */
+    boolean hasFloat();
+    /**
+     * <code>double float = 4;</code>
+     * @return The float.
+     */
+    double getFloat();
+
+    /**
+     * <code>string str = 5;</code>
+     * @return Whether the str field is set.
+     */
+    boolean hasStr();
+    /**
+     * <code>string str = 5;</code>
+     * @return The str.
+     */
+    java.lang.String getStr();
+    /**
+     * <code>string str = 5;</code>
+     * @return The bytes for str.
+     */
+    com.google.protobuf.ByteString
+        getStrBytes();
+
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     * @return Whether the array field is set.
+     */
+    boolean hasArray();
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     * @return The array.
+     */
+    io.greptime.v1.RowData.JsonList getArray();
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     */
+    io.greptime.v1.RowData.JsonListOrBuilder getArrayOrBuilder();
+
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     * @return Whether the object field is set.
+     */
+    boolean hasObject();
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     * @return The object.
+     */
+    io.greptime.v1.RowData.JsonObject getObject();
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     */
+    io.greptime.v1.RowData.JsonObjectOrBuilder getObjectOrBuilder();
+
+    public io.greptime.v1.RowData.JsonValue.ValueCase getValueCase();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.JsonValue}
+   */
+  public static final class JsonValue extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.JsonValue)
+      JsonValueOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JsonValue.newBuilder() to construct.
+    private JsonValue(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JsonValue() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JsonValue();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JsonValue(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              value_ = input.readBool();
+              valueCase_ = 1;
+              break;
+            }
+            case 16: {
+              value_ = input.readInt64();
+              valueCase_ = 2;
+              break;
+            }
+            case 24: {
+              value_ = input.readUInt64();
+              valueCase_ = 3;
+              break;
+            }
+            case 33: {
+              value_ = input.readDouble();
+              valueCase_ = 4;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueCase_ = 5;
+              value_ = s;
+              break;
+            }
+            case 50: {
+              io.greptime.v1.RowData.JsonList.Builder subBuilder = null;
+              if (valueCase_ == 6) {
+                subBuilder = ((io.greptime.v1.RowData.JsonList) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(io.greptime.v1.RowData.JsonList.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.RowData.JsonList) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 6;
+              break;
+            }
+            case 58: {
+              io.greptime.v1.RowData.JsonObject.Builder subBuilder = null;
+              if (valueCase_ == 7) {
+                subBuilder = ((io.greptime.v1.RowData.JsonObject) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(io.greptime.v1.RowData.JsonObject.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.RowData.JsonObject) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 7;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonValue_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonValue_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.RowData.JsonValue.class, io.greptime.v1.RowData.JsonValue.Builder.class);
+    }
+
+    private int valueCase_ = 0;
+    private java.lang.Object value_;
+    public enum ValueCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      BOOLEAN(1),
+      INT(2),
+      UINT(3),
+      FLOAT(4),
+      STR(5),
+      ARRAY(6),
+      OBJECT(7),
+      VALUE_NOT_SET(0);
+      private final int value;
+      private ValueCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ValueCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ValueCase forNumber(int value) {
+        switch (value) {
+          case 1: return BOOLEAN;
+          case 2: return INT;
+          case 3: return UINT;
+          case 4: return FLOAT;
+          case 5: return STR;
+          case 6: return ARRAY;
+          case 7: return OBJECT;
+          case 0: return VALUE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ValueCase
+    getValueCase() {
+      return ValueCase.forNumber(
+          valueCase_);
+    }
+
+    public static final int BOOLEAN_FIELD_NUMBER = 1;
+    /**
+     * <code>bool boolean = 1;</code>
+     * @return Whether the boolean field is set.
+     */
+    @java.lang.Override
+    public boolean hasBoolean() {
+      return valueCase_ == 1;
+    }
+    /**
+     * <code>bool boolean = 1;</code>
+     * @return The boolean.
+     */
+    @java.lang.Override
+    public boolean getBoolean() {
+      if (valueCase_ == 1) {
+        return (java.lang.Boolean) value_;
+      }
+      return false;
+    }
+
+    public static final int INT_FIELD_NUMBER = 2;
+    /**
+     * <code>int64 int = 2;</code>
+     * @return Whether the int field is set.
+     */
+    @java.lang.Override
+    public boolean hasInt() {
+      return valueCase_ == 2;
+    }
+    /**
+     * <code>int64 int = 2;</code>
+     * @return The int.
+     */
+    @java.lang.Override
+    public long getInt() {
+      if (valueCase_ == 2) {
+        return (java.lang.Long) value_;
+      }
+      return 0L;
+    }
+
+    public static final int UINT_FIELD_NUMBER = 3;
+    /**
+     * <code>uint64 uint = 3;</code>
+     * @return Whether the uint field is set.
+     */
+    @java.lang.Override
+    public boolean hasUint() {
+      return valueCase_ == 3;
+    }
+    /**
+     * <code>uint64 uint = 3;</code>
+     * @return The uint.
+     */
+    @java.lang.Override
+    public long getUint() {
+      if (valueCase_ == 3) {
+        return (java.lang.Long) value_;
+      }
+      return 0L;
+    }
+
+    public static final int FLOAT_FIELD_NUMBER = 4;
+    /**
+     * <code>double float = 4;</code>
+     * @return Whether the float field is set.
+     */
+    @java.lang.Override
+    public boolean hasFloat() {
+      return valueCase_ == 4;
+    }
+    /**
+     * <code>double float = 4;</code>
+     * @return The float.
+     */
+    @java.lang.Override
+    public double getFloat() {
+      if (valueCase_ == 4) {
+        return (java.lang.Double) value_;
+      }
+      return 0D;
+    }
+
+    public static final int STR_FIELD_NUMBER = 5;
+    /**
+     * <code>string str = 5;</code>
+     * @return Whether the str field is set.
+     */
+    public boolean hasStr() {
+      return valueCase_ == 5;
+    }
+    /**
+     * <code>string str = 5;</code>
+     * @return The str.
+     */
+    public java.lang.String getStr() {
+      java.lang.Object ref = "";
+      if (valueCase_ == 5) {
+        ref = value_;
+      }
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (valueCase_ == 5) {
+          value_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>string str = 5;</code>
+     * @return The bytes for str.
+     */
+    public com.google.protobuf.ByteString
+        getStrBytes() {
+      java.lang.Object ref = "";
+      if (valueCase_ == 5) {
+        ref = value_;
+      }
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (valueCase_ == 5) {
+          value_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARRAY_FIELD_NUMBER = 6;
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     * @return Whether the array field is set.
+     */
+    @java.lang.Override
+    public boolean hasArray() {
+      return valueCase_ == 6;
+    }
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     * @return The array.
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonList getArray() {
+      if (valueCase_ == 6) {
+         return (io.greptime.v1.RowData.JsonList) value_;
+      }
+      return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.JsonList array = 6;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonListOrBuilder getArrayOrBuilder() {
+      if (valueCase_ == 6) {
+         return (io.greptime.v1.RowData.JsonList) value_;
+      }
+      return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+    }
+
+    public static final int OBJECT_FIELD_NUMBER = 7;
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     * @return Whether the object field is set.
+     */
+    @java.lang.Override
+    public boolean hasObject() {
+      return valueCase_ == 7;
+    }
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     * @return The object.
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonObject getObject() {
+      if (valueCase_ == 7) {
+         return (io.greptime.v1.RowData.JsonObject) value_;
+      }
+      return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.JsonObject object = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonObjectOrBuilder getObjectOrBuilder() {
+      if (valueCase_ == 7) {
+         return (io.greptime.v1.RowData.JsonObject) value_;
+      }
+      return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (valueCase_ == 1) {
+        output.writeBool(
+            1, (boolean)((java.lang.Boolean) value_));
+      }
+      if (valueCase_ == 2) {
+        output.writeInt64(
+            2, (long)((java.lang.Long) value_));
+      }
+      if (valueCase_ == 3) {
+        output.writeUInt64(
+            3, (long)((java.lang.Long) value_));
+      }
+      if (valueCase_ == 4) {
+        output.writeDouble(
+            4, (double)((java.lang.Double) value_));
+      }
+      if (valueCase_ == 5) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, value_);
+      }
+      if (valueCase_ == 6) {
+        output.writeMessage(6, (io.greptime.v1.RowData.JsonList) value_);
+      }
+      if (valueCase_ == 7) {
+        output.writeMessage(7, (io.greptime.v1.RowData.JsonObject) value_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (valueCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(
+              1, (boolean)((java.lang.Boolean) value_));
+      }
+      if (valueCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(
+              2, (long)((java.lang.Long) value_));
+      }
+      if (valueCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(
+              3, (long)((java.lang.Long) value_));
+      }
+      if (valueCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(
+              4, (double)((java.lang.Double) value_));
+      }
+      if (valueCase_ == 5) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, value_);
+      }
+      if (valueCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, (io.greptime.v1.RowData.JsonList) value_);
+      }
+      if (valueCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, (io.greptime.v1.RowData.JsonObject) value_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.RowData.JsonValue)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.RowData.JsonValue other = (io.greptime.v1.RowData.JsonValue) obj;
+
+      if (!getValueCase().equals(other.getValueCase())) return false;
+      switch (valueCase_) {
+        case 1:
+          if (getBoolean()
+              != other.getBoolean()) return false;
+          break;
+        case 2:
+          if (getInt()
+              != other.getInt()) return false;
+          break;
+        case 3:
+          if (getUint()
+              != other.getUint()) return false;
+          break;
+        case 4:
+          if (java.lang.Double.doubleToLongBits(getFloat())
+              != java.lang.Double.doubleToLongBits(
+                  other.getFloat())) return false;
+          break;
+        case 5:
+          if (!getStr()
+              .equals(other.getStr())) return false;
+          break;
+        case 6:
+          if (!getArray()
+              .equals(other.getArray())) return false;
+          break;
+        case 7:
+          if (!getObject()
+              .equals(other.getObject())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      switch (valueCase_) {
+        case 1:
+          hash = (37 * hash) + BOOLEAN_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+              getBoolean());
+          break;
+        case 2:
+          hash = (37 * hash) + INT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getInt());
+          break;
+        case 3:
+          hash = (37 * hash) + UINT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getUint());
+          break;
+        case 4:
+          hash = (37 * hash) + FLOAT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getFloat()));
+          break;
+        case 5:
+          hash = (37 * hash) + STR_FIELD_NUMBER;
+          hash = (53 * hash) + getStr().hashCode();
+          break;
+        case 6:
+          hash = (37 * hash) + ARRAY_FIELD_NUMBER;
+          hash = (53 * hash) + getArray().hashCode();
+          break;
+        case 7:
+          hash = (37 * hash) + OBJECT_FIELD_NUMBER;
+          hash = (53 * hash) + getObject().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonValue parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.RowData.JsonValue prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.JsonValue}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.JsonValue)
+        io.greptime.v1.RowData.JsonValueOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonValue_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonValue_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.RowData.JsonValue.class, io.greptime.v1.RowData.JsonValue.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.RowData.JsonValue.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        valueCase_ = 0;
+        value_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonValue_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonValue getDefaultInstanceForType() {
+        return io.greptime.v1.RowData.JsonValue.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonValue build() {
+        io.greptime.v1.RowData.JsonValue result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonValue buildPartial() {
+        io.greptime.v1.RowData.JsonValue result = new io.greptime.v1.RowData.JsonValue(this);
+        if (valueCase_ == 1) {
+          result.value_ = value_;
+        }
+        if (valueCase_ == 2) {
+          result.value_ = value_;
+        }
+        if (valueCase_ == 3) {
+          result.value_ = value_;
+        }
+        if (valueCase_ == 4) {
+          result.value_ = value_;
+        }
+        if (valueCase_ == 5) {
+          result.value_ = value_;
+        }
+        if (valueCase_ == 6) {
+          if (arrayBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = arrayBuilder_.build();
+          }
+        }
+        if (valueCase_ == 7) {
+          if (objectBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = objectBuilder_.build();
+          }
+        }
+        result.valueCase_ = valueCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.RowData.JsonValue) {
+          return mergeFrom((io.greptime.v1.RowData.JsonValue)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.RowData.JsonValue other) {
+        if (other == io.greptime.v1.RowData.JsonValue.getDefaultInstance()) return this;
+        switch (other.getValueCase()) {
+          case BOOLEAN: {
+            setBoolean(other.getBoolean());
+            break;
+          }
+          case INT: {
+            setInt(other.getInt());
+            break;
+          }
+          case UINT: {
+            setUint(other.getUint());
+            break;
+          }
+          case FLOAT: {
+            setFloat(other.getFloat());
+            break;
+          }
+          case STR: {
+            valueCase_ = 5;
+            value_ = other.value_;
+            onChanged();
+            break;
+          }
+          case ARRAY: {
+            mergeArray(other.getArray());
+            break;
+          }
+          case OBJECT: {
+            mergeObject(other.getObject());
+            break;
+          }
+          case VALUE_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.RowData.JsonValue parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.RowData.JsonValue) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int valueCase_ = 0;
+      private java.lang.Object value_;
+      public ValueCase
+          getValueCase() {
+        return ValueCase.forNumber(
+            valueCase_);
+      }
+
+      public Builder clearValue() {
+        valueCase_ = 0;
+        value_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      /**
+       * <code>bool boolean = 1;</code>
+       * @return Whether the boolean field is set.
+       */
+      public boolean hasBoolean() {
+        return valueCase_ == 1;
+      }
+      /**
+       * <code>bool boolean = 1;</code>
+       * @return The boolean.
+       */
+      public boolean getBoolean() {
+        if (valueCase_ == 1) {
+          return (java.lang.Boolean) value_;
+        }
+        return false;
+      }
+      /**
+       * <code>bool boolean = 1;</code>
+       * @param value The boolean to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBoolean(boolean value) {
+        valueCase_ = 1;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool boolean = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBoolean() {
+        if (valueCase_ == 1) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>int64 int = 2;</code>
+       * @return Whether the int field is set.
+       */
+      public boolean hasInt() {
+        return valueCase_ == 2;
+      }
+      /**
+       * <code>int64 int = 2;</code>
+       * @return The int.
+       */
+      public long getInt() {
+        if (valueCase_ == 2) {
+          return (java.lang.Long) value_;
+        }
+        return 0L;
+      }
+      /**
+       * <code>int64 int = 2;</code>
+       * @param value The int to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInt(long value) {
+        valueCase_ = 2;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 int = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInt() {
+        if (valueCase_ == 2) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>uint64 uint = 3;</code>
+       * @return Whether the uint field is set.
+       */
+      public boolean hasUint() {
+        return valueCase_ == 3;
+      }
+      /**
+       * <code>uint64 uint = 3;</code>
+       * @return The uint.
+       */
+      public long getUint() {
+        if (valueCase_ == 3) {
+          return (java.lang.Long) value_;
+        }
+        return 0L;
+      }
+      /**
+       * <code>uint64 uint = 3;</code>
+       * @param value The uint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUint(long value) {
+        valueCase_ = 3;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 uint = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUint() {
+        if (valueCase_ == 3) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>double float = 4;</code>
+       * @return Whether the float field is set.
+       */
+      public boolean hasFloat() {
+        return valueCase_ == 4;
+      }
+      /**
+       * <code>double float = 4;</code>
+       * @return The float.
+       */
+      public double getFloat() {
+        if (valueCase_ == 4) {
+          return (java.lang.Double) value_;
+        }
+        return 0D;
+      }
+      /**
+       * <code>double float = 4;</code>
+       * @param value The float to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFloat(double value) {
+        valueCase_ = 4;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double float = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFloat() {
+        if (valueCase_ == 4) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>string str = 5;</code>
+       * @return Whether the str field is set.
+       */
+      @java.lang.Override
+      public boolean hasStr() {
+        return valueCase_ == 5;
+      }
+      /**
+       * <code>string str = 5;</code>
+       * @return The str.
+       */
+      @java.lang.Override
+      public java.lang.String getStr() {
+        java.lang.Object ref = "";
+        if (valueCase_ == 5) {
+          ref = value_;
+        }
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (valueCase_ == 5) {
+            value_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string str = 5;</code>
+       * @return The bytes for str.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getStrBytes() {
+        java.lang.Object ref = "";
+        if (valueCase_ == 5) {
+          ref = value_;
+        }
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          if (valueCase_ == 5) {
+            value_ = b;
+          }
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string str = 5;</code>
+       * @param value The str to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  valueCase_ = 5;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string str = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStr() {
+        if (valueCase_ == 5) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>string str = 5;</code>
+       * @param value The bytes for str to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStrBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        valueCase_ = 5;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.JsonList, io.greptime.v1.RowData.JsonList.Builder, io.greptime.v1.RowData.JsonListOrBuilder> arrayBuilder_;
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       * @return Whether the array field is set.
+       */
+      @java.lang.Override
+      public boolean hasArray() {
+        return valueCase_ == 6;
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       * @return The array.
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonList getArray() {
+        if (arrayBuilder_ == null) {
+          if (valueCase_ == 6) {
+            return (io.greptime.v1.RowData.JsonList) value_;
+          }
+          return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+        } else {
+          if (valueCase_ == 6) {
+            return arrayBuilder_.getMessage();
+          }
+          return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      public Builder setArray(io.greptime.v1.RowData.JsonList value) {
+        if (arrayBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          value_ = value;
+          onChanged();
+        } else {
+          arrayBuilder_.setMessage(value);
+        }
+        valueCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      public Builder setArray(
+          io.greptime.v1.RowData.JsonList.Builder builderForValue) {
+        if (arrayBuilder_ == null) {
+          value_ = builderForValue.build();
+          onChanged();
+        } else {
+          arrayBuilder_.setMessage(builderForValue.build());
+        }
+        valueCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      public Builder mergeArray(io.greptime.v1.RowData.JsonList value) {
+        if (arrayBuilder_ == null) {
+          if (valueCase_ == 6 &&
+              value_ != io.greptime.v1.RowData.JsonList.getDefaultInstance()) {
+            value_ = io.greptime.v1.RowData.JsonList.newBuilder((io.greptime.v1.RowData.JsonList) value_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            value_ = value;
+          }
+          onChanged();
+        } else {
+          if (valueCase_ == 6) {
+            arrayBuilder_.mergeFrom(value);
+          } else {
+            arrayBuilder_.setMessage(value);
+          }
+        }
+        valueCase_ = 6;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      public Builder clearArray() {
+        if (arrayBuilder_ == null) {
+          if (valueCase_ == 6) {
+            valueCase_ = 0;
+            value_ = null;
+            onChanged();
+          }
+        } else {
+          if (valueCase_ == 6) {
+            valueCase_ = 0;
+            value_ = null;
+          }
+          arrayBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      public io.greptime.v1.RowData.JsonList.Builder getArrayBuilder() {
+        return getArrayFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonListOrBuilder getArrayOrBuilder() {
+        if ((valueCase_ == 6) && (arrayBuilder_ != null)) {
+          return arrayBuilder_.getMessageOrBuilder();
+        } else {
+          if (valueCase_ == 6) {
+            return (io.greptime.v1.RowData.JsonList) value_;
+          }
+          return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.JsonList array = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.JsonList, io.greptime.v1.RowData.JsonList.Builder, io.greptime.v1.RowData.JsonListOrBuilder> 
+          getArrayFieldBuilder() {
+        if (arrayBuilder_ == null) {
+          if (!(valueCase_ == 6)) {
+            value_ = io.greptime.v1.RowData.JsonList.getDefaultInstance();
+          }
+          arrayBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.RowData.JsonList, io.greptime.v1.RowData.JsonList.Builder, io.greptime.v1.RowData.JsonListOrBuilder>(
+                  (io.greptime.v1.RowData.JsonList) value_,
+                  getParentForChildren(),
+                  isClean());
+          value_ = null;
+        }
+        valueCase_ = 6;
+        onChanged();;
+        return arrayBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.JsonObject, io.greptime.v1.RowData.JsonObject.Builder, io.greptime.v1.RowData.JsonObjectOrBuilder> objectBuilder_;
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       * @return Whether the object field is set.
+       */
+      @java.lang.Override
+      public boolean hasObject() {
+        return valueCase_ == 7;
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       * @return The object.
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObject getObject() {
+        if (objectBuilder_ == null) {
+          if (valueCase_ == 7) {
+            return (io.greptime.v1.RowData.JsonObject) value_;
+          }
+          return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+        } else {
+          if (valueCase_ == 7) {
+            return objectBuilder_.getMessage();
+          }
+          return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      public Builder setObject(io.greptime.v1.RowData.JsonObject value) {
+        if (objectBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          value_ = value;
+          onChanged();
+        } else {
+          objectBuilder_.setMessage(value);
+        }
+        valueCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      public Builder setObject(
+          io.greptime.v1.RowData.JsonObject.Builder builderForValue) {
+        if (objectBuilder_ == null) {
+          value_ = builderForValue.build();
+          onChanged();
+        } else {
+          objectBuilder_.setMessage(builderForValue.build());
+        }
+        valueCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      public Builder mergeObject(io.greptime.v1.RowData.JsonObject value) {
+        if (objectBuilder_ == null) {
+          if (valueCase_ == 7 &&
+              value_ != io.greptime.v1.RowData.JsonObject.getDefaultInstance()) {
+            value_ = io.greptime.v1.RowData.JsonObject.newBuilder((io.greptime.v1.RowData.JsonObject) value_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            value_ = value;
+          }
+          onChanged();
+        } else {
+          if (valueCase_ == 7) {
+            objectBuilder_.mergeFrom(value);
+          } else {
+            objectBuilder_.setMessage(value);
+          }
+        }
+        valueCase_ = 7;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      public Builder clearObject() {
+        if (objectBuilder_ == null) {
+          if (valueCase_ == 7) {
+            valueCase_ = 0;
+            value_ = null;
+            onChanged();
+          }
+        } else {
+          if (valueCase_ == 7) {
+            valueCase_ = 0;
+            value_ = null;
+          }
+          objectBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.Builder getObjectBuilder() {
+        return getObjectFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObjectOrBuilder getObjectOrBuilder() {
+        if ((valueCase_ == 7) && (objectBuilder_ != null)) {
+          return objectBuilder_.getMessageOrBuilder();
+        } else {
+          if (valueCase_ == 7) {
+            return (io.greptime.v1.RowData.JsonObject) value_;
+          }
+          return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.JsonObject object = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.JsonObject, io.greptime.v1.RowData.JsonObject.Builder, io.greptime.v1.RowData.JsonObjectOrBuilder> 
+          getObjectFieldBuilder() {
+        if (objectBuilder_ == null) {
+          if (!(valueCase_ == 7)) {
+            value_ = io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+          }
+          objectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.RowData.JsonObject, io.greptime.v1.RowData.JsonObject.Builder, io.greptime.v1.RowData.JsonObjectOrBuilder>(
+                  (io.greptime.v1.RowData.JsonObject) value_,
+                  getParentForChildren(),
+                  isClean());
+          value_ = null;
+        }
+        valueCase_ = 7;
+        onChanged();;
+        return objectBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.JsonValue)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.JsonValue)
+    private static final io.greptime.v1.RowData.JsonValue DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.RowData.JsonValue();
+    }
+
+    public static io.greptime.v1.RowData.JsonValue getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JsonValue>
+        PARSER = new com.google.protobuf.AbstractParser<JsonValue>() {
+      @java.lang.Override
+      public JsonValue parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JsonValue(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JsonValue> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JsonValue> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonValue getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface JsonListOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.JsonList)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    java.util.List<io.greptime.v1.RowData.JsonValue> 
+        getItemsList();
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    io.greptime.v1.RowData.JsonValue getItems(int index);
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    int getItemsCount();
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.RowData.JsonValueOrBuilder> 
+        getItemsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    io.greptime.v1.RowData.JsonValueOrBuilder getItemsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.JsonList}
+   */
+  public static final class JsonList extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.JsonList)
+      JsonListOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JsonList.newBuilder() to construct.
+    private JsonList(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JsonList() {
+      items_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JsonList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JsonList(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                items_ = new java.util.ArrayList<io.greptime.v1.RowData.JsonValue>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              items_.add(
+                  input.readMessage(io.greptime.v1.RowData.JsonValue.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonList_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonList_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.RowData.JsonList.class, io.greptime.v1.RowData.JsonList.Builder.class);
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.RowData.JsonValue> items_;
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.RowData.JsonValue> getItemsList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.RowData.JsonValueOrBuilder> 
+        getItemsOrBuilderList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    @java.lang.Override
+    public int getItemsCount() {
+      return items_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonValue getItems(int index) {
+      return items_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonValueOrBuilder getItemsOrBuilder(
+        int index) {
+      return items_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(1, items_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < items_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, items_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.RowData.JsonList)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.RowData.JsonList other = (io.greptime.v1.RowData.JsonList) obj;
+
+      if (!getItemsList()
+          .equals(other.getItemsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getItemsCount() > 0) {
+        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonList parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonList parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonList parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.RowData.JsonList prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.JsonList}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.JsonList)
+        io.greptime.v1.RowData.JsonListOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonList_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonList_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.RowData.JsonList.class, io.greptime.v1.RowData.JsonList.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.RowData.JsonList.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getItemsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonList_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonList getDefaultInstanceForType() {
+        return io.greptime.v1.RowData.JsonList.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonList build() {
+        io.greptime.v1.RowData.JsonList result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonList buildPartial() {
+        io.greptime.v1.RowData.JsonList result = new io.greptime.v1.RowData.JsonList(this);
+        int from_bitField0_ = bitField0_;
+        if (itemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            items_ = java.util.Collections.unmodifiableList(items_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.items_ = items_;
+        } else {
+          result.items_ = itemsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.RowData.JsonList) {
+          return mergeFrom((io.greptime.v1.RowData.JsonList)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.RowData.JsonList other) {
+        if (other == io.greptime.v1.RowData.JsonList.getDefaultInstance()) return this;
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              itemsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getItemsFieldBuilder() : null;
+            } else {
+              itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.RowData.JsonList parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.RowData.JsonList) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.RowData.JsonValue> items_ =
+        java.util.Collections.emptyList();
+      private void ensureItemsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          items_ = new java.util.ArrayList<io.greptime.v1.RowData.JsonValue>(items_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> itemsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.RowData.JsonValue> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
+        } else {
+          return itemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
+        } else {
+          return itemsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonValue getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder setItems(
+          int index, io.greptime.v1.RowData.JsonValue value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.set(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder setItems(
+          int index, io.greptime.v1.RowData.JsonValue.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder addItems(io.greptime.v1.RowData.JsonValue value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder addItems(
+          int index, io.greptime.v1.RowData.JsonValue value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder addItems(
+          io.greptime.v1.RowData.JsonValue.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder addItems(
+          int index, io.greptime.v1.RowData.JsonValue.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder addAllItems(
+          java.lang.Iterable<? extends io.greptime.v1.RowData.JsonValue> values) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, items_);
+          onChanged();
+        } else {
+          itemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
+          onChanged();
+        } else {
+          itemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonValue.Builder getItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonValueOrBuilder getItemsOrBuilder(
+          int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);  } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.RowData.JsonValueOrBuilder> 
+           getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(items_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonValue.Builder addItemsBuilder() {
+        return getItemsFieldBuilder().addBuilder(
+            io.greptime.v1.RowData.JsonValue.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonValue.Builder addItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().addBuilder(
+            index, io.greptime.v1.RowData.JsonValue.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonValue items = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.RowData.JsonValue.Builder> 
+           getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> 
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder>(
+                  items_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          items_ = null;
+        }
+        return itemsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.JsonList)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.JsonList)
+    private static final io.greptime.v1.RowData.JsonList DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.RowData.JsonList();
+    }
+
+    public static io.greptime.v1.RowData.JsonList getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JsonList>
+        PARSER = new com.google.protobuf.AbstractParser<JsonList>() {
+      @java.lang.Override
+      public JsonList parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JsonList(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JsonList> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JsonList> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonList getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface JsonObjectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.JsonObject)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    java.util.List<io.greptime.v1.RowData.JsonObject.Entry> 
+        getEntriesList();
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    io.greptime.v1.RowData.JsonObject.Entry getEntries(int index);
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    int getEntriesCount();
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    java.util.List<? extends io.greptime.v1.RowData.JsonObject.EntryOrBuilder> 
+        getEntriesOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    io.greptime.v1.RowData.JsonObject.EntryOrBuilder getEntriesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.JsonObject}
+   */
+  public static final class JsonObject extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.JsonObject)
+      JsonObjectOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JsonObject.newBuilder() to construct.
+    private JsonObject(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JsonObject() {
+      entries_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JsonObject();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JsonObject(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                entries_ = new java.util.ArrayList<io.greptime.v1.RowData.JsonObject.Entry>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              entries_.add(
+                  input.readMessage(io.greptime.v1.RowData.JsonObject.Entry.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          entries_ = java.util.Collections.unmodifiableList(entries_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.RowData.JsonObject.class, io.greptime.v1.RowData.JsonObject.Builder.class);
+    }
+
+    public interface EntryOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:greptime.v1.JsonObject.Entry)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      java.lang.String getKey();
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      com.google.protobuf.ByteString
+          getKeyBytes();
+
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       * @return Whether the value field is set.
+       */
+      boolean hasValue();
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       * @return The value.
+       */
+      io.greptime.v1.RowData.JsonValue getValue();
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       */
+      io.greptime.v1.RowData.JsonValueOrBuilder getValueOrBuilder();
+    }
+    /**
+     * Protobuf type {@code greptime.v1.JsonObject.Entry}
+     */
+    public static final class Entry extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:greptime.v1.JsonObject.Entry)
+        EntryOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use Entry.newBuilder() to construct.
+      private Entry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Entry() {
+        key_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new Entry();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Entry(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                key_ = s;
+                break;
+              }
+              case 18: {
+                io.greptime.v1.RowData.JsonValue.Builder subBuilder = null;
+                if (value_ != null) {
+                  subBuilder = value_.toBuilder();
+                }
+                value_ = input.readMessage(io.greptime.v1.RowData.JsonValue.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(value_);
+                  value_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_Entry_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_Entry_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.RowData.JsonObject.Entry.class, io.greptime.v1.RowData.JsonObject.Entry.Builder.class);
+      }
+
+      public static final int KEY_FIELD_NUMBER = 1;
+      private volatile java.lang.Object key_;
+      /**
+       * <code>string key = 1;</code>
+       * @return The key.
+       */
+      @java.lang.Override
+      public java.lang.String getKey() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string key = 1;</code>
+       * @return The bytes for key.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getKeyBytes() {
+        java.lang.Object ref = key_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int VALUE_FIELD_NUMBER = 2;
+      private io.greptime.v1.RowData.JsonValue value_;
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       * @return Whether the value field is set.
+       */
+      @java.lang.Override
+      public boolean hasValue() {
+        return value_ != null;
+      }
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonValue getValue() {
+        return value_ == null ? io.greptime.v1.RowData.JsonValue.getDefaultInstance() : value_;
+      }
+      /**
+       * <code>.greptime.v1.JsonValue value = 2;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonValueOrBuilder getValueOrBuilder() {
+        return getValue();
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
+        }
+        if (value_ != null) {
+          output.writeMessage(2, getValue());
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
+        }
+        if (value_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, getValue());
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof io.greptime.v1.RowData.JsonObject.Entry)) {
+          return super.equals(obj);
+        }
+        io.greptime.v1.RowData.JsonObject.Entry other = (io.greptime.v1.RowData.JsonObject.Entry) obj;
+
+        if (!getKey()
+            .equals(other.getKey())) return false;
+        if (hasValue() != other.hasValue()) return false;
+        if (hasValue()) {
+          if (!getValue()
+              .equals(other.getValue())) return false;
+        }
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + KEY_FIELD_NUMBER;
+        hash = (53 * hash) + getKey().hashCode();
+        if (hasValue()) {
+          hash = (37 * hash) + VALUE_FIELD_NUMBER;
+          hash = (53 * hash) + getValue().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.RowData.JsonObject.Entry parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(io.greptime.v1.RowData.JsonObject.Entry prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code greptime.v1.JsonObject.Entry}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:greptime.v1.JsonObject.Entry)
+          io.greptime.v1.RowData.JsonObject.EntryOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_Entry_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_Entry_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  io.greptime.v1.RowData.JsonObject.Entry.class, io.greptime.v1.RowData.JsonObject.Entry.Builder.class);
+        }
+
+        // Construct using io.greptime.v1.RowData.JsonObject.Entry.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          key_ = "";
+
+          if (valueBuilder_ == null) {
+            value_ = null;
+          } else {
+            value_ = null;
+            valueBuilder_ = null;
+          }
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_Entry_descriptor;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.RowData.JsonObject.Entry getDefaultInstanceForType() {
+          return io.greptime.v1.RowData.JsonObject.Entry.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.RowData.JsonObject.Entry build() {
+          io.greptime.v1.RowData.JsonObject.Entry result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.RowData.JsonObject.Entry buildPartial() {
+          io.greptime.v1.RowData.JsonObject.Entry result = new io.greptime.v1.RowData.JsonObject.Entry(this);
+          result.key_ = key_;
+          if (valueBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = valueBuilder_.build();
+          }
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof io.greptime.v1.RowData.JsonObject.Entry) {
+            return mergeFrom((io.greptime.v1.RowData.JsonObject.Entry)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(io.greptime.v1.RowData.JsonObject.Entry other) {
+          if (other == io.greptime.v1.RowData.JsonObject.Entry.getDefaultInstance()) return this;
+          if (!other.getKey().isEmpty()) {
+            key_ = other.key_;
+            onChanged();
+          }
+          if (other.hasValue()) {
+            mergeValue(other.getValue());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          io.greptime.v1.RowData.JsonObject.Entry parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (io.greptime.v1.RowData.JsonObject.Entry) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private java.lang.Object key_ = "";
+        /**
+         * <code>string key = 1;</code>
+         * @return The key.
+         */
+        public java.lang.String getKey() {
+          java.lang.Object ref = key_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            key_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @return The bytes for key.
+         */
+        public com.google.protobuf.ByteString
+            getKeyBytes() {
+          java.lang.Object ref = key_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            key_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @param value The key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKey(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          key_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearKey() {
+          
+          key_ = getDefaultInstance().getKey();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string key = 1;</code>
+         * @param value The bytes for key to set.
+         * @return This builder for chaining.
+         */
+        public Builder setKeyBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          key_ = value;
+          onChanged();
+          return this;
+        }
+
+        private io.greptime.v1.RowData.JsonValue value_;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> valueBuilder_;
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         * @return Whether the value field is set.
+         */
+        public boolean hasValue() {
+          return valueBuilder_ != null || value_ != null;
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         * @return The value.
+         */
+        public io.greptime.v1.RowData.JsonValue getValue() {
+          if (valueBuilder_ == null) {
+            return value_ == null ? io.greptime.v1.RowData.JsonValue.getDefaultInstance() : value_;
+          } else {
+            return valueBuilder_.getMessage();
+          }
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public Builder setValue(io.greptime.v1.RowData.JsonValue value) {
+          if (valueBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            value_ = value;
+            onChanged();
+          } else {
+            valueBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public Builder setValue(
+            io.greptime.v1.RowData.JsonValue.Builder builderForValue) {
+          if (valueBuilder_ == null) {
+            value_ = builderForValue.build();
+            onChanged();
+          } else {
+            valueBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public Builder mergeValue(io.greptime.v1.RowData.JsonValue value) {
+          if (valueBuilder_ == null) {
+            if (value_ != null) {
+              value_ =
+                io.greptime.v1.RowData.JsonValue.newBuilder(value_).mergeFrom(value).buildPartial();
+            } else {
+              value_ = value;
+            }
+            onChanged();
+          } else {
+            valueBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public Builder clearValue() {
+          if (valueBuilder_ == null) {
+            value_ = null;
+            onChanged();
+          } else {
+            value_ = null;
+            valueBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public io.greptime.v1.RowData.JsonValue.Builder getValueBuilder() {
+          
+          onChanged();
+          return getValueFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        public io.greptime.v1.RowData.JsonValueOrBuilder getValueOrBuilder() {
+          if (valueBuilder_ != null) {
+            return valueBuilder_.getMessageOrBuilder();
+          } else {
+            return value_ == null ?
+                io.greptime.v1.RowData.JsonValue.getDefaultInstance() : value_;
+          }
+        }
+        /**
+         * <code>.greptime.v1.JsonValue value = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder> 
+            getValueFieldBuilder() {
+          if (valueBuilder_ == null) {
+            valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                io.greptime.v1.RowData.JsonValue, io.greptime.v1.RowData.JsonValue.Builder, io.greptime.v1.RowData.JsonValueOrBuilder>(
+                    getValue(),
+                    getParentForChildren(),
+                    isClean());
+            value_ = null;
+          }
+          return valueBuilder_;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:greptime.v1.JsonObject.Entry)
+      }
+
+      // @@protoc_insertion_point(class_scope:greptime.v1.JsonObject.Entry)
+      private static final io.greptime.v1.RowData.JsonObject.Entry DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new io.greptime.v1.RowData.JsonObject.Entry();
+      }
+
+      public static io.greptime.v1.RowData.JsonObject.Entry getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Entry>
+          PARSER = new com.google.protobuf.AbstractParser<Entry>() {
+        @java.lang.Override
+        public Entry parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Entry(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Entry> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Entry> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObject.Entry getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int ENTRIES_FIELD_NUMBER = 1;
+    private java.util.List<io.greptime.v1.RowData.JsonObject.Entry> entries_;
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.RowData.JsonObject.Entry> getEntriesList() {
+      return entries_;
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.RowData.JsonObject.EntryOrBuilder> 
+        getEntriesOrBuilderList() {
+      return entries_;
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    @java.lang.Override
+    public int getEntriesCount() {
+      return entries_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonObject.Entry getEntries(int index) {
+      return entries_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonObject.EntryOrBuilder getEntriesOrBuilder(
+        int index) {
+      return entries_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < entries_.size(); i++) {
+        output.writeMessage(1, entries_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < entries_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, entries_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.RowData.JsonObject)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.RowData.JsonObject other = (io.greptime.v1.RowData.JsonObject) obj;
+
+      if (!getEntriesList()
+          .equals(other.getEntriesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getEntriesCount() > 0) {
+        hash = (37 * hash) + ENTRIES_FIELD_NUMBER;
+        hash = (53 * hash) + getEntriesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.RowData.JsonObject parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.RowData.JsonObject prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.JsonObject}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.JsonObject)
+        io.greptime.v1.RowData.JsonObjectOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.RowData.JsonObject.class, io.greptime.v1.RowData.JsonObject.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.RowData.JsonObject.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEntriesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (entriesBuilder_ == null) {
+          entries_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          entriesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.RowData.internal_static_greptime_v1_JsonObject_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObject getDefaultInstanceForType() {
+        return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObject build() {
+        io.greptime.v1.RowData.JsonObject result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.RowData.JsonObject buildPartial() {
+        io.greptime.v1.RowData.JsonObject result = new io.greptime.v1.RowData.JsonObject(this);
+        int from_bitField0_ = bitField0_;
+        if (entriesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            entries_ = java.util.Collections.unmodifiableList(entries_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.entries_ = entries_;
+        } else {
+          result.entries_ = entriesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.RowData.JsonObject) {
+          return mergeFrom((io.greptime.v1.RowData.JsonObject)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.RowData.JsonObject other) {
+        if (other == io.greptime.v1.RowData.JsonObject.getDefaultInstance()) return this;
+        if (entriesBuilder_ == null) {
+          if (!other.entries_.isEmpty()) {
+            if (entries_.isEmpty()) {
+              entries_ = other.entries_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureEntriesIsMutable();
+              entries_.addAll(other.entries_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.entries_.isEmpty()) {
+            if (entriesBuilder_.isEmpty()) {
+              entriesBuilder_.dispose();
+              entriesBuilder_ = null;
+              entries_ = other.entries_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              entriesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getEntriesFieldBuilder() : null;
+            } else {
+              entriesBuilder_.addAllMessages(other.entries_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.RowData.JsonObject parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.RowData.JsonObject) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<io.greptime.v1.RowData.JsonObject.Entry> entries_ =
+        java.util.Collections.emptyList();
+      private void ensureEntriesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          entries_ = new java.util.ArrayList<io.greptime.v1.RowData.JsonObject.Entry>(entries_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.RowData.JsonObject.Entry, io.greptime.v1.RowData.JsonObject.Entry.Builder, io.greptime.v1.RowData.JsonObject.EntryOrBuilder> entriesBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.RowData.JsonObject.Entry> getEntriesList() {
+        if (entriesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(entries_);
+        } else {
+          return entriesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public int getEntriesCount() {
+        if (entriesBuilder_ == null) {
+          return entries_.size();
+        } else {
+          return entriesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.Entry getEntries(int index) {
+        if (entriesBuilder_ == null) {
+          return entries_.get(index);
+        } else {
+          return entriesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder setEntries(
+          int index, io.greptime.v1.RowData.JsonObject.Entry value) {
+        if (entriesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntriesIsMutable();
+          entries_.set(index, value);
+          onChanged();
+        } else {
+          entriesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder setEntries(
+          int index, io.greptime.v1.RowData.JsonObject.Entry.Builder builderForValue) {
+        if (entriesBuilder_ == null) {
+          ensureEntriesIsMutable();
+          entries_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          entriesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder addEntries(io.greptime.v1.RowData.JsonObject.Entry value) {
+        if (entriesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntriesIsMutable();
+          entries_.add(value);
+          onChanged();
+        } else {
+          entriesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder addEntries(
+          int index, io.greptime.v1.RowData.JsonObject.Entry value) {
+        if (entriesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEntriesIsMutable();
+          entries_.add(index, value);
+          onChanged();
+        } else {
+          entriesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder addEntries(
+          io.greptime.v1.RowData.JsonObject.Entry.Builder builderForValue) {
+        if (entriesBuilder_ == null) {
+          ensureEntriesIsMutable();
+          entries_.add(builderForValue.build());
+          onChanged();
+        } else {
+          entriesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder addEntries(
+          int index, io.greptime.v1.RowData.JsonObject.Entry.Builder builderForValue) {
+        if (entriesBuilder_ == null) {
+          ensureEntriesIsMutable();
+          entries_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          entriesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder addAllEntries(
+          java.lang.Iterable<? extends io.greptime.v1.RowData.JsonObject.Entry> values) {
+        if (entriesBuilder_ == null) {
+          ensureEntriesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, entries_);
+          onChanged();
+        } else {
+          entriesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder clearEntries() {
+        if (entriesBuilder_ == null) {
+          entries_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          entriesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public Builder removeEntries(int index) {
+        if (entriesBuilder_ == null) {
+          ensureEntriesIsMutable();
+          entries_.remove(index);
+          onChanged();
+        } else {
+          entriesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.Entry.Builder getEntriesBuilder(
+          int index) {
+        return getEntriesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.EntryOrBuilder getEntriesOrBuilder(
+          int index) {
+        if (entriesBuilder_ == null) {
+          return entries_.get(index);  } else {
+          return entriesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.RowData.JsonObject.EntryOrBuilder> 
+           getEntriesOrBuilderList() {
+        if (entriesBuilder_ != null) {
+          return entriesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(entries_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.Entry.Builder addEntriesBuilder() {
+        return getEntriesFieldBuilder().addBuilder(
+            io.greptime.v1.RowData.JsonObject.Entry.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public io.greptime.v1.RowData.JsonObject.Entry.Builder addEntriesBuilder(
+          int index) {
+        return getEntriesFieldBuilder().addBuilder(
+            index, io.greptime.v1.RowData.JsonObject.Entry.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.JsonObject.Entry entries = 1;</code>
+       */
+      public java.util.List<io.greptime.v1.RowData.JsonObject.Entry.Builder> 
+           getEntriesBuilderList() {
+        return getEntriesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.RowData.JsonObject.Entry, io.greptime.v1.RowData.JsonObject.Entry.Builder, io.greptime.v1.RowData.JsonObject.EntryOrBuilder> 
+          getEntriesFieldBuilder() {
+        if (entriesBuilder_ == null) {
+          entriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.RowData.JsonObject.Entry, io.greptime.v1.RowData.JsonObject.Entry.Builder, io.greptime.v1.RowData.JsonObject.EntryOrBuilder>(
+                  entries_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          entries_ = null;
+        }
+        return entriesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.JsonObject)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.JsonObject)
+    private static final io.greptime.v1.RowData.JsonObject DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.RowData.JsonObject();
+    }
+
+    public static io.greptime.v1.RowData.JsonObject getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JsonObject>
+        PARSER = new com.google.protobuf.AbstractParser<JsonObject>() {
+      @java.lang.Override
+      public JsonObject parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JsonObject(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JsonObject> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JsonObject> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.RowData.JsonObject getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_Rows_descriptor;
   private static final 
@@ -9260,6 +13192,26 @@ public final class RowData {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_StructValue_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_JsonValue_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_JsonValue_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_JsonList_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_JsonList_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_JsonObject_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_JsonObject_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_JsonObject_Entry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_JsonObject_Entry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9279,7 +13231,7 @@ public final class RowData {
       "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime." +
       "v1.ColumnDataTypeExtension\022+\n\007options\030\005 " +
       "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\"" +
-      "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\306\007\n\005V" +
+      "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\312\007\n\005V" +
       "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 " +
       "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030" +
       "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value" +
@@ -9302,13 +13254,22 @@ public final class RowData {
       "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D" +
       "ecimal128H\000\022,\n\nlist_value\030( \001(\0132\026.grepti" +
       "me.v1.ListValueH\000\0220\n\014struct_value\030) \001(\0132" +
-      "\030.greptime.v1.StructValueH\000\022(\n\njson_valu" +
-      "e\030* \001(\0132\022.greptime.v1.ValueH\000B\014\n\nvalue_d" +
-      "ata\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.grepti" +
-      "me.v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003(" +
-      "\0132\022.greptime.v1.ValueBP\n\016io.greptime.v1B" +
-      "\007RowDataZ5github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1b\006proto3"
+      "\030.greptime.v1.StructValueH\000\022,\n\njson_valu" +
+      "e\030* \001(\0132\026.greptime.v1.JsonValueH\000B\014\n\nval" +
+      "ue_data\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.gr" +
+      "eptime.v1.Value\"0\n\013StructValue\022!\n\005items\030" +
+      "\002 \003(\0132\022.greptime.v1.Value\"\271\001\n\tJsonValue\022" +
+      "\021\n\007boolean\030\001 \001(\010H\000\022\r\n\003int\030\002 \001(\003H\000\022\016\n\004uin" +
+      "t\030\003 \001(\004H\000\022\017\n\005float\030\004 \001(\001H\000\022\r\n\003str\030\005 \001(\tH" +
+      "\000\022&\n\005array\030\006 \001(\0132\025.greptime.v1.JsonListH" +
+      "\000\022)\n\006object\030\007 \001(\0132\027.greptime.v1.JsonObje" +
+      "ctH\000B\007\n\005value\"1\n\010JsonList\022%\n\005items\030\001 \003(\013" +
+      "2\026.greptime.v1.JsonValue\"y\n\nJsonObject\022." +
+      "\n\007entries\030\001 \003(\0132\035.greptime.v1.JsonObject" +
+      ".Entry\032;\n\005Entry\022\013\n\003key\030\001 \001(\t\022%\n\005value\030\002 " +
+      "\001(\0132\026.greptime.v1.JsonValueBP\n\016io.grepti" +
+      "me.v1B\007RowDataZ5github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9351,6 +13312,30 @@ public final class RowData {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_StructValue_descriptor,
         new java.lang.String[] { "Items", });
+    internal_static_greptime_v1_JsonValue_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_greptime_v1_JsonValue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_JsonValue_descriptor,
+        new java.lang.String[] { "Boolean", "Int", "Uint", "Float", "Str", "Array", "Object", "Value", });
+    internal_static_greptime_v1_JsonList_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_greptime_v1_JsonList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_JsonList_descriptor,
+        new java.lang.String[] { "Items", });
+    internal_static_greptime_v1_JsonObject_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_greptime_v1_JsonObject_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_JsonObject_descriptor,
+        new java.lang.String[] { "Entries", });
+    internal_static_greptime_v1_JsonObject_Entry_descriptor =
+      internal_static_greptime_v1_JsonObject_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_JsonObject_Entry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_JsonObject_Entry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     io.greptime.v1.Common.getDescriptor();
   }
 

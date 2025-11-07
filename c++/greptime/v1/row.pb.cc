@@ -106,9 +106,63 @@ struct StructValueDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StructValueDefaultTypeInternal _StructValue_default_instance_;
+PROTOBUF_CONSTEXPR JsonValue::JsonValue(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.value_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct JsonValueDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JsonValueDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JsonValueDefaultTypeInternal() {}
+  union {
+    JsonValue _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JsonValueDefaultTypeInternal _JsonValue_default_instance_;
+PROTOBUF_CONSTEXPR JsonList::JsonList(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct JsonListDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JsonListDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JsonListDefaultTypeInternal() {}
+  union {
+    JsonList _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JsonListDefaultTypeInternal _JsonList_default_instance_;
+PROTOBUF_CONSTEXPR JsonObject_Entry::JsonObject_Entry(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.value_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct JsonObject_EntryDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JsonObject_EntryDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JsonObject_EntryDefaultTypeInternal() {}
+  union {
+    JsonObject_Entry _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JsonObject_EntryDefaultTypeInternal _JsonObject_Entry_default_instance_;
+PROTOBUF_CONSTEXPR JsonObject::JsonObject(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.entries_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct JsonObjectDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR JsonObjectDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~JsonObjectDefaultTypeInternal() {}
+  union {
+    JsonObject _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 JsonObjectDefaultTypeInternal _JsonObject_default_instance_;
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2frow_2eproto[6];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2frow_2eproto[10];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2frow_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2frow_2eproto = nullptr;
 
@@ -190,6 +244,42 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::StructValue, _impl_.items_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonValue, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonValue, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonValue, _impl_.value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonList, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonList, _impl_.items_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonObject_Entry, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonObject_Entry, _impl_.key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonObject_Entry, _impl_.value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonObject, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonObject, _impl_.entries_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::Rows)},
@@ -198,6 +288,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 26, -1, -1, sizeof(::greptime::v1::Value)},
   { 63, -1, -1, sizeof(::greptime::v1::ListValue)},
   { 70, -1, -1, sizeof(::greptime::v1::StructValue)},
+  { 77, -1, -1, sizeof(::greptime::v1::JsonValue)},
+  { 91, -1, -1, sizeof(::greptime::v1::JsonList)},
+  { 98, -1, -1, sizeof(::greptime::v1::JsonObject_Entry)},
+  { 106, -1, -1, sizeof(::greptime::v1::JsonObject)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -207,6 +301,10 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_Value_default_instance_._instance,
   &::greptime::v1::_ListValue_default_instance_._instance,
   &::greptime::v1::_StructValue_default_instance_._instance,
+  &::greptime::v1::_JsonValue_default_instance_._instance,
+  &::greptime::v1::_JsonList_default_instance_._instance,
+  &::greptime::v1::_JsonObject_Entry_default_instance_._instance,
+  &::greptime::v1::_JsonObject_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -220,7 +318,7 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\022@\n\022datatype_extension\030\004 \001(\0132$.greptime."
   "v1.ColumnDataTypeExtension\022+\n\007options\030\005 "
   "\001(\0132\032.greptime.v1.ColumnOptions\")\n\003Row\022\""
-  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\306\007\n\005V"
+  "\n\006values\030\001 \003(\0132\022.greptime.v1.Value\"\312\007\n\005V"
   "alue\022\022\n\010i8_value\030\001 \001(\005H\000\022\023\n\ti16_value\030\002 "
   "\001(\005H\000\022\023\n\ti32_value\030\003 \001(\005H\000\022\023\n\ti64_value\030"
   "\004 \001(\003H\000\022\022\n\010u8_value\030\005 \001(\rH\000\022\023\n\tu16_value"
@@ -243,22 +341,31 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "\n\020decimal128_value\030\037 \001(\0132\027.greptime.v1.D"
   "ecimal128H\000\022,\n\nlist_value\030( \001(\0132\026.grepti"
   "me.v1.ListValueH\000\0220\n\014struct_value\030) \001(\0132"
-  "\030.greptime.v1.StructValueH\000\022(\n\njson_valu"
-  "e\030* \001(\0132\022.greptime.v1.ValueH\000B\014\n\nvalue_d"
-  "ata\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.grepti"
-  "me.v1.Value\"0\n\013StructValue\022!\n\005items\030\002 \003("
-  "\0132\022.greptime.v1.ValueBP\n\016io.greptime.v1B"
-  "\007RowDataZ5github.com/GreptimeTeam/grepti"
-  "me-proto/go/greptime/v1b\006proto3"
+  "\030.greptime.v1.StructValueH\000\022,\n\njson_valu"
+  "e\030* \001(\0132\026.greptime.v1.JsonValueH\000B\014\n\nval"
+  "ue_data\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.gr"
+  "eptime.v1.Value\"0\n\013StructValue\022!\n\005items\030"
+  "\002 \003(\0132\022.greptime.v1.Value\"\271\001\n\tJsonValue\022"
+  "\021\n\007boolean\030\001 \001(\010H\000\022\r\n\003int\030\002 \001(\003H\000\022\016\n\004uin"
+  "t\030\003 \001(\004H\000\022\017\n\005float\030\004 \001(\001H\000\022\r\n\003str\030\005 \001(\tH"
+  "\000\022&\n\005array\030\006 \001(\0132\025.greptime.v1.JsonListH"
+  "\000\022)\n\006object\030\007 \001(\0132\027.greptime.v1.JsonObje"
+  "ctH\000B\007\n\005value\"1\n\010JsonList\022%\n\005items\030\001 \003(\013"
+  "2\026.greptime.v1.JsonValue\"y\n\nJsonObject\022."
+  "\n\007entries\030\001 \003(\0132\035.greptime.v1.JsonObject"
+  ".Entry\032;\n\005Entry\022\013\n\003key\030\001 \001(\t\022%\n\005value\030\002 "
+  "\001(\0132\026.greptime.v1.JsonValueBP\n\016io.grepti"
+  "me.v1B\007RowDataZ5github.com/GreptimeTeam/"
+  "greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1591, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1957, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
-    &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 6,
+    &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2frow_2eproto, file_level_enum_descriptors_greptime_2fv1_2frow_2eproto,
     file_level_service_descriptors_greptime_2fv1_2frow_2eproto,
@@ -1047,7 +1154,7 @@ class Value::_Internal {
   static const ::greptime::v1::Decimal128& decimal128_value(const Value* msg);
   static const ::greptime::v1::ListValue& list_value(const Value* msg);
   static const ::greptime::v1::StructValue& struct_value(const Value* msg);
-  static const ::greptime::v1::Value& json_value(const Value* msg);
+  static const ::greptime::v1::JsonValue& json_value(const Value* msg);
 };
 
 const ::greptime::v1::IntervalMonthDayNano&
@@ -1066,7 +1173,7 @@ const ::greptime::v1::StructValue&
 Value::_Internal::struct_value(const Value* msg) {
   return *msg->_impl_.value_data_.struct_value_;
 }
-const ::greptime::v1::Value&
+const ::greptime::v1::JsonValue&
 Value::_Internal::json_value(const Value* msg) {
   return *msg->_impl_.value_data_.json_value_;
 }
@@ -1148,7 +1255,7 @@ void Value::set_allocated_struct_value(::greptime::v1::StructValue* struct_value
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Value.struct_value)
 }
-void Value::set_allocated_json_value(::greptime::v1::Value* json_value) {
+void Value::set_allocated_json_value(::greptime::v1::JsonValue* json_value) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_value_data();
   if (json_value) {
@@ -1301,7 +1408,7 @@ Value::Value(const Value& from)
       break;
     }
     case kJsonValue: {
-      _this->_internal_mutable_json_value()->::greptime::v1::Value::MergeFrom(
+      _this->_internal_mutable_json_value()->::greptime::v1::JsonValue::MergeFrom(
           from._internal_json_value());
       break;
     }
@@ -1736,7 +1843,7 @@ const char* Value::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.Value json_value = 42;
+      // .greptime.v1.JsonValue json_value = 42;
       case 42:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_json_value(), ptr);
@@ -1955,7 +2062,7 @@ uint8_t* Value::_InternalSerialize(
         _Internal::struct_value(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.Value json_value = 42;
+  // .greptime.v1.JsonValue json_value = 42;
   if (_internal_has_json_value()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(42, _Internal::json_value(this),
@@ -2156,7 +2263,7 @@ size_t Value::ByteSizeLong() const {
           *_impl_.value_data_.struct_value_);
       break;
     }
-    // .greptime.v1.Value json_value = 42;
+    // .greptime.v1.JsonValue json_value = 42;
     case kJsonValue: {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -2307,7 +2414,7 @@ void Value::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF
       break;
     }
     case kJsonValue: {
-      _this->_internal_mutable_json_value()->::greptime::v1::Value::MergeFrom(
+      _this->_internal_mutable_json_value()->::greptime::v1::JsonValue::MergeFrom(
           from._internal_json_value());
       break;
     }
@@ -2712,6 +2819,1089 @@ void StructValue::InternalSwap(StructValue* other) {
       file_level_metadata_greptime_2fv1_2frow_2eproto[5]);
 }
 
+// ===================================================================
+
+class JsonValue::_Internal {
+ public:
+  static const ::greptime::v1::JsonList& array(const JsonValue* msg);
+  static const ::greptime::v1::JsonObject& object(const JsonValue* msg);
+};
+
+const ::greptime::v1::JsonList&
+JsonValue::_Internal::array(const JsonValue* msg) {
+  return *msg->_impl_.value_.array_;
+}
+const ::greptime::v1::JsonObject&
+JsonValue::_Internal::object(const JsonValue* msg) {
+  return *msg->_impl_.value_.object_;
+}
+void JsonValue::set_allocated_array(::greptime::v1::JsonList* array) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value();
+  if (array) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(array);
+    if (message_arena != submessage_arena) {
+      array = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, array, submessage_arena);
+    }
+    set_has_array();
+    _impl_.value_.array_ = array;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonValue.array)
+}
+void JsonValue::set_allocated_object(::greptime::v1::JsonObject* object) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_value();
+  if (object) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(object);
+    if (message_arena != submessage_arena) {
+      object = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, object, submessage_arena);
+    }
+    set_has_object();
+    _impl_.value_.object_ = object;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonValue.object)
+}
+JsonValue::JsonValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.JsonValue)
+}
+JsonValue::JsonValue(const JsonValue& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JsonValue* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.value_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  clear_has_value();
+  switch (from.value_case()) {
+    case kBoolean: {
+      _this->_internal_set_boolean(from._internal_boolean());
+      break;
+    }
+    case kInt: {
+      _this->_internal_set_int_(from._internal_int_());
+      break;
+    }
+    case kUint: {
+      _this->_internal_set_uint(from._internal_uint());
+      break;
+    }
+    case kFloat: {
+      _this->_internal_set_float_(from._internal_float_());
+      break;
+    }
+    case kStr: {
+      _this->_internal_set_str(from._internal_str());
+      break;
+    }
+    case kArray: {
+      _this->_internal_mutable_array()->::greptime::v1::JsonList::MergeFrom(
+          from._internal_array());
+      break;
+    }
+    case kObject: {
+      _this->_internal_mutable_object()->::greptime::v1::JsonObject::MergeFrom(
+          from._internal_object());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.JsonValue)
+}
+
+inline void JsonValue::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.value_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_value();
+}
+
+JsonValue::~JsonValue() {
+  // @@protoc_insertion_point(destructor:greptime.v1.JsonValue)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JsonValue::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (has_value()) {
+    clear_value();
+  }
+}
+
+void JsonValue::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JsonValue::clear_value() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.JsonValue)
+  switch (value_case()) {
+    case kBoolean: {
+      // No need to clear
+      break;
+    }
+    case kInt: {
+      // No need to clear
+      break;
+    }
+    case kUint: {
+      // No need to clear
+      break;
+    }
+    case kFloat: {
+      // No need to clear
+      break;
+    }
+    case kStr: {
+      _impl_.value_.str_.Destroy();
+      break;
+    }
+    case kArray: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_.array_;
+      }
+      break;
+    }
+    case kObject: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.value_.object_;
+      }
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = VALUE_NOT_SET;
+}
+
+
+void JsonValue::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.JsonValue)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  clear_value();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JsonValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // bool boolean = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _internal_set_boolean(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 int = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _internal_set_int_(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 uint = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _internal_set_uint(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double float = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          _internal_set_float_(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // string str = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_str();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.JsonValue.str"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.JsonList array = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_array(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.JsonObject object = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_object(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JsonValue::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.JsonValue)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool boolean = 1;
+  if (_internal_has_boolean()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(1, this->_internal_boolean(), target);
+  }
+
+  // int64 int = 2;
+  if (_internal_has_int_()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_int_(), target);
+  }
+
+  // uint64 uint = 3;
+  if (_internal_has_uint()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_uint(), target);
+  }
+
+  // double float = 4;
+  if (_internal_has_float_()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_float_(), target);
+  }
+
+  // string str = 5;
+  if (_internal_has_str()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_str().data(), static_cast<int>(this->_internal_str().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.JsonValue.str");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_str(), target);
+  }
+
+  // .greptime.v1.JsonList array = 6;
+  if (_internal_has_array()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, _Internal::array(this),
+        _Internal::array(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.JsonObject object = 7;
+  if (_internal_has_object()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::object(this),
+        _Internal::object(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.JsonValue)
+  return target;
+}
+
+size_t JsonValue::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.JsonValue)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  switch (value_case()) {
+    // bool boolean = 1;
+    case kBoolean: {
+      total_size += 1 + 1;
+      break;
+    }
+    // int64 int = 2;
+    case kInt: {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_int_());
+      break;
+    }
+    // uint64 uint = 3;
+    case kUint: {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_uint());
+      break;
+    }
+    // double float = 4;
+    case kFloat: {
+      total_size += 1 + 8;
+      break;
+    }
+    // string str = 5;
+    case kStr: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_str());
+      break;
+    }
+    // .greptime.v1.JsonList array = 6;
+    case kArray: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_.array_);
+      break;
+    }
+    // .greptime.v1.JsonObject object = 7;
+    case kObject: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.value_.object_);
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JsonValue::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JsonValue::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JsonValue::GetClassData() const { return &_class_data_; }
+
+
+void JsonValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JsonValue*>(&to_msg);
+  auto& from = static_cast<const JsonValue&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.JsonValue)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  switch (from.value_case()) {
+    case kBoolean: {
+      _this->_internal_set_boolean(from._internal_boolean());
+      break;
+    }
+    case kInt: {
+      _this->_internal_set_int_(from._internal_int_());
+      break;
+    }
+    case kUint: {
+      _this->_internal_set_uint(from._internal_uint());
+      break;
+    }
+    case kFloat: {
+      _this->_internal_set_float_(from._internal_float_());
+      break;
+    }
+    case kStr: {
+      _this->_internal_set_str(from._internal_str());
+      break;
+    }
+    case kArray: {
+      _this->_internal_mutable_array()->::greptime::v1::JsonList::MergeFrom(
+          from._internal_array());
+      break;
+    }
+    case kObject: {
+      _this->_internal_mutable_object()->::greptime::v1::JsonObject::MergeFrom(
+          from._internal_object());
+      break;
+    }
+    case VALUE_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JsonValue::CopyFrom(const JsonValue& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.JsonValue)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsonValue::IsInitialized() const {
+  return true;
+}
+
+void JsonValue::InternalSwap(JsonValue* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_.value_, other->_impl_.value_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JsonValue::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[6]);
+}
+
+// ===================================================================
+
+class JsonList::_Internal {
+ public:
+};
+
+JsonList::JsonList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.JsonList)
+}
+JsonList::JsonList(const JsonList& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JsonList* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.JsonList)
+}
+
+inline void JsonList::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+JsonList::~JsonList() {
+  // @@protoc_insertion_point(destructor:greptime.v1.JsonList)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JsonList::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
+}
+
+void JsonList::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JsonList::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.JsonList)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.items_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JsonList::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .greptime.v1.JsonValue items = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_items(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JsonList::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.JsonList)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.JsonValue items = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.JsonList)
+  return target;
+}
+
+size_t JsonList::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.JsonList)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.JsonValue items = 1;
+  total_size += 1UL * this->_internal_items_size();
+  for (const auto& msg : this->_impl_.items_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JsonList::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JsonList::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JsonList::GetClassData() const { return &_class_data_; }
+
+
+void JsonList::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JsonList*>(&to_msg);
+  auto& from = static_cast<const JsonList&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.JsonList)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JsonList::CopyFrom(const JsonList& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.JsonList)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsonList::IsInitialized() const {
+  return true;
+}
+
+void JsonList::InternalSwap(JsonList* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JsonList::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[7]);
+}
+
+// ===================================================================
+
+class JsonObject_Entry::_Internal {
+ public:
+  static const ::greptime::v1::JsonValue& value(const JsonObject_Entry* msg);
+};
+
+const ::greptime::v1::JsonValue&
+JsonObject_Entry::_Internal::value(const JsonObject_Entry* msg) {
+  return *msg->_impl_.value_;
+}
+JsonObject_Entry::JsonObject_Entry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.JsonObject.Entry)
+}
+JsonObject_Entry::JsonObject_Entry(const JsonObject_Entry& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JsonObject_Entry* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.key_){}
+    , decltype(_impl_.value_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.key_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.key_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_key().empty()) {
+    _this->_impl_.key_.Set(from._internal_key(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_value()) {
+    _this->_impl_.value_ = new ::greptime::v1::JsonValue(*from._impl_.value_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.JsonObject.Entry)
+}
+
+inline void JsonObject_Entry::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.key_){}
+    , decltype(_impl_.value_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.key_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.key_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+JsonObject_Entry::~JsonObject_Entry() {
+  // @@protoc_insertion_point(destructor:greptime.v1.JsonObject.Entry)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JsonObject_Entry::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.key_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.value_;
+}
+
+void JsonObject_Entry::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JsonObject_Entry::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.JsonObject.Entry)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.key_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.value_ != nullptr) {
+    delete _impl_.value_;
+  }
+  _impl_.value_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JsonObject_Entry::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string key = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_key();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.JsonObject.Entry.key"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.JsonValue value = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_value(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JsonObject_Entry::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.JsonObject.Entry)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string key = 1;
+  if (!this->_internal_key().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.JsonObject.Entry.key");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_key(), target);
+  }
+
+  // .greptime.v1.JsonValue value = 2;
+  if (this->_internal_has_value()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::value(this),
+        _Internal::value(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.JsonObject.Entry)
+  return target;
+}
+
+size_t JsonObject_Entry::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.JsonObject.Entry)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string key = 1;
+  if (!this->_internal_key().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_key());
+  }
+
+  // .greptime.v1.JsonValue value = 2;
+  if (this->_internal_has_value()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.value_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JsonObject_Entry::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JsonObject_Entry::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JsonObject_Entry::GetClassData() const { return &_class_data_; }
+
+
+void JsonObject_Entry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JsonObject_Entry*>(&to_msg);
+  auto& from = static_cast<const JsonObject_Entry&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.JsonObject.Entry)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_key().empty()) {
+    _this->_internal_set_key(from._internal_key());
+  }
+  if (from._internal_has_value()) {
+    _this->_internal_mutable_value()->::greptime::v1::JsonValue::MergeFrom(
+        from._internal_value());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JsonObject_Entry::CopyFrom(const JsonObject_Entry& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.JsonObject.Entry)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsonObject_Entry::IsInitialized() const {
+  return true;
+}
+
+void JsonObject_Entry::InternalSwap(JsonObject_Entry* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.key_, lhs_arena,
+      &other->_impl_.key_, rhs_arena
+  );
+  swap(_impl_.value_, other->_impl_.value_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JsonObject_Entry::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[8]);
+}
+
+// ===================================================================
+
+class JsonObject::_Internal {
+ public:
+};
+
+JsonObject::JsonObject(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.JsonObject)
+}
+JsonObject::JsonObject(const JsonObject& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  JsonObject* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.entries_){from._impl_.entries_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.JsonObject)
+}
+
+inline void JsonObject::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.entries_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+JsonObject::~JsonObject() {
+  // @@protoc_insertion_point(destructor:greptime.v1.JsonObject)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void JsonObject::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.entries_.~RepeatedPtrField();
+}
+
+void JsonObject::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void JsonObject::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.JsonObject)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.entries_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* JsonObject::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .greptime.v1.JsonObject.Entry entries = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_entries(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* JsonObject::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.JsonObject)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.JsonObject.Entry entries = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_entries_size()); i < n; i++) {
+    const auto& repfield = this->_internal_entries(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.JsonObject)
+  return target;
+}
+
+size_t JsonObject::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.JsonObject)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.JsonObject.Entry entries = 1;
+  total_size += 1UL * this->_internal_entries_size();
+  for (const auto& msg : this->_impl_.entries_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData JsonObject::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    JsonObject::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*JsonObject::GetClassData() const { return &_class_data_; }
+
+
+void JsonObject::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<JsonObject*>(&to_msg);
+  auto& from = static_cast<const JsonObject&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.JsonObject)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.entries_.MergeFrom(from._impl_.entries_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void JsonObject::CopyFrom(const JsonObject& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.JsonObject)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool JsonObject::IsInitialized() const {
+  return true;
+}
+
+void JsonObject::InternalSwap(JsonObject* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.entries_.InternalSwap(&other->_impl_.entries_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata JsonObject::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2frow_2eproto_getter, &descriptor_table_greptime_2fv1_2frow_2eproto_once,
+      file_level_metadata_greptime_2fv1_2frow_2eproto[9]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace v1
 }  // namespace greptime
@@ -2739,6 +3929,22 @@ Arena::CreateMaybeMessage< ::greptime::v1::ListValue >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::StructValue*
 Arena::CreateMaybeMessage< ::greptime::v1::StructValue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::StructValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::JsonValue*
+Arena::CreateMaybeMessage< ::greptime::v1::JsonValue >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::JsonValue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::JsonList*
+Arena::CreateMaybeMessage< ::greptime::v1::JsonList >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::JsonList >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::JsonObject_Entry*
+Arena::CreateMaybeMessage< ::greptime::v1::JsonObject_Entry >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::JsonObject_Entry >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::JsonObject*
+Arena::CreateMaybeMessage< ::greptime::v1::JsonObject >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::JsonObject >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

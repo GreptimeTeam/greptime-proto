@@ -50,6 +50,18 @@ namespace v1 {
 class ColumnSchema;
 struct ColumnSchemaDefaultTypeInternal;
 extern ColumnSchemaDefaultTypeInternal _ColumnSchema_default_instance_;
+class JsonList;
+struct JsonListDefaultTypeInternal;
+extern JsonListDefaultTypeInternal _JsonList_default_instance_;
+class JsonObject;
+struct JsonObjectDefaultTypeInternal;
+extern JsonObjectDefaultTypeInternal _JsonObject_default_instance_;
+class JsonObject_Entry;
+struct JsonObject_EntryDefaultTypeInternal;
+extern JsonObject_EntryDefaultTypeInternal _JsonObject_Entry_default_instance_;
+class JsonValue;
+struct JsonValueDefaultTypeInternal;
+extern JsonValueDefaultTypeInternal _JsonValue_default_instance_;
 class ListValue;
 struct ListValueDefaultTypeInternal;
 extern ListValueDefaultTypeInternal _ListValue_default_instance_;
@@ -69,6 +81,10 @@ extern ValueDefaultTypeInternal _Value_default_instance_;
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::ColumnSchema* Arena::CreateMaybeMessage<::greptime::v1::ColumnSchema>(Arena*);
+template<> ::greptime::v1::JsonList* Arena::CreateMaybeMessage<::greptime::v1::JsonList>(Arena*);
+template<> ::greptime::v1::JsonObject* Arena::CreateMaybeMessage<::greptime::v1::JsonObject>(Arena*);
+template<> ::greptime::v1::JsonObject_Entry* Arena::CreateMaybeMessage<::greptime::v1::JsonObject_Entry>(Arena*);
+template<> ::greptime::v1::JsonValue* Arena::CreateMaybeMessage<::greptime::v1::JsonValue>(Arena*);
 template<> ::greptime::v1::ListValue* Arena::CreateMaybeMessage<::greptime::v1::ListValue>(Arena*);
 template<> ::greptime::v1::Row* Arena::CreateMaybeMessage<::greptime::v1::Row>(Arena*);
 template<> ::greptime::v1::Rows* Arena::CreateMaybeMessage<::greptime::v1::Rows>(Arena*);
@@ -1222,23 +1238,23 @@ class Value final :
       ::greptime::v1::StructValue* struct_value);
   ::greptime::v1::StructValue* unsafe_arena_release_struct_value();
 
-  // .greptime.v1.Value json_value = 42;
+  // .greptime.v1.JsonValue json_value = 42;
   bool has_json_value() const;
   private:
   bool _internal_has_json_value() const;
   public:
   void clear_json_value();
-  const ::greptime::v1::Value& json_value() const;
-  PROTOBUF_NODISCARD ::greptime::v1::Value* release_json_value();
-  ::greptime::v1::Value* mutable_json_value();
-  void set_allocated_json_value(::greptime::v1::Value* json_value);
+  const ::greptime::v1::JsonValue& json_value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonValue* release_json_value();
+  ::greptime::v1::JsonValue* mutable_json_value();
+  void set_allocated_json_value(::greptime::v1::JsonValue* json_value);
   private:
-  const ::greptime::v1::Value& _internal_json_value() const;
-  ::greptime::v1::Value* _internal_mutable_json_value();
+  const ::greptime::v1::JsonValue& _internal_json_value() const;
+  ::greptime::v1::JsonValue* _internal_mutable_json_value();
   public:
   void unsafe_arena_set_allocated_json_value(
-      ::greptime::v1::Value* json_value);
-  ::greptime::v1::Value* unsafe_arena_release_json_value();
+      ::greptime::v1::JsonValue* json_value);
+  ::greptime::v1::JsonValue* unsafe_arena_release_json_value();
 
   void clear_value_data();
   ValueDataCase value_data_case() const;
@@ -1315,7 +1331,7 @@ class Value final :
       ::greptime::v1::Decimal128* decimal128_value_;
       ::greptime::v1::ListValue* list_value_;
       ::greptime::v1::StructValue* struct_value_;
-      ::greptime::v1::Value* json_value_;
+      ::greptime::v1::JsonValue* json_value_;
     } value_data_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1633,6 +1649,781 @@ class StructValue final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Value > items_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonValue final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonValue) */ {
+ public:
+  inline JsonValue() : JsonValue(nullptr) {}
+  ~JsonValue() override;
+  explicit PROTOBUF_CONSTEXPR JsonValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonValue(const JsonValue& from);
+  JsonValue(JsonValue&& from) noexcept
+    : JsonValue() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonValue& operator=(const JsonValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonValue& operator=(JsonValue&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonValue& default_instance() {
+    return *internal_default_instance();
+  }
+  enum ValueCase {
+    kBoolean = 1,
+    kInt = 2,
+    kUint = 3,
+    kFloat = 4,
+    kStr = 5,
+    kArray = 6,
+    kObject = 7,
+    VALUE_NOT_SET = 0,
+  };
+
+  static inline const JsonValue* internal_default_instance() {
+    return reinterpret_cast<const JsonValue*>(
+               &_JsonValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(JsonValue& a, JsonValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonValue* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonValue* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonValue>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonValue& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonValue& from) {
+    JsonValue::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonValue* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonValue";
+  }
+  protected:
+  explicit JsonValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBooleanFieldNumber = 1,
+    kIntFieldNumber = 2,
+    kUintFieldNumber = 3,
+    kFloatFieldNumber = 4,
+    kStrFieldNumber = 5,
+    kArrayFieldNumber = 6,
+    kObjectFieldNumber = 7,
+  };
+  // bool boolean = 1;
+  bool has_boolean() const;
+  private:
+  bool _internal_has_boolean() const;
+  public:
+  void clear_boolean();
+  bool boolean() const;
+  void set_boolean(bool value);
+  private:
+  bool _internal_boolean() const;
+  void _internal_set_boolean(bool value);
+  public:
+
+  // int64 int = 2;
+  bool has_int_() const;
+  private:
+  bool _internal_has_int_() const;
+  public:
+  void clear_int_();
+  int64_t int_() const;
+  void set_int_(int64_t value);
+  private:
+  int64_t _internal_int_() const;
+  void _internal_set_int_(int64_t value);
+  public:
+
+  // uint64 uint = 3;
+  bool has_uint() const;
+  private:
+  bool _internal_has_uint() const;
+  public:
+  void clear_uint();
+  uint64_t uint() const;
+  void set_uint(uint64_t value);
+  private:
+  uint64_t _internal_uint() const;
+  void _internal_set_uint(uint64_t value);
+  public:
+
+  // double float = 4;
+  bool has_float_() const;
+  private:
+  bool _internal_has_float_() const;
+  public:
+  void clear_float_();
+  double float_() const;
+  void set_float_(double value);
+  private:
+  double _internal_float_() const;
+  void _internal_set_float_(double value);
+  public:
+
+  // string str = 5;
+  bool has_str() const;
+  private:
+  bool _internal_has_str() const;
+  public:
+  void clear_str();
+  const std::string& str() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_str(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_str();
+  PROTOBUF_NODISCARD std::string* release_str();
+  void set_allocated_str(std::string* str);
+  private:
+  const std::string& _internal_str() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_str(const std::string& value);
+  std::string* _internal_mutable_str();
+  public:
+
+  // .greptime.v1.JsonList array = 6;
+  bool has_array() const;
+  private:
+  bool _internal_has_array() const;
+  public:
+  void clear_array();
+  const ::greptime::v1::JsonList& array() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonList* release_array();
+  ::greptime::v1::JsonList* mutable_array();
+  void set_allocated_array(::greptime::v1::JsonList* array);
+  private:
+  const ::greptime::v1::JsonList& _internal_array() const;
+  ::greptime::v1::JsonList* _internal_mutable_array();
+  public:
+  void unsafe_arena_set_allocated_array(
+      ::greptime::v1::JsonList* array);
+  ::greptime::v1::JsonList* unsafe_arena_release_array();
+
+  // .greptime.v1.JsonObject object = 7;
+  bool has_object() const;
+  private:
+  bool _internal_has_object() const;
+  public:
+  void clear_object();
+  const ::greptime::v1::JsonObject& object() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonObject* release_object();
+  ::greptime::v1::JsonObject* mutable_object();
+  void set_allocated_object(::greptime::v1::JsonObject* object);
+  private:
+  const ::greptime::v1::JsonObject& _internal_object() const;
+  ::greptime::v1::JsonObject* _internal_mutable_object();
+  public:
+  void unsafe_arena_set_allocated_object(
+      ::greptime::v1::JsonObject* object);
+  ::greptime::v1::JsonObject* unsafe_arena_release_object();
+
+  void clear_value();
+  ValueCase value_case() const;
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonValue)
+ private:
+  class _Internal;
+  void set_has_boolean();
+  void set_has_int_();
+  void set_has_uint();
+  void set_has_float_();
+  void set_has_str();
+  void set_has_array();
+  void set_has_object();
+
+  inline bool has_value() const;
+  inline void clear_has_value();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    union ValueUnion {
+      constexpr ValueUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      bool boolean_;
+      int64_t int__;
+      uint64_t uint_;
+      double float__;
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr str_;
+      ::greptime::v1::JsonList* array_;
+      ::greptime::v1::JsonObject* object_;
+    } value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonList final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonList) */ {
+ public:
+  inline JsonList() : JsonList(nullptr) {}
+  ~JsonList() override;
+  explicit PROTOBUF_CONSTEXPR JsonList(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonList(const JsonList& from);
+  JsonList(JsonList&& from) noexcept
+    : JsonList() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonList& operator=(const JsonList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonList& operator=(JsonList&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonList& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonList* internal_default_instance() {
+    return reinterpret_cast<const JsonList*>(
+               &_JsonList_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(JsonList& a, JsonList& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonList* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonList* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonList* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonList>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonList& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonList& from) {
+    JsonList::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonList* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonList";
+  }
+  protected:
+  explicit JsonList(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemsFieldNumber = 1,
+  };
+  // repeated .greptime.v1.JsonValue items = 1;
+  int items_size() const;
+  private:
+  int _internal_items_size() const;
+  public:
+  void clear_items();
+  ::greptime::v1::JsonValue* mutable_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonValue >*
+      mutable_items();
+  private:
+  const ::greptime::v1::JsonValue& _internal_items(int index) const;
+  ::greptime::v1::JsonValue* _internal_add_items();
+  public:
+  const ::greptime::v1::JsonValue& items(int index) const;
+  ::greptime::v1::JsonValue* add_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonValue >&
+      items() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonList)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonValue > items_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonObject_Entry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonObject.Entry) */ {
+ public:
+  inline JsonObject_Entry() : JsonObject_Entry(nullptr) {}
+  ~JsonObject_Entry() override;
+  explicit PROTOBUF_CONSTEXPR JsonObject_Entry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonObject_Entry(const JsonObject_Entry& from);
+  JsonObject_Entry(JsonObject_Entry&& from) noexcept
+    : JsonObject_Entry() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonObject_Entry& operator=(const JsonObject_Entry& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonObject_Entry& operator=(JsonObject_Entry&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonObject_Entry& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonObject_Entry* internal_default_instance() {
+    return reinterpret_cast<const JsonObject_Entry*>(
+               &_JsonObject_Entry_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(JsonObject_Entry& a, JsonObject_Entry& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonObject_Entry* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonObject_Entry* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonObject_Entry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonObject_Entry>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonObject_Entry& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonObject_Entry& from) {
+    JsonObject_Entry::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonObject_Entry* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonObject.Entry";
+  }
+  protected:
+  explicit JsonObject_Entry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kKeyFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // string key = 1;
+  void clear_key();
+  const std::string& key() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_key(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_key();
+  PROTOBUF_NODISCARD std::string* release_key();
+  void set_allocated_key(std::string* key);
+  private:
+  const std::string& _internal_key() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_key(const std::string& value);
+  std::string* _internal_mutable_key();
+  public:
+
+  // .greptime.v1.JsonValue value = 2;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::greptime::v1::JsonValue& value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonValue* release_value();
+  ::greptime::v1::JsonValue* mutable_value();
+  void set_allocated_value(::greptime::v1::JsonValue* value);
+  private:
+  const ::greptime::v1::JsonValue& _internal_value() const;
+  ::greptime::v1::JsonValue* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::greptime::v1::JsonValue* value);
+  ::greptime::v1::JsonValue* unsafe_arena_release_value();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonObject.Entry)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr key_;
+    ::greptime::v1::JsonValue* value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2frow_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonObject final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonObject) */ {
+ public:
+  inline JsonObject() : JsonObject(nullptr) {}
+  ~JsonObject() override;
+  explicit PROTOBUF_CONSTEXPR JsonObject(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonObject(const JsonObject& from);
+  JsonObject(JsonObject&& from) noexcept
+    : JsonObject() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonObject& operator=(const JsonObject& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonObject& operator=(JsonObject&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonObject& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonObject* internal_default_instance() {
+    return reinterpret_cast<const JsonObject*>(
+               &_JsonObject_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(JsonObject& a, JsonObject& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonObject* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonObject* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonObject* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonObject>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonObject& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonObject& from) {
+    JsonObject::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonObject* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonObject";
+  }
+  protected:
+  explicit JsonObject(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef JsonObject_Entry Entry;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEntriesFieldNumber = 1,
+  };
+  // repeated .greptime.v1.JsonObject.Entry entries = 1;
+  int entries_size() const;
+  private:
+  int _internal_entries_size() const;
+  public:
+  void clear_entries();
+  ::greptime::v1::JsonObject_Entry* mutable_entries(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonObject_Entry >*
+      mutable_entries();
+  private:
+  const ::greptime::v1::JsonObject_Entry& _internal_entries(int index) const;
+  ::greptime::v1::JsonObject_Entry* _internal_add_entries();
+  public:
+  const ::greptime::v1::JsonObject_Entry& entries(int index) const;
+  ::greptime::v1::JsonObject_Entry* add_entries();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonObject_Entry >&
+      entries() const;
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonObject)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonObject_Entry > entries_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3349,7 +4140,7 @@ inline ::greptime::v1::StructValue* Value::mutable_struct_value() {
   return _msg;
 }
 
-// .greptime.v1.Value json_value = 42;
+// .greptime.v1.JsonValue json_value = 42;
 inline bool Value::_internal_has_json_value() const {
   return value_data_case() == kJsonValue;
 }
@@ -3367,11 +4158,11 @@ inline void Value::clear_json_value() {
     clear_has_value_data();
   }
 }
-inline ::greptime::v1::Value* Value::release_json_value() {
+inline ::greptime::v1::JsonValue* Value::release_json_value() {
   // @@protoc_insertion_point(field_release:greptime.v1.Value.json_value)
   if (_internal_has_json_value()) {
     clear_has_value_data();
-    ::greptime::v1::Value* temp = _impl_.value_data_.json_value_;
+    ::greptime::v1::JsonValue* temp = _impl_.value_data_.json_value_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -3381,27 +4172,27 @@ inline ::greptime::v1::Value* Value::release_json_value() {
     return nullptr;
   }
 }
-inline const ::greptime::v1::Value& Value::_internal_json_value() const {
+inline const ::greptime::v1::JsonValue& Value::_internal_json_value() const {
   return _internal_has_json_value()
       ? *_impl_.value_data_.json_value_
-      : reinterpret_cast< ::greptime::v1::Value&>(::greptime::v1::_Value_default_instance_);
+      : reinterpret_cast< ::greptime::v1::JsonValue&>(::greptime::v1::_JsonValue_default_instance_);
 }
-inline const ::greptime::v1::Value& Value::json_value() const {
+inline const ::greptime::v1::JsonValue& Value::json_value() const {
   // @@protoc_insertion_point(field_get:greptime.v1.Value.json_value)
   return _internal_json_value();
 }
-inline ::greptime::v1::Value* Value::unsafe_arena_release_json_value() {
+inline ::greptime::v1::JsonValue* Value::unsafe_arena_release_json_value() {
   // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.Value.json_value)
   if (_internal_has_json_value()) {
     clear_has_value_data();
-    ::greptime::v1::Value* temp = _impl_.value_data_.json_value_;
+    ::greptime::v1::JsonValue* temp = _impl_.value_data_.json_value_;
     _impl_.value_data_.json_value_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void Value::unsafe_arena_set_allocated_json_value(::greptime::v1::Value* json_value) {
+inline void Value::unsafe_arena_set_allocated_json_value(::greptime::v1::JsonValue* json_value) {
   clear_value_data();
   if (json_value) {
     set_has_json_value();
@@ -3409,16 +4200,16 @@ inline void Value::unsafe_arena_set_allocated_json_value(::greptime::v1::Value* 
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.Value.json_value)
 }
-inline ::greptime::v1::Value* Value::_internal_mutable_json_value() {
+inline ::greptime::v1::JsonValue* Value::_internal_mutable_json_value() {
   if (!_internal_has_json_value()) {
     clear_value_data();
     set_has_json_value();
-    _impl_.value_data_.json_value_ = CreateMaybeMessage< ::greptime::v1::Value >(GetArenaForAllocation());
+    _impl_.value_data_.json_value_ = CreateMaybeMessage< ::greptime::v1::JsonValue >(GetArenaForAllocation());
   }
   return _impl_.value_data_.json_value_;
 }
-inline ::greptime::v1::Value* Value::mutable_json_value() {
-  ::greptime::v1::Value* _msg = _internal_mutable_json_value();
+inline ::greptime::v1::JsonValue* Value::mutable_json_value() {
+  ::greptime::v1::JsonValue* _msg = _internal_mutable_json_value();
   // @@protoc_insertion_point(field_mutable:greptime.v1.Value.json_value)
   return _msg;
 }
@@ -3520,9 +4311,639 @@ StructValue::items() const {
   return _impl_.items_;
 }
 
+// -------------------------------------------------------------------
+
+// JsonValue
+
+// bool boolean = 1;
+inline bool JsonValue::_internal_has_boolean() const {
+  return value_case() == kBoolean;
+}
+inline bool JsonValue::has_boolean() const {
+  return _internal_has_boolean();
+}
+inline void JsonValue::set_has_boolean() {
+  _impl_._oneof_case_[0] = kBoolean;
+}
+inline void JsonValue::clear_boolean() {
+  if (_internal_has_boolean()) {
+    _impl_.value_.boolean_ = false;
+    clear_has_value();
+  }
+}
+inline bool JsonValue::_internal_boolean() const {
+  if (_internal_has_boolean()) {
+    return _impl_.value_.boolean_;
+  }
+  return false;
+}
+inline void JsonValue::_internal_set_boolean(bool value) {
+  if (!_internal_has_boolean()) {
+    clear_value();
+    set_has_boolean();
+  }
+  _impl_.value_.boolean_ = value;
+}
+inline bool JsonValue::boolean() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.boolean)
+  return _internal_boolean();
+}
+inline void JsonValue::set_boolean(bool value) {
+  _internal_set_boolean(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.boolean)
+}
+
+// int64 int = 2;
+inline bool JsonValue::_internal_has_int_() const {
+  return value_case() == kInt;
+}
+inline bool JsonValue::has_int_() const {
+  return _internal_has_int_();
+}
+inline void JsonValue::set_has_int_() {
+  _impl_._oneof_case_[0] = kInt;
+}
+inline void JsonValue::clear_int_() {
+  if (_internal_has_int_()) {
+    _impl_.value_.int__ = int64_t{0};
+    clear_has_value();
+  }
+}
+inline int64_t JsonValue::_internal_int_() const {
+  if (_internal_has_int_()) {
+    return _impl_.value_.int__;
+  }
+  return int64_t{0};
+}
+inline void JsonValue::_internal_set_int_(int64_t value) {
+  if (!_internal_has_int_()) {
+    clear_value();
+    set_has_int_();
+  }
+  _impl_.value_.int__ = value;
+}
+inline int64_t JsonValue::int_() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.int)
+  return _internal_int_();
+}
+inline void JsonValue::set_int_(int64_t value) {
+  _internal_set_int_(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.int)
+}
+
+// uint64 uint = 3;
+inline bool JsonValue::_internal_has_uint() const {
+  return value_case() == kUint;
+}
+inline bool JsonValue::has_uint() const {
+  return _internal_has_uint();
+}
+inline void JsonValue::set_has_uint() {
+  _impl_._oneof_case_[0] = kUint;
+}
+inline void JsonValue::clear_uint() {
+  if (_internal_has_uint()) {
+    _impl_.value_.uint_ = uint64_t{0u};
+    clear_has_value();
+  }
+}
+inline uint64_t JsonValue::_internal_uint() const {
+  if (_internal_has_uint()) {
+    return _impl_.value_.uint_;
+  }
+  return uint64_t{0u};
+}
+inline void JsonValue::_internal_set_uint(uint64_t value) {
+  if (!_internal_has_uint()) {
+    clear_value();
+    set_has_uint();
+  }
+  _impl_.value_.uint_ = value;
+}
+inline uint64_t JsonValue::uint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.uint)
+  return _internal_uint();
+}
+inline void JsonValue::set_uint(uint64_t value) {
+  _internal_set_uint(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.uint)
+}
+
+// double float = 4;
+inline bool JsonValue::_internal_has_float_() const {
+  return value_case() == kFloat;
+}
+inline bool JsonValue::has_float_() const {
+  return _internal_has_float_();
+}
+inline void JsonValue::set_has_float_() {
+  _impl_._oneof_case_[0] = kFloat;
+}
+inline void JsonValue::clear_float_() {
+  if (_internal_has_float_()) {
+    _impl_.value_.float__ = 0;
+    clear_has_value();
+  }
+}
+inline double JsonValue::_internal_float_() const {
+  if (_internal_has_float_()) {
+    return _impl_.value_.float__;
+  }
+  return 0;
+}
+inline void JsonValue::_internal_set_float_(double value) {
+  if (!_internal_has_float_()) {
+    clear_value();
+    set_has_float_();
+  }
+  _impl_.value_.float__ = value;
+}
+inline double JsonValue::float_() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.float)
+  return _internal_float_();
+}
+inline void JsonValue::set_float_(double value) {
+  _internal_set_float_(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.float)
+}
+
+// string str = 5;
+inline bool JsonValue::_internal_has_str() const {
+  return value_case() == kStr;
+}
+inline bool JsonValue::has_str() const {
+  return _internal_has_str();
+}
+inline void JsonValue::set_has_str() {
+  _impl_._oneof_case_[0] = kStr;
+}
+inline void JsonValue::clear_str() {
+  if (_internal_has_str()) {
+    _impl_.value_.str_.Destroy();
+    clear_has_value();
+  }
+}
+inline const std::string& JsonValue::str() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.str)
+  return _internal_str();
+}
+template <typename ArgT0, typename... ArgT>
+inline void JsonValue::set_str(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_str()) {
+    clear_value();
+    set_has_str();
+    _impl_.value_.str_.InitDefault();
+  }
+  _impl_.value_.str_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.str)
+}
+inline std::string* JsonValue::mutable_str() {
+  std::string* _s = _internal_mutable_str();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonValue.str)
+  return _s;
+}
+inline const std::string& JsonValue::_internal_str() const {
+  if (_internal_has_str()) {
+    return _impl_.value_.str_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void JsonValue::_internal_set_str(const std::string& value) {
+  if (!_internal_has_str()) {
+    clear_value();
+    set_has_str();
+    _impl_.value_.str_.InitDefault();
+  }
+  _impl_.value_.str_.Set(value, GetArenaForAllocation());
+}
+inline std::string* JsonValue::_internal_mutable_str() {
+  if (!_internal_has_str()) {
+    clear_value();
+    set_has_str();
+    _impl_.value_.str_.InitDefault();
+  }
+  return _impl_.value_.str_.Mutable(      GetArenaForAllocation());
+}
+inline std::string* JsonValue::release_str() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonValue.str)
+  if (_internal_has_str()) {
+    clear_has_value();
+    return _impl_.value_.str_.Release();
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonValue::set_allocated_str(std::string* str) {
+  if (has_value()) {
+    clear_value();
+  }
+  if (str != nullptr) {
+    set_has_str();
+    _impl_.value_.str_.InitAllocated(str, GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonValue.str)
+}
+
+// .greptime.v1.JsonList array = 6;
+inline bool JsonValue::_internal_has_array() const {
+  return value_case() == kArray;
+}
+inline bool JsonValue::has_array() const {
+  return _internal_has_array();
+}
+inline void JsonValue::set_has_array() {
+  _impl_._oneof_case_[0] = kArray;
+}
+inline void JsonValue::clear_array() {
+  if (_internal_has_array()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_.array_;
+    }
+    clear_has_value();
+  }
+}
+inline ::greptime::v1::JsonList* JsonValue::release_array() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonValue.array)
+  if (_internal_has_array()) {
+    clear_has_value();
+    ::greptime::v1::JsonList* temp = _impl_.value_.array_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_.array_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::JsonList& JsonValue::_internal_array() const {
+  return _internal_has_array()
+      ? *_impl_.value_.array_
+      : reinterpret_cast< ::greptime::v1::JsonList&>(::greptime::v1::_JsonList_default_instance_);
+}
+inline const ::greptime::v1::JsonList& JsonValue::array() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.array)
+  return _internal_array();
+}
+inline ::greptime::v1::JsonList* JsonValue::unsafe_arena_release_array() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.JsonValue.array)
+  if (_internal_has_array()) {
+    clear_has_value();
+    ::greptime::v1::JsonList* temp = _impl_.value_.array_;
+    _impl_.value_.array_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonValue::unsafe_arena_set_allocated_array(::greptime::v1::JsonList* array) {
+  clear_value();
+  if (array) {
+    set_has_array();
+    _impl_.value_.array_ = array;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.JsonValue.array)
+}
+inline ::greptime::v1::JsonList* JsonValue::_internal_mutable_array() {
+  if (!_internal_has_array()) {
+    clear_value();
+    set_has_array();
+    _impl_.value_.array_ = CreateMaybeMessage< ::greptime::v1::JsonList >(GetArenaForAllocation());
+  }
+  return _impl_.value_.array_;
+}
+inline ::greptime::v1::JsonList* JsonValue::mutable_array() {
+  ::greptime::v1::JsonList* _msg = _internal_mutable_array();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonValue.array)
+  return _msg;
+}
+
+// .greptime.v1.JsonObject object = 7;
+inline bool JsonValue::_internal_has_object() const {
+  return value_case() == kObject;
+}
+inline bool JsonValue::has_object() const {
+  return _internal_has_object();
+}
+inline void JsonValue::set_has_object() {
+  _impl_._oneof_case_[0] = kObject;
+}
+inline void JsonValue::clear_object() {
+  if (_internal_has_object()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.value_.object_;
+    }
+    clear_has_value();
+  }
+}
+inline ::greptime::v1::JsonObject* JsonValue::release_object() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonValue.object)
+  if (_internal_has_object()) {
+    clear_has_value();
+    ::greptime::v1::JsonObject* temp = _impl_.value_.object_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.value_.object_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::JsonObject& JsonValue::_internal_object() const {
+  return _internal_has_object()
+      ? *_impl_.value_.object_
+      : reinterpret_cast< ::greptime::v1::JsonObject&>(::greptime::v1::_JsonObject_default_instance_);
+}
+inline const ::greptime::v1::JsonObject& JsonValue::object() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.object)
+  return _internal_object();
+}
+inline ::greptime::v1::JsonObject* JsonValue::unsafe_arena_release_object() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.JsonValue.object)
+  if (_internal_has_object()) {
+    clear_has_value();
+    ::greptime::v1::JsonObject* temp = _impl_.value_.object_;
+    _impl_.value_.object_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonValue::unsafe_arena_set_allocated_object(::greptime::v1::JsonObject* object) {
+  clear_value();
+  if (object) {
+    set_has_object();
+    _impl_.value_.object_ = object;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.JsonValue.object)
+}
+inline ::greptime::v1::JsonObject* JsonValue::_internal_mutable_object() {
+  if (!_internal_has_object()) {
+    clear_value();
+    set_has_object();
+    _impl_.value_.object_ = CreateMaybeMessage< ::greptime::v1::JsonObject >(GetArenaForAllocation());
+  }
+  return _impl_.value_.object_;
+}
+inline ::greptime::v1::JsonObject* JsonValue::mutable_object() {
+  ::greptime::v1::JsonObject* _msg = _internal_mutable_object();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonValue.object)
+  return _msg;
+}
+
+inline bool JsonValue::has_value() const {
+  return value_case() != VALUE_NOT_SET;
+}
+inline void JsonValue::clear_has_value() {
+  _impl_._oneof_case_[0] = VALUE_NOT_SET;
+}
+inline JsonValue::ValueCase JsonValue::value_case() const {
+  return JsonValue::ValueCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// JsonList
+
+// repeated .greptime.v1.JsonValue items = 1;
+inline int JsonList::_internal_items_size() const {
+  return _impl_.items_.size();
+}
+inline int JsonList::items_size() const {
+  return _internal_items_size();
+}
+inline void JsonList::clear_items() {
+  _impl_.items_.Clear();
+}
+inline ::greptime::v1::JsonValue* JsonList::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonList.items)
+  return _impl_.items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonValue >*
+JsonList::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.JsonList.items)
+  return &_impl_.items_;
+}
+inline const ::greptime::v1::JsonValue& JsonList::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
+}
+inline const ::greptime::v1::JsonValue& JsonList::items(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonList.items)
+  return _internal_items(index);
+}
+inline ::greptime::v1::JsonValue* JsonList::_internal_add_items() {
+  return _impl_.items_.Add();
+}
+inline ::greptime::v1::JsonValue* JsonList::add_items() {
+  ::greptime::v1::JsonValue* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:greptime.v1.JsonList.items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonValue >&
+JsonList::items() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.JsonList.items)
+  return _impl_.items_;
+}
+
+// -------------------------------------------------------------------
+
+// JsonObject_Entry
+
+// string key = 1;
+inline void JsonObject_Entry::clear_key() {
+  _impl_.key_.ClearToEmpty();
+}
+inline const std::string& JsonObject_Entry::key() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonObject.Entry.key)
+  return _internal_key();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void JsonObject_Entry::set_key(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.key_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonObject.Entry.key)
+}
+inline std::string* JsonObject_Entry::mutable_key() {
+  std::string* _s = _internal_mutable_key();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonObject.Entry.key)
+  return _s;
+}
+inline const std::string& JsonObject_Entry::_internal_key() const {
+  return _impl_.key_.Get();
+}
+inline void JsonObject_Entry::_internal_set_key(const std::string& value) {
+  
+  _impl_.key_.Set(value, GetArenaForAllocation());
+}
+inline std::string* JsonObject_Entry::_internal_mutable_key() {
+  
+  return _impl_.key_.Mutable(GetArenaForAllocation());
+}
+inline std::string* JsonObject_Entry::release_key() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonObject.Entry.key)
+  return _impl_.key_.Release();
+}
+inline void JsonObject_Entry::set_allocated_key(std::string* key) {
+  if (key != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.key_.SetAllocated(key, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.key_.IsDefault()) {
+    _impl_.key_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonObject.Entry.key)
+}
+
+// .greptime.v1.JsonValue value = 2;
+inline bool JsonObject_Entry::_internal_has_value() const {
+  return this != internal_default_instance() && _impl_.value_ != nullptr;
+}
+inline bool JsonObject_Entry::has_value() const {
+  return _internal_has_value();
+}
+inline void JsonObject_Entry::clear_value() {
+  if (GetArenaForAllocation() == nullptr && _impl_.value_ != nullptr) {
+    delete _impl_.value_;
+  }
+  _impl_.value_ = nullptr;
+}
+inline const ::greptime::v1::JsonValue& JsonObject_Entry::_internal_value() const {
+  const ::greptime::v1::JsonValue* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::JsonValue&>(
+      ::greptime::v1::_JsonValue_default_instance_);
+}
+inline const ::greptime::v1::JsonValue& JsonObject_Entry::value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonObject.Entry.value)
+  return _internal_value();
+}
+inline void JsonObject_Entry::unsafe_arena_set_allocated_value(
+    ::greptime::v1::JsonValue* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.JsonObject.Entry.value)
+}
+inline ::greptime::v1::JsonValue* JsonObject_Entry::release_value() {
+  
+  ::greptime::v1::JsonValue* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::JsonValue* JsonObject_Entry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonObject.Entry.value)
+  
+  ::greptime::v1::JsonValue* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::JsonValue* JsonObject_Entry::_internal_mutable_value() {
+  
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::JsonValue>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::greptime::v1::JsonValue* JsonObject_Entry::mutable_value() {
+  ::greptime::v1::JsonValue* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonObject.Entry.value)
+  return _msg;
+}
+inline void JsonObject_Entry::set_allocated_value(::greptime::v1::JsonValue* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.value_;
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(value);
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonObject.Entry.value)
+}
+
+// -------------------------------------------------------------------
+
+// JsonObject
+
+// repeated .greptime.v1.JsonObject.Entry entries = 1;
+inline int JsonObject::_internal_entries_size() const {
+  return _impl_.entries_.size();
+}
+inline int JsonObject::entries_size() const {
+  return _internal_entries_size();
+}
+inline void JsonObject::clear_entries() {
+  _impl_.entries_.Clear();
+}
+inline ::greptime::v1::JsonObject_Entry* JsonObject::mutable_entries(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonObject.entries)
+  return _impl_.entries_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonObject_Entry >*
+JsonObject::mutable_entries() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.JsonObject.entries)
+  return &_impl_.entries_;
+}
+inline const ::greptime::v1::JsonObject_Entry& JsonObject::_internal_entries(int index) const {
+  return _impl_.entries_.Get(index);
+}
+inline const ::greptime::v1::JsonObject_Entry& JsonObject::entries(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonObject.entries)
+  return _internal_entries(index);
+}
+inline ::greptime::v1::JsonObject_Entry* JsonObject::_internal_add_entries() {
+  return _impl_.entries_.Add();
+}
+inline ::greptime::v1::JsonObject_Entry* JsonObject::add_entries() {
+  ::greptime::v1::JsonObject_Entry* _add = _internal_add_entries();
+  // @@protoc_insertion_point(field_add:greptime.v1.JsonObject.entries)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::JsonObject_Entry >&
+JsonObject::entries() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.JsonObject.entries)
+  return _impl_.entries_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
