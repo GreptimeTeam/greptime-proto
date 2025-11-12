@@ -79,7 +79,7 @@ message Value {
 
     ListValue list_value = 40;
     StructValue struct_value = 41;
-    Value json_value = 42;
+    JsonValue json_value = 42;
   }
 }
 
@@ -89,4 +89,28 @@ message ListValue {
 
 message StructValue {
   repeated Value items = 2;
+}
+
+message JsonValue {
+  oneof value {
+    bool boolean = 1;
+    int64 int = 2;
+    uint64 uint = 3;
+    double float = 4;
+    string str = 5;
+    JsonList array = 6;
+    JsonObject object = 7;
+  }
+}
+
+message JsonList {
+  repeated JsonValue items = 1;
+}
+
+message JsonObject {
+  message Entry {
+    string key = 1;
+    JsonValue value = 2;
+  }
+  repeated Entry entries = 1;
 }
