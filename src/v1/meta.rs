@@ -123,6 +123,7 @@ impl ResponseHeader {
 pub enum ErrorCode {
     NotEnoughAvailableDatanodes = 1,
     NotLeader = 2,
+    Suspend = 3,
 }
 
 impl Error {
@@ -141,6 +142,13 @@ impl Error {
         Self {
             code: ErrorCode::NotLeader as i32,
             err_msg: "Current server is not leader".to_string(),
+        }
+    }
+
+    pub fn suspend() -> Self {
+        Self {
+            code: ErrorCode::Suspend as i32,
+            err_msg: "suspend".to_string(),
         }
     }
 }
