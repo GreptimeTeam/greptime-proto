@@ -753,43 +753,75 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=40
      * @return The timeIndex.
      */
-    java.lang.String getTimeIndex();
+    @java.lang.Deprecated java.lang.String getTimeIndex();
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=40
      * @return The bytes for timeIndex.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexBytes();
 
     /**
      * <pre>
-     * Optional field column name for validating staleness
+     * [DEPRECATED] Optional field column name for validating staleness.
+     * Use `field_index_idx` instead.
      * </pre>
      *
-     * <code>string field_index = 6;</code>
+     * <code>string field_index = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=43
      * @return The fieldIndex.
      */
-    java.lang.String getFieldIndex();
+    @java.lang.Deprecated java.lang.String getFieldIndex();
     /**
      * <pre>
-     * Optional field column name for validating staleness
+     * [DEPRECATED] Optional field column name for validating staleness.
+     * Use `field_index_idx` instead.
      * </pre>
      *
-     * <code>string field_index = 6;</code>
+     * <code>string field_index = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=43
      * @return The bytes for fieldIndex.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getFieldIndexBytes();
+
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 7;</code>
+     * @return The timeIndexIdx.
+     */
+    long getTimeIndexIdx();
+
+    /**
+     * <pre>
+     * Optional field column index for validating staleness
+     * </pre>
+     *
+     * <code>uint64 field_index_idx = 8;</code>
+     * @return The fieldIndexIdx.
+     */
+    long getFieldIndexIdx();
   }
   /**
    * Protobuf type {@code substrait_extension.InstantManipulate}
@@ -868,6 +900,16 @@ public final class PromqlPlan {
               java.lang.String s = input.readStringRequireUtf8();
 
               fieldIndex_ = s;
+              break;
+            }
+            case 56: {
+
+              timeIndexIdx_ = input.readUInt64();
+              break;
+            }
+            case 64: {
+
+              fieldIndexIdx_ = input.readUInt64();
               break;
             }
             default: {
@@ -968,14 +1010,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndex_;
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=40
      * @return The timeIndex.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndex() {
+    @java.lang.Deprecated public java.lang.String getTimeIndex() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -989,14 +1034,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=40
      * @return The bytes for timeIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexBytes() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
@@ -1014,14 +1062,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object fieldIndex_;
     /**
      * <pre>
-     * Optional field column name for validating staleness
+     * [DEPRECATED] Optional field column name for validating staleness.
+     * Use `field_index_idx` instead.
      * </pre>
      *
-     * <code>string field_index = 6;</code>
+     * <code>string field_index = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=43
      * @return The fieldIndex.
      */
     @java.lang.Override
-    public java.lang.String getFieldIndex() {
+    @java.lang.Deprecated public java.lang.String getFieldIndex() {
       java.lang.Object ref = fieldIndex_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -1035,14 +1086,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Optional field column name for validating staleness
+     * [DEPRECATED] Optional field column name for validating staleness.
+     * Use `field_index_idx` instead.
      * </pre>
      *
-     * <code>string field_index = 6;</code>
+     * <code>string field_index = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=43
      * @return The bytes for fieldIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getFieldIndexBytes() {
       java.lang.Object ref = fieldIndex_;
       if (ref instanceof java.lang.String) {
@@ -1054,6 +1108,36 @@ public final class PromqlPlan {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int TIME_INDEX_IDX_FIELD_NUMBER = 7;
+    private long timeIndexIdx_;
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 7;</code>
+     * @return The timeIndexIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexIdx() {
+      return timeIndexIdx_;
+    }
+
+    public static final int FIELD_INDEX_IDX_FIELD_NUMBER = 8;
+    private long fieldIndexIdx_;
+    /**
+     * <pre>
+     * Optional field column index for validating staleness
+     * </pre>
+     *
+     * <code>uint64 field_index_idx = 8;</code>
+     * @return The fieldIndexIdx.
+     */
+    @java.lang.Override
+    public long getFieldIndexIdx() {
+      return fieldIndexIdx_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1088,6 +1172,12 @@ public final class PromqlPlan {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldIndex_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, fieldIndex_);
       }
+      if (timeIndexIdx_ != 0L) {
+        output.writeUInt64(7, timeIndexIdx_);
+      }
+      if (fieldIndexIdx_ != 0L) {
+        output.writeUInt64(8, fieldIndexIdx_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1119,6 +1209,14 @@ public final class PromqlPlan {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldIndex_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, fieldIndex_);
       }
+      if (timeIndexIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(7, timeIndexIdx_);
+      }
+      if (fieldIndexIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, fieldIndexIdx_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1146,6 +1244,10 @@ public final class PromqlPlan {
           .equals(other.getTimeIndex())) return false;
       if (!getFieldIndex()
           .equals(other.getFieldIndex())) return false;
+      if (getTimeIndexIdx()
+          != other.getTimeIndexIdx()) return false;
+      if (getFieldIndexIdx()
+          != other.getFieldIndexIdx()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1173,6 +1275,12 @@ public final class PromqlPlan {
       hash = (53 * hash) + getTimeIndex().hashCode();
       hash = (37 * hash) + FIELD_INDEX_FIELD_NUMBER;
       hash = (53 * hash) + getFieldIndex().hashCode();
+      hash = (37 * hash) + TIME_INDEX_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexIdx());
+      hash = (37 * hash) + FIELD_INDEX_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFieldIndexIdx());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1318,6 +1426,10 @@ public final class PromqlPlan {
 
         fieldIndex_ = "";
 
+        timeIndexIdx_ = 0L;
+
+        fieldIndexIdx_ = 0L;
+
         return this;
       }
 
@@ -1350,6 +1462,8 @@ public final class PromqlPlan {
         result.lookbackDelta_ = lookbackDelta_;
         result.timeIndex_ = timeIndex_;
         result.fieldIndex_ = fieldIndex_;
+        result.timeIndexIdx_ = timeIndexIdx_;
+        result.fieldIndexIdx_ = fieldIndexIdx_;
         onBuilt();
         return result;
       }
@@ -1417,6 +1531,12 @@ public final class PromqlPlan {
         if (!other.getFieldIndex().isEmpty()) {
           fieldIndex_ = other.fieldIndex_;
           onChanged();
+        }
+        if (other.getTimeIndexIdx() != 0L) {
+          setTimeIndexIdx(other.getTimeIndexIdx());
+        }
+        if (other.getFieldIndexIdx() != 0L) {
+          setFieldIndexIdx(other.getFieldIndexIdx());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1622,13 +1742,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndex_ = "";
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=40
        * @return The timeIndex.
        */
-      public java.lang.String getTimeIndex() {
+      @java.lang.Deprecated public java.lang.String getTimeIndex() {
         java.lang.Object ref = timeIndex_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -1642,13 +1765,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=40
        * @return The bytes for timeIndex.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexBytes() {
         java.lang.Object ref = timeIndex_;
         if (ref instanceof String) {
@@ -1663,14 +1789,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=40
        * @param value The timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndex(
+      @java.lang.Deprecated public Builder setTimeIndex(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1682,13 +1811,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=40
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndex() {
+      @java.lang.Deprecated public Builder clearTimeIndex() {
         
         timeIndex_ = getDefaultInstance().getTimeIndex();
         onChanged();
@@ -1696,14 +1828,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=40
        * @param value The bytes for timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexBytes(
+      @java.lang.Deprecated public Builder setTimeIndexBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1718,13 +1853,16 @@ public final class PromqlPlan {
       private java.lang.Object fieldIndex_ = "";
       /**
        * <pre>
-       * Optional field column name for validating staleness
+       * [DEPRECATED] Optional field column name for validating staleness.
+       * Use `field_index_idx` instead.
        * </pre>
        *
-       * <code>string field_index = 6;</code>
+       * <code>string field_index = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=43
        * @return The fieldIndex.
        */
-      public java.lang.String getFieldIndex() {
+      @java.lang.Deprecated public java.lang.String getFieldIndex() {
         java.lang.Object ref = fieldIndex_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -1738,13 +1876,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Optional field column name for validating staleness
+       * [DEPRECATED] Optional field column name for validating staleness.
+       * Use `field_index_idx` instead.
        * </pre>
        *
-       * <code>string field_index = 6;</code>
+       * <code>string field_index = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=43
        * @return The bytes for fieldIndex.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getFieldIndexBytes() {
         java.lang.Object ref = fieldIndex_;
         if (ref instanceof String) {
@@ -1759,14 +1900,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Optional field column name for validating staleness
+       * [DEPRECATED] Optional field column name for validating staleness.
+       * Use `field_index_idx` instead.
        * </pre>
        *
-       * <code>string field_index = 6;</code>
+       * <code>string field_index = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=43
        * @param value The fieldIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setFieldIndex(
+      @java.lang.Deprecated public Builder setFieldIndex(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1778,13 +1922,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Optional field column name for validating staleness
+       * [DEPRECATED] Optional field column name for validating staleness.
+       * Use `field_index_idx` instead.
        * </pre>
        *
-       * <code>string field_index = 6;</code>
+       * <code>string field_index = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=43
        * @return This builder for chaining.
        */
-      public Builder clearFieldIndex() {
+      @java.lang.Deprecated public Builder clearFieldIndex() {
         
         fieldIndex_ = getDefaultInstance().getFieldIndex();
         onChanged();
@@ -1792,14 +1939,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Optional field column name for validating staleness
+       * [DEPRECATED] Optional field column name for validating staleness.
+       * Use `field_index_idx` instead.
        * </pre>
        *
-       * <code>string field_index = 6;</code>
+       * <code>string field_index = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.InstantManipulate.field_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=43
        * @param value The bytes for fieldIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setFieldIndexBytes(
+      @java.lang.Deprecated public Builder setFieldIndexBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1807,6 +1957,92 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         
         fieldIndex_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timeIndexIdx_ ;
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @return The timeIndexIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexIdx() {
+        return timeIndexIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @param value The timeIndexIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexIdx(long value) {
+        
+        timeIndexIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexIdx() {
+        
+        timeIndexIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long fieldIndexIdx_ ;
+      /**
+       * <pre>
+       * Optional field column index for validating staleness
+       * </pre>
+       *
+       * <code>uint64 field_index_idx = 8;</code>
+       * @return The fieldIndexIdx.
+       */
+      @java.lang.Override
+      public long getFieldIndexIdx() {
+        return fieldIndexIdx_;
+      }
+      /**
+       * <pre>
+       * Optional field column index for validating staleness
+       * </pre>
+       *
+       * <code>uint64 field_index_idx = 8;</code>
+       * @param value The fieldIndexIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFieldIndexIdx(long value) {
+        
+        fieldIndexIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional field column index for validating staleness
+       * </pre>
+       *
+       * <code>uint64 field_index_idx = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFieldIndexIdx() {
+        
+        fieldIndexIdx_ = 0L;
         onChanged();
         return this;
       }
@@ -1879,22 +2115,28 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 2;</code>
+     * <code>string time_index = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=55
      * @return The timeIndex.
      */
-    java.lang.String getTimeIndex();
+    @java.lang.Deprecated java.lang.String getTimeIndex();
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 2;</code>
+     * <code>string time_index = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=55
      * @return The bytes for timeIndex.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexBytes();
 
     /**
@@ -1909,44 +2151,95 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @return A list containing the tagColumns.
      */
-    java.util.List<java.lang.String>
+    @java.lang.Deprecated java.util.List<java.lang.String>
         getTagColumnsList();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @return The count of tagColumns.
      */
-    int getTagColumnsCount();
+    @java.lang.Deprecated int getTagColumnsCount();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    java.lang.String getTagColumns(int index);
+    @java.lang.Deprecated java.lang.String getTagColumns(int index);
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTagColumnsBytes(int index);
+
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 5;</code>
+     * @return The timeIndexIdx.
+     */
+    long getTimeIndexIdx();
+
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    java.util.List<java.lang.Long> getTagColumnIndicesList();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @return The count of tagColumnIndices.
+     */
+    int getTagColumnIndicesCount();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    long getTagColumnIndices(int index);
   }
   /**
    * Protobuf type {@code substrait_extension.SeriesNormalize}
@@ -1963,6 +2256,7 @@ public final class PromqlPlan {
     private SeriesNormalize() {
       timeIndex_ = "";
       tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      tagColumnIndices_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -2021,6 +2315,32 @@ public final class PromqlPlan {
               tagColumns_.add(s);
               break;
             }
+            case 40: {
+
+              timeIndexIdx_ = input.readUInt64();
+              break;
+            }
+            case 48: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              tagColumnIndices_.addLong(input.readUInt64());
+              break;
+            }
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2040,6 +2360,9 @@ public final class PromqlPlan {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2077,14 +2400,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndex_;
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 2;</code>
+     * <code>string time_index = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=55
      * @return The timeIndex.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndex() {
+    @java.lang.Deprecated public java.lang.String getTimeIndex() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -2098,14 +2424,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 2;</code>
+     * <code>string time_index = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=55
      * @return The bytes for timeIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexBytes() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
@@ -2138,52 +2467,119 @@ public final class PromqlPlan {
     private com.google.protobuf.LazyStringList tagColumns_;
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @return A list containing the tagColumns.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getTagColumnsList() {
       return tagColumns_;
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @return The count of tagColumns.
      */
-    public int getTagColumnsCount() {
+    @java.lang.Deprecated public int getTagColumnsCount() {
       return tagColumns_.size();
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    public java.lang.String getTagColumns(int index) {
+    @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
       return tagColumns_.get(index);
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 4;</code>
+     * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=60
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTagColumnsBytes(int index) {
       return tagColumns_.getByteString(index);
     }
+
+    public static final int TIME_INDEX_IDX_FIELD_NUMBER = 5;
+    private long timeIndexIdx_;
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 5;</code>
+     * @return The timeIndexIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexIdx() {
+      return timeIndexIdx_;
+    }
+
+    public static final int TAG_COLUMN_INDICES_FIELD_NUMBER = 6;
+    private com.google.protobuf.Internal.LongList tagColumnIndices_;
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getTagColumnIndicesList() {
+      return tagColumnIndices_;
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @return The count of tagColumnIndices.
+     */
+    public int getTagColumnIndicesCount() {
+      return tagColumnIndices_.size();
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 6;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    public long getTagColumnIndices(int index) {
+      return tagColumnIndices_.getLong(index);
+    }
+    private int tagColumnIndicesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -2199,6 +2595,7 @@ public final class PromqlPlan {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (offset_ != 0L) {
         output.writeInt64(1, offset_);
       }
@@ -2210,6 +2607,16 @@ public final class PromqlPlan {
       }
       for (int i = 0; i < tagColumns_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, tagColumns_.getRaw(i));
+      }
+      if (timeIndexIdx_ != 0L) {
+        output.writeUInt64(5, timeIndexIdx_);
+      }
+      if (getTagColumnIndicesList().size() > 0) {
+        output.writeUInt32NoTag(50);
+        output.writeUInt32NoTag(tagColumnIndicesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tagColumnIndices_.size(); i++) {
+        output.writeUInt64NoTag(tagColumnIndices_.getLong(i));
       }
       unknownFields.writeTo(output);
     }
@@ -2239,6 +2646,24 @@ public final class PromqlPlan {
         size += dataSize;
         size += 1 * getTagColumnsList().size();
       }
+      if (timeIndexIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, timeIndexIdx_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumnIndices_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(tagColumnIndices_.getLong(i));
+        }
+        size += dataSize;
+        if (!getTagColumnIndicesList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tagColumnIndicesMemoizedSerializedSize = dataSize;
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2262,6 +2687,10 @@ public final class PromqlPlan {
           != other.getFilterNan()) return false;
       if (!getTagColumnsList()
           .equals(other.getTagColumnsList())) return false;
+      if (getTimeIndexIdx()
+          != other.getTimeIndexIdx()) return false;
+      if (!getTagColumnIndicesList()
+          .equals(other.getTagColumnIndicesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2284,6 +2713,13 @@ public final class PromqlPlan {
       if (getTagColumnsCount() > 0) {
         hash = (37 * hash) + TAG_COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getTagColumnsList().hashCode();
+      }
+      hash = (37 * hash) + TIME_INDEX_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexIdx());
+      if (getTagColumnIndicesCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMN_INDICES_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnIndicesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2426,6 +2862,10 @@ public final class PromqlPlan {
 
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        timeIndexIdx_ = 0L;
+
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2461,6 +2901,12 @@ public final class PromqlPlan {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.tagColumns_ = tagColumns_;
+        result.timeIndexIdx_ = timeIndexIdx_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tagColumnIndices_ = tagColumnIndices_;
         onBuilt();
         return result;
       }
@@ -2526,6 +2972,19 @@ public final class PromqlPlan {
           } else {
             ensureTagColumnsIsMutable();
             tagColumns_.addAll(other.tagColumns_);
+          }
+          onChanged();
+        }
+        if (other.getTimeIndexIdx() != 0L) {
+          setTimeIndexIdx(other.getTimeIndexIdx());
+        }
+        if (!other.tagColumnIndices_.isEmpty()) {
+          if (tagColumnIndices_.isEmpty()) {
+            tagColumnIndices_ = other.tagColumnIndices_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTagColumnIndicesIsMutable();
+            tagColumnIndices_.addAll(other.tagColumnIndices_);
           }
           onChanged();
         }
@@ -2605,13 +3064,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndex_ = "";
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 2;</code>
+       * <code>string time_index = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=55
        * @return The timeIndex.
        */
-      public java.lang.String getTimeIndex() {
+      @java.lang.Deprecated public java.lang.String getTimeIndex() {
         java.lang.Object ref = timeIndex_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -2625,13 +3087,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 2;</code>
+       * <code>string time_index = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=55
        * @return The bytes for timeIndex.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexBytes() {
         java.lang.Object ref = timeIndex_;
         if (ref instanceof String) {
@@ -2646,14 +3111,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 2;</code>
+       * <code>string time_index = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=55
        * @param value The timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndex(
+      @java.lang.Deprecated public Builder setTimeIndex(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2665,13 +3133,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 2;</code>
+       * <code>string time_index = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=55
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndex() {
+      @java.lang.Deprecated public Builder clearTimeIndex() {
         
         timeIndex_ = getDefaultInstance().getTimeIndex();
         onChanged();
@@ -2679,14 +3150,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 2;</code>
+       * <code>string time_index = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=55
        * @param value The bytes for timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexBytes(
+      @java.lang.Deprecated public Builder setTimeIndexBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2750,63 +3224,78 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @return A list containing the tagColumns.
        */
-      public com.google.protobuf.ProtocolStringList
+      @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
           getTagColumnsList() {
         return tagColumns_.getUnmodifiableView();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @return The count of tagColumns.
        */
-      public int getTagColumnsCount() {
+      @java.lang.Deprecated public int getTagColumnsCount() {
         return tagColumns_.size();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param index The index of the element to return.
        * @return The tagColumns at the given index.
        */
-      public java.lang.String getTagColumns(int index) {
+      @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
         return tagColumns_.get(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param index The index of the value to return.
        * @return The bytes of the tagColumns at the given index.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTagColumnsBytes(int index) {
         return tagColumns_.getByteString(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param index The index to set the value at.
        * @param value The tagColumns to set.
        * @return This builder for chaining.
        */
-      public Builder setTagColumns(
+      @java.lang.Deprecated public Builder setTagColumns(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2818,14 +3307,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param value The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumns(
+      @java.lang.Deprecated public Builder addTagColumns(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2837,14 +3329,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param values The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addAllTagColumns(
+      @java.lang.Deprecated public Builder addAllTagColumns(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagColumnsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2854,13 +3349,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @return This builder for chaining.
        */
-      public Builder clearTagColumns() {
+      @java.lang.Deprecated public Builder clearTagColumns() {
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
@@ -2868,14 +3366,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 4;</code>
+       * <code>repeated string tag_columns = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesNormalize.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=60
        * @param value The bytes of the tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumnsBytes(
+      @java.lang.Deprecated public Builder addTagColumnsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2883,6 +3384,156 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         ensureTagColumnsIsMutable();
         tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private long timeIndexIdx_ ;
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 5;</code>
+       * @return The timeIndexIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexIdx() {
+        return timeIndexIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 5;</code>
+       * @param value The timeIndexIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexIdx(long value) {
+        
+        timeIndexIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexIdx() {
+        
+        timeIndexIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList tagColumnIndices_ = emptyLongList();
+      private void ensureTagColumnIndicesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_ = mutableCopy(tagColumnIndices_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @return A list containing the tagColumnIndices.
+       */
+      public java.util.List<java.lang.Long>
+          getTagColumnIndicesList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tagColumnIndices_) : tagColumnIndices_;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @return The count of tagColumnIndices.
+       */
+      public int getTagColumnIndicesCount() {
+        return tagColumnIndices_.size();
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumnIndices at the given index.
+       */
+      public long getTagColumnIndices(int index) {
+        return tagColumnIndices_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumnIndices to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumnIndices(
+          int index, long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @param value The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnIndices(long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @param values The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumnIndices(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureTagColumnIndicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumnIndices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumnIndices() {
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2945,64 +3596,121 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @return A list containing the tagColumns.
      */
-    java.util.List<java.lang.String>
+    @java.lang.Deprecated java.util.List<java.lang.String>
         getTagColumnsList();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @return The count of tagColumns.
      */
-    int getTagColumnsCount();
+    @java.lang.Deprecated int getTagColumnsCount();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    java.lang.String getTagColumns(int index);
+    @java.lang.Deprecated java.lang.String getTagColumns(int index);
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTagColumnsBytes(int index);
 
     /**
      * <pre>
-     * Name of time index column
+     * [DEPRECATED] Name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 2;</code>
+     * <code>string time_index_column = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=73
      * @return The timeIndexColumn.
      */
-    java.lang.String getTimeIndexColumn();
+    @java.lang.Deprecated java.lang.String getTimeIndexColumn();
     /**
      * <pre>
-     * Name of time index column
+     * [DEPRECATED] Name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 2;</code>
+     * <code>string time_index_column = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=73
      * @return The bytes for timeIndexColumn.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexColumnBytes();
+
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    java.util.List<java.lang.Long> getTagColumnIndicesList();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @return The count of tagColumnIndices.
+     */
+    int getTagColumnIndicesCount();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    long getTagColumnIndices(int index);
+
+    /**
+     * <pre>
+     * Index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_column_idx = 4;</code>
+     * @return The timeIndexColumnIdx.
+     */
+    long getTimeIndexColumnIdx();
   }
   /**
    * Protobuf type {@code substrait_extension.SeriesDivide}
@@ -3019,6 +3727,7 @@ public final class PromqlPlan {
     private SeriesDivide() {
       tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       timeIndexColumn_ = "";
+      tagColumnIndices_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -3067,6 +3776,32 @@ public final class PromqlPlan {
               timeIndexColumn_ = s;
               break;
             }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              tagColumnIndices_.addLong(input.readUInt64());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 32: {
+
+              timeIndexColumnIdx_ = input.readUInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3086,6 +3821,9 @@ public final class PromqlPlan {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3108,49 +3846,61 @@ public final class PromqlPlan {
     private com.google.protobuf.LazyStringList tagColumns_;
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @return A list containing the tagColumns.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getTagColumnsList() {
       return tagColumns_;
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @return The count of tagColumns.
      */
-    public int getTagColumnsCount() {
+    @java.lang.Deprecated public int getTagColumnsCount() {
       return tagColumns_.size();
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    public java.lang.String getTagColumns(int index) {
+    @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
       return tagColumns_.get(index);
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 1;</code>
+     * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=70
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTagColumnsBytes(int index) {
       return tagColumns_.getByteString(index);
     }
@@ -3159,14 +3909,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndexColumn_;
     /**
      * <pre>
-     * Name of time index column
+     * [DEPRECATED] Name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 2;</code>
+     * <code>string time_index_column = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=73
      * @return The timeIndexColumn.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndexColumn() {
+    @java.lang.Deprecated public java.lang.String getTimeIndexColumn() {
       java.lang.Object ref = timeIndexColumn_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -3180,14 +3933,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Name of time index column
+     * [DEPRECATED] Name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 2;</code>
+     * <code>string time_index_column = 2 [deprecated = true];</code>
+     * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=73
      * @return The bytes for timeIndexColumn.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexColumnBytes() {
       java.lang.Object ref = timeIndexColumn_;
       if (ref instanceof java.lang.String) {
@@ -3199,6 +3955,61 @@ public final class PromqlPlan {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int TAG_COLUMN_INDICES_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.LongList tagColumnIndices_;
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getTagColumnIndicesList() {
+      return tagColumnIndices_;
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @return The count of tagColumnIndices.
+     */
+    public int getTagColumnIndicesCount() {
+      return tagColumnIndices_.size();
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    public long getTagColumnIndices(int index) {
+      return tagColumnIndices_.getLong(index);
+    }
+    private int tagColumnIndicesMemoizedSerializedSize = -1;
+
+    public static final int TIME_INDEX_COLUMN_IDX_FIELD_NUMBER = 4;
+    private long timeIndexColumnIdx_;
+    /**
+     * <pre>
+     * Index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_column_idx = 4;</code>
+     * @return The timeIndexColumnIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexColumnIdx() {
+      return timeIndexColumnIdx_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3215,11 +4026,22 @@ public final class PromqlPlan {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       for (int i = 0; i < tagColumns_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tagColumns_.getRaw(i));
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, timeIndexColumn_);
+      }
+      if (getTagColumnIndicesList().size() > 0) {
+        output.writeUInt32NoTag(26);
+        output.writeUInt32NoTag(tagColumnIndicesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tagColumnIndices_.size(); i++) {
+        output.writeUInt64NoTag(tagColumnIndices_.getLong(i));
+      }
+      if (timeIndexColumnIdx_ != 0L) {
+        output.writeUInt64(4, timeIndexColumnIdx_);
       }
       unknownFields.writeTo(output);
     }
@@ -3241,6 +4063,24 @@ public final class PromqlPlan {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeIndexColumn_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, timeIndexColumn_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumnIndices_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(tagColumnIndices_.getLong(i));
+        }
+        size += dataSize;
+        if (!getTagColumnIndicesList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tagColumnIndicesMemoizedSerializedSize = dataSize;
+      }
+      if (timeIndexColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, timeIndexColumnIdx_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3260,6 +4100,10 @@ public final class PromqlPlan {
           .equals(other.getTagColumnsList())) return false;
       if (!getTimeIndexColumn()
           .equals(other.getTimeIndexColumn())) return false;
+      if (!getTagColumnIndicesList()
+          .equals(other.getTagColumnIndicesList())) return false;
+      if (getTimeIndexColumnIdx()
+          != other.getTimeIndexColumnIdx()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3277,6 +4121,13 @@ public final class PromqlPlan {
       }
       hash = (37 * hash) + TIME_INDEX_COLUMN_FIELD_NUMBER;
       hash = (53 * hash) + getTimeIndexColumn().hashCode();
+      if (getTagColumnIndicesCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMN_INDICES_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnIndicesList().hashCode();
+      }
+      hash = (37 * hash) + TIME_INDEX_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexColumnIdx());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3414,6 +4265,10 @@ public final class PromqlPlan {
         bitField0_ = (bitField0_ & ~0x00000001);
         timeIndexColumn_ = "";
 
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timeIndexColumnIdx_ = 0L;
+
         return this;
       }
 
@@ -3447,6 +4302,12 @@ public final class PromqlPlan {
         }
         result.tagColumns_ = tagColumns_;
         result.timeIndexColumn_ = timeIndexColumn_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tagColumnIndices_ = tagColumnIndices_;
+        result.timeIndexColumnIdx_ = timeIndexColumnIdx_;
         onBuilt();
         return result;
       }
@@ -3509,6 +4370,19 @@ public final class PromqlPlan {
           timeIndexColumn_ = other.timeIndexColumn_;
           onChanged();
         }
+        if (!other.tagColumnIndices_.isEmpty()) {
+          if (tagColumnIndices_.isEmpty()) {
+            tagColumnIndices_ = other.tagColumnIndices_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTagColumnIndicesIsMutable();
+            tagColumnIndices_.addAll(other.tagColumnIndices_);
+          }
+          onChanged();
+        }
+        if (other.getTimeIndexColumnIdx() != 0L) {
+          setTimeIndexColumnIdx(other.getTimeIndexColumnIdx());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3548,63 +4422,78 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @return A list containing the tagColumns.
        */
-      public com.google.protobuf.ProtocolStringList
+      @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
           getTagColumnsList() {
         return tagColumns_.getUnmodifiableView();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @return The count of tagColumns.
        */
-      public int getTagColumnsCount() {
+      @java.lang.Deprecated public int getTagColumnsCount() {
         return tagColumns_.size();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param index The index of the element to return.
        * @return The tagColumns at the given index.
        */
-      public java.lang.String getTagColumns(int index) {
+      @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
         return tagColumns_.get(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param index The index of the value to return.
        * @return The bytes of the tagColumns at the given index.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTagColumnsBytes(int index) {
         return tagColumns_.getByteString(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param index The index to set the value at.
        * @param value The tagColumns to set.
        * @return This builder for chaining.
        */
-      public Builder setTagColumns(
+      @java.lang.Deprecated public Builder setTagColumns(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3616,14 +4505,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param value The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumns(
+      @java.lang.Deprecated public Builder addTagColumns(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3635,14 +4527,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param values The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addAllTagColumns(
+      @java.lang.Deprecated public Builder addAllTagColumns(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagColumnsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3652,13 +4547,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @return This builder for chaining.
        */
-      public Builder clearTagColumns() {
+      @java.lang.Deprecated public Builder clearTagColumns() {
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
@@ -3666,14 +4564,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 1;</code>
+       * <code>repeated string tag_columns = 1 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=70
        * @param value The bytes of the tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumnsBytes(
+      @java.lang.Deprecated public Builder addTagColumnsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3688,13 +4589,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndexColumn_ = "";
       /**
        * <pre>
-       * Name of time index column
+       * [DEPRECATED] Name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 2;</code>
+       * <code>string time_index_column = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=73
        * @return The timeIndexColumn.
        */
-      public java.lang.String getTimeIndexColumn() {
+      @java.lang.Deprecated public java.lang.String getTimeIndexColumn() {
         java.lang.Object ref = timeIndexColumn_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -3708,13 +4612,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Name of time index column
+       * [DEPRECATED] Name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 2;</code>
+       * <code>string time_index_column = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=73
        * @return The bytes for timeIndexColumn.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexColumnBytes() {
         java.lang.Object ref = timeIndexColumn_;
         if (ref instanceof String) {
@@ -3729,14 +4636,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Name of time index column
+       * [DEPRECATED] Name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 2;</code>
+       * <code>string time_index_column = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=73
        * @param value The timeIndexColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexColumn(
+      @java.lang.Deprecated public Builder setTimeIndexColumn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3748,13 +4658,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Name of time index column
+       * [DEPRECATED] Name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 2;</code>
+       * <code>string time_index_column = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=73
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndexColumn() {
+      @java.lang.Deprecated public Builder clearTimeIndexColumn() {
         
         timeIndexColumn_ = getDefaultInstance().getTimeIndexColumn();
         onChanged();
@@ -3762,14 +4675,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Name of time index column
+       * [DEPRECATED] Name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 2;</code>
+       * <code>string time_index_column = 2 [deprecated = true];</code>
+       * @deprecated substrait_extension.SeriesDivide.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=73
        * @param value The bytes for timeIndexColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexColumnBytes(
+      @java.lang.Deprecated public Builder setTimeIndexColumnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3777,6 +4693,156 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         
         timeIndexColumn_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList tagColumnIndices_ = emptyLongList();
+      private void ensureTagColumnIndicesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_ = mutableCopy(tagColumnIndices_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @return A list containing the tagColumnIndices.
+       */
+      public java.util.List<java.lang.Long>
+          getTagColumnIndicesList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tagColumnIndices_) : tagColumnIndices_;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @return The count of tagColumnIndices.
+       */
+      public int getTagColumnIndicesCount() {
+        return tagColumnIndices_.size();
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumnIndices at the given index.
+       */
+      public long getTagColumnIndices(int index) {
+        return tagColumnIndices_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumnIndices to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumnIndices(
+          int index, long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @param value The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnIndices(long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @param values The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumnIndices(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureTagColumnIndicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumnIndices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumnIndices() {
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private long timeIndexColumnIdx_ ;
+      /**
+       * <pre>
+       * Index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 4;</code>
+       * @return The timeIndexColumnIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexColumnIdx() {
+        return timeIndexColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 4;</code>
+       * @param value The timeIndexColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumnIdx(long value) {
+        
+        timeIndexColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexColumnIdx() {
+        
+        timeIndexColumnIdx_ = 0L;
         onChanged();
         return this;
       }
@@ -3879,64 +4945,121 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=91
      * @return The timeIndex.
      */
-    java.lang.String getTimeIndex();
+    @java.lang.Deprecated java.lang.String getTimeIndex();
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=91
      * @return The bytes for timeIndex.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexBytes();
 
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @return A list containing the tagColumns.
      */
-    java.util.List<java.lang.String>
+    @java.lang.Deprecated java.util.List<java.lang.String>
         getTagColumnsList();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @return The count of tagColumns.
      */
-    int getTagColumnsCount();
+    @java.lang.Deprecated int getTagColumnsCount();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    java.lang.String getTagColumns(int index);
+    @java.lang.Deprecated java.lang.String getTagColumns(int index);
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTagColumnsBytes(int index);
+
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 7;</code>
+     * @return The timeIndexIdx.
+     */
+    long getTimeIndexIdx();
+
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    java.util.List<java.lang.Long> getTagColumnIndicesList();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @return The count of tagColumnIndices.
+     */
+    int getTagColumnIndicesCount();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    long getTagColumnIndices(int index);
   }
   /**
    * Protobuf type {@code substrait_extension.RangeManipulate}
@@ -3953,6 +5076,7 @@ public final class PromqlPlan {
     private RangeManipulate() {
       timeIndex_ = "";
       tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      tagColumnIndices_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -4021,6 +5145,32 @@ public final class PromqlPlan {
               tagColumns_.add(s);
               break;
             }
+            case 56: {
+
+              timeIndexIdx_ = input.readUInt64();
+              break;
+            }
+            case 64: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              tagColumnIndices_.addLong(input.readUInt64());
+              break;
+            }
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4040,6 +5190,9 @@ public final class PromqlPlan {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4122,14 +5275,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndex_;
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=91
      * @return The timeIndex.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndex() {
+    @java.lang.Deprecated public java.lang.String getTimeIndex() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -4143,14 +5299,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=91
      * @return The bytes for timeIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexBytes() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
@@ -4168,52 +5327,119 @@ public final class PromqlPlan {
     private com.google.protobuf.LazyStringList tagColumns_;
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @return A list containing the tagColumns.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getTagColumnsList() {
       return tagColumns_;
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @return The count of tagColumns.
      */
-    public int getTagColumnsCount() {
+    @java.lang.Deprecated public int getTagColumnsCount() {
       return tagColumns_.size();
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    public java.lang.String getTagColumns(int index) {
+    @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
       return tagColumns_.get(index);
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=94
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTagColumnsBytes(int index) {
       return tagColumns_.getByteString(index);
     }
+
+    public static final int TIME_INDEX_IDX_FIELD_NUMBER = 7;
+    private long timeIndexIdx_;
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 7;</code>
+     * @return The timeIndexIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexIdx() {
+      return timeIndexIdx_;
+    }
+
+    public static final int TAG_COLUMN_INDICES_FIELD_NUMBER = 8;
+    private com.google.protobuf.Internal.LongList tagColumnIndices_;
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getTagColumnIndicesList() {
+      return tagColumnIndices_;
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @return The count of tagColumnIndices.
+     */
+    public int getTagColumnIndicesCount() {
+      return tagColumnIndices_.size();
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 8;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    public long getTagColumnIndices(int index) {
+      return tagColumnIndices_.getLong(index);
+    }
+    private int tagColumnIndicesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -4229,6 +5455,7 @@ public final class PromqlPlan {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (start_ != 0L) {
         output.writeInt64(1, start_);
       }
@@ -4246,6 +5473,16 @@ public final class PromqlPlan {
       }
       for (int i = 0; i < tagColumns_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tagColumns_.getRaw(i));
+      }
+      if (timeIndexIdx_ != 0L) {
+        output.writeUInt64(7, timeIndexIdx_);
+      }
+      if (getTagColumnIndicesList().size() > 0) {
+        output.writeUInt32NoTag(66);
+        output.writeUInt32NoTag(tagColumnIndicesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tagColumnIndices_.size(); i++) {
+        output.writeUInt64NoTag(tagColumnIndices_.getLong(i));
       }
       unknownFields.writeTo(output);
     }
@@ -4283,6 +5520,24 @@ public final class PromqlPlan {
         size += dataSize;
         size += 1 * getTagColumnsList().size();
       }
+      if (timeIndexIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(7, timeIndexIdx_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumnIndices_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(tagColumnIndices_.getLong(i));
+        }
+        size += dataSize;
+        if (!getTagColumnIndicesList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tagColumnIndicesMemoizedSerializedSize = dataSize;
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -4310,6 +5565,10 @@ public final class PromqlPlan {
           .equals(other.getTimeIndex())) return false;
       if (!getTagColumnsList()
           .equals(other.getTagColumnsList())) return false;
+      if (getTimeIndexIdx()
+          != other.getTimeIndexIdx()) return false;
+      if (!getTagColumnIndicesList()
+          .equals(other.getTagColumnIndicesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4338,6 +5597,13 @@ public final class PromqlPlan {
       if (getTagColumnsCount() > 0) {
         hash = (37 * hash) + TAG_COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getTagColumnsList().hashCode();
+      }
+      hash = (37 * hash) + TIME_INDEX_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexIdx());
+      if (getTagColumnIndicesCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMN_INDICES_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnIndicesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4484,6 +5750,10 @@ public final class PromqlPlan {
 
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        timeIndexIdx_ = 0L;
+
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -4521,6 +5791,12 @@ public final class PromqlPlan {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.tagColumns_ = tagColumns_;
+        result.timeIndexIdx_ = timeIndexIdx_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tagColumnIndices_ = tagColumnIndices_;
         onBuilt();
         return result;
       }
@@ -4592,6 +5868,19 @@ public final class PromqlPlan {
           } else {
             ensureTagColumnsIsMutable();
             tagColumns_.addAll(other.tagColumns_);
+          }
+          onChanged();
+        }
+        if (other.getTimeIndexIdx() != 0L) {
+          setTimeIndexIdx(other.getTimeIndexIdx());
+        }
+        if (!other.tagColumnIndices_.isEmpty()) {
+          if (tagColumnIndices_.isEmpty()) {
+            tagColumnIndices_ = other.tagColumnIndices_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTagColumnIndicesIsMutable();
+            tagColumnIndices_.addAll(other.tagColumnIndices_);
           }
           onChanged();
         }
@@ -4800,13 +6089,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndex_ = "";
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=91
        * @return The timeIndex.
        */
-      public java.lang.String getTimeIndex() {
+      @java.lang.Deprecated public java.lang.String getTimeIndex() {
         java.lang.Object ref = timeIndex_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -4820,13 +6112,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=91
        * @return The bytes for timeIndex.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexBytes() {
         java.lang.Object ref = timeIndex_;
         if (ref instanceof String) {
@@ -4841,14 +6136,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=91
        * @param value The timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndex(
+      @java.lang.Deprecated public Builder setTimeIndex(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4860,13 +6158,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=91
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndex() {
+      @java.lang.Deprecated public Builder clearTimeIndex() {
         
         timeIndex_ = getDefaultInstance().getTimeIndex();
         onChanged();
@@ -4874,14 +6175,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=91
        * @param value The bytes for timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexBytes(
+      @java.lang.Deprecated public Builder setTimeIndexBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4902,63 +6206,78 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @return A list containing the tagColumns.
        */
-      public com.google.protobuf.ProtocolStringList
+      @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
           getTagColumnsList() {
         return tagColumns_.getUnmodifiableView();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @return The count of tagColumns.
        */
-      public int getTagColumnsCount() {
+      @java.lang.Deprecated public int getTagColumnsCount() {
         return tagColumns_.size();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param index The index of the element to return.
        * @return The tagColumns at the given index.
        */
-      public java.lang.String getTagColumns(int index) {
+      @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
         return tagColumns_.get(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param index The index of the value to return.
        * @return The bytes of the tagColumns at the given index.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTagColumnsBytes(int index) {
         return tagColumns_.getByteString(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param index The index to set the value at.
        * @param value The tagColumns to set.
        * @return This builder for chaining.
        */
-      public Builder setTagColumns(
+      @java.lang.Deprecated public Builder setTagColumns(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4970,14 +6289,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param value The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumns(
+      @java.lang.Deprecated public Builder addTagColumns(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4989,14 +6311,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param values The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addAllTagColumns(
+      @java.lang.Deprecated public Builder addAllTagColumns(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagColumnsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -5006,13 +6331,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @return This builder for chaining.
        */
-      public Builder clearTagColumns() {
+      @java.lang.Deprecated public Builder clearTagColumns() {
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
@@ -5020,14 +6348,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.RangeManipulate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=94
        * @param value The bytes of the tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumnsBytes(
+      @java.lang.Deprecated public Builder addTagColumnsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -5035,6 +6366,156 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         ensureTagColumnsIsMutable();
         tagColumns_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private long timeIndexIdx_ ;
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @return The timeIndexIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexIdx() {
+        return timeIndexIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @param value The timeIndexIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexIdx(long value) {
+        
+        timeIndexIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexIdx() {
+        
+        timeIndexIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList tagColumnIndices_ = emptyLongList();
+      private void ensureTagColumnIndicesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_ = mutableCopy(tagColumnIndices_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @return A list containing the tagColumnIndices.
+       */
+      public java.util.List<java.lang.Long>
+          getTagColumnIndicesList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tagColumnIndices_) : tagColumnIndices_;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @return The count of tagColumnIndices.
+       */
+      public int getTagColumnIndicesCount() {
+        return tagColumnIndices_.size();
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumnIndices at the given index.
+       */
+      public long getTagColumnIndices(int index) {
+        return tagColumnIndices_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumnIndices to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumnIndices(
+          int index, long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @param value The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnIndices(long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @param values The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumnIndices(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureTagColumnIndicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumnIndices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumnIndices() {
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5127,84 +6608,157 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=110
      * @return The timeIndex.
      */
-    java.lang.String getTimeIndex();
+    @java.lang.Deprecated java.lang.String getTimeIndex();
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=110
      * @return The bytes for timeIndex.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexBytes();
 
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @return A list containing the tagColumns.
      */
-    java.util.List<java.lang.String>
+    @java.lang.Deprecated java.util.List<java.lang.String>
         getTagColumnsList();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @return The count of tagColumns.
      */
-    int getTagColumnsCount();
+    @java.lang.Deprecated int getTagColumnsCount();
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    java.lang.String getTagColumns(int index);
+    @java.lang.Deprecated java.lang.String getTagColumns(int index);
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTagColumnsBytes(int index);
 
     /**
      * <pre>
-     * Column name of field column
+     * [DEPRECATED] Column name of field column.
+     * Use `field_column_idx` instead.
      * </pre>
      *
-     * <code>string field_column = 7;</code>
+     * <code>string field_column = 7 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=116
      * @return The fieldColumn.
      */
-    java.lang.String getFieldColumn();
+    @java.lang.Deprecated java.lang.String getFieldColumn();
     /**
      * <pre>
-     * Column name of field column
+     * [DEPRECATED] Column name of field column.
+     * Use `field_column_idx` instead.
      * </pre>
      *
-     * <code>string field_column = 7;</code>
+     * <code>string field_column = 7 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=116
      * @return The bytes for fieldColumn.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getFieldColumnBytes();
+
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 8;</code>
+     * @return The timeIndexIdx.
+     */
+    long getTimeIndexIdx();
+
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    java.util.List<java.lang.Long> getTagColumnIndicesList();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @return The count of tagColumnIndices.
+     */
+    int getTagColumnIndicesCount();
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    long getTagColumnIndices(int index);
+
+    /**
+     * <pre>
+     * Column index of field column
+     * </pre>
+     *
+     * <code>uint64 field_column_idx = 10;</code>
+     * @return The fieldColumnIdx.
+     */
+    long getFieldColumnIdx();
   }
   /**
    * Protobuf type {@code substrait_extension.ScalarCalculate}
@@ -5222,6 +6776,7 @@ public final class PromqlPlan {
       timeIndex_ = "";
       tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       fieldColumn_ = "";
+      tagColumnIndices_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -5291,6 +6846,37 @@ public final class PromqlPlan {
               fieldColumn_ = s;
               break;
             }
+            case 64: {
+
+              timeIndexIdx_ = input.readUInt64();
+              break;
+            }
+            case 72: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              tagColumnIndices_.addLong(input.readUInt64());
+              break;
+            }
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                tagColumnIndices_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 80: {
+
+              fieldColumnIdx_ = input.readUInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5310,6 +6896,9 @@ public final class PromqlPlan {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           tagColumns_ = tagColumns_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable(); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5377,14 +6966,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndex_;
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=110
      * @return The timeIndex.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndex() {
+    @java.lang.Deprecated public java.lang.String getTimeIndex() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -5398,14 +6990,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_idx` instead.
      * </pre>
      *
-     * <code>string time_index = 5;</code>
+     * <code>string time_index = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=110
      * @return The bytes for timeIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexBytes() {
       java.lang.Object ref = timeIndex_;
       if (ref instanceof java.lang.String) {
@@ -5423,49 +7018,61 @@ public final class PromqlPlan {
     private com.google.protobuf.LazyStringList tagColumns_;
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @return A list containing the tagColumns.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getTagColumnsList() {
       return tagColumns_;
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @return The count of tagColumns.
      */
-    public int getTagColumnsCount() {
+    @java.lang.Deprecated public int getTagColumnsCount() {
       return tagColumns_.size();
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @param index The index of the element to return.
      * @return The tagColumns at the given index.
      */
-    public java.lang.String getTagColumns(int index) {
+    @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
       return tagColumns_.get(index);
     }
     /**
      * <pre>
-     * Names of tag columns
+     * [DEPRECATED] Names of tag columns.
+     * Use `tag_column_indices` instead.
      * </pre>
      *
-     * <code>repeated string tag_columns = 6;</code>
+     * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=113
      * @param index The index of the value to return.
      * @return The bytes of the tagColumns at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTagColumnsBytes(int index) {
       return tagColumns_.getByteString(index);
     }
@@ -5474,14 +7081,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object fieldColumn_;
     /**
      * <pre>
-     * Column name of field column
+     * [DEPRECATED] Column name of field column.
+     * Use `field_column_idx` instead.
      * </pre>
      *
-     * <code>string field_column = 7;</code>
+     * <code>string field_column = 7 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=116
      * @return The fieldColumn.
      */
     @java.lang.Override
-    public java.lang.String getFieldColumn() {
+    @java.lang.Deprecated public java.lang.String getFieldColumn() {
       java.lang.Object ref = fieldColumn_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -5495,14 +7105,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of field column
+     * [DEPRECATED] Column name of field column.
+     * Use `field_column_idx` instead.
      * </pre>
      *
-     * <code>string field_column = 7;</code>
+     * <code>string field_column = 7 [deprecated = true];</code>
+     * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=116
      * @return The bytes for fieldColumn.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getFieldColumnBytes() {
       java.lang.Object ref = fieldColumn_;
       if (ref instanceof java.lang.String) {
@@ -5514,6 +7127,76 @@ public final class PromqlPlan {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int TIME_INDEX_IDX_FIELD_NUMBER = 8;
+    private long timeIndexIdx_;
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_idx = 8;</code>
+     * @return The timeIndexIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexIdx() {
+      return timeIndexIdx_;
+    }
+
+    public static final int TAG_COLUMN_INDICES_FIELD_NUMBER = 9;
+    private com.google.protobuf.Internal.LongList tagColumnIndices_;
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @return A list containing the tagColumnIndices.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getTagColumnIndicesList() {
+      return tagColumnIndices_;
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @return The count of tagColumnIndices.
+     */
+    public int getTagColumnIndicesCount() {
+      return tagColumnIndices_.size();
+    }
+    /**
+     * <pre>
+     * Indices of tag columns
+     * </pre>
+     *
+     * <code>repeated uint64 tag_column_indices = 9;</code>
+     * @param index The index of the element to return.
+     * @return The tagColumnIndices at the given index.
+     */
+    public long getTagColumnIndices(int index) {
+      return tagColumnIndices_.getLong(index);
+    }
+    private int tagColumnIndicesMemoizedSerializedSize = -1;
+
+    public static final int FIELD_COLUMN_IDX_FIELD_NUMBER = 10;
+    private long fieldColumnIdx_;
+    /**
+     * <pre>
+     * Column index of field column
+     * </pre>
+     *
+     * <code>uint64 field_column_idx = 10;</code>
+     * @return The fieldColumnIdx.
+     */
+    @java.lang.Override
+    public long getFieldColumnIdx() {
+      return fieldColumnIdx_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5530,6 +7213,7 @@ public final class PromqlPlan {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (start_ != 0L) {
         output.writeInt64(1, start_);
       }
@@ -5547,6 +7231,19 @@ public final class PromqlPlan {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldColumn_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fieldColumn_);
+      }
+      if (timeIndexIdx_ != 0L) {
+        output.writeUInt64(8, timeIndexIdx_);
+      }
+      if (getTagColumnIndicesList().size() > 0) {
+        output.writeUInt32NoTag(74);
+        output.writeUInt32NoTag(tagColumnIndicesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < tagColumnIndices_.size(); i++) {
+        output.writeUInt64NoTag(tagColumnIndices_.getLong(i));
+      }
+      if (fieldColumnIdx_ != 0L) {
+        output.writeUInt64(10, fieldColumnIdx_);
       }
       unknownFields.writeTo(output);
     }
@@ -5583,6 +7280,28 @@ public final class PromqlPlan {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fieldColumn_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fieldColumn_);
       }
+      if (timeIndexIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, timeIndexIdx_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tagColumnIndices_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(tagColumnIndices_.getLong(i));
+        }
+        size += dataSize;
+        if (!getTagColumnIndicesList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        tagColumnIndicesMemoizedSerializedSize = dataSize;
+      }
+      if (fieldColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(10, fieldColumnIdx_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5610,6 +7329,12 @@ public final class PromqlPlan {
           .equals(other.getTagColumnsList())) return false;
       if (!getFieldColumn()
           .equals(other.getFieldColumn())) return false;
+      if (getTimeIndexIdx()
+          != other.getTimeIndexIdx()) return false;
+      if (!getTagColumnIndicesList()
+          .equals(other.getTagColumnIndicesList())) return false;
+      if (getFieldColumnIdx()
+          != other.getFieldColumnIdx()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5638,6 +7363,16 @@ public final class PromqlPlan {
       }
       hash = (37 * hash) + FIELD_COLUMN_FIELD_NUMBER;
       hash = (53 * hash) + getFieldColumn().hashCode();
+      hash = (37 * hash) + TIME_INDEX_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexIdx());
+      if (getTagColumnIndicesCount() > 0) {
+        hash = (37 * hash) + TAG_COLUMN_INDICES_FIELD_NUMBER;
+        hash = (53 * hash) + getTagColumnIndicesList().hashCode();
+      }
+      hash = (37 * hash) + FIELD_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFieldColumnIdx());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5783,6 +7518,12 @@ public final class PromqlPlan {
         bitField0_ = (bitField0_ & ~0x00000001);
         fieldColumn_ = "";
 
+        timeIndexIdx_ = 0L;
+
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        fieldColumnIdx_ = 0L;
+
         return this;
       }
 
@@ -5820,6 +7561,13 @@ public final class PromqlPlan {
         }
         result.tagColumns_ = tagColumns_;
         result.fieldColumn_ = fieldColumn_;
+        result.timeIndexIdx_ = timeIndexIdx_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.tagColumnIndices_ = tagColumnIndices_;
+        result.fieldColumnIdx_ = fieldColumnIdx_;
         onBuilt();
         return result;
       }
@@ -5894,6 +7642,22 @@ public final class PromqlPlan {
         if (!other.getFieldColumn().isEmpty()) {
           fieldColumn_ = other.fieldColumn_;
           onChanged();
+        }
+        if (other.getTimeIndexIdx() != 0L) {
+          setTimeIndexIdx(other.getTimeIndexIdx());
+        }
+        if (!other.tagColumnIndices_.isEmpty()) {
+          if (tagColumnIndices_.isEmpty()) {
+            tagColumnIndices_ = other.tagColumnIndices_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureTagColumnIndicesIsMutable();
+            tagColumnIndices_.addAll(other.tagColumnIndices_);
+          }
+          onChanged();
+        }
+        if (other.getFieldColumnIdx() != 0L) {
+          setFieldColumnIdx(other.getFieldColumnIdx());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6057,13 +7821,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndex_ = "";
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=110
        * @return The timeIndex.
        */
-      public java.lang.String getTimeIndex() {
+      @java.lang.Deprecated public java.lang.String getTimeIndex() {
         java.lang.Object ref = timeIndex_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -6077,13 +7844,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=110
        * @return The bytes for timeIndex.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexBytes() {
         java.lang.Object ref = timeIndex_;
         if (ref instanceof String) {
@@ -6098,14 +7868,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=110
        * @param value The timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndex(
+      @java.lang.Deprecated public Builder setTimeIndex(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6117,13 +7890,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=110
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndex() {
+      @java.lang.Deprecated public Builder clearTimeIndex() {
         
         timeIndex_ = getDefaultInstance().getTimeIndex();
         onChanged();
@@ -6131,14 +7907,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_idx` instead.
        * </pre>
        *
-       * <code>string time_index = 5;</code>
+       * <code>string time_index = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.time_index is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=110
        * @param value The bytes for timeIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexBytes(
+      @java.lang.Deprecated public Builder setTimeIndexBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6159,63 +7938,78 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @return A list containing the tagColumns.
        */
-      public com.google.protobuf.ProtocolStringList
+      @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
           getTagColumnsList() {
         return tagColumns_.getUnmodifiableView();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @return The count of tagColumns.
        */
-      public int getTagColumnsCount() {
+      @java.lang.Deprecated public int getTagColumnsCount() {
         return tagColumns_.size();
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param index The index of the element to return.
        * @return The tagColumns at the given index.
        */
-      public java.lang.String getTagColumns(int index) {
+      @java.lang.Deprecated public java.lang.String getTagColumns(int index) {
         return tagColumns_.get(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param index The index of the value to return.
        * @return The bytes of the tagColumns at the given index.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTagColumnsBytes(int index) {
         return tagColumns_.getByteString(index);
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param index The index to set the value at.
        * @param value The tagColumns to set.
        * @return This builder for chaining.
        */
-      public Builder setTagColumns(
+      @java.lang.Deprecated public Builder setTagColumns(
           int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6227,14 +8021,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param value The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumns(
+      @java.lang.Deprecated public Builder addTagColumns(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6246,14 +8043,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param values The tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addAllTagColumns(
+      @java.lang.Deprecated public Builder addAllTagColumns(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagColumnsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -6263,13 +8063,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @return This builder for chaining.
        */
-      public Builder clearTagColumns() {
+      @java.lang.Deprecated public Builder clearTagColumns() {
         tagColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
@@ -6277,14 +8080,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Names of tag columns
+       * [DEPRECATED] Names of tag columns.
+       * Use `tag_column_indices` instead.
        * </pre>
        *
-       * <code>repeated string tag_columns = 6;</code>
+       * <code>repeated string tag_columns = 6 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.tag_columns is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=113
        * @param value The bytes of the tagColumns to add.
        * @return This builder for chaining.
        */
-      public Builder addTagColumnsBytes(
+      @java.lang.Deprecated public Builder addTagColumnsBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6299,13 +8105,16 @@ public final class PromqlPlan {
       private java.lang.Object fieldColumn_ = "";
       /**
        * <pre>
-       * Column name of field column
+       * [DEPRECATED] Column name of field column.
+       * Use `field_column_idx` instead.
        * </pre>
        *
-       * <code>string field_column = 7;</code>
+       * <code>string field_column = 7 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=116
        * @return The fieldColumn.
        */
-      public java.lang.String getFieldColumn() {
+      @java.lang.Deprecated public java.lang.String getFieldColumn() {
         java.lang.Object ref = fieldColumn_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -6319,13 +8128,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of field column
+       * [DEPRECATED] Column name of field column.
+       * Use `field_column_idx` instead.
        * </pre>
        *
-       * <code>string field_column = 7;</code>
+       * <code>string field_column = 7 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=116
        * @return The bytes for fieldColumn.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getFieldColumnBytes() {
         java.lang.Object ref = fieldColumn_;
         if (ref instanceof String) {
@@ -6340,14 +8152,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of field column
+       * [DEPRECATED] Column name of field column.
+       * Use `field_column_idx` instead.
        * </pre>
        *
-       * <code>string field_column = 7;</code>
+       * <code>string field_column = 7 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=116
        * @param value The fieldColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setFieldColumn(
+      @java.lang.Deprecated public Builder setFieldColumn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6359,13 +8174,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of field column
+       * [DEPRECATED] Column name of field column.
+       * Use `field_column_idx` instead.
        * </pre>
        *
-       * <code>string field_column = 7;</code>
+       * <code>string field_column = 7 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=116
        * @return This builder for chaining.
        */
-      public Builder clearFieldColumn() {
+      @java.lang.Deprecated public Builder clearFieldColumn() {
         
         fieldColumn_ = getDefaultInstance().getFieldColumn();
         onChanged();
@@ -6373,14 +8191,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of field column
+       * [DEPRECATED] Column name of field column.
+       * Use `field_column_idx` instead.
        * </pre>
        *
-       * <code>string field_column = 7;</code>
+       * <code>string field_column = 7 [deprecated = true];</code>
+       * @deprecated substrait_extension.ScalarCalculate.field_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=116
        * @param value The bytes for fieldColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setFieldColumnBytes(
+      @java.lang.Deprecated public Builder setFieldColumnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -6388,6 +8209,199 @@ public final class PromqlPlan {
   checkByteStringIsUtf8(value);
         
         fieldColumn_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timeIndexIdx_ ;
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 8;</code>
+       * @return The timeIndexIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexIdx() {
+        return timeIndexIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 8;</code>
+       * @param value The timeIndexIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexIdx(long value) {
+        
+        timeIndexIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_idx = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexIdx() {
+        
+        timeIndexIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList tagColumnIndices_ = emptyLongList();
+      private void ensureTagColumnIndicesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          tagColumnIndices_ = mutableCopy(tagColumnIndices_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @return A list containing the tagColumnIndices.
+       */
+      public java.util.List<java.lang.Long>
+          getTagColumnIndicesList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(tagColumnIndices_) : tagColumnIndices_;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @return The count of tagColumnIndices.
+       */
+      public int getTagColumnIndicesCount() {
+        return tagColumnIndices_.size();
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @param index The index of the element to return.
+       * @return The tagColumnIndices at the given index.
+       */
+      public long getTagColumnIndices(int index) {
+        return tagColumnIndices_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The tagColumnIndices to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTagColumnIndices(
+          int index, long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @param value The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagColumnIndices(long value) {
+        ensureTagColumnIndicesIsMutable();
+        tagColumnIndices_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @param values The tagColumnIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTagColumnIndices(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureTagColumnIndicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tagColumnIndices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of tag columns
+       * </pre>
+       *
+       * <code>repeated uint64 tag_column_indices = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTagColumnIndices() {
+        tagColumnIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private long fieldColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of field column
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 10;</code>
+       * @return The fieldColumnIdx.
+       */
+      @java.lang.Override
+      public long getFieldColumnIdx() {
+        return fieldColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of field column
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 10;</code>
+       * @param value The fieldColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFieldColumnIdx(long value) {
+        
+        fieldColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of field column
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFieldColumnIdx() {
+        
+        fieldColumnIdx_ = 0L;
         onChanged();
         return this;
       }
@@ -6480,42 +8494,54 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 4;</code>
+     * <code>string time_index_column = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=134
      * @return The timeIndexColumn.
      */
-    java.lang.String getTimeIndexColumn();
+    @java.lang.Deprecated java.lang.String getTimeIndexColumn();
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 4;</code>
+     * <code>string time_index_column = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=134
      * @return The bytes for timeIndexColumn.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getTimeIndexColumnBytes();
 
     /**
      * <pre>
-     * Column name of value column
+     * [DEPRECATED] Column name of value column.
+     * Use `value_column_idx` instead.
      * </pre>
      *
-     * <code>string value_column = 5;</code>
+     * <code>string value_column = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.value_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=137
      * @return The valueColumn.
      */
-    java.lang.String getValueColumn();
+    @java.lang.Deprecated java.lang.String getValueColumn();
     /**
      * <pre>
-     * Column name of value column
+     * [DEPRECATED] Column name of value column.
+     * Use `value_column_idx` instead.
      * </pre>
      *
-     * <code>string value_column = 5;</code>
+     * <code>string value_column = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.value_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=137
      * @return The bytes for valueColumn.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getValueColumnBytes();
 
     /**
@@ -6561,6 +8587,26 @@ public final class PromqlPlan {
      */
     substrait_extension.PromqlPlan.LabelPairOrBuilder getFakeLabelsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_column_idx = 7;</code>
+     * @return The timeIndexColumnIdx.
+     */
+    long getTimeIndexColumnIdx();
+
+    /**
+     * <pre>
+     * Column index of value column
+     * </pre>
+     *
+     * <code>uint64 value_column_idx = 8;</code>
+     * @return The valueColumnIdx.
+     */
+    long getValueColumnIdx();
   }
   /**
    * Protobuf type {@code substrait_extension.Absent}
@@ -6645,6 +8691,16 @@ public final class PromqlPlan {
               }
               fakeLabels_.add(
                   input.readMessage(substrait_extension.PromqlPlan.LabelPair.parser(), extensionRegistry));
+              break;
+            }
+            case 56: {
+
+              timeIndexColumnIdx_ = input.readUInt64();
+              break;
+            }
+            case 64: {
+
+              valueColumnIdx_ = input.readUInt64();
               break;
             }
             default: {
@@ -6733,14 +8789,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object timeIndexColumn_;
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 4;</code>
+     * <code>string time_index_column = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=134
      * @return The timeIndexColumn.
      */
     @java.lang.Override
-    public java.lang.String getTimeIndexColumn() {
+    @java.lang.Deprecated public java.lang.String getTimeIndexColumn() {
       java.lang.Object ref = timeIndexColumn_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -6754,14 +8813,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of time index column
+     * [DEPRECATED] Column name of time index column.
+     * Use `time_index_column_idx` instead.
      * </pre>
      *
-     * <code>string time_index_column = 4;</code>
+     * <code>string time_index_column = 4 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=134
      * @return The bytes for timeIndexColumn.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getTimeIndexColumnBytes() {
       java.lang.Object ref = timeIndexColumn_;
       if (ref instanceof java.lang.String) {
@@ -6779,14 +8841,17 @@ public final class PromqlPlan {
     private volatile java.lang.Object valueColumn_;
     /**
      * <pre>
-     * Column name of value column
+     * [DEPRECATED] Column name of value column.
+     * Use `value_column_idx` instead.
      * </pre>
      *
-     * <code>string value_column = 5;</code>
+     * <code>string value_column = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.value_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=137
      * @return The valueColumn.
      */
     @java.lang.Override
-    public java.lang.String getValueColumn() {
+    @java.lang.Deprecated public java.lang.String getValueColumn() {
       java.lang.Object ref = valueColumn_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -6800,14 +8865,17 @@ public final class PromqlPlan {
     }
     /**
      * <pre>
-     * Column name of value column
+     * [DEPRECATED] Column name of value column.
+     * Use `value_column_idx` instead.
      * </pre>
      *
-     * <code>string value_column = 5;</code>
+     * <code>string value_column = 5 [deprecated = true];</code>
+     * @deprecated substrait_extension.Absent.value_column is deprecated.
+     *     See substrait_extension/promql_plan.proto;l=137
      * @return The bytes for valueColumn.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getValueColumnBytes() {
       java.lang.Object ref = valueColumn_;
       if (ref instanceof java.lang.String) {
@@ -6881,6 +8949,36 @@ public final class PromqlPlan {
       return fakeLabels_.get(index);
     }
 
+    public static final int TIME_INDEX_COLUMN_IDX_FIELD_NUMBER = 7;
+    private long timeIndexColumnIdx_;
+    /**
+     * <pre>
+     * Column index of time index column
+     * </pre>
+     *
+     * <code>uint64 time_index_column_idx = 7;</code>
+     * @return The timeIndexColumnIdx.
+     */
+    @java.lang.Override
+    public long getTimeIndexColumnIdx() {
+      return timeIndexColumnIdx_;
+    }
+
+    public static final int VALUE_COLUMN_IDX_FIELD_NUMBER = 8;
+    private long valueColumnIdx_;
+    /**
+     * <pre>
+     * Column index of value column
+     * </pre>
+     *
+     * <code>uint64 value_column_idx = 8;</code>
+     * @return The valueColumnIdx.
+     */
+    @java.lang.Override
+    public long getValueColumnIdx() {
+      return valueColumnIdx_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6913,6 +9011,12 @@ public final class PromqlPlan {
       for (int i = 0; i < fakeLabels_.size(); i++) {
         output.writeMessage(6, fakeLabels_.get(i));
       }
+      if (timeIndexColumnIdx_ != 0L) {
+        output.writeUInt64(7, timeIndexColumnIdx_);
+      }
+      if (valueColumnIdx_ != 0L) {
+        output.writeUInt64(8, valueColumnIdx_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6944,6 +9048,14 @@ public final class PromqlPlan {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, fakeLabels_.get(i));
       }
+      if (timeIndexColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(7, timeIndexColumnIdx_);
+      }
+      if (valueColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, valueColumnIdx_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6971,6 +9083,10 @@ public final class PromqlPlan {
           .equals(other.getValueColumn())) return false;
       if (!getFakeLabelsList()
           .equals(other.getFakeLabelsList())) return false;
+      if (getTimeIndexColumnIdx()
+          != other.getTimeIndexColumnIdx()) return false;
+      if (getValueColumnIdx()
+          != other.getValueColumnIdx()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6999,6 +9115,12 @@ public final class PromqlPlan {
         hash = (37 * hash) + FAKE_LABELS_FIELD_NUMBER;
         hash = (53 * hash) + getFakeLabelsList().hashCode();
       }
+      hash = (37 * hash) + TIME_INDEX_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimeIndexColumnIdx());
+      hash = (37 * hash) + VALUE_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getValueColumnIdx());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7149,6 +9271,10 @@ public final class PromqlPlan {
         } else {
           fakeLabelsBuilder_.clear();
         }
+        timeIndexColumnIdx_ = 0L;
+
+        valueColumnIdx_ = 0L;
+
         return this;
       }
 
@@ -7190,6 +9316,8 @@ public final class PromqlPlan {
         } else {
           result.fakeLabels_ = fakeLabelsBuilder_.build();
         }
+        result.timeIndexColumnIdx_ = timeIndexColumnIdx_;
+        result.valueColumnIdx_ = valueColumnIdx_;
         onBuilt();
         return result;
       }
@@ -7280,6 +9408,12 @@ public final class PromqlPlan {
               fakeLabelsBuilder_.addAllMessages(other.fakeLabels_);
             }
           }
+        }
+        if (other.getTimeIndexColumnIdx() != 0L) {
+          setTimeIndexColumnIdx(other.getTimeIndexColumnIdx());
+        }
+        if (other.getValueColumnIdx() != 0L) {
+          setValueColumnIdx(other.getValueColumnIdx());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7443,13 +9577,16 @@ public final class PromqlPlan {
       private java.lang.Object timeIndexColumn_ = "";
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 4;</code>
+       * <code>string time_index_column = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=134
        * @return The timeIndexColumn.
        */
-      public java.lang.String getTimeIndexColumn() {
+      @java.lang.Deprecated public java.lang.String getTimeIndexColumn() {
         java.lang.Object ref = timeIndexColumn_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -7463,13 +9600,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 4;</code>
+       * <code>string time_index_column = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=134
        * @return The bytes for timeIndexColumn.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getTimeIndexColumnBytes() {
         java.lang.Object ref = timeIndexColumn_;
         if (ref instanceof String) {
@@ -7484,14 +9624,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 4;</code>
+       * <code>string time_index_column = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=134
        * @param value The timeIndexColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexColumn(
+      @java.lang.Deprecated public Builder setTimeIndexColumn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -7503,13 +9646,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 4;</code>
+       * <code>string time_index_column = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=134
        * @return This builder for chaining.
        */
-      public Builder clearTimeIndexColumn() {
+      @java.lang.Deprecated public Builder clearTimeIndexColumn() {
         
         timeIndexColumn_ = getDefaultInstance().getTimeIndexColumn();
         onChanged();
@@ -7517,14 +9663,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of time index column
+       * [DEPRECATED] Column name of time index column.
+       * Use `time_index_column_idx` instead.
        * </pre>
        *
-       * <code>string time_index_column = 4;</code>
+       * <code>string time_index_column = 4 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.time_index_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=134
        * @param value The bytes for timeIndexColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setTimeIndexColumnBytes(
+      @java.lang.Deprecated public Builder setTimeIndexColumnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -7539,13 +9688,16 @@ public final class PromqlPlan {
       private java.lang.Object valueColumn_ = "";
       /**
        * <pre>
-       * Column name of value column
+       * [DEPRECATED] Column name of value column.
+       * Use `value_column_idx` instead.
        * </pre>
        *
-       * <code>string value_column = 5;</code>
+       * <code>string value_column = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.value_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=137
        * @return The valueColumn.
        */
-      public java.lang.String getValueColumn() {
+      @java.lang.Deprecated public java.lang.String getValueColumn() {
         java.lang.Object ref = valueColumn_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -7559,13 +9711,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of value column
+       * [DEPRECATED] Column name of value column.
+       * Use `value_column_idx` instead.
        * </pre>
        *
-       * <code>string value_column = 5;</code>
+       * <code>string value_column = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.value_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=137
        * @return The bytes for valueColumn.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getValueColumnBytes() {
         java.lang.Object ref = valueColumn_;
         if (ref instanceof String) {
@@ -7580,14 +9735,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of value column
+       * [DEPRECATED] Column name of value column.
+       * Use `value_column_idx` instead.
        * </pre>
        *
-       * <code>string value_column = 5;</code>
+       * <code>string value_column = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.value_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=137
        * @param value The valueColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setValueColumn(
+      @java.lang.Deprecated public Builder setValueColumn(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -7599,13 +9757,16 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of value column
+       * [DEPRECATED] Column name of value column.
+       * Use `value_column_idx` instead.
        * </pre>
        *
-       * <code>string value_column = 5;</code>
+       * <code>string value_column = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.value_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=137
        * @return This builder for chaining.
        */
-      public Builder clearValueColumn() {
+      @java.lang.Deprecated public Builder clearValueColumn() {
         
         valueColumn_ = getDefaultInstance().getValueColumn();
         onChanged();
@@ -7613,14 +9774,17 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Column name of value column
+       * [DEPRECATED] Column name of value column.
+       * Use `value_column_idx` instead.
        * </pre>
        *
-       * <code>string value_column = 5;</code>
+       * <code>string value_column = 5 [deprecated = true];</code>
+       * @deprecated substrait_extension.Absent.value_column is deprecated.
+       *     See substrait_extension/promql_plan.proto;l=137
        * @param value The bytes for valueColumn to set.
        * @return This builder for chaining.
        */
-      public Builder setValueColumnBytes(
+      @java.lang.Deprecated public Builder setValueColumnBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -7942,6 +10106,92 @@ public final class PromqlPlan {
           fakeLabels_ = null;
         }
         return fakeLabelsBuilder_;
+      }
+
+      private long timeIndexColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 7;</code>
+       * @return The timeIndexColumnIdx.
+       */
+      @java.lang.Override
+      public long getTimeIndexColumnIdx() {
+        return timeIndexColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 7;</code>
+       * @param value The timeIndexColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeIndexColumnIdx(long value) {
+        
+        timeIndexColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of time index column
+       * </pre>
+       *
+       * <code>uint64 time_index_column_idx = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeIndexColumnIdx() {
+        
+        timeIndexColumnIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long valueColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of value column
+       * </pre>
+       *
+       * <code>uint64 value_column_idx = 8;</code>
+       * @return The valueColumnIdx.
+       */
+      @java.lang.Override
+      public long getValueColumnIdx() {
+        return valueColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of value column
+       * </pre>
+       *
+       * <code>uint64 value_column_idx = 8;</code>
+       * @param value The valueColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValueColumnIdx(long value) {
+        
+        valueColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of value column
+       * </pre>
+       *
+       * <code>uint64 value_column_idx = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValueColumnIdx() {
+        
+        valueColumnIdx_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8768,27 +11018,37 @@ public final class PromqlPlan {
       "\n%substrait_extension/promql_plan.proto\022" +
       "\023substrait_extension\";\n\013EmptyMetric\022\r\n\005s" +
       "tart\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(" +
-      "\003\"\202\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013" +
+      "\003\"\273\001\n\021InstantManipulate\022\r\n\005start\030\001 \001(\003\022\013" +
       "\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\026\n\016lookbac" +
-      "k_delta\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013fie" +
-      "ld_index\030\006 \001(\t\"^\n\017SeriesNormalize\022\016\n\006off" +
-      "set\030\001 \001(\003\022\022\n\ntime_index\030\002 \001(\t\022\022\n\nfilter_" +
-      "nan\030\003 \001(\010\022\023\n\013tag_columns\030\004 \003(\t\">\n\014Series" +
-      "Divide\022\023\n\013tag_columns\030\001 \003(\t\022\031\n\021time_inde" +
-      "x_column\030\002 \001(\t\"w\n\017RangeManipulate\022\r\n\005sta" +
-      "rt\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022" +
-      "\r\n\005range\030\004 \001(\003\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013ta" +
-      "g_columns\030\006 \003(\t\"~\n\017ScalarCalculate\022\r\n\005st" +
-      "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003" +
-      "\022\022\n\ntime_index\030\005 \001(\t\022\023\n\013tag_columns\030\006 \003(" +
-      "\t\022\024\n\014field_column\030\007 \001(\t\"\230\001\n\006Absent\022\r\n\005st" +
-      "art\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\014\n\004step\030\003 \001(\003\022\031\n\021" +
-      "time_index_column\030\004 \001(\t\022\024\n\014value_column\030" +
-      "\005 \001(\t\0223\n\013fake_labels\030\006 \003(\0132\036.substrait_e" +
-      "xtension.LabelPair\"\'\n\tLabelPair\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\tB?Z=github.com/Grepti" +
-      "meTeam/greptime-proto/go/substrait_exten" +
-      "sionb\006proto3"
+      "k_delta\030\004 \001(\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n" +
+      "\013field_index\030\006 \001(\tB\002\030\001\022\026\n\016time_index_idx" +
+      "\030\007 \001(\004\022\027\n\017field_index_idx\030\010 \001(\004\"\232\001\n\017Seri" +
+      "esNormalize\022\016\n\006offset\030\001 \001(\003\022\026\n\ntime_inde" +
+      "x\030\002 \001(\tB\002\030\001\022\022\n\nfilter_nan\030\003 \001(\010\022\027\n\013tag_c" +
+      "olumns\030\004 \003(\tB\002\030\001\022\026\n\016time_index_idx\030\005 \001(\004" +
+      "\022\032\n\022tag_column_indices\030\006 \003(\004\"\201\001\n\014SeriesD" +
+      "ivide\022\027\n\013tag_columns\030\001 \003(\tB\002\030\001\022\035\n\021time_i" +
+      "ndex_column\030\002 \001(\tB\002\030\001\022\032\n\022tag_column_indi" +
+      "ces\030\003 \003(\004\022\035\n\025time_index_column_idx\030\004 \001(\004" +
+      "\"\263\001\n\017RangeManipulate\022\r\n\005start\030\001 \001(\003\022\013\n\003e" +
+      "nd\030\002 \001(\003\022\020\n\010interval\030\003 \001(\003\022\r\n\005range\030\004 \001(" +
+      "\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n\013tag_columns" +
+      "\030\006 \003(\tB\002\030\001\022\026\n\016time_index_idx\030\007 \001(\004\022\032\n\022ta" +
+      "g_column_indices\030\010 \003(\004\"\330\001\n\017ScalarCalcula" +
+      "te\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\020\n\010interv" +
+      "al\030\003 \001(\003\022\026\n\ntime_index\030\005 \001(\tB\002\030\001\022\027\n\013tag_" +
+      "columns\030\006 \003(\tB\002\030\001\022\030\n\014field_column\030\007 \001(\tB" +
+      "\002\030\001\022\026\n\016time_index_idx\030\010 \001(\004\022\032\n\022tag_colum" +
+      "n_indices\030\t \003(\004\022\030\n\020field_column_idx\030\n \001(" +
+      "\004\"\331\001\n\006Absent\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003" +
+      "\022\014\n\004step\030\003 \001(\003\022\035\n\021time_index_column\030\004 \001(" +
+      "\tB\002\030\001\022\030\n\014value_column\030\005 \001(\tB\002\030\001\0223\n\013fake_" +
+      "labels\030\006 \003(\0132\036.substrait_extension.Label" +
+      "Pair\022\035\n\025time_index_column_idx\030\007 \001(\004\022\030\n\020v" +
+      "alue_column_idx\030\010 \001(\004\"\'\n\tLabelPair\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\tB?Z=github.com/Gre" +
+      "ptimeTeam/greptime-proto/go/substrait_ex" +
+      "tensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8805,37 +11065,37 @@ public final class PromqlPlan {
     internal_static_substrait_extension_InstantManipulate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_InstantManipulate_descriptor,
-        new java.lang.String[] { "Start", "End", "Interval", "LookbackDelta", "TimeIndex", "FieldIndex", });
+        new java.lang.String[] { "Start", "End", "Interval", "LookbackDelta", "TimeIndex", "FieldIndex", "TimeIndexIdx", "FieldIndexIdx", });
     internal_static_substrait_extension_SeriesNormalize_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_substrait_extension_SeriesNormalize_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_SeriesNormalize_descriptor,
-        new java.lang.String[] { "Offset", "TimeIndex", "FilterNan", "TagColumns", });
+        new java.lang.String[] { "Offset", "TimeIndex", "FilterNan", "TagColumns", "TimeIndexIdx", "TagColumnIndices", });
     internal_static_substrait_extension_SeriesDivide_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_substrait_extension_SeriesDivide_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_SeriesDivide_descriptor,
-        new java.lang.String[] { "TagColumns", "TimeIndexColumn", });
+        new java.lang.String[] { "TagColumns", "TimeIndexColumn", "TagColumnIndices", "TimeIndexColumnIdx", });
     internal_static_substrait_extension_RangeManipulate_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_substrait_extension_RangeManipulate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_RangeManipulate_descriptor,
-        new java.lang.String[] { "Start", "End", "Interval", "Range", "TimeIndex", "TagColumns", });
+        new java.lang.String[] { "Start", "End", "Interval", "Range", "TimeIndex", "TagColumns", "TimeIndexIdx", "TagColumnIndices", });
     internal_static_substrait_extension_ScalarCalculate_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_substrait_extension_ScalarCalculate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_ScalarCalculate_descriptor,
-        new java.lang.String[] { "Start", "End", "Interval", "TimeIndex", "TagColumns", "FieldColumn", });
+        new java.lang.String[] { "Start", "End", "Interval", "TimeIndex", "TagColumns", "FieldColumn", "TimeIndexIdx", "TagColumnIndices", "FieldColumnIdx", });
     internal_static_substrait_extension_Absent_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_substrait_extension_Absent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_Absent_descriptor,
-        new java.lang.String[] { "Start", "End", "Step", "TimeIndexColumn", "ValueColumn", "FakeLabels", });
+        new java.lang.String[] { "Start", "End", "Step", "TimeIndexColumn", "ValueColumn", "FakeLabels", "TimeIndexColumnIdx", "ValueColumnIdx", });
     internal_static_substrait_extension_LabelPair_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_substrait_extension_LabelPair_fieldAccessorTable = new

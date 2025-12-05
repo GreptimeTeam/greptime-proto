@@ -1858,58 +1858,115 @@ public final class ClusterOuterClass {
     greptime.v1.meta.Common.PeerOrBuilder getPeerOrBuilder();
 
     /**
-     * <code>string version = 2;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The version of the node.
+     * </pre>
+     *
+     * <code>string version = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=50
      * @return The version.
      */
-    java.lang.String getVersion();
+    @java.lang.Deprecated java.lang.String getVersion();
     /**
-     * <code>string version = 2;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The version of the node.
+     * </pre>
+     *
+     * <code>string version = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=50
      * @return The bytes for version.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getVersionBytes();
 
     /**
-     * <code>string git_commit = 3;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+     * </pre>
+     *
+     * <code>string git_commit = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=52
      * @return The gitCommit.
      */
-    java.lang.String getGitCommit();
+    @java.lang.Deprecated java.lang.String getGitCommit();
     /**
-     * <code>string git_commit = 3;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+     * </pre>
+     *
+     * <code>string git_commit = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=52
      * @return The bytes for gitCommit.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getGitCommitBytes();
 
     /**
      * <pre>
-     * The node start timestamp in milliseconds.
+     * Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
      * </pre>
      *
-     * <code>uint64 start_time_ms = 4;</code>
+     * <code>uint64 start_time_ms = 4 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.start_time_ms is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=54
      * @return The startTimeMs.
      */
-    long getStartTimeMs();
+    @java.lang.Deprecated long getStartTimeMs();
 
     /**
      * <pre>
-     * The CPU cores number of the node.
+     * Deprecated: Use NodeInfo instead. The CPU cores number of the node.
      * </pre>
      *
-     * <code>uint32 cpus = 5;</code>
+     * <code>uint32 cpus = 5 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.cpus is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=56
      * @return The cpus.
      */
-    int getCpus();
+    @java.lang.Deprecated int getCpus();
 
     /**
      * <pre>
-     * The memory bytes of the node.
+     * Deprecated: Use NodeInfo instead. The memory bytes of the node.
      * </pre>
      *
-     * <code>uint64 memory_bytes = 6;</code>
+     * <code>uint64 memory_bytes = 6 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.memory_bytes is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=58
      * @return The memoryBytes.
      */
-    long getMemoryBytes();
+    @java.lang.Deprecated long getMemoryBytes();
+
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     * @return Whether the info field is set.
+     */
+    boolean hasInfo();
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     * @return The info.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo();
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.MetasrvNodeInfo}
@@ -1998,6 +2055,19 @@ public final class ClusterOuterClass {
               memoryBytes_ = input.readUInt64();
               break;
             }
+            case 58: {
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder subBuilder = null;
+              if (info_ != null) {
+                subBuilder = info_.toBuilder();
+              }
+              info_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.NodeInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(info_);
+                info_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2061,11 +2131,17 @@ public final class ClusterOuterClass {
     public static final int VERSION_FIELD_NUMBER = 2;
     private volatile java.lang.Object version_;
     /**
-     * <code>string version = 2;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The version of the node.
+     * </pre>
+     *
+     * <code>string version = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=50
      * @return The version.
      */
     @java.lang.Override
-    public java.lang.String getVersion() {
+    @java.lang.Deprecated public java.lang.String getVersion() {
       java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -2078,11 +2154,17 @@ public final class ClusterOuterClass {
       }
     }
     /**
-     * <code>string version = 2;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The version of the node.
+     * </pre>
+     *
+     * <code>string version = 2 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=50
      * @return The bytes for version.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getVersionBytes() {
       java.lang.Object ref = version_;
       if (ref instanceof java.lang.String) {
@@ -2099,11 +2181,17 @@ public final class ClusterOuterClass {
     public static final int GIT_COMMIT_FIELD_NUMBER = 3;
     private volatile java.lang.Object gitCommit_;
     /**
-     * <code>string git_commit = 3;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+     * </pre>
+     *
+     * <code>string git_commit = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=52
      * @return The gitCommit.
      */
     @java.lang.Override
-    public java.lang.String getGitCommit() {
+    @java.lang.Deprecated public java.lang.String getGitCommit() {
       java.lang.Object ref = gitCommit_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -2116,11 +2204,17 @@ public final class ClusterOuterClass {
       }
     }
     /**
-     * <code>string git_commit = 3;</code>
+     * <pre>
+     * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+     * </pre>
+     *
+     * <code>string git_commit = 3 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=52
      * @return The bytes for gitCommit.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getGitCommitBytes() {
       java.lang.Object ref = gitCommit_;
       if (ref instanceof java.lang.String) {
@@ -2138,14 +2232,16 @@ public final class ClusterOuterClass {
     private long startTimeMs_;
     /**
      * <pre>
-     * The node start timestamp in milliseconds.
+     * Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
      * </pre>
      *
-     * <code>uint64 start_time_ms = 4;</code>
+     * <code>uint64 start_time_ms = 4 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.start_time_ms is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=54
      * @return The startTimeMs.
      */
     @java.lang.Override
-    public long getStartTimeMs() {
+    @java.lang.Deprecated public long getStartTimeMs() {
       return startTimeMs_;
     }
 
@@ -2153,14 +2249,16 @@ public final class ClusterOuterClass {
     private int cpus_;
     /**
      * <pre>
-     * The CPU cores number of the node.
+     * Deprecated: Use NodeInfo instead. The CPU cores number of the node.
      * </pre>
      *
-     * <code>uint32 cpus = 5;</code>
+     * <code>uint32 cpus = 5 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.cpus is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=56
      * @return The cpus.
      */
     @java.lang.Override
-    public int getCpus() {
+    @java.lang.Deprecated public int getCpus() {
       return cpus_;
     }
 
@@ -2168,15 +2266,55 @@ public final class ClusterOuterClass {
     private long memoryBytes_;
     /**
      * <pre>
-     * The memory bytes of the node.
+     * Deprecated: Use NodeInfo instead. The memory bytes of the node.
      * </pre>
      *
-     * <code>uint64 memory_bytes = 6;</code>
+     * <code>uint64 memory_bytes = 6 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.MetasrvNodeInfo.memory_bytes is deprecated.
+     *     See greptime/v1/meta/cluster.proto;l=58
      * @return The memoryBytes.
      */
     @java.lang.Override
-    public long getMemoryBytes() {
+    @java.lang.Deprecated public long getMemoryBytes() {
       return memoryBytes_;
+    }
+
+    public static final int INFO_FIELD_NUMBER = 7;
+    private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     * @return Whether the info field is set.
+     */
+    @java.lang.Override
+    public boolean hasInfo() {
+      return info_ != null;
+    }
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     * @return The info.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+      return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+    }
+    /**
+     * <pre>
+     * The node info.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+      return getInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2211,6 +2349,9 @@ public final class ClusterOuterClass {
       if (memoryBytes_ != 0L) {
         output.writeUInt64(6, memoryBytes_);
       }
+      if (info_ != null) {
+        output.writeMessage(7, getInfo());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2242,6 +2383,10 @@ public final class ClusterOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(6, memoryBytes_);
       }
+      if (info_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getInfo());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2272,6 +2417,11 @@ public final class ClusterOuterClass {
           != other.getCpus()) return false;
       if (getMemoryBytes()
           != other.getMemoryBytes()) return false;
+      if (hasInfo() != other.hasInfo()) return false;
+      if (hasInfo()) {
+        if (!getInfo()
+            .equals(other.getInfo())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2299,6 +2449,10 @@ public final class ClusterOuterClass {
       hash = (37 * hash) + MEMORY_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMemoryBytes());
+      if (hasInfo()) {
+        hash = (37 * hash) + INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getInfo().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2448,6 +2602,12 @@ public final class ClusterOuterClass {
 
         memoryBytes_ = 0L;
 
+        if (infoBuilder_ == null) {
+          info_ = null;
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
         return this;
       }
 
@@ -2484,6 +2644,11 @@ public final class ClusterOuterClass {
         result.startTimeMs_ = startTimeMs_;
         result.cpus_ = cpus_;
         result.memoryBytes_ = memoryBytes_;
+        if (infoBuilder_ == null) {
+          result.info_ = info_;
+        } else {
+          result.info_ = infoBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2551,6 +2716,9 @@ public final class ClusterOuterClass {
         }
         if (other.getMemoryBytes() != 0L) {
           setMemoryBytes(other.getMemoryBytes());
+        }
+        if (other.hasInfo()) {
+          mergeInfo(other.getInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2702,10 +2870,16 @@ public final class ClusterOuterClass {
 
       private java.lang.Object version_ = "";
       /**
-       * <code>string version = 2;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The version of the node.
+       * </pre>
+       *
+       * <code>string version = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=50
        * @return The version.
        */
-      public java.lang.String getVersion() {
+      @java.lang.Deprecated public java.lang.String getVersion() {
         java.lang.Object ref = version_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -2718,10 +2892,16 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>string version = 2;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The version of the node.
+       * </pre>
+       *
+       * <code>string version = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=50
        * @return The bytes for version.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getVersionBytes() {
         java.lang.Object ref = version_;
         if (ref instanceof String) {
@@ -2735,11 +2915,17 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>string version = 2;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The version of the node.
+       * </pre>
+       *
+       * <code>string version = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=50
        * @param value The version to set.
        * @return This builder for chaining.
        */
-      public Builder setVersion(
+      @java.lang.Deprecated public Builder setVersion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2750,21 +2936,33 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>string version = 2;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The version of the node.
+       * </pre>
+       *
+       * <code>string version = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=50
        * @return This builder for chaining.
        */
-      public Builder clearVersion() {
+      @java.lang.Deprecated public Builder clearVersion() {
         
         version_ = getDefaultInstance().getVersion();
         onChanged();
         return this;
       }
       /**
-       * <code>string version = 2;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The version of the node.
+       * </pre>
+       *
+       * <code>string version = 2 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.version is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=50
        * @param value The bytes for version to set.
        * @return This builder for chaining.
        */
-      public Builder setVersionBytes(
+      @java.lang.Deprecated public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2778,10 +2976,16 @@ public final class ClusterOuterClass {
 
       private java.lang.Object gitCommit_ = "";
       /**
-       * <code>string git_commit = 3;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+       * </pre>
+       *
+       * <code>string git_commit = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=52
        * @return The gitCommit.
        */
-      public java.lang.String getGitCommit() {
+      @java.lang.Deprecated public java.lang.String getGitCommit() {
         java.lang.Object ref = gitCommit_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -2794,10 +2998,16 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>string git_commit = 3;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+       * </pre>
+       *
+       * <code>string git_commit = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=52
        * @return The bytes for gitCommit.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getGitCommitBytes() {
         java.lang.Object ref = gitCommit_;
         if (ref instanceof String) {
@@ -2811,11 +3021,17 @@ public final class ClusterOuterClass {
         }
       }
       /**
-       * <code>string git_commit = 3;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+       * </pre>
+       *
+       * <code>string git_commit = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=52
        * @param value The gitCommit to set.
        * @return This builder for chaining.
        */
-      public Builder setGitCommit(
+      @java.lang.Deprecated public Builder setGitCommit(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2826,21 +3042,33 @@ public final class ClusterOuterClass {
         return this;
       }
       /**
-       * <code>string git_commit = 3;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+       * </pre>
+       *
+       * <code>string git_commit = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=52
        * @return This builder for chaining.
        */
-      public Builder clearGitCommit() {
+      @java.lang.Deprecated public Builder clearGitCommit() {
         
         gitCommit_ = getDefaultInstance().getGitCommit();
         onChanged();
         return this;
       }
       /**
-       * <code>string git_commit = 3;</code>
+       * <pre>
+       * Deprecated: Use NodeInfo instead. The git commit hash of the node.
+       * </pre>
+       *
+       * <code>string git_commit = 3 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.git_commit is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=52
        * @param value The bytes for gitCommit to set.
        * @return This builder for chaining.
        */
-      public Builder setGitCommitBytes(
+      @java.lang.Deprecated public Builder setGitCommitBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -2855,26 +3083,30 @@ public final class ClusterOuterClass {
       private long startTimeMs_ ;
       /**
        * <pre>
-       * The node start timestamp in milliseconds.
+       * Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
        * </pre>
        *
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>uint64 start_time_ms = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.start_time_ms is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=54
        * @return The startTimeMs.
        */
       @java.lang.Override
-      public long getStartTimeMs() {
+      @java.lang.Deprecated public long getStartTimeMs() {
         return startTimeMs_;
       }
       /**
        * <pre>
-       * The node start timestamp in milliseconds.
+       * Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
        * </pre>
        *
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>uint64 start_time_ms = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.start_time_ms is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=54
        * @param value The startTimeMs to set.
        * @return This builder for chaining.
        */
-      public Builder setStartTimeMs(long value) {
+      @java.lang.Deprecated public Builder setStartTimeMs(long value) {
         
         startTimeMs_ = value;
         onChanged();
@@ -2882,13 +3114,15 @@ public final class ClusterOuterClass {
       }
       /**
        * <pre>
-       * The node start timestamp in milliseconds.
+       * Deprecated: Use NodeInfo instead. The node start timestamp in milliseconds.
        * </pre>
        *
-       * <code>uint64 start_time_ms = 4;</code>
+       * <code>uint64 start_time_ms = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.start_time_ms is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=54
        * @return This builder for chaining.
        */
-      public Builder clearStartTimeMs() {
+      @java.lang.Deprecated public Builder clearStartTimeMs() {
         
         startTimeMs_ = 0L;
         onChanged();
@@ -2898,26 +3132,30 @@ public final class ClusterOuterClass {
       private int cpus_ ;
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use NodeInfo instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 5;</code>
+       * <code>uint32 cpus = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=56
        * @return The cpus.
        */
       @java.lang.Override
-      public int getCpus() {
+      @java.lang.Deprecated public int getCpus() {
         return cpus_;
       }
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use NodeInfo instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 5;</code>
+       * <code>uint32 cpus = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=56
        * @param value The cpus to set.
        * @return This builder for chaining.
        */
-      public Builder setCpus(int value) {
+      @java.lang.Deprecated public Builder setCpus(int value) {
         
         cpus_ = value;
         onChanged();
@@ -2925,13 +3163,15 @@ public final class ClusterOuterClass {
       }
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use NodeInfo instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 5;</code>
+       * <code>uint32 cpus = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=56
        * @return This builder for chaining.
        */
-      public Builder clearCpus() {
+      @java.lang.Deprecated public Builder clearCpus() {
         
         cpus_ = 0;
         onChanged();
@@ -2941,26 +3181,30 @@ public final class ClusterOuterClass {
       private long memoryBytes_ ;
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use NodeInfo instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 6;</code>
+       * <code>uint64 memory_bytes = 6 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=58
        * @return The memoryBytes.
        */
       @java.lang.Override
-      public long getMemoryBytes() {
+      @java.lang.Deprecated public long getMemoryBytes() {
         return memoryBytes_;
       }
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use NodeInfo instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 6;</code>
+       * <code>uint64 memory_bytes = 6 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=58
        * @param value The memoryBytes to set.
        * @return This builder for chaining.
        */
-      public Builder setMemoryBytes(long value) {
+      @java.lang.Deprecated public Builder setMemoryBytes(long value) {
         
         memoryBytes_ = value;
         onChanged();
@@ -2968,17 +3212,174 @@ public final class ClusterOuterClass {
       }
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use NodeInfo instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 6;</code>
+       * <code>uint64 memory_bytes = 6 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.MetasrvNodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/cluster.proto;l=58
        * @return This builder for chaining.
        */
-      public Builder clearMemoryBytes() {
+      @java.lang.Deprecated public Builder clearMemoryBytes() {
         
         memoryBytes_ = 0L;
         onChanged();
         return this;
+      }
+
+      private greptime.v1.meta.HeartbeatOuterClass.NodeInfo info_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> infoBuilder_;
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       * @return Whether the info field is set.
+       */
+      public boolean hasInfo() {
+        return infoBuilder_ != null || info_ != null;
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       * @return The info.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo getInfo() {
+        if (infoBuilder_ == null) {
+          return info_ == null ? greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+        } else {
+          return infoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public Builder setInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          info_ = value;
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public Builder setInfo(
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder builderForValue) {
+        if (infoBuilder_ == null) {
+          info_ = builderForValue.build();
+          onChanged();
+        } else {
+          infoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public Builder mergeInfo(greptime.v1.meta.HeartbeatOuterClass.NodeInfo value) {
+        if (infoBuilder_ == null) {
+          if (info_ != null) {
+            info_ =
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.newBuilder(info_).mergeFrom(value).buildPartial();
+          } else {
+            info_ = value;
+          }
+          onChanged();
+        } else {
+          infoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public Builder clearInfo() {
+        if (infoBuilder_ == null) {
+          info_ = null;
+          onChanged();
+        } else {
+          info_ = null;
+          infoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder getInfoBuilder() {
+        
+        onChanged();
+        return getInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder getInfoOrBuilder() {
+        if (infoBuilder_ != null) {
+          return infoBuilder_.getMessageOrBuilder();
+        } else {
+          return info_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo.getDefaultInstance() : info_;
+        }
+      }
+      /**
+       * <pre>
+       * The node info.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.NodeInfo info = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder> 
+          getInfoFieldBuilder() {
+        if (infoBuilder_ == null) {
+          infoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.NodeInfo, greptime.v1.meta.HeartbeatOuterClass.NodeInfo.Builder, greptime.v1.meta.HeartbeatOuterClass.NodeInfoOrBuilder>(
+                  getInfo(),
+                  getParentForChildren(),
+                  isClean());
+          info_ = null;
+        }
+        return infoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3059,31 +3460,34 @@ public final class ClusterOuterClass {
     java.lang.String[] descriptorData = {
       "\n\036greptime/v1/meta/cluster.proto\022\020grepti" +
       "me.v1.meta\032\035greptime/v1/meta/common.prot" +
-      "o\032\034greptime/v1/meta/store.proto\"F\n\023Metas" +
-      "rvPeersRequest\022/\n\006header\030\001 \001(\0132\037.greptim" +
-      "e.v1.meta.RequestHeader\"\261\001\n\024MetasrvPeers" +
-      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre" +
-      "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe" +
-      "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI" +
-      "nfo\"\227\001\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026." +
-      "greptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022" +
-      "\n\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001(" +
-      "\004\022\014\n\004cpus\030\005 \001(\r\022\024\n\014memory_bytes\030\006 \001(\0042\205\002" +
-      "\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.meta" +
-      ".BatchGetRequest\032\".greptime.v1.meta.Batc" +
-      "hGetResponse\022H\n\005Range\022\036.greptime.v1.meta" +
-      ".RangeRequest\032\037.greptime.v1.meta.RangeRe" +
-      "sponse\022]\n\014MetasrvPeers\022%.greptime.v1.met" +
-      "a.MetasrvPeersRequest\032&.greptime.v1.meta" +
-      ".MetasrvPeersResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "o\032 greptime/v1/meta/heartbeat.proto\032\034gre" +
+      "ptime/v1/meta/store.proto\"F\n\023MetasrvPeer" +
+      "sRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.m" +
+      "eta.RequestHeader\"\261\001\n\024MetasrvPeersRespon" +
+      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
+      "sponseHeader\0221\n\006leader\030\002 \001(\0132!.greptime." +
+      "v1.meta.MetasrvNodeInfo\0224\n\tfollowers\030\003 \003" +
+      "(\0132!.greptime.v1.meta.MetasrvNodeInfo\"\325\001" +
+      "\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.grepti" +
+      "me.v1.meta.Peer\022\023\n\007version\030\002 \001(\tB\002\030\001\022\026\n\n" +
+      "git_commit\030\003 \001(\tB\002\030\001\022\031\n\rstart_time_ms\030\004 " +
+      "\001(\004B\002\030\001\022\020\n\004cpus\030\005 \001(\rB\002\030\001\022\030\n\014memory_byte" +
+      "s\030\006 \001(\004B\002\030\001\022(\n\004info\030\007 \001(\0132\032.greptime.v1." +
+      "meta.NodeInfo2\205\002\n\007Cluster\022Q\n\010BatchGet\022!." +
+      "greptime.v1.meta.BatchGetRequest\032\".grept" +
+      "ime.v1.meta.BatchGetResponse\022H\n\005Range\022\036." +
+      "greptime.v1.meta.RangeRequest\032\037.greptime" +
+      ".v1.meta.RangeResponse\022]\n\014MetasrvPeers\022%" +
+      ".greptime.v1.meta.MetasrvPeersRequest\032&." +
+      "greptime.v1.meta.MetasrvPeersResponseB<Z" +
+      ":github.com/GreptimeTeam/greptime-proto/" +
+      "go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           greptime.v1.meta.Common.getDescriptor(),
+          greptime.v1.meta.HeartbeatOuterClass.getDescriptor(),
           greptime.v1.meta.StoreOuterClass.getDescriptor(),
         });
     internal_static_greptime_v1_meta_MetasrvPeersRequest_descriptor =
@@ -3103,8 +3507,9 @@ public final class ClusterOuterClass {
     internal_static_greptime_v1_meta_MetasrvNodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MetasrvNodeInfo_descriptor,
-        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", });
+        new java.lang.String[] { "Peer", "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", "Info", });
     greptime.v1.meta.Common.getDescriptor();
+    greptime.v1.meta.HeartbeatOuterClass.getDescriptor();
     greptime.v1.meta.StoreOuterClass.getDescriptor();
   }
 

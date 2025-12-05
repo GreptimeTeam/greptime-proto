@@ -56,6 +56,7 @@ PROTOBUF_CONSTEXPR MetasrvNodeInfo::MetasrvNodeInfo(
     /*decltype(_impl_.version_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.git_commit_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.peer_)*/nullptr
+  , /*decltype(_impl_.info_)*/nullptr
   , /*decltype(_impl_.start_time_ms_)*/uint64_t{0u}
   , /*decltype(_impl_.memory_bytes_)*/uint64_t{0u}
   , /*decltype(_impl_.cpus_)*/0u
@@ -105,6 +106,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.start_time_ms_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.cpus_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.memory_bytes_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetasrvNodeInfo, _impl_.info_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::MetasrvPeersRequest)},
@@ -121,36 +123,39 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\036greptime/v1/meta/cluster.proto\022\020grepti"
   "me.v1.meta\032\035greptime/v1/meta/common.prot"
-  "o\032\034greptime/v1/meta/store.proto\"F\n\023Metas"
-  "rvPeersRequest\022/\n\006header\030\001 \001(\0132\037.greptim"
-  "e.v1.meta.RequestHeader\"\261\001\n\024MetasrvPeers"
-  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
-  "eta.ResponseHeader\0221\n\006leader\030\002 \001(\0132!.gre"
-  "ptime.v1.meta.MetasrvNodeInfo\0224\n\tfollowe"
-  "rs\030\003 \003(\0132!.greptime.v1.meta.MetasrvNodeI"
-  "nfo\"\227\001\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026."
-  "greptime.v1.meta.Peer\022\017\n\007version\030\002 \001(\t\022\022"
-  "\n\ngit_commit\030\003 \001(\t\022\025\n\rstart_time_ms\030\004 \001("
-  "\004\022\014\n\004cpus\030\005 \001(\r\022\024\n\014memory_bytes\030\006 \001(\0042\205\002"
-  "\n\007Cluster\022Q\n\010BatchGet\022!.greptime.v1.meta"
-  ".BatchGetRequest\032\".greptime.v1.meta.Batc"
-  "hGetResponse\022H\n\005Range\022\036.greptime.v1.meta"
-  ".RangeRequest\032\037.greptime.v1.meta.RangeRe"
-  "sponse\022]\n\014MetasrvPeers\022%.greptime.v1.met"
-  "a.MetasrvPeersRequest\032&.greptime.v1.meta"
-  ".MetasrvPeersResponseB<Z:github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1/m"
-  "etab\006proto3"
+  "o\032 greptime/v1/meta/heartbeat.proto\032\034gre"
+  "ptime/v1/meta/store.proto\"F\n\023MetasrvPeer"
+  "sRequest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.m"
+  "eta.RequestHeader\"\261\001\n\024MetasrvPeersRespon"
+  "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re"
+  "sponseHeader\0221\n\006leader\030\002 \001(\0132!.greptime."
+  "v1.meta.MetasrvNodeInfo\0224\n\tfollowers\030\003 \003"
+  "(\0132!.greptime.v1.meta.MetasrvNodeInfo\"\325\001"
+  "\n\017MetasrvNodeInfo\022$\n\004peer\030\001 \001(\0132\026.grepti"
+  "me.v1.meta.Peer\022\023\n\007version\030\002 \001(\tB\002\030\001\022\026\n\n"
+  "git_commit\030\003 \001(\tB\002\030\001\022\031\n\rstart_time_ms\030\004 "
+  "\001(\004B\002\030\001\022\020\n\004cpus\030\005 \001(\rB\002\030\001\022\030\n\014memory_byte"
+  "s\030\006 \001(\004B\002\030\001\022(\n\004info\030\007 \001(\0132\032.greptime.v1."
+  "meta.NodeInfo2\205\002\n\007Cluster\022Q\n\010BatchGet\022!."
+  "greptime.v1.meta.BatchGetRequest\032\".grept"
+  "ime.v1.meta.BatchGetResponse\022H\n\005Range\022\036."
+  "greptime.v1.meta.RangeRequest\032\037.greptime"
+  ".v1.meta.RangeResponse\022]\n\014MetasrvPeers\022%"
+  ".greptime.v1.meta.MetasrvPeersRequest\032&."
+  "greptime.v1.meta.MetasrvPeersResponseB<Z"
+  ":github.com/GreptimeTeam/greptime-proto/"
+  "go/greptime/v1/metab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps[2] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
+  &::descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
   &::descriptor_table_greptime_2fv1_2fmeta_2fstore_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto = {
-    false, false, 851, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto,
+    false, false, 947, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcluster_2eproto,
     "greptime/v1/meta/cluster.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps, 2, 3,
+    &descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fcluster_2eproto_deps, 3, 3,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fcluster_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fcluster_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fcluster_2eproto,
@@ -648,17 +653,28 @@ void MetasrvPeersResponse::InternalSwap(MetasrvPeersResponse* other) {
 class MetasrvNodeInfo::_Internal {
  public:
   static const ::greptime::v1::meta::Peer& peer(const MetasrvNodeInfo* msg);
+  static const ::greptime::v1::meta::NodeInfo& info(const MetasrvNodeInfo* msg);
 };
 
 const ::greptime::v1::meta::Peer&
 MetasrvNodeInfo::_Internal::peer(const MetasrvNodeInfo* msg) {
   return *msg->_impl_.peer_;
 }
+const ::greptime::v1::meta::NodeInfo&
+MetasrvNodeInfo::_Internal::info(const MetasrvNodeInfo* msg) {
+  return *msg->_impl_.info_;
+}
 void MetasrvNodeInfo::clear_peer() {
   if (GetArenaForAllocation() == nullptr && _impl_.peer_ != nullptr) {
     delete _impl_.peer_;
   }
   _impl_.peer_ = nullptr;
+}
+void MetasrvNodeInfo::clear_info() {
+  if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
+    delete _impl_.info_;
+  }
+  _impl_.info_ = nullptr;
 }
 MetasrvNodeInfo::MetasrvNodeInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -673,6 +689,7 @@ MetasrvNodeInfo::MetasrvNodeInfo(const MetasrvNodeInfo& from)
       decltype(_impl_.version_){}
     , decltype(_impl_.git_commit_){}
     , decltype(_impl_.peer_){nullptr}
+    , decltype(_impl_.info_){nullptr}
     , decltype(_impl_.start_time_ms_){}
     , decltype(_impl_.memory_bytes_){}
     , decltype(_impl_.cpus_){}
@@ -698,6 +715,9 @@ MetasrvNodeInfo::MetasrvNodeInfo(const MetasrvNodeInfo& from)
   if (from._internal_has_peer()) {
     _this->_impl_.peer_ = new ::greptime::v1::meta::Peer(*from._impl_.peer_);
   }
+  if (from._internal_has_info()) {
+    _this->_impl_.info_ = new ::greptime::v1::meta::NodeInfo(*from._impl_.info_);
+  }
   ::memcpy(&_impl_.start_time_ms_, &from._impl_.start_time_ms_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.cpus_) -
     reinterpret_cast<char*>(&_impl_.start_time_ms_)) + sizeof(_impl_.cpus_));
@@ -712,6 +732,7 @@ inline void MetasrvNodeInfo::SharedCtor(
       decltype(_impl_.version_){}
     , decltype(_impl_.git_commit_){}
     , decltype(_impl_.peer_){nullptr}
+    , decltype(_impl_.info_){nullptr}
     , decltype(_impl_.start_time_ms_){uint64_t{0u}}
     , decltype(_impl_.memory_bytes_){uint64_t{0u}}
     , decltype(_impl_.cpus_){0u}
@@ -741,6 +762,7 @@ inline void MetasrvNodeInfo::SharedDtor() {
   _impl_.version_.Destroy();
   _impl_.git_commit_.Destroy();
   if (this != internal_default_instance()) delete _impl_.peer_;
+  if (this != internal_default_instance()) delete _impl_.info_;
 }
 
 void MetasrvNodeInfo::SetCachedSize(int size) const {
@@ -759,6 +781,10 @@ void MetasrvNodeInfo::Clear() {
     delete _impl_.peer_;
   }
   _impl_.peer_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.info_ != nullptr) {
+    delete _impl_.info_;
+  }
+  _impl_.info_ = nullptr;
   ::memset(&_impl_.start_time_ms_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.cpus_) -
       reinterpret_cast<char*>(&_impl_.start_time_ms_)) + sizeof(_impl_.cpus_));
@@ -779,7 +805,7 @@ const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string version = 2;
+      // string version = 2 [deprecated = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_version();
@@ -789,7 +815,7 @@ const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string git_commit = 3;
+      // string git_commit = 3 [deprecated = true];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_git_commit();
@@ -799,7 +825,7 @@ const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // uint64 start_time_ms = 4;
+      // uint64 start_time_ms = 4 [deprecated = true];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.start_time_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -807,7 +833,7 @@ const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // uint32 cpus = 5;
+      // uint32 cpus = 5 [deprecated = true];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
           _impl_.cpus_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -815,10 +841,18 @@ const char* MetasrvNodeInfo::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // uint64 memory_bytes = 6;
+      // uint64 memory_bytes = 6 [deprecated = true];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _impl_.memory_bytes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.NodeInfo info = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_info(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -859,7 +893,7 @@ uint8_t* MetasrvNodeInfo::_InternalSerialize(
         _Internal::peer(this).GetCachedSize(), target, stream);
   }
 
-  // string version = 2;
+  // string version = 2 [deprecated = true];
   if (!this->_internal_version().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
@@ -869,7 +903,7 @@ uint8_t* MetasrvNodeInfo::_InternalSerialize(
         2, this->_internal_version(), target);
   }
 
-  // string git_commit = 3;
+  // string git_commit = 3 [deprecated = true];
   if (!this->_internal_git_commit().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_git_commit().data(), static_cast<int>(this->_internal_git_commit().length()),
@@ -879,22 +913,29 @@ uint8_t* MetasrvNodeInfo::_InternalSerialize(
         3, this->_internal_git_commit(), target);
   }
 
-  // uint64 start_time_ms = 4;
+  // uint64 start_time_ms = 4 [deprecated = true];
   if (this->_internal_start_time_ms() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_start_time_ms(), target);
   }
 
-  // uint32 cpus = 5;
+  // uint32 cpus = 5 [deprecated = true];
   if (this->_internal_cpus() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_cpus(), target);
   }
 
-  // uint64 memory_bytes = 6;
+  // uint64 memory_bytes = 6 [deprecated = true];
   if (this->_internal_memory_bytes() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_memory_bytes(), target);
+  }
+
+  // .greptime.v1.meta.NodeInfo info = 7;
+  if (this->_internal_has_info()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::info(this),
+        _Internal::info(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -913,14 +954,14 @@ size_t MetasrvNodeInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string version = 2;
+  // string version = 2 [deprecated = true];
   if (!this->_internal_version().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_version());
   }
 
-  // string git_commit = 3;
+  // string git_commit = 3 [deprecated = true];
   if (!this->_internal_git_commit().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -934,17 +975,24 @@ size_t MetasrvNodeInfo::ByteSizeLong() const {
         *_impl_.peer_);
   }
 
-  // uint64 start_time_ms = 4;
+  // .greptime.v1.meta.NodeInfo info = 7;
+  if (this->_internal_has_info()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.info_);
+  }
+
+  // uint64 start_time_ms = 4 [deprecated = true];
   if (this->_internal_start_time_ms() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_start_time_ms());
   }
 
-  // uint64 memory_bytes = 6;
+  // uint64 memory_bytes = 6 [deprecated = true];
   if (this->_internal_memory_bytes() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_memory_bytes());
   }
 
-  // uint32 cpus = 5;
+  // uint32 cpus = 5 [deprecated = true];
   if (this->_internal_cpus() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_cpus());
   }
@@ -976,6 +1024,10 @@ void MetasrvNodeInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   if (from._internal_has_peer()) {
     _this->_internal_mutable_peer()->::greptime::v1::meta::Peer::MergeFrom(
         from._internal_peer());
+  }
+  if (from._internal_has_info()) {
+    _this->_internal_mutable_info()->::greptime::v1::meta::NodeInfo::MergeFrom(
+        from._internal_info());
   }
   if (from._internal_start_time_ms() != 0) {
     _this->_internal_set_start_time_ms(from._internal_start_time_ms());

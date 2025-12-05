@@ -215,6 +215,7 @@ class Column_Values final :
     kDecimal128ValuesFieldNumber = 31,
     kListValuesFieldNumber = 40,
     kStructValuesFieldNumber = 41,
+    kJsonValuesFieldNumber = 42,
   };
   // repeated int32 i8_values = 1;
   int i8_values_size() const;
@@ -842,6 +843,24 @@ class Column_Values final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue >&
       struct_values() const;
 
+  // repeated .greptime.v1.Column.Values json_values = 42;
+  int json_values_size() const;
+  private:
+  int _internal_json_values_size() const;
+  public:
+  void clear_json_values();
+  ::greptime::v1::Column_Values* mutable_json_values(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
+      mutable_json_values();
+  private:
+  const ::greptime::v1::Column_Values& _internal_json_values(int index) const;
+  ::greptime::v1::Column_Values* _internal_add_json_values();
+  public:
+  const ::greptime::v1::Column_Values& json_values(int index) const;
+  ::greptime::v1::Column_Values* add_json_values();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
+      json_values() const;
+
   // @@protoc_insertion_point(class_scope:greptime.v1.Column.Values)
  private:
   class _Internal;
@@ -899,6 +918,7 @@ class Column_Values final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Decimal128 > decimal128_values_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::ListValue > list_values_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructValue > struct_values_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values > json_values_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2545,6 +2565,46 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::StructVa
 Column_Values::struct_values() const {
   // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.struct_values)
   return _impl_.struct_values_;
+}
+
+// repeated .greptime.v1.Column.Values json_values = 42;
+inline int Column_Values::_internal_json_values_size() const {
+  return _impl_.json_values_.size();
+}
+inline int Column_Values::json_values_size() const {
+  return _internal_json_values_size();
+}
+inline void Column_Values::clear_json_values() {
+  _impl_.json_values_.Clear();
+}
+inline ::greptime::v1::Column_Values* Column_Values::mutable_json_values(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Column.Values.json_values)
+  return _impl_.json_values_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >*
+Column_Values::mutable_json_values() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Column.Values.json_values)
+  return &_impl_.json_values_;
+}
+inline const ::greptime::v1::Column_Values& Column_Values::_internal_json_values(int index) const {
+  return _impl_.json_values_.Get(index);
+}
+inline const ::greptime::v1::Column_Values& Column_Values::json_values(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Column.Values.json_values)
+  return _internal_json_values(index);
+}
+inline ::greptime::v1::Column_Values* Column_Values::_internal_add_json_values() {
+  return _impl_.json_values_.Add();
+}
+inline ::greptime::v1::Column_Values* Column_Values::add_json_values() {
+  ::greptime::v1::Column_Values* _add = _internal_add_json_values();
+  // @@protoc_insertion_point(field_add:greptime.v1.Column.Values.json_values)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::Column_Values >&
+Column_Values::json_values() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Column.Values.json_values)
+  return _impl_.json_values_;
 }
 
 // -------------------------------------------------------------------

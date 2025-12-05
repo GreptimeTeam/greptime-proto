@@ -6146,23 +6146,87 @@ com.google.protobuf.ByteString defaultValue);
 
     /**
      * <pre>
-     * The CPU cores number of the node.
+     * Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
      * </pre>
      *
-     * <code>uint32 cpus = 4;</code>
+     * <code>uint32 cpus = 4 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
+     *     See greptime/v1/meta/heartbeat.proto;l=97
      * @return The cpus.
      */
-    int getCpus();
+    @java.lang.Deprecated int getCpus();
 
     /**
      * <pre>
-     * The memory bytes of the node.
+     * Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
      * </pre>
      *
-     * <code>uint64 memory_bytes = 5;</code>
+     * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
+     *     See greptime/v1/meta/heartbeat.proto;l=99
      * @return The memoryBytes.
      */
-    long getMemoryBytes();
+    @java.lang.Deprecated long getMemoryBytes();
+
+    /**
+     * <pre>
+     * The hostname of the node.
+     * </pre>
+     *
+     * <code>string hostname = 6;</code>
+     * @return The hostname.
+     */
+    java.lang.String getHostname();
+    /**
+     * <pre>
+     * The hostname of the node.
+     * </pre>
+     *
+     * <code>string hostname = 6;</code>
+     * @return The bytes for hostname.
+     */
+    com.google.protobuf.ByteString
+        getHostnameBytes();
+
+    /**
+     * <pre>
+     * The total CPU millicores of the node.
+     * </pre>
+     *
+     * <code>int64 total_cpu_millicores = 7;</code>
+     * @return The totalCpuMillicores.
+     */
+    long getTotalCpuMillicores();
+
+    /**
+     * <pre>
+     * The total memory bytes of the node.
+     * </pre>
+     *
+     * <code>int64 total_memory_bytes = 8;</code>
+     * @return The totalMemoryBytes.
+     */
+    long getTotalMemoryBytes();
+
+    /**
+     * <pre>
+     * The CPU usage millicores of the node.
+     * </pre>
+     *
+     * <code>int64 cpu_usage_millicores = 9;</code>
+     * @return The cpuUsageMillicores.
+     */
+    long getCpuUsageMillicores();
+
+    /**
+     * <pre>
+     * The memory usage bytes of the node.
+     * </pre>
+     *
+     * <code>int64 memory_usage_bytes = 10;</code>
+     * @return The memoryUsageBytes.
+     */
+    long getMemoryUsageBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.NodeInfo}
@@ -6179,6 +6243,7 @@ com.google.protobuf.ByteString defaultValue);
     private NodeInfo() {
       version_ = "";
       gitCommit_ = "";
+      hostname_ = "";
     }
 
     @java.lang.Override
@@ -6236,6 +6301,32 @@ com.google.protobuf.ByteString defaultValue);
             case 40: {
 
               memoryBytes_ = input.readUInt64();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hostname_ = s;
+              break;
+            }
+            case 56: {
+
+              totalCpuMillicores_ = input.readInt64();
+              break;
+            }
+            case 64: {
+
+              totalMemoryBytes_ = input.readInt64();
+              break;
+            }
+            case 72: {
+
+              cpuUsageMillicores_ = input.readInt64();
+              break;
+            }
+            case 80: {
+
+              memoryUsageBytes_ = input.readInt64();
               break;
             }
             default: {
@@ -6383,14 +6474,16 @@ com.google.protobuf.ByteString defaultValue);
     private int cpus_;
     /**
      * <pre>
-     * The CPU cores number of the node.
+     * Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
      * </pre>
      *
-     * <code>uint32 cpus = 4;</code>
+     * <code>uint32 cpus = 4 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
+     *     See greptime/v1/meta/heartbeat.proto;l=97
      * @return The cpus.
      */
     @java.lang.Override
-    public int getCpus() {
+    @java.lang.Deprecated public int getCpus() {
       return cpus_;
     }
 
@@ -6398,15 +6491,123 @@ com.google.protobuf.ByteString defaultValue);
     private long memoryBytes_;
     /**
      * <pre>
-     * The memory bytes of the node.
+     * Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
      * </pre>
      *
-     * <code>uint64 memory_bytes = 5;</code>
+     * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
+     * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
+     *     See greptime/v1/meta/heartbeat.proto;l=99
      * @return The memoryBytes.
      */
     @java.lang.Override
-    public long getMemoryBytes() {
+    @java.lang.Deprecated public long getMemoryBytes() {
       return memoryBytes_;
+    }
+
+    public static final int HOSTNAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object hostname_;
+    /**
+     * <pre>
+     * The hostname of the node.
+     * </pre>
+     *
+     * <code>string hostname = 6;</code>
+     * @return The hostname.
+     */
+    @java.lang.Override
+    public java.lang.String getHostname() {
+      java.lang.Object ref = hostname_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hostname_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The hostname of the node.
+     * </pre>
+     *
+     * <code>string hostname = 6;</code>
+     * @return The bytes for hostname.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHostnameBytes() {
+      java.lang.Object ref = hostname_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hostname_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOTAL_CPU_MILLICORES_FIELD_NUMBER = 7;
+    private long totalCpuMillicores_;
+    /**
+     * <pre>
+     * The total CPU millicores of the node.
+     * </pre>
+     *
+     * <code>int64 total_cpu_millicores = 7;</code>
+     * @return The totalCpuMillicores.
+     */
+    @java.lang.Override
+    public long getTotalCpuMillicores() {
+      return totalCpuMillicores_;
+    }
+
+    public static final int TOTAL_MEMORY_BYTES_FIELD_NUMBER = 8;
+    private long totalMemoryBytes_;
+    /**
+     * <pre>
+     * The total memory bytes of the node.
+     * </pre>
+     *
+     * <code>int64 total_memory_bytes = 8;</code>
+     * @return The totalMemoryBytes.
+     */
+    @java.lang.Override
+    public long getTotalMemoryBytes() {
+      return totalMemoryBytes_;
+    }
+
+    public static final int CPU_USAGE_MILLICORES_FIELD_NUMBER = 9;
+    private long cpuUsageMillicores_;
+    /**
+     * <pre>
+     * The CPU usage millicores of the node.
+     * </pre>
+     *
+     * <code>int64 cpu_usage_millicores = 9;</code>
+     * @return The cpuUsageMillicores.
+     */
+    @java.lang.Override
+    public long getCpuUsageMillicores() {
+      return cpuUsageMillicores_;
+    }
+
+    public static final int MEMORY_USAGE_BYTES_FIELD_NUMBER = 10;
+    private long memoryUsageBytes_;
+    /**
+     * <pre>
+     * The memory usage bytes of the node.
+     * </pre>
+     *
+     * <code>int64 memory_usage_bytes = 10;</code>
+     * @return The memoryUsageBytes.
+     */
+    @java.lang.Override
+    public long getMemoryUsageBytes() {
+      return memoryUsageBytes_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6438,6 +6639,21 @@ com.google.protobuf.ByteString defaultValue);
       if (memoryBytes_ != 0L) {
         output.writeUInt64(5, memoryBytes_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, hostname_);
+      }
+      if (totalCpuMillicores_ != 0L) {
+        output.writeInt64(7, totalCpuMillicores_);
+      }
+      if (totalMemoryBytes_ != 0L) {
+        output.writeInt64(8, totalMemoryBytes_);
+      }
+      if (cpuUsageMillicores_ != 0L) {
+        output.writeInt64(9, cpuUsageMillicores_);
+      }
+      if (memoryUsageBytes_ != 0L) {
+        output.writeInt64(10, memoryUsageBytes_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6465,6 +6681,25 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, memoryBytes_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, hostname_);
+      }
+      if (totalCpuMillicores_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, totalCpuMillicores_);
+      }
+      if (totalMemoryBytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, totalMemoryBytes_);
+      }
+      if (cpuUsageMillicores_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, cpuUsageMillicores_);
+      }
+      if (memoryUsageBytes_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, memoryUsageBytes_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6490,6 +6725,16 @@ com.google.protobuf.ByteString defaultValue);
           != other.getCpus()) return false;
       if (getMemoryBytes()
           != other.getMemoryBytes()) return false;
+      if (!getHostname()
+          .equals(other.getHostname())) return false;
+      if (getTotalCpuMillicores()
+          != other.getTotalCpuMillicores()) return false;
+      if (getTotalMemoryBytes()
+          != other.getTotalMemoryBytes()) return false;
+      if (getCpuUsageMillicores()
+          != other.getCpuUsageMillicores()) return false;
+      if (getMemoryUsageBytes()
+          != other.getMemoryUsageBytes()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -6513,6 +6758,20 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + MEMORY_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMemoryBytes());
+      hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getHostname().hashCode();
+      hash = (37 * hash) + TOTAL_CPU_MILLICORES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTotalCpuMillicores());
+      hash = (37 * hash) + TOTAL_MEMORY_BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTotalMemoryBytes());
+      hash = (37 * hash) + CPU_USAGE_MILLICORES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCpuUsageMillicores());
+      hash = (37 * hash) + MEMORY_USAGE_BYTES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMemoryUsageBytes());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6656,6 +6915,16 @@ com.google.protobuf.ByteString defaultValue);
 
         memoryBytes_ = 0L;
 
+        hostname_ = "";
+
+        totalCpuMillicores_ = 0L;
+
+        totalMemoryBytes_ = 0L;
+
+        cpuUsageMillicores_ = 0L;
+
+        memoryUsageBytes_ = 0L;
+
         return this;
       }
 
@@ -6687,6 +6956,11 @@ com.google.protobuf.ByteString defaultValue);
         result.startTimeMs_ = startTimeMs_;
         result.cpus_ = cpus_;
         result.memoryBytes_ = memoryBytes_;
+        result.hostname_ = hostname_;
+        result.totalCpuMillicores_ = totalCpuMillicores_;
+        result.totalMemoryBytes_ = totalMemoryBytes_;
+        result.cpuUsageMillicores_ = cpuUsageMillicores_;
+        result.memoryUsageBytes_ = memoryUsageBytes_;
         onBuilt();
         return result;
       }
@@ -6751,6 +7025,22 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.getMemoryBytes() != 0L) {
           setMemoryBytes(other.getMemoryBytes());
+        }
+        if (!other.getHostname().isEmpty()) {
+          hostname_ = other.hostname_;
+          onChanged();
+        }
+        if (other.getTotalCpuMillicores() != 0L) {
+          setTotalCpuMillicores(other.getTotalCpuMillicores());
+        }
+        if (other.getTotalMemoryBytes() != 0L) {
+          setTotalMemoryBytes(other.getTotalMemoryBytes());
+        }
+        if (other.getCpuUsageMillicores() != 0L) {
+          setCpuUsageMillicores(other.getCpuUsageMillicores());
+        }
+        if (other.getMemoryUsageBytes() != 0L) {
+          setMemoryUsageBytes(other.getMemoryUsageBytes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7019,26 +7309,30 @@ com.google.protobuf.ByteString defaultValue);
       private int cpus_ ;
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 4;</code>
+       * <code>uint32 cpus = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=97
        * @return The cpus.
        */
       @java.lang.Override
-      public int getCpus() {
+      @java.lang.Deprecated public int getCpus() {
         return cpus_;
       }
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 4;</code>
+       * <code>uint32 cpus = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=97
        * @param value The cpus to set.
        * @return This builder for chaining.
        */
-      public Builder setCpus(int value) {
+      @java.lang.Deprecated public Builder setCpus(int value) {
         
         cpus_ = value;
         onChanged();
@@ -7046,13 +7340,15 @@ com.google.protobuf.ByteString defaultValue);
       }
       /**
        * <pre>
-       * The CPU cores number of the node.
+       * Deprecated: Use total_cpu_millicores instead. The CPU cores number of the node.
        * </pre>
        *
-       * <code>uint32 cpus = 4;</code>
+       * <code>uint32 cpus = 4 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=97
        * @return This builder for chaining.
        */
-      public Builder clearCpus() {
+      @java.lang.Deprecated public Builder clearCpus() {
         
         cpus_ = 0;
         onChanged();
@@ -7062,26 +7358,30 @@ com.google.protobuf.ByteString defaultValue);
       private long memoryBytes_ ;
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 5;</code>
+       * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=99
        * @return The memoryBytes.
        */
       @java.lang.Override
-      public long getMemoryBytes() {
+      @java.lang.Deprecated public long getMemoryBytes() {
         return memoryBytes_;
       }
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 5;</code>
+       * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=99
        * @param value The memoryBytes to set.
        * @return This builder for chaining.
        */
-      public Builder setMemoryBytes(long value) {
+      @java.lang.Deprecated public Builder setMemoryBytes(long value) {
         
         memoryBytes_ = value;
         onChanged();
@@ -7089,15 +7389,285 @@ com.google.protobuf.ByteString defaultValue);
       }
       /**
        * <pre>
-       * The memory bytes of the node.
+       * Deprecated: Use total_memory_bytes instead. The memory bytes of the node.
        * </pre>
        *
-       * <code>uint64 memory_bytes = 5;</code>
+       * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
+       * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
+       *     See greptime/v1/meta/heartbeat.proto;l=99
        * @return This builder for chaining.
        */
-      public Builder clearMemoryBytes() {
+      @java.lang.Deprecated public Builder clearMemoryBytes() {
         
         memoryBytes_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object hostname_ = "";
+      /**
+       * <pre>
+       * The hostname of the node.
+       * </pre>
+       *
+       * <code>string hostname = 6;</code>
+       * @return The hostname.
+       */
+      public java.lang.String getHostname() {
+        java.lang.Object ref = hostname_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hostname_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The hostname of the node.
+       * </pre>
+       *
+       * <code>string hostname = 6;</code>
+       * @return The bytes for hostname.
+       */
+      public com.google.protobuf.ByteString
+          getHostnameBytes() {
+        java.lang.Object ref = hostname_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hostname_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The hostname of the node.
+       * </pre>
+       *
+       * <code>string hostname = 6;</code>
+       * @param value The hostname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHostname(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hostname_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The hostname of the node.
+       * </pre>
+       *
+       * <code>string hostname = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHostname() {
+        
+        hostname_ = getDefaultInstance().getHostname();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The hostname of the node.
+       * </pre>
+       *
+       * <code>string hostname = 6;</code>
+       * @param value The bytes for hostname to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHostnameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hostname_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long totalCpuMillicores_ ;
+      /**
+       * <pre>
+       * The total CPU millicores of the node.
+       * </pre>
+       *
+       * <code>int64 total_cpu_millicores = 7;</code>
+       * @return The totalCpuMillicores.
+       */
+      @java.lang.Override
+      public long getTotalCpuMillicores() {
+        return totalCpuMillicores_;
+      }
+      /**
+       * <pre>
+       * The total CPU millicores of the node.
+       * </pre>
+       *
+       * <code>int64 total_cpu_millicores = 7;</code>
+       * @param value The totalCpuMillicores to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTotalCpuMillicores(long value) {
+        
+        totalCpuMillicores_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The total CPU millicores of the node.
+       * </pre>
+       *
+       * <code>int64 total_cpu_millicores = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTotalCpuMillicores() {
+        
+        totalCpuMillicores_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long totalMemoryBytes_ ;
+      /**
+       * <pre>
+       * The total memory bytes of the node.
+       * </pre>
+       *
+       * <code>int64 total_memory_bytes = 8;</code>
+       * @return The totalMemoryBytes.
+       */
+      @java.lang.Override
+      public long getTotalMemoryBytes() {
+        return totalMemoryBytes_;
+      }
+      /**
+       * <pre>
+       * The total memory bytes of the node.
+       * </pre>
+       *
+       * <code>int64 total_memory_bytes = 8;</code>
+       * @param value The totalMemoryBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTotalMemoryBytes(long value) {
+        
+        totalMemoryBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The total memory bytes of the node.
+       * </pre>
+       *
+       * <code>int64 total_memory_bytes = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTotalMemoryBytes() {
+        
+        totalMemoryBytes_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long cpuUsageMillicores_ ;
+      /**
+       * <pre>
+       * The CPU usage millicores of the node.
+       * </pre>
+       *
+       * <code>int64 cpu_usage_millicores = 9;</code>
+       * @return The cpuUsageMillicores.
+       */
+      @java.lang.Override
+      public long getCpuUsageMillicores() {
+        return cpuUsageMillicores_;
+      }
+      /**
+       * <pre>
+       * The CPU usage millicores of the node.
+       * </pre>
+       *
+       * <code>int64 cpu_usage_millicores = 9;</code>
+       * @param value The cpuUsageMillicores to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCpuUsageMillicores(long value) {
+        
+        cpuUsageMillicores_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The CPU usage millicores of the node.
+       * </pre>
+       *
+       * <code>int64 cpu_usage_millicores = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCpuUsageMillicores() {
+        
+        cpuUsageMillicores_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long memoryUsageBytes_ ;
+      /**
+       * <pre>
+       * The memory usage bytes of the node.
+       * </pre>
+       *
+       * <code>int64 memory_usage_bytes = 10;</code>
+       * @return The memoryUsageBytes.
+       */
+      @java.lang.Override
+      public long getMemoryUsageBytes() {
+        return memoryUsageBytes_;
+      }
+      /**
+       * <pre>
+       * The memory usage bytes of the node.
+       * </pre>
+       *
+       * <code>int64 memory_usage_bytes = 10;</code>
+       * @param value The memoryUsageBytes to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoryUsageBytes(long value) {
+        
+        memoryUsageBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The memory usage bytes of the node.
+       * </pre>
+       *
+       * <code>int64 memory_usage_bytes = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemoryUsageBytes() {
+        
+        memoryUsageBytes_ = 0L;
         onChanged();
         return this;
       }
@@ -16609,55 +17179,58 @@ com.google.protobuf.ByteString defaultValue);
       "8\001B\020\n\016node_workloads\"\"\n\021DatanodeWorkload" +
       "s\022\r\n\005types\030\001 \003(\005\"\"\n\021FrontendWorkloads\022\r\n" +
       "\005types\030\001 \003(\005\"\"\n\021FlownodeWorkloads\022\r\n\005typ" +
-      "es\030\001 \003(\005\"j\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022\n" +
-      "\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 \001(\004" +
-      "\022\014\n\004cpus\030\004 \001(\r\022\024\n\014memory_bytes\030\005 \001(\004\"\207\002\n" +
-      "\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030\002" +
-      " \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_bytes\030" +
-      "\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.gr" +
-      "eptime.v1.meta.RegionRole\022@\n\nextensions\030" +
-      "c \003(\0132,.greptime.v1.meta.RegionStat.Exte" +
-      "nsionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"a\n\tTopicStat\022\022\n\nt" +
-      "opic_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\n" +
-      "record_num\030\003 \001(\004\022\027\n\017latest_entry_id\030\004 \001(" +
-      "\004\"\227\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132," +
-      ".greptime.v1.meta.FlowStat.FlowStatSizeE" +
-      "ntry\022T\n\027flow_last_exec_time_map\030\002 \003(\01323." +
-      "greptime.v1.meta.FlowStat.FlowLastExecTi" +
-      "meMapEntry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001" +
-      " \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecT" +
-      "imeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:" +
-      "\0028\001\"\265\001\n\021HeartbeatResponse\0220\n\006header\030\001 \001(" +
-      "\0132 .greptime.v1.meta.ResponseHeader\0229\n\017m" +
-      "ailbox_message\030\002 \001(\0132 .greptime.v1.meta." +
-      "MailboxMessage\0223\n\014region_lease\030\003 \001(\0132\035.g" +
-      "reptime.v1.meta.RegionLease\"\306\001\n\rGrantedR" +
-      "egion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034" +
-      ".greptime.v1.meta.RegionRole\022C\n\nextensio" +
-      "ns\030c \003(\0132/.greptime.v1.meta.GrantedRegio" +
-      "n.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionL" +
-      "ease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta" +
-      ".GrantedRegion\022\034\n\024duration_since_epoch\030\002" +
-      " \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable" +
-      "_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n" +
-      "\006header\030\001 \001(\0132\037.greptime.v1.meta.Request" +
-      "Header\"m\n\021AskLeaderResponse\0220\n\006header\030\001 " +
-      "\001(\0132 .greptime.v1.meta.ResponseHeader\022&\n" +
-      "\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|\n" +
-      "\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002" +
-      " \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timest" +
-      "amp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payl" +
-      "oad*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Followe" +
-      "r\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbeat" +
-      "\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbe" +
-      "atRequest\032#.greptime.v1.meta.HeartbeatRe" +
-      "sponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1." +
-      "meta.AskLeaderRequest\032#.greptime.v1.meta" +
-      ".AskLeaderResponse\"\000B<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/me" +
-      "tab\006proto3"
+      "es\030\001 \003(\005\"\370\001\n\010NodeInfo\022\017\n\007version\030\001 \001(\t\022\022" +
+      "\n\ngit_commit\030\002 \001(\t\022\025\n\rstart_time_ms\030\003 \001(" +
+      "\004\022\020\n\004cpus\030\004 \001(\rB\002\030\001\022\030\n\014memory_bytes\030\005 \001(" +
+      "\004B\002\030\001\022\020\n\010hostname\030\006 \001(\t\022\034\n\024total_cpu_mil" +
+      "licores\030\007 \001(\003\022\032\n\022total_memory_bytes\030\010 \001(" +
+      "\003\022\034\n\024cpu_usage_millicores\030\t \001(\003\022\032\n\022memor" +
+      "y_usage_bytes\030\n \001(\003\"\207\002\n\nRegionStat\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022\014\n\004rcus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(" +
+      "\003\022\031\n\021approximate_bytes\030\004 \001(\003\022\016\n\006engine\030\006" +
+      " \001(\t\022*\n\004role\030\007 \001(\0162\034.greptime.v1.meta.Re" +
+      "gionRole\022@\n\nextensions\030c \003(\0132,.greptime." +
+      "v1.meta.RegionStat.ExtensionsEntry\0321\n\017Ex" +
+      "tensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\014:\0028\001\"a\n\tTopicStat\022\022\n\ntopic_name\030\001 \001(\t\022\023" +
+      "\n\013record_size\030\002 \001(\004\022\022\n\nrecord_num\030\003 \001(\004\022" +
+      "\027\n\017latest_entry_id\030\004 \001(\004\"\227\002\n\010FlowStat\022D\n" +
+      "\016flow_stat_size\030\001 \003(\0132,.greptime.v1.meta" +
+      ".FlowStat.FlowStatSizeEntry\022T\n\027flow_last" +
+      "_exec_time_map\030\002 \003(\01323.greptime.v1.meta." +
+      "FlowStat.FlowLastExecTimeMapEntry\0323\n\021Flo" +
+      "wStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001" +
+      "(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n\003ke" +
+      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021Heartbeat" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
+      "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
+      "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
+      "egionLease\"\306\001\n\rGrantedRegion\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta" +
+      ".RegionRole\022C\n\nextensions\030c \003(\0132/.grepti" +
+      "me.v1.meta.GrantedRegion.ExtensionsEntry" +
+      "\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001" +
+      " \003(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n" +
+      "\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_sec" +
+      "onds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004" +
+      "\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.g" +
+      "reptime.v1.meta.RequestHeader\"m\n\021AskLead" +
+      "erResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1" +
+      ".meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.g" +
+      "reptime.v1.meta.Peer\"|\n\016MailboxMessage\022\n" +
+      "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(" +
+      "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022" +
+      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole" +
+      "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin" +
+      "gLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".g" +
+      "reptime.v1.meta.HeartbeatRequest\032#.grept" +
+      "ime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tA" +
+      "skLeader\022\".greptime.v1.meta.AskLeaderReq" +
+      "uest\032#.greptime.v1.meta.AskLeaderRespons" +
+      "e\"\000B<Z:github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -16699,7 +17272,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_NodeInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_NodeInfo_descriptor,
-        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", });
+        new java.lang.String[] { "Version", "GitCommit", "StartTimeMs", "Cpus", "MemoryBytes", "Hostname", "TotalCpuMillicores", "TotalMemoryBytes", "CpuUsageMillicores", "MemoryUsageBytes", });
     internal_static_greptime_v1_meta_RegionStat_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_meta_RegionStat_fieldAccessorTable = new
