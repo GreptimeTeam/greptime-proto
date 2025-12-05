@@ -73,6 +73,7 @@ fn main() {
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",
                 "proto/substrait_extension/dist_plan.proto",
+                "proto/substrait_extension/vector_plan.proto",
             ],
             &["proto"],
         )
