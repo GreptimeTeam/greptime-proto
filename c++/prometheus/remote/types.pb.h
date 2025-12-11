@@ -46,6 +46,9 @@ struct TableStruct_prometheus_2fremote_2ftypes_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_prometheus_2fremote_2ftypes_2eproto;
 namespace prometheus {
+class BucketSpan;
+struct BucketSpanDefaultTypeInternal;
+extern BucketSpanDefaultTypeInternal _BucketSpan_default_instance_;
 class Chunk;
 struct ChunkDefaultTypeInternal;
 extern ChunkDefaultTypeInternal _Chunk_default_instance_;
@@ -55,6 +58,9 @@ extern ChunkedSeriesDefaultTypeInternal _ChunkedSeries_default_instance_;
 class Exemplar;
 struct ExemplarDefaultTypeInternal;
 extern ExemplarDefaultTypeInternal _Exemplar_default_instance_;
+class Histogram;
+struct HistogramDefaultTypeInternal;
+extern HistogramDefaultTypeInternal _Histogram_default_instance_;
 class Label;
 struct LabelDefaultTypeInternal;
 extern LabelDefaultTypeInternal _Label_default_instance_;
@@ -78,9 +84,11 @@ struct TimeSeriesDefaultTypeInternal;
 extern TimeSeriesDefaultTypeInternal _TimeSeries_default_instance_;
 }  // namespace prometheus
 PROTOBUF_NAMESPACE_OPEN
+template<> ::prometheus::BucketSpan* Arena::CreateMaybeMessage<::prometheus::BucketSpan>(Arena*);
 template<> ::prometheus::Chunk* Arena::CreateMaybeMessage<::prometheus::Chunk>(Arena*);
 template<> ::prometheus::ChunkedSeries* Arena::CreateMaybeMessage<::prometheus::ChunkedSeries>(Arena*);
 template<> ::prometheus::Exemplar* Arena::CreateMaybeMessage<::prometheus::Exemplar>(Arena*);
+template<> ::prometheus::Histogram* Arena::CreateMaybeMessage<::prometheus::Histogram>(Arena*);
 template<> ::prometheus::Label* Arena::CreateMaybeMessage<::prometheus::Label>(Arena*);
 template<> ::prometheus::LabelMatcher* Arena::CreateMaybeMessage<::prometheus::LabelMatcher>(Arena*);
 template<> ::prometheus::Labels* Arena::CreateMaybeMessage<::prometheus::Labels>(Arena*);
@@ -122,6 +130,33 @@ inline bool MetricMetadata_MetricType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MetricMetadata_MetricType>(
     MetricMetadata_MetricType_descriptor(), name, value);
 }
+enum Histogram_ResetHint : int {
+  Histogram_ResetHint_UNKNOWN = 0,
+  Histogram_ResetHint_YES = 1,
+  Histogram_ResetHint_NO = 2,
+  Histogram_ResetHint_GAUGE = 3,
+  Histogram_ResetHint_Histogram_ResetHint_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Histogram_ResetHint_Histogram_ResetHint_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Histogram_ResetHint_IsValid(int value);
+constexpr Histogram_ResetHint Histogram_ResetHint_ResetHint_MIN = Histogram_ResetHint_UNKNOWN;
+constexpr Histogram_ResetHint Histogram_ResetHint_ResetHint_MAX = Histogram_ResetHint_GAUGE;
+constexpr int Histogram_ResetHint_ResetHint_ARRAYSIZE = Histogram_ResetHint_ResetHint_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Histogram_ResetHint_descriptor();
+template<typename T>
+inline const std::string& Histogram_ResetHint_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Histogram_ResetHint>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Histogram_ResetHint_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Histogram_ResetHint_descriptor(), enum_t_value);
+}
+inline bool Histogram_ResetHint_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Histogram_ResetHint* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Histogram_ResetHint>(
+    Histogram_ResetHint_descriptor(), name, value);
+}
 enum LabelMatcher_Type : int {
   LabelMatcher_Type_EQ = 0,
   LabelMatcher_Type_NEQ = 1,
@@ -152,12 +187,14 @@ inline bool LabelMatcher_Type_Parse(
 enum Chunk_Encoding : int {
   Chunk_Encoding_UNKNOWN = 0,
   Chunk_Encoding_XOR = 1,
+  Chunk_Encoding_HISTOGRAM = 2,
+  Chunk_Encoding_FLOAT_HISTOGRAM = 3,
   Chunk_Encoding_Chunk_Encoding_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Chunk_Encoding_Chunk_Encoding_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Chunk_Encoding_IsValid(int value);
 constexpr Chunk_Encoding Chunk_Encoding_Encoding_MIN = Chunk_Encoding_UNKNOWN;
-constexpr Chunk_Encoding Chunk_Encoding_Encoding_MAX = Chunk_Encoding_XOR;
+constexpr Chunk_Encoding Chunk_Encoding_Encoding_MAX = Chunk_Encoding_FLOAT_HISTOGRAM;
 constexpr int Chunk_Encoding_Encoding_ARRAYSIZE = Chunk_Encoding_Encoding_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Chunk_Encoding_descriptor();
@@ -752,6 +789,649 @@ class Exemplar final :
 };
 // -------------------------------------------------------------------
 
+class Histogram final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:prometheus.Histogram) */ {
+ public:
+  inline Histogram() : Histogram(nullptr) {}
+  ~Histogram() override;
+  explicit PROTOBUF_CONSTEXPR Histogram(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Histogram(const Histogram& from);
+  Histogram(Histogram&& from) noexcept
+    : Histogram() {
+    *this = ::std::move(from);
+  }
+
+  inline Histogram& operator=(const Histogram& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Histogram& operator=(Histogram&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Histogram& default_instance() {
+    return *internal_default_instance();
+  }
+  enum CountCase {
+    kCountInt = 1,
+    kCountFloat = 2,
+    COUNT_NOT_SET = 0,
+  };
+
+  enum ZeroCountCase {
+    kZeroCountInt = 6,
+    kZeroCountFloat = 7,
+    ZERO_COUNT_NOT_SET = 0,
+  };
+
+  static inline const Histogram* internal_default_instance() {
+    return reinterpret_cast<const Histogram*>(
+               &_Histogram_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Histogram& a, Histogram& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Histogram* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Histogram* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Histogram* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Histogram>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Histogram& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Histogram& from) {
+    Histogram::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Histogram* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "prometheus.Histogram";
+  }
+  protected:
+  explicit Histogram(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef Histogram_ResetHint ResetHint;
+  static constexpr ResetHint UNKNOWN =
+    Histogram_ResetHint_UNKNOWN;
+  static constexpr ResetHint YES =
+    Histogram_ResetHint_YES;
+  static constexpr ResetHint NO =
+    Histogram_ResetHint_NO;
+  static constexpr ResetHint GAUGE =
+    Histogram_ResetHint_GAUGE;
+  static inline bool ResetHint_IsValid(int value) {
+    return Histogram_ResetHint_IsValid(value);
+  }
+  static constexpr ResetHint ResetHint_MIN =
+    Histogram_ResetHint_ResetHint_MIN;
+  static constexpr ResetHint ResetHint_MAX =
+    Histogram_ResetHint_ResetHint_MAX;
+  static constexpr int ResetHint_ARRAYSIZE =
+    Histogram_ResetHint_ResetHint_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  ResetHint_descriptor() {
+    return Histogram_ResetHint_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& ResetHint_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, ResetHint>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function ResetHint_Name.");
+    return Histogram_ResetHint_Name(enum_t_value);
+  }
+  static inline bool ResetHint_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      ResetHint* value) {
+    return Histogram_ResetHint_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNegativeSpansFieldNumber = 8,
+    kNegativeDeltasFieldNumber = 9,
+    kNegativeCountsFieldNumber = 10,
+    kPositiveSpansFieldNumber = 11,
+    kPositiveDeltasFieldNumber = 12,
+    kPositiveCountsFieldNumber = 13,
+    kCustomValuesFieldNumber = 16,
+    kSumFieldNumber = 3,
+    kZeroThresholdFieldNumber = 5,
+    kSchemaFieldNumber = 4,
+    kResetHintFieldNumber = 14,
+    kTimestampFieldNumber = 15,
+    kCountIntFieldNumber = 1,
+    kCountFloatFieldNumber = 2,
+    kZeroCountIntFieldNumber = 6,
+    kZeroCountFloatFieldNumber = 7,
+  };
+  // repeated .prometheus.BucketSpan negative_spans = 8;
+  int negative_spans_size() const;
+  private:
+  int _internal_negative_spans_size() const;
+  public:
+  void clear_negative_spans();
+  ::prometheus::BucketSpan* mutable_negative_spans(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >*
+      mutable_negative_spans();
+  private:
+  const ::prometheus::BucketSpan& _internal_negative_spans(int index) const;
+  ::prometheus::BucketSpan* _internal_add_negative_spans();
+  public:
+  const ::prometheus::BucketSpan& negative_spans(int index) const;
+  ::prometheus::BucketSpan* add_negative_spans();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >&
+      negative_spans() const;
+
+  // repeated sint64 negative_deltas = 9;
+  int negative_deltas_size() const;
+  private:
+  int _internal_negative_deltas_size() const;
+  public:
+  void clear_negative_deltas();
+  private:
+  int64_t _internal_negative_deltas(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_negative_deltas() const;
+  void _internal_add_negative_deltas(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_negative_deltas();
+  public:
+  int64_t negative_deltas(int index) const;
+  void set_negative_deltas(int index, int64_t value);
+  void add_negative_deltas(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      negative_deltas() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_negative_deltas();
+
+  // repeated double negative_counts = 10;
+  int negative_counts_size() const;
+  private:
+  int _internal_negative_counts_size() const;
+  public:
+  void clear_negative_counts();
+  private:
+  double _internal_negative_counts(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      _internal_negative_counts() const;
+  void _internal_add_negative_counts(double value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      _internal_mutable_negative_counts();
+  public:
+  double negative_counts(int index) const;
+  void set_negative_counts(int index, double value);
+  void add_negative_counts(double value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      negative_counts() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      mutable_negative_counts();
+
+  // repeated .prometheus.BucketSpan positive_spans = 11;
+  int positive_spans_size() const;
+  private:
+  int _internal_positive_spans_size() const;
+  public:
+  void clear_positive_spans();
+  ::prometheus::BucketSpan* mutable_positive_spans(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >*
+      mutable_positive_spans();
+  private:
+  const ::prometheus::BucketSpan& _internal_positive_spans(int index) const;
+  ::prometheus::BucketSpan* _internal_add_positive_spans();
+  public:
+  const ::prometheus::BucketSpan& positive_spans(int index) const;
+  ::prometheus::BucketSpan* add_positive_spans();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >&
+      positive_spans() const;
+
+  // repeated sint64 positive_deltas = 12;
+  int positive_deltas_size() const;
+  private:
+  int _internal_positive_deltas_size() const;
+  public:
+  void clear_positive_deltas();
+  private:
+  int64_t _internal_positive_deltas(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      _internal_positive_deltas() const;
+  void _internal_add_positive_deltas(int64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      _internal_mutable_positive_deltas();
+  public:
+  int64_t positive_deltas(int index) const;
+  void set_positive_deltas(int index, int64_t value);
+  void add_positive_deltas(int64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+      positive_deltas() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+      mutable_positive_deltas();
+
+  // repeated double positive_counts = 13;
+  int positive_counts_size() const;
+  private:
+  int _internal_positive_counts_size() const;
+  public:
+  void clear_positive_counts();
+  private:
+  double _internal_positive_counts(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      _internal_positive_counts() const;
+  void _internal_add_positive_counts(double value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      _internal_mutable_positive_counts();
+  public:
+  double positive_counts(int index) const;
+  void set_positive_counts(int index, double value);
+  void add_positive_counts(double value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      positive_counts() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      mutable_positive_counts();
+
+  // repeated double custom_values = 16;
+  int custom_values_size() const;
+  private:
+  int _internal_custom_values_size() const;
+  public:
+  void clear_custom_values();
+  private:
+  double _internal_custom_values(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      _internal_custom_values() const;
+  void _internal_add_custom_values(double value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      _internal_mutable_custom_values();
+  public:
+  double custom_values(int index) const;
+  void set_custom_values(int index, double value);
+  void add_custom_values(double value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+      custom_values() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+      mutable_custom_values();
+
+  // double sum = 3;
+  void clear_sum();
+  double sum() const;
+  void set_sum(double value);
+  private:
+  double _internal_sum() const;
+  void _internal_set_sum(double value);
+  public:
+
+  // double zero_threshold = 5;
+  void clear_zero_threshold();
+  double zero_threshold() const;
+  void set_zero_threshold(double value);
+  private:
+  double _internal_zero_threshold() const;
+  void _internal_set_zero_threshold(double value);
+  public:
+
+  // sint32 schema = 4;
+  void clear_schema();
+  int32_t schema() const;
+  void set_schema(int32_t value);
+  private:
+  int32_t _internal_schema() const;
+  void _internal_set_schema(int32_t value);
+  public:
+
+  // .prometheus.Histogram.ResetHint reset_hint = 14;
+  void clear_reset_hint();
+  ::prometheus::Histogram_ResetHint reset_hint() const;
+  void set_reset_hint(::prometheus::Histogram_ResetHint value);
+  private:
+  ::prometheus::Histogram_ResetHint _internal_reset_hint() const;
+  void _internal_set_reset_hint(::prometheus::Histogram_ResetHint value);
+  public:
+
+  // int64 timestamp = 15;
+  void clear_timestamp();
+  int64_t timestamp() const;
+  void set_timestamp(int64_t value);
+  private:
+  int64_t _internal_timestamp() const;
+  void _internal_set_timestamp(int64_t value);
+  public:
+
+  // uint64 count_int = 1;
+  bool has_count_int() const;
+  private:
+  bool _internal_has_count_int() const;
+  public:
+  void clear_count_int();
+  uint64_t count_int() const;
+  void set_count_int(uint64_t value);
+  private:
+  uint64_t _internal_count_int() const;
+  void _internal_set_count_int(uint64_t value);
+  public:
+
+  // double count_float = 2;
+  bool has_count_float() const;
+  private:
+  bool _internal_has_count_float() const;
+  public:
+  void clear_count_float();
+  double count_float() const;
+  void set_count_float(double value);
+  private:
+  double _internal_count_float() const;
+  void _internal_set_count_float(double value);
+  public:
+
+  // uint64 zero_count_int = 6;
+  bool has_zero_count_int() const;
+  private:
+  bool _internal_has_zero_count_int() const;
+  public:
+  void clear_zero_count_int();
+  uint64_t zero_count_int() const;
+  void set_zero_count_int(uint64_t value);
+  private:
+  uint64_t _internal_zero_count_int() const;
+  void _internal_set_zero_count_int(uint64_t value);
+  public:
+
+  // double zero_count_float = 7;
+  bool has_zero_count_float() const;
+  private:
+  bool _internal_has_zero_count_float() const;
+  public:
+  void clear_zero_count_float();
+  double zero_count_float() const;
+  void set_zero_count_float(double value);
+  private:
+  double _internal_zero_count_float() const;
+  void _internal_set_zero_count_float(double value);
+  public:
+
+  void clear_count();
+  CountCase count_case() const;
+  void clear_zero_count();
+  ZeroCountCase zero_count_case() const;
+  // @@protoc_insertion_point(class_scope:prometheus.Histogram)
+ private:
+  class _Internal;
+  void set_has_count_int();
+  void set_has_count_float();
+  void set_has_zero_count_int();
+  void set_has_zero_count_float();
+
+  inline bool has_count() const;
+  inline void clear_has_count();
+
+  inline bool has_zero_count() const;
+  inline void clear_has_zero_count();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan > negative_spans_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > negative_deltas_;
+    mutable std::atomic<int> _negative_deltas_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< double > negative_counts_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan > positive_spans_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > positive_deltas_;
+    mutable std::atomic<int> _positive_deltas_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< double > positive_counts_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< double > custom_values_;
+    double sum_;
+    double zero_threshold_;
+    int32_t schema_;
+    int reset_hint_;
+    int64_t timestamp_;
+    union CountUnion {
+      constexpr CountUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      uint64_t count_int_;
+      double count_float_;
+    } count_;
+    union ZeroCountUnion {
+      constexpr ZeroCountUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      uint64_t zero_count_int_;
+      double zero_count_float_;
+    } zero_count_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[2];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_prometheus_2fremote_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BucketSpan final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:prometheus.BucketSpan) */ {
+ public:
+  inline BucketSpan() : BucketSpan(nullptr) {}
+  ~BucketSpan() override;
+  explicit PROTOBUF_CONSTEXPR BucketSpan(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BucketSpan(const BucketSpan& from);
+  BucketSpan(BucketSpan&& from) noexcept
+    : BucketSpan() {
+    *this = ::std::move(from);
+  }
+
+  inline BucketSpan& operator=(const BucketSpan& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BucketSpan& operator=(BucketSpan&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BucketSpan& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BucketSpan* internal_default_instance() {
+    return reinterpret_cast<const BucketSpan*>(
+               &_BucketSpan_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(BucketSpan& a, BucketSpan& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BucketSpan* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BucketSpan* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BucketSpan* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BucketSpan>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BucketSpan& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BucketSpan& from) {
+    BucketSpan::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BucketSpan* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "prometheus.BucketSpan";
+  }
+  protected:
+  explicit BucketSpan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOffsetFieldNumber = 1,
+    kLengthFieldNumber = 2,
+  };
+  // sint32 offset = 1;
+  void clear_offset();
+  int32_t offset() const;
+  void set_offset(int32_t value);
+  private:
+  int32_t _internal_offset() const;
+  void _internal_set_offset(int32_t value);
+  public:
+
+  // uint32 length = 2;
+  void clear_length();
+  uint32_t length() const;
+  void set_length(uint32_t value);
+  private:
+  uint32_t _internal_length() const;
+  void _internal_set_length(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:prometheus.BucketSpan)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int32_t offset_;
+    uint32_t length_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_prometheus_2fremote_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TimeSeries final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:prometheus.TimeSeries) */ {
  public:
@@ -800,7 +1480,7 @@ class TimeSeries final :
                &_TimeSeries_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(TimeSeries& a, TimeSeries& b) {
     a.Swap(&b);
@@ -876,6 +1556,7 @@ class TimeSeries final :
     kLabelsFieldNumber = 1,
     kSamplesFieldNumber = 2,
     kExemplarsFieldNumber = 3,
+    kHistogramsFieldNumber = 4,
   };
   // repeated .prometheus.Label labels = 1;
   int labels_size() const;
@@ -931,6 +1612,24 @@ class TimeSeries final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Exemplar >&
       exemplars() const;
 
+  // repeated .prometheus.Histogram histograms = 4;
+  int histograms_size() const;
+  private:
+  int _internal_histograms_size() const;
+  public:
+  void clear_histograms();
+  ::prometheus::Histogram* mutable_histograms(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Histogram >*
+      mutable_histograms();
+  private:
+  const ::prometheus::Histogram& _internal_histograms(int index) const;
+  ::prometheus::Histogram* _internal_add_histograms();
+  public:
+  const ::prometheus::Histogram& histograms(int index) const;
+  ::prometheus::Histogram* add_histograms();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Histogram >&
+      histograms() const;
+
   // @@protoc_insertion_point(class_scope:prometheus.TimeSeries)
  private:
   class _Internal;
@@ -942,6 +1641,7 @@ class TimeSeries final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Label > labels_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Sample > samples_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Exemplar > exemplars_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Histogram > histograms_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -997,7 +1697,7 @@ class Label final :
                &_Label_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(Label& a, Label& b) {
     a.Swap(&b);
@@ -1166,7 +1866,7 @@ class Labels final :
                &_Labels_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(Labels& a, Labels& b) {
     a.Swap(&b);
@@ -1323,7 +2023,7 @@ class LabelMatcher final :
                &_LabelMatcher_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(LabelMatcher& a, LabelMatcher& b) {
     a.Swap(&b);
@@ -1537,7 +2237,7 @@ class ReadHints final :
                &_ReadHints_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(ReadHints& a, ReadHints& b) {
     a.Swap(&b);
@@ -1771,7 +2471,7 @@ class Chunk final :
                &_Chunk_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(Chunk& a, Chunk& b) {
     a.Swap(&b);
@@ -1846,6 +2546,10 @@ class Chunk final :
     Chunk_Encoding_UNKNOWN;
   static constexpr Encoding XOR =
     Chunk_Encoding_XOR;
+  static constexpr Encoding HISTOGRAM =
+    Chunk_Encoding_HISTOGRAM;
+  static constexpr Encoding FLOAT_HISTOGRAM =
+    Chunk_Encoding_FLOAT_HISTOGRAM;
   static inline bool Encoding_IsValid(int value) {
     return Chunk_Encoding_IsValid(value);
   }
@@ -1987,7 +2691,7 @@ class ChunkedSeries final :
                &_ChunkedSeries_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(ChunkedSeries& a, ChunkedSeries& b) {
     a.Swap(&b);
@@ -2425,6 +3129,639 @@ inline void Exemplar::set_timestamp(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// Histogram
+
+// uint64 count_int = 1;
+inline bool Histogram::_internal_has_count_int() const {
+  return count_case() == kCountInt;
+}
+inline bool Histogram::has_count_int() const {
+  return _internal_has_count_int();
+}
+inline void Histogram::set_has_count_int() {
+  _impl_._oneof_case_[0] = kCountInt;
+}
+inline void Histogram::clear_count_int() {
+  if (_internal_has_count_int()) {
+    _impl_.count_.count_int_ = uint64_t{0u};
+    clear_has_count();
+  }
+}
+inline uint64_t Histogram::_internal_count_int() const {
+  if (_internal_has_count_int()) {
+    return _impl_.count_.count_int_;
+  }
+  return uint64_t{0u};
+}
+inline void Histogram::_internal_set_count_int(uint64_t value) {
+  if (!_internal_has_count_int()) {
+    clear_count();
+    set_has_count_int();
+  }
+  _impl_.count_.count_int_ = value;
+}
+inline uint64_t Histogram::count_int() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.count_int)
+  return _internal_count_int();
+}
+inline void Histogram::set_count_int(uint64_t value) {
+  _internal_set_count_int(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.count_int)
+}
+
+// double count_float = 2;
+inline bool Histogram::_internal_has_count_float() const {
+  return count_case() == kCountFloat;
+}
+inline bool Histogram::has_count_float() const {
+  return _internal_has_count_float();
+}
+inline void Histogram::set_has_count_float() {
+  _impl_._oneof_case_[0] = kCountFloat;
+}
+inline void Histogram::clear_count_float() {
+  if (_internal_has_count_float()) {
+    _impl_.count_.count_float_ = 0;
+    clear_has_count();
+  }
+}
+inline double Histogram::_internal_count_float() const {
+  if (_internal_has_count_float()) {
+    return _impl_.count_.count_float_;
+  }
+  return 0;
+}
+inline void Histogram::_internal_set_count_float(double value) {
+  if (!_internal_has_count_float()) {
+    clear_count();
+    set_has_count_float();
+  }
+  _impl_.count_.count_float_ = value;
+}
+inline double Histogram::count_float() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.count_float)
+  return _internal_count_float();
+}
+inline void Histogram::set_count_float(double value) {
+  _internal_set_count_float(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.count_float)
+}
+
+// double sum = 3;
+inline void Histogram::clear_sum() {
+  _impl_.sum_ = 0;
+}
+inline double Histogram::_internal_sum() const {
+  return _impl_.sum_;
+}
+inline double Histogram::sum() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.sum)
+  return _internal_sum();
+}
+inline void Histogram::_internal_set_sum(double value) {
+  
+  _impl_.sum_ = value;
+}
+inline void Histogram::set_sum(double value) {
+  _internal_set_sum(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.sum)
+}
+
+// sint32 schema = 4;
+inline void Histogram::clear_schema() {
+  _impl_.schema_ = 0;
+}
+inline int32_t Histogram::_internal_schema() const {
+  return _impl_.schema_;
+}
+inline int32_t Histogram::schema() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.schema)
+  return _internal_schema();
+}
+inline void Histogram::_internal_set_schema(int32_t value) {
+  
+  _impl_.schema_ = value;
+}
+inline void Histogram::set_schema(int32_t value) {
+  _internal_set_schema(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.schema)
+}
+
+// double zero_threshold = 5;
+inline void Histogram::clear_zero_threshold() {
+  _impl_.zero_threshold_ = 0;
+}
+inline double Histogram::_internal_zero_threshold() const {
+  return _impl_.zero_threshold_;
+}
+inline double Histogram::zero_threshold() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.zero_threshold)
+  return _internal_zero_threshold();
+}
+inline void Histogram::_internal_set_zero_threshold(double value) {
+  
+  _impl_.zero_threshold_ = value;
+}
+inline void Histogram::set_zero_threshold(double value) {
+  _internal_set_zero_threshold(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.zero_threshold)
+}
+
+// uint64 zero_count_int = 6;
+inline bool Histogram::_internal_has_zero_count_int() const {
+  return zero_count_case() == kZeroCountInt;
+}
+inline bool Histogram::has_zero_count_int() const {
+  return _internal_has_zero_count_int();
+}
+inline void Histogram::set_has_zero_count_int() {
+  _impl_._oneof_case_[1] = kZeroCountInt;
+}
+inline void Histogram::clear_zero_count_int() {
+  if (_internal_has_zero_count_int()) {
+    _impl_.zero_count_.zero_count_int_ = uint64_t{0u};
+    clear_has_zero_count();
+  }
+}
+inline uint64_t Histogram::_internal_zero_count_int() const {
+  if (_internal_has_zero_count_int()) {
+    return _impl_.zero_count_.zero_count_int_;
+  }
+  return uint64_t{0u};
+}
+inline void Histogram::_internal_set_zero_count_int(uint64_t value) {
+  if (!_internal_has_zero_count_int()) {
+    clear_zero_count();
+    set_has_zero_count_int();
+  }
+  _impl_.zero_count_.zero_count_int_ = value;
+}
+inline uint64_t Histogram::zero_count_int() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.zero_count_int)
+  return _internal_zero_count_int();
+}
+inline void Histogram::set_zero_count_int(uint64_t value) {
+  _internal_set_zero_count_int(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.zero_count_int)
+}
+
+// double zero_count_float = 7;
+inline bool Histogram::_internal_has_zero_count_float() const {
+  return zero_count_case() == kZeroCountFloat;
+}
+inline bool Histogram::has_zero_count_float() const {
+  return _internal_has_zero_count_float();
+}
+inline void Histogram::set_has_zero_count_float() {
+  _impl_._oneof_case_[1] = kZeroCountFloat;
+}
+inline void Histogram::clear_zero_count_float() {
+  if (_internal_has_zero_count_float()) {
+    _impl_.zero_count_.zero_count_float_ = 0;
+    clear_has_zero_count();
+  }
+}
+inline double Histogram::_internal_zero_count_float() const {
+  if (_internal_has_zero_count_float()) {
+    return _impl_.zero_count_.zero_count_float_;
+  }
+  return 0;
+}
+inline void Histogram::_internal_set_zero_count_float(double value) {
+  if (!_internal_has_zero_count_float()) {
+    clear_zero_count();
+    set_has_zero_count_float();
+  }
+  _impl_.zero_count_.zero_count_float_ = value;
+}
+inline double Histogram::zero_count_float() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.zero_count_float)
+  return _internal_zero_count_float();
+}
+inline void Histogram::set_zero_count_float(double value) {
+  _internal_set_zero_count_float(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.zero_count_float)
+}
+
+// repeated .prometheus.BucketSpan negative_spans = 8;
+inline int Histogram::_internal_negative_spans_size() const {
+  return _impl_.negative_spans_.size();
+}
+inline int Histogram::negative_spans_size() const {
+  return _internal_negative_spans_size();
+}
+inline void Histogram::clear_negative_spans() {
+  _impl_.negative_spans_.Clear();
+}
+inline ::prometheus::BucketSpan* Histogram::mutable_negative_spans(int index) {
+  // @@protoc_insertion_point(field_mutable:prometheus.Histogram.negative_spans)
+  return _impl_.negative_spans_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >*
+Histogram::mutable_negative_spans() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.negative_spans)
+  return &_impl_.negative_spans_;
+}
+inline const ::prometheus::BucketSpan& Histogram::_internal_negative_spans(int index) const {
+  return _impl_.negative_spans_.Get(index);
+}
+inline const ::prometheus::BucketSpan& Histogram::negative_spans(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.negative_spans)
+  return _internal_negative_spans(index);
+}
+inline ::prometheus::BucketSpan* Histogram::_internal_add_negative_spans() {
+  return _impl_.negative_spans_.Add();
+}
+inline ::prometheus::BucketSpan* Histogram::add_negative_spans() {
+  ::prometheus::BucketSpan* _add = _internal_add_negative_spans();
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.negative_spans)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >&
+Histogram::negative_spans() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.negative_spans)
+  return _impl_.negative_spans_;
+}
+
+// repeated sint64 negative_deltas = 9;
+inline int Histogram::_internal_negative_deltas_size() const {
+  return _impl_.negative_deltas_.size();
+}
+inline int Histogram::negative_deltas_size() const {
+  return _internal_negative_deltas_size();
+}
+inline void Histogram::clear_negative_deltas() {
+  _impl_.negative_deltas_.Clear();
+}
+inline int64_t Histogram::_internal_negative_deltas(int index) const {
+  return _impl_.negative_deltas_.Get(index);
+}
+inline int64_t Histogram::negative_deltas(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.negative_deltas)
+  return _internal_negative_deltas(index);
+}
+inline void Histogram::set_negative_deltas(int index, int64_t value) {
+  _impl_.negative_deltas_.Set(index, value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.negative_deltas)
+}
+inline void Histogram::_internal_add_negative_deltas(int64_t value) {
+  _impl_.negative_deltas_.Add(value);
+}
+inline void Histogram::add_negative_deltas(int64_t value) {
+  _internal_add_negative_deltas(value);
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.negative_deltas)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Histogram::_internal_negative_deltas() const {
+  return _impl_.negative_deltas_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Histogram::negative_deltas() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.negative_deltas)
+  return _internal_negative_deltas();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Histogram::_internal_mutable_negative_deltas() {
+  return &_impl_.negative_deltas_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Histogram::mutable_negative_deltas() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.negative_deltas)
+  return _internal_mutable_negative_deltas();
+}
+
+// repeated double negative_counts = 10;
+inline int Histogram::_internal_negative_counts_size() const {
+  return _impl_.negative_counts_.size();
+}
+inline int Histogram::negative_counts_size() const {
+  return _internal_negative_counts_size();
+}
+inline void Histogram::clear_negative_counts() {
+  _impl_.negative_counts_.Clear();
+}
+inline double Histogram::_internal_negative_counts(int index) const {
+  return _impl_.negative_counts_.Get(index);
+}
+inline double Histogram::negative_counts(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.negative_counts)
+  return _internal_negative_counts(index);
+}
+inline void Histogram::set_negative_counts(int index, double value) {
+  _impl_.negative_counts_.Set(index, value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.negative_counts)
+}
+inline void Histogram::_internal_add_negative_counts(double value) {
+  _impl_.negative_counts_.Add(value);
+}
+inline void Histogram::add_negative_counts(double value) {
+  _internal_add_negative_counts(value);
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.negative_counts)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::_internal_negative_counts() const {
+  return _impl_.negative_counts_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::negative_counts() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.negative_counts)
+  return _internal_negative_counts();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::_internal_mutable_negative_counts() {
+  return &_impl_.negative_counts_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::mutable_negative_counts() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.negative_counts)
+  return _internal_mutable_negative_counts();
+}
+
+// repeated .prometheus.BucketSpan positive_spans = 11;
+inline int Histogram::_internal_positive_spans_size() const {
+  return _impl_.positive_spans_.size();
+}
+inline int Histogram::positive_spans_size() const {
+  return _internal_positive_spans_size();
+}
+inline void Histogram::clear_positive_spans() {
+  _impl_.positive_spans_.Clear();
+}
+inline ::prometheus::BucketSpan* Histogram::mutable_positive_spans(int index) {
+  // @@protoc_insertion_point(field_mutable:prometheus.Histogram.positive_spans)
+  return _impl_.positive_spans_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >*
+Histogram::mutable_positive_spans() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.positive_spans)
+  return &_impl_.positive_spans_;
+}
+inline const ::prometheus::BucketSpan& Histogram::_internal_positive_spans(int index) const {
+  return _impl_.positive_spans_.Get(index);
+}
+inline const ::prometheus::BucketSpan& Histogram::positive_spans(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.positive_spans)
+  return _internal_positive_spans(index);
+}
+inline ::prometheus::BucketSpan* Histogram::_internal_add_positive_spans() {
+  return _impl_.positive_spans_.Add();
+}
+inline ::prometheus::BucketSpan* Histogram::add_positive_spans() {
+  ::prometheus::BucketSpan* _add = _internal_add_positive_spans();
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.positive_spans)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::BucketSpan >&
+Histogram::positive_spans() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.positive_spans)
+  return _impl_.positive_spans_;
+}
+
+// repeated sint64 positive_deltas = 12;
+inline int Histogram::_internal_positive_deltas_size() const {
+  return _impl_.positive_deltas_.size();
+}
+inline int Histogram::positive_deltas_size() const {
+  return _internal_positive_deltas_size();
+}
+inline void Histogram::clear_positive_deltas() {
+  _impl_.positive_deltas_.Clear();
+}
+inline int64_t Histogram::_internal_positive_deltas(int index) const {
+  return _impl_.positive_deltas_.Get(index);
+}
+inline int64_t Histogram::positive_deltas(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.positive_deltas)
+  return _internal_positive_deltas(index);
+}
+inline void Histogram::set_positive_deltas(int index, int64_t value) {
+  _impl_.positive_deltas_.Set(index, value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.positive_deltas)
+}
+inline void Histogram::_internal_add_positive_deltas(int64_t value) {
+  _impl_.positive_deltas_.Add(value);
+}
+inline void Histogram::add_positive_deltas(int64_t value) {
+  _internal_add_positive_deltas(value);
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.positive_deltas)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Histogram::_internal_positive_deltas() const {
+  return _impl_.positive_deltas_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >&
+Histogram::positive_deltas() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.positive_deltas)
+  return _internal_positive_deltas();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Histogram::_internal_mutable_positive_deltas() {
+  return &_impl_.positive_deltas_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
+Histogram::mutable_positive_deltas() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.positive_deltas)
+  return _internal_mutable_positive_deltas();
+}
+
+// repeated double positive_counts = 13;
+inline int Histogram::_internal_positive_counts_size() const {
+  return _impl_.positive_counts_.size();
+}
+inline int Histogram::positive_counts_size() const {
+  return _internal_positive_counts_size();
+}
+inline void Histogram::clear_positive_counts() {
+  _impl_.positive_counts_.Clear();
+}
+inline double Histogram::_internal_positive_counts(int index) const {
+  return _impl_.positive_counts_.Get(index);
+}
+inline double Histogram::positive_counts(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.positive_counts)
+  return _internal_positive_counts(index);
+}
+inline void Histogram::set_positive_counts(int index, double value) {
+  _impl_.positive_counts_.Set(index, value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.positive_counts)
+}
+inline void Histogram::_internal_add_positive_counts(double value) {
+  _impl_.positive_counts_.Add(value);
+}
+inline void Histogram::add_positive_counts(double value) {
+  _internal_add_positive_counts(value);
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.positive_counts)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::_internal_positive_counts() const {
+  return _impl_.positive_counts_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::positive_counts() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.positive_counts)
+  return _internal_positive_counts();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::_internal_mutable_positive_counts() {
+  return &_impl_.positive_counts_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::mutable_positive_counts() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.positive_counts)
+  return _internal_mutable_positive_counts();
+}
+
+// .prometheus.Histogram.ResetHint reset_hint = 14;
+inline void Histogram::clear_reset_hint() {
+  _impl_.reset_hint_ = 0;
+}
+inline ::prometheus::Histogram_ResetHint Histogram::_internal_reset_hint() const {
+  return static_cast< ::prometheus::Histogram_ResetHint >(_impl_.reset_hint_);
+}
+inline ::prometheus::Histogram_ResetHint Histogram::reset_hint() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.reset_hint)
+  return _internal_reset_hint();
+}
+inline void Histogram::_internal_set_reset_hint(::prometheus::Histogram_ResetHint value) {
+  
+  _impl_.reset_hint_ = value;
+}
+inline void Histogram::set_reset_hint(::prometheus::Histogram_ResetHint value) {
+  _internal_set_reset_hint(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.reset_hint)
+}
+
+// int64 timestamp = 15;
+inline void Histogram::clear_timestamp() {
+  _impl_.timestamp_ = int64_t{0};
+}
+inline int64_t Histogram::_internal_timestamp() const {
+  return _impl_.timestamp_;
+}
+inline int64_t Histogram::timestamp() const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.timestamp)
+  return _internal_timestamp();
+}
+inline void Histogram::_internal_set_timestamp(int64_t value) {
+  
+  _impl_.timestamp_ = value;
+}
+inline void Histogram::set_timestamp(int64_t value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.timestamp)
+}
+
+// repeated double custom_values = 16;
+inline int Histogram::_internal_custom_values_size() const {
+  return _impl_.custom_values_.size();
+}
+inline int Histogram::custom_values_size() const {
+  return _internal_custom_values_size();
+}
+inline void Histogram::clear_custom_values() {
+  _impl_.custom_values_.Clear();
+}
+inline double Histogram::_internal_custom_values(int index) const {
+  return _impl_.custom_values_.Get(index);
+}
+inline double Histogram::custom_values(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.Histogram.custom_values)
+  return _internal_custom_values(index);
+}
+inline void Histogram::set_custom_values(int index, double value) {
+  _impl_.custom_values_.Set(index, value);
+  // @@protoc_insertion_point(field_set:prometheus.Histogram.custom_values)
+}
+inline void Histogram::_internal_add_custom_values(double value) {
+  _impl_.custom_values_.Add(value);
+}
+inline void Histogram::add_custom_values(double value) {
+  _internal_add_custom_values(value);
+  // @@protoc_insertion_point(field_add:prometheus.Histogram.custom_values)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::_internal_custom_values() const {
+  return _impl_.custom_values_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >&
+Histogram::custom_values() const {
+  // @@protoc_insertion_point(field_list:prometheus.Histogram.custom_values)
+  return _internal_custom_values();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::_internal_mutable_custom_values() {
+  return &_impl_.custom_values_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< double >*
+Histogram::mutable_custom_values() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.Histogram.custom_values)
+  return _internal_mutable_custom_values();
+}
+
+inline bool Histogram::has_count() const {
+  return count_case() != COUNT_NOT_SET;
+}
+inline void Histogram::clear_has_count() {
+  _impl_._oneof_case_[0] = COUNT_NOT_SET;
+}
+inline bool Histogram::has_zero_count() const {
+  return zero_count_case() != ZERO_COUNT_NOT_SET;
+}
+inline void Histogram::clear_has_zero_count() {
+  _impl_._oneof_case_[1] = ZERO_COUNT_NOT_SET;
+}
+inline Histogram::CountCase Histogram::count_case() const {
+  return Histogram::CountCase(_impl_._oneof_case_[0]);
+}
+inline Histogram::ZeroCountCase Histogram::zero_count_case() const {
+  return Histogram::ZeroCountCase(_impl_._oneof_case_[1]);
+}
+// -------------------------------------------------------------------
+
+// BucketSpan
+
+// sint32 offset = 1;
+inline void BucketSpan::clear_offset() {
+  _impl_.offset_ = 0;
+}
+inline int32_t BucketSpan::_internal_offset() const {
+  return _impl_.offset_;
+}
+inline int32_t BucketSpan::offset() const {
+  // @@protoc_insertion_point(field_get:prometheus.BucketSpan.offset)
+  return _internal_offset();
+}
+inline void BucketSpan::_internal_set_offset(int32_t value) {
+  
+  _impl_.offset_ = value;
+}
+inline void BucketSpan::set_offset(int32_t value) {
+  _internal_set_offset(value);
+  // @@protoc_insertion_point(field_set:prometheus.BucketSpan.offset)
+}
+
+// uint32 length = 2;
+inline void BucketSpan::clear_length() {
+  _impl_.length_ = 0u;
+}
+inline uint32_t BucketSpan::_internal_length() const {
+  return _impl_.length_;
+}
+inline uint32_t BucketSpan::length() const {
+  // @@protoc_insertion_point(field_get:prometheus.BucketSpan.length)
+  return _internal_length();
+}
+inline void BucketSpan::_internal_set_length(uint32_t value) {
+  
+  _impl_.length_ = value;
+}
+inline void BucketSpan::set_length(uint32_t value) {
+  _internal_set_length(value);
+  // @@protoc_insertion_point(field_set:prometheus.BucketSpan.length)
+}
+
+// -------------------------------------------------------------------
+
 // TimeSeries
 
 // repeated .prometheus.Label labels = 1;
@@ -2545,6 +3882,46 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Exemplar >
 TimeSeries::exemplars() const {
   // @@protoc_insertion_point(field_list:prometheus.TimeSeries.exemplars)
   return _impl_.exemplars_;
+}
+
+// repeated .prometheus.Histogram histograms = 4;
+inline int TimeSeries::_internal_histograms_size() const {
+  return _impl_.histograms_.size();
+}
+inline int TimeSeries::histograms_size() const {
+  return _internal_histograms_size();
+}
+inline void TimeSeries::clear_histograms() {
+  _impl_.histograms_.Clear();
+}
+inline ::prometheus::Histogram* TimeSeries::mutable_histograms(int index) {
+  // @@protoc_insertion_point(field_mutable:prometheus.TimeSeries.histograms)
+  return _impl_.histograms_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Histogram >*
+TimeSeries::mutable_histograms() {
+  // @@protoc_insertion_point(field_mutable_list:prometheus.TimeSeries.histograms)
+  return &_impl_.histograms_;
+}
+inline const ::prometheus::Histogram& TimeSeries::_internal_histograms(int index) const {
+  return _impl_.histograms_.Get(index);
+}
+inline const ::prometheus::Histogram& TimeSeries::histograms(int index) const {
+  // @@protoc_insertion_point(field_get:prometheus.TimeSeries.histograms)
+  return _internal_histograms(index);
+}
+inline ::prometheus::Histogram* TimeSeries::_internal_add_histograms() {
+  return _impl_.histograms_.Add();
+}
+inline ::prometheus::Histogram* TimeSeries::add_histograms() {
+  ::prometheus::Histogram* _add = _internal_add_histograms();
+  // @@protoc_insertion_point(field_add:prometheus.TimeSeries.histograms)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::prometheus::Histogram >&
+TimeSeries::histograms() const {
+  // @@protoc_insertion_point(field_list:prometheus.TimeSeries.histograms)
+  return _impl_.histograms_;
 }
 
 // -------------------------------------------------------------------
@@ -3267,6 +4644,10 @@ ChunkedSeries::chunks() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -3278,6 +4659,11 @@ template <> struct is_proto_enum< ::prometheus::MetricMetadata_MetricType> : ::s
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::prometheus::MetricMetadata_MetricType>() {
   return ::prometheus::MetricMetadata_MetricType_descriptor();
+}
+template <> struct is_proto_enum< ::prometheus::Histogram_ResetHint> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::prometheus::Histogram_ResetHint>() {
+  return ::prometheus::Histogram_ResetHint_descriptor();
 }
 template <> struct is_proto_enum< ::prometheus::LabelMatcher_Type> : ::std::true_type {};
 template <>

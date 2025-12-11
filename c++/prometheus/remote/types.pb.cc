@@ -66,11 +66,55 @@ struct ExemplarDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExemplarDefaultTypeInternal _Exemplar_default_instance_;
+PROTOBUF_CONSTEXPR Histogram::Histogram(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.negative_spans_)*/{}
+  , /*decltype(_impl_.negative_deltas_)*/{}
+  , /*decltype(_impl_._negative_deltas_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.negative_counts_)*/{}
+  , /*decltype(_impl_.positive_spans_)*/{}
+  , /*decltype(_impl_.positive_deltas_)*/{}
+  , /*decltype(_impl_._positive_deltas_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.positive_counts_)*/{}
+  , /*decltype(_impl_.custom_values_)*/{}
+  , /*decltype(_impl_.sum_)*/0
+  , /*decltype(_impl_.zero_threshold_)*/0
+  , /*decltype(_impl_.schema_)*/0
+  , /*decltype(_impl_.reset_hint_)*/0
+  , /*decltype(_impl_.timestamp_)*/int64_t{0}
+  , /*decltype(_impl_.count_)*/{}
+  , /*decltype(_impl_.zero_count_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct HistogramDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR HistogramDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~HistogramDefaultTypeInternal() {}
+  union {
+    Histogram _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HistogramDefaultTypeInternal _Histogram_default_instance_;
+PROTOBUF_CONSTEXPR BucketSpan::BucketSpan(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.offset_)*/0
+  , /*decltype(_impl_.length_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct BucketSpanDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BucketSpanDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BucketSpanDefaultTypeInternal() {}
+  union {
+    BucketSpan _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BucketSpanDefaultTypeInternal _BucketSpan_default_instance_;
 PROTOBUF_CONSTEXPR TimeSeries::TimeSeries(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.labels_)*/{}
   , /*decltype(_impl_.samples_)*/{}
   , /*decltype(_impl_.exemplars_)*/{}
+  , /*decltype(_impl_.histograms_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct TimeSeriesDefaultTypeInternal {
   PROTOBUF_CONSTEXPR TimeSeriesDefaultTypeInternal()
@@ -173,8 +217,8 @@ struct ChunkedSeriesDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ChunkedSeriesDefaultTypeInternal _ChunkedSeries_default_instance_;
 }  // namespace prometheus
-static ::_pb::Metadata file_level_metadata_prometheus_2fremote_2ftypes_2eproto[10];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[3];
+static ::_pb::Metadata file_level_metadata_prometheus_2fremote_2ftypes_2eproto[12];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[4];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_prometheus_2fremote_2ftypes_2eproto = nullptr;
 
 const uint32_t TableStruct_prometheus_2fremote_2ftypes_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -206,6 +250,38 @@ const uint32_t TableStruct_prometheus_2fremote_2ftypes_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::prometheus::Exemplar, _impl_.value_),
   PROTOBUF_FIELD_OFFSET(::prometheus::Exemplar, _impl_.timestamp_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.sum_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.schema_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.zero_threshold_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.negative_spans_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.negative_deltas_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.negative_counts_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.positive_spans_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.positive_deltas_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.positive_counts_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.reset_hint_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.timestamp_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.custom_values_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.count_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::Histogram, _impl_.zero_count_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::prometheus::BucketSpan, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::prometheus::BucketSpan, _impl_.offset_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::BucketSpan, _impl_.length_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::prometheus::TimeSeries, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -214,6 +290,7 @@ const uint32_t TableStruct_prometheus_2fremote_2ftypes_2eproto::offsets[] PROTOB
   PROTOBUF_FIELD_OFFSET(::prometheus::TimeSeries, _impl_.labels_),
   PROTOBUF_FIELD_OFFSET(::prometheus::TimeSeries, _impl_.samples_),
   PROTOBUF_FIELD_OFFSET(::prometheus::TimeSeries, _impl_.exemplars_),
+  PROTOBUF_FIELD_OFFSET(::prometheus::TimeSeries, _impl_.histograms_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::prometheus::Label, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -274,19 +351,23 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, -1, -1, sizeof(::prometheus::MetricMetadata)},
   { 10, -1, -1, sizeof(::prometheus::Sample)},
   { 18, -1, -1, sizeof(::prometheus::Exemplar)},
-  { 27, -1, -1, sizeof(::prometheus::TimeSeries)},
-  { 36, -1, -1, sizeof(::prometheus::Label)},
-  { 44, -1, -1, sizeof(::prometheus::Labels)},
-  { 51, -1, -1, sizeof(::prometheus::LabelMatcher)},
-  { 60, -1, -1, sizeof(::prometheus::ReadHints)},
-  { 73, -1, -1, sizeof(::prometheus::Chunk)},
-  { 83, -1, -1, sizeof(::prometheus::ChunkedSeries)},
+  { 27, -1, -1, sizeof(::prometheus::Histogram)},
+  { 51, -1, -1, sizeof(::prometheus::BucketSpan)},
+  { 59, -1, -1, sizeof(::prometheus::TimeSeries)},
+  { 69, -1, -1, sizeof(::prometheus::Label)},
+  { 77, -1, -1, sizeof(::prometheus::Labels)},
+  { 84, -1, -1, sizeof(::prometheus::LabelMatcher)},
+  { 93, -1, -1, sizeof(::prometheus::ReadHints)},
+  { 106, -1, -1, sizeof(::prometheus::Chunk)},
+  { 116, -1, -1, sizeof(::prometheus::ChunkedSeries)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::prometheus::_MetricMetadata_default_instance_._instance,
   &::prometheus::_Sample_default_instance_._instance,
   &::prometheus::_Exemplar_default_instance_._instance,
+  &::prometheus::_Histogram_default_instance_._instance,
+  &::prometheus::_BucketSpan_default_instance_._instance,
   &::prometheus::_TimeSeries_default_instance_._instance,
   &::prometheus::_Label_default_instance_._instance,
   &::prometheus::_Labels_default_instance_._instance,
@@ -307,32 +388,49 @@ const char descriptor_table_protodef_prometheus_2fremote_2ftypes_2eproto[] PROTO
   "\022\014\n\010STATESET\020\007\"*\n\006Sample\022\r\n\005value\030\001 \001(\001\022"
   "\021\n\ttimestamp\030\002 \001(\003\"O\n\010Exemplar\022!\n\006labels"
   "\030\001 \003(\0132\021.prometheus.Label\022\r\n\005value\030\002 \001(\001"
-  "\022\021\n\ttimestamp\030\003 \001(\003\"}\n\nTimeSeries\022!\n\006lab"
-  "els\030\001 \003(\0132\021.prometheus.Label\022#\n\007samples\030"
-  "\002 \003(\0132\022.prometheus.Sample\022\'\n\texemplars\030\003"
-  " \003(\0132\024.prometheus.Exemplar\"$\n\005Label\022\014\n\004n"
-  "ame\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"+\n\006Labels\022!\n\006la"
-  "bels\030\001 \003(\0132\021.prometheus.Label\"\202\001\n\014LabelM"
-  "atcher\022+\n\004type\030\001 \001(\0162\035.prometheus.LabelM"
-  "atcher.Type\022\014\n\004name\030\002 \001(\t\022\r\n\005value\030\003 \001(\t"
-  "\"(\n\004Type\022\006\n\002EQ\020\000\022\007\n\003NEQ\020\001\022\006\n\002RE\020\002\022\007\n\003NRE"
-  "\020\003\"|\n\tReadHints\022\017\n\007step_ms\030\001 \001(\003\022\014\n\004func"
-  "\030\002 \001(\t\022\020\n\010start_ms\030\003 \001(\003\022\016\n\006end_ms\030\004 \001(\003"
-  "\022\020\n\010grouping\030\005 \003(\t\022\n\n\002by\030\006 \001(\010\022\020\n\010range_"
-  "ms\030\007 \001(\003\"\213\001\n\005Chunk\022\023\n\013min_time_ms\030\001 \001(\003\022"
-  "\023\n\013max_time_ms\030\002 \001(\003\022(\n\004type\030\003 \001(\0162\032.pro"
-  "metheus.Chunk.Encoding\022\014\n\004data\030\004 \001(\014\" \n\010"
-  "Encoding\022\013\n\007UNKNOWN\020\000\022\007\n\003XOR\020\001\"U\n\rChunke"
-  "dSeries\022!\n\006labels\030\001 \003(\0132\021.prometheus.Lab"
-  "el\022!\n\006chunks\030\002 \003(\0132\021.prometheus.ChunkB=Z"
-  ";github.com/GreptimeTeam/greptime-proto/"
-  "go/prometheus/remoteb\006proto3"
+  "\022\021\n\ttimestamp\030\003 \001(\003\"\222\004\n\tHistogram\022\023\n\tcou"
+  "nt_int\030\001 \001(\004H\000\022\025\n\013count_float\030\002 \001(\001H\000\022\013\n"
+  "\003sum\030\003 \001(\001\022\016\n\006schema\030\004 \001(\021\022\026\n\016zero_thres"
+  "hold\030\005 \001(\001\022\030\n\016zero_count_int\030\006 \001(\004H\001\022\032\n\020"
+  "zero_count_float\030\007 \001(\001H\001\022.\n\016negative_spa"
+  "ns\030\010 \003(\0132\026.prometheus.BucketSpan\022\027\n\017nega"
+  "tive_deltas\030\t \003(\022\022\027\n\017negative_counts\030\n \003"
+  "(\001\022.\n\016positive_spans\030\013 \003(\0132\026.prometheus."
+  "BucketSpan\022\027\n\017positive_deltas\030\014 \003(\022\022\027\n\017p"
+  "ositive_counts\030\r \003(\001\0223\n\nreset_hint\030\016 \001(\016"
+  "2\037.prometheus.Histogram.ResetHint\022\021\n\ttim"
+  "estamp\030\017 \001(\003\022\025\n\rcustom_values\030\020 \003(\001\"4\n\tR"
+  "esetHint\022\013\n\007UNKNOWN\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\022\t"
+  "\n\005GAUGE\020\003B\007\n\005countB\014\n\nzero_count\",\n\nBuck"
+  "etSpan\022\016\n\006offset\030\001 \001(\021\022\016\n\006length\030\002 \001(\r\"\250"
+  "\001\n\nTimeSeries\022!\n\006labels\030\001 \003(\0132\021.promethe"
+  "us.Label\022#\n\007samples\030\002 \003(\0132\022.prometheus.S"
+  "ample\022\'\n\texemplars\030\003 \003(\0132\024.prometheus.Ex"
+  "emplar\022)\n\nhistograms\030\004 \003(\0132\025.prometheus."
+  "Histogram\"$\n\005Label\022\014\n\004name\030\001 \001(\t\022\r\n\005valu"
+  "e\030\002 \001(\t\"+\n\006Labels\022!\n\006labels\030\001 \003(\0132\021.prom"
+  "etheus.Label\"\202\001\n\014LabelMatcher\022+\n\004type\030\001 "
+  "\001(\0162\035.prometheus.LabelMatcher.Type\022\014\n\004na"
+  "me\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\"(\n\004Type\022\006\n\002EQ\020\000\022"
+  "\007\n\003NEQ\020\001\022\006\n\002RE\020\002\022\007\n\003NRE\020\003\"|\n\tReadHints\022\017"
+  "\n\007step_ms\030\001 \001(\003\022\014\n\004func\030\002 \001(\t\022\020\n\010start_m"
+  "s\030\003 \001(\003\022\016\n\006end_ms\030\004 \001(\003\022\020\n\010grouping\030\005 \003("
+  "\t\022\n\n\002by\030\006 \001(\010\022\020\n\010range_ms\030\007 \001(\003\"\257\001\n\005Chun"
+  "k\022\023\n\013min_time_ms\030\001 \001(\003\022\023\n\013max_time_ms\030\002 "
+  "\001(\003\022(\n\004type\030\003 \001(\0162\032.prometheus.Chunk.Enc"
+  "oding\022\014\n\004data\030\004 \001(\014\"D\n\010Encoding\022\013\n\007UNKNO"
+  "WN\020\000\022\007\n\003XOR\020\001\022\r\n\tHISTOGRAM\020\002\022\023\n\017FLOAT_HI"
+  "STOGRAM\020\003\"U\n\rChunkedSeries\022!\n\006labels\030\001 \003"
+  "(\0132\021.prometheus.Label\022!\n\006chunks\030\002 \003(\0132\021."
+  "prometheus.ChunkB=Z;github.com/GreptimeT"
+  "eam/greptime-proto/go/prometheus/remoteb"
+  "\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_prometheus_2fremote_2ftypes_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_prometheus_2fremote_2ftypes_2eproto = {
-    false, false, 1188, descriptor_table_protodef_prometheus_2fremote_2ftypes_2eproto,
+    false, false, 1847, descriptor_table_protodef_prometheus_2fremote_2ftypes_2eproto,
     "prometheus/remote/types.proto",
-    &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once, nullptr, 0, 10,
+    &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once, nullptr, 0, 12,
     schemas, file_default_instances, TableStruct_prometheus_2fremote_2ftypes_2eproto::offsets,
     file_level_metadata_prometheus_2fremote_2ftypes_2eproto, file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto,
     file_level_service_descriptors_prometheus_2fremote_2ftypes_2eproto,
@@ -377,9 +475,34 @@ constexpr MetricMetadata_MetricType MetricMetadata::MetricType_MIN;
 constexpr MetricMetadata_MetricType MetricMetadata::MetricType_MAX;
 constexpr int MetricMetadata::MetricType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* LabelMatcher_Type_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Histogram_ResetHint_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_prometheus_2fremote_2ftypes_2eproto);
   return file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[1];
+}
+bool Histogram_ResetHint_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr Histogram_ResetHint Histogram::UNKNOWN;
+constexpr Histogram_ResetHint Histogram::YES;
+constexpr Histogram_ResetHint Histogram::NO;
+constexpr Histogram_ResetHint Histogram::GAUGE;
+constexpr Histogram_ResetHint Histogram::ResetHint_MIN;
+constexpr Histogram_ResetHint Histogram::ResetHint_MAX;
+constexpr int Histogram::ResetHint_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* LabelMatcher_Type_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_prometheus_2fremote_2ftypes_2eproto);
+  return file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[2];
 }
 bool LabelMatcher_Type_IsValid(int value) {
   switch (value) {
@@ -404,12 +527,14 @@ constexpr int LabelMatcher::Type_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Chunk_Encoding_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_prometheus_2fremote_2ftypes_2eproto);
-  return file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[2];
+  return file_level_enum_descriptors_prometheus_2fremote_2ftypes_2eproto[3];
 }
 bool Chunk_Encoding_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -419,6 +544,8 @@ bool Chunk_Encoding_IsValid(int value) {
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr Chunk_Encoding Chunk::UNKNOWN;
 constexpr Chunk_Encoding Chunk::XOR;
+constexpr Chunk_Encoding Chunk::HISTOGRAM;
+constexpr Chunk_Encoding Chunk::FLOAT_HISTOGRAM;
 constexpr Chunk_Encoding Chunk::Encoding_MIN;
 constexpr Chunk_Encoding Chunk::Encoding_MAX;
 constexpr int Chunk::Encoding_ARRAYSIZE;
@@ -1239,6 +1366,975 @@ void Exemplar::InternalSwap(Exemplar* other) {
 
 // ===================================================================
 
+class Histogram::_Internal {
+ public:
+};
+
+Histogram::Histogram(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:prometheus.Histogram)
+}
+Histogram::Histogram(const Histogram& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Histogram* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.negative_spans_){from._impl_.negative_spans_}
+    , decltype(_impl_.negative_deltas_){from._impl_.negative_deltas_}
+    , /*decltype(_impl_._negative_deltas_cached_byte_size_)*/{0}
+    , decltype(_impl_.negative_counts_){from._impl_.negative_counts_}
+    , decltype(_impl_.positive_spans_){from._impl_.positive_spans_}
+    , decltype(_impl_.positive_deltas_){from._impl_.positive_deltas_}
+    , /*decltype(_impl_._positive_deltas_cached_byte_size_)*/{0}
+    , decltype(_impl_.positive_counts_){from._impl_.positive_counts_}
+    , decltype(_impl_.custom_values_){from._impl_.custom_values_}
+    , decltype(_impl_.sum_){}
+    , decltype(_impl_.zero_threshold_){}
+    , decltype(_impl_.schema_){}
+    , decltype(_impl_.reset_hint_){}
+    , decltype(_impl_.timestamp_){}
+    , decltype(_impl_.count_){}
+    , decltype(_impl_.zero_count_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.sum_, &from._impl_.sum_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timestamp_) -
+    reinterpret_cast<char*>(&_impl_.sum_)) + sizeof(_impl_.timestamp_));
+  clear_has_count();
+  switch (from.count_case()) {
+    case kCountInt: {
+      _this->_internal_set_count_int(from._internal_count_int());
+      break;
+    }
+    case kCountFloat: {
+      _this->_internal_set_count_float(from._internal_count_float());
+      break;
+    }
+    case COUNT_NOT_SET: {
+      break;
+    }
+  }
+  clear_has_zero_count();
+  switch (from.zero_count_case()) {
+    case kZeroCountInt: {
+      _this->_internal_set_zero_count_int(from._internal_zero_count_int());
+      break;
+    }
+    case kZeroCountFloat: {
+      _this->_internal_set_zero_count_float(from._internal_zero_count_float());
+      break;
+    }
+    case ZERO_COUNT_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:prometheus.Histogram)
+}
+
+inline void Histogram::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.negative_spans_){arena}
+    , decltype(_impl_.negative_deltas_){arena}
+    , /*decltype(_impl_._negative_deltas_cached_byte_size_)*/{0}
+    , decltype(_impl_.negative_counts_){arena}
+    , decltype(_impl_.positive_spans_){arena}
+    , decltype(_impl_.positive_deltas_){arena}
+    , /*decltype(_impl_._positive_deltas_cached_byte_size_)*/{0}
+    , decltype(_impl_.positive_counts_){arena}
+    , decltype(_impl_.custom_values_){arena}
+    , decltype(_impl_.sum_){0}
+    , decltype(_impl_.zero_threshold_){0}
+    , decltype(_impl_.schema_){0}
+    , decltype(_impl_.reset_hint_){0}
+    , decltype(_impl_.timestamp_){int64_t{0}}
+    , decltype(_impl_.count_){}
+    , decltype(_impl_.zero_count_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_count();
+  clear_has_zero_count();
+}
+
+Histogram::~Histogram() {
+  // @@protoc_insertion_point(destructor:prometheus.Histogram)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Histogram::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.negative_spans_.~RepeatedPtrField();
+  _impl_.negative_deltas_.~RepeatedField();
+  _impl_.negative_counts_.~RepeatedField();
+  _impl_.positive_spans_.~RepeatedPtrField();
+  _impl_.positive_deltas_.~RepeatedField();
+  _impl_.positive_counts_.~RepeatedField();
+  _impl_.custom_values_.~RepeatedField();
+  if (has_count()) {
+    clear_count();
+  }
+  if (has_zero_count()) {
+    clear_zero_count();
+  }
+}
+
+void Histogram::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Histogram::clear_count() {
+// @@protoc_insertion_point(one_of_clear_start:prometheus.Histogram)
+  switch (count_case()) {
+    case kCountInt: {
+      // No need to clear
+      break;
+    }
+    case kCountFloat: {
+      // No need to clear
+      break;
+    }
+    case COUNT_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = COUNT_NOT_SET;
+}
+
+void Histogram::clear_zero_count() {
+// @@protoc_insertion_point(one_of_clear_start:prometheus.Histogram)
+  switch (zero_count_case()) {
+    case kZeroCountInt: {
+      // No need to clear
+      break;
+    }
+    case kZeroCountFloat: {
+      // No need to clear
+      break;
+    }
+    case ZERO_COUNT_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[1] = ZERO_COUNT_NOT_SET;
+}
+
+
+void Histogram::Clear() {
+// @@protoc_insertion_point(message_clear_start:prometheus.Histogram)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.negative_spans_.Clear();
+  _impl_.negative_deltas_.Clear();
+  _impl_.negative_counts_.Clear();
+  _impl_.positive_spans_.Clear();
+  _impl_.positive_deltas_.Clear();
+  _impl_.positive_counts_.Clear();
+  _impl_.custom_values_.Clear();
+  ::memset(&_impl_.sum_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.timestamp_) -
+      reinterpret_cast<char*>(&_impl_.sum_)) + sizeof(_impl_.timestamp_));
+  clear_count();
+  clear_zero_count();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Histogram::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint64 count_int = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _internal_set_count_int(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double count_float = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
+          _internal_set_count_float(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double sum = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 25)) {
+          _impl_.sum_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // sint32 schema = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.schema_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double zero_threshold = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 41)) {
+          _impl_.zero_threshold_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 zero_count_int = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _internal_set_zero_count_int(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double zero_count_float = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 57)) {
+          _internal_set_zero_count_float(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .prometheus.BucketSpan negative_spans = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_negative_spans(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated sint64 negative_deltas = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt64Parser(_internal_mutable_negative_deltas(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 72) {
+          _internal_add_negative_deltas(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated double negative_counts = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 82)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedDoubleParser(_internal_mutable_negative_counts(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 81) {
+          _internal_add_negative_counts(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .prometheus.BucketSpan positive_spans = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_positive_spans(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated sint64 positive_deltas = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedSInt64Parser(_internal_mutable_positive_deltas(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 96) {
+          _internal_add_positive_deltas(::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated double positive_counts = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 106)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedDoubleParser(_internal_mutable_positive_counts(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 105) {
+          _internal_add_positive_counts(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // .prometheus.Histogram.ResetHint reset_hint = 14;
+      case 14:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_reset_hint(static_cast<::prometheus::Histogram_ResetHint>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 timestamp = 15;
+      case 15:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 120)) {
+          _impl_.timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated double custom_values = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedDoubleParser(_internal_mutable_custom_values(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 129) {
+          _internal_add_custom_values(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Histogram::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:prometheus.Histogram)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 count_int = 1;
+  if (_internal_has_count_int()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_count_int(), target);
+  }
+
+  // double count_float = 2;
+  if (_internal_has_count_float()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_count_float(), target);
+  }
+
+  // double sum = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_sum = this->_internal_sum();
+  uint64_t raw_sum;
+  memcpy(&raw_sum, &tmp_sum, sizeof(tmp_sum));
+  if (raw_sum != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(3, this->_internal_sum(), target);
+  }
+
+  // sint32 schema = 4;
+  if (this->_internal_schema() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteSInt32ToArray(4, this->_internal_schema(), target);
+  }
+
+  // double zero_threshold = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_zero_threshold = this->_internal_zero_threshold();
+  uint64_t raw_zero_threshold;
+  memcpy(&raw_zero_threshold, &tmp_zero_threshold, sizeof(tmp_zero_threshold));
+  if (raw_zero_threshold != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(5, this->_internal_zero_threshold(), target);
+  }
+
+  // uint64 zero_count_int = 6;
+  if (_internal_has_zero_count_int()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(6, this->_internal_zero_count_int(), target);
+  }
+
+  // double zero_count_float = 7;
+  if (_internal_has_zero_count_float()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(7, this->_internal_zero_count_float(), target);
+  }
+
+  // repeated .prometheus.BucketSpan negative_spans = 8;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_negative_spans_size()); i < n; i++) {
+    const auto& repfield = this->_internal_negative_spans(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(8, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated sint64 negative_deltas = 9;
+  {
+    int byte_size = _impl_._negative_deltas_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteSInt64Packed(
+          9, _internal_negative_deltas(), byte_size, target);
+    }
+  }
+
+  // repeated double negative_counts = 10;
+  if (this->_internal_negative_counts_size() > 0) {
+    target = stream->WriteFixedPacked(10, _internal_negative_counts(), target);
+  }
+
+  // repeated .prometheus.BucketSpan positive_spans = 11;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_positive_spans_size()); i < n; i++) {
+    const auto& repfield = this->_internal_positive_spans(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(11, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // repeated sint64 positive_deltas = 12;
+  {
+    int byte_size = _impl_._positive_deltas_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteSInt64Packed(
+          12, _internal_positive_deltas(), byte_size, target);
+    }
+  }
+
+  // repeated double positive_counts = 13;
+  if (this->_internal_positive_counts_size() > 0) {
+    target = stream->WriteFixedPacked(13, _internal_positive_counts(), target);
+  }
+
+  // .prometheus.Histogram.ResetHint reset_hint = 14;
+  if (this->_internal_reset_hint() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      14, this->_internal_reset_hint(), target);
+  }
+
+  // int64 timestamp = 15;
+  if (this->_internal_timestamp() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(15, this->_internal_timestamp(), target);
+  }
+
+  // repeated double custom_values = 16;
+  if (this->_internal_custom_values_size() > 0) {
+    target = stream->WriteFixedPacked(16, _internal_custom_values(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:prometheus.Histogram)
+  return target;
+}
+
+size_t Histogram::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prometheus.Histogram)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .prometheus.BucketSpan negative_spans = 8;
+  total_size += 1UL * this->_internal_negative_spans_size();
+  for (const auto& msg : this->_impl_.negative_spans_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated sint64 negative_deltas = 9;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      SInt64Size(this->_impl_.negative_deltas_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._negative_deltas_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated double negative_counts = 10;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_negative_counts_size());
+    size_t data_size = 8UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    total_size += data_size;
+  }
+
+  // repeated .prometheus.BucketSpan positive_spans = 11;
+  total_size += 1UL * this->_internal_positive_spans_size();
+  for (const auto& msg : this->_impl_.positive_spans_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated sint64 positive_deltas = 12;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      SInt64Size(this->_impl_.positive_deltas_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._positive_deltas_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated double positive_counts = 13;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_positive_counts_size());
+    size_t data_size = 8UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    total_size += data_size;
+  }
+
+  // repeated double custom_values = 16;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_custom_values_size());
+    size_t data_size = 8UL * count;
+    if (data_size > 0) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    total_size += data_size;
+  }
+
+  // double sum = 3;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_sum = this->_internal_sum();
+  uint64_t raw_sum;
+  memcpy(&raw_sum, &tmp_sum, sizeof(tmp_sum));
+  if (raw_sum != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double zero_threshold = 5;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_zero_threshold = this->_internal_zero_threshold();
+  uint64_t raw_zero_threshold;
+  memcpy(&raw_zero_threshold, &tmp_zero_threshold, sizeof(tmp_zero_threshold));
+  if (raw_zero_threshold != 0) {
+    total_size += 1 + 8;
+  }
+
+  // sint32 schema = 4;
+  if (this->_internal_schema() != 0) {
+    total_size += ::_pbi::WireFormatLite::SInt32SizePlusOne(this->_internal_schema());
+  }
+
+  // .prometheus.Histogram.ResetHint reset_hint = 14;
+  if (this->_internal_reset_hint() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_reset_hint());
+  }
+
+  // int64 timestamp = 15;
+  if (this->_internal_timestamp() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_timestamp());
+  }
+
+  switch (count_case()) {
+    // uint64 count_int = 1;
+    case kCountInt: {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_count_int());
+      break;
+    }
+    // double count_float = 2;
+    case kCountFloat: {
+      total_size += 1 + 8;
+      break;
+    }
+    case COUNT_NOT_SET: {
+      break;
+    }
+  }
+  switch (zero_count_case()) {
+    // uint64 zero_count_int = 6;
+    case kZeroCountInt: {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_zero_count_int());
+      break;
+    }
+    // double zero_count_float = 7;
+    case kZeroCountFloat: {
+      total_size += 1 + 8;
+      break;
+    }
+    case ZERO_COUNT_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Histogram::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Histogram::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Histogram::GetClassData() const { return &_class_data_; }
+
+
+void Histogram::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Histogram*>(&to_msg);
+  auto& from = static_cast<const Histogram&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:prometheus.Histogram)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.negative_spans_.MergeFrom(from._impl_.negative_spans_);
+  _this->_impl_.negative_deltas_.MergeFrom(from._impl_.negative_deltas_);
+  _this->_impl_.negative_counts_.MergeFrom(from._impl_.negative_counts_);
+  _this->_impl_.positive_spans_.MergeFrom(from._impl_.positive_spans_);
+  _this->_impl_.positive_deltas_.MergeFrom(from._impl_.positive_deltas_);
+  _this->_impl_.positive_counts_.MergeFrom(from._impl_.positive_counts_);
+  _this->_impl_.custom_values_.MergeFrom(from._impl_.custom_values_);
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_sum = from._internal_sum();
+  uint64_t raw_sum;
+  memcpy(&raw_sum, &tmp_sum, sizeof(tmp_sum));
+  if (raw_sum != 0) {
+    _this->_internal_set_sum(from._internal_sum());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_zero_threshold = from._internal_zero_threshold();
+  uint64_t raw_zero_threshold;
+  memcpy(&raw_zero_threshold, &tmp_zero_threshold, sizeof(tmp_zero_threshold));
+  if (raw_zero_threshold != 0) {
+    _this->_internal_set_zero_threshold(from._internal_zero_threshold());
+  }
+  if (from._internal_schema() != 0) {
+    _this->_internal_set_schema(from._internal_schema());
+  }
+  if (from._internal_reset_hint() != 0) {
+    _this->_internal_set_reset_hint(from._internal_reset_hint());
+  }
+  if (from._internal_timestamp() != 0) {
+    _this->_internal_set_timestamp(from._internal_timestamp());
+  }
+  switch (from.count_case()) {
+    case kCountInt: {
+      _this->_internal_set_count_int(from._internal_count_int());
+      break;
+    }
+    case kCountFloat: {
+      _this->_internal_set_count_float(from._internal_count_float());
+      break;
+    }
+    case COUNT_NOT_SET: {
+      break;
+    }
+  }
+  switch (from.zero_count_case()) {
+    case kZeroCountInt: {
+      _this->_internal_set_zero_count_int(from._internal_zero_count_int());
+      break;
+    }
+    case kZeroCountFloat: {
+      _this->_internal_set_zero_count_float(from._internal_zero_count_float());
+      break;
+    }
+    case ZERO_COUNT_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Histogram::CopyFrom(const Histogram& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prometheus.Histogram)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Histogram::IsInitialized() const {
+  return true;
+}
+
+void Histogram::InternalSwap(Histogram* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.negative_spans_.InternalSwap(&other->_impl_.negative_spans_);
+  _impl_.negative_deltas_.InternalSwap(&other->_impl_.negative_deltas_);
+  _impl_.negative_counts_.InternalSwap(&other->_impl_.negative_counts_);
+  _impl_.positive_spans_.InternalSwap(&other->_impl_.positive_spans_);
+  _impl_.positive_deltas_.InternalSwap(&other->_impl_.positive_deltas_);
+  _impl_.positive_counts_.InternalSwap(&other->_impl_.positive_counts_);
+  _impl_.custom_values_.InternalSwap(&other->_impl_.custom_values_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Histogram, _impl_.timestamp_)
+      + sizeof(Histogram::_impl_.timestamp_)
+      - PROTOBUF_FIELD_OFFSET(Histogram, _impl_.sum_)>(
+          reinterpret_cast<char*>(&_impl_.sum_),
+          reinterpret_cast<char*>(&other->_impl_.sum_));
+  swap(_impl_.count_, other->_impl_.count_);
+  swap(_impl_.zero_count_, other->_impl_.zero_count_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+  swap(_impl_._oneof_case_[1], other->_impl_._oneof_case_[1]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Histogram::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[3]);
+}
+
+// ===================================================================
+
+class BucketSpan::_Internal {
+ public:
+};
+
+BucketSpan::BucketSpan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:prometheus.BucketSpan)
+}
+BucketSpan::BucketSpan(const BucketSpan& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  BucketSpan* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.offset_){}
+    , decltype(_impl_.length_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.offset_, &from._impl_.offset_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.length_) -
+    reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.length_));
+  // @@protoc_insertion_point(copy_constructor:prometheus.BucketSpan)
+}
+
+inline void BucketSpan::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.offset_){0}
+    , decltype(_impl_.length_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+BucketSpan::~BucketSpan() {
+  // @@protoc_insertion_point(destructor:prometheus.BucketSpan)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void BucketSpan::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void BucketSpan::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void BucketSpan::Clear() {
+// @@protoc_insertion_point(message_clear_start:prometheus.BucketSpan)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.offset_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.length_) -
+      reinterpret_cast<char*>(&_impl_.offset_)) + sizeof(_impl_.length_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BucketSpan::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // sint32 offset = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarintZigZag32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 length = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.length_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* BucketSpan::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:prometheus.BucketSpan)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // sint32 offset = 1;
+  if (this->_internal_offset() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteSInt32ToArray(1, this->_internal_offset(), target);
+  }
+
+  // uint32 length = 2;
+  if (this->_internal_length() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_length(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:prometheus.BucketSpan)
+  return target;
+}
+
+size_t BucketSpan::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:prometheus.BucketSpan)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // sint32 offset = 1;
+  if (this->_internal_offset() != 0) {
+    total_size += ::_pbi::WireFormatLite::SInt32SizePlusOne(this->_internal_offset());
+  }
+
+  // uint32 length = 2;
+  if (this->_internal_length() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_length());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BucketSpan::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    BucketSpan::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BucketSpan::GetClassData() const { return &_class_data_; }
+
+
+void BucketSpan::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<BucketSpan*>(&to_msg);
+  auto& from = static_cast<const BucketSpan&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:prometheus.BucketSpan)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_offset() != 0) {
+    _this->_internal_set_offset(from._internal_offset());
+  }
+  if (from._internal_length() != 0) {
+    _this->_internal_set_length(from._internal_length());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void BucketSpan::CopyFrom(const BucketSpan& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:prometheus.BucketSpan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BucketSpan::IsInitialized() const {
+  return true;
+}
+
+void BucketSpan::InternalSwap(BucketSpan* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(BucketSpan, _impl_.length_)
+      + sizeof(BucketSpan::_impl_.length_)
+      - PROTOBUF_FIELD_OFFSET(BucketSpan, _impl_.offset_)>(
+          reinterpret_cast<char*>(&_impl_.offset_),
+          reinterpret_cast<char*>(&other->_impl_.offset_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BucketSpan::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[4]);
+}
+
+// ===================================================================
+
 class TimeSeries::_Internal {
  public:
 };
@@ -1256,6 +2352,7 @@ TimeSeries::TimeSeries(const TimeSeries& from)
       decltype(_impl_.labels_){from._impl_.labels_}
     , decltype(_impl_.samples_){from._impl_.samples_}
     , decltype(_impl_.exemplars_){from._impl_.exemplars_}
+    , decltype(_impl_.histograms_){from._impl_.histograms_}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1270,6 +2367,7 @@ inline void TimeSeries::SharedCtor(
       decltype(_impl_.labels_){arena}
     , decltype(_impl_.samples_){arena}
     , decltype(_impl_.exemplars_){arena}
+    , decltype(_impl_.histograms_){arena}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -1288,6 +2386,7 @@ inline void TimeSeries::SharedDtor() {
   _impl_.labels_.~RepeatedPtrField();
   _impl_.samples_.~RepeatedPtrField();
   _impl_.exemplars_.~RepeatedPtrField();
+  _impl_.histograms_.~RepeatedPtrField();
 }
 
 void TimeSeries::SetCachedSize(int size) const {
@@ -1303,6 +2402,7 @@ void TimeSeries::Clear() {
   _impl_.labels_.Clear();
   _impl_.samples_.Clear();
   _impl_.exemplars_.Clear();
+  _impl_.histograms_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1348,6 +2448,19 @@ const char* TimeSeries::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .prometheus.Histogram histograms = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_histograms(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -1404,6 +2517,14 @@ uint8_t* TimeSeries::_InternalSerialize(
         InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // repeated .prometheus.Histogram histograms = 4;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_histograms_size()); i < n; i++) {
+    const auto& repfield = this->_internal_histograms(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1441,6 +2562,13 @@ size_t TimeSeries::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
+  // repeated .prometheus.Histogram histograms = 4;
+  total_size += 1UL * this->_internal_histograms_size();
+  for (const auto& msg : this->_impl_.histograms_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1462,6 +2590,7 @@ void TimeSeries::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PRO
   _this->_impl_.labels_.MergeFrom(from._impl_.labels_);
   _this->_impl_.samples_.MergeFrom(from._impl_.samples_);
   _this->_impl_.exemplars_.MergeFrom(from._impl_.exemplars_);
+  _this->_impl_.histograms_.MergeFrom(from._impl_.histograms_);
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1482,12 +2611,13 @@ void TimeSeries::InternalSwap(TimeSeries* other) {
   _impl_.labels_.InternalSwap(&other->_impl_.labels_);
   _impl_.samples_.InternalSwap(&other->_impl_.samples_);
   _impl_.exemplars_.InternalSwap(&other->_impl_.exemplars_);
+  _impl_.histograms_.InternalSwap(&other->_impl_.histograms_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata TimeSeries::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[3]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[5]);
 }
 
 // ===================================================================
@@ -1740,7 +2870,7 @@ void Label::InternalSwap(Label* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Label::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[4]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[6]);
 }
 
 // ===================================================================
@@ -1925,7 +3055,7 @@ void Labels::InternalSwap(Labels* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Labels::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[5]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[7]);
 }
 
 // ===================================================================
@@ -2208,7 +3338,7 @@ void LabelMatcher::InternalSwap(LabelMatcher* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LabelMatcher::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[6]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[8]);
 }
 
 // ===================================================================
@@ -2582,7 +3712,7 @@ void ReadHints::InternalSwap(ReadHints* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReadHints::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[7]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[9]);
 }
 
 // ===================================================================
@@ -2867,7 +3997,7 @@ void Chunk::InternalSwap(Chunk* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Chunk::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[8]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[10]);
 }
 
 // ===================================================================
@@ -3086,7 +4216,7 @@ void ChunkedSeries::InternalSwap(ChunkedSeries* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ChunkedSeries::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_prometheus_2fremote_2ftypes_2eproto_getter, &descriptor_table_prometheus_2fremote_2ftypes_2eproto_once,
-      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[9]);
+      file_level_metadata_prometheus_2fremote_2ftypes_2eproto[11]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3103,6 +4233,14 @@ Arena::CreateMaybeMessage< ::prometheus::Sample >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::prometheus::Exemplar*
 Arena::CreateMaybeMessage< ::prometheus::Exemplar >(Arena* arena) {
   return Arena::CreateMessageInternal< ::prometheus::Exemplar >(arena);
+}
+template<> PROTOBUF_NOINLINE ::prometheus::Histogram*
+Arena::CreateMaybeMessage< ::prometheus::Histogram >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::prometheus::Histogram >(arena);
+}
+template<> PROTOBUF_NOINLINE ::prometheus::BucketSpan*
+Arena::CreateMaybeMessage< ::prometheus::BucketSpan >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::prometheus::BucketSpan >(arena);
 }
 template<> PROTOBUF_NOINLINE ::prometheus::TimeSeries*
 Arena::CreateMaybeMessage< ::prometheus::TimeSeries >(Arena* arena) {
