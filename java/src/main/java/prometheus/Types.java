@@ -21,7 +21,7 @@ public final class Types {
     /**
      * <pre>
      * Represents the metric type, these match the set from Prometheus.
-     * Refer to model/textparse/interface.go for details.
+     * Refer to github.com/prometheus/common/model/metadata.go for details.
      * </pre>
      *
      * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -31,7 +31,7 @@ public final class Types {
     /**
      * <pre>
      * Represents the metric type, these match the set from Prometheus.
-     * Refer to model/textparse/interface.go for details.
+     * Refer to github.com/prometheus/common/model/metadata.go for details.
      * </pre>
      *
      * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -349,7 +349,7 @@ public final class Types {
     /**
      * <pre>
      * Represents the metric type, these match the set from Prometheus.
-     * Refer to model/textparse/interface.go for details.
+     * Refer to github.com/prometheus/common/model/metadata.go for details.
      * </pre>
      *
      * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -361,7 +361,7 @@ public final class Types {
     /**
      * <pre>
      * Represents the metric type, these match the set from Prometheus.
-     * Refer to model/textparse/interface.go for details.
+     * Refer to github.com/prometheus/common/model/metadata.go for details.
      * </pre>
      *
      * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -843,7 +843,7 @@ public final class Types {
       /**
        * <pre>
        * Represents the metric type, these match the set from Prometheus.
-       * Refer to model/textparse/interface.go for details.
+       * Refer to github.com/prometheus/common/model/metadata.go for details.
        * </pre>
        *
        * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -855,7 +855,7 @@ public final class Types {
       /**
        * <pre>
        * Represents the metric type, these match the set from Prometheus.
-       * Refer to model/textparse/interface.go for details.
+       * Refer to github.com/prometheus/common/model/metadata.go for details.
        * </pre>
        *
        * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -871,7 +871,7 @@ public final class Types {
       /**
        * <pre>
        * Represents the metric type, these match the set from Prometheus.
-       * Refer to model/textparse/interface.go for details.
+       * Refer to github.com/prometheus/common/model/metadata.go for details.
        * </pre>
        *
        * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -886,7 +886,7 @@ public final class Types {
       /**
        * <pre>
        * Represents the metric type, these match the set from Prometheus.
-       * Refer to model/textparse/interface.go for details.
+       * Refer to github.com/prometheus/common/model/metadata.go for details.
        * </pre>
        *
        * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -905,7 +905,7 @@ public final class Types {
       /**
        * <pre>
        * Represents the metric type, these match the set from Prometheus.
-       * Refer to model/textparse/interface.go for details.
+       * Refer to github.com/prometheus/common/model/metadata.go for details.
        * </pre>
        *
        * <code>.prometheus.MetricMetadata.MetricType type = 1;</code>
@@ -2861,6 +2861,4542 @@ public final class Types {
 
   }
 
+  public interface HistogramOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:prometheus.Histogram)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 count_int = 1;</code>
+     * @return Whether the countInt field is set.
+     */
+    boolean hasCountInt();
+    /**
+     * <code>uint64 count_int = 1;</code>
+     * @return The countInt.
+     */
+    long getCountInt();
+
+    /**
+     * <code>double count_float = 2;</code>
+     * @return Whether the countFloat field is set.
+     */
+    boolean hasCountFloat();
+    /**
+     * <code>double count_float = 2;</code>
+     * @return The countFloat.
+     */
+    double getCountFloat();
+
+    /**
+     * <pre>
+     * Sum of observations in the histogram.
+     * </pre>
+     *
+     * <code>double sum = 3;</code>
+     * @return The sum.
+     */
+    double getSum();
+
+    /**
+     * <pre>
+     * The schema defines the bucket schema. Currently, valid numbers
+     * are -4 &lt;= n &lt;= 8. They are all for base-2 bucket schemas, where 1
+     * is a bucket boundary in each case, and then each power of two is
+     * divided into 2^n logarithmic buckets. Or in other words, each
+     * bucket boundary is the previous boundary times 2^(2^-n). In the
+     * future, more bucket schemas may be added using numbers &lt; -4 or &gt;
+     * 8.
+     * </pre>
+     *
+     * <code>sint32 schema = 4;</code>
+     * @return The schema.
+     */
+    int getSchema();
+
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>double zero_threshold = 5;</code>
+     * @return The zeroThreshold.
+     */
+    double getZeroThreshold();
+
+    /**
+     * <code>uint64 zero_count_int = 6;</code>
+     * @return Whether the zeroCountInt field is set.
+     */
+    boolean hasZeroCountInt();
+    /**
+     * <code>uint64 zero_count_int = 6;</code>
+     * @return The zeroCountInt.
+     */
+    long getZeroCountInt();
+
+    /**
+     * <code>double zero_count_float = 7;</code>
+     * @return Whether the zeroCountFloat field is set.
+     */
+    boolean hasZeroCountFloat();
+    /**
+     * <code>double zero_count_float = 7;</code>
+     * @return The zeroCountFloat.
+     */
+    double getZeroCountFloat();
+
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    java.util.List<prometheus.Types.BucketSpan> 
+        getNegativeSpansList();
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    prometheus.Types.BucketSpan getNegativeSpans(int index);
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    int getNegativeSpansCount();
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+        getNegativeSpansOrBuilderList();
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    prometheus.Types.BucketSpanOrBuilder getNegativeSpansOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @return A list containing the negativeDeltas.
+     */
+    java.util.List<java.lang.Long> getNegativeDeltasList();
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @return The count of negativeDeltas.
+     */
+    int getNegativeDeltasCount();
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @param index The index of the element to return.
+     * @return The negativeDeltas at the given index.
+     */
+    long getNegativeDeltas(int index);
+
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @return A list containing the negativeCounts.
+     */
+    java.util.List<java.lang.Double> getNegativeCountsList();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @return The count of negativeCounts.
+     */
+    int getNegativeCountsCount();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @param index The index of the element to return.
+     * @return The negativeCounts at the given index.
+     */
+    double getNegativeCounts(int index);
+
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    java.util.List<prometheus.Types.BucketSpan> 
+        getPositiveSpansList();
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    prometheus.Types.BucketSpan getPositiveSpans(int index);
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    int getPositiveSpansCount();
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+        getPositiveSpansOrBuilderList();
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    prometheus.Types.BucketSpanOrBuilder getPositiveSpansOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @return A list containing the positiveDeltas.
+     */
+    java.util.List<java.lang.Long> getPositiveDeltasList();
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @return The count of positiveDeltas.
+     */
+    int getPositiveDeltasCount();
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @param index The index of the element to return.
+     * @return The positiveDeltas at the given index.
+     */
+    long getPositiveDeltas(int index);
+
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @return A list containing the positiveCounts.
+     */
+    java.util.List<java.lang.Double> getPositiveCountsList();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @return The count of positiveCounts.
+     */
+    int getPositiveCountsCount();
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @param index The index of the element to return.
+     * @return The positiveCounts at the given index.
+     */
+    double getPositiveCounts(int index);
+
+    /**
+     * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+     * @return The enum numeric value on the wire for resetHint.
+     */
+    int getResetHintValue();
+    /**
+     * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+     * @return The resetHint.
+     */
+    prometheus.Types.Histogram.ResetHint getResetHint();
+
+    /**
+     * <pre>
+     * timestamp is in ms format, see model/timestamp/timestamp.go for
+     * conversion from time.Time to Prometheus timestamp.
+     * </pre>
+     *
+     * <code>int64 timestamp = 15;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @return A list containing the customValues.
+     */
+    java.util.List<java.lang.Double> getCustomValuesList();
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @return The count of customValues.
+     */
+    int getCustomValuesCount();
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @param index The index of the element to return.
+     * @return The customValues at the given index.
+     */
+    double getCustomValues(int index);
+
+    public prometheus.Types.Histogram.CountCase getCountCase();
+
+    public prometheus.Types.Histogram.ZeroCountCase getZeroCountCase();
+  }
+  /**
+   * <pre>
+   * A native histogram, also known as a sparse histogram.
+   * Original design doc:
+   * https://docs.google.com/document/d/1cLNv3aufPZb3fNfaJgdaRBZsInZKKIHo9E6HinJVbpM/edit
+   * The appendix of this design doc also explains the concept of float
+   * histograms. This Histogram message can represent both, the usual
+   * integer histogram as well as a float histogram.
+   * </pre>
+   *
+   * Protobuf type {@code prometheus.Histogram}
+   */
+  public static final class Histogram extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:prometheus.Histogram)
+      HistogramOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Histogram.newBuilder() to construct.
+    private Histogram(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Histogram() {
+      negativeSpans_ = java.util.Collections.emptyList();
+      negativeDeltas_ = emptyLongList();
+      negativeCounts_ = emptyDoubleList();
+      positiveSpans_ = java.util.Collections.emptyList();
+      positiveDeltas_ = emptyLongList();
+      positiveCounts_ = emptyDoubleList();
+      resetHint_ = 0;
+      customValues_ = emptyDoubleList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Histogram();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Histogram(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              count_ = input.readUInt64();
+              countCase_ = 1;
+              break;
+            }
+            case 17: {
+              count_ = input.readDouble();
+              countCase_ = 2;
+              break;
+            }
+            case 25: {
+
+              sum_ = input.readDouble();
+              break;
+            }
+            case 32: {
+
+              schema_ = input.readSInt32();
+              break;
+            }
+            case 41: {
+
+              zeroThreshold_ = input.readDouble();
+              break;
+            }
+            case 48: {
+              zeroCount_ = input.readUInt64();
+              zeroCountCase_ = 6;
+              break;
+            }
+            case 57: {
+              zeroCount_ = input.readDouble();
+              zeroCountCase_ = 7;
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                negativeSpans_ = new java.util.ArrayList<prometheus.Types.BucketSpan>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              negativeSpans_.add(
+                  input.readMessage(prometheus.Types.BucketSpan.parser(), extensionRegistry));
+              break;
+            }
+            case 72: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                negativeDeltas_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              negativeDeltas_.addLong(input.readSInt64());
+              break;
+            }
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
+                negativeDeltas_ = newLongList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                negativeDeltas_.addLong(input.readSInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 81: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                negativeCounts_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              negativeCounts_.addDouble(input.readDouble());
+              break;
+            }
+            case 82: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) != 0) && input.getBytesUntilLimit() > 0) {
+                negativeCounts_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                negativeCounts_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 90: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                positiveSpans_ = new java.util.ArrayList<prometheus.Types.BucketSpan>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              positiveSpans_.add(
+                  input.readMessage(prometheus.Types.BucketSpan.parser(), extensionRegistry));
+              break;
+            }
+            case 96: {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                positiveDeltas_ = newLongList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              positiveDeltas_.addLong(input.readSInt64());
+              break;
+            }
+            case 98: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
+                positiveDeltas_ = newLongList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                positiveDeltas_.addLong(input.readSInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 105: {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+                positiveCounts_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              positiveCounts_.addDouble(input.readDouble());
+              break;
+            }
+            case 106: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
+                positiveCounts_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                positiveCounts_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 112: {
+              int rawValue = input.readEnum();
+
+              resetHint_ = rawValue;
+              break;
+            }
+            case 120: {
+
+              timestamp_ = input.readInt64();
+              break;
+            }
+            case 129: {
+              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
+                customValues_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              customValues_.addDouble(input.readDouble());
+              break;
+            }
+            case 130: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000040) != 0) && input.getBytesUntilLimit() > 0) {
+                customValues_ = newDoubleList();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                customValues_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          negativeSpans_ = java.util.Collections.unmodifiableList(negativeSpans_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          negativeDeltas_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          negativeCounts_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          positiveSpans_ = java.util.Collections.unmodifiableList(positiveSpans_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          positiveDeltas_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
+          positiveCounts_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000040) != 0)) {
+          customValues_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return prometheus.Types.internal_static_prometheus_Histogram_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return prometheus.Types.internal_static_prometheus_Histogram_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              prometheus.Types.Histogram.class, prometheus.Types.Histogram.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code prometheus.Histogram.ResetHint}
+     */
+    public enum ResetHint
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * Need to test for a counter reset explicitly.
+       * </pre>
+       *
+       * <code>UNKNOWN = 0;</code>
+       */
+      UNKNOWN(0),
+      /**
+       * <pre>
+       * This is the 1st histogram after a counter reset.
+       * </pre>
+       *
+       * <code>YES = 1;</code>
+       */
+      YES(1),
+      /**
+       * <pre>
+       * There was no counter reset between this and the previous Histogram.
+       * </pre>
+       *
+       * <code>NO = 2;</code>
+       */
+      NO(2),
+      /**
+       * <pre>
+       * This is a gauge histogram where counter resets don't happen.
+       * </pre>
+       *
+       * <code>GAUGE = 3;</code>
+       */
+      GAUGE(3),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * Need to test for a counter reset explicitly.
+       * </pre>
+       *
+       * <code>UNKNOWN = 0;</code>
+       */
+      public static final int UNKNOWN_VALUE = 0;
+      /**
+       * <pre>
+       * This is the 1st histogram after a counter reset.
+       * </pre>
+       *
+       * <code>YES = 1;</code>
+       */
+      public static final int YES_VALUE = 1;
+      /**
+       * <pre>
+       * There was no counter reset between this and the previous Histogram.
+       * </pre>
+       *
+       * <code>NO = 2;</code>
+       */
+      public static final int NO_VALUE = 2;
+      /**
+       * <pre>
+       * This is a gauge histogram where counter resets don't happen.
+       * </pre>
+       *
+       * <code>GAUGE = 3;</code>
+       */
+      public static final int GAUGE_VALUE = 3;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ResetHint valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static ResetHint forNumber(int value) {
+        switch (value) {
+          case 0: return UNKNOWN;
+          case 1: return YES;
+          case 2: return NO;
+          case 3: return GAUGE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ResetHint>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ResetHint> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ResetHint>() {
+              public ResetHint findValueByNumber(int number) {
+                return ResetHint.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return prometheus.Types.Histogram.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ResetHint[] VALUES = values();
+
+      public static ResetHint valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ResetHint(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:prometheus.Histogram.ResetHint)
+    }
+
+    private int countCase_ = 0;
+    private java.lang.Object count_;
+    public enum CountCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      COUNT_INT(1),
+      COUNT_FLOAT(2),
+      COUNT_NOT_SET(0);
+      private final int value;
+      private CountCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static CountCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static CountCase forNumber(int value) {
+        switch (value) {
+          case 1: return COUNT_INT;
+          case 2: return COUNT_FLOAT;
+          case 0: return COUNT_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public CountCase
+    getCountCase() {
+      return CountCase.forNumber(
+          countCase_);
+    }
+
+    private int zeroCountCase_ = 0;
+    private java.lang.Object zeroCount_;
+    public enum ZeroCountCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      ZERO_COUNT_INT(6),
+      ZERO_COUNT_FLOAT(7),
+      ZEROCOUNT_NOT_SET(0);
+      private final int value;
+      private ZeroCountCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ZeroCountCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ZeroCountCase forNumber(int value) {
+        switch (value) {
+          case 6: return ZERO_COUNT_INT;
+          case 7: return ZERO_COUNT_FLOAT;
+          case 0: return ZEROCOUNT_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ZeroCountCase
+    getZeroCountCase() {
+      return ZeroCountCase.forNumber(
+          zeroCountCase_);
+    }
+
+    public static final int COUNT_INT_FIELD_NUMBER = 1;
+    /**
+     * <code>uint64 count_int = 1;</code>
+     * @return Whether the countInt field is set.
+     */
+    @java.lang.Override
+    public boolean hasCountInt() {
+      return countCase_ == 1;
+    }
+    /**
+     * <code>uint64 count_int = 1;</code>
+     * @return The countInt.
+     */
+    @java.lang.Override
+    public long getCountInt() {
+      if (countCase_ == 1) {
+        return (java.lang.Long) count_;
+      }
+      return 0L;
+    }
+
+    public static final int COUNT_FLOAT_FIELD_NUMBER = 2;
+    /**
+     * <code>double count_float = 2;</code>
+     * @return Whether the countFloat field is set.
+     */
+    @java.lang.Override
+    public boolean hasCountFloat() {
+      return countCase_ == 2;
+    }
+    /**
+     * <code>double count_float = 2;</code>
+     * @return The countFloat.
+     */
+    @java.lang.Override
+    public double getCountFloat() {
+      if (countCase_ == 2) {
+        return (java.lang.Double) count_;
+      }
+      return 0D;
+    }
+
+    public static final int SUM_FIELD_NUMBER = 3;
+    private double sum_;
+    /**
+     * <pre>
+     * Sum of observations in the histogram.
+     * </pre>
+     *
+     * <code>double sum = 3;</code>
+     * @return The sum.
+     */
+    @java.lang.Override
+    public double getSum() {
+      return sum_;
+    }
+
+    public static final int SCHEMA_FIELD_NUMBER = 4;
+    private int schema_;
+    /**
+     * <pre>
+     * The schema defines the bucket schema. Currently, valid numbers
+     * are -4 &lt;= n &lt;= 8. They are all for base-2 bucket schemas, where 1
+     * is a bucket boundary in each case, and then each power of two is
+     * divided into 2^n logarithmic buckets. Or in other words, each
+     * bucket boundary is the previous boundary times 2^(2^-n). In the
+     * future, more bucket schemas may be added using numbers &lt; -4 or &gt;
+     * 8.
+     * </pre>
+     *
+     * <code>sint32 schema = 4;</code>
+     * @return The schema.
+     */
+    @java.lang.Override
+    public int getSchema() {
+      return schema_;
+    }
+
+    public static final int ZERO_THRESHOLD_FIELD_NUMBER = 5;
+    private double zeroThreshold_;
+    /**
+     * <pre>
+     * Breadth of the zero bucket.
+     * </pre>
+     *
+     * <code>double zero_threshold = 5;</code>
+     * @return The zeroThreshold.
+     */
+    @java.lang.Override
+    public double getZeroThreshold() {
+      return zeroThreshold_;
+    }
+
+    public static final int ZERO_COUNT_INT_FIELD_NUMBER = 6;
+    /**
+     * <code>uint64 zero_count_int = 6;</code>
+     * @return Whether the zeroCountInt field is set.
+     */
+    @java.lang.Override
+    public boolean hasZeroCountInt() {
+      return zeroCountCase_ == 6;
+    }
+    /**
+     * <code>uint64 zero_count_int = 6;</code>
+     * @return The zeroCountInt.
+     */
+    @java.lang.Override
+    public long getZeroCountInt() {
+      if (zeroCountCase_ == 6) {
+        return (java.lang.Long) zeroCount_;
+      }
+      return 0L;
+    }
+
+    public static final int ZERO_COUNT_FLOAT_FIELD_NUMBER = 7;
+    /**
+     * <code>double zero_count_float = 7;</code>
+     * @return Whether the zeroCountFloat field is set.
+     */
+    @java.lang.Override
+    public boolean hasZeroCountFloat() {
+      return zeroCountCase_ == 7;
+    }
+    /**
+     * <code>double zero_count_float = 7;</code>
+     * @return The zeroCountFloat.
+     */
+    @java.lang.Override
+    public double getZeroCountFloat() {
+      if (zeroCountCase_ == 7) {
+        return (java.lang.Double) zeroCount_;
+      }
+      return 0D;
+    }
+
+    public static final int NEGATIVE_SPANS_FIELD_NUMBER = 8;
+    private java.util.List<prometheus.Types.BucketSpan> negativeSpans_;
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<prometheus.Types.BucketSpan> getNegativeSpansList() {
+      return negativeSpans_;
+    }
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+        getNegativeSpansOrBuilderList() {
+      return negativeSpans_;
+    }
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    @java.lang.Override
+    public int getNegativeSpansCount() {
+      return negativeSpans_.size();
+    }
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.BucketSpan getNegativeSpans(int index) {
+      return negativeSpans_.get(index);
+    }
+    /**
+     * <pre>
+     * Negative Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.BucketSpanOrBuilder getNegativeSpansOrBuilder(
+        int index) {
+      return negativeSpans_.get(index);
+    }
+
+    public static final int NEGATIVE_DELTAS_FIELD_NUMBER = 9;
+    private com.google.protobuf.Internal.LongList negativeDeltas_;
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @return A list containing the negativeDeltas.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getNegativeDeltasList() {
+      return negativeDeltas_;
+    }
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @return The count of negativeDeltas.
+     */
+    public int getNegativeDeltasCount() {
+      return negativeDeltas_.size();
+    }
+    /**
+     * <pre>
+     * Use either "negative_deltas" or "negative_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 negative_deltas = 9;</code>
+     * @param index The index of the element to return.
+     * @return The negativeDeltas at the given index.
+     */
+    public long getNegativeDeltas(int index) {
+      return negativeDeltas_.getLong(index);
+    }
+    private int negativeDeltasMemoizedSerializedSize = -1;
+
+    public static final int NEGATIVE_COUNTS_FIELD_NUMBER = 10;
+    private com.google.protobuf.Internal.DoubleList negativeCounts_;
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @return A list containing the negativeCounts.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getNegativeCountsList() {
+      return negativeCounts_;
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @return The count of negativeCounts.
+     */
+    public int getNegativeCountsCount() {
+      return negativeCounts_.size();
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double negative_counts = 10;</code>
+     * @param index The index of the element to return.
+     * @return The negativeCounts at the given index.
+     */
+    public double getNegativeCounts(int index) {
+      return negativeCounts_.getDouble(index);
+    }
+    private int negativeCountsMemoizedSerializedSize = -1;
+
+    public static final int POSITIVE_SPANS_FIELD_NUMBER = 11;
+    private java.util.List<prometheus.Types.BucketSpan> positiveSpans_;
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    @java.lang.Override
+    public java.util.List<prometheus.Types.BucketSpan> getPositiveSpansList() {
+      return positiveSpans_;
+    }
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+        getPositiveSpansOrBuilderList() {
+      return positiveSpans_;
+    }
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    @java.lang.Override
+    public int getPositiveSpansCount() {
+      return positiveSpans_.size();
+    }
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.BucketSpan getPositiveSpans(int index) {
+      return positiveSpans_.get(index);
+    }
+    /**
+     * <pre>
+     * Positive Buckets.
+     * </pre>
+     *
+     * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.BucketSpanOrBuilder getPositiveSpansOrBuilder(
+        int index) {
+      return positiveSpans_.get(index);
+    }
+
+    public static final int POSITIVE_DELTAS_FIELD_NUMBER = 12;
+    private com.google.protobuf.Internal.LongList positiveDeltas_;
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @return A list containing the positiveDeltas.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getPositiveDeltasList() {
+      return positiveDeltas_;
+    }
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @return The count of positiveDeltas.
+     */
+    public int getPositiveDeltasCount() {
+      return positiveDeltas_.size();
+    }
+    /**
+     * <pre>
+     * Use either "positive_deltas" or "positive_counts", the former for
+     * regular histograms with integer counts, the latter for float
+     * histograms.
+     * </pre>
+     *
+     * <code>repeated sint64 positive_deltas = 12;</code>
+     * @param index The index of the element to return.
+     * @return The positiveDeltas at the given index.
+     */
+    public long getPositiveDeltas(int index) {
+      return positiveDeltas_.getLong(index);
+    }
+    private int positiveDeltasMemoizedSerializedSize = -1;
+
+    public static final int POSITIVE_COUNTS_FIELD_NUMBER = 13;
+    private com.google.protobuf.Internal.DoubleList positiveCounts_;
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @return A list containing the positiveCounts.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getPositiveCountsList() {
+      return positiveCounts_;
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @return The count of positiveCounts.
+     */
+    public int getPositiveCountsCount() {
+      return positiveCounts_.size();
+    }
+    /**
+     * <pre>
+     * Absolute count of each bucket.
+     * </pre>
+     *
+     * <code>repeated double positive_counts = 13;</code>
+     * @param index The index of the element to return.
+     * @return The positiveCounts at the given index.
+     */
+    public double getPositiveCounts(int index) {
+      return positiveCounts_.getDouble(index);
+    }
+    private int positiveCountsMemoizedSerializedSize = -1;
+
+    public static final int RESET_HINT_FIELD_NUMBER = 14;
+    private int resetHint_;
+    /**
+     * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+     * @return The enum numeric value on the wire for resetHint.
+     */
+    @java.lang.Override public int getResetHintValue() {
+      return resetHint_;
+    }
+    /**
+     * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+     * @return The resetHint.
+     */
+    @java.lang.Override public prometheus.Types.Histogram.ResetHint getResetHint() {
+      @SuppressWarnings("deprecation")
+      prometheus.Types.Histogram.ResetHint result = prometheus.Types.Histogram.ResetHint.valueOf(resetHint_);
+      return result == null ? prometheus.Types.Histogram.ResetHint.UNRECOGNIZED : result;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 15;
+    private long timestamp_;
+    /**
+     * <pre>
+     * timestamp is in ms format, see model/timestamp/timestamp.go for
+     * conversion from time.Time to Prometheus timestamp.
+     * </pre>
+     *
+     * <code>int64 timestamp = 15;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int CUSTOM_VALUES_FIELD_NUMBER = 16;
+    private com.google.protobuf.Internal.DoubleList customValues_;
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @return A list containing the customValues.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Double>
+        getCustomValuesList() {
+      return customValues_;
+    }
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @return The count of customValues.
+     */
+    public int getCustomValuesCount() {
+      return customValues_.size();
+    }
+    /**
+     * <pre>
+     * custom_values are not part of the specification, DO NOT use in remote write clients.
+     * Used only for converting from OpenTelemetry to Prometheus internally.
+     * </pre>
+     *
+     * <code>repeated double custom_values = 16;</code>
+     * @param index The index of the element to return.
+     * @return The customValues at the given index.
+     */
+    public double getCustomValues(int index) {
+      return customValues_.getDouble(index);
+    }
+    private int customValuesMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (countCase_ == 1) {
+        output.writeUInt64(
+            1, (long)((java.lang.Long) count_));
+      }
+      if (countCase_ == 2) {
+        output.writeDouble(
+            2, (double)((java.lang.Double) count_));
+      }
+      if (java.lang.Double.doubleToRawLongBits(sum_) != 0) {
+        output.writeDouble(3, sum_);
+      }
+      if (schema_ != 0) {
+        output.writeSInt32(4, schema_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(zeroThreshold_) != 0) {
+        output.writeDouble(5, zeroThreshold_);
+      }
+      if (zeroCountCase_ == 6) {
+        output.writeUInt64(
+            6, (long)((java.lang.Long) zeroCount_));
+      }
+      if (zeroCountCase_ == 7) {
+        output.writeDouble(
+            7, (double)((java.lang.Double) zeroCount_));
+      }
+      for (int i = 0; i < negativeSpans_.size(); i++) {
+        output.writeMessage(8, negativeSpans_.get(i));
+      }
+      if (getNegativeDeltasList().size() > 0) {
+        output.writeUInt32NoTag(74);
+        output.writeUInt32NoTag(negativeDeltasMemoizedSerializedSize);
+      }
+      for (int i = 0; i < negativeDeltas_.size(); i++) {
+        output.writeSInt64NoTag(negativeDeltas_.getLong(i));
+      }
+      if (getNegativeCountsList().size() > 0) {
+        output.writeUInt32NoTag(82);
+        output.writeUInt32NoTag(negativeCountsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < negativeCounts_.size(); i++) {
+        output.writeDoubleNoTag(negativeCounts_.getDouble(i));
+      }
+      for (int i = 0; i < positiveSpans_.size(); i++) {
+        output.writeMessage(11, positiveSpans_.get(i));
+      }
+      if (getPositiveDeltasList().size() > 0) {
+        output.writeUInt32NoTag(98);
+        output.writeUInt32NoTag(positiveDeltasMemoizedSerializedSize);
+      }
+      for (int i = 0; i < positiveDeltas_.size(); i++) {
+        output.writeSInt64NoTag(positiveDeltas_.getLong(i));
+      }
+      if (getPositiveCountsList().size() > 0) {
+        output.writeUInt32NoTag(106);
+        output.writeUInt32NoTag(positiveCountsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < positiveCounts_.size(); i++) {
+        output.writeDoubleNoTag(positiveCounts_.getDouble(i));
+      }
+      if (resetHint_ != prometheus.Types.Histogram.ResetHint.UNKNOWN.getNumber()) {
+        output.writeEnum(14, resetHint_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeInt64(15, timestamp_);
+      }
+      if (getCustomValuesList().size() > 0) {
+        output.writeUInt32NoTag(130);
+        output.writeUInt32NoTag(customValuesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < customValues_.size(); i++) {
+        output.writeDoubleNoTag(customValues_.getDouble(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (countCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(
+              1, (long)((java.lang.Long) count_));
+      }
+      if (countCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(
+              2, (double)((java.lang.Double) count_));
+      }
+      if (java.lang.Double.doubleToRawLongBits(sum_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, sum_);
+      }
+      if (schema_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(4, schema_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(zeroThreshold_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(5, zeroThreshold_);
+      }
+      if (zeroCountCase_ == 6) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(
+              6, (long)((java.lang.Long) zeroCount_));
+      }
+      if (zeroCountCase_ == 7) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(
+              7, (double)((java.lang.Double) zeroCount_));
+      }
+      for (int i = 0; i < negativeSpans_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, negativeSpans_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < negativeDeltas_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeSInt64SizeNoTag(negativeDeltas_.getLong(i));
+        }
+        size += dataSize;
+        if (!getNegativeDeltasList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        negativeDeltasMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getNegativeCountsList().size();
+        size += dataSize;
+        if (!getNegativeCountsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        negativeCountsMemoizedSerializedSize = dataSize;
+      }
+      for (int i = 0; i < positiveSpans_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(11, positiveSpans_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < positiveDeltas_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeSInt64SizeNoTag(positiveDeltas_.getLong(i));
+        }
+        size += dataSize;
+        if (!getPositiveDeltasList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        positiveDeltasMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getPositiveCountsList().size();
+        size += dataSize;
+        if (!getPositiveCountsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        positiveCountsMemoizedSerializedSize = dataSize;
+      }
+      if (resetHint_ != prometheus.Types.Histogram.ResetHint.UNKNOWN.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(14, resetHint_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(15, timestamp_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getCustomValuesList().size();
+        size += dataSize;
+        if (!getCustomValuesList().isEmpty()) {
+          size += 2;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        customValuesMemoizedSerializedSize = dataSize;
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof prometheus.Types.Histogram)) {
+        return super.equals(obj);
+      }
+      prometheus.Types.Histogram other = (prometheus.Types.Histogram) obj;
+
+      if (java.lang.Double.doubleToLongBits(getSum())
+          != java.lang.Double.doubleToLongBits(
+              other.getSum())) return false;
+      if (getSchema()
+          != other.getSchema()) return false;
+      if (java.lang.Double.doubleToLongBits(getZeroThreshold())
+          != java.lang.Double.doubleToLongBits(
+              other.getZeroThreshold())) return false;
+      if (!getNegativeSpansList()
+          .equals(other.getNegativeSpansList())) return false;
+      if (!getNegativeDeltasList()
+          .equals(other.getNegativeDeltasList())) return false;
+      if (!getNegativeCountsList()
+          .equals(other.getNegativeCountsList())) return false;
+      if (!getPositiveSpansList()
+          .equals(other.getPositiveSpansList())) return false;
+      if (!getPositiveDeltasList()
+          .equals(other.getPositiveDeltasList())) return false;
+      if (!getPositiveCountsList()
+          .equals(other.getPositiveCountsList())) return false;
+      if (resetHint_ != other.resetHint_) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (!getCustomValuesList()
+          .equals(other.getCustomValuesList())) return false;
+      if (!getCountCase().equals(other.getCountCase())) return false;
+      switch (countCase_) {
+        case 1:
+          if (getCountInt()
+              != other.getCountInt()) return false;
+          break;
+        case 2:
+          if (java.lang.Double.doubleToLongBits(getCountFloat())
+              != java.lang.Double.doubleToLongBits(
+                  other.getCountFloat())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!getZeroCountCase().equals(other.getZeroCountCase())) return false;
+      switch (zeroCountCase_) {
+        case 6:
+          if (getZeroCountInt()
+              != other.getZeroCountInt()) return false;
+          break;
+        case 7:
+          if (java.lang.Double.doubleToLongBits(getZeroCountFloat())
+              != java.lang.Double.doubleToLongBits(
+                  other.getZeroCountFloat())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SUM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getSum()));
+      hash = (37 * hash) + SCHEMA_FIELD_NUMBER;
+      hash = (53 * hash) + getSchema();
+      hash = (37 * hash) + ZERO_THRESHOLD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getZeroThreshold()));
+      if (getNegativeSpansCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_SPANS_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeSpansList().hashCode();
+      }
+      if (getNegativeDeltasCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_DELTAS_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeDeltasList().hashCode();
+      }
+      if (getNegativeCountsCount() > 0) {
+        hash = (37 * hash) + NEGATIVE_COUNTS_FIELD_NUMBER;
+        hash = (53 * hash) + getNegativeCountsList().hashCode();
+      }
+      if (getPositiveSpansCount() > 0) {
+        hash = (37 * hash) + POSITIVE_SPANS_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveSpansList().hashCode();
+      }
+      if (getPositiveDeltasCount() > 0) {
+        hash = (37 * hash) + POSITIVE_DELTAS_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveDeltasList().hashCode();
+      }
+      if (getPositiveCountsCount() > 0) {
+        hash = (37 * hash) + POSITIVE_COUNTS_FIELD_NUMBER;
+        hash = (53 * hash) + getPositiveCountsList().hashCode();
+      }
+      hash = (37 * hash) + RESET_HINT_FIELD_NUMBER;
+      hash = (53 * hash) + resetHint_;
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      if (getCustomValuesCount() > 0) {
+        hash = (37 * hash) + CUSTOM_VALUES_FIELD_NUMBER;
+        hash = (53 * hash) + getCustomValuesList().hashCode();
+      }
+      switch (countCase_) {
+        case 1:
+          hash = (37 * hash) + COUNT_INT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getCountInt());
+          break;
+        case 2:
+          hash = (37 * hash) + COUNT_FLOAT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getCountFloat()));
+          break;
+        case 0:
+        default:
+      }
+      switch (zeroCountCase_) {
+        case 6:
+          hash = (37 * hash) + ZERO_COUNT_INT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getZeroCountInt());
+          break;
+        case 7:
+          hash = (37 * hash) + ZERO_COUNT_FLOAT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              java.lang.Double.doubleToLongBits(getZeroCountFloat()));
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static prometheus.Types.Histogram parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.Histogram parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.Histogram parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static prometheus.Types.Histogram parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.Histogram parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.Histogram parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(prometheus.Types.Histogram prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A native histogram, also known as a sparse histogram.
+     * Original design doc:
+     * https://docs.google.com/document/d/1cLNv3aufPZb3fNfaJgdaRBZsInZKKIHo9E6HinJVbpM/edit
+     * The appendix of this design doc also explains the concept of float
+     * histograms. This Histogram message can represent both, the usual
+     * integer histogram as well as a float histogram.
+     * </pre>
+     *
+     * Protobuf type {@code prometheus.Histogram}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:prometheus.Histogram)
+        prometheus.Types.HistogramOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return prometheus.Types.internal_static_prometheus_Histogram_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return prometheus.Types.internal_static_prometheus_Histogram_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                prometheus.Types.Histogram.class, prometheus.Types.Histogram.Builder.class);
+      }
+
+      // Construct using prometheus.Types.Histogram.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getNegativeSpansFieldBuilder();
+          getPositiveSpansFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sum_ = 0D;
+
+        schema_ = 0;
+
+        zeroThreshold_ = 0D;
+
+        if (negativeSpansBuilder_ == null) {
+          negativeSpans_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          negativeSpansBuilder_.clear();
+        }
+        negativeDeltas_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        negativeCounts_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (positiveSpansBuilder_ == null) {
+          positiveSpans_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          positiveSpansBuilder_.clear();
+        }
+        positiveDeltas_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        positiveCounts_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        resetHint_ = 0;
+
+        timestamp_ = 0L;
+
+        customValues_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        countCase_ = 0;
+        count_ = null;
+        zeroCountCase_ = 0;
+        zeroCount_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return prometheus.Types.internal_static_prometheus_Histogram_descriptor;
+      }
+
+      @java.lang.Override
+      public prometheus.Types.Histogram getDefaultInstanceForType() {
+        return prometheus.Types.Histogram.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public prometheus.Types.Histogram build() {
+        prometheus.Types.Histogram result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public prometheus.Types.Histogram buildPartial() {
+        prometheus.Types.Histogram result = new prometheus.Types.Histogram(this);
+        int from_bitField0_ = bitField0_;
+        if (countCase_ == 1) {
+          result.count_ = count_;
+        }
+        if (countCase_ == 2) {
+          result.count_ = count_;
+        }
+        result.sum_ = sum_;
+        result.schema_ = schema_;
+        result.zeroThreshold_ = zeroThreshold_;
+        if (zeroCountCase_ == 6) {
+          result.zeroCount_ = zeroCount_;
+        }
+        if (zeroCountCase_ == 7) {
+          result.zeroCount_ = zeroCount_;
+        }
+        if (negativeSpansBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            negativeSpans_ = java.util.Collections.unmodifiableList(negativeSpans_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.negativeSpans_ = negativeSpans_;
+        } else {
+          result.negativeSpans_ = negativeSpansBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000002) != 0)) {
+          negativeDeltas_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.negativeDeltas_ = negativeDeltas_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          negativeCounts_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.negativeCounts_ = negativeCounts_;
+        if (positiveSpansBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            positiveSpans_ = java.util.Collections.unmodifiableList(positiveSpans_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.positiveSpans_ = positiveSpans_;
+        } else {
+          result.positiveSpans_ = positiveSpansBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000010) != 0)) {
+          positiveDeltas_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.positiveDeltas_ = positiveDeltas_;
+        if (((bitField0_ & 0x00000020) != 0)) {
+          positiveCounts_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.positiveCounts_ = positiveCounts_;
+        result.resetHint_ = resetHint_;
+        result.timestamp_ = timestamp_;
+        if (((bitField0_ & 0x00000040) != 0)) {
+          customValues_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.customValues_ = customValues_;
+        result.countCase_ = countCase_;
+        result.zeroCountCase_ = zeroCountCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof prometheus.Types.Histogram) {
+          return mergeFrom((prometheus.Types.Histogram)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(prometheus.Types.Histogram other) {
+        if (other == prometheus.Types.Histogram.getDefaultInstance()) return this;
+        if (other.getSum() != 0D) {
+          setSum(other.getSum());
+        }
+        if (other.getSchema() != 0) {
+          setSchema(other.getSchema());
+        }
+        if (other.getZeroThreshold() != 0D) {
+          setZeroThreshold(other.getZeroThreshold());
+        }
+        if (negativeSpansBuilder_ == null) {
+          if (!other.negativeSpans_.isEmpty()) {
+            if (negativeSpans_.isEmpty()) {
+              negativeSpans_ = other.negativeSpans_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNegativeSpansIsMutable();
+              negativeSpans_.addAll(other.negativeSpans_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.negativeSpans_.isEmpty()) {
+            if (negativeSpansBuilder_.isEmpty()) {
+              negativeSpansBuilder_.dispose();
+              negativeSpansBuilder_ = null;
+              negativeSpans_ = other.negativeSpans_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              negativeSpansBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNegativeSpansFieldBuilder() : null;
+            } else {
+              negativeSpansBuilder_.addAllMessages(other.negativeSpans_);
+            }
+          }
+        }
+        if (!other.negativeDeltas_.isEmpty()) {
+          if (negativeDeltas_.isEmpty()) {
+            negativeDeltas_ = other.negativeDeltas_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureNegativeDeltasIsMutable();
+            negativeDeltas_.addAll(other.negativeDeltas_);
+          }
+          onChanged();
+        }
+        if (!other.negativeCounts_.isEmpty()) {
+          if (negativeCounts_.isEmpty()) {
+            negativeCounts_ = other.negativeCounts_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureNegativeCountsIsMutable();
+            negativeCounts_.addAll(other.negativeCounts_);
+          }
+          onChanged();
+        }
+        if (positiveSpansBuilder_ == null) {
+          if (!other.positiveSpans_.isEmpty()) {
+            if (positiveSpans_.isEmpty()) {
+              positiveSpans_ = other.positiveSpans_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensurePositiveSpansIsMutable();
+              positiveSpans_.addAll(other.positiveSpans_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.positiveSpans_.isEmpty()) {
+            if (positiveSpansBuilder_.isEmpty()) {
+              positiveSpansBuilder_.dispose();
+              positiveSpansBuilder_ = null;
+              positiveSpans_ = other.positiveSpans_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              positiveSpansBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPositiveSpansFieldBuilder() : null;
+            } else {
+              positiveSpansBuilder_.addAllMessages(other.positiveSpans_);
+            }
+          }
+        }
+        if (!other.positiveDeltas_.isEmpty()) {
+          if (positiveDeltas_.isEmpty()) {
+            positiveDeltas_ = other.positiveDeltas_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensurePositiveDeltasIsMutable();
+            positiveDeltas_.addAll(other.positiveDeltas_);
+          }
+          onChanged();
+        }
+        if (!other.positiveCounts_.isEmpty()) {
+          if (positiveCounts_.isEmpty()) {
+            positiveCounts_ = other.positiveCounts_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensurePositiveCountsIsMutable();
+            positiveCounts_.addAll(other.positiveCounts_);
+          }
+          onChanged();
+        }
+        if (other.resetHint_ != 0) {
+          setResetHintValue(other.getResetHintValue());
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (!other.customValues_.isEmpty()) {
+          if (customValues_.isEmpty()) {
+            customValues_ = other.customValues_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensureCustomValuesIsMutable();
+            customValues_.addAll(other.customValues_);
+          }
+          onChanged();
+        }
+        switch (other.getCountCase()) {
+          case COUNT_INT: {
+            setCountInt(other.getCountInt());
+            break;
+          }
+          case COUNT_FLOAT: {
+            setCountFloat(other.getCountFloat());
+            break;
+          }
+          case COUNT_NOT_SET: {
+            break;
+          }
+        }
+        switch (other.getZeroCountCase()) {
+          case ZERO_COUNT_INT: {
+            setZeroCountInt(other.getZeroCountInt());
+            break;
+          }
+          case ZERO_COUNT_FLOAT: {
+            setZeroCountFloat(other.getZeroCountFloat());
+            break;
+          }
+          case ZEROCOUNT_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        prometheus.Types.Histogram parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (prometheus.Types.Histogram) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int countCase_ = 0;
+      private java.lang.Object count_;
+      public CountCase
+          getCountCase() {
+        return CountCase.forNumber(
+            countCase_);
+      }
+
+      public Builder clearCount() {
+        countCase_ = 0;
+        count_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int zeroCountCase_ = 0;
+      private java.lang.Object zeroCount_;
+      public ZeroCountCase
+          getZeroCountCase() {
+        return ZeroCountCase.forNumber(
+            zeroCountCase_);
+      }
+
+      public Builder clearZeroCount() {
+        zeroCountCase_ = 0;
+        zeroCount_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int bitField0_;
+
+      /**
+       * <code>uint64 count_int = 1;</code>
+       * @return Whether the countInt field is set.
+       */
+      public boolean hasCountInt() {
+        return countCase_ == 1;
+      }
+      /**
+       * <code>uint64 count_int = 1;</code>
+       * @return The countInt.
+       */
+      public long getCountInt() {
+        if (countCase_ == 1) {
+          return (java.lang.Long) count_;
+        }
+        return 0L;
+      }
+      /**
+       * <code>uint64 count_int = 1;</code>
+       * @param value The countInt to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCountInt(long value) {
+        countCase_ = 1;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 count_int = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCountInt() {
+        if (countCase_ == 1) {
+          countCase_ = 0;
+          count_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>double count_float = 2;</code>
+       * @return Whether the countFloat field is set.
+       */
+      public boolean hasCountFloat() {
+        return countCase_ == 2;
+      }
+      /**
+       * <code>double count_float = 2;</code>
+       * @return The countFloat.
+       */
+      public double getCountFloat() {
+        if (countCase_ == 2) {
+          return (java.lang.Double) count_;
+        }
+        return 0D;
+      }
+      /**
+       * <code>double count_float = 2;</code>
+       * @param value The countFloat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCountFloat(double value) {
+        countCase_ = 2;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double count_float = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCountFloat() {
+        if (countCase_ == 2) {
+          countCase_ = 0;
+          count_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      private double sum_ ;
+      /**
+       * <pre>
+       * Sum of observations in the histogram.
+       * </pre>
+       *
+       * <code>double sum = 3;</code>
+       * @return The sum.
+       */
+      @java.lang.Override
+      public double getSum() {
+        return sum_;
+      }
+      /**
+       * <pre>
+       * Sum of observations in the histogram.
+       * </pre>
+       *
+       * <code>double sum = 3;</code>
+       * @param value The sum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSum(double value) {
+        
+        sum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Sum of observations in the histogram.
+       * </pre>
+       *
+       * <code>double sum = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSum() {
+        
+        sum_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private int schema_ ;
+      /**
+       * <pre>
+       * The schema defines the bucket schema. Currently, valid numbers
+       * are -4 &lt;= n &lt;= 8. They are all for base-2 bucket schemas, where 1
+       * is a bucket boundary in each case, and then each power of two is
+       * divided into 2^n logarithmic buckets. Or in other words, each
+       * bucket boundary is the previous boundary times 2^(2^-n). In the
+       * future, more bucket schemas may be added using numbers &lt; -4 or &gt;
+       * 8.
+       * </pre>
+       *
+       * <code>sint32 schema = 4;</code>
+       * @return The schema.
+       */
+      @java.lang.Override
+      public int getSchema() {
+        return schema_;
+      }
+      /**
+       * <pre>
+       * The schema defines the bucket schema. Currently, valid numbers
+       * are -4 &lt;= n &lt;= 8. They are all for base-2 bucket schemas, where 1
+       * is a bucket boundary in each case, and then each power of two is
+       * divided into 2^n logarithmic buckets. Or in other words, each
+       * bucket boundary is the previous boundary times 2^(2^-n). In the
+       * future, more bucket schemas may be added using numbers &lt; -4 or &gt;
+       * 8.
+       * </pre>
+       *
+       * <code>sint32 schema = 4;</code>
+       * @param value The schema to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchema(int value) {
+        
+        schema_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The schema defines the bucket schema. Currently, valid numbers
+       * are -4 &lt;= n &lt;= 8. They are all for base-2 bucket schemas, where 1
+       * is a bucket boundary in each case, and then each power of two is
+       * divided into 2^n logarithmic buckets. Or in other words, each
+       * bucket boundary is the previous boundary times 2^(2^-n). In the
+       * future, more bucket schemas may be added using numbers &lt; -4 or &gt;
+       * 8.
+       * </pre>
+       *
+       * <code>sint32 schema = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchema() {
+        
+        schema_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double zeroThreshold_ ;
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>double zero_threshold = 5;</code>
+       * @return The zeroThreshold.
+       */
+      @java.lang.Override
+      public double getZeroThreshold() {
+        return zeroThreshold_;
+      }
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>double zero_threshold = 5;</code>
+       * @param value The zeroThreshold to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroThreshold(double value) {
+        
+        zeroThreshold_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Breadth of the zero bucket.
+       * </pre>
+       *
+       * <code>double zero_threshold = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroThreshold() {
+        
+        zeroThreshold_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>uint64 zero_count_int = 6;</code>
+       * @return Whether the zeroCountInt field is set.
+       */
+      public boolean hasZeroCountInt() {
+        return zeroCountCase_ == 6;
+      }
+      /**
+       * <code>uint64 zero_count_int = 6;</code>
+       * @return The zeroCountInt.
+       */
+      public long getZeroCountInt() {
+        if (zeroCountCase_ == 6) {
+          return (java.lang.Long) zeroCount_;
+        }
+        return 0L;
+      }
+      /**
+       * <code>uint64 zero_count_int = 6;</code>
+       * @param value The zeroCountInt to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroCountInt(long value) {
+        zeroCountCase_ = 6;
+        zeroCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 zero_count_int = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroCountInt() {
+        if (zeroCountCase_ == 6) {
+          zeroCountCase_ = 0;
+          zeroCount_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>double zero_count_float = 7;</code>
+       * @return Whether the zeroCountFloat field is set.
+       */
+      public boolean hasZeroCountFloat() {
+        return zeroCountCase_ == 7;
+      }
+      /**
+       * <code>double zero_count_float = 7;</code>
+       * @return The zeroCountFloat.
+       */
+      public double getZeroCountFloat() {
+        if (zeroCountCase_ == 7) {
+          return (java.lang.Double) zeroCount_;
+        }
+        return 0D;
+      }
+      /**
+       * <code>double zero_count_float = 7;</code>
+       * @param value The zeroCountFloat to set.
+       * @return This builder for chaining.
+       */
+      public Builder setZeroCountFloat(double value) {
+        zeroCountCase_ = 7;
+        zeroCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double zero_count_float = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearZeroCountFloat() {
+        if (zeroCountCase_ == 7) {
+          zeroCountCase_ = 0;
+          zeroCount_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      private java.util.List<prometheus.Types.BucketSpan> negativeSpans_ =
+        java.util.Collections.emptyList();
+      private void ensureNegativeSpansIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          negativeSpans_ = new java.util.ArrayList<prometheus.Types.BucketSpan>(negativeSpans_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder> negativeSpansBuilder_;
+
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public java.util.List<prometheus.Types.BucketSpan> getNegativeSpansList() {
+        if (negativeSpansBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(negativeSpans_);
+        } else {
+          return negativeSpansBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public int getNegativeSpansCount() {
+        if (negativeSpansBuilder_ == null) {
+          return negativeSpans_.size();
+        } else {
+          return negativeSpansBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public prometheus.Types.BucketSpan getNegativeSpans(int index) {
+        if (negativeSpansBuilder_ == null) {
+          return negativeSpans_.get(index);
+        } else {
+          return negativeSpansBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder setNegativeSpans(
+          int index, prometheus.Types.BucketSpan value) {
+        if (negativeSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.set(index, value);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder setNegativeSpans(
+          int index, prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (negativeSpansBuilder_ == null) {
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpansBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder addNegativeSpans(prometheus.Types.BucketSpan value) {
+        if (negativeSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.add(value);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder addNegativeSpans(
+          int index, prometheus.Types.BucketSpan value) {
+        if (negativeSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.add(index, value);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder addNegativeSpans(
+          prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (negativeSpansBuilder_ == null) {
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.add(builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpansBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder addNegativeSpans(
+          int index, prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (negativeSpansBuilder_ == null) {
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          negativeSpansBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder addAllNegativeSpans(
+          java.lang.Iterable<? extends prometheus.Types.BucketSpan> values) {
+        if (negativeSpansBuilder_ == null) {
+          ensureNegativeSpansIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, negativeSpans_);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder clearNegativeSpans() {
+        if (negativeSpansBuilder_ == null) {
+          negativeSpans_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public Builder removeNegativeSpans(int index) {
+        if (negativeSpansBuilder_ == null) {
+          ensureNegativeSpansIsMutable();
+          negativeSpans_.remove(index);
+          onChanged();
+        } else {
+          negativeSpansBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder getNegativeSpansBuilder(
+          int index) {
+        return getNegativeSpansFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public prometheus.Types.BucketSpanOrBuilder getNegativeSpansOrBuilder(
+          int index) {
+        if (negativeSpansBuilder_ == null) {
+          return negativeSpans_.get(index);  } else {
+          return negativeSpansBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+           getNegativeSpansOrBuilderList() {
+        if (negativeSpansBuilder_ != null) {
+          return negativeSpansBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(negativeSpans_);
+        }
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder addNegativeSpansBuilder() {
+        return getNegativeSpansFieldBuilder().addBuilder(
+            prometheus.Types.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder addNegativeSpansBuilder(
+          int index) {
+        return getNegativeSpansFieldBuilder().addBuilder(
+            index, prometheus.Types.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Negative Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan negative_spans = 8;</code>
+       */
+      public java.util.List<prometheus.Types.BucketSpan.Builder> 
+           getNegativeSpansBuilderList() {
+        return getNegativeSpansFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder> 
+          getNegativeSpansFieldBuilder() {
+        if (negativeSpansBuilder_ == null) {
+          negativeSpansBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder>(
+                  negativeSpans_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          negativeSpans_ = null;
+        }
+        return negativeSpansBuilder_;
+      }
+
+      private com.google.protobuf.Internal.LongList negativeDeltas_ = emptyLongList();
+      private void ensureNegativeDeltasIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          negativeDeltas_ = mutableCopy(negativeDeltas_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @return A list containing the negativeDeltas.
+       */
+      public java.util.List<java.lang.Long>
+          getNegativeDeltasList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(negativeDeltas_) : negativeDeltas_;
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @return The count of negativeDeltas.
+       */
+      public int getNegativeDeltasCount() {
+        return negativeDeltas_.size();
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @param index The index of the element to return.
+       * @return The negativeDeltas at the given index.
+       */
+      public long getNegativeDeltas(int index) {
+        return negativeDeltas_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The negativeDeltas to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNegativeDeltas(
+          int index, long value) {
+        ensureNegativeDeltasIsMutable();
+        negativeDeltas_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @param value The negativeDeltas to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNegativeDeltas(long value) {
+        ensureNegativeDeltasIsMutable();
+        negativeDeltas_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @param values The negativeDeltas to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNegativeDeltas(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureNegativeDeltasIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, negativeDeltas_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "negative_deltas" or "negative_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 negative_deltas = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNegativeDeltas() {
+        negativeDeltas_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList negativeCounts_ = emptyDoubleList();
+      private void ensureNegativeCountsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          negativeCounts_ = mutableCopy(negativeCounts_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @return A list containing the negativeCounts.
+       */
+      public java.util.List<java.lang.Double>
+          getNegativeCountsList() {
+        return ((bitField0_ & 0x00000004) != 0) ?
+                 java.util.Collections.unmodifiableList(negativeCounts_) : negativeCounts_;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @return The count of negativeCounts.
+       */
+      public int getNegativeCountsCount() {
+        return negativeCounts_.size();
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @param index The index of the element to return.
+       * @return The negativeCounts at the given index.
+       */
+      public double getNegativeCounts(int index) {
+        return negativeCounts_.getDouble(index);
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @param index The index to set the value at.
+       * @param value The negativeCounts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNegativeCounts(
+          int index, double value) {
+        ensureNegativeCountsIsMutable();
+        negativeCounts_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @param value The negativeCounts to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNegativeCounts(double value) {
+        ensureNegativeCountsIsMutable();
+        negativeCounts_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @param values The negativeCounts to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNegativeCounts(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureNegativeCountsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, negativeCounts_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double negative_counts = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNegativeCounts() {
+        negativeCounts_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<prometheus.Types.BucketSpan> positiveSpans_ =
+        java.util.Collections.emptyList();
+      private void ensurePositiveSpansIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          positiveSpans_ = new java.util.ArrayList<prometheus.Types.BucketSpan>(positiveSpans_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder> positiveSpansBuilder_;
+
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public java.util.List<prometheus.Types.BucketSpan> getPositiveSpansList() {
+        if (positiveSpansBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(positiveSpans_);
+        } else {
+          return positiveSpansBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public int getPositiveSpansCount() {
+        if (positiveSpansBuilder_ == null) {
+          return positiveSpans_.size();
+        } else {
+          return positiveSpansBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public prometheus.Types.BucketSpan getPositiveSpans(int index) {
+        if (positiveSpansBuilder_ == null) {
+          return positiveSpans_.get(index);
+        } else {
+          return positiveSpansBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder setPositiveSpans(
+          int index, prometheus.Types.BucketSpan value) {
+        if (positiveSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.set(index, value);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder setPositiveSpans(
+          int index, prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (positiveSpansBuilder_ == null) {
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpansBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder addPositiveSpans(prometheus.Types.BucketSpan value) {
+        if (positiveSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.add(value);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder addPositiveSpans(
+          int index, prometheus.Types.BucketSpan value) {
+        if (positiveSpansBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.add(index, value);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder addPositiveSpans(
+          prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (positiveSpansBuilder_ == null) {
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.add(builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpansBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder addPositiveSpans(
+          int index, prometheus.Types.BucketSpan.Builder builderForValue) {
+        if (positiveSpansBuilder_ == null) {
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          positiveSpansBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder addAllPositiveSpans(
+          java.lang.Iterable<? extends prometheus.Types.BucketSpan> values) {
+        if (positiveSpansBuilder_ == null) {
+          ensurePositiveSpansIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, positiveSpans_);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder clearPositiveSpans() {
+        if (positiveSpansBuilder_ == null) {
+          positiveSpans_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public Builder removePositiveSpans(int index) {
+        if (positiveSpansBuilder_ == null) {
+          ensurePositiveSpansIsMutable();
+          positiveSpans_.remove(index);
+          onChanged();
+        } else {
+          positiveSpansBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder getPositiveSpansBuilder(
+          int index) {
+        return getPositiveSpansFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public prometheus.Types.BucketSpanOrBuilder getPositiveSpansOrBuilder(
+          int index) {
+        if (positiveSpansBuilder_ == null) {
+          return positiveSpans_.get(index);  } else {
+          return positiveSpansBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public java.util.List<? extends prometheus.Types.BucketSpanOrBuilder> 
+           getPositiveSpansOrBuilderList() {
+        if (positiveSpansBuilder_ != null) {
+          return positiveSpansBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(positiveSpans_);
+        }
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder addPositiveSpansBuilder() {
+        return getPositiveSpansFieldBuilder().addBuilder(
+            prometheus.Types.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public prometheus.Types.BucketSpan.Builder addPositiveSpansBuilder(
+          int index) {
+        return getPositiveSpansFieldBuilder().addBuilder(
+            index, prometheus.Types.BucketSpan.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Positive Buckets.
+       * </pre>
+       *
+       * <code>repeated .prometheus.BucketSpan positive_spans = 11;</code>
+       */
+      public java.util.List<prometheus.Types.BucketSpan.Builder> 
+           getPositiveSpansBuilderList() {
+        return getPositiveSpansFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder> 
+          getPositiveSpansFieldBuilder() {
+        if (positiveSpansBuilder_ == null) {
+          positiveSpansBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              prometheus.Types.BucketSpan, prometheus.Types.BucketSpan.Builder, prometheus.Types.BucketSpanOrBuilder>(
+                  positiveSpans_,
+                  ((bitField0_ & 0x00000008) != 0),
+                  getParentForChildren(),
+                  isClean());
+          positiveSpans_ = null;
+        }
+        return positiveSpansBuilder_;
+      }
+
+      private com.google.protobuf.Internal.LongList positiveDeltas_ = emptyLongList();
+      private void ensurePositiveDeltasIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          positiveDeltas_ = mutableCopy(positiveDeltas_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @return A list containing the positiveDeltas.
+       */
+      public java.util.List<java.lang.Long>
+          getPositiveDeltasList() {
+        return ((bitField0_ & 0x00000010) != 0) ?
+                 java.util.Collections.unmodifiableList(positiveDeltas_) : positiveDeltas_;
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @return The count of positiveDeltas.
+       */
+      public int getPositiveDeltasCount() {
+        return positiveDeltas_.size();
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @param index The index of the element to return.
+       * @return The positiveDeltas at the given index.
+       */
+      public long getPositiveDeltas(int index) {
+        return positiveDeltas_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @param index The index to set the value at.
+       * @param value The positiveDeltas to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPositiveDeltas(
+          int index, long value) {
+        ensurePositiveDeltasIsMutable();
+        positiveDeltas_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @param value The positiveDeltas to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPositiveDeltas(long value) {
+        ensurePositiveDeltasIsMutable();
+        positiveDeltas_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @param values The positiveDeltas to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPositiveDeltas(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensurePositiveDeltasIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, positiveDeltas_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Use either "positive_deltas" or "positive_counts", the former for
+       * regular histograms with integer counts, the latter for float
+       * histograms.
+       * </pre>
+       *
+       * <code>repeated sint64 positive_deltas = 12;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPositiveDeltas() {
+        positiveDeltas_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList positiveCounts_ = emptyDoubleList();
+      private void ensurePositiveCountsIsMutable() {
+        if (!((bitField0_ & 0x00000020) != 0)) {
+          positiveCounts_ = mutableCopy(positiveCounts_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @return A list containing the positiveCounts.
+       */
+      public java.util.List<java.lang.Double>
+          getPositiveCountsList() {
+        return ((bitField0_ & 0x00000020) != 0) ?
+                 java.util.Collections.unmodifiableList(positiveCounts_) : positiveCounts_;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @return The count of positiveCounts.
+       */
+      public int getPositiveCountsCount() {
+        return positiveCounts_.size();
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @param index The index of the element to return.
+       * @return The positiveCounts at the given index.
+       */
+      public double getPositiveCounts(int index) {
+        return positiveCounts_.getDouble(index);
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @param index The index to set the value at.
+       * @param value The positiveCounts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPositiveCounts(
+          int index, double value) {
+        ensurePositiveCountsIsMutable();
+        positiveCounts_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @param value The positiveCounts to add.
+       * @return This builder for chaining.
+       */
+      public Builder addPositiveCounts(double value) {
+        ensurePositiveCountsIsMutable();
+        positiveCounts_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @param values The positiveCounts to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllPositiveCounts(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensurePositiveCountsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, positiveCounts_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absolute count of each bucket.
+       * </pre>
+       *
+       * <code>repeated double positive_counts = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPositiveCounts() {
+        positiveCounts_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+
+      private int resetHint_ = 0;
+      /**
+       * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+       * @return The enum numeric value on the wire for resetHint.
+       */
+      @java.lang.Override public int getResetHintValue() {
+        return resetHint_;
+      }
+      /**
+       * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+       * @param value The enum numeric value on the wire for resetHint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResetHintValue(int value) {
+        
+        resetHint_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+       * @return The resetHint.
+       */
+      @java.lang.Override
+      public prometheus.Types.Histogram.ResetHint getResetHint() {
+        @SuppressWarnings("deprecation")
+        prometheus.Types.Histogram.ResetHint result = prometheus.Types.Histogram.ResetHint.valueOf(resetHint_);
+        return result == null ? prometheus.Types.Histogram.ResetHint.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+       * @param value The resetHint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setResetHint(prometheus.Types.Histogram.ResetHint value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        resetHint_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.prometheus.Histogram.ResetHint reset_hint = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearResetHint() {
+        
+        resetHint_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <pre>
+       * timestamp is in ms format, see model/timestamp/timestamp.go for
+       * conversion from time.Time to Prometheus timestamp.
+       * </pre>
+       *
+       * <code>int64 timestamp = 15;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <pre>
+       * timestamp is in ms format, see model/timestamp/timestamp.go for
+       * conversion from time.Time to Prometheus timestamp.
+       * </pre>
+       *
+       * <code>int64 timestamp = 15;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * timestamp is in ms format, see model/timestamp/timestamp.go for
+       * conversion from time.Time to Prometheus timestamp.
+       * </pre>
+       *
+       * <code>int64 timestamp = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.DoubleList customValues_ = emptyDoubleList();
+      private void ensureCustomValuesIsMutable() {
+        if (!((bitField0_ & 0x00000040) != 0)) {
+          customValues_ = mutableCopy(customValues_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @return A list containing the customValues.
+       */
+      public java.util.List<java.lang.Double>
+          getCustomValuesList() {
+        return ((bitField0_ & 0x00000040) != 0) ?
+                 java.util.Collections.unmodifiableList(customValues_) : customValues_;
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @return The count of customValues.
+       */
+      public int getCustomValuesCount() {
+        return customValues_.size();
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @param index The index of the element to return.
+       * @return The customValues at the given index.
+       */
+      public double getCustomValues(int index) {
+        return customValues_.getDouble(index);
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @param index The index to set the value at.
+       * @param value The customValues to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCustomValues(
+          int index, double value) {
+        ensureCustomValuesIsMutable();
+        customValues_.setDouble(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @param value The customValues to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCustomValues(double value) {
+        ensureCustomValuesIsMutable();
+        customValues_.addDouble(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @param values The customValues to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCustomValues(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureCustomValuesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, customValues_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * custom_values are not part of the specification, DO NOT use in remote write clients.
+       * Used only for converting from OpenTelemetry to Prometheus internally.
+       * </pre>
+       *
+       * <code>repeated double custom_values = 16;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCustomValues() {
+        customValues_ = emptyDoubleList();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:prometheus.Histogram)
+    }
+
+    // @@protoc_insertion_point(class_scope:prometheus.Histogram)
+    private static final prometheus.Types.Histogram DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new prometheus.Types.Histogram();
+    }
+
+    public static prometheus.Types.Histogram getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Histogram>
+        PARSER = new com.google.protobuf.AbstractParser<Histogram>() {
+      @java.lang.Override
+      public Histogram parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Histogram(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Histogram> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Histogram> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public prometheus.Types.Histogram getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BucketSpanOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:prometheus.BucketSpan)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>sint32 offset = 1;</code>
+     * @return The offset.
+     */
+    int getOffset();
+
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>uint32 length = 2;</code>
+     * @return The length.
+     */
+    int getLength();
+  }
+  /**
+   * <pre>
+   * A BucketSpan defines a number of consecutive buckets with their
+   * offset. Logically, it would be more straightforward to include the
+   * bucket counts in the Span. However, the protobuf representation is
+   * more compact in the way the data is structured here (with all the
+   * buckets in a single array separate from the Spans).
+   * </pre>
+   *
+   * Protobuf type {@code prometheus.BucketSpan}
+   */
+  public static final class BucketSpan extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:prometheus.BucketSpan)
+      BucketSpanOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BucketSpan.newBuilder() to construct.
+    private BucketSpan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BucketSpan() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BucketSpan();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BucketSpan(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              offset_ = input.readSInt32();
+              break;
+            }
+            case 16: {
+
+              length_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return prometheus.Types.internal_static_prometheus_BucketSpan_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return prometheus.Types.internal_static_prometheus_BucketSpan_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              prometheus.Types.BucketSpan.class, prometheus.Types.BucketSpan.Builder.class);
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 1;
+    private int offset_;
+    /**
+     * <pre>
+     * Gap to previous span, or starting point for 1st span (which can be negative).
+     * </pre>
+     *
+     * <code>sint32 offset = 1;</code>
+     * @return The offset.
+     */
+    @java.lang.Override
+    public int getOffset() {
+      return offset_;
+    }
+
+    public static final int LENGTH_FIELD_NUMBER = 2;
+    private int length_;
+    /**
+     * <pre>
+     * Length of consecutive buckets.
+     * </pre>
+     *
+     * <code>uint32 length = 2;</code>
+     * @return The length.
+     */
+    @java.lang.Override
+    public int getLength() {
+      return length_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (offset_ != 0) {
+        output.writeSInt32(1, offset_);
+      }
+      if (length_ != 0) {
+        output.writeUInt32(2, length_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (offset_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeSInt32Size(1, offset_);
+      }
+      if (length_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, length_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof prometheus.Types.BucketSpan)) {
+        return super.equals(obj);
+      }
+      prometheus.Types.BucketSpan other = (prometheus.Types.BucketSpan) obj;
+
+      if (getOffset()
+          != other.getOffset()) return false;
+      if (getLength()
+          != other.getLength()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + getOffset();
+      hash = (37 * hash) + LENGTH_FIELD_NUMBER;
+      hash = (53 * hash) + getLength();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static prometheus.Types.BucketSpan parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static prometheus.Types.BucketSpan parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.BucketSpan parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static prometheus.Types.BucketSpan parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(prometheus.Types.BucketSpan prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * A BucketSpan defines a number of consecutive buckets with their
+     * offset. Logically, it would be more straightforward to include the
+     * bucket counts in the Span. However, the protobuf representation is
+     * more compact in the way the data is structured here (with all the
+     * buckets in a single array separate from the Spans).
+     * </pre>
+     *
+     * Protobuf type {@code prometheus.BucketSpan}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:prometheus.BucketSpan)
+        prometheus.Types.BucketSpanOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return prometheus.Types.internal_static_prometheus_BucketSpan_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return prometheus.Types.internal_static_prometheus_BucketSpan_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                prometheus.Types.BucketSpan.class, prometheus.Types.BucketSpan.Builder.class);
+      }
+
+      // Construct using prometheus.Types.BucketSpan.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        offset_ = 0;
+
+        length_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return prometheus.Types.internal_static_prometheus_BucketSpan_descriptor;
+      }
+
+      @java.lang.Override
+      public prometheus.Types.BucketSpan getDefaultInstanceForType() {
+        return prometheus.Types.BucketSpan.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public prometheus.Types.BucketSpan build() {
+        prometheus.Types.BucketSpan result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public prometheus.Types.BucketSpan buildPartial() {
+        prometheus.Types.BucketSpan result = new prometheus.Types.BucketSpan(this);
+        result.offset_ = offset_;
+        result.length_ = length_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof prometheus.Types.BucketSpan) {
+          return mergeFrom((prometheus.Types.BucketSpan)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(prometheus.Types.BucketSpan other) {
+        if (other == prometheus.Types.BucketSpan.getDefaultInstance()) return this;
+        if (other.getOffset() != 0) {
+          setOffset(other.getOffset());
+        }
+        if (other.getLength() != 0) {
+          setLength(other.getLength());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        prometheus.Types.BucketSpan parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (prometheus.Types.BucketSpan) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int offset_ ;
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>sint32 offset = 1;</code>
+       * @return The offset.
+       */
+      @java.lang.Override
+      public int getOffset() {
+        return offset_;
+      }
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>sint32 offset = 1;</code>
+       * @param value The offset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOffset(int value) {
+        
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Gap to previous span, or starting point for 1st span (which can be negative).
+       * </pre>
+       *
+       * <code>sint32 offset = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOffset() {
+        
+        offset_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int length_ ;
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>uint32 length = 2;</code>
+       * @return The length.
+       */
+      @java.lang.Override
+      public int getLength() {
+        return length_;
+      }
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>uint32 length = 2;</code>
+       * @param value The length to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLength(int value) {
+        
+        length_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Length of consecutive buckets.
+       * </pre>
+       *
+       * <code>uint32 length = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLength() {
+        
+        length_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:prometheus.BucketSpan)
+    }
+
+    // @@protoc_insertion_point(class_scope:prometheus.BucketSpan)
+    private static final prometheus.Types.BucketSpan DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new prometheus.Types.BucketSpan();
+    }
+
+    public static prometheus.Types.BucketSpan getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BucketSpan>
+        PARSER = new com.google.protobuf.AbstractParser<BucketSpan>() {
+      @java.lang.Override
+      public BucketSpan parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BucketSpan(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BucketSpan> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BucketSpan> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public prometheus.Types.BucketSpan getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface TimeSeriesOrBuilder extends
       // @@protoc_insertion_point(interface_extends:prometheus.TimeSeries)
       com.google.protobuf.MessageOrBuilder {
@@ -2961,6 +7497,30 @@ public final class Types {
      */
     prometheus.Types.ExemplarOrBuilder getExemplarsOrBuilder(
         int index);
+
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    java.util.List<prometheus.Types.Histogram> 
+        getHistogramsList();
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    prometheus.Types.Histogram getHistograms(int index);
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    int getHistogramsCount();
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    java.util.List<? extends prometheus.Types.HistogramOrBuilder> 
+        getHistogramsOrBuilderList();
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    prometheus.Types.HistogramOrBuilder getHistogramsOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -2982,6 +7542,7 @@ public final class Types {
       labels_ = java.util.Collections.emptyList();
       samples_ = java.util.Collections.emptyList();
       exemplars_ = java.util.Collections.emptyList();
+      histograms_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -3042,6 +7603,15 @@ public final class Types {
                   input.readMessage(prometheus.Types.Exemplar.parser(), extensionRegistry));
               break;
             }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                histograms_ = new java.util.ArrayList<prometheus.Types.Histogram>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              histograms_.add(
+                  input.readMessage(prometheus.Types.Histogram.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3067,6 +7637,9 @@ public final class Types {
         }
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
           exemplars_ = java.util.Collections.unmodifiableList(exemplars_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          histograms_ = java.util.Collections.unmodifiableList(histograms_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3230,6 +7803,46 @@ public final class Types {
       return exemplars_.get(index);
     }
 
+    public static final int HISTOGRAMS_FIELD_NUMBER = 4;
+    private java.util.List<prometheus.Types.Histogram> histograms_;
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<prometheus.Types.Histogram> getHistogramsList() {
+      return histograms_;
+    }
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends prometheus.Types.HistogramOrBuilder> 
+        getHistogramsOrBuilderList() {
+      return histograms_;
+    }
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    @java.lang.Override
+    public int getHistogramsCount() {
+      return histograms_.size();
+    }
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.Histogram getHistograms(int index) {
+      return histograms_.get(index);
+    }
+    /**
+     * <code>repeated .prometheus.Histogram histograms = 4;</code>
+     */
+    @java.lang.Override
+    public prometheus.Types.HistogramOrBuilder getHistogramsOrBuilder(
+        int index) {
+      return histograms_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3253,6 +7866,9 @@ public final class Types {
       for (int i = 0; i < exemplars_.size(); i++) {
         output.writeMessage(3, exemplars_.get(i));
       }
+      for (int i = 0; i < histograms_.size(); i++) {
+        output.writeMessage(4, histograms_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3273,6 +7889,10 @@ public final class Types {
       for (int i = 0; i < exemplars_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, exemplars_.get(i));
+      }
+      for (int i = 0; i < histograms_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, histograms_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3295,6 +7915,8 @@ public final class Types {
           .equals(other.getSamplesList())) return false;
       if (!getExemplarsList()
           .equals(other.getExemplarsList())) return false;
+      if (!getHistogramsList()
+          .equals(other.getHistogramsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3317,6 +7939,10 @@ public final class Types {
       if (getExemplarsCount() > 0) {
         hash = (37 * hash) + EXEMPLARS_FIELD_NUMBER;
         hash = (53 * hash) + getExemplarsList().hashCode();
+      }
+      if (getHistogramsCount() > 0) {
+        hash = (37 * hash) + HISTOGRAMS_FIELD_NUMBER;
+        hash = (53 * hash) + getHistogramsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3453,6 +8079,7 @@ public final class Types {
           getLabelsFieldBuilder();
           getSamplesFieldBuilder();
           getExemplarsFieldBuilder();
+          getHistogramsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3475,6 +8102,12 @@ public final class Types {
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           exemplarsBuilder_.clear();
+        }
+        if (histogramsBuilder_ == null) {
+          histograms_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          histogramsBuilder_.clear();
         }
         return this;
       }
@@ -3529,6 +8162,15 @@ public final class Types {
           result.exemplars_ = exemplars_;
         } else {
           result.exemplars_ = exemplarsBuilder_.build();
+        }
+        if (histogramsBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) != 0)) {
+            histograms_ = java.util.Collections.unmodifiableList(histograms_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.histograms_ = histograms_;
+        } else {
+          result.histograms_ = histogramsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3653,6 +8295,32 @@ public final class Types {
                    getExemplarsFieldBuilder() : null;
             } else {
               exemplarsBuilder_.addAllMessages(other.exemplars_);
+            }
+          }
+        }
+        if (histogramsBuilder_ == null) {
+          if (!other.histograms_.isEmpty()) {
+            if (histograms_.isEmpty()) {
+              histograms_ = other.histograms_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureHistogramsIsMutable();
+              histograms_.addAll(other.histograms_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.histograms_.isEmpty()) {
+            if (histogramsBuilder_.isEmpty()) {
+              histogramsBuilder_.dispose();
+              histogramsBuilder_ = null;
+              histograms_ = other.histograms_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              histogramsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getHistogramsFieldBuilder() : null;
+            } else {
+              histogramsBuilder_.addAllMessages(other.histograms_);
             }
           }
         }
@@ -4494,6 +9162,246 @@ public final class Types {
           exemplars_ = null;
         }
         return exemplarsBuilder_;
+      }
+
+      private java.util.List<prometheus.Types.Histogram> histograms_ =
+        java.util.Collections.emptyList();
+      private void ensureHistogramsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          histograms_ = new java.util.ArrayList<prometheus.Types.Histogram>(histograms_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.Histogram, prometheus.Types.Histogram.Builder, prometheus.Types.HistogramOrBuilder> histogramsBuilder_;
+
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public java.util.List<prometheus.Types.Histogram> getHistogramsList() {
+        if (histogramsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(histograms_);
+        } else {
+          return histogramsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public int getHistogramsCount() {
+        if (histogramsBuilder_ == null) {
+          return histograms_.size();
+        } else {
+          return histogramsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public prometheus.Types.Histogram getHistograms(int index) {
+        if (histogramsBuilder_ == null) {
+          return histograms_.get(index);
+        } else {
+          return histogramsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder setHistograms(
+          int index, prometheus.Types.Histogram value) {
+        if (histogramsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHistogramsIsMutable();
+          histograms_.set(index, value);
+          onChanged();
+        } else {
+          histogramsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder setHistograms(
+          int index, prometheus.Types.Histogram.Builder builderForValue) {
+        if (histogramsBuilder_ == null) {
+          ensureHistogramsIsMutable();
+          histograms_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          histogramsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder addHistograms(prometheus.Types.Histogram value) {
+        if (histogramsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHistogramsIsMutable();
+          histograms_.add(value);
+          onChanged();
+        } else {
+          histogramsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder addHistograms(
+          int index, prometheus.Types.Histogram value) {
+        if (histogramsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureHistogramsIsMutable();
+          histograms_.add(index, value);
+          onChanged();
+        } else {
+          histogramsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder addHistograms(
+          prometheus.Types.Histogram.Builder builderForValue) {
+        if (histogramsBuilder_ == null) {
+          ensureHistogramsIsMutable();
+          histograms_.add(builderForValue.build());
+          onChanged();
+        } else {
+          histogramsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder addHistograms(
+          int index, prometheus.Types.Histogram.Builder builderForValue) {
+        if (histogramsBuilder_ == null) {
+          ensureHistogramsIsMutable();
+          histograms_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          histogramsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder addAllHistograms(
+          java.lang.Iterable<? extends prometheus.Types.Histogram> values) {
+        if (histogramsBuilder_ == null) {
+          ensureHistogramsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, histograms_);
+          onChanged();
+        } else {
+          histogramsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder clearHistograms() {
+        if (histogramsBuilder_ == null) {
+          histograms_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          histogramsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public Builder removeHistograms(int index) {
+        if (histogramsBuilder_ == null) {
+          ensureHistogramsIsMutable();
+          histograms_.remove(index);
+          onChanged();
+        } else {
+          histogramsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public prometheus.Types.Histogram.Builder getHistogramsBuilder(
+          int index) {
+        return getHistogramsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public prometheus.Types.HistogramOrBuilder getHistogramsOrBuilder(
+          int index) {
+        if (histogramsBuilder_ == null) {
+          return histograms_.get(index);  } else {
+          return histogramsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public java.util.List<? extends prometheus.Types.HistogramOrBuilder> 
+           getHistogramsOrBuilderList() {
+        if (histogramsBuilder_ != null) {
+          return histogramsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(histograms_);
+        }
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public prometheus.Types.Histogram.Builder addHistogramsBuilder() {
+        return getHistogramsFieldBuilder().addBuilder(
+            prometheus.Types.Histogram.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public prometheus.Types.Histogram.Builder addHistogramsBuilder(
+          int index) {
+        return getHistogramsFieldBuilder().addBuilder(
+            index, prometheus.Types.Histogram.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .prometheus.Histogram histograms = 4;</code>
+       */
+      public java.util.List<prometheus.Types.Histogram.Builder> 
+           getHistogramsBuilderList() {
+        return getHistogramsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          prometheus.Types.Histogram, prometheus.Types.Histogram.Builder, prometheus.Types.HistogramOrBuilder> 
+          getHistogramsFieldBuilder() {
+        if (histogramsBuilder_ == null) {
+          histogramsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              prometheus.Types.Histogram, prometheus.Types.Histogram.Builder, prometheus.Types.HistogramOrBuilder>(
+                  histograms_,
+                  ((bitField0_ & 0x00000008) != 0),
+                  getParentForChildren(),
+                  isClean());
+          histograms_ = null;
+        }
+        return histogramsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -8530,6 +13438,14 @@ public final class Types {
        * <code>XOR = 1;</code>
        */
       XOR(1),
+      /**
+       * <code>HISTOGRAM = 2;</code>
+       */
+      HISTOGRAM(2),
+      /**
+       * <code>FLOAT_HISTOGRAM = 3;</code>
+       */
+      FLOAT_HISTOGRAM(3),
       UNRECOGNIZED(-1),
       ;
 
@@ -8541,6 +13457,14 @@ public final class Types {
        * <code>XOR = 1;</code>
        */
       public static final int XOR_VALUE = 1;
+      /**
+       * <code>HISTOGRAM = 2;</code>
+       */
+      public static final int HISTOGRAM_VALUE = 2;
+      /**
+       * <code>FLOAT_HISTOGRAM = 3;</code>
+       */
+      public static final int FLOAT_HISTOGRAM_VALUE = 3;
 
 
       public final int getNumber() {
@@ -8569,6 +13493,8 @@ public final class Types {
         switch (value) {
           case 0: return UNKNOWN;
           case 1: return XOR;
+          case 2: return HISTOGRAM;
+          case 3: return FLOAT_HISTOGRAM;
           default: return null;
         }
       }
@@ -10653,6 +15579,16 @@ public final class Types {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_prometheus_Exemplar_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_prometheus_Histogram_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_prometheus_Histogram_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_prometheus_BucketSpan_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_prometheus_BucketSpan_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_prometheus_TimeSeries_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10706,26 +15642,43 @@ public final class Types {
       "\022\014\n\010STATESET\020\007\"*\n\006Sample\022\r\n\005value\030\001 \001(\001\022" +
       "\021\n\ttimestamp\030\002 \001(\003\"O\n\010Exemplar\022!\n\006labels" +
       "\030\001 \003(\0132\021.prometheus.Label\022\r\n\005value\030\002 \001(\001" +
-      "\022\021\n\ttimestamp\030\003 \001(\003\"}\n\nTimeSeries\022!\n\006lab" +
-      "els\030\001 \003(\0132\021.prometheus.Label\022#\n\007samples\030" +
-      "\002 \003(\0132\022.prometheus.Sample\022\'\n\texemplars\030\003" +
-      " \003(\0132\024.prometheus.Exemplar\"$\n\005Label\022\014\n\004n" +
-      "ame\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"+\n\006Labels\022!\n\006la" +
-      "bels\030\001 \003(\0132\021.prometheus.Label\"\202\001\n\014LabelM" +
-      "atcher\022+\n\004type\030\001 \001(\0162\035.prometheus.LabelM" +
-      "atcher.Type\022\014\n\004name\030\002 \001(\t\022\r\n\005value\030\003 \001(\t" +
-      "\"(\n\004Type\022\006\n\002EQ\020\000\022\007\n\003NEQ\020\001\022\006\n\002RE\020\002\022\007\n\003NRE" +
-      "\020\003\"|\n\tReadHints\022\017\n\007step_ms\030\001 \001(\003\022\014\n\004func" +
-      "\030\002 \001(\t\022\020\n\010start_ms\030\003 \001(\003\022\016\n\006end_ms\030\004 \001(\003" +
-      "\022\020\n\010grouping\030\005 \003(\t\022\n\n\002by\030\006 \001(\010\022\020\n\010range_" +
-      "ms\030\007 \001(\003\"\213\001\n\005Chunk\022\023\n\013min_time_ms\030\001 \001(\003\022" +
-      "\023\n\013max_time_ms\030\002 \001(\003\022(\n\004type\030\003 \001(\0162\032.pro" +
-      "metheus.Chunk.Encoding\022\014\n\004data\030\004 \001(\014\" \n\010" +
-      "Encoding\022\013\n\007UNKNOWN\020\000\022\007\n\003XOR\020\001\"U\n\rChunke" +
-      "dSeries\022!\n\006labels\030\001 \003(\0132\021.prometheus.Lab" +
-      "el\022!\n\006chunks\030\002 \003(\0132\021.prometheus.ChunkB=Z" +
-      ";github.com/GreptimeTeam/greptime-proto/" +
-      "go/prometheus/remoteb\006proto3"
+      "\022\021\n\ttimestamp\030\003 \001(\003\"\222\004\n\tHistogram\022\023\n\tcou" +
+      "nt_int\030\001 \001(\004H\000\022\025\n\013count_float\030\002 \001(\001H\000\022\013\n" +
+      "\003sum\030\003 \001(\001\022\016\n\006schema\030\004 \001(\021\022\026\n\016zero_thres" +
+      "hold\030\005 \001(\001\022\030\n\016zero_count_int\030\006 \001(\004H\001\022\032\n\020" +
+      "zero_count_float\030\007 \001(\001H\001\022.\n\016negative_spa" +
+      "ns\030\010 \003(\0132\026.prometheus.BucketSpan\022\027\n\017nega" +
+      "tive_deltas\030\t \003(\022\022\027\n\017negative_counts\030\n \003" +
+      "(\001\022.\n\016positive_spans\030\013 \003(\0132\026.prometheus." +
+      "BucketSpan\022\027\n\017positive_deltas\030\014 \003(\022\022\027\n\017p" +
+      "ositive_counts\030\r \003(\001\0223\n\nreset_hint\030\016 \001(\016" +
+      "2\037.prometheus.Histogram.ResetHint\022\021\n\ttim" +
+      "estamp\030\017 \001(\003\022\025\n\rcustom_values\030\020 \003(\001\"4\n\tR" +
+      "esetHint\022\013\n\007UNKNOWN\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\022\t" +
+      "\n\005GAUGE\020\003B\007\n\005countB\014\n\nzero_count\",\n\nBuck" +
+      "etSpan\022\016\n\006offset\030\001 \001(\021\022\016\n\006length\030\002 \001(\r\"\250" +
+      "\001\n\nTimeSeries\022!\n\006labels\030\001 \003(\0132\021.promethe" +
+      "us.Label\022#\n\007samples\030\002 \003(\0132\022.prometheus.S" +
+      "ample\022\'\n\texemplars\030\003 \003(\0132\024.prometheus.Ex" +
+      "emplar\022)\n\nhistograms\030\004 \003(\0132\025.prometheus." +
+      "Histogram\"$\n\005Label\022\014\n\004name\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\t\"+\n\006Labels\022!\n\006labels\030\001 \003(\0132\021.prom" +
+      "etheus.Label\"\202\001\n\014LabelMatcher\022+\n\004type\030\001 " +
+      "\001(\0162\035.prometheus.LabelMatcher.Type\022\014\n\004na" +
+      "me\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\"(\n\004Type\022\006\n\002EQ\020\000\022" +
+      "\007\n\003NEQ\020\001\022\006\n\002RE\020\002\022\007\n\003NRE\020\003\"|\n\tReadHints\022\017" +
+      "\n\007step_ms\030\001 \001(\003\022\014\n\004func\030\002 \001(\t\022\020\n\010start_m" +
+      "s\030\003 \001(\003\022\016\n\006end_ms\030\004 \001(\003\022\020\n\010grouping\030\005 \003(" +
+      "\t\022\n\n\002by\030\006 \001(\010\022\020\n\010range_ms\030\007 \001(\003\"\257\001\n\005Chun" +
+      "k\022\023\n\013min_time_ms\030\001 \001(\003\022\023\n\013max_time_ms\030\002 " +
+      "\001(\003\022(\n\004type\030\003 \001(\0162\032.prometheus.Chunk.Enc" +
+      "oding\022\014\n\004data\030\004 \001(\014\"D\n\010Encoding\022\013\n\007UNKNO" +
+      "WN\020\000\022\007\n\003XOR\020\001\022\r\n\tHISTOGRAM\020\002\022\023\n\017FLOAT_HI" +
+      "STOGRAM\020\003\"U\n\rChunkedSeries\022!\n\006labels\030\001 \003" +
+      "(\0132\021.prometheus.Label\022!\n\006chunks\030\002 \003(\0132\021." +
+      "prometheus.ChunkB=Z;github.com/GreptimeT" +
+      "eam/greptime-proto/go/prometheus/remoteb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10749,44 +15702,56 @@ public final class Types {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_Exemplar_descriptor,
         new java.lang.String[] { "Labels", "Value", "Timestamp", });
-    internal_static_prometheus_TimeSeries_descriptor =
+    internal_static_prometheus_Histogram_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_prometheus_Histogram_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_prometheus_Histogram_descriptor,
+        new java.lang.String[] { "CountInt", "CountFloat", "Sum", "Schema", "ZeroThreshold", "ZeroCountInt", "ZeroCountFloat", "NegativeSpans", "NegativeDeltas", "NegativeCounts", "PositiveSpans", "PositiveDeltas", "PositiveCounts", "ResetHint", "Timestamp", "CustomValues", "Count", "ZeroCount", });
+    internal_static_prometheus_BucketSpan_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_prometheus_BucketSpan_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_prometheus_BucketSpan_descriptor,
+        new java.lang.String[] { "Offset", "Length", });
+    internal_static_prometheus_TimeSeries_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_prometheus_TimeSeries_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_TimeSeries_descriptor,
-        new java.lang.String[] { "Labels", "Samples", "Exemplars", });
+        new java.lang.String[] { "Labels", "Samples", "Exemplars", "Histograms", });
     internal_static_prometheus_Label_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_prometheus_Label_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_Label_descriptor,
         new java.lang.String[] { "Name", "Value", });
     internal_static_prometheus_Labels_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_prometheus_Labels_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_Labels_descriptor,
         new java.lang.String[] { "Labels", });
     internal_static_prometheus_LabelMatcher_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_prometheus_LabelMatcher_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_LabelMatcher_descriptor,
         new java.lang.String[] { "Type", "Name", "Value", });
     internal_static_prometheus_ReadHints_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_prometheus_ReadHints_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_ReadHints_descriptor,
         new java.lang.String[] { "StepMs", "Func", "StartMs", "EndMs", "Grouping", "By", "RangeMs", });
     internal_static_prometheus_Chunk_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_prometheus_Chunk_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_Chunk_descriptor,
         new java.lang.String[] { "MinTimeMs", "MaxTimeMs", "Type", "Data", });
     internal_static_prometheus_ChunkedSeries_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_prometheus_ChunkedSeries_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_prometheus_ChunkedSeries_descriptor,
