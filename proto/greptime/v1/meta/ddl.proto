@@ -98,6 +98,10 @@ message DropTriggerTask {
   DropTriggerExpr drop_trigger = 1;
 }
 
+message CommentOnTask {
+  CommentOnExpr comment_on = 1;
+}
+
 message DdlTaskRequest {
   RequestHeader header = 1;
   QueryContext query_context = 64;
@@ -119,6 +123,7 @@ message DdlTaskRequest {
     AlterDatabaseTask alter_database_task = 15;
     CreateTriggerTask create_trigger_task = 16;
     DropTriggerTask drop_trigger_task = 17;
+    CommentOnTask comment_on_task = 18;
   }
 }
 
