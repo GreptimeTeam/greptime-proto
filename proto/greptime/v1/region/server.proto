@@ -60,6 +60,7 @@ message RegionRequest {
     SyncRequest sync = 17;
     ListMetadataRequest list_metadata = 18;
     BuildIndexRequest build_index = 19;
+    ApplyStagingManifestRequest apply_staging_manifest = 20;
   }
 }
 
@@ -272,4 +273,20 @@ message ListMetadataRequest {
 
 message BuildIndexRequest {
   uint64 region_id = 1;
+}
+
+// The file metas of a staging manifest.
+// It is a json array of file metadatas.
+message FileMetas {
+  bytes data = 1;
+}
+
+/// Apply staging manifest request.
+message ApplyStagingManifestRequest {
+  // The target region id.
+  uint64 region_id = 1;
+  // The partition expression of the staging manifest.
+  string partition_expr = 2;
+  // The file metas to add to the staging manifest.
+  FileMetas files_to_add = 3;
 }
