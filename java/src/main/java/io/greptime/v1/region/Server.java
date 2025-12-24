@@ -1562,6 +1562,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.BuildIndexRequestOrBuilder getBuildIndexOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     * @return Whether the applyStagingManifest field is set.
+     */
+    boolean hasApplyStagingManifest();
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     * @return The applyStagingManifest.
+     */
+    io.greptime.v1.region.Server.ApplyStagingManifestRequest getApplyStagingManifest();
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     */
+    io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder getApplyStagingManifestOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -1860,6 +1875,20 @@ java.lang.String defaultValue);
               bodyCase_ = 19;
               break;
             }
+            case 162: {
+              io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder subBuilder = null;
+              if (bodyCase_ == 20) {
+                subBuilder = ((io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.region.Server.ApplyStagingManifestRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 20;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1916,6 +1945,7 @@ java.lang.String defaultValue);
       SYNC(17),
       LIST_METADATA(18),
       BUILD_INDEX(19),
+      APPLY_STAGING_MANIFEST(20),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1950,6 +1980,7 @@ java.lang.String defaultValue);
           case 17: return SYNC;
           case 18: return LIST_METADATA;
           case 19: return BUILD_INDEX;
+          case 20: return APPLY_STAGING_MANIFEST;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -2518,6 +2549,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.BuildIndexRequest.getDefaultInstance();
     }
 
+    public static final int APPLY_STAGING_MANIFEST_FIELD_NUMBER = 20;
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     * @return Whether the applyStagingManifest field is set.
+     */
+    @java.lang.Override
+    public boolean hasApplyStagingManifest() {
+      return bodyCase_ == 20;
+    }
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     * @return The applyStagingManifest.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ApplyStagingManifestRequest getApplyStagingManifest() {
+      if (bodyCase_ == 20) {
+         return (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_;
+      }
+      return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder getApplyStagingManifestOrBuilder() {
+      if (bodyCase_ == 20) {
+         return (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_;
+      }
+      return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2585,6 +2647,9 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 19) {
         output.writeMessage(19, (io.greptime.v1.region.Server.BuildIndexRequest) body_);
+      }
+      if (bodyCase_ == 20) {
+        output.writeMessage(20, (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -2666,6 +2731,10 @@ java.lang.String defaultValue);
       if (bodyCase_ == 19) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(19, (io.greptime.v1.region.Server.BuildIndexRequest) body_);
+      }
+      if (bodyCase_ == 20) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2757,6 +2826,10 @@ java.lang.String defaultValue);
           if (!getBuildIndex()
               .equals(other.getBuildIndex())) return false;
           break;
+        case 20:
+          if (!getApplyStagingManifest()
+              .equals(other.getApplyStagingManifest())) return false;
+          break;
         case 0:
         default:
       }
@@ -2843,6 +2916,10 @@ java.lang.String defaultValue);
         case 19:
           hash = (37 * hash) + BUILD_INDEX_FIELD_NUMBER;
           hash = (53 * hash) + getBuildIndex().hashCode();
+          break;
+        case 20:
+          hash = (37 * hash) + APPLY_STAGING_MANIFEST_FIELD_NUMBER;
+          hash = (53 * hash) + getApplyStagingManifest().hashCode();
           break;
         case 0:
         default:
@@ -3138,6 +3215,13 @@ java.lang.String defaultValue);
             result.body_ = buildIndexBuilder_.build();
           }
         }
+        if (bodyCase_ == 20) {
+          if (applyStagingManifestBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = applyStagingManifestBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -3257,6 +3341,10 @@ java.lang.String defaultValue);
           }
           case BUILD_INDEX: {
             mergeBuildIndex(other.getBuildIndex());
+            break;
+          }
+          case APPLY_STAGING_MANIFEST: {
+            mergeApplyStagingManifest(other.getApplyStagingManifest());
             break;
           }
           case BODY_NOT_SET: {
@@ -5838,6 +5926,148 @@ java.lang.String defaultValue);
         bodyCase_ = 19;
         onChanged();;
         return buildIndexBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.ApplyStagingManifestRequest, io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder, io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder> applyStagingManifestBuilder_;
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       * @return Whether the applyStagingManifest field is set.
+       */
+      @java.lang.Override
+      public boolean hasApplyStagingManifest() {
+        return bodyCase_ == 20;
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       * @return The applyStagingManifest.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequest getApplyStagingManifest() {
+        if (applyStagingManifestBuilder_ == null) {
+          if (bodyCase_ == 20) {
+            return (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_;
+          }
+          return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 20) {
+            return applyStagingManifestBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      public Builder setApplyStagingManifest(io.greptime.v1.region.Server.ApplyStagingManifestRequest value) {
+        if (applyStagingManifestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          applyStagingManifestBuilder_.setMessage(value);
+        }
+        bodyCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      public Builder setApplyStagingManifest(
+          io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder builderForValue) {
+        if (applyStagingManifestBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          applyStagingManifestBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      public Builder mergeApplyStagingManifest(io.greptime.v1.region.Server.ApplyStagingManifestRequest value) {
+        if (applyStagingManifestBuilder_ == null) {
+          if (bodyCase_ == 20 &&
+              body_ != io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.region.Server.ApplyStagingManifestRequest.newBuilder((io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 20) {
+            applyStagingManifestBuilder_.mergeFrom(value);
+          } else {
+            applyStagingManifestBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      public Builder clearApplyStagingManifest() {
+        if (applyStagingManifestBuilder_ == null) {
+          if (bodyCase_ == 20) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 20) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          applyStagingManifestBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder getApplyStagingManifestBuilder() {
+        return getApplyStagingManifestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder getApplyStagingManifestOrBuilder() {
+        if ((bodyCase_ == 20) && (applyStagingManifestBuilder_ != null)) {
+          return applyStagingManifestBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 20) {
+            return (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_;
+          }
+          return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.ApplyStagingManifestRequest apply_staging_manifest = 20;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.ApplyStagingManifestRequest, io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder, io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder> 
+          getApplyStagingManifestFieldBuilder() {
+        if (applyStagingManifestBuilder_ == null) {
+          if (!(bodyCase_ == 20)) {
+            body_ = io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+          }
+          applyStagingManifestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.ApplyStagingManifestRequest, io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder, io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder>(
+                  (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 20;
+        onChanged();;
+        return applyStagingManifestBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -33767,6 +33997,1478 @@ java.lang.String defaultValue);
 
   }
 
+  public interface FileMetasOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.FileMetas)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes data = 1;</code>
+     * @return The data.
+     */
+    com.google.protobuf.ByteString getData();
+  }
+  /**
+   * <pre>
+   * The file metas of a staging manifest.
+   * It is a json array of file metadatas.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.FileMetas}
+   */
+  public static final class FileMetas extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.FileMetas)
+      FileMetasOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileMetas.newBuilder() to construct.
+    private FileMetas(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileMetas() {
+      data_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FileMetas();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileMetas(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_FileMetas_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_FileMetas_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.FileMetas.class, io.greptime.v1.region.Server.FileMetas.Builder.class);
+    }
+
+    public static final int DATA_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>bytes data = 1;</code>
+     * @return The data.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!data_.isEmpty()) {
+        output.writeBytes(1, data_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!data_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, data_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.FileMetas)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.FileMetas other = (io.greptime.v1.region.Server.FileMetas) obj;
+
+      if (!getData()
+          .equals(other.getData())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getData().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.FileMetas parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.FileMetas prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The file metas of a staging manifest.
+     * It is a json array of file metadatas.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.FileMetas}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.FileMetas)
+        io.greptime.v1.region.Server.FileMetasOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_FileMetas_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_FileMetas_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.FileMetas.class, io.greptime.v1.region.Server.FileMetas.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.FileMetas.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        data_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_FileMetas_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.FileMetas getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.FileMetas.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.FileMetas build() {
+        io.greptime.v1.region.Server.FileMetas result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.FileMetas buildPartial() {
+        io.greptime.v1.region.Server.FileMetas result = new io.greptime.v1.region.Server.FileMetas(this);
+        result.data_ = data_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.FileMetas) {
+          return mergeFrom((io.greptime.v1.region.Server.FileMetas)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.FileMetas other) {
+        if (other == io.greptime.v1.region.Server.FileMetas.getDefaultInstance()) return this;
+        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+          setData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.FileMetas parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.FileMetas) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes data = 1;</code>
+       * @return The data.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <code>bytes data = 1;</code>
+       * @param value The data to set.
+       * @return This builder for chaining.
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes data = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearData() {
+        
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.FileMetas)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.FileMetas)
+    private static final io.greptime.v1.region.Server.FileMetas DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.FileMetas();
+    }
+
+    public static io.greptime.v1.region.Server.FileMetas getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FileMetas>
+        PARSER = new com.google.protobuf.AbstractParser<FileMetas>() {
+      @java.lang.Override
+      public FileMetas parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileMetas(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileMetas> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FileMetas> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.FileMetas getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ApplyStagingManifestRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.ApplyStagingManifestRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The target region id.
+     * </pre>
+     *
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+
+    /**
+     * <pre>
+     * The partition expression of the staging manifest.
+     * </pre>
+     *
+     * <code>string partition_expr = 2;</code>
+     * @return The partitionExpr.
+     */
+    java.lang.String getPartitionExpr();
+    /**
+     * <pre>
+     * The partition expression of the staging manifest.
+     * </pre>
+     *
+     * <code>string partition_expr = 2;</code>
+     * @return The bytes for partitionExpr.
+     */
+    com.google.protobuf.ByteString
+        getPartitionExprBytes();
+
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     * @return Whether the filesToAdd field is set.
+     */
+    boolean hasFilesToAdd();
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     * @return The filesToAdd.
+     */
+    io.greptime.v1.region.Server.FileMetas getFilesToAdd();
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     */
+    io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder();
+  }
+  /**
+   * <pre>
+   *&#47; Apply staging manifest request.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.ApplyStagingManifestRequest}
+   */
+  public static final class ApplyStagingManifestRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.ApplyStagingManifestRequest)
+      ApplyStagingManifestRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ApplyStagingManifestRequest.newBuilder() to construct.
+    private ApplyStagingManifestRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ApplyStagingManifestRequest() {
+      partitionExpr_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ApplyStagingManifestRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ApplyStagingManifestRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              partitionExpr_ = s;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.region.Server.FileMetas.Builder subBuilder = null;
+              if (filesToAdd_ != null) {
+                subBuilder = filesToAdd_.toBuilder();
+              }
+              filesToAdd_ = input.readMessage(io.greptime.v1.region.Server.FileMetas.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(filesToAdd_);
+                filesToAdd_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.ApplyStagingManifestRequest.class, io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder.class);
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
+    /**
+     * <pre>
+     * The target region id.
+     * </pre>
+     *
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    public static final int PARTITION_EXPR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object partitionExpr_;
+    /**
+     * <pre>
+     * The partition expression of the staging manifest.
+     * </pre>
+     *
+     * <code>string partition_expr = 2;</code>
+     * @return The partitionExpr.
+     */
+    @java.lang.Override
+    public java.lang.String getPartitionExpr() {
+      java.lang.Object ref = partitionExpr_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        partitionExpr_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The partition expression of the staging manifest.
+     * </pre>
+     *
+     * <code>string partition_expr = 2;</code>
+     * @return The bytes for partitionExpr.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPartitionExprBytes() {
+      java.lang.Object ref = partitionExpr_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        partitionExpr_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILES_TO_ADD_FIELD_NUMBER = 3;
+    private io.greptime.v1.region.Server.FileMetas filesToAdd_;
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     * @return Whether the filesToAdd field is set.
+     */
+    @java.lang.Override
+    public boolean hasFilesToAdd() {
+      return filesToAdd_ != null;
+    }
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     * @return The filesToAdd.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.FileMetas getFilesToAdd() {
+      return filesToAdd_ == null ? io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
+    }
+    /**
+     * <pre>
+     * The file metas to add to the staging manifest.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder() {
+      return getFilesToAdd();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, partitionExpr_);
+      }
+      if (filesToAdd_ != null) {
+        output.writeMessage(3, getFilesToAdd());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (regionId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, regionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, partitionExpr_);
+      }
+      if (filesToAdd_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getFilesToAdd());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.ApplyStagingManifestRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.ApplyStagingManifestRequest other = (io.greptime.v1.region.Server.ApplyStagingManifestRequest) obj;
+
+      if (getRegionId()
+          != other.getRegionId()) return false;
+      if (!getPartitionExpr()
+          .equals(other.getPartitionExpr())) return false;
+      if (hasFilesToAdd() != other.hasFilesToAdd()) return false;
+      if (hasFilesToAdd()) {
+        if (!getFilesToAdd()
+            .equals(other.getFilesToAdd())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
+      hash = (37 * hash) + PARTITION_EXPR_FIELD_NUMBER;
+      hash = (53 * hash) + getPartitionExpr().hashCode();
+      if (hasFilesToAdd()) {
+        hash = (37 * hash) + FILES_TO_ADD_FIELD_NUMBER;
+        hash = (53 * hash) + getFilesToAdd().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.ApplyStagingManifestRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Apply staging manifest request.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.ApplyStagingManifestRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.ApplyStagingManifestRequest)
+        io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.ApplyStagingManifestRequest.class, io.greptime.v1.region.Server.ApplyStagingManifestRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.ApplyStagingManifestRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionId_ = 0L;
+
+        partitionExpr_ = "";
+
+        if (filesToAddBuilder_ == null) {
+          filesToAdd_ = null;
+        } else {
+          filesToAdd_ = null;
+          filesToAddBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequest getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequest build() {
+        io.greptime.v1.region.Server.ApplyStagingManifestRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.ApplyStagingManifestRequest buildPartial() {
+        io.greptime.v1.region.Server.ApplyStagingManifestRequest result = new io.greptime.v1.region.Server.ApplyStagingManifestRequest(this);
+        result.regionId_ = regionId_;
+        result.partitionExpr_ = partitionExpr_;
+        if (filesToAddBuilder_ == null) {
+          result.filesToAdd_ = filesToAdd_;
+        } else {
+          result.filesToAdd_ = filesToAddBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.ApplyStagingManifestRequest) {
+          return mergeFrom((io.greptime.v1.region.Server.ApplyStagingManifestRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.ApplyStagingManifestRequest other) {
+        if (other == io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
+        if (!other.getPartitionExpr().isEmpty()) {
+          partitionExpr_ = other.partitionExpr_;
+          onChanged();
+        }
+        if (other.hasFilesToAdd()) {
+          mergeFilesToAdd(other.getFilesToAdd());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.ApplyStagingManifestRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.ApplyStagingManifestRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long regionId_ ;
+      /**
+       * <pre>
+       * The target region id.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <pre>
+       * The target region id.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The target region id.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object partitionExpr_ = "";
+      /**
+       * <pre>
+       * The partition expression of the staging manifest.
+       * </pre>
+       *
+       * <code>string partition_expr = 2;</code>
+       * @return The partitionExpr.
+       */
+      public java.lang.String getPartitionExpr() {
+        java.lang.Object ref = partitionExpr_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          partitionExpr_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression of the staging manifest.
+       * </pre>
+       *
+       * <code>string partition_expr = 2;</code>
+       * @return The bytes for partitionExpr.
+       */
+      public com.google.protobuf.ByteString
+          getPartitionExprBytes() {
+        java.lang.Object ref = partitionExpr_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          partitionExpr_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The partition expression of the staging manifest.
+       * </pre>
+       *
+       * <code>string partition_expr = 2;</code>
+       * @param value The partitionExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartitionExpr(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        partitionExpr_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression of the staging manifest.
+       * </pre>
+       *
+       * <code>string partition_expr = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPartitionExpr() {
+        
+        partitionExpr_ = getDefaultInstance().getPartitionExpr();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The partition expression of the staging manifest.
+       * </pre>
+       *
+       * <code>string partition_expr = 2;</code>
+       * @param value The bytes for partitionExpr to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartitionExprBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        partitionExpr_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.region.Server.FileMetas filesToAdd_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder> filesToAddBuilder_;
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       * @return Whether the filesToAdd field is set.
+       */
+      public boolean hasFilesToAdd() {
+        return filesToAddBuilder_ != null || filesToAdd_ != null;
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       * @return The filesToAdd.
+       */
+      public io.greptime.v1.region.Server.FileMetas getFilesToAdd() {
+        if (filesToAddBuilder_ == null) {
+          return filesToAdd_ == null ? io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
+        } else {
+          return filesToAddBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public Builder setFilesToAdd(io.greptime.v1.region.Server.FileMetas value) {
+        if (filesToAddBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          filesToAdd_ = value;
+          onChanged();
+        } else {
+          filesToAddBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public Builder setFilesToAdd(
+          io.greptime.v1.region.Server.FileMetas.Builder builderForValue) {
+        if (filesToAddBuilder_ == null) {
+          filesToAdd_ = builderForValue.build();
+          onChanged();
+        } else {
+          filesToAddBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public Builder mergeFilesToAdd(io.greptime.v1.region.Server.FileMetas value) {
+        if (filesToAddBuilder_ == null) {
+          if (filesToAdd_ != null) {
+            filesToAdd_ =
+              io.greptime.v1.region.Server.FileMetas.newBuilder(filesToAdd_).mergeFrom(value).buildPartial();
+          } else {
+            filesToAdd_ = value;
+          }
+          onChanged();
+        } else {
+          filesToAddBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public Builder clearFilesToAdd() {
+        if (filesToAddBuilder_ == null) {
+          filesToAdd_ = null;
+          onChanged();
+        } else {
+          filesToAdd_ = null;
+          filesToAddBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public io.greptime.v1.region.Server.FileMetas.Builder getFilesToAddBuilder() {
+        
+        onChanged();
+        return getFilesToAddFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      public io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder() {
+        if (filesToAddBuilder_ != null) {
+          return filesToAddBuilder_.getMessageOrBuilder();
+        } else {
+          return filesToAdd_ == null ?
+              io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
+        }
+      }
+      /**
+       * <pre>
+       * The file metas to add to the staging manifest.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder> 
+          getFilesToAddFieldBuilder() {
+        if (filesToAddBuilder_ == null) {
+          filesToAddBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder>(
+                  getFilesToAdd(),
+                  getParentForChildren(),
+                  isClean());
+          filesToAdd_ = null;
+        }
+        return filesToAddBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.ApplyStagingManifestRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.ApplyStagingManifestRequest)
+    private static final io.greptime.v1.region.Server.ApplyStagingManifestRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.ApplyStagingManifestRequest();
+    }
+
+    public static io.greptime.v1.region.Server.ApplyStagingManifestRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ApplyStagingManifestRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ApplyStagingManifestRequest>() {
+      @java.lang.Override
+      public ApplyStagingManifestRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ApplyStagingManifestRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ApplyStagingManifestRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ApplyStagingManifestRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.ApplyStagingManifestRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor;
   private static final 
@@ -33957,6 +35659,16 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_FileMetas_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_FileMetas_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33975,7 +35687,7 @@ java.lang.String defaultValue);
       "eader.TracingContextEntry\022\016\n\006dbname\030\003 \001(" +
       "\t\0220\n\rquery_context\030\006 \001(\0132\031.greptime.v1.Q" +
       "ueryContext\0325\n\023TracingContextEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\354\007\n\rRegionReq" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\277\010\n\rRegionReq" +
       "uest\0227\n\006header\030\001 \001(\0132\'.greptime.v1.regio" +
       "n.RegionRequestHeader\0225\n\007inserts\030\003 \001(\0132\"" +
       ".greptime.v1.region.InsertRequestsH\000\0225\n\007" +
@@ -34000,99 +35712,105 @@ java.lang.String defaultValue);
       "ion.SyncRequestH\000\022@\n\rlist_metadata\030\022 \001(\013" +
       "2\'.greptime.v1.region.ListMetadataReques" +
       "tH\000\022<\n\013build_index\030\023 \001(\0132%.greptime.v1.r" +
-      "egion.BuildIndexRequestH\000B\006\n\004body\"\341\001\n\016Re" +
-      "gionResponse\022+\n\006header\030\001 \001(\0132\033.greptime." +
-      "v1.ResponseHeader\022\025\n\raffected_rows\030\002 \001(\004" +
-      "\022F\n\nextensions\030\003 \003(\01322.greptime.v1.regio" +
-      "n.RegionResponse.ExtensionsEntry\022\020\n\010meta" +
-      "data\030\004 \001(\014\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\022" +
-      "3\n\010requests\030\001 \003(\0132!.greptime.v1.region.I" +
-      "nsertRequest\"E\n\016DeleteRequests\0223\n\010reques" +
-      "ts\030\001 \003(\0132!.greptime.v1.region.DeleteRequ" +
-      "est\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rDele" +
-      "teRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001" +
-      "(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest\0227\n" +
-      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
-      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests\030\001 " +
-      "\003(\0132!.greptime.v1.region.CreateRequest\"\260" +
-      "\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006e" +
-      "ngine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.grept" +
-      "ime.v1.region.RegionColumnDef\022\023\n\013primary" +
-      "_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(" +
-      "\0132..greptime.v1.region.CreateRequest.Opt" +
-      "ionsEntry\022.\n\tpartition\030\007 \001(\0132\033.greptime." +
-      "v1.meta.Partition\032.\n\014OptionsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"A\n\014DropRequest" +
-      "s\0221\n\010requests\030\001 \003(\0132\037.greptime.v1.region" +
-      ".DropRequest\"3\n\013DropRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(\010\"\255\001\n\013OpenReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004" +
-      "path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v" +
-      "1.region.OpenRequest.OptionsEntry\032.\n\014Opt" +
-      "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"C\n\r" +
-      "AlterRequests\0222\n\010requests\030\001 \003(\0132 .grepti" +
-      "me.v1.region.AlterRequest\"\311\005\n\014AlterReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001" +
-      "(\0132\036.greptime.v1.region.AddColumnsH\000\0227\n\014" +
-      "drop_columns\030\003 \001(\0132\037.greptime.v1.region." +
-      "DropColumnsH\000\022=\n\023modify_column_types\030\005 \001" +
-      "(\0132\036.greptime.v1.ModifyColumnTypesH\000\0229\n\021" +
-      "set_table_options\030\006 \001(\0132\034.greptime.v1.Se" +
-      "tTableOptionsH\000\022=\n\023unset_table_options\030\t" +
-      " \001(\0132\036.greptime.v1.UnsetTableOptionsH\000\022*" +
-      "\n\tset_index\030\n \001(\0132\025.greptime.v1.SetIndex" +
-      "H\000\022.\n\013unset_index\030\013 \001(\0132\027.greptime.v1.Un" +
-      "setIndexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.grep" +
-      "time.v1.DropDefaultsH\000\022.\n\013set_indexes\030\r " +
-      "\001(\0132\027.greptime.v1.SetIndexesH\000\0222\n\runset_" +
-      "indexes\030\016 \001(\0132\031.greptime.v1.UnsetIndexes" +
-      "H\000\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v1.S" +
-      "etDefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.gre" +
-      "ptime.v1.region.SyncColumnsH\000\022\026\n\016schema_" +
-      "version\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013" +
-      "column_defs\030\001 \003(\0132#.greptime.v1.region.R" +
-      "egionColumnDef\"@\n\nAddColumns\0222\n\013add_colu" +
-      "mns\030\001 \003(\0132\035.greptime.v1.region.AddColumn" +
-      "\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036." +
-      "greptime.v1.region.DropColumn\"v\n\tAddColu" +
-      "mn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.reg" +
-      "ion.RegionColumnDef\0220\n\010location\030\003 \001(\0132\036." +
-      "greptime.v1.AddColumnLocation\"\032\n\nDropCol" +
-      "umn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022" +
-      "\026\n\016window_seconds\030\001 \001(\003\"\256\001\n\016CompactReque" +
-      "st\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033" +
-      ".greptime.v1.region.RegularH\000\0229\n\rstrict_" +
-      "window\030\003 \001(\0132 .greptime.v1.region.Strict" +
-      "WindowH\000\022\023\n\013parallelism\030\004 \001(\rB\t\n\007options" +
-      "\"\204\001\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "&\n\003all\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022" +
-      ".\n\013time_ranges\030\003 \001(\0132\027.greptime.v1.TimeR" +
-      "angesH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDe" +
-      "f\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Colu" +
-      "mnDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInsertRe" +
-      "quest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 " +
-      "\001(\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"1\n\020" +
-      "MitoManifestInfo\022\035\n\025data_manifest_versio" +
-      "n\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_ma" +
-      "nifest_version\030\001 \001(\004\022!\n\031metadata_manifes" +
-      "t_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$" +
-      ".greptime.v1.region.MitoManifestInfoH\000\022F" +
-      "\n\024metric_manifest_info\030\003 \001(\0132&.greptime." +
-      "v1.region.MetricManifestInfoH\000B\017\n\rmanife" +
-      "st_info\")\n\023ListMetadataRequest\022\022\n\nregion" +
-      "_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\0042Y\n\006Region\022O\n\006Handle\022!.greptim" +
-      "e.v1.region.RegionRequest\032\".greptime.v1." +
-      "region.RegionResponseB]\n\025io.greptime.v1." +
-      "regionB\006ServerZ<github.com/GreptimeTeam/" +
-      "greptime-proto/go/greptime/v1/regionb\006pr" +
-      "oto3"
+      "egion.BuildIndexRequestH\000\022Q\n\026apply_stagi" +
+      "ng_manifest\030\024 \001(\0132/.greptime.v1.region.A" +
+      "pplyStagingManifestRequestH\000B\006\n\004body\"\341\001\n" +
+      "\016RegionResponse\022+\n\006header\030\001 \001(\0132\033.grepti" +
+      "me.v1.ResponseHeader\022\025\n\raffected_rows\030\002 " +
+      "\001(\004\022F\n\nextensions\030\003 \003(\01322.greptime.v1.re" +
+      "gion.RegionResponse.ExtensionsEntry\022\020\n\010m" +
+      "etadata\030\004 \001(\014\0321\n\017ExtensionsEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertReques" +
+      "ts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regio" +
+      "n.InsertRequest\"E\n\016DeleteRequests\0223\n\010req" +
+      "uests\030\001 \003(\0132!.greptime.v1.region.DeleteR" +
+      "equest\"C\n\rInsertRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\"C\n\rD" +
+      "eleteRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030" +
+      "\002 \001(\0132\021.greptime.v1.Rows\"h\n\014QueryRequest" +
+      "\0227\n\006header\030\001 \001(\0132\'.greptime.v1.region.Re" +
+      "gionRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004" +
+      "plan\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests" +
+      "\030\001 \003(\0132!.greptime.v1.region.CreateReques" +
+      "t\"\260\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016" +
+      "\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.gr" +
+      "eptime.v1.region.RegionColumnDef\022\023\n\013prim" +
+      "ary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006" +
+      " \003(\0132..greptime.v1.region.CreateRequest." +
+      "OptionsEntry\022.\n\tpartition\030\007 \001(\0132\033.grepti" +
+      "me.v1.meta.Partition\032.\n\014OptionsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"A\n\014DropRequ" +
+      "ests\0221\n\010requests\030\001 \003(\0132\037.greptime.v1.reg" +
+      "ion.DropRequest\"3\n\013DropRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(\010\"\255\001\n\013OpenReq" +
+      "uest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022" +
+      "\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptim" +
+      "e.v1.region.OpenRequest.OptionsEntry\032.\n\014" +
+      "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"" +
+      "C\n\rAlterRequests\0222\n\010requests\030\001 \003(\0132 .gre" +
+      "ptime.v1.region.AlterRequest\"\311\005\n\014AlterRe" +
+      "quest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030" +
+      "\002 \001(\0132\036.greptime.v1.region.AddColumnsH\000\022" +
+      "7\n\014drop_columns\030\003 \001(\0132\037.greptime.v1.regi" +
+      "on.DropColumnsH\000\022=\n\023modify_column_types\030" +
+      "\005 \001(\0132\036.greptime.v1.ModifyColumnTypesH\000\022" +
+      "9\n\021set_table_options\030\006 \001(\0132\034.greptime.v1" +
+      ".SetTableOptionsH\000\022=\n\023unset_table_option" +
+      "s\030\t \001(\0132\036.greptime.v1.UnsetTableOptionsH" +
+      "\000\022*\n\tset_index\030\n \001(\0132\025.greptime.v1.SetIn" +
+      "dexH\000\022.\n\013unset_index\030\013 \001(\0132\027.greptime.v1" +
+      ".UnsetIndexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.g" +
+      "reptime.v1.DropDefaultsH\000\022.\n\013set_indexes" +
+      "\030\r \001(\0132\027.greptime.v1.SetIndexesH\000\0222\n\runs" +
+      "et_indexes\030\016 \001(\0132\031.greptime.v1.UnsetInde" +
+      "xesH\000\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v" +
+      "1.SetDefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037." +
+      "greptime.v1.region.SyncColumnsH\000\022\026\n\016sche" +
+      "ma_version\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\022" +
+      "8\n\013column_defs\030\001 \003(\0132#.greptime.v1.regio" +
+      "n.RegionColumnDef\"@\n\nAddColumns\0222\n\013add_c" +
+      "olumns\030\001 \003(\0132\035.greptime.v1.region.AddCol" +
+      "umn\"C\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\013" +
+      "2\036.greptime.v1.region.DropColumn\"v\n\tAddC" +
+      "olumn\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1." +
+      "region.RegionColumnDef\0220\n\010location\030\003 \001(\013" +
+      "2\036.greptime.v1.AddColumnLocation\"\032\n\nDrop" +
+      "Column\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWind" +
+      "ow\022\026\n\016window_seconds\030\001 \001(\003\"\256\001\n\016CompactRe" +
+      "quest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(" +
+      "\0132\033.greptime.v1.region.RegularH\000\0229\n\rstri" +
+      "ct_window\030\003 \001(\0132 .greptime.v1.region.Str" +
+      "ictWindowH\000\022\023\n\013parallelism\030\004 \001(\rB\t\n\007opti" +
+      "ons\"\204\001\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022&\n\003all\030\002 \001(\0132\027.greptime.v1.region.All" +
+      "H\000\022.\n\013time_ranges\030\003 \001(\0132\027.greptime.v1.Ti" +
+      "meRangesH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColum" +
+      "nDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.C" +
+      "olumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"Z\n\021BulkInser" +
+      "tRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc" +
+      "\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000B\006\n\004body\"" +
+      "1\n\020MitoManifestInfo\022\035\n\025data_manifest_ver" +
+      "sion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data" +
+      "_manifest_version\030\001 \001(\004\022!\n\031metadata_mani" +
+      "fest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(" +
+      "\0132$.greptime.v1.region.MitoManifestInfoH" +
+      "\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grepti" +
+      "me.v1.region.MetricManifestInfoH\000B\017\n\rman" +
+      "ifest_info\")\n\023ListMetadataRequest\022\022\n\nreg" +
+      "ion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014" +
+      "\"}\n\033ApplyStagingManifestRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\0223\n\014fi" +
+      "les_to_add\030\003 \001(\0132\035.greptime.v1.region.Fi" +
+      "leMetas2Y\n\006Region\022O\n\006Handle\022!.greptime.v" +
+      "1.region.RegionRequest\032\".greptime.v1.reg" +
+      "ion.RegionResponseB]\n\025io.greptime.v1.reg" +
+      "ionB\006ServerZ<github.com/GreptimeTeam/gre" +
+      "ptime-proto/go/greptime/v1/regionb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34119,7 +35837,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "ApplyStagingManifest", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
@@ -34330,6 +36048,18 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
         new java.lang.String[] { "RegionId", });
+    internal_static_greptime_v1_region_FileMetas_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_greptime_v1_region_FileMetas_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_FileMetas_descriptor,
+        new java.lang.String[] { "Data", });
+    internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
+        new java.lang.String[] { "RegionId", "PartitionExpr", "FilesToAdd", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
