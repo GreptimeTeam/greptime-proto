@@ -287,6 +287,8 @@ message ApplyStagingManifestRequest {
   uint64 region_id = 1;
   // The partition expression of the staging manifest.
   string partition_expr = 2;
-  // The file metas to add to the staging manifest.
-  FileMetas files_to_add = 3;
+  // The region stores the staging manifest.
+  uint64 central_region_id = 3;
+  // Path to the staging manifest file.
+  string manifest_path = 4;
 }

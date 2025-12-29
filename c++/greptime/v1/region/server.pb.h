@@ -7050,8 +7050,9 @@ class ApplyStagingManifestRequest final :
 
   enum : int {
     kPartitionExprFieldNumber = 2,
-    kFilesToAddFieldNumber = 3,
+    kManifestPathFieldNumber = 4,
     kRegionIdFieldNumber = 1,
+    kCentralRegionIdFieldNumber = 3,
   };
   // string partition_expr = 2;
   void clear_partition_expr();
@@ -7067,23 +7068,19 @@ class ApplyStagingManifestRequest final :
   std::string* _internal_mutable_partition_expr();
   public:
 
-  // .greptime.v1.region.FileMetas files_to_add = 3;
-  bool has_files_to_add() const;
+  // string manifest_path = 4;
+  void clear_manifest_path();
+  const std::string& manifest_path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_manifest_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_manifest_path();
+  PROTOBUF_NODISCARD std::string* release_manifest_path();
+  void set_allocated_manifest_path(std::string* manifest_path);
   private:
-  bool _internal_has_files_to_add() const;
+  const std::string& _internal_manifest_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_manifest_path(const std::string& value);
+  std::string* _internal_mutable_manifest_path();
   public:
-  void clear_files_to_add();
-  const ::greptime::v1::region::FileMetas& files_to_add() const;
-  PROTOBUF_NODISCARD ::greptime::v1::region::FileMetas* release_files_to_add();
-  ::greptime::v1::region::FileMetas* mutable_files_to_add();
-  void set_allocated_files_to_add(::greptime::v1::region::FileMetas* files_to_add);
-  private:
-  const ::greptime::v1::region::FileMetas& _internal_files_to_add() const;
-  ::greptime::v1::region::FileMetas* _internal_mutable_files_to_add();
-  public:
-  void unsafe_arena_set_allocated_files_to_add(
-      ::greptime::v1::region::FileMetas* files_to_add);
-  ::greptime::v1::region::FileMetas* unsafe_arena_release_files_to_add();
 
   // uint64 region_id = 1;
   void clear_region_id();
@@ -7092,6 +7089,15 @@ class ApplyStagingManifestRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint64 central_region_id = 3;
+  void clear_central_region_id();
+  uint64_t central_region_id() const;
+  void set_central_region_id(uint64_t value);
+  private:
+  uint64_t _internal_central_region_id() const;
+  void _internal_set_central_region_id(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.ApplyStagingManifestRequest)
@@ -7103,8 +7109,9 @@ class ApplyStagingManifestRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr partition_expr_;
-    ::greptime::v1::region::FileMetas* files_to_add_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr manifest_path_;
     uint64_t region_id_;
+    uint64_t central_region_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -12388,94 +12395,74 @@ inline void ApplyStagingManifestRequest::set_allocated_partition_expr(std::strin
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ApplyStagingManifestRequest.partition_expr)
 }
 
-// .greptime.v1.region.FileMetas files_to_add = 3;
-inline bool ApplyStagingManifestRequest::_internal_has_files_to_add() const {
-  return this != internal_default_instance() && _impl_.files_to_add_ != nullptr;
+// uint64 central_region_id = 3;
+inline void ApplyStagingManifestRequest::clear_central_region_id() {
+  _impl_.central_region_id_ = uint64_t{0u};
 }
-inline bool ApplyStagingManifestRequest::has_files_to_add() const {
-  return _internal_has_files_to_add();
+inline uint64_t ApplyStagingManifestRequest::_internal_central_region_id() const {
+  return _impl_.central_region_id_;
 }
-inline void ApplyStagingManifestRequest::clear_files_to_add() {
-  if (GetArenaForAllocation() == nullptr && _impl_.files_to_add_ != nullptr) {
-    delete _impl_.files_to_add_;
-  }
-  _impl_.files_to_add_ = nullptr;
+inline uint64_t ApplyStagingManifestRequest::central_region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagingManifestRequest.central_region_id)
+  return _internal_central_region_id();
 }
-inline const ::greptime::v1::region::FileMetas& ApplyStagingManifestRequest::_internal_files_to_add() const {
-  const ::greptime::v1::region::FileMetas* p = _impl_.files_to_add_;
-  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::FileMetas&>(
-      ::greptime::v1::region::_FileMetas_default_instance_);
+inline void ApplyStagingManifestRequest::_internal_set_central_region_id(uint64_t value) {
+  
+  _impl_.central_region_id_ = value;
 }
-inline const ::greptime::v1::region::FileMetas& ApplyStagingManifestRequest::files_to_add() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagingManifestRequest.files_to_add)
-  return _internal_files_to_add();
+inline void ApplyStagingManifestRequest::set_central_region_id(uint64_t value) {
+  _internal_set_central_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagingManifestRequest.central_region_id)
 }
-inline void ApplyStagingManifestRequest::unsafe_arena_set_allocated_files_to_add(
-    ::greptime::v1::region::FileMetas* files_to_add) {
-  if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.files_to_add_);
-  }
-  _impl_.files_to_add_ = files_to_add;
-  if (files_to_add) {
+
+// string manifest_path = 4;
+inline void ApplyStagingManifestRequest::clear_manifest_path() {
+  _impl_.manifest_path_.ClearToEmpty();
+}
+inline const std::string& ApplyStagingManifestRequest::manifest_path() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
+  return _internal_manifest_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ApplyStagingManifestRequest::set_manifest_path(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.manifest_path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
+}
+inline std::string* ApplyStagingManifestRequest::mutable_manifest_path() {
+  std::string* _s = _internal_mutable_manifest_path();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
+  return _s;
+}
+inline const std::string& ApplyStagingManifestRequest::_internal_manifest_path() const {
+  return _impl_.manifest_path_.Get();
+}
+inline void ApplyStagingManifestRequest::_internal_set_manifest_path(const std::string& value) {
+  
+  _impl_.manifest_path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ApplyStagingManifestRequest::_internal_mutable_manifest_path() {
+  
+  return _impl_.manifest_path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ApplyStagingManifestRequest::release_manifest_path() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
+  return _impl_.manifest_path_.Release();
+}
+inline void ApplyStagingManifestRequest::set_allocated_manifest_path(std::string* manifest_path) {
+  if (manifest_path != nullptr) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.ApplyStagingManifestRequest.files_to_add)
-}
-inline ::greptime::v1::region::FileMetas* ApplyStagingManifestRequest::release_files_to_add() {
-  
-  ::greptime::v1::region::FileMetas* temp = _impl_.files_to_add_;
-  _impl_.files_to_add_ = nullptr;
-#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
-  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
-  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  if (GetArenaForAllocation() == nullptr) { delete old; }
-#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
-  if (GetArenaForAllocation() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  _impl_.manifest_path_.SetAllocated(manifest_path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.manifest_path_.IsDefault()) {
+    _impl_.manifest_path_.Set("", GetArenaForAllocation());
   }
-#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
-  return temp;
-}
-inline ::greptime::v1::region::FileMetas* ApplyStagingManifestRequest::unsafe_arena_release_files_to_add() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.ApplyStagingManifestRequest.files_to_add)
-  
-  ::greptime::v1::region::FileMetas* temp = _impl_.files_to_add_;
-  _impl_.files_to_add_ = nullptr;
-  return temp;
-}
-inline ::greptime::v1::region::FileMetas* ApplyStagingManifestRequest::_internal_mutable_files_to_add() {
-  
-  if (_impl_.files_to_add_ == nullptr) {
-    auto* p = CreateMaybeMessage<::greptime::v1::region::FileMetas>(GetArenaForAllocation());
-    _impl_.files_to_add_ = p;
-  }
-  return _impl_.files_to_add_;
-}
-inline ::greptime::v1::region::FileMetas* ApplyStagingManifestRequest::mutable_files_to_add() {
-  ::greptime::v1::region::FileMetas* _msg = _internal_mutable_files_to_add();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.ApplyStagingManifestRequest.files_to_add)
-  return _msg;
-}
-inline void ApplyStagingManifestRequest::set_allocated_files_to_add(::greptime::v1::region::FileMetas* files_to_add) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  if (message_arena == nullptr) {
-    delete _impl_.files_to_add_;
-  }
-  if (files_to_add) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(files_to_add);
-    if (message_arena != submessage_arena) {
-      files_to_add = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, files_to_add, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  _impl_.files_to_add_ = files_to_add;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ApplyStagingManifestRequest.files_to_add)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
 }
 
 #ifdef __GNUC__

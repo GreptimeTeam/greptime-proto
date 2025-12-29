@@ -34537,30 +34537,33 @@ java.lang.String defaultValue);
 
     /**
      * <pre>
-     * The file metas to add to the staging manifest.
+     * The region stores the staging manifest.
      * </pre>
      *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-     * @return Whether the filesToAdd field is set.
+     * <code>uint64 central_region_id = 3;</code>
+     * @return The centralRegionId.
      */
-    boolean hasFilesToAdd();
+    long getCentralRegionId();
+
     /**
      * <pre>
-     * The file metas to add to the staging manifest.
+     * Path to the staging manifest file.
      * </pre>
      *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-     * @return The filesToAdd.
+     * <code>string manifest_path = 4;</code>
+     * @return The manifestPath.
      */
-    io.greptime.v1.region.Server.FileMetas getFilesToAdd();
+    java.lang.String getManifestPath();
     /**
      * <pre>
-     * The file metas to add to the staging manifest.
+     * Path to the staging manifest file.
      * </pre>
      *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+     * <code>string manifest_path = 4;</code>
+     * @return The bytes for manifestPath.
      */
-    io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder();
+    com.google.protobuf.ByteString
+        getManifestPathBytes();
   }
   /**
    * <pre>
@@ -34580,6 +34583,7 @@ java.lang.String defaultValue);
     }
     private ApplyStagingManifestRequest() {
       partitionExpr_ = "";
+      manifestPath_ = "";
     }
 
     @java.lang.Override
@@ -34623,17 +34627,15 @@ java.lang.String defaultValue);
               partitionExpr_ = s;
               break;
             }
-            case 26: {
-              io.greptime.v1.region.Server.FileMetas.Builder subBuilder = null;
-              if (filesToAdd_ != null) {
-                subBuilder = filesToAdd_.toBuilder();
-              }
-              filesToAdd_ = input.readMessage(io.greptime.v1.region.Server.FileMetas.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(filesToAdd_);
-                filesToAdd_ = subBuilder.buildPartial();
-              }
+            case 24: {
 
+              centralRegionId_ = input.readUInt64();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              manifestPath_ = s;
               break;
             }
             default: {
@@ -34731,42 +34733,65 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int FILES_TO_ADD_FIELD_NUMBER = 3;
-    private io.greptime.v1.region.Server.FileMetas filesToAdd_;
+    public static final int CENTRAL_REGION_ID_FIELD_NUMBER = 3;
+    private long centralRegionId_;
     /**
      * <pre>
-     * The file metas to add to the staging manifest.
+     * The region stores the staging manifest.
      * </pre>
      *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-     * @return Whether the filesToAdd field is set.
+     * <code>uint64 central_region_id = 3;</code>
+     * @return The centralRegionId.
      */
     @java.lang.Override
-    public boolean hasFilesToAdd() {
-      return filesToAdd_ != null;
+    public long getCentralRegionId() {
+      return centralRegionId_;
+    }
+
+    public static final int MANIFEST_PATH_FIELD_NUMBER = 4;
+    private volatile java.lang.Object manifestPath_;
+    /**
+     * <pre>
+     * Path to the staging manifest file.
+     * </pre>
+     *
+     * <code>string manifest_path = 4;</code>
+     * @return The manifestPath.
+     */
+    @java.lang.Override
+    public java.lang.String getManifestPath() {
+      java.lang.Object ref = manifestPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        manifestPath_ = s;
+        return s;
+      }
     }
     /**
      * <pre>
-     * The file metas to add to the staging manifest.
+     * Path to the staging manifest file.
      * </pre>
      *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-     * @return The filesToAdd.
+     * <code>string manifest_path = 4;</code>
+     * @return The bytes for manifestPath.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.FileMetas getFilesToAdd() {
-      return filesToAdd_ == null ? io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
-    }
-    /**
-     * <pre>
-     * The file metas to add to the staging manifest.
-     * </pre>
-     *
-     * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder() {
-      return getFilesToAdd();
+    public com.google.protobuf.ByteString
+        getManifestPathBytes() {
+      java.lang.Object ref = manifestPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        manifestPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -34789,8 +34814,11 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, partitionExpr_);
       }
-      if (filesToAdd_ != null) {
-        output.writeMessage(3, getFilesToAdd());
+      if (centralRegionId_ != 0L) {
+        output.writeUInt64(3, centralRegionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(manifestPath_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, manifestPath_);
       }
       unknownFields.writeTo(output);
     }
@@ -34808,9 +34836,12 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(partitionExpr_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, partitionExpr_);
       }
-      if (filesToAdd_ != null) {
+      if (centralRegionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getFilesToAdd());
+          .computeUInt64Size(3, centralRegionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(manifestPath_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, manifestPath_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -34831,11 +34862,10 @@ java.lang.String defaultValue);
           != other.getRegionId()) return false;
       if (!getPartitionExpr()
           .equals(other.getPartitionExpr())) return false;
-      if (hasFilesToAdd() != other.hasFilesToAdd()) return false;
-      if (hasFilesToAdd()) {
-        if (!getFilesToAdd()
-            .equals(other.getFilesToAdd())) return false;
-      }
+      if (getCentralRegionId()
+          != other.getCentralRegionId()) return false;
+      if (!getManifestPath()
+          .equals(other.getManifestPath())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -34852,10 +34882,11 @@ java.lang.String defaultValue);
           getRegionId());
       hash = (37 * hash) + PARTITION_EXPR_FIELD_NUMBER;
       hash = (53 * hash) + getPartitionExpr().hashCode();
-      if (hasFilesToAdd()) {
-        hash = (37 * hash) + FILES_TO_ADD_FIELD_NUMBER;
-        hash = (53 * hash) + getFilesToAdd().hashCode();
-      }
+      hash = (37 * hash) + CENTRAL_REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCentralRegionId());
+      hash = (37 * hash) + MANIFEST_PATH_FIELD_NUMBER;
+      hash = (53 * hash) + getManifestPath().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -34997,12 +35028,10 @@ java.lang.String defaultValue);
 
         partitionExpr_ = "";
 
-        if (filesToAddBuilder_ == null) {
-          filesToAdd_ = null;
-        } else {
-          filesToAdd_ = null;
-          filesToAddBuilder_ = null;
-        }
+        centralRegionId_ = 0L;
+
+        manifestPath_ = "";
+
         return this;
       }
 
@@ -35031,11 +35060,8 @@ java.lang.String defaultValue);
         io.greptime.v1.region.Server.ApplyStagingManifestRequest result = new io.greptime.v1.region.Server.ApplyStagingManifestRequest(this);
         result.regionId_ = regionId_;
         result.partitionExpr_ = partitionExpr_;
-        if (filesToAddBuilder_ == null) {
-          result.filesToAdd_ = filesToAdd_;
-        } else {
-          result.filesToAdd_ = filesToAddBuilder_.build();
-        }
+        result.centralRegionId_ = centralRegionId_;
+        result.manifestPath_ = manifestPath_;
         onBuilt();
         return result;
       }
@@ -35091,8 +35117,12 @@ java.lang.String defaultValue);
           partitionExpr_ = other.partitionExpr_;
           onChanged();
         }
-        if (other.hasFilesToAdd()) {
-          mergeFilesToAdd(other.getFilesToAdd());
+        if (other.getCentralRegionId() != 0L) {
+          setCentralRegionId(other.getCentralRegionId());
+        }
+        if (!other.getManifestPath().isEmpty()) {
+          manifestPath_ = other.manifestPath_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -35262,159 +35292,143 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private io.greptime.v1.region.Server.FileMetas filesToAdd_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder> filesToAddBuilder_;
+      private long centralRegionId_ ;
       /**
        * <pre>
-       * The file metas to add to the staging manifest.
+       * The region stores the staging manifest.
        * </pre>
        *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       * @return Whether the filesToAdd field is set.
+       * <code>uint64 central_region_id = 3;</code>
+       * @return The centralRegionId.
        */
-      public boolean hasFilesToAdd() {
-        return filesToAddBuilder_ != null || filesToAdd_ != null;
+      @java.lang.Override
+      public long getCentralRegionId() {
+        return centralRegionId_;
       }
       /**
        * <pre>
-       * The file metas to add to the staging manifest.
+       * The region stores the staging manifest.
        * </pre>
        *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       * @return The filesToAdd.
+       * <code>uint64 central_region_id = 3;</code>
+       * @param value The centralRegionId to set.
+       * @return This builder for chaining.
        */
-      public io.greptime.v1.region.Server.FileMetas getFilesToAdd() {
-        if (filesToAddBuilder_ == null) {
-          return filesToAdd_ == null ? io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
-        } else {
-          return filesToAddBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       * The file metas to add to the staging manifest.
-       * </pre>
-       *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       */
-      public Builder setFilesToAdd(io.greptime.v1.region.Server.FileMetas value) {
-        if (filesToAddBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          filesToAdd_ = value;
-          onChanged();
-        } else {
-          filesToAddBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The file metas to add to the staging manifest.
-       * </pre>
-       *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       */
-      public Builder setFilesToAdd(
-          io.greptime.v1.region.Server.FileMetas.Builder builderForValue) {
-        if (filesToAddBuilder_ == null) {
-          filesToAdd_ = builderForValue.build();
-          onChanged();
-        } else {
-          filesToAddBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The file metas to add to the staging manifest.
-       * </pre>
-       *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       */
-      public Builder mergeFilesToAdd(io.greptime.v1.region.Server.FileMetas value) {
-        if (filesToAddBuilder_ == null) {
-          if (filesToAdd_ != null) {
-            filesToAdd_ =
-              io.greptime.v1.region.Server.FileMetas.newBuilder(filesToAdd_).mergeFrom(value).buildPartial();
-          } else {
-            filesToAdd_ = value;
-          }
-          onChanged();
-        } else {
-          filesToAddBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The file metas to add to the staging manifest.
-       * </pre>
-       *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       */
-      public Builder clearFilesToAdd() {
-        if (filesToAddBuilder_ == null) {
-          filesToAdd_ = null;
-          onChanged();
-        } else {
-          filesToAdd_ = null;
-          filesToAddBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       * The file metas to add to the staging manifest.
-       * </pre>
-       *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
-       */
-      public io.greptime.v1.region.Server.FileMetas.Builder getFilesToAddBuilder() {
+      public Builder setCentralRegionId(long value) {
         
+        centralRegionId_ = value;
         onChanged();
-        return getFilesToAddFieldBuilder().getBuilder();
+        return this;
       }
       /**
        * <pre>
-       * The file metas to add to the staging manifest.
+       * The region stores the staging manifest.
        * </pre>
        *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       * <code>uint64 central_region_id = 3;</code>
+       * @return This builder for chaining.
        */
-      public io.greptime.v1.region.Server.FileMetasOrBuilder getFilesToAddOrBuilder() {
-        if (filesToAddBuilder_ != null) {
-          return filesToAddBuilder_.getMessageOrBuilder();
+      public Builder clearCentralRegionId() {
+        
+        centralRegionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object manifestPath_ = "";
+      /**
+       * <pre>
+       * Path to the staging manifest file.
+       * </pre>
+       *
+       * <code>string manifest_path = 4;</code>
+       * @return The manifestPath.
+       */
+      public java.lang.String getManifestPath() {
+        java.lang.Object ref = manifestPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          manifestPath_ = s;
+          return s;
         } else {
-          return filesToAdd_ == null ?
-              io.greptime.v1.region.Server.FileMetas.getDefaultInstance() : filesToAdd_;
+          return (java.lang.String) ref;
         }
       }
       /**
        * <pre>
-       * The file metas to add to the staging manifest.
+       * Path to the staging manifest file.
        * </pre>
        *
-       * <code>.greptime.v1.region.FileMetas files_to_add = 3;</code>
+       * <code>string manifest_path = 4;</code>
+       * @return The bytes for manifestPath.
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder> 
-          getFilesToAddFieldBuilder() {
-        if (filesToAddBuilder_ == null) {
-          filesToAddBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Server.FileMetas, io.greptime.v1.region.Server.FileMetas.Builder, io.greptime.v1.region.Server.FileMetasOrBuilder>(
-                  getFilesToAdd(),
-                  getParentForChildren(),
-                  isClean());
-          filesToAdd_ = null;
+      public com.google.protobuf.ByteString
+          getManifestPathBytes() {
+        java.lang.Object ref = manifestPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          manifestPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-        return filesToAddBuilder_;
+      }
+      /**
+       * <pre>
+       * Path to the staging manifest file.
+       * </pre>
+       *
+       * <code>string manifest_path = 4;</code>
+       * @param value The manifestPath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setManifestPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        manifestPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path to the staging manifest file.
+       * </pre>
+       *
+       * <code>string manifest_path = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearManifestPath() {
+        
+        manifestPath_ = getDefaultInstance().getManifestPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Path to the staging manifest file.
+       * </pre>
+       *
+       * <code>string manifest_path = 4;</code>
+       * @param value The bytes for manifestPath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setManifestPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        manifestPath_ = value;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -35802,15 +35816,14 @@ java.lang.String defaultValue);
       "ifest_info\")\n\023ListMetadataRequest\022\022\n\nreg" +
       "ion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tre" +
       "gion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014" +
-      "\"}\n\033ApplyStagingManifestRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\0223\n\014fi" +
-      "les_to_add\030\003 \001(\0132\035.greptime.v1.region.Fi" +
-      "leMetas2Y\n\006Region\022O\n\006Handle\022!.greptime.v" +
-      "1.region.RegionRequest\032\".greptime.v1.reg" +
-      "ion.RegionResponseB]\n\025io.greptime.v1.reg" +
-      "ionB\006ServerZ<github.com/GreptimeTeam/gre" +
-      "ptime-proto/go/greptime/v1/regionb\006proto" +
-      "3"
+      "\"z\n\033ApplyStagingManifestRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021ce" +
+      "ntral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004" +
+      " \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.r" +
+      "egion.RegionRequest\032\".greptime.v1.region" +
+      ".RegionResponseB]\n\025io.greptime.v1.region" +
+      "B\006ServerZ<github.com/GreptimeTeam/grepti" +
+      "me-proto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -36059,7 +36072,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
-        new java.lang.String[] { "RegionId", "PartitionExpr", "FilesToAdd", });
+        new java.lang.String[] { "RegionId", "PartitionExpr", "CentralRegionId", "ManifestPath", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();
