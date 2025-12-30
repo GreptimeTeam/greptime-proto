@@ -559,8 +559,9 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR ApplyStagingManifestRequest::ApplyStagingManifestRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.partition_expr_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.files_to_add_)*/nullptr
+  , /*decltype(_impl_.manifest_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.central_region_id_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ApplyStagingManifestRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR ApplyStagingManifestRequestDefaultTypeInternal()
@@ -937,7 +938,8 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ApplyStagingManifestRequest, _impl_.region_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ApplyStagingManifestRequest, _impl_.partition_expr_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ApplyStagingManifestRequest, _impl_.files_to_add_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ApplyStagingManifestRequest, _impl_.central_region_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::ApplyStagingManifestRequest, _impl_.manifest_path_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse)},
@@ -1150,15 +1152,14 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "ifest_info\")\n\023ListMetadataRequest\022\022\n\nreg"
   "ion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tre"
   "gion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014"
-  "\"}\n\033ApplyStagingManifestRequest\022\021\n\tregio"
-  "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\0223\n\014fi"
-  "les_to_add\030\003 \001(\0132\035.greptime.v1.region.Fi"
-  "leMetas2Y\n\006Region\022O\n\006Handle\022!.greptime.v"
-  "1.region.RegionRequest\032\".greptime.v1.reg"
-  "ion.RegionResponseB]\n\025io.greptime.v1.reg"
-  "ionB\006ServerZ<github.com/GreptimeTeam/gre"
-  "ptime-proto/go/greptime/v1/regionb\006proto"
-  "3"
+  "\"z\n\033ApplyStagingManifestRequest\022\021\n\tregio"
+  "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021ce"
+  "ntral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004"
+  " \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.r"
+  "egion.RegionRequest\032\".greptime.v1.region"
+  ".RegionResponseB]\n\025io.greptime.v1.region"
+  "B\006ServerZ<github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -1168,7 +1169,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 5281, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 5278, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 4, 40,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -11023,13 +11024,8 @@ void FileMetas::InternalSwap(FileMetas* other) {
 
 class ApplyStagingManifestRequest::_Internal {
  public:
-  static const ::greptime::v1::region::FileMetas& files_to_add(const ApplyStagingManifestRequest* msg);
 };
 
-const ::greptime::v1::region::FileMetas&
-ApplyStagingManifestRequest::_Internal::files_to_add(const ApplyStagingManifestRequest* msg) {
-  return *msg->_impl_.files_to_add_;
-}
 ApplyStagingManifestRequest::ApplyStagingManifestRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -11041,8 +11037,9 @@ ApplyStagingManifestRequest::ApplyStagingManifestRequest(const ApplyStagingManif
   ApplyStagingManifestRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.partition_expr_){}
-    , decltype(_impl_.files_to_add_){nullptr}
+    , decltype(_impl_.manifest_path_){}
     , decltype(_impl_.region_id_){}
+    , decltype(_impl_.central_region_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -11054,10 +11051,17 @@ ApplyStagingManifestRequest::ApplyStagingManifestRequest(const ApplyStagingManif
     _this->_impl_.partition_expr_.Set(from._internal_partition_expr(), 
       _this->GetArenaForAllocation());
   }
-  if (from._internal_has_files_to_add()) {
-    _this->_impl_.files_to_add_ = new ::greptime::v1::region::FileMetas(*from._impl_.files_to_add_);
+  _impl_.manifest_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.manifest_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_manifest_path().empty()) {
+    _this->_impl_.manifest_path_.Set(from._internal_manifest_path(), 
+      _this->GetArenaForAllocation());
   }
-  _this->_impl_.region_id_ = from._impl_.region_id_;
+  ::memcpy(&_impl_.region_id_, &from._impl_.region_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.central_region_id_) -
+    reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.central_region_id_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.ApplyStagingManifestRequest)
 }
 
@@ -11067,13 +11071,18 @@ inline void ApplyStagingManifestRequest::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.partition_expr_){}
-    , decltype(_impl_.files_to_add_){nullptr}
+    , decltype(_impl_.manifest_path_){}
     , decltype(_impl_.region_id_){uint64_t{0u}}
+    , decltype(_impl_.central_region_id_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.partition_expr_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.partition_expr_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.manifest_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.manifest_path_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -11089,7 +11098,7 @@ ApplyStagingManifestRequest::~ApplyStagingManifestRequest() {
 inline void ApplyStagingManifestRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.partition_expr_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.files_to_add_;
+  _impl_.manifest_path_.Destroy();
 }
 
 void ApplyStagingManifestRequest::SetCachedSize(int size) const {
@@ -11103,11 +11112,10 @@ void ApplyStagingManifestRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.partition_expr_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.files_to_add_ != nullptr) {
-    delete _impl_.files_to_add_;
-  }
-  _impl_.files_to_add_ = nullptr;
-  _impl_.region_id_ = uint64_t{0u};
+  _impl_.manifest_path_.ClearToEmpty();
+  ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.central_region_id_) -
+      reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.central_region_id_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -11135,11 +11143,21 @@ const char* ApplyStagingManifestRequest::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.region.FileMetas files_to_add = 3;
+      // uint64 central_region_id = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_files_to_add(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.central_region_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string manifest_path = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_manifest_path();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.region.ApplyStagingManifestRequest.manifest_path"));
         } else
           goto handle_unusual;
         continue;
@@ -11188,11 +11206,20 @@ uint8_t* ApplyStagingManifestRequest::_InternalSerialize(
         2, this->_internal_partition_expr(), target);
   }
 
-  // .greptime.v1.region.FileMetas files_to_add = 3;
-  if (this->_internal_has_files_to_add()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::files_to_add(this),
-        _Internal::files_to_add(this).GetCachedSize(), target, stream);
+  // uint64 central_region_id = 3;
+  if (this->_internal_central_region_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_central_region_id(), target);
+  }
+
+  // string manifest_path = 4;
+  if (!this->_internal_manifest_path().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_manifest_path().data(), static_cast<int>(this->_internal_manifest_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.region.ApplyStagingManifestRequest.manifest_path");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_manifest_path(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -11218,16 +11245,21 @@ size_t ApplyStagingManifestRequest::ByteSizeLong() const {
         this->_internal_partition_expr());
   }
 
-  // .greptime.v1.region.FileMetas files_to_add = 3;
-  if (this->_internal_has_files_to_add()) {
+  // string manifest_path = 4;
+  if (!this->_internal_manifest_path().empty()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.files_to_add_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_manifest_path());
   }
 
   // uint64 region_id = 1;
   if (this->_internal_region_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
+  }
+
+  // uint64 central_region_id = 3;
+  if (this->_internal_central_region_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_central_region_id());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -11251,12 +11283,14 @@ void ApplyStagingManifestRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
   if (!from._internal_partition_expr().empty()) {
     _this->_internal_set_partition_expr(from._internal_partition_expr());
   }
-  if (from._internal_has_files_to_add()) {
-    _this->_internal_mutable_files_to_add()->::greptime::v1::region::FileMetas::MergeFrom(
-        from._internal_files_to_add());
+  if (!from._internal_manifest_path().empty()) {
+    _this->_internal_set_manifest_path(from._internal_manifest_path());
   }
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());
+  }
+  if (from._internal_central_region_id() != 0) {
+    _this->_internal_set_central_region_id(from._internal_central_region_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -11281,12 +11315,16 @@ void ApplyStagingManifestRequest::InternalSwap(ApplyStagingManifestRequest* othe
       &_impl_.partition_expr_, lhs_arena,
       &other->_impl_.partition_expr_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.manifest_path_, lhs_arena,
+      &other->_impl_.manifest_path_, rhs_arena
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ApplyStagingManifestRequest, _impl_.region_id_)
-      + sizeof(ApplyStagingManifestRequest::_impl_.region_id_)
-      - PROTOBUF_FIELD_OFFSET(ApplyStagingManifestRequest, _impl_.files_to_add_)>(
-          reinterpret_cast<char*>(&_impl_.files_to_add_),
-          reinterpret_cast<char*>(&other->_impl_.files_to_add_));
+      PROTOBUF_FIELD_OFFSET(ApplyStagingManifestRequest, _impl_.central_region_id_)
+      + sizeof(ApplyStagingManifestRequest::_impl_.central_region_id_)
+      - PROTOBUF_FIELD_OFFSET(ApplyStagingManifestRequest, _impl_.region_id_)>(
+          reinterpret_cast<char*>(&_impl_.region_id_),
+          reinterpret_cast<char*>(&other->_impl_.region_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ApplyStagingManifestRequest::GetMetadata() const {
