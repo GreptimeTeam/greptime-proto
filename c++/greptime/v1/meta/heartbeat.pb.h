@@ -2169,6 +2169,8 @@ class HeartbeatResponse final :
     kHeaderFieldNumber = 1,
     kMailboxMessageFieldNumber = 2,
     kRegionLeaseFieldNumber = 3,
+    kHeartbeatIntervalMsFieldNumber = 4,
+    kRetryIntervalMsFieldNumber = 5,
   };
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
@@ -2224,6 +2226,32 @@ class HeartbeatResponse final :
       ::greptime::v1::meta::RegionLease* region_lease);
   ::greptime::v1::meta::RegionLease* unsafe_arena_release_region_lease();
 
+  // optional uint64 heartbeat_interval_ms = 4;
+  bool has_heartbeat_interval_ms() const;
+  private:
+  bool _internal_has_heartbeat_interval_ms() const;
+  public:
+  void clear_heartbeat_interval_ms();
+  uint64_t heartbeat_interval_ms() const;
+  void set_heartbeat_interval_ms(uint64_t value);
+  private:
+  uint64_t _internal_heartbeat_interval_ms() const;
+  void _internal_set_heartbeat_interval_ms(uint64_t value);
+  public:
+
+  // optional uint64 retry_interval_ms = 5;
+  bool has_retry_interval_ms() const;
+  private:
+  bool _internal_has_retry_interval_ms() const;
+  public:
+  void clear_retry_interval_ms();
+  uint64_t retry_interval_ms() const;
+  void set_retry_interval_ms(uint64_t value);
+  private:
+  uint64_t _internal_retry_interval_ms() const;
+  void _internal_set_retry_interval_ms(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatResponse)
  private:
   class _Internal;
@@ -2232,10 +2260,13 @@ class HeartbeatResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
     ::greptime::v1::meta::RegionLease* region_lease_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t heartbeat_interval_ms_;
+    uint64_t retry_interval_ms_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
@@ -5230,6 +5261,62 @@ inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::
   }
   _impl_.region_lease_ = region_lease;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.region_lease)
+}
+
+// optional uint64 heartbeat_interval_ms = 4;
+inline bool HeartbeatResponse::_internal_has_heartbeat_interval_ms() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool HeartbeatResponse::has_heartbeat_interval_ms() const {
+  return _internal_has_heartbeat_interval_ms();
+}
+inline void HeartbeatResponse::clear_heartbeat_interval_ms() {
+  _impl_.heartbeat_interval_ms_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t HeartbeatResponse::_internal_heartbeat_interval_ms() const {
+  return _impl_.heartbeat_interval_ms_;
+}
+inline uint64_t HeartbeatResponse::heartbeat_interval_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatResponse.heartbeat_interval_ms)
+  return _internal_heartbeat_interval_ms();
+}
+inline void HeartbeatResponse::_internal_set_heartbeat_interval_ms(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.heartbeat_interval_ms_ = value;
+}
+inline void HeartbeatResponse::set_heartbeat_interval_ms(uint64_t value) {
+  _internal_set_heartbeat_interval_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatResponse.heartbeat_interval_ms)
+}
+
+// optional uint64 retry_interval_ms = 5;
+inline bool HeartbeatResponse::_internal_has_retry_interval_ms() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool HeartbeatResponse::has_retry_interval_ms() const {
+  return _internal_has_retry_interval_ms();
+}
+inline void HeartbeatResponse::clear_retry_interval_ms() {
+  _impl_.retry_interval_ms_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t HeartbeatResponse::_internal_retry_interval_ms() const {
+  return _impl_.retry_interval_ms_;
+}
+inline uint64_t HeartbeatResponse::retry_interval_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatResponse.retry_interval_ms)
+  return _internal_retry_interval_ms();
+}
+inline void HeartbeatResponse::_internal_set_retry_interval_ms(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.retry_interval_ms_ = value;
+}
+inline void HeartbeatResponse::set_retry_interval_ms(uint64_t value) {
+  _internal_set_retry_interval_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatResponse.retry_interval_ms)
 }
 
 // -------------------------------------------------------------------

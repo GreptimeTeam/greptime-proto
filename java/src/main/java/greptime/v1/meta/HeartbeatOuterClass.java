@@ -11194,6 +11194,38 @@ com.google.protobuf.ByteString defaultValue);
      * <code>.greptime.v1.meta.RegionLease region_lease = 3;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.RegionLeaseOrBuilder getRegionLeaseOrBuilder();
+
+    /**
+     * <pre>
+     * Heartbeat configuration issued by Metasrv
+     * Populated only in the handshake response
+     * </pre>
+     *
+     * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+     * @return Whether the heartbeatIntervalMs field is set.
+     */
+    boolean hasHeartbeatIntervalMs();
+    /**
+     * <pre>
+     * Heartbeat configuration issued by Metasrv
+     * Populated only in the handshake response
+     * </pre>
+     *
+     * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+     * @return The heartbeatIntervalMs.
+     */
+    long getHeartbeatIntervalMs();
+
+    /**
+     * <code>optional uint64 retry_interval_ms = 5;</code>
+     * @return Whether the retryIntervalMs field is set.
+     */
+    boolean hasRetryIntervalMs();
+    /**
+     * <code>optional uint64 retry_interval_ms = 5;</code>
+     * @return The retryIntervalMs.
+     */
+    long getRetryIntervalMs();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatResponse}
@@ -11230,6 +11262,7 @@ com.google.protobuf.ByteString defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -11279,6 +11312,16 @@ com.google.protobuf.ByteString defaultValue);
 
               break;
             }
+            case 32: {
+              bitField0_ |= 0x00000001;
+              heartbeatIntervalMs_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000002;
+              retryIntervalMs_ = input.readUInt64();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -11313,6 +11356,7 @@ com.google.protobuf.ByteString defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse.class, greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse.Builder.class);
     }
 
+    private int bitField0_;
     public static final int HEADER_FIELD_NUMBER = 1;
     private greptime.v1.meta.Common.ResponseHeader header_;
     /**
@@ -11391,6 +11435,54 @@ com.google.protobuf.ByteString defaultValue);
       return getRegionLease();
     }
 
+    public static final int HEARTBEAT_INTERVAL_MS_FIELD_NUMBER = 4;
+    private long heartbeatIntervalMs_;
+    /**
+     * <pre>
+     * Heartbeat configuration issued by Metasrv
+     * Populated only in the handshake response
+     * </pre>
+     *
+     * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+     * @return Whether the heartbeatIntervalMs field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeartbeatIntervalMs() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Heartbeat configuration issued by Metasrv
+     * Populated only in the handshake response
+     * </pre>
+     *
+     * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+     * @return The heartbeatIntervalMs.
+     */
+    @java.lang.Override
+    public long getHeartbeatIntervalMs() {
+      return heartbeatIntervalMs_;
+    }
+
+    public static final int RETRY_INTERVAL_MS_FIELD_NUMBER = 5;
+    private long retryIntervalMs_;
+    /**
+     * <code>optional uint64 retry_interval_ms = 5;</code>
+     * @return Whether the retryIntervalMs field is set.
+     */
+    @java.lang.Override
+    public boolean hasRetryIntervalMs() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional uint64 retry_interval_ms = 5;</code>
+     * @return The retryIntervalMs.
+     */
+    @java.lang.Override
+    public long getRetryIntervalMs() {
+      return retryIntervalMs_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -11414,6 +11506,12 @@ com.google.protobuf.ByteString defaultValue);
       if (regionLease_ != null) {
         output.writeMessage(3, getRegionLease());
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(4, heartbeatIntervalMs_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeUInt64(5, retryIntervalMs_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11434,6 +11532,14 @@ com.google.protobuf.ByteString defaultValue);
       if (regionLease_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getRegionLease());
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, heartbeatIntervalMs_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, retryIntervalMs_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11465,6 +11571,16 @@ com.google.protobuf.ByteString defaultValue);
         if (!getRegionLease()
             .equals(other.getRegionLease())) return false;
       }
+      if (hasHeartbeatIntervalMs() != other.hasHeartbeatIntervalMs()) return false;
+      if (hasHeartbeatIntervalMs()) {
+        if (getHeartbeatIntervalMs()
+            != other.getHeartbeatIntervalMs()) return false;
+      }
+      if (hasRetryIntervalMs() != other.hasRetryIntervalMs()) return false;
+      if (hasRetryIntervalMs()) {
+        if (getRetryIntervalMs()
+            != other.getRetryIntervalMs()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -11487,6 +11603,16 @@ com.google.protobuf.ByteString defaultValue);
       if (hasRegionLease()) {
         hash = (37 * hash) + REGION_LEASE_FIELD_NUMBER;
         hash = (53 * hash) + getRegionLease().hashCode();
+      }
+      if (hasHeartbeatIntervalMs()) {
+        hash = (37 * hash) + HEARTBEAT_INTERVAL_MS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getHeartbeatIntervalMs());
+      }
+      if (hasRetryIntervalMs()) {
+        hash = (37 * hash) + RETRY_INTERVAL_MS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getRetryIntervalMs());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -11639,6 +11765,10 @@ com.google.protobuf.ByteString defaultValue);
           regionLease_ = null;
           regionLeaseBuilder_ = null;
         }
+        heartbeatIntervalMs_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        retryIntervalMs_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -11665,6 +11795,8 @@ com.google.protobuf.ByteString defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -11680,6 +11812,15 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.regionLease_ = regionLeaseBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.heartbeatIntervalMs_ = heartbeatIntervalMs_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.retryIntervalMs_ = retryIntervalMs_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -11737,6 +11878,12 @@ com.google.protobuf.ByteString defaultValue);
         if (other.hasRegionLease()) {
           mergeRegionLease(other.getRegionLease());
         }
+        if (other.hasHeartbeatIntervalMs()) {
+          setHeartbeatIntervalMs(other.getHeartbeatIntervalMs());
+        }
+        if (other.hasRetryIntervalMs()) {
+          setRetryIntervalMs(other.getRetryIntervalMs());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -11765,6 +11912,7 @@ com.google.protobuf.ByteString defaultValue);
         }
         return this;
       }
+      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -12121,6 +12269,104 @@ com.google.protobuf.ByteString defaultValue);
           regionLease_ = null;
         }
         return regionLeaseBuilder_;
+      }
+
+      private long heartbeatIntervalMs_ ;
+      /**
+       * <pre>
+       * Heartbeat configuration issued by Metasrv
+       * Populated only in the handshake response
+       * </pre>
+       *
+       * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+       * @return Whether the heartbeatIntervalMs field is set.
+       */
+      @java.lang.Override
+      public boolean hasHeartbeatIntervalMs() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Heartbeat configuration issued by Metasrv
+       * Populated only in the handshake response
+       * </pre>
+       *
+       * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+       * @return The heartbeatIntervalMs.
+       */
+      @java.lang.Override
+      public long getHeartbeatIntervalMs() {
+        return heartbeatIntervalMs_;
+      }
+      /**
+       * <pre>
+       * Heartbeat configuration issued by Metasrv
+       * Populated only in the handshake response
+       * </pre>
+       *
+       * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+       * @param value The heartbeatIntervalMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeartbeatIntervalMs(long value) {
+        bitField0_ |= 0x00000001;
+        heartbeatIntervalMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Heartbeat configuration issued by Metasrv
+       * Populated only in the handshake response
+       * </pre>
+       *
+       * <code>optional uint64 heartbeat_interval_ms = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeartbeatIntervalMs() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        heartbeatIntervalMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long retryIntervalMs_ ;
+      /**
+       * <code>optional uint64 retry_interval_ms = 5;</code>
+       * @return Whether the retryIntervalMs field is set.
+       */
+      @java.lang.Override
+      public boolean hasRetryIntervalMs() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional uint64 retry_interval_ms = 5;</code>
+       * @return The retryIntervalMs.
+       */
+      @java.lang.Override
+      public long getRetryIntervalMs() {
+        return retryIntervalMs_;
+      }
+      /**
+       * <code>optional uint64 retry_interval_ms = 5;</code>
+       * @param value The retryIntervalMs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRetryIntervalMs(long value) {
+        bitField0_ |= 0x00000002;
+        retryIntervalMs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 retry_interval_ms = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRetryIntervalMs() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        retryIntervalMs_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -17201,36 +17447,39 @@ com.google.protobuf.ByteString defaultValue);
       "FlowStat.FlowLastExecTimeMapEntry\0323\n\021Flo" +
       "wStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001" +
       "(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\265\001\n\021Heartbeat" +
+      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\251\002\n\021Heartbeat" +
       "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
       "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
       "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
       "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
-      "egionLease\"\306\001\n\rGrantedRegion\022\021\n\tregion_i" +
-      "d\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta" +
-      ".RegionRole\022C\n\nextensions\030c \003(\0132/.grepti" +
-      "me.v1.meta.GrantedRegion.ExtensionsEntry" +
-      "\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001" +
-      " \003(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n" +
-      "\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease_sec" +
-      "onds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004" +
-      "\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.g" +
-      "reptime.v1.meta.RequestHeader\"m\n\021AskLead" +
-      "erResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1" +
-      ".meta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.g" +
-      "reptime.v1.meta.Peer\"|\n\016MailboxMessage\022\n" +
-      "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(" +
-      "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022" +
-      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole" +
-      "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin" +
-      "gLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".g" +
-      "reptime.v1.meta.HeartbeatRequest\032#.grept" +
-      "ime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tA" +
-      "skLeader\022\".greptime.v1.meta.AskLeaderReq" +
-      "uest\032#.greptime.v1.meta.AskLeaderRespons" +
-      "e\"\000B<Z:github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1/metab\006proto3"
+      "egionLease\022\"\n\025heartbeat_interval_ms\030\004 \001(" +
+      "\004H\000\210\001\001\022\036\n\021retry_interval_ms\030\005 \001(\004H\001\210\001\001B\030" +
+      "\n\026_heartbeat_interval_msB\024\n\022_retry_inter" +
+      "val_ms\"\306\001\n\rGrantedRegion\022\021\n\tregion_id\030\001 " +
+      "\001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.Reg" +
+      "ionRole\022C\n\nextensions\030c \003(\0132/.greptime.v" +
+      "1.meta.GrantedRegion.ExtensionsEntry\0321\n\017" +
+      "ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\013" +
+      "2\037.greptime.v1.meta.GrantedRegion\022\034\n\024dur" +
+      "ation_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds" +
+      "\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020" +
+      "AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.grept" +
+      "ime.v1.meta.RequestHeader\"m\n\021AskLeaderRe" +
+      "sponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.met" +
+      "a.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.grept" +
+      "ime.v1.meta.Peer\"|\n\016MailboxMessage\022\n\n\002id" +
+      "\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n" +
+      "\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004j" +
+      "son\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006" +
+      "Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLea" +
+      "der\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".grept" +
+      "ime.v1.meta.HeartbeatRequest\032#.greptime." +
+      "v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLe" +
+      "ader\022\".greptime.v1.meta.AskLeaderRequest" +
+      "\032#.greptime.v1.meta.AskLeaderResponse\"\000B" +
+      "<Z:github.com/GreptimeTeam/greptime-prot" +
+      "o/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17314,7 +17563,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
-        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", });
+        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", "HeartbeatIntervalMs", "RetryIntervalMs", "HeartbeatIntervalMs", "RetryIntervalMs", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
