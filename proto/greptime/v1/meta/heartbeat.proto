@@ -148,6 +148,14 @@ message HeartbeatResponse {
   ResponseHeader header = 1;
   MailboxMessage mailbox_message = 2;
   RegionLease region_lease = 3;
+  // Heartbeat configuration issued by Metasrv
+  // Populated only in the handshake response
+  HeartbeatConfig heartbeat_config = 4;
+}
+
+message HeartbeatConfig {
+  uint64 heartbeat_interval_ms = 1;
+  uint64 retry_interval_ms = 2;
 }
 
 // The granted region is the region that the meta server granted leases.

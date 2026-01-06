@@ -82,6 +82,9 @@ extern GrantedRegionDefaultTypeInternal _GrantedRegion_default_instance_;
 class GrantedRegion_ExtensionsEntry_DoNotUse;
 struct GrantedRegion_ExtensionsEntry_DoNotUseDefaultTypeInternal;
 extern GrantedRegion_ExtensionsEntry_DoNotUseDefaultTypeInternal _GrantedRegion_ExtensionsEntry_DoNotUse_default_instance_;
+class HeartbeatConfig;
+struct HeartbeatConfigDefaultTypeInternal;
+extern HeartbeatConfigDefaultTypeInternal _HeartbeatConfig_default_instance_;
 class HeartbeatRequest;
 struct HeartbeatRequestDefaultTypeInternal;
 extern HeartbeatRequestDefaultTypeInternal _HeartbeatRequest_default_instance_;
@@ -123,6 +126,7 @@ template<> ::greptime::v1::meta::FlownodeWorkloads* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::meta::FrontendWorkloads* Arena::CreateMaybeMessage<::greptime::v1::meta::FrontendWorkloads>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion>(Arena*);
 template<> ::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::meta::HeartbeatConfig* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatConfig>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
@@ -2169,6 +2173,7 @@ class HeartbeatResponse final :
     kHeaderFieldNumber = 1,
     kMailboxMessageFieldNumber = 2,
     kRegionLeaseFieldNumber = 3,
+    kHeartbeatConfigFieldNumber = 4,
   };
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
@@ -2224,6 +2229,24 @@ class HeartbeatResponse final :
       ::greptime::v1::meta::RegionLease* region_lease);
   ::greptime::v1::meta::RegionLease* unsafe_arena_release_region_lease();
 
+  // .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+  bool has_heartbeat_config() const;
+  private:
+  bool _internal_has_heartbeat_config() const;
+  public:
+  void clear_heartbeat_config();
+  const ::greptime::v1::meta::HeartbeatConfig& heartbeat_config() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::HeartbeatConfig* release_heartbeat_config();
+  ::greptime::v1::meta::HeartbeatConfig* mutable_heartbeat_config();
+  void set_allocated_heartbeat_config(::greptime::v1::meta::HeartbeatConfig* heartbeat_config);
+  private:
+  const ::greptime::v1::meta::HeartbeatConfig& _internal_heartbeat_config() const;
+  ::greptime::v1::meta::HeartbeatConfig* _internal_mutable_heartbeat_config();
+  public:
+  void unsafe_arena_set_allocated_heartbeat_config(
+      ::greptime::v1::meta::HeartbeatConfig* heartbeat_config);
+  ::greptime::v1::meta::HeartbeatConfig* unsafe_arena_release_heartbeat_config();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatResponse)
  private:
   class _Internal;
@@ -2235,6 +2258,166 @@ class HeartbeatResponse final :
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
     ::greptime::v1::meta::RegionLease* region_lease_;
+    ::greptime::v1::meta::HeartbeatConfig* heartbeat_config_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class HeartbeatConfig final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.HeartbeatConfig) */ {
+ public:
+  inline HeartbeatConfig() : HeartbeatConfig(nullptr) {}
+  ~HeartbeatConfig() override;
+  explicit PROTOBUF_CONSTEXPR HeartbeatConfig(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  HeartbeatConfig(const HeartbeatConfig& from);
+  HeartbeatConfig(HeartbeatConfig&& from) noexcept
+    : HeartbeatConfig() {
+    *this = ::std::move(from);
+  }
+
+  inline HeartbeatConfig& operator=(const HeartbeatConfig& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HeartbeatConfig& operator=(HeartbeatConfig&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const HeartbeatConfig& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HeartbeatConfig* internal_default_instance() {
+    return reinterpret_cast<const HeartbeatConfig*>(
+               &_HeartbeatConfig_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(HeartbeatConfig& a, HeartbeatConfig& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HeartbeatConfig* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HeartbeatConfig* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  HeartbeatConfig* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<HeartbeatConfig>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const HeartbeatConfig& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const HeartbeatConfig& from) {
+    HeartbeatConfig::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HeartbeatConfig* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.HeartbeatConfig";
+  }
+  protected:
+  explicit HeartbeatConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeartbeatIntervalMsFieldNumber = 1,
+    kRetryIntervalMsFieldNumber = 2,
+  };
+  // uint64 heartbeat_interval_ms = 1;
+  void clear_heartbeat_interval_ms();
+  uint64_t heartbeat_interval_ms() const;
+  void set_heartbeat_interval_ms(uint64_t value);
+  private:
+  uint64_t _internal_heartbeat_interval_ms() const;
+  void _internal_set_heartbeat_interval_ms(uint64_t value);
+  public:
+
+  // uint64 retry_interval_ms = 2;
+  void clear_retry_interval_ms();
+  uint64_t retry_interval_ms() const;
+  void set_retry_interval_ms(uint64_t value);
+  private:
+  uint64_t _internal_retry_interval_ms() const;
+  void _internal_set_retry_interval_ms(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatConfig)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t heartbeat_interval_ms_;
+    uint64_t retry_interval_ms_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2316,7 +2499,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -2501,7 +2684,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -2705,7 +2888,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -2862,7 +3045,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -3044,7 +3227,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -5232,6 +5415,140 @@ inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.region_lease)
 }
 
+// .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+inline bool HeartbeatResponse::_internal_has_heartbeat_config() const {
+  return this != internal_default_instance() && _impl_.heartbeat_config_ != nullptr;
+}
+inline bool HeartbeatResponse::has_heartbeat_config() const {
+  return _internal_has_heartbeat_config();
+}
+inline void HeartbeatResponse::clear_heartbeat_config() {
+  if (GetArenaForAllocation() == nullptr && _impl_.heartbeat_config_ != nullptr) {
+    delete _impl_.heartbeat_config_;
+  }
+  _impl_.heartbeat_config_ = nullptr;
+}
+inline const ::greptime::v1::meta::HeartbeatConfig& HeartbeatResponse::_internal_heartbeat_config() const {
+  const ::greptime::v1::meta::HeartbeatConfig* p = _impl_.heartbeat_config_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::HeartbeatConfig&>(
+      ::greptime::v1::meta::_HeartbeatConfig_default_instance_);
+}
+inline const ::greptime::v1::meta::HeartbeatConfig& HeartbeatResponse::heartbeat_config() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
+  return _internal_heartbeat_config();
+}
+inline void HeartbeatResponse::unsafe_arena_set_allocated_heartbeat_config(
+    ::greptime::v1::meta::HeartbeatConfig* heartbeat_config) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.heartbeat_config_);
+  }
+  _impl_.heartbeat_config_ = heartbeat_config;
+  if (heartbeat_config) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
+}
+inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::release_heartbeat_config() {
+  
+  ::greptime::v1::meta::HeartbeatConfig* temp = _impl_.heartbeat_config_;
+  _impl_.heartbeat_config_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::unsafe_arena_release_heartbeat_config() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
+  
+  ::greptime::v1::meta::HeartbeatConfig* temp = _impl_.heartbeat_config_;
+  _impl_.heartbeat_config_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::_internal_mutable_heartbeat_config() {
+  
+  if (_impl_.heartbeat_config_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::HeartbeatConfig>(GetArenaForAllocation());
+    _impl_.heartbeat_config_ = p;
+  }
+  return _impl_.heartbeat_config_;
+}
+inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::mutable_heartbeat_config() {
+  ::greptime::v1::meta::HeartbeatConfig* _msg = _internal_mutable_heartbeat_config();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
+  return _msg;
+}
+inline void HeartbeatResponse::set_allocated_heartbeat_config(::greptime::v1::meta::HeartbeatConfig* heartbeat_config) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.heartbeat_config_;
+  }
+  if (heartbeat_config) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(heartbeat_config);
+    if (message_arena != submessage_arena) {
+      heartbeat_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, heartbeat_config, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.heartbeat_config_ = heartbeat_config;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
+}
+
+// -------------------------------------------------------------------
+
+// HeartbeatConfig
+
+// uint64 heartbeat_interval_ms = 1;
+inline void HeartbeatConfig::clear_heartbeat_interval_ms() {
+  _impl_.heartbeat_interval_ms_ = uint64_t{0u};
+}
+inline uint64_t HeartbeatConfig::_internal_heartbeat_interval_ms() const {
+  return _impl_.heartbeat_interval_ms_;
+}
+inline uint64_t HeartbeatConfig::heartbeat_interval_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatConfig.heartbeat_interval_ms)
+  return _internal_heartbeat_interval_ms();
+}
+inline void HeartbeatConfig::_internal_set_heartbeat_interval_ms(uint64_t value) {
+  
+  _impl_.heartbeat_interval_ms_ = value;
+}
+inline void HeartbeatConfig::set_heartbeat_interval_ms(uint64_t value) {
+  _internal_set_heartbeat_interval_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatConfig.heartbeat_interval_ms)
+}
+
+// uint64 retry_interval_ms = 2;
+inline void HeartbeatConfig::clear_retry_interval_ms() {
+  _impl_.retry_interval_ms_ = uint64_t{0u};
+}
+inline uint64_t HeartbeatConfig::_internal_retry_interval_ms() const {
+  return _impl_.retry_interval_ms_;
+}
+inline uint64_t HeartbeatConfig::retry_interval_ms() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatConfig.retry_interval_ms)
+  return _internal_retry_interval_ms();
+}
+inline void HeartbeatConfig::_internal_set_retry_interval_ms(uint64_t value) {
+  
+  _impl_.retry_interval_ms_ = value;
+}
+inline void HeartbeatConfig::set_retry_interval_ms(uint64_t value) {
+  _internal_set_retry_interval_ms(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatConfig.retry_interval_ms)
+}
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -5984,6 +6301,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
