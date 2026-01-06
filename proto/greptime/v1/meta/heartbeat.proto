@@ -150,7 +150,7 @@ message HeartbeatResponse {
   RegionLease region_lease = 3;
   // Heartbeat configuration issued by Metasrv
   // Populated only in the handshake response
-  optional HeartbeatConfig heartbeat_config = 4;
+  HeartbeatConfig heartbeat_config = 4;
 }
 
 message HeartbeatConfig {

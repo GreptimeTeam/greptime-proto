@@ -2229,7 +2229,7 @@ class HeartbeatResponse final :
       ::greptime::v1::meta::RegionLease* region_lease);
   ::greptime::v1::meta::RegionLease* unsafe_arena_release_region_lease();
 
-  // optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+  // .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
   bool has_heartbeat_config() const;
   private:
   bool _internal_has_heartbeat_config() const;
@@ -2255,12 +2255,11 @@ class HeartbeatResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::greptime::v1::meta::ResponseHeader* header_;
     ::greptime::v1::meta::MailboxMessage* mailbox_message_;
     ::greptime::v1::meta::RegionLease* region_lease_;
     ::greptime::v1::meta::HeartbeatConfig* heartbeat_config_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
@@ -5416,18 +5415,18 @@ inline void HeartbeatResponse::set_allocated_region_lease(::greptime::v1::meta::
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.region_lease)
 }
 
-// optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+// .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
 inline bool HeartbeatResponse::_internal_has_heartbeat_config() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  PROTOBUF_ASSUME(!value || _impl_.heartbeat_config_ != nullptr);
-  return value;
+  return this != internal_default_instance() && _impl_.heartbeat_config_ != nullptr;
 }
 inline bool HeartbeatResponse::has_heartbeat_config() const {
   return _internal_has_heartbeat_config();
 }
 inline void HeartbeatResponse::clear_heartbeat_config() {
-  if (_impl_.heartbeat_config_ != nullptr) _impl_.heartbeat_config_->Clear();
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  if (GetArenaForAllocation() == nullptr && _impl_.heartbeat_config_ != nullptr) {
+    delete _impl_.heartbeat_config_;
+  }
+  _impl_.heartbeat_config_ = nullptr;
 }
 inline const ::greptime::v1::meta::HeartbeatConfig& HeartbeatResponse::_internal_heartbeat_config() const {
   const ::greptime::v1::meta::HeartbeatConfig* p = _impl_.heartbeat_config_;
@@ -5445,14 +5444,14 @@ inline void HeartbeatResponse::unsafe_arena_set_allocated_heartbeat_config(
   }
   _impl_.heartbeat_config_ = heartbeat_config;
   if (heartbeat_config) {
-    _impl_._has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
 }
 inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::release_heartbeat_config() {
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  
   ::greptime::v1::meta::HeartbeatConfig* temp = _impl_.heartbeat_config_;
   _impl_.heartbeat_config_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
@@ -5468,13 +5467,13 @@ inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::release_heartbe
 }
 inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::unsafe_arena_release_heartbeat_config() {
   // @@protoc_insertion_point(field_release:greptime.v1.meta.HeartbeatResponse.heartbeat_config)
-  _impl_._has_bits_[0] &= ~0x00000001u;
+  
   ::greptime::v1::meta::HeartbeatConfig* temp = _impl_.heartbeat_config_;
   _impl_.heartbeat_config_ = nullptr;
   return temp;
 }
 inline ::greptime::v1::meta::HeartbeatConfig* HeartbeatResponse::_internal_mutable_heartbeat_config() {
-  _impl_._has_bits_[0] |= 0x00000001u;
+  
   if (_impl_.heartbeat_config_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::HeartbeatConfig>(GetArenaForAllocation());
     _impl_.heartbeat_config_ = p;
@@ -5498,9 +5497,9 @@ inline void HeartbeatResponse::set_allocated_heartbeat_config(::greptime::v1::me
       heartbeat_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, heartbeat_config, submessage_arena);
     }
-    _impl_._has_bits_[0] |= 0x00000001u;
+    
   } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
+    
   }
   _impl_.heartbeat_config_ = heartbeat_config;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.HeartbeatResponse.heartbeat_config)

@@ -207,12 +207,11 @@ struct FlowStatDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlowStatDefaultTypeInternal _FlowStat_default_instance_;
 PROTOBUF_CONSTEXPR HeartbeatResponse::HeartbeatResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
+    /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.mailbox_message_)*/nullptr
   , /*decltype(_impl_.region_lease_)*/nullptr
-  , /*decltype(_impl_.heartbeat_config_)*/nullptr} {}
+  , /*decltype(_impl_.heartbeat_config_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HeartbeatResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR HeartbeatResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -462,7 +461,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::FlowStat, _impl_.flow_stat_size_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::FlowStat, _impl_.flow_last_exec_time_map_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _impl_._has_bits_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -472,10 +471,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _impl_.mailbox_message_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _impl_.region_lease_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatResponse, _impl_.heartbeat_config_),
-  ~0u,
-  ~0u,
-  ~0u,
-  0,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatConfig, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -555,14 +550,14 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 101, 109, -1, sizeof(::greptime::v1::meta::FlowStat_FlowStatSizeEntry_DoNotUse)},
   { 111, 119, -1, sizeof(::greptime::v1::meta::FlowStat_FlowLastExecTimeMapEntry_DoNotUse)},
   { 121, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
-  { 129, 139, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
-  { 143, -1, -1, sizeof(::greptime::v1::meta::HeartbeatConfig)},
-  { 151, 159, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
-  { 161, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 170, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 180, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 187, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 195, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 129, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
+  { 139, -1, -1, sizeof(::greptime::v1::meta::HeartbeatConfig)},
+  { 147, 155, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
+  { 157, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
+  { 166, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 176, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 183, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 191, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -635,47 +630,47 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "FlowStat.FlowLastExecTimeMapEntry\0323\n\021Flo"
   "wStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001"
   "(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n\003ke"
-  "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\214\002\n\021Heartbeat"
+  "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\362\001\n\021Heartbeat"
   "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
   "eta.ResponseHeader\0229\n\017mailbox_message\030\002 "
   "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n"
   "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R"
-  "egionLease\022@\n\020heartbeat_config\030\004 \001(\0132!.g"
-  "reptime.v1.meta.HeartbeatConfigH\000\210\001\001B\023\n\021"
-  "_heartbeat_config\"K\n\017HeartbeatConfig\022\035\n\025"
-  "heartbeat_interval_ms\030\001 \001(\004\022\031\n\021retry_int"
-  "erval_ms\030\002 \001(\004\"\306\001\n\rGrantedRegion\022\021\n\tregi"
-  "on_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1."
-  "meta.RegionRole\022C\n\nextensions\030c \003(\0132/.gr"
-  "eptime.v1.meta.GrantedRegion.ExtensionsE"
-  "ntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
-  "value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regio"
-  "ns\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegio"
-  "n\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease"
-  "_seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004"
-  " \003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\013"
-  "2\037.greptime.v1.meta.RequestHeader\"m\n\021Ask"
-  "LeaderResponse\0220\n\006header\030\001 \001(\0132 .greptim"
-  "e.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\013"
-  "2\026.greptime.v1.meta.Peer\"|\n\016MailboxMessa"
-  "ge\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030"
-  "\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 "
-  "\001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegion"
-  "Role\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgr"
-  "adingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat"
-  "\022\".greptime.v1.meta.HeartbeatRequest\032#.g"
-  "reptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022"
-  "V\n\tAskLeader\022\".greptime.v1.meta.AskLeade"
-  "rRequest\032#.greptime.v1.meta.AskLeaderRes"
-  "ponse\"\000B<Z:github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1/metab\006proto3"
+  "egionLease\022;\n\020heartbeat_config\030\004 \001(\0132!.g"
+  "reptime.v1.meta.HeartbeatConfig\"K\n\017Heart"
+  "beatConfig\022\035\n\025heartbeat_interval_ms\030\001 \001("
+  "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\"\306\001\n\rGranted"
+  "Region\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162"
+  "\034.greptime.v1.meta.RegionRole\022C\n\nextensi"
+  "ons\030c \003(\0132/.greptime.v1.meta.GrantedRegi"
+  "on.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n"
+  "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Region"
+  "Lease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.met"
+  "a.GrantedRegion\022\034\n\024duration_since_epoch\030"
+  "\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeabl"
+  "e_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/"
+  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
+  "tHeader\"m\n\021AskLeaderResponse\0220\n\006header\030\001"
+  " \001(\0132 .greptime.v1.meta.ResponseHeader\022&"
+  "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|"
+  "\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030"
+  "\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020times"
+  "tamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007pay"
+  "load*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follow"
+  "er\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbea"
+  "t\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartb"
+  "eatRequest\032#.greptime.v1.meta.HeartbeatR"
+  "esponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1"
+  ".meta.AskLeaderRequest\032#.greptime.v1.met"
+  "a.AskLeaderResponse\"\000B<Z:github.com/Grep"
+  "timeTeam/greptime-proto/go/greptime/v1/m"
+  "etab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 3197, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 3171, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 20,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -3591,14 +3586,10 @@ void FlowStat::InternalSwap(FlowStat* other) {
 
 class HeartbeatResponse::_Internal {
  public:
-  using HasBits = decltype(std::declval<HeartbeatResponse>()._impl_._has_bits_);
   static const ::greptime::v1::meta::ResponseHeader& header(const HeartbeatResponse* msg);
   static const ::greptime::v1::meta::MailboxMessage& mailbox_message(const HeartbeatResponse* msg);
   static const ::greptime::v1::meta::RegionLease& region_lease(const HeartbeatResponse* msg);
   static const ::greptime::v1::meta::HeartbeatConfig& heartbeat_config(const HeartbeatResponse* msg);
-  static void set_has_heartbeat_config(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
 };
 
 const ::greptime::v1::meta::ResponseHeader&
@@ -3633,12 +3624,11 @@ HeartbeatResponse::HeartbeatResponse(const HeartbeatResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   HeartbeatResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.header_){nullptr}
+      decltype(_impl_.header_){nullptr}
     , decltype(_impl_.mailbox_message_){nullptr}
     , decltype(_impl_.region_lease_){nullptr}
-    , decltype(_impl_.heartbeat_config_){nullptr}};
+    , decltype(_impl_.heartbeat_config_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
@@ -3661,12 +3651,11 @@ inline void HeartbeatResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.header_){nullptr}
+      decltype(_impl_.header_){nullptr}
     , decltype(_impl_.mailbox_message_){nullptr}
     , decltype(_impl_.region_lease_){nullptr}
     , decltype(_impl_.heartbeat_config_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
   };
 }
 
@@ -3709,18 +3698,15 @@ void HeartbeatResponse::Clear() {
     delete _impl_.region_lease_;
   }
   _impl_.region_lease_ = nullptr;
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(_impl_.heartbeat_config_ != nullptr);
-    _impl_.heartbeat_config_->Clear();
+  if (GetArenaForAllocation() == nullptr && _impl_.heartbeat_config_ != nullptr) {
+    delete _impl_.heartbeat_config_;
   }
-  _impl_._has_bits_.Clear();
+  _impl_.heartbeat_config_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 const char* HeartbeatResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
@@ -3749,7 +3735,7 @@ const char* HeartbeatResponse::_InternalParse(const char* ptr, ::_pbi::ParseCont
         } else
           goto handle_unusual;
         continue;
-      // optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+      // .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_heartbeat_config(), ptr);
@@ -3773,7 +3759,6 @@ const char* HeartbeatResponse::_InternalParse(const char* ptr, ::_pbi::ParseCont
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-  _impl_._has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
@@ -3808,8 +3793,8 @@ uint8_t* HeartbeatResponse::_InternalSerialize(
         _Internal::region_lease(this).GetCachedSize(), target, stream);
   }
 
-  // optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
-  if (_internal_has_heartbeat_config()) {
+  // .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+  if (this->_internal_has_heartbeat_config()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(4, _Internal::heartbeat_config(this),
         _Internal::heartbeat_config(this).GetCachedSize(), target, stream);
@@ -3852,9 +3837,8 @@ size_t HeartbeatResponse::ByteSizeLong() const {
         *_impl_.region_lease_);
   }
 
-  // optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
+  // .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;
+  if (this->_internal_has_heartbeat_config()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.heartbeat_config_);
@@ -3911,7 +3895,6 @@ bool HeartbeatResponse::IsInitialized() const {
 void HeartbeatResponse::InternalSwap(HeartbeatResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(HeartbeatResponse, _impl_.heartbeat_config_)
       + sizeof(HeartbeatResponse::_impl_.heartbeat_config_)

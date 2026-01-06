@@ -11201,7 +11201,7 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      * @return Whether the heartbeatConfig field is set.
      */
     boolean hasHeartbeatConfig();
@@ -11211,7 +11211,7 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      * @return The heartbeatConfig.
      */
     greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig getHeartbeatConfig();
@@ -11221,7 +11221,7 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      */
     greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfigOrBuilder getHeartbeatConfigOrBuilder();
   }
@@ -11260,7 +11260,6 @@ com.google.protobuf.ByteString defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -11312,7 +11311,7 @@ com.google.protobuf.ByteString defaultValue);
             }
             case 34: {
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
+              if (heartbeatConfig_ != null) {
                 subBuilder = heartbeatConfig_.toBuilder();
               }
               heartbeatConfig_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.parser(), extensionRegistry);
@@ -11320,7 +11319,7 @@ com.google.protobuf.ByteString defaultValue);
                 subBuilder.mergeFrom(heartbeatConfig_);
                 heartbeatConfig_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             default: {
@@ -11357,7 +11356,6 @@ com.google.protobuf.ByteString defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse.class, greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse.Builder.class);
     }
 
-    private int bitField0_;
     public static final int HEADER_FIELD_NUMBER = 1;
     private greptime.v1.meta.Common.ResponseHeader header_;
     /**
@@ -11444,12 +11442,12 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      * @return Whether the heartbeatConfig field is set.
      */
     @java.lang.Override
     public boolean hasHeartbeatConfig() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return heartbeatConfig_ != null;
     }
     /**
      * <pre>
@@ -11457,7 +11455,7 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      * @return The heartbeatConfig.
      */
     @java.lang.Override
@@ -11470,11 +11468,11 @@ com.google.protobuf.ByteString defaultValue);
      * Populated only in the handshake response
      * </pre>
      *
-     * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+     * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
      */
     @java.lang.Override
     public greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfigOrBuilder getHeartbeatConfigOrBuilder() {
-      return heartbeatConfig_ == null ? greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.getDefaultInstance() : heartbeatConfig_;
+      return getHeartbeatConfig();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11500,7 +11498,7 @@ com.google.protobuf.ByteString defaultValue);
       if (regionLease_ != null) {
         output.writeMessage(3, getRegionLease());
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (heartbeatConfig_ != null) {
         output.writeMessage(4, getHeartbeatConfig());
       }
       unknownFields.writeTo(output);
@@ -11524,7 +11522,7 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getRegionLease());
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      if (heartbeatConfig_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getHeartbeatConfig());
       }
@@ -11718,7 +11716,6 @@ com.google.protobuf.ByteString defaultValue);
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getHeartbeatConfigFieldBuilder();
         }
       }
       @java.lang.Override
@@ -11745,9 +11742,9 @@ com.google.protobuf.ByteString defaultValue);
         if (heartbeatConfigBuilder_ == null) {
           heartbeatConfig_ = null;
         } else {
-          heartbeatConfigBuilder_.clear();
+          heartbeatConfig_ = null;
+          heartbeatConfigBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -11774,8 +11771,6 @@ com.google.protobuf.ByteString defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -11791,15 +11786,11 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.regionLease_ = regionLeaseBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (heartbeatConfigBuilder_ == null) {
-            result.heartbeatConfig_ = heartbeatConfig_;
-          } else {
-            result.heartbeatConfig_ = heartbeatConfigBuilder_.build();
-          }
-          to_bitField0_ |= 0x00000001;
+        if (heartbeatConfigBuilder_ == null) {
+          result.heartbeatConfig_ = heartbeatConfig_;
+        } else {
+          result.heartbeatConfig_ = heartbeatConfigBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -11888,7 +11879,6 @@ com.google.protobuf.ByteString defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -12256,11 +12246,11 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        * @return Whether the heartbeatConfig field is set.
        */
       public boolean hasHeartbeatConfig() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return heartbeatConfigBuilder_ != null || heartbeatConfig_ != null;
       }
       /**
        * <pre>
@@ -12268,7 +12258,7 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        * @return The heartbeatConfig.
        */
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig getHeartbeatConfig() {
@@ -12284,7 +12274,7 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public Builder setHeartbeatConfig(greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig value) {
         if (heartbeatConfigBuilder_ == null) {
@@ -12296,7 +12286,7 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           heartbeatConfigBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -12305,7 +12295,7 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public Builder setHeartbeatConfig(
           greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.Builder builderForValue) {
@@ -12315,7 +12305,7 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           heartbeatConfigBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -12324,13 +12314,11 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public Builder mergeHeartbeatConfig(greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig value) {
         if (heartbeatConfigBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-              heartbeatConfig_ != null &&
-              heartbeatConfig_ != greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.getDefaultInstance()) {
+          if (heartbeatConfig_ != null) {
             heartbeatConfig_ =
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.newBuilder(heartbeatConfig_).mergeFrom(value).buildPartial();
           } else {
@@ -12340,7 +12328,7 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           heartbeatConfigBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -12349,16 +12337,17 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public Builder clearHeartbeatConfig() {
         if (heartbeatConfigBuilder_ == null) {
           heartbeatConfig_ = null;
           onChanged();
         } else {
-          heartbeatConfigBuilder_.clear();
+          heartbeatConfig_ = null;
+          heartbeatConfigBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
@@ -12367,10 +12356,10 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.Builder getHeartbeatConfigBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHeartbeatConfigFieldBuilder().getBuilder();
       }
@@ -12380,7 +12369,7 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfigOrBuilder getHeartbeatConfigOrBuilder() {
         if (heartbeatConfigBuilder_ != null) {
@@ -12396,7 +12385,7 @@ com.google.protobuf.ByteString defaultValue);
        * Populated only in the handshake response
        * </pre>
        *
-       * <code>optional .greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
+       * <code>.greptime.v1.meta.HeartbeatConfig heartbeat_config = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig, greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.Builder, greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfigOrBuilder> 
@@ -18057,40 +18046,40 @@ com.google.protobuf.ByteString defaultValue);
       "FlowStat.FlowLastExecTimeMapEntry\0323\n\021Flo" +
       "wStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001" +
       "(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022\013\n\003ke" +
-      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\214\002\n\021Heartbeat" +
+      "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\362\001\n\021Heartbeat" +
       "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
       "eta.ResponseHeader\0229\n\017mailbox_message\030\002 " +
       "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
       "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
-      "egionLease\022@\n\020heartbeat_config\030\004 \001(\0132!.g" +
-      "reptime.v1.meta.HeartbeatConfigH\000\210\001\001B\023\n\021" +
-      "_heartbeat_config\"K\n\017HeartbeatConfig\022\035\n\025" +
-      "heartbeat_interval_ms\030\001 \001(\004\022\031\n\021retry_int" +
-      "erval_ms\030\002 \001(\004\"\306\001\n\rGrantedRegion\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1." +
-      "meta.RegionRole\022C\n\nextensions\030c \003(\0132/.gr" +
-      "eptime.v1.meta.GrantedRegion.ExtensionsE" +
-      "ntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regio" +
-      "ns\030\001 \003(\0132\037.greptime.v1.meta.GrantedRegio" +
-      "n\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rlease" +
-      "_seconds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004" +
-      " \003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\013" +
-      "2\037.greptime.v1.meta.RequestHeader\"m\n\021Ask" +
-      "LeaderResponse\0220\n\006header\030\001 \001(\0132 .greptim" +
-      "e.v1.meta.ResponseHeader\022&\n\006leader\030\002 \001(\013" +
-      "2\026.greptime.v1.meta.Peer\"|\n\016MailboxMessa" +
-      "ge\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030" +
-      "\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 " +
-      "\001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegion" +
-      "Role\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgr" +
-      "adingLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat" +
-      "\022\".greptime.v1.meta.HeartbeatRequest\032#.g" +
-      "reptime.v1.meta.HeartbeatResponse\"\000(\0010\001\022" +
-      "V\n\tAskLeader\022\".greptime.v1.meta.AskLeade" +
-      "rRequest\032#.greptime.v1.meta.AskLeaderRes" +
-      "ponse\"\000B<Z:github.com/GreptimeTeam/grept" +
-      "ime-proto/go/greptime/v1/metab\006proto3"
+      "egionLease\022;\n\020heartbeat_config\030\004 \001(\0132!.g" +
+      "reptime.v1.meta.HeartbeatConfig\"K\n\017Heart" +
+      "beatConfig\022\035\n\025heartbeat_interval_ms\030\001 \001(" +
+      "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\"\306\001\n\rGranted" +
+      "Region\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162" +
+      "\034.greptime.v1.meta.RegionRole\022C\n\nextensi" +
+      "ons\030c \003(\0132/.greptime.v1.meta.GrantedRegi" +
+      "on.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Region" +
+      "Lease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.met" +
+      "a.GrantedRegion\022\034\n\024duration_since_epoch\030" +
+      "\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeabl" +
+      "e_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/" +
+      "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
+      "tHeader\"m\n\021AskLeaderResponse\0220\n\006header\030\001" +
+      " \001(\0132 .greptime.v1.meta.ResponseHeader\022&" +
+      "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|" +
+      "\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030" +
+      "\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020times" +
+      "tamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007pay" +
+      "load*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follow" +
+      "er\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbea" +
+      "t\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartb" +
+      "eatRequest\032#.greptime.v1.meta.HeartbeatR" +
+      "esponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1" +
+      ".meta.AskLeaderRequest\032#.greptime.v1.met" +
+      "a.AskLeaderResponse\"\000B<Z:github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/m" +
+      "etab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18174,7 +18163,7 @@ com.google.protobuf.ByteString defaultValue);
     internal_static_greptime_v1_meta_HeartbeatResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatResponse_descriptor,
-        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", "HeartbeatConfig", "HeartbeatConfig", });
+        new java.lang.String[] { "Header", "MailboxMessage", "RegionLease", "HeartbeatConfig", });
     internal_static_greptime_v1_meta_HeartbeatConfig_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_HeartbeatConfig_fieldAccessorTable = new
