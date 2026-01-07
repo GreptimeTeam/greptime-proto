@@ -134,6 +134,8 @@ message DropRequest {
   // It only works for Metric Engine, and will be ignored by other engines.
   // If true, the Metric Engine will delete logical tables in memory, and drop the physical region eventually.
   bool fast_path = 2;
+  // Used only by the Metric Engine, to forcibly drop a physical region and all its associated logical regions.
+  bool force = 3;
 }
 
 message OpenRequest {

@@ -23,3 +23,6 @@ Cargo.lock
 shell.nix
 .envrc
 .direnv
+
+# Java build output
+/java/target/

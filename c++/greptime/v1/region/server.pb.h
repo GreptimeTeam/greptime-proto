@@ -2827,6 +2827,7 @@ class DropRequest final :
   enum : int {
     kRegionIdFieldNumber = 1,
     kFastPathFieldNumber = 2,
+    kForceFieldNumber = 3,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -2846,6 +2847,15 @@ class DropRequest final :
   void _internal_set_fast_path(bool value);
   public:
 
+  // bool force = 3;
+  void clear_force();
+  bool force() const;
+  void set_force(bool value);
+  private:
+  bool _internal_force() const;
+  void _internal_set_force(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DropRequest)
  private:
   class _Internal;
@@ -2856,6 +2866,7 @@ class DropRequest final :
   struct Impl_ {
     uint64_t region_id_;
     bool fast_path_;
+    bool force_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -9846,6 +9857,26 @@ inline void DropRequest::_internal_set_fast_path(bool value) {
 inline void DropRequest::set_fast_path(bool value) {
   _internal_set_fast_path(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.fast_path)
+}
+
+// bool force = 3;
+inline void DropRequest::clear_force() {
+  _impl_.force_ = false;
+}
+inline bool DropRequest::_internal_force() const {
+  return _impl_.force_;
+}
+inline bool DropRequest::force() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DropRequest.force)
+  return _internal_force();
+}
+inline void DropRequest::_internal_set_force(bool value) {
+  
+  _impl_.force_ = value;
+}
+inline void DropRequest::set_force(bool value) {
+  _internal_set_force(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.force)
 }
 
 // -------------------------------------------------------------------
