@@ -12980,6 +12980,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.SetDefaultsOrBuilder getSetDefaultsOrBuilder();
 
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     * @return Whether the repartition field is set.
+     */
+    boolean hasRepartition();
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     * @return The repartition.
+     */
+    io.greptime.v1.Ddl.Repartition getRepartition();
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     */
+    io.greptime.v1.Ddl.RepartitionOrBuilder getRepartitionOrBuilder();
+
     public io.greptime.v1.Ddl.AlterTableExpr.KindCase getKindCase();
   }
   /**
@@ -13216,6 +13231,20 @@ java.lang.String defaultValue);
               kindCase_ = 17;
               break;
             }
+            case 146: {
+              io.greptime.v1.Ddl.Repartition.Builder subBuilder = null;
+              if (kindCase_ == 18) {
+                subBuilder = ((io.greptime.v1.Ddl.Repartition) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.Repartition.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.Repartition) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 18;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -13267,6 +13296,7 @@ java.lang.String defaultValue);
       SET_INDEXES(15),
       UNSET_INDEXES(16),
       SET_DEFAULTS(17),
+      REPARTITION(18),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -13296,6 +13326,7 @@ java.lang.String defaultValue);
           case 15: return SET_INDEXES;
           case 16: return UNSET_INDEXES;
           case 17: return SET_DEFAULTS;
+          case 18: return REPARTITION;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -13821,6 +13852,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.SetDefaults.getDefaultInstance();
     }
 
+    public static final int REPARTITION_FIELD_NUMBER = 18;
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     * @return Whether the repartition field is set.
+     */
+    @java.lang.Override
+    public boolean hasRepartition() {
+      return kindCase_ == 18;
+    }
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     * @return The repartition.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.Repartition getRepartition() {
+      if (kindCase_ == 18) {
+         return (io.greptime.v1.Ddl.Repartition) kind_;
+      }
+      return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.Repartition repartition = 18;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.RepartitionOrBuilder getRepartitionOrBuilder() {
+      if (kindCase_ == 18) {
+         return (io.greptime.v1.Ddl.Repartition) kind_;
+      }
+      return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13879,6 +13941,9 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 17) {
         output.writeMessage(17, (io.greptime.v1.Ddl.SetDefaults) kind_);
+      }
+      if (kindCase_ == 18) {
+        output.writeMessage(18, (io.greptime.v1.Ddl.Repartition) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -13945,6 +14010,10 @@ java.lang.String defaultValue);
       if (kindCase_ == 17) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, (io.greptime.v1.Ddl.SetDefaults) kind_);
+      }
+      if (kindCase_ == 18) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, (io.greptime.v1.Ddl.Repartition) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14017,6 +14086,10 @@ java.lang.String defaultValue);
           if (!getSetDefaults()
               .equals(other.getSetDefaults())) return false;
           break;
+        case 18:
+          if (!getRepartition()
+              .equals(other.getRepartition())) return false;
+          break;
         case 0:
         default:
       }
@@ -14085,6 +14158,10 @@ java.lang.String defaultValue);
         case 17:
           hash = (37 * hash) + SET_DEFAULTS_FIELD_NUMBER;
           hash = (53 * hash) + getSetDefaults().hashCode();
+          break;
+        case 18:
+          hash = (37 * hash) + REPARTITION_FIELD_NUMBER;
+          hash = (53 * hash) + getRepartition().hashCode();
           break;
         case 0:
         default:
@@ -14343,6 +14420,13 @@ java.lang.String defaultValue);
             result.kind_ = setDefaultsBuilder_.build();
           }
         }
+        if (kindCase_ == 18) {
+          if (repartitionBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = repartitionBuilder_.build();
+          }
+        }
         result.kindCase_ = kindCase_;
         onBuilt();
         return result;
@@ -14451,6 +14535,10 @@ java.lang.String defaultValue);
           }
           case SET_DEFAULTS: {
             mergeSetDefaults(other.getSetDefaults());
+            break;
+          }
+          case REPARTITION: {
+            mergeRepartition(other.getRepartition());
             break;
           }
           case KIND_NOT_SET: {
@@ -16503,6 +16591,148 @@ java.lang.String defaultValue);
         kindCase_ = 17;
         onChanged();;
         return setDefaultsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.Repartition, io.greptime.v1.Ddl.Repartition.Builder, io.greptime.v1.Ddl.RepartitionOrBuilder> repartitionBuilder_;
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       * @return Whether the repartition field is set.
+       */
+      @java.lang.Override
+      public boolean hasRepartition() {
+        return kindCase_ == 18;
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       * @return The repartition.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Repartition getRepartition() {
+        if (repartitionBuilder_ == null) {
+          if (kindCase_ == 18) {
+            return (io.greptime.v1.Ddl.Repartition) kind_;
+          }
+          return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+        } else {
+          if (kindCase_ == 18) {
+            return repartitionBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      public Builder setRepartition(io.greptime.v1.Ddl.Repartition value) {
+        if (repartitionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          repartitionBuilder_.setMessage(value);
+        }
+        kindCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      public Builder setRepartition(
+          io.greptime.v1.Ddl.Repartition.Builder builderForValue) {
+        if (repartitionBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          repartitionBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      public Builder mergeRepartition(io.greptime.v1.Ddl.Repartition value) {
+        if (repartitionBuilder_ == null) {
+          if (kindCase_ == 18 &&
+              kind_ != io.greptime.v1.Ddl.Repartition.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.Repartition.newBuilder((io.greptime.v1.Ddl.Repartition) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 18) {
+            repartitionBuilder_.mergeFrom(value);
+          } else {
+            repartitionBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 18;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      public Builder clearRepartition() {
+        if (repartitionBuilder_ == null) {
+          if (kindCase_ == 18) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 18) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          repartitionBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      public io.greptime.v1.Ddl.Repartition.Builder getRepartitionBuilder() {
+        return getRepartitionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.RepartitionOrBuilder getRepartitionOrBuilder() {
+        if ((kindCase_ == 18) && (repartitionBuilder_ != null)) {
+          return repartitionBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 18) {
+            return (io.greptime.v1.Ddl.Repartition) kind_;
+          }
+          return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Repartition repartition = 18;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.Repartition, io.greptime.v1.Ddl.Repartition.Builder, io.greptime.v1.Ddl.RepartitionOrBuilder> 
+          getRepartitionFieldBuilder() {
+        if (repartitionBuilder_ == null) {
+          if (!(kindCase_ == 18)) {
+            kind_ = io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+          }
+          repartitionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.Repartition, io.greptime.v1.Ddl.Repartition.Builder, io.greptime.v1.Ddl.RepartitionOrBuilder>(
+                  (io.greptime.v1.Ddl.Repartition) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 18;
+        onChanged();;
+        return repartitionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -21738,6 +21968,1090 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.UnsetIndex getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RepartitionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.Repartition)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @return A list containing the fromPartitionExprs.
+     */
+    java.util.List<java.lang.String>
+        getFromPartitionExprsList();
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @return The count of fromPartitionExprs.
+     */
+    int getFromPartitionExprsCount();
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @param index The index of the element to return.
+     * @return The fromPartitionExprs at the given index.
+     */
+    java.lang.String getFromPartitionExprs(int index);
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fromPartitionExprs at the given index.
+     */
+    com.google.protobuf.ByteString
+        getFromPartitionExprsBytes(int index);
+
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @return A list containing the intoPartitionExprs.
+     */
+    java.util.List<java.lang.String>
+        getIntoPartitionExprsList();
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @return The count of intoPartitionExprs.
+     */
+    int getIntoPartitionExprsCount();
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The intoPartitionExprs at the given index.
+     */
+    java.lang.String getIntoPartitionExprs(int index);
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the intoPartitionExprs at the given index.
+     */
+    com.google.protobuf.ByteString
+        getIntoPartitionExprsBytes(int index);
+
+    /**
+     * <pre>
+     * Wait for the repartition to complete.
+     * </pre>
+     *
+     * <code>bool wait = 3;</code>
+     * @return The wait.
+     */
+    boolean getWait();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.Repartition}
+   */
+  public static final class Repartition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.Repartition)
+      RepartitionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Repartition.newBuilder() to construct.
+    private Repartition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Repartition() {
+      fromPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      intoPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Repartition();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Repartition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                fromPartitionExprs_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              fromPartitionExprs_.add(s);
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                intoPartitionExprs_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              intoPartitionExprs_.add(s);
+              break;
+            }
+            case 24: {
+
+              wait_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          fromPartitionExprs_ = fromPartitionExprs_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          intoPartitionExprs_ = intoPartitionExprs_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_Repartition_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_Repartition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.Repartition.class, io.greptime.v1.Ddl.Repartition.Builder.class);
+    }
+
+    public static final int FROM_PARTITION_EXPRS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList fromPartitionExprs_;
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @return A list containing the fromPartitionExprs.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFromPartitionExprsList() {
+      return fromPartitionExprs_;
+    }
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @return The count of fromPartitionExprs.
+     */
+    public int getFromPartitionExprsCount() {
+      return fromPartitionExprs_.size();
+    }
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @param index The index of the element to return.
+     * @return The fromPartitionExprs at the given index.
+     */
+    public java.lang.String getFromPartitionExprs(int index) {
+      return fromPartitionExprs_.get(index);
+    }
+    /**
+     * <pre>
+     * The from partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string from_partition_exprs = 1;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fromPartitionExprs at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getFromPartitionExprsBytes(int index) {
+      return fromPartitionExprs_.getByteString(index);
+    }
+
+    public static final int INTO_PARTITION_EXPRS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList intoPartitionExprs_;
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @return A list containing the intoPartitionExprs.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getIntoPartitionExprsList() {
+      return intoPartitionExprs_;
+    }
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @return The count of intoPartitionExprs.
+     */
+    public int getIntoPartitionExprsCount() {
+      return intoPartitionExprs_.size();
+    }
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @param index The index of the element to return.
+     * @return The intoPartitionExprs at the given index.
+     */
+    public java.lang.String getIntoPartitionExprs(int index) {
+      return intoPartitionExprs_.get(index);
+    }
+    /**
+     * <pre>
+     * The into partition expressions serialized in JSON format.
+     * </pre>
+     *
+     * <code>repeated string into_partition_exprs = 2;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the intoPartitionExprs at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getIntoPartitionExprsBytes(int index) {
+      return intoPartitionExprs_.getByteString(index);
+    }
+
+    public static final int WAIT_FIELD_NUMBER = 3;
+    private boolean wait_;
+    /**
+     * <pre>
+     * Wait for the repartition to complete.
+     * </pre>
+     *
+     * <code>bool wait = 3;</code>
+     * @return The wait.
+     */
+    @java.lang.Override
+    public boolean getWait() {
+      return wait_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < fromPartitionExprs_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fromPartitionExprs_.getRaw(i));
+      }
+      for (int i = 0; i < intoPartitionExprs_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, intoPartitionExprs_.getRaw(i));
+      }
+      if (wait_ != false) {
+        output.writeBool(3, wait_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < fromPartitionExprs_.size(); i++) {
+          dataSize += computeStringSizeNoTag(fromPartitionExprs_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFromPartitionExprsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < intoPartitionExprs_.size(); i++) {
+          dataSize += computeStringSizeNoTag(intoPartitionExprs_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getIntoPartitionExprsList().size();
+      }
+      if (wait_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, wait_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.Repartition)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.Repartition other = (io.greptime.v1.Ddl.Repartition) obj;
+
+      if (!getFromPartitionExprsList()
+          .equals(other.getFromPartitionExprsList())) return false;
+      if (!getIntoPartitionExprsList()
+          .equals(other.getIntoPartitionExprsList())) return false;
+      if (getWait()
+          != other.getWait()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFromPartitionExprsCount() > 0) {
+        hash = (37 * hash) + FROM_PARTITION_EXPRS_FIELD_NUMBER;
+        hash = (53 * hash) + getFromPartitionExprsList().hashCode();
+      }
+      if (getIntoPartitionExprsCount() > 0) {
+        hash = (37 * hash) + INTO_PARTITION_EXPRS_FIELD_NUMBER;
+        hash = (53 * hash) + getIntoPartitionExprsList().hashCode();
+      }
+      hash = (37 * hash) + WAIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWait());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.Repartition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.Repartition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.Repartition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.Repartition)
+        io.greptime.v1.Ddl.RepartitionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Repartition_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Repartition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.Repartition.class, io.greptime.v1.Ddl.Repartition.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.Repartition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        fromPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        intoPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        wait_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_Repartition_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Repartition getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.Repartition.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Repartition build() {
+        io.greptime.v1.Ddl.Repartition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.Repartition buildPartial() {
+        io.greptime.v1.Ddl.Repartition result = new io.greptime.v1.Ddl.Repartition(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          fromPartitionExprs_ = fromPartitionExprs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.fromPartitionExprs_ = fromPartitionExprs_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          intoPartitionExprs_ = intoPartitionExprs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.intoPartitionExprs_ = intoPartitionExprs_;
+        result.wait_ = wait_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.Repartition) {
+          return mergeFrom((io.greptime.v1.Ddl.Repartition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.Repartition other) {
+        if (other == io.greptime.v1.Ddl.Repartition.getDefaultInstance()) return this;
+        if (!other.fromPartitionExprs_.isEmpty()) {
+          if (fromPartitionExprs_.isEmpty()) {
+            fromPartitionExprs_ = other.fromPartitionExprs_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureFromPartitionExprsIsMutable();
+            fromPartitionExprs_.addAll(other.fromPartitionExprs_);
+          }
+          onChanged();
+        }
+        if (!other.intoPartitionExprs_.isEmpty()) {
+          if (intoPartitionExprs_.isEmpty()) {
+            intoPartitionExprs_ = other.intoPartitionExprs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureIntoPartitionExprsIsMutable();
+            intoPartitionExprs_.addAll(other.intoPartitionExprs_);
+          }
+          onChanged();
+        }
+        if (other.getWait() != false) {
+          setWait(other.getWait());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.Repartition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.Repartition) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList fromPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFromPartitionExprsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          fromPartitionExprs_ = new com.google.protobuf.LazyStringArrayList(fromPartitionExprs_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @return A list containing the fromPartitionExprs.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFromPartitionExprsList() {
+        return fromPartitionExprs_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @return The count of fromPartitionExprs.
+       */
+      public int getFromPartitionExprsCount() {
+        return fromPartitionExprs_.size();
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param index The index of the element to return.
+       * @return The fromPartitionExprs at the given index.
+       */
+      public java.lang.String getFromPartitionExprs(int index) {
+        return fromPartitionExprs_.get(index);
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the fromPartitionExprs at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getFromPartitionExprsBytes(int index) {
+        return fromPartitionExprs_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The fromPartitionExprs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromPartitionExprs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFromPartitionExprsIsMutable();
+        fromPartitionExprs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param value The fromPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFromPartitionExprs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFromPartitionExprsIsMutable();
+        fromPartitionExprs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param values The fromPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllFromPartitionExprs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFromPartitionExprsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, fromPartitionExprs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFromPartitionExprs() {
+        fromPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The from partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string from_partition_exprs = 1;</code>
+       * @param value The bytes of the fromPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFromPartitionExprsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFromPartitionExprsIsMutable();
+        fromPartitionExprs_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList intoPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureIntoPartitionExprsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          intoPartitionExprs_ = new com.google.protobuf.LazyStringArrayList(intoPartitionExprs_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @return A list containing the intoPartitionExprs.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getIntoPartitionExprsList() {
+        return intoPartitionExprs_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @return The count of intoPartitionExprs.
+       */
+      public int getIntoPartitionExprsCount() {
+        return intoPartitionExprs_.size();
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param index The index of the element to return.
+       * @return The intoPartitionExprs at the given index.
+       */
+      public java.lang.String getIntoPartitionExprs(int index) {
+        return intoPartitionExprs_.get(index);
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the intoPartitionExprs at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getIntoPartitionExprsBytes(int index) {
+        return intoPartitionExprs_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The intoPartitionExprs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIntoPartitionExprs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIntoPartitionExprsIsMutable();
+        intoPartitionExprs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param value The intoPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIntoPartitionExprs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIntoPartitionExprsIsMutable();
+        intoPartitionExprs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param values The intoPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIntoPartitionExprs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureIntoPartitionExprsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, intoPartitionExprs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIntoPartitionExprs() {
+        intoPartitionExprs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The into partition expressions serialized in JSON format.
+       * </pre>
+       *
+       * <code>repeated string into_partition_exprs = 2;</code>
+       * @param value The bytes of the intoPartitionExprs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIntoPartitionExprsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureIntoPartitionExprsIsMutable();
+        intoPartitionExprs_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private boolean wait_ ;
+      /**
+       * <pre>
+       * Wait for the repartition to complete.
+       * </pre>
+       *
+       * <code>bool wait = 3;</code>
+       * @return The wait.
+       */
+      @java.lang.Override
+      public boolean getWait() {
+        return wait_;
+      }
+      /**
+       * <pre>
+       * Wait for the repartition to complete.
+       * </pre>
+       *
+       * <code>bool wait = 3;</code>
+       * @param value The wait to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWait(boolean value) {
+        
+        wait_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Wait for the repartition to complete.
+       * </pre>
+       *
+       * <code>bool wait = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWait() {
+        
+        wait_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.Repartition)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.Repartition)
+    private static final io.greptime.v1.Ddl.Repartition DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.Repartition();
+    }
+
+    public static io.greptime.v1.Ddl.Repartition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Repartition>
+        PARSER = new com.google.protobuf.AbstractParser<Repartition>() {
+      @java.lang.Override
+      public Repartition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Repartition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Repartition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Repartition> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.Repartition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -53046,6 +54360,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_UnsetIndex_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_Repartition_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_Repartition_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_DropTableExpr_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -53295,7 +54614,7 @@ java.lang.String defaultValue);
       "time.v1.CreateTableExpr.TableOptionsEntr" +
       "y\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableI" +
       "d\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\312\005\n\016Alter" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\373\005\n\016Alter" +
       "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
       "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_" +
       "columns\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000" +
@@ -53313,124 +54632,128 @@ java.lang.String defaultValue);
       "exes\030\017 \001(\0132\027.greptime.v1.SetIndexesH\000\0222\n" +
       "\runset_indexes\030\020 \001(\0132\031.greptime.v1.Unset" +
       "IndexesH\000\0220\n\014set_defaults\030\021 \001(\0132\030.grepti" +
-      "me.v1.SetDefaultsH\000B\006\n\004kind\"\"\n\013DropDefau" +
-      "lt\022\023\n\013column_name\030\001 \001(\t\"8\n\nSetIndexes\022*\n" +
-      "\013set_indexes\030\001 \003(\0132\025.greptime.v1.SetInde" +
-      "x\">\n\014UnsetIndexes\022.\n\runset_indexes\030\001 \003(\013" +
-      "2\027.greptime.v1.UnsetIndex\"=\n\nSetDefault\022" +
-      "\023\n\013column_name\030\001 \001(\t\022\032\n\022default_constrai" +
-      "nt\030\002 \001(\014\"\237\001\n\010SetIndex\022,\n\010fulltext\030\001 \001(\0132" +
-      "\030.greptime.v1.SetFulltextH\000\022,\n\010inverted\030" +
-      "\002 \001(\0132\030.greptime.v1.SetInvertedH\000\022,\n\010ski" +
-      "pping\030\003 \001(\0132\030.greptime.v1.SetSkippingH\000B" +
-      "\t\n\007options\"\247\001\n\nUnsetIndex\022.\n\010fulltext\030\001 " +
-      "\001(\0132\032.greptime.v1.UnsetFulltextH\000\022.\n\010inv" +
-      "erted\030\002 \001(\0132\032.greptime.v1.UnsetInvertedH" +
-      "\000\022.\n\010skipping\030\003 \001(\0132\032.greptime.v1.UnsetS" +
-      "kippingH\000B\t\n\007options\"\216\001\n\rDropTableExpr\022\024" +
-      "\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(" +
-      "\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132" +
-      "\024.greptime.v1.TableId\022\026\n\016drop_if_exists\030" +
-      "\005 \001(\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024creat" +
-      "e_if_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132," +
-      ".greptime.v1.CreateDatabaseExpr.OptionsE" +
-      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"\250\001\n\021TruncateTableExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
-      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
-      "eptime.v1.TableId\022,\n\013time_ranges\030\005 \001(\0132\027" +
-      ".greptime.v1.TimeRanges\"U\n\020DropDatabaseE" +
-      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name" +
-      "\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddCol" +
-      "umns\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1." +
-      "AddColumn\"?\n\014DropDefaults\022/\n\rdrop_defaul" +
-      "ts\030\001 \003(\0132\030.greptime.v1.DropDefault\"<\n\013Se" +
-      "tDefaults\022-\n\014set_defaults\030\001 \003(\0132\027.grepti" +
-      "me.v1.SetDefault\"<\n\013DropColumns\022-\n\014drop_" +
-      "columns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O" +
-      "\n\021ModifyColumnTypes\022:\n\023modify_column_typ" +
-      "es\030\001 \003(\0132\035.greptime.v1.ModifyColumnType\"" +
-      "%\n\013RenameTable\022\026\n\016new_table_name\030\001 \001(\t\"\204" +
-      "\001\n\tAddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.grept" +
-      "ime.v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.gre" +
-      "ptime.v1.AddColumnLocation\022\031\n\021add_if_not" +
-      "_exists\030\004 \001(\010\"\236\001\n\020ModifyColumnType\022\023\n\013co" +
-      "lumn_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.g" +
-      "reptime.v1.ColumnDataType\022C\n\025target_type" +
-      "_extension\030\003 \001(\0132$.greptime.v1.ColumnDat" +
-      "aTypeExtension\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t\"=\n\017SetTableOptions\022*\n\rtable" +
-      "_options\030\001 \003(\0132\023.greptime.v1.Option\"!\n\021U" +
-      "nsetTableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropCo" +
-      "lumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(" +
-      "\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n" +
-      "\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptim" +
-      "e.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010" +
-      "\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemantic" +
-      "_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017" +
-      "\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007 " +
-      "\001(\0132$.greptime.v1.ColumnDataTypeExtensio" +
-      "n\022+\n\007options\030\010 \001(\0132\032.greptime.v1.ColumnO" +
-      "ptions\"\230\001\n\021AddColumnLocation\022B\n\rlocation" +
-      "_type\030\001 \001(\0162+.greptime.v1.AddColumnLocat" +
-      "ion.LocationType\022\031\n\021after_column_name\030\002 " +
-      "\001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020" +
-      "\001\"\324\001\n\013SetFulltext\022\023\n\013column_name\030\001 \001(\t\022\016" +
-      "\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.grept" +
-      "ime.v1.Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\022" +
-      "-\n\007backend\030\005 \001(\0162\034.greptime.v1.FulltextB" +
-      "ackend\022\023\n\013granularity\030\006 \001(\004\022\033\n\023false_pos" +
-      "itive_rate\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013col" +
-      "umn_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_" +
-      "name\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_na" +
-      "me\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n\013column_name\030" +
-      "\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 \001" +
-      "(\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.grepti" +
-      "me.v1.SkippingIndexType\022\033\n\023false_positiv" +
-      "e_rate\030\005 \001(\001\"$\n\rUnsetSkipping\022\023\n\013column_" +
-      "name\030\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014cata" +
-      "log_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024s" +
-      "et_database_options\030\003 \001(\0132\037.greptime.v1." +
-      "SetDatabaseOptionsH\000\022C\n\026unset_database_o" +
-      "ptions\030\004 \001(\0132!.greptime.v1.UnsetDatabase" +
-      "OptionsH\000B\006\n\004kind\"G\n\022SetDatabaseOptions\022" +
-      "1\n\024set_database_options\030\001 \003(\0132\023.greptime" +
-      ".v1.Option\"$\n\024UnsetDatabaseOptions\022\014\n\004ke" +
-      "ys\030\001 \003(\t\"\331\004\n\021CreateTriggerExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024cr" +
-      "eate_if_not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n" +
-      "\010channels\030\005 \003(\0132\032.greptime.v1.NotifyChan" +
-      "nel\022:\n\006labels\030\006 \003(\0132*.greptime.v1.Create" +
-      "TriggerExpr.LabelsEntry\022D\n\013annotations\030\007" +
-      " \003(\0132/.greptime.v1.CreateTriggerExpr.Ann" +
-      "otationsEntry\022+\n\010interval\030\010 \001(\0132\031.google" +
-      ".protobuf.Duration\022\031\n\021raw_interval_expr\030" +
-      "\t \001(\t\022&\n\003for\030\n \001(\0132\031.google.protobuf.Dur" +
-      "ation\022\024\n\014for_raw_expr\030\013 \001(\t\0222\n\017keep_firi" +
-      "ng_for\030\014 \001(\0132\031.google.protobuf.Duration\022" +
-      " \n\030keep_firing_for_raw_expr\030\r \001(\t\032-\n\013Lab" +
-      "elsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 " +
-      "\001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.Webho" +
-      "okOptionsH\000B\016\n\014channel_type\"\177\n\016WebhookOp" +
-      "tions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.grept" +
-      "ime.v1.WebhookOptions.OptsEntry\032+\n\tOptsE" +
-      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017" +
-      "DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n" +
-      "\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 " +
-      "\001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014catalog_name\030\001 " +
-      "\001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n\013object_type\030" +
-      "\003 \001(\0162\036.greptime.v1.CommentObjectType\022\023\n" +
-      "\013object_name\030\004 \001(\t\022\023\n\013column_name\030\005 \001(\t\022" +
-      "\017\n\007comment\030\006 \001(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020" +
-      "\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007TAN" +
-      "TIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType\022\020" +
-      "\n\014BLOOM_FILTER\020\000*4\n\021CommentObjectType\022\t\n" +
-      "\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io.gre" +
-      "ptime.v1B\003DdlZ5github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1b\006proto3"
+      "me.v1.SetDefaultsH\000\022/\n\013repartition\030\022 \001(\013" +
+      "2\030.greptime.v1.RepartitionH\000B\006\n\004kind\"\"\n\013" +
+      "DropDefault\022\023\n\013column_name\030\001 \001(\t\"8\n\nSetI" +
+      "ndexes\022*\n\013set_indexes\030\001 \003(\0132\025.greptime.v" +
+      "1.SetIndex\">\n\014UnsetIndexes\022.\n\runset_inde" +
+      "xes\030\001 \003(\0132\027.greptime.v1.UnsetIndex\"=\n\nSe" +
+      "tDefault\022\023\n\013column_name\030\001 \001(\t\022\032\n\022default" +
+      "_constraint\030\002 \001(\014\"\237\001\n\010SetIndex\022,\n\010fullte" +
+      "xt\030\001 \001(\0132\030.greptime.v1.SetFulltextH\000\022,\n\010" +
+      "inverted\030\002 \001(\0132\030.greptime.v1.SetInverted" +
+      "H\000\022,\n\010skipping\030\003 \001(\0132\030.greptime.v1.SetSk" +
+      "ippingH\000B\t\n\007options\"\247\001\n\nUnsetIndex\022.\n\010fu" +
+      "lltext\030\001 \001(\0132\032.greptime.v1.UnsetFulltext" +
+      "H\000\022.\n\010inverted\030\002 \001(\0132\032.greptime.v1.Unset" +
+      "InvertedH\000\022.\n\010skipping\030\003 \001(\0132\032.greptime." +
+      "v1.UnsetSkippingH\000B\t\n\007options\"W\n\013Reparti" +
+      "tion\022\034\n\024from_partition_exprs\030\001 \003(\t\022\034\n\024in" +
+      "to_partition_exprs\030\002 \003(\t\022\014\n\004wait\030\003 \001(\010\"\216" +
+      "\001\n\rDropTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
+      "\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022" +
+      "&\n\010table_id\030\004 \001(\0132\024.greptime.v1.TableId\022" +
+      "\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022CreateDataba" +
+      "seExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n" +
+      "ame\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022" +
+      "=\n\007options\030\004 \003(\0132,.greptime.v1.CreateDat" +
+      "abaseExpr.OptionsEntry\032.\n\014OptionsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\250\001\n\021Trunc" +
+      "ateTableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sc" +
+      "hema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010t" +
+      "able_id\030\004 \001(\0132\024.greptime.v1.TableId\022,\n\013t" +
+      "ime_ranges\030\005 \001(\0132\027.greptime.v1.TimeRange" +
+      "s\"U\n\020DropDatabaseExpr\022\024\n\014catalog_name\030\001 " +
+      "\001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_if_exis" +
+      "ts\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_columns\030\001 " +
+      "\003(\0132\026.greptime.v1.AddColumn\"?\n\014DropDefau" +
+      "lts\022/\n\rdrop_defaults\030\001 \003(\0132\030.greptime.v1" +
+      ".DropDefault\"<\n\013SetDefaults\022-\n\014set_defau" +
+      "lts\030\001 \003(\0132\027.greptime.v1.SetDefault\"<\n\013Dr" +
+      "opColumns\022-\n\014drop_columns\030\001 \003(\0132\027.grepti" +
+      "me.v1.DropColumn\"O\n\021ModifyColumnTypes\022:\n" +
+      "\023modify_column_types\030\001 \003(\0132\035.greptime.v1" +
+      ".ModifyColumnType\"%\n\013RenameTable\022\026\n\016new_" +
+      "table_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n\ncolumn" +
+      "_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\0220\n\010lo" +
+      "cation\030\003 \001(\0132\036.greptime.v1.AddColumnLoca" +
+      "tion\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236\001\n\020Modi" +
+      "fyColumnType\022\023\n\013column_name\030\001 \001(\t\0220\n\013tar" +
+      "get_type\030\002 \001(\0162\033.greptime.v1.ColumnDataT" +
+      "ype\022C\n\025target_type_extension\030\003 \001(\0132$.gre" +
+      "ptime.v1.ColumnDataTypeExtension\"$\n\006Opti" +
+      "on\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTab" +
+      "leOptions\022*\n\rtable_options\030\001 \003(\0132\023.grept" +
+      "ime.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004ke" +
+      "ys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007" +
+      "TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(" +
+      "\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_ty" +
+      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023\n" +
+      "\013is_nullable\030\003 \001(\010\022\032\n\022default_constraint" +
+      "\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime" +
+      ".v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022dat" +
+      "atype_extension\030\007 \001(\0132$.greptime.v1.Colu" +
+      "mnDataTypeExtension\022+\n\007options\030\010 \001(\0132\032.g" +
+      "reptime.v1.ColumnOptions\"\230\001\n\021AddColumnLo" +
+      "cation\022B\n\rlocation_type\030\001 \001(\0162+.greptime" +
+      ".v1.AddColumnLocation.LocationType\022\031\n\021af" +
+      "ter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n" +
+      "\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013c" +
+      "olumn_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010anal" +
+      "yzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016cas" +
+      "e_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.gre" +
+      "ptime.v1.FulltextBackend\022\023\n\013granularity\030" +
+      "\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rUn" +
+      "setFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetI" +
+      "nverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInv" +
+      "erted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkippi" +
+      "ng\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022" +
+      "\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_index_t" +
+      "ype\030\004 \001(\0162\036.greptime.v1.SkippingIndexTyp" +
+      "e\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\rUnsetS" +
+      "kipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDa" +
+      "tabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sche" +
+      "ma_name\030\002 \001(\t\022?\n\024set_database_options\030\003 " +
+      "\001(\0132\037.greptime.v1.SetDatabaseOptionsH\000\022C" +
+      "\n\026unset_database_options\030\004 \001(\0132!.greptim" +
+      "e.v1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022S" +
+      "etDatabaseOptions\0221\n\024set_database_option" +
+      "s\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024UnsetDat" +
+      "abaseOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTri" +
+      "ggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigge" +
+      "r_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001" +
+      "(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.grep" +
+      "time.v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*." +
+      "greptime.v1.CreateTriggerExpr.LabelsEntr" +
+      "y\022D\n\013annotations\030\007 \003(\0132/.greptime.v1.Cre" +
+      "ateTriggerExpr.AnnotationsEntry\022+\n\010inter" +
+      "val\030\010 \001(\0132\031.google.protobuf.Duration\022\031\n\021" +
+      "raw_interval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.g" +
+      "oogle.protobuf.Duration\022\024\n\014for_raw_expr\030" +
+      "\013 \001(\t\0222\n\017keep_firing_for\030\014 \001(\0132\031.google." +
+      "protobuf.Duration\022 \n\030keep_firing_for_raw" +
+      "_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotify" +
+      "Channel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033" +
+      ".greptime.v1.WebhookOptionsH\000B\016\n\014channel" +
+      "_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004" +
+      "opts\030\002 \003(\0132%.greptime.v1.WebhookOptions." +
+      "OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014cat" +
+      "alog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026\n" +
+      "\016drop_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022" +
+      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
+      "(\t\0223\n\013object_type\030\003 \001(\0162\036.greptime.v1.Co" +
+      "mmentObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n\013" +
+      "column_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010An" +
+      "alyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Full" +
+      "textBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021S" +
+      "kippingIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021Co" +
+      "mmentObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010" +
+      "\n\004FLOW\020\002BL\n\016io.greptime.v1B\003DdlZ5github." +
+      "com/GreptimeTeam/greptime-proto/go/grept" +
+      "ime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -53491,7 +54814,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "Repartition", "Kind", });
     internal_static_greptime_v1_DropDefault_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DropDefault_fieldAccessorTable = new
@@ -53528,14 +54851,20 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetIndex_descriptor,
         new java.lang.String[] { "Fulltext", "Inverted", "Skipping", "Options", });
-    internal_static_greptime_v1_DropTableExpr_descriptor =
+    internal_static_greptime_v1_Repartition_descriptor =
       getDescriptor().getMessageTypes().get(13);
+    internal_static_greptime_v1_Repartition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_Repartition_descriptor,
+        new java.lang.String[] { "FromPartitionExprs", "IntoPartitionExprs", "Wait", });
+    internal_static_greptime_v1_DropTableExpr_descriptor =
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_DropTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "DropIfExists", });
     internal_static_greptime_v1_CreateDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_CreateDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateDatabaseExpr_descriptor,
@@ -53547,169 +54876,169 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateDatabaseExpr_OptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_TruncateTableExpr_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_TruncateTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TruncateTableExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", "TimeRanges", });
     internal_static_greptime_v1_DropDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_DropDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "DropIfExists", });
     internal_static_greptime_v1_AddColumns_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_AddColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumns_descriptor,
         new java.lang.String[] { "AddColumns", });
     internal_static_greptime_v1_DropDefaults_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_DropDefaults_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropDefaults_descriptor,
         new java.lang.String[] { "DropDefaults", });
     internal_static_greptime_v1_SetDefaults_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_SetDefaults_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDefaults_descriptor,
         new java.lang.String[] { "SetDefaults", });
     internal_static_greptime_v1_DropColumns_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_greptime_v1_DropColumns_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumns_descriptor,
         new java.lang.String[] { "DropColumns", });
     internal_static_greptime_v1_ModifyColumnTypes_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_greptime_v1_ModifyColumnTypes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ModifyColumnTypes_descriptor,
         new java.lang.String[] { "ModifyColumnTypes", });
     internal_static_greptime_v1_RenameTable_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_greptime_v1_RenameTable_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_RenameTable_descriptor,
         new java.lang.String[] { "NewTableName", });
     internal_static_greptime_v1_AddColumn_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_greptime_v1_AddColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumn_descriptor,
         new java.lang.String[] { "ColumnDef", "Location", "AddIfNotExists", });
     internal_static_greptime_v1_ModifyColumnType_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_greptime_v1_ModifyColumnType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ModifyColumnType_descriptor,
         new java.lang.String[] { "ColumnName", "TargetType", "TargetTypeExtension", });
     internal_static_greptime_v1_Option_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_greptime_v1_Option_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Option_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_SetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_greptime_v1_SetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetTableOptions_descriptor,
         new java.lang.String[] { "TableOptions", });
     internal_static_greptime_v1_UnsetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_UnsetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetTableOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_TableId_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_TableId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_FlowId_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_FlowId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlowId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", "Options", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,
         new java.lang.String[] { "LocationType", "AfterColumnName", });
     internal_static_greptime_v1_SetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_SetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_UnsetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_UnsetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
     internal_static_greptime_v1_SetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDatabaseOptions_descriptor,
         new java.lang.String[] { "SetDatabaseOptions", });
     internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_CreateTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
@@ -53727,13 +55056,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_NotifyChannel_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_greptime_v1_NotifyChannel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_NotifyChannel_descriptor,
         new java.lang.String[] { "Name", "Webhook", "ChannelType", });
     internal_static_greptime_v1_WebhookOptions_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_greptime_v1_WebhookOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WebhookOptions_descriptor,
@@ -53745,13 +55074,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_greptime_v1_DropTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
     internal_static_greptime_v1_CommentOnExpr_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CommentOnExpr_descriptor,

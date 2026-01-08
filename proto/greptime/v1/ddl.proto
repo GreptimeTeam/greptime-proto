@@ -123,6 +123,7 @@ message AlterTableExpr {
     SetIndexes set_indexes = 15;
     UnsetIndexes unset_indexes = 16;
     SetDefaults set_defaults = 17;
+    Repartition repartition = 18;
   }
 }
 
@@ -158,6 +159,15 @@ message UnsetIndex {
     UnsetInverted inverted = 2;
     UnsetSkipping skipping = 3;
   }
+}
+
+message Repartition {
+  // The from partition expressions serialized in JSON format.
+  repeated string from_partition_exprs = 1;
+  // The into partition expressions serialized in JSON format.
+  repeated string into_partition_exprs = 2;
+  // Wait for the repartition to complete.
+  bool wait = 3;
 }
 
 message DropTableExpr {
