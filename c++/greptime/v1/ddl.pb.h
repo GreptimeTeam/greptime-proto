@@ -151,6 +151,9 @@ extern OptionDefaultTypeInternal _Option_default_instance_;
 class RenameTable;
 struct RenameTableDefaultTypeInternal;
 extern RenameTableDefaultTypeInternal _RenameTable_default_instance_;
+class Repartition;
+struct RepartitionDefaultTypeInternal;
+extern RepartitionDefaultTypeInternal _Repartition_default_instance_;
 class SetDatabaseOptions;
 struct SetDatabaseOptionsDefaultTypeInternal;
 extern SetDatabaseOptionsDefaultTypeInternal _SetDatabaseOptions_default_instance_;
@@ -247,6 +250,7 @@ template<> ::greptime::v1::ModifyColumnTypes* Arena::CreateMaybeMessage<::grepti
 template<> ::greptime::v1::NotifyChannel* Arena::CreateMaybeMessage<::greptime::v1::NotifyChannel>(Arena*);
 template<> ::greptime::v1::Option* Arena::CreateMaybeMessage<::greptime::v1::Option>(Arena*);
 template<> ::greptime::v1::RenameTable* Arena::CreateMaybeMessage<::greptime::v1::RenameTable>(Arena*);
+template<> ::greptime::v1::Repartition* Arena::CreateMaybeMessage<::greptime::v1::Repartition>(Arena*);
 template<> ::greptime::v1::SetDatabaseOptions* Arena::CreateMaybeMessage<::greptime::v1::SetDatabaseOptions>(Arena*);
 template<> ::greptime::v1::SetDefault* Arena::CreateMaybeMessage<::greptime::v1::SetDefault>(Arena*);
 template<> ::greptime::v1::SetDefaults* Arena::CreateMaybeMessage<::greptime::v1::SetDefaults>(Arena*);
@@ -2296,6 +2300,7 @@ class AlterTableExpr final :
     kSetIndexes = 15,
     kUnsetIndexes = 16,
     kSetDefaults = 17,
+    kRepartition = 18,
     KIND_NOT_SET = 0,
   };
 
@@ -2392,6 +2397,7 @@ class AlterTableExpr final :
     kSetIndexesFieldNumber = 15,
     kUnsetIndexesFieldNumber = 16,
     kSetDefaultsFieldNumber = 17,
+    kRepartitionFieldNumber = 18,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -2651,6 +2657,24 @@ class AlterTableExpr final :
       ::greptime::v1::SetDefaults* set_defaults);
   ::greptime::v1::SetDefaults* unsafe_arena_release_set_defaults();
 
+  // .greptime.v1.Repartition repartition = 18;
+  bool has_repartition() const;
+  private:
+  bool _internal_has_repartition() const;
+  public:
+  void clear_repartition();
+  const ::greptime::v1::Repartition& repartition() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Repartition* release_repartition();
+  ::greptime::v1::Repartition* mutable_repartition();
+  void set_allocated_repartition(::greptime::v1::Repartition* repartition);
+  private:
+  const ::greptime::v1::Repartition& _internal_repartition() const;
+  ::greptime::v1::Repartition* _internal_mutable_repartition();
+  public:
+  void unsafe_arena_set_allocated_repartition(
+      ::greptime::v1::Repartition* repartition);
+  ::greptime::v1::Repartition* unsafe_arena_release_repartition();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.AlterTableExpr)
@@ -2668,6 +2692,7 @@ class AlterTableExpr final :
   void set_has_set_indexes();
   void set_has_unset_indexes();
   void set_has_set_defaults();
+  void set_has_repartition();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -2694,6 +2719,7 @@ class AlterTableExpr final :
       ::greptime::v1::SetIndexes* set_indexes_;
       ::greptime::v1::UnsetIndexes* unset_indexes_;
       ::greptime::v1::SetDefaults* set_defaults_;
+      ::greptime::v1::Repartition* repartition_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3776,6 +3802,206 @@ class UnsetIndex final :
 };
 // -------------------------------------------------------------------
 
+class Repartition final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Repartition) */ {
+ public:
+  inline Repartition() : Repartition(nullptr) {}
+  ~Repartition() override;
+  explicit PROTOBUF_CONSTEXPR Repartition(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Repartition(const Repartition& from);
+  Repartition(Repartition&& from) noexcept
+    : Repartition() {
+    *this = ::std::move(from);
+  }
+
+  inline Repartition& operator=(const Repartition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Repartition& operator=(Repartition&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Repartition& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Repartition* internal_default_instance() {
+    return reinterpret_cast<const Repartition*>(
+               &_Repartition_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(Repartition& a, Repartition& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Repartition* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Repartition* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Repartition* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Repartition>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Repartition& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Repartition& from) {
+    Repartition::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Repartition* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.Repartition";
+  }
+  protected:
+  explicit Repartition(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFromPartitionExprsFieldNumber = 1,
+    kIntoPartitionExprsFieldNumber = 2,
+    kWaitFieldNumber = 3,
+  };
+  // repeated string from_partition_exprs = 1;
+  int from_partition_exprs_size() const;
+  private:
+  int _internal_from_partition_exprs_size() const;
+  public:
+  void clear_from_partition_exprs();
+  const std::string& from_partition_exprs(int index) const;
+  std::string* mutable_from_partition_exprs(int index);
+  void set_from_partition_exprs(int index, const std::string& value);
+  void set_from_partition_exprs(int index, std::string&& value);
+  void set_from_partition_exprs(int index, const char* value);
+  void set_from_partition_exprs(int index, const char* value, size_t size);
+  std::string* add_from_partition_exprs();
+  void add_from_partition_exprs(const std::string& value);
+  void add_from_partition_exprs(std::string&& value);
+  void add_from_partition_exprs(const char* value);
+  void add_from_partition_exprs(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& from_partition_exprs() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_from_partition_exprs();
+  private:
+  const std::string& _internal_from_partition_exprs(int index) const;
+  std::string* _internal_add_from_partition_exprs();
+  public:
+
+  // repeated string into_partition_exprs = 2;
+  int into_partition_exprs_size() const;
+  private:
+  int _internal_into_partition_exprs_size() const;
+  public:
+  void clear_into_partition_exprs();
+  const std::string& into_partition_exprs(int index) const;
+  std::string* mutable_into_partition_exprs(int index);
+  void set_into_partition_exprs(int index, const std::string& value);
+  void set_into_partition_exprs(int index, std::string&& value);
+  void set_into_partition_exprs(int index, const char* value);
+  void set_into_partition_exprs(int index, const char* value, size_t size);
+  std::string* add_into_partition_exprs();
+  void add_into_partition_exprs(const std::string& value);
+  void add_into_partition_exprs(std::string&& value);
+  void add_into_partition_exprs(const char* value);
+  void add_into_partition_exprs(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& into_partition_exprs() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_into_partition_exprs();
+  private:
+  const std::string& _internal_into_partition_exprs(int index) const;
+  std::string* _internal_add_into_partition_exprs();
+  public:
+
+  // bool wait = 3;
+  void clear_wait();
+  bool wait() const;
+  void set_wait(bool value);
+  private:
+  bool _internal_wait() const;
+  void _internal_set_wait(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.Repartition)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> from_partition_exprs_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> into_partition_exprs_;
+    bool wait_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DropTableExpr final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.DropTableExpr) */ {
  public:
@@ -3824,7 +4050,7 @@ class DropTableExpr final :
                &_DropTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(DropTableExpr& a, DropTableExpr& b) {
     a.Swap(&b);
@@ -4068,7 +4294,7 @@ class CreateDatabaseExpr final :
                &_CreateDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CreateDatabaseExpr& a, CreateDatabaseExpr& b) {
     a.Swap(&b);
@@ -4274,7 +4500,7 @@ class TruncateTableExpr final :
                &_TruncateTableExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(TruncateTableExpr& a, TruncateTableExpr& b) {
     a.Swap(&b);
@@ -4499,7 +4725,7 @@ class DropDatabaseExpr final :
                &_DropDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(DropDatabaseExpr& a, DropDatabaseExpr& b) {
     a.Swap(&b);
@@ -4679,7 +4905,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4836,7 +5062,7 @@ class DropDefaults final :
                &_DropDefaults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(DropDefaults& a, DropDefaults& b) {
     a.Swap(&b);
@@ -4993,7 +5219,7 @@ class SetDefaults final :
                &_SetDefaults_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(SetDefaults& a, SetDefaults& b) {
     a.Swap(&b);
@@ -5150,7 +5376,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -5307,7 +5533,7 @@ class ModifyColumnTypes final :
                &_ModifyColumnTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(ModifyColumnTypes& a, ModifyColumnTypes& b) {
     a.Swap(&b);
@@ -5464,7 +5690,7 @@ class RenameTable final :
                &_RenameTable_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(RenameTable& a, RenameTable& b) {
     a.Swap(&b);
@@ -5617,7 +5843,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -5805,7 +6031,7 @@ class ModifyColumnType final :
                &_ModifyColumnType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(ModifyColumnType& a, ModifyColumnType& b) {
     a.Swap(&b);
@@ -5989,7 +6215,7 @@ class Option final :
                &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(Option& a, Option& b) {
     a.Swap(&b);
@@ -6158,7 +6384,7 @@ class SetTableOptions final :
                &_SetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(SetTableOptions& a, SetTableOptions& b) {
     a.Swap(&b);
@@ -6315,7 +6541,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -6478,7 +6704,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -6631,7 +6857,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -6779,7 +7005,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -6927,7 +7153,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -7185,7 +7411,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -7379,7 +7605,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -7598,7 +7824,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -7751,7 +7977,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -7904,7 +8130,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -8057,7 +8283,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -8254,7 +8480,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -8413,7 +8639,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -8635,7 +8861,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -8792,7 +9018,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -9011,7 +9237,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -9389,7 +9615,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -9602,7 +9828,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -9781,7 +10007,7 @@ class DropTriggerExpr final :
                &_DropTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(DropTriggerExpr& a, DropTriggerExpr& b) {
     a.Swap(&b);
@@ -9961,7 +10187,7 @@ class CommentOnExpr final :
                &_CommentOnExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(CommentOnExpr& a, CommentOnExpr& b) {
     a.Swap(&b);
@@ -14101,6 +14327,80 @@ inline ::greptime::v1::SetDefaults* AlterTableExpr::mutable_set_defaults() {
   return _msg;
 }
 
+// .greptime.v1.Repartition repartition = 18;
+inline bool AlterTableExpr::_internal_has_repartition() const {
+  return kind_case() == kRepartition;
+}
+inline bool AlterTableExpr::has_repartition() const {
+  return _internal_has_repartition();
+}
+inline void AlterTableExpr::set_has_repartition() {
+  _impl_._oneof_case_[0] = kRepartition;
+}
+inline void AlterTableExpr::clear_repartition() {
+  if (_internal_has_repartition()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.repartition_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::Repartition* AlterTableExpr::release_repartition() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterTableExpr.repartition)
+  if (_internal_has_repartition()) {
+    clear_has_kind();
+    ::greptime::v1::Repartition* temp = _impl_.kind_.repartition_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.repartition_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::Repartition& AlterTableExpr::_internal_repartition() const {
+  return _internal_has_repartition()
+      ? *_impl_.kind_.repartition_
+      : reinterpret_cast< ::greptime::v1::Repartition&>(::greptime::v1::_Repartition_default_instance_);
+}
+inline const ::greptime::v1::Repartition& AlterTableExpr::repartition() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterTableExpr.repartition)
+  return _internal_repartition();
+}
+inline ::greptime::v1::Repartition* AlterTableExpr::unsafe_arena_release_repartition() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterTableExpr.repartition)
+  if (_internal_has_repartition()) {
+    clear_has_kind();
+    ::greptime::v1::Repartition* temp = _impl_.kind_.repartition_;
+    _impl_.kind_.repartition_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterTableExpr::unsafe_arena_set_allocated_repartition(::greptime::v1::Repartition* repartition) {
+  clear_kind();
+  if (repartition) {
+    set_has_repartition();
+    _impl_.kind_.repartition_ = repartition;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterTableExpr.repartition)
+}
+inline ::greptime::v1::Repartition* AlterTableExpr::_internal_mutable_repartition() {
+  if (!_internal_has_repartition()) {
+    clear_kind();
+    set_has_repartition();
+    _impl_.kind_.repartition_ = CreateMaybeMessage< ::greptime::v1::Repartition >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.repartition_;
+}
+inline ::greptime::v1::Repartition* AlterTableExpr::mutable_repartition() {
+  ::greptime::v1::Repartition* _msg = _internal_mutable_repartition();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterTableExpr.repartition)
+  return _msg;
+}
+
 inline bool AlterTableExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -14826,6 +15126,180 @@ inline void UnsetIndex::clear_has_options() {
 inline UnsetIndex::OptionsCase UnsetIndex::options_case() const {
   return UnsetIndex::OptionsCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// Repartition
+
+// repeated string from_partition_exprs = 1;
+inline int Repartition::_internal_from_partition_exprs_size() const {
+  return _impl_.from_partition_exprs_.size();
+}
+inline int Repartition::from_partition_exprs_size() const {
+  return _internal_from_partition_exprs_size();
+}
+inline void Repartition::clear_from_partition_exprs() {
+  _impl_.from_partition_exprs_.Clear();
+}
+inline std::string* Repartition::add_from_partition_exprs() {
+  std::string* _s = _internal_add_from_partition_exprs();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.Repartition.from_partition_exprs)
+  return _s;
+}
+inline const std::string& Repartition::_internal_from_partition_exprs(int index) const {
+  return _impl_.from_partition_exprs_.Get(index);
+}
+inline const std::string& Repartition::from_partition_exprs(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Repartition.from_partition_exprs)
+  return _internal_from_partition_exprs(index);
+}
+inline std::string* Repartition::mutable_from_partition_exprs(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Repartition.from_partition_exprs)
+  return _impl_.from_partition_exprs_.Mutable(index);
+}
+inline void Repartition::set_from_partition_exprs(int index, const std::string& value) {
+  _impl_.from_partition_exprs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::set_from_partition_exprs(int index, std::string&& value) {
+  _impl_.from_partition_exprs_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::set_from_partition_exprs(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.from_partition_exprs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::set_from_partition_exprs(int index, const char* value, size_t size) {
+  _impl_.from_partition_exprs_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.Repartition.from_partition_exprs)
+}
+inline std::string* Repartition::_internal_add_from_partition_exprs() {
+  return _impl_.from_partition_exprs_.Add();
+}
+inline void Repartition::add_from_partition_exprs(const std::string& value) {
+  _impl_.from_partition_exprs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::add_from_partition_exprs(std::string&& value) {
+  _impl_.from_partition_exprs_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::add_from_partition_exprs(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.from_partition_exprs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.Repartition.from_partition_exprs)
+}
+inline void Repartition::add_from_partition_exprs(const char* value, size_t size) {
+  _impl_.from_partition_exprs_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.Repartition.from_partition_exprs)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Repartition::from_partition_exprs() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Repartition.from_partition_exprs)
+  return _impl_.from_partition_exprs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Repartition::mutable_from_partition_exprs() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Repartition.from_partition_exprs)
+  return &_impl_.from_partition_exprs_;
+}
+
+// repeated string into_partition_exprs = 2;
+inline int Repartition::_internal_into_partition_exprs_size() const {
+  return _impl_.into_partition_exprs_.size();
+}
+inline int Repartition::into_partition_exprs_size() const {
+  return _internal_into_partition_exprs_size();
+}
+inline void Repartition::clear_into_partition_exprs() {
+  _impl_.into_partition_exprs_.Clear();
+}
+inline std::string* Repartition::add_into_partition_exprs() {
+  std::string* _s = _internal_add_into_partition_exprs();
+  // @@protoc_insertion_point(field_add_mutable:greptime.v1.Repartition.into_partition_exprs)
+  return _s;
+}
+inline const std::string& Repartition::_internal_into_partition_exprs(int index) const {
+  return _impl_.into_partition_exprs_.Get(index);
+}
+inline const std::string& Repartition::into_partition_exprs(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Repartition.into_partition_exprs)
+  return _internal_into_partition_exprs(index);
+}
+inline std::string* Repartition::mutable_into_partition_exprs(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Repartition.into_partition_exprs)
+  return _impl_.into_partition_exprs_.Mutable(index);
+}
+inline void Repartition::set_into_partition_exprs(int index, const std::string& value) {
+  _impl_.into_partition_exprs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::set_into_partition_exprs(int index, std::string&& value) {
+  _impl_.into_partition_exprs_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::set_into_partition_exprs(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.into_partition_exprs_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::set_into_partition_exprs(int index, const char* value, size_t size) {
+  _impl_.into_partition_exprs_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:greptime.v1.Repartition.into_partition_exprs)
+}
+inline std::string* Repartition::_internal_add_into_partition_exprs() {
+  return _impl_.into_partition_exprs_.Add();
+}
+inline void Repartition::add_into_partition_exprs(const std::string& value) {
+  _impl_.into_partition_exprs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::add_into_partition_exprs(std::string&& value) {
+  _impl_.into_partition_exprs_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::add_into_partition_exprs(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.into_partition_exprs_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:greptime.v1.Repartition.into_partition_exprs)
+}
+inline void Repartition::add_into_partition_exprs(const char* value, size_t size) {
+  _impl_.into_partition_exprs_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:greptime.v1.Repartition.into_partition_exprs)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Repartition::into_partition_exprs() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.Repartition.into_partition_exprs)
+  return _impl_.into_partition_exprs_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Repartition::mutable_into_partition_exprs() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.Repartition.into_partition_exprs)
+  return &_impl_.into_partition_exprs_;
+}
+
+// bool wait = 3;
+inline void Repartition::clear_wait() {
+  _impl_.wait_ = false;
+}
+inline bool Repartition::_internal_wait() const {
+  return _impl_.wait_;
+}
+inline bool Repartition::wait() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Repartition.wait)
+  return _internal_wait();
+}
+inline void Repartition::_internal_set_wait(bool value) {
+  
+  _impl_.wait_ = value;
+}
+inline void Repartition::set_wait(bool value) {
+  _internal_set_wait(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.wait)
+}
+
 // -------------------------------------------------------------------
 
 // DropTableExpr
@@ -19334,6 +19808,8 @@ inline void CommentOnExpr::set_allocated_comment(std::string* comment) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
