@@ -6151,7 +6151,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint32 cpus = 4 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=97
+     *     See greptime/v1/meta/heartbeat.proto;l=96
      * @return The cpus.
      */
     @java.lang.Deprecated int getCpus();
@@ -6163,7 +6163,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=99
+     *     See greptime/v1/meta/heartbeat.proto;l=98
      * @return The memoryBytes.
      */
     @java.lang.Deprecated long getMemoryBytes();
@@ -6479,7 +6479,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint32 cpus = 4 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=97
+     *     See greptime/v1/meta/heartbeat.proto;l=96
      * @return The cpus.
      */
     @java.lang.Override
@@ -6496,7 +6496,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=99
+     *     See greptime/v1/meta/heartbeat.proto;l=98
      * @return The memoryBytes.
      */
     @java.lang.Override
@@ -7314,7 +7314,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=97
+       *     See greptime/v1/meta/heartbeat.proto;l=96
        * @return The cpus.
        */
       @java.lang.Override
@@ -7328,7 +7328,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=97
+       *     See greptime/v1/meta/heartbeat.proto;l=96
        * @param value The cpus to set.
        * @return This builder for chaining.
        */
@@ -7345,7 +7345,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=97
+       *     See greptime/v1/meta/heartbeat.proto;l=96
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearCpus() {
@@ -7363,7 +7363,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=99
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @return The memoryBytes.
        */
       @java.lang.Override
@@ -7377,7 +7377,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=99
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @param value The memoryBytes to set.
        * @return This builder for chaining.
        */
@@ -7394,7 +7394,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=99
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearMemoryBytes() {

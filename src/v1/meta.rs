@@ -18,7 +18,7 @@ mod mailbox;
 
 use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
-use std::hash::{Hash, Hasher};
+use std::hash::Hash;
 
 pub const PROTOCOL_VERSION: u64 = 1;
 
@@ -47,16 +47,6 @@ impl PeerDict {
         array
     }
 }
-
-#[allow(clippy::derived_hash_with_manual_eq)]
-impl Hash for Peer {
-    fn hash<H: Hasher>(&self, state: &mut H) {
-        self.id.hash(state);
-        self.addr.hash(state);
-    }
-}
-
-impl Eq for Peer {}
 
 impl Display for Peer {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {

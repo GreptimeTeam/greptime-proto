@@ -20,7 +20,7 @@ fn main() {
             .expect("cargo built-in env value 'OUT_DIR' must be set during compilation"),
     );
 
-    tonic_build::configure()
+    tonic_prost_build::configure()
         .file_descriptor_set_path(out_dir.join("greptime_grpc_desc.bin"))
         .type_attribute(
             ".greptime.v1.SemanticType",
@@ -50,7 +50,7 @@ fn main() {
             "region.RegionRequest.body",
             "#[derive(strum_macros::AsRefStr)]",
         )
-        .bytes([".greptime.v1.ArrowIpc"])
+        .bytes(".greptime.v1.ArrowIpc")
         .compile_protos(
             &[
                 "proto/greptime/v1/database.proto",
