@@ -22,6 +22,9 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ProcedureServiceClient interface {
+	// Watch a submitted procedure state,
+	// Returns the procedure state updates in real time.
+	Watch(ctx context.Context, in *WatchProcedureRequest, opts ...grpc.CallOption) (ProcedureService_WatchClient, error)
 	// Query a submitted procedure state
 	Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error)
 	// Submits a DDL task
@@ -40,6 +43,38 @@ type procedureServiceClient struct {
 
 func NewProcedureServiceClient(cc grpc.ClientConnInterface) ProcedureServiceClient {
 	return &procedureServiceClient{cc}
+}
+
+func (c *procedureServiceClient) Watch(ctx context.Context, in *WatchProcedureRequest, opts ...grpc.CallOption) (ProcedureService_WatchClient, error) {
+	stream, err := c.cc.NewStream(ctx, &ProcedureService_ServiceDesc.Streams[0], "/greptime.v1.meta.ProcedureService/Watch", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &procedureServiceWatchClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type ProcedureService_WatchClient interface {
+	Recv() (*WatchProcedureResponse, error)
+	grpc.ClientStream
+}
+
+type procedureServiceWatchClient struct {
+	grpc.ClientStream
+}
+
+func (x *procedureServiceWatchClient) Recv() (*WatchProcedureResponse, error) {
+	m := new(WatchProcedureResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 func (c *procedureServiceClient) Query(ctx context.Context, in *QueryProcedureRequest, opts ...grpc.CallOption) (*ProcedureStateResponse, error) {
@@ -91,6 +126,9 @@ func (c *procedureServiceClient) Details(ctx context.Context, in *ProcedureDetai
 // All implementations must embed UnimplementedProcedureServiceServer
 // for forward compatibility
 type ProcedureServiceServer interface {
+	// Watch a submitted procedure state,
+	// Returns the procedure state updates in real time.
+	Watch(*WatchProcedureRequest, ProcedureService_WatchServer) error
 	// Query a submitted procedure state
 	Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error)
 	// Submits a DDL task
@@ -108,6 +146,9 @@ type ProcedureServiceServer interface {
 type UnimplementedProcedureServiceServer struct {
 }
 
+func (UnimplementedProcedureServiceServer) Watch(*WatchProcedureRequest, ProcedureService_WatchServer) error {
+	return status.Errorf(codes.Unimplemented, "method Watch not implemented")
+}
 func (UnimplementedProcedureServiceServer) Query(context.Context, *QueryProcedureRequest) (*ProcedureStateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
 }
@@ -134,6 +175,27 @@ type UnsafeProcedureServiceServer interface {
 
 func RegisterProcedureServiceServer(s grpc.ServiceRegistrar, srv ProcedureServiceServer) {
 	s.RegisterService(&ProcedureService_ServiceDesc, srv)
+}
+
+func _ProcedureService_Watch_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(WatchProcedureRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(ProcedureServiceServer).Watch(m, &procedureServiceWatchServer{stream})
+}
+
+type ProcedureService_WatchServer interface {
+	Send(*WatchProcedureResponse) error
+	grpc.ServerStream
+}
+
+type procedureServiceWatchServer struct {
+	grpc.ServerStream
+}
+
+func (x *procedureServiceWatchServer) Send(m *WatchProcedureResponse) error {
+	return x.ServerStream.SendMsg(m)
 }
 
 func _ProcedureService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -254,6 +316,12 @@ var ProcedureService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ProcedureService_Details_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Watch",
+			Handler:       _ProcedureService_Watch_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "greptime/v1/meta/procedure.proto",
 }

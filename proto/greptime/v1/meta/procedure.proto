@@ -9,6 +9,7 @@ package greptime.v1.meta;
 import "greptime/v1/meta/common.proto";
 import "greptime/v1/meta/ddl.proto";
 import "greptime/v1/meta/region.proto";
+import "greptime/v1/ddl.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/meta";
 
@@ -41,6 +42,25 @@ message ProcedureStateResponse {
   ResponseHeader header = 1;
   ProcedureStatus status = 2;
   string error = 3;
+}
+
+message WatchProcedureRequest {
+  RequestHeader header = 1;
+  ProcedureId pid = 2;
+}
+
+message CreateTableOutput {
+  // Returns if the tables created.
+  repeated TableId table_ids = 1;
+}
+
+message WatchProcedureResponse {
+  ResponseHeader header = 1;
+  ProcedureStatus status = 2;
+  string error = 3;
+  oneof output {
+    CreateTableOutput create_table_output = 4;
+  }
 }
 
 message ProcedureDetailRequest {
@@ -93,6 +113,10 @@ message ReconcileResponse {
 }
 
 service ProcedureService {
+  // Watch a submitted procedure state, 
+  // Returns the procedure state updates in real time.
+  rpc Watch(WatchProcedureRequest) returns (stream WatchProcedureResponse);
+
   // Query a submitted procedure state
   rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
 

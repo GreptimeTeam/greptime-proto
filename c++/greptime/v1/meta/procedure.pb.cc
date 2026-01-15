@@ -71,6 +71,50 @@ struct ProcedureStateResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureStateResponseDefaultTypeInternal _ProcedureStateResponse_default_instance_;
+PROTOBUF_CONSTEXPR WatchProcedureRequest::WatchProcedureRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.pid_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct WatchProcedureRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WatchProcedureRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WatchProcedureRequestDefaultTypeInternal() {}
+  union {
+    WatchProcedureRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WatchProcedureRequestDefaultTypeInternal _WatchProcedureRequest_default_instance_;
+PROTOBUF_CONSTEXPR CreateTableOutput::CreateTableOutput(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.table_ids_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CreateTableOutputDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CreateTableOutputDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CreateTableOutputDefaultTypeInternal() {}
+  union {
+    CreateTableOutput _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CreateTableOutputDefaultTypeInternal _CreateTableOutput_default_instance_;
+PROTOBUF_CONSTEXPR WatchProcedureResponse::WatchProcedureResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.error_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.status_)*/0
+  , /*decltype(_impl_.output_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
+struct WatchProcedureResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WatchProcedureResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WatchProcedureResponseDefaultTypeInternal() {}
+  union {
+    WatchProcedureResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WatchProcedureResponseDefaultTypeInternal _WatchProcedureResponse_default_instance_;
 PROTOBUF_CONSTEXPR ProcedureDetailRequest::ProcedureDetailRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
@@ -177,7 +221,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[13];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto = nullptr;
 
@@ -212,6 +256,32 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureStateResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureStateResponse, _impl_.status_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureStateResponse, _impl_.error_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureRequest, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureRequest, _impl_.pid_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateTableOutput, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::CreateTableOutput, _impl_.table_ids_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _impl_._oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _impl_.status_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _impl_.error_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::WatchProcedureResponse, _impl_.output_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureDetailRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -280,19 +350,25 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, -1, -1, sizeof(::greptime::v1::meta::ProcedureMeta)},
   { 13, -1, -1, sizeof(::greptime::v1::meta::QueryProcedureRequest)},
   { 21, -1, -1, sizeof(::greptime::v1::meta::ProcedureStateResponse)},
-  { 30, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
-  { 37, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
-  { 45, -1, -1, sizeof(::greptime::v1::meta::ReconcileTable)},
-  { 55, -1, -1, sizeof(::greptime::v1::meta::ReconcileDatabase)},
-  { 65, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
-  { 74, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
-  { 85, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
+  { 30, -1, -1, sizeof(::greptime::v1::meta::WatchProcedureRequest)},
+  { 38, -1, -1, sizeof(::greptime::v1::meta::CreateTableOutput)},
+  { 45, -1, -1, sizeof(::greptime::v1::meta::WatchProcedureResponse)},
+  { 56, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailRequest)},
+  { 63, -1, -1, sizeof(::greptime::v1::meta::ProcedureDetailResponse)},
+  { 71, -1, -1, sizeof(::greptime::v1::meta::ReconcileTable)},
+  { 81, -1, -1, sizeof(::greptime::v1::meta::ReconcileDatabase)},
+  { 91, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
+  { 100, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
+  { 111, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_ProcedureMeta_default_instance_._instance,
   &::greptime::v1::meta::_QueryProcedureRequest_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureStateResponse_default_instance_._instance,
+  &::greptime::v1::meta::_WatchProcedureRequest_default_instance_._instance,
+  &::greptime::v1::meta::_CreateTableOutput_default_instance_._instance,
+  &::greptime::v1::meta::_WatchProcedureResponse_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureDetailRequest_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureDetailResponse_default_instance_._instance,
   &::greptime::v1::meta::_ReconcileTable_default_instance_._instance,
@@ -306,73 +382,87 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "\n greptime/v1/meta/procedure.proto\022\020grep"
   "time.v1.meta\032\035greptime/v1/meta/common.pr"
   "oto\032\032greptime/v1/meta/ddl.proto\032\035greptim"
-  "e/v1/meta/region.proto\"\316\001\n\rProcedureMeta"
-  "\022)\n\002id\030\001 \001(\0132\035.greptime.v1.meta.Procedur"
-  "eId\022\021\n\ttype_name\030\002 \001(\t\0221\n\006status\030\003 \001(\0162!"
-  ".greptime.v1.meta.ProcedureStatus\022\025\n\rsta"
-  "rt_time_ms\030\004 \001(\003\022\023\n\013end_time_ms\030\005 \001(\003\022\021\n"
-  "\tlock_keys\030\006 \003(\t\022\r\n\005error\030\007 \001(\t\"t\n\025Query"
-  "ProcedureRequest\022/\n\006header\030\001 \001(\0132\037.grept"
-  "ime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001(\0132\035"
-  ".greptime.v1.meta.ProcedureId\"\214\001\n\026Proced"
-  "ureStateResponse\0220\n\006header\030\001 \001(\0132 .grept"
-  "ime.v1.meta.ResponseHeader\0221\n\006status\030\002 \001"
-  "(\0162!.greptime.v1.meta.ProcedureStatus\022\r\n"
-  "\005error\030\003 \001(\t\"I\n\026ProcedureDetailRequest\022/"
-  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
-  "tHeader\"\200\001\n\027ProcedureDetailResponse\0220\n\006h"
-  "eader\030\001 \001(\0132 .greptime.v1.meta.ResponseH"
-  "eader\0223\n\nprocedures\030\002 \003(\0132\037.greptime.v1."
-  "meta.ProcedureMeta\"\214\001\n\016ReconcileTable\022\024\n"
-  "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t"
-  "\022\022\n\ntable_name\030\003 \001(\t\022;\n\020resolve_strategy"
-  "\030\004 \001(\0162!.greptime.v1.meta.ResolveStrateg"
-  "y\"\222\001\n\021ReconcileDatabase\022\024\n\014catalog_name\030"
-  "\001 \001(\t\022\025\n\rdatabase_name\030\002 \001(\t\022\023\n\013parallel"
-  "ism\030\003 \001(\r\022;\n\020resolve_strategy\030\004 \001(\0162!.gr"
-  "eptime.v1.meta.ResolveStrategy\"z\n\020Reconc"
-  "ileCatalog\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013para"
-  "llelism\030\002 \001(\r\022;\n\020resolve_strategy\030\003 \001(\0162"
-  "!.greptime.v1.meta.ResolveStrategy\"\216\002\n\020R"
-  "econcileRequest\022/\n\006header\030\001 \001(\0132\037.grepti"
-  "me.v1.meta.RequestHeader\022;\n\017reconcile_ta"
-  "ble\030\002 \001(\0132 .greptime.v1.meta.ReconcileTa"
-  "bleH\000\022A\n\022reconcile_database\030\003 \001(\0132#.grep"
-  "time.v1.meta.ReconcileDatabaseH\000\022\?\n\021reco"
-  "ncile_catalog\030\004 \001(\0132\".greptime.v1.meta.R"
-  "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile"
-  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
-  "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti"
-  "me.v1.meta.ProcedureId*v\n\017ProcedureStatu"
-  "s\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n"
-  "\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rolli"
-  "ngBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrateg"
-  "y\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017Abor"
-  "tOnConflict\020\0022\314\003\n\020ProcedureService\022Z\n\005qu"
-  "ery\022\'.greptime.v1.meta.QueryProcedureReq"
-  "uest\032(.greptime.v1.meta.ProcedureStateRe"
-  "sponse\022J\n\003ddl\022 .greptime.v1.meta.DdlTask"
-  "Request\032!.greptime.v1.meta.DdlTaskRespon"
-  "se\022T\n\treconcile\022\".greptime.v1.meta.Recon"
-  "cileRequest\032#.greptime.v1.meta.Reconcile"
-  "Response\022Z\n\007migrate\022&.greptime.v1.meta.M"
-  "igrateRegionRequest\032\'.greptime.v1.meta.M"
-  "igrateRegionResponse\022^\n\007details\022(.grepti"
-  "me.v1.meta.ProcedureDetailRequest\032).grep"
-  "time.v1.meta.ProcedureDetailResponseB<Z:"
-  "github.com/GreptimeTeam/greptime-proto/g"
-  "o/greptime/v1/metab\006proto3"
+  "e/v1/meta/region.proto\032\025greptime/v1/ddl."
+  "proto\"\316\001\n\rProcedureMeta\022)\n\002id\030\001 \001(\0132\035.gr"
+  "eptime.v1.meta.ProcedureId\022\021\n\ttype_name\030"
+  "\002 \001(\t\0221\n\006status\030\003 \001(\0162!.greptime.v1.meta"
+  ".ProcedureStatus\022\025\n\rstart_time_ms\030\004 \001(\003\022"
+  "\023\n\013end_time_ms\030\005 \001(\003\022\021\n\tlock_keys\030\006 \003(\t\022"
+  "\r\n\005error\030\007 \001(\t\"t\n\025QueryProcedureRequest\022"
+  "/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reque"
+  "stHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta"
+  ".ProcedureId\"\214\001\n\026ProcedureStateResponse\022"
+  "0\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respo"
+  "nseHeader\0221\n\006status\030\002 \001(\0162!.greptime.v1."
+  "meta.ProcedureStatus\022\r\n\005error\030\003 \001(\t\"t\n\025W"
+  "atchProcedureRequest\022/\n\006header\030\001 \001(\0132\037.g"
+  "reptime.v1.meta.RequestHeader\022*\n\003pid\030\002 \001"
+  "(\0132\035.greptime.v1.meta.ProcedureId\"<\n\021Cre"
+  "ateTableOutput\022\'\n\ttable_ids\030\001 \003(\0132\024.grep"
+  "time.v1.TableId\"\332\001\n\026WatchProcedureRespon"
+  "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re"
+  "sponseHeader\0221\n\006status\030\002 \001(\0162!.greptime."
+  "v1.meta.ProcedureStatus\022\r\n\005error\030\003 \001(\t\022B"
+  "\n\023create_table_output\030\004 \001(\0132#.greptime.v"
+  "1.meta.CreateTableOutputH\000B\010\n\006output\"I\n\026"
+  "ProcedureDetailRequest\022/\n\006header\030\001 \001(\0132\037"
+  ".greptime.v1.meta.RequestHeader\"\200\001\n\027Proc"
+  "edureDetailResponse\0220\n\006header\030\001 \001(\0132 .gr"
+  "eptime.v1.meta.ResponseHeader\0223\n\nprocedu"
+  "res\030\002 \003(\0132\037.greptime.v1.meta.ProcedureMe"
+  "ta\"\214\001\n\016ReconcileTable\022\024\n\014catalog_name\030\001 "
+  "\001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003"
+  " \001(\t\022;\n\020resolve_strategy\030\004 \001(\0162!.greptim"
+  "e.v1.meta.ResolveStrategy\"\222\001\n\021ReconcileD"
+  "atabase\022\024\n\014catalog_name\030\001 \001(\t\022\025\n\rdatabas"
+  "e_name\030\002 \001(\t\022\023\n\013parallelism\030\003 \001(\r\022;\n\020res"
+  "olve_strategy\030\004 \001(\0162!.greptime.v1.meta.R"
+  "esolveStrategy\"z\n\020ReconcileCatalog\022\024\n\014ca"
+  "talog_name\030\001 \001(\t\022\023\n\013parallelism\030\002 \001(\r\022;\n"
+  "\020resolve_strategy\030\003 \001(\0162!.greptime.v1.me"
+  "ta.ResolveStrategy\"\216\002\n\020ReconcileRequest\022"
+  "/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reque"
+  "stHeader\022;\n\017reconcile_table\030\002 \001(\0132 .grep"
+  "time.v1.meta.ReconcileTableH\000\022A\n\022reconci"
+  "le_database\030\003 \001(\0132#.greptime.v1.meta.Rec"
+  "oncileDatabaseH\000\022\?\n\021reconcile_catalog\030\004 "
+  "\001(\0132\".greptime.v1.meta.ReconcileCatalogH"
+  "\000B\010\n\006target\"q\n\021ReconcileResponse\0220\n\006head"
+  "er\030\001 \001(\0132 .greptime.v1.meta.ResponseHead"
+  "er\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Proce"
+  "dureId*v\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010"
+  "\n\004Done\020\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017Pr"
+  "epareRollback\020\004\022\017\n\013RollingBack\020\005\022\014\n\010Pois"
+  "oned\020\006*E\n\017ResolveStrategy\022\r\n\tUseLatest\020\000"
+  "\022\016\n\nUseMetasrv\020\001\022\023\n\017AbortOnConflict\020\0022\252\004"
+  "\n\020ProcedureService\022\\\n\005Watch\022\'.greptime.v"
+  "1.meta.WatchProcedureRequest\032(.greptime."
+  "v1.meta.WatchProcedureResponse0\001\022Z\n\005quer"
+  "y\022\'.greptime.v1.meta.QueryProcedureReque"
+  "st\032(.greptime.v1.meta.ProcedureStateResp"
+  "onse\022J\n\003ddl\022 .greptime.v1.meta.DdlTaskRe"
+  "quest\032!.greptime.v1.meta.DdlTaskResponse"
+  "\022T\n\treconcile\022\".greptime.v1.meta.Reconci"
+  "leRequest\032#.greptime.v1.meta.ReconcileRe"
+  "sponse\022Z\n\007migrate\022&.greptime.v1.meta.Mig"
+  "rateRegionRequest\032\'.greptime.v1.meta.Mig"
+  "rateRegionResponse\022^\n\007details\022(.greptime"
+  ".v1.meta.ProcedureDetailRequest\032).grepti"
+  "me.v1.meta.ProcedureDetailResponseB<Z:gi"
+  "thub.com/GreptimeTeam/greptime-proto/go/"
+  "greptime/v1/metab\006proto3"
   ;
-static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[4] = {
+  &::descriptor_table_greptime_2fv1_2fddl_2eproto,
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
   &::descriptor_table_greptime_2fv1_2fmeta_2fddl_2eproto,
   &::descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 2346, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 2864, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 10,
+    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 4, 13,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
@@ -1385,6 +1475,826 @@ void ProcedureStateResponse::InternalSwap(ProcedureStateResponse* other) {
 
 // ===================================================================
 
+class WatchProcedureRequest::_Internal {
+ public:
+  static const ::greptime::v1::meta::RequestHeader& header(const WatchProcedureRequest* msg);
+  static const ::greptime::v1::meta::ProcedureId& pid(const WatchProcedureRequest* msg);
+};
+
+const ::greptime::v1::meta::RequestHeader&
+WatchProcedureRequest::_Internal::header(const WatchProcedureRequest* msg) {
+  return *msg->_impl_.header_;
+}
+const ::greptime::v1::meta::ProcedureId&
+WatchProcedureRequest::_Internal::pid(const WatchProcedureRequest* msg) {
+  return *msg->_impl_.pid_;
+}
+void WatchProcedureRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+void WatchProcedureRequest::clear_pid() {
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
+}
+WatchProcedureRequest::WatchProcedureRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.WatchProcedureRequest)
+}
+WatchProcedureRequest::WatchProcedureRequest(const WatchProcedureRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  WatchProcedureRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_pid()) {
+    _this->_impl_.pid_ = new ::greptime::v1::meta::ProcedureId(*from._impl_.pid_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.WatchProcedureRequest)
+}
+
+inline void WatchProcedureRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+WatchProcedureRequest::~WatchProcedureRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.WatchProcedureRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void WatchProcedureRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.pid_;
+}
+
+void WatchProcedureRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void WatchProcedureRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.WatchProcedureRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* WatchProcedureRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.RequestHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureId pid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* WatchProcedureRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.WatchProcedureRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::pid(this),
+        _Internal::pid(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.WatchProcedureRequest)
+  return target;
+}
+
+size_t WatchProcedureRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.WatchProcedureRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.pid_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WatchProcedureRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    WatchProcedureRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WatchProcedureRequest::GetClassData() const { return &_class_data_; }
+
+
+void WatchProcedureRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<WatchProcedureRequest*>(&to_msg);
+  auto& from = static_cast<const WatchProcedureRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.WatchProcedureRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
+        from._internal_header());
+  }
+  if (from._internal_has_pid()) {
+    _this->_internal_mutable_pid()->::greptime::v1::meta::ProcedureId::MergeFrom(
+        from._internal_pid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void WatchProcedureRequest::CopyFrom(const WatchProcedureRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.WatchProcedureRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WatchProcedureRequest::IsInitialized() const {
+  return true;
+}
+
+void WatchProcedureRequest::InternalSwap(WatchProcedureRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WatchProcedureRequest, _impl_.pid_)
+      + sizeof(WatchProcedureRequest::_impl_.pid_)
+      - PROTOBUF_FIELD_OFFSET(WatchProcedureRequest, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata WatchProcedureRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[3]);
+}
+
+// ===================================================================
+
+class CreateTableOutput::_Internal {
+ public:
+};
+
+void CreateTableOutput::clear_table_ids() {
+  _impl_.table_ids_.Clear();
+}
+CreateTableOutput::CreateTableOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.CreateTableOutput)
+}
+CreateTableOutput::CreateTableOutput(const CreateTableOutput& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CreateTableOutput* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.table_ids_){from._impl_.table_ids_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.CreateTableOutput)
+}
+
+inline void CreateTableOutput::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.table_ids_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CreateTableOutput::~CreateTableOutput() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.CreateTableOutput)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CreateTableOutput::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.table_ids_.~RepeatedPtrField();
+}
+
+void CreateTableOutput::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CreateTableOutput::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.CreateTableOutput)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.table_ids_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CreateTableOutput::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .greptime.v1.TableId table_ids = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_table_ids(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CreateTableOutput::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.CreateTableOutput)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.TableId table_ids = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_table_ids_size()); i < n; i++) {
+    const auto& repfield = this->_internal_table_ids(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.CreateTableOutput)
+  return target;
+}
+
+size_t CreateTableOutput::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.CreateTableOutput)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .greptime.v1.TableId table_ids = 1;
+  total_size += 1UL * this->_internal_table_ids_size();
+  for (const auto& msg : this->_impl_.table_ids_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CreateTableOutput::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CreateTableOutput::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CreateTableOutput::GetClassData() const { return &_class_data_; }
+
+
+void CreateTableOutput::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CreateTableOutput*>(&to_msg);
+  auto& from = static_cast<const CreateTableOutput&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.CreateTableOutput)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.table_ids_.MergeFrom(from._impl_.table_ids_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CreateTableOutput::CopyFrom(const CreateTableOutput& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.CreateTableOutput)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CreateTableOutput::IsInitialized() const {
+  return true;
+}
+
+void CreateTableOutput::InternalSwap(CreateTableOutput* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.table_ids_.InternalSwap(&other->_impl_.table_ids_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CreateTableOutput::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[4]);
+}
+
+// ===================================================================
+
+class WatchProcedureResponse::_Internal {
+ public:
+  static const ::greptime::v1::meta::ResponseHeader& header(const WatchProcedureResponse* msg);
+  static const ::greptime::v1::meta::CreateTableOutput& create_table_output(const WatchProcedureResponse* msg);
+};
+
+const ::greptime::v1::meta::ResponseHeader&
+WatchProcedureResponse::_Internal::header(const WatchProcedureResponse* msg) {
+  return *msg->_impl_.header_;
+}
+const ::greptime::v1::meta::CreateTableOutput&
+WatchProcedureResponse::_Internal::create_table_output(const WatchProcedureResponse* msg) {
+  return *msg->_impl_.output_.create_table_output_;
+}
+void WatchProcedureResponse::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+void WatchProcedureResponse::set_allocated_create_table_output(::greptime::v1::meta::CreateTableOutput* create_table_output) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_output();
+  if (create_table_output) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(create_table_output);
+    if (message_arena != submessage_arena) {
+      create_table_output = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, create_table_output, submessage_arena);
+    }
+    set_has_create_table_output();
+    _impl_.output_.create_table_output_ = create_table_output;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.WatchProcedureResponse.create_table_output)
+}
+WatchProcedureResponse::WatchProcedureResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.WatchProcedureResponse)
+}
+WatchProcedureResponse::WatchProcedureResponse(const WatchProcedureResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  WatchProcedureResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.error_){}
+    , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.status_){}
+    , decltype(_impl_.output_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_error().empty()) {
+    _this->_impl_.error_.Set(from._internal_error(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
+  }
+  _this->_impl_.status_ = from._impl_.status_;
+  clear_has_output();
+  switch (from.output_case()) {
+    case kCreateTableOutput: {
+      _this->_internal_mutable_create_table_output()->::greptime::v1::meta::CreateTableOutput::MergeFrom(
+          from._internal_create_table_output());
+      break;
+    }
+    case OUTPUT_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.WatchProcedureResponse)
+}
+
+inline void WatchProcedureResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.error_){}
+    , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.status_){0}
+    , decltype(_impl_.output_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_output();
+}
+
+WatchProcedureResponse::~WatchProcedureResponse() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.WatchProcedureResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void WatchProcedureResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.error_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.header_;
+  if (has_output()) {
+    clear_output();
+  }
+}
+
+void WatchProcedureResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void WatchProcedureResponse::clear_output() {
+// @@protoc_insertion_point(one_of_clear_start:greptime.v1.meta.WatchProcedureResponse)
+  switch (output_case()) {
+    case kCreateTableOutput: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.output_.create_table_output_;
+      }
+      break;
+    }
+    case OUTPUT_NOT_SET: {
+      break;
+    }
+  }
+  _impl_._oneof_case_[0] = OUTPUT_NOT_SET;
+}
+
+
+void WatchProcedureResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.WatchProcedureResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.error_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  _impl_.status_ = 0;
+  clear_output();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* WatchProcedureResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.ResponseHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureStatus status = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_status(static_cast<::greptime::v1::meta::ProcedureStatus>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // string error = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_error();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.WatchProcedureResponse.error"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.CreateTableOutput create_table_output = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_create_table_output(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* WatchProcedureResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.WatchProcedureResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureStatus status = 2;
+  if (this->_internal_status() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_status(), target);
+  }
+
+  // string error = 3;
+  if (!this->_internal_error().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.WatchProcedureResponse.error");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_error(), target);
+  }
+
+  // .greptime.v1.meta.CreateTableOutput create_table_output = 4;
+  if (_internal_has_create_table_output()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::create_table_output(this),
+        _Internal::create_table_output(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.WatchProcedureResponse)
+  return target;
+}
+
+size_t WatchProcedureResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.WatchProcedureResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string error = 3;
+  if (!this->_internal_error().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_error());
+  }
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureStatus status = 2;
+  if (this->_internal_status() != 0) {
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_status());
+  }
+
+  switch (output_case()) {
+    // .greptime.v1.meta.CreateTableOutput create_table_output = 4;
+    case kCreateTableOutput: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.output_.create_table_output_);
+      break;
+    }
+    case OUTPUT_NOT_SET: {
+      break;
+    }
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData WatchProcedureResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    WatchProcedureResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*WatchProcedureResponse::GetClassData() const { return &_class_data_; }
+
+
+void WatchProcedureResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<WatchProcedureResponse*>(&to_msg);
+  auto& from = static_cast<const WatchProcedureResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.WatchProcedureResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_error().empty()) {
+    _this->_internal_set_error(from._internal_error());
+  }
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
+        from._internal_header());
+  }
+  if (from._internal_status() != 0) {
+    _this->_internal_set_status(from._internal_status());
+  }
+  switch (from.output_case()) {
+    case kCreateTableOutput: {
+      _this->_internal_mutable_create_table_output()->::greptime::v1::meta::CreateTableOutput::MergeFrom(
+          from._internal_create_table_output());
+      break;
+    }
+    case OUTPUT_NOT_SET: {
+      break;
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void WatchProcedureResponse::CopyFrom(const WatchProcedureResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.WatchProcedureResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool WatchProcedureResponse::IsInitialized() const {
+  return true;
+}
+
+void WatchProcedureResponse::InternalSwap(WatchProcedureResponse* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.error_, lhs_arena,
+      &other->_impl_.error_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WatchProcedureResponse, _impl_.status_)
+      + sizeof(WatchProcedureResponse::_impl_.status_)
+      - PROTOBUF_FIELD_OFFSET(WatchProcedureResponse, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
+  swap(_impl_.output_, other->_impl_.output_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata WatchProcedureResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[5]);
+}
+
+// ===================================================================
+
 class ProcedureDetailRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const ProcedureDetailRequest* msg);
@@ -1579,7 +2489,7 @@ void ProcedureDetailRequest::InternalSwap(ProcedureDetailRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ProcedureDetailRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[3]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[6]);
 }
 
 // ===================================================================
@@ -1812,7 +2722,7 @@ void ProcedureDetailResponse::InternalSwap(ProcedureDetailResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ProcedureDetailResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[4]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[7]);
 }
 
 // ===================================================================
@@ -2145,7 +3055,7 @@ void ReconcileTable::InternalSwap(ReconcileTable* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileTable::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[5]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[8]);
 }
 
 // ===================================================================
@@ -2461,7 +3371,7 @@ void ReconcileDatabase::InternalSwap(ReconcileDatabase* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileDatabase::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[6]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[9]);
 }
 
 // ===================================================================
@@ -2727,7 +3637,7 @@ void ReconcileCatalog::InternalSwap(ReconcileCatalog* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileCatalog::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[7]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10]);
 }
 
 // ===================================================================
@@ -3138,7 +4048,7 @@ void ReconcileRequest::InternalSwap(ReconcileRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[8]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[11]);
 }
 
 // ===================================================================
@@ -3389,7 +4299,7 @@ void ReconcileResponse::InternalSwap(ReconcileResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ReconcileResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[12]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3408,6 +4318,18 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::QueryProcedureRequest >(Arena* 
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureStateResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureStateResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureStateResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::WatchProcedureRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::WatchProcedureRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::WatchProcedureRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::CreateTableOutput*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::CreateTableOutput >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::CreateTableOutput >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::WatchProcedureResponse*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::WatchProcedureResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::WatchProcedureResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureDetailRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureDetailRequest >(Arena* arena) {
