@@ -102,9 +102,15 @@ message CommentOnTask {
   CommentOnExpr comment_on = 1;
 }
 
+
 message DdlTaskRequest {
   RequestHeader header = 1;
+  // The query context for the ddl procedures.
   QueryContext query_context = 64;
+  // Whether to wait for the ddl procedures to complete.
+  bool wait = 65;
+  // The timeout in seconds for the ddl procedures.
+  uint32 timeout_secs = 66;
 
   oneof task {
     CreateTableTask create_table_task = 2;

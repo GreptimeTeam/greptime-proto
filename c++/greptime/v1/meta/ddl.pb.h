@@ -3029,6 +3029,8 @@ class DdlTaskRequest final :
   enum : int {
     kHeaderFieldNumber = 1,
     kQueryContextFieldNumber = 64,
+    kWaitFieldNumber = 65,
+    kTimeoutSecsFieldNumber = 66,
     kCreateTableTaskFieldNumber = 2,
     kDropTableTaskFieldNumber = 3,
     kAlterTableTaskFieldNumber = 4,
@@ -3082,6 +3084,24 @@ class DdlTaskRequest final :
   void unsafe_arena_set_allocated_query_context(
       ::greptime::v1::QueryContext* query_context);
   ::greptime::v1::QueryContext* unsafe_arena_release_query_context();
+
+  // bool wait = 65;
+  void clear_wait();
+  bool wait() const;
+  void set_wait(bool value);
+  private:
+  bool _internal_wait() const;
+  void _internal_set_wait(bool value);
+  public:
+
+  // uint32 timeout_secs = 66;
+  void clear_timeout_secs();
+  uint32_t timeout_secs() const;
+  void set_timeout_secs(uint32_t value);
+  private:
+  uint32_t _internal_timeout_secs() const;
+  void _internal_set_timeout_secs(uint32_t value);
+  public:
 
   // .greptime.v1.meta.CreateTableTask create_table_task = 2;
   bool has_create_table_task() const;
@@ -3421,6 +3441,8 @@ class DdlTaskRequest final :
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::QueryContext* query_context_;
+    bool wait_;
+    uint32_t timeout_secs_;
     union TaskUnion {
       constexpr TaskUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -5340,6 +5362,46 @@ inline void DdlTaskRequest::set_allocated_query_context(::greptime::v1::QueryCon
   }
   _impl_.query_context_ = query_context;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.query_context)
+}
+
+// bool wait = 65;
+inline void DdlTaskRequest::clear_wait() {
+  _impl_.wait_ = false;
+}
+inline bool DdlTaskRequest::_internal_wait() const {
+  return _impl_.wait_;
+}
+inline bool DdlTaskRequest::wait() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.wait)
+  return _internal_wait();
+}
+inline void DdlTaskRequest::_internal_set_wait(bool value) {
+  
+  _impl_.wait_ = value;
+}
+inline void DdlTaskRequest::set_wait(bool value) {
+  _internal_set_wait(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.DdlTaskRequest.wait)
+}
+
+// uint32 timeout_secs = 66;
+inline void DdlTaskRequest::clear_timeout_secs() {
+  _impl_.timeout_secs_ = 0u;
+}
+inline uint32_t DdlTaskRequest::_internal_timeout_secs() const {
+  return _impl_.timeout_secs_;
+}
+inline uint32_t DdlTaskRequest::timeout_secs() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.timeout_secs)
+  return _internal_timeout_secs();
+}
+inline void DdlTaskRequest::_internal_set_timeout_secs(uint32_t value) {
+  
+  _impl_.timeout_secs_ = value;
+}
+inline void DdlTaskRequest::set_timeout_secs(uint32_t value) {
+  _internal_set_timeout_secs(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.DdlTaskRequest.timeout_secs)
 }
 
 // .greptime.v1.meta.CreateTableTask create_table_task = 2;
