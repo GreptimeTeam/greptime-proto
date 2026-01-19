@@ -915,9 +915,16 @@ type DdlTaskRequest struct {
 	Header *RequestHeader `protobuf:"bytes,1,opt,name=header,proto3" json:"header,omitempty"`
 	// The query context for the ddl procedures.
 	QueryContext *v1.QueryContext `protobuf:"bytes,64,opt,name=query_context,json=queryContext,proto3" json:"query_context,omitempty"`
-	// Whether to wait for the ddl procedures to complete.
+	// / The timeout will be passed to the procedure.
+	// /
+	// / Note: Each procedure may implement its own timeout handling mechanism.
 	Wait bool `protobuf:"varint,65,opt,name=wait,proto3" json:"wait,omitempty"`
-	// The timeout in seconds for the ddl procedures.
+	// / The flag that controls whether to wait for the procedure to complete.
+	// /
+	// / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+	// / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+	// /
+	// / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
 	TimeoutSecs uint32 `protobuf:"varint,66,opt,name=timeout_secs,json=timeoutSecs,proto3" json:"timeout_secs,omitempty"`
 	// Types that are assignable to Task:
 	//

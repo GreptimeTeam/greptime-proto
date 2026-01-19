@@ -3925,7 +3925,6 @@ class Repartition final :
   enum : int {
     kFromPartitionExprsFieldNumber = 1,
     kIntoPartitionExprsFieldNumber = 2,
-    kWaitFieldNumber = 3,
   };
   // repeated string from_partition_exprs = 1;
   int from_partition_exprs_size() const;
@@ -3975,15 +3974,6 @@ class Repartition final :
   std::string* _internal_add_into_partition_exprs();
   public:
 
-  // bool wait = 3;
-  void clear_wait();
-  bool wait() const;
-  void set_wait(bool value);
-  private:
-  bool _internal_wait() const;
-  void _internal_set_wait(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.Repartition)
  private:
   class _Internal;
@@ -3994,7 +3984,6 @@ class Repartition final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> from_partition_exprs_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> into_partition_exprs_;
-    bool wait_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -15278,26 +15267,6 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Repartition::mutable_into_partition_exprs() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.Repartition.into_partition_exprs)
   return &_impl_.into_partition_exprs_;
-}
-
-// bool wait = 3;
-inline void Repartition::clear_wait() {
-  _impl_.wait_ = false;
-}
-inline bool Repartition::_internal_wait() const {
-  return _impl_.wait_;
-}
-inline bool Repartition::wait() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.Repartition.wait)
-  return _internal_wait();
-}
-inline void Repartition::_internal_set_wait(bool value) {
-  
-  _impl_.wait_ = value;
-}
-inline void Repartition::set_wait(bool value) {
-  _internal_set_wait(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.Repartition.wait)
 }
 
 // -------------------------------------------------------------------
