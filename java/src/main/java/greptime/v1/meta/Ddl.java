@@ -11796,19 +11796,55 @@ public final class Ddl {
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
 
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      * @return Whether the queryContext field is set.
      */
     boolean hasQueryContext();
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      * @return The queryContext.
      */
     io.greptime.v1.Common.QueryContext getQueryContext();
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      */
     io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder();
+
+    /**
+     * <pre>
+     * The timeout will be passed to the procedure.
+     * Note: Each procedure may implement its own timeout handling mechanism.
+     * </pre>
+     *
+     * <code>bool wait = 65;</code>
+     * @return The wait.
+     */
+    boolean getWait();
+
+    /**
+     * <pre>
+     * The flag that controls whether to wait for the procedure to complete.
+     * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+     * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+     * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+     * </pre>
+     *
+     * <code>uint32 timeout_secs = 66;</code>
+     * @return The timeoutSecs.
+     */
+    int getTimeoutSecs();
 
     /**
      * <code>.greptime.v1.meta.CreateTableTask create_table_task = 2;</code>
@@ -12376,6 +12412,16 @@ public final class Ddl {
 
               break;
             }
+            case 520: {
+
+              wait_ = input.readBool();
+              break;
+            }
+            case 528: {
+
+              timeoutSecs_ = input.readUInt32();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -12510,6 +12556,10 @@ public final class Ddl {
     public static final int QUERY_CONTEXT_FIELD_NUMBER = 64;
     private io.greptime.v1.Common.QueryContext queryContext_;
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      * @return Whether the queryContext field is set.
      */
@@ -12518,6 +12568,10 @@ public final class Ddl {
       return queryContext_ != null;
     }
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      * @return The queryContext.
      */
@@ -12526,11 +12580,49 @@ public final class Ddl {
       return queryContext_ == null ? io.greptime.v1.Common.QueryContext.getDefaultInstance() : queryContext_;
     }
     /**
+     * <pre>
+     * The query context for the ddl procedures.
+     * </pre>
+     *
      * <code>.greptime.v1.QueryContext query_context = 64;</code>
      */
     @java.lang.Override
     public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
       return getQueryContext();
+    }
+
+    public static final int WAIT_FIELD_NUMBER = 65;
+    private boolean wait_;
+    /**
+     * <pre>
+     * The timeout will be passed to the procedure.
+     * Note: Each procedure may implement its own timeout handling mechanism.
+     * </pre>
+     *
+     * <code>bool wait = 65;</code>
+     * @return The wait.
+     */
+    @java.lang.Override
+    public boolean getWait() {
+      return wait_;
+    }
+
+    public static final int TIMEOUT_SECS_FIELD_NUMBER = 66;
+    private int timeoutSecs_;
+    /**
+     * <pre>
+     * The flag that controls whether to wait for the procedure to complete.
+     * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+     * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+     * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+     * </pre>
+     *
+     * <code>uint32 timeout_secs = 66;</code>
+     * @return The timeoutSecs.
+     */
+    @java.lang.Override
+    public int getTimeoutSecs() {
+      return timeoutSecs_;
     }
 
     public static final int CREATE_TABLE_TASK_FIELD_NUMBER = 2;
@@ -13131,6 +13223,12 @@ public final class Ddl {
       if (queryContext_ != null) {
         output.writeMessage(64, getQueryContext());
       }
+      if (wait_ != false) {
+        output.writeBool(65, wait_);
+      }
+      if (timeoutSecs_ != 0) {
+        output.writeUInt32(66, timeoutSecs_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13216,6 +13314,14 @@ public final class Ddl {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(64, getQueryContext());
       }
+      if (wait_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(65, wait_);
+      }
+      if (timeoutSecs_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(66, timeoutSecs_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -13241,6 +13347,10 @@ public final class Ddl {
         if (!getQueryContext()
             .equals(other.getQueryContext())) return false;
       }
+      if (getWait()
+          != other.getWait()) return false;
+      if (getTimeoutSecs()
+          != other.getTimeoutSecs()) return false;
       if (!getTaskCase().equals(other.getTaskCase())) return false;
       switch (taskCase_) {
         case 2:
@@ -13333,6 +13443,11 @@ public final class Ddl {
         hash = (37 * hash) + QUERY_CONTEXT_FIELD_NUMBER;
         hash = (53 * hash) + getQueryContext().hashCode();
       }
+      hash = (37 * hash) + WAIT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getWait());
+      hash = (37 * hash) + TIMEOUT_SECS_FIELD_NUMBER;
+      hash = (53 * hash) + getTimeoutSecs();
       switch (taskCase_) {
         case 2:
           hash = (37 * hash) + CREATE_TABLE_TASK_FIELD_NUMBER;
@@ -13550,6 +13665,10 @@ public final class Ddl {
           queryContext_ = null;
           queryContextBuilder_ = null;
         }
+        wait_ = false;
+
+        timeoutSecs_ = 0;
+
         taskCase_ = 0;
         task_ = null;
         return this;
@@ -13588,6 +13707,8 @@ public final class Ddl {
         } else {
           result.queryContext_ = queryContextBuilder_.build();
         }
+        result.wait_ = wait_;
+        result.timeoutSecs_ = timeoutSecs_;
         if (taskCase_ == 2) {
           if (createTableTaskBuilder_ == null) {
             result.task_ = task_;
@@ -13761,6 +13882,12 @@ public final class Ddl {
         }
         if (other.hasQueryContext()) {
           mergeQueryContext(other.getQueryContext());
+        }
+        if (other.getWait() != false) {
+          setWait(other.getWait());
+        }
+        if (other.getTimeoutSecs() != 0) {
+          setTimeoutSecs(other.getTimeoutSecs());
         }
         switch (other.getTaskCase()) {
           case CREATE_TABLE_TASK: {
@@ -14002,6 +14129,10 @@ public final class Ddl {
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.Common.QueryContext, io.greptime.v1.Common.QueryContext.Builder, io.greptime.v1.Common.QueryContextOrBuilder> queryContextBuilder_;
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        * @return Whether the queryContext field is set.
        */
@@ -14009,6 +14140,10 @@ public final class Ddl {
         return queryContextBuilder_ != null || queryContext_ != null;
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        * @return The queryContext.
        */
@@ -14020,6 +14155,10 @@ public final class Ddl {
         }
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public Builder setQueryContext(io.greptime.v1.Common.QueryContext value) {
@@ -14036,6 +14175,10 @@ public final class Ddl {
         return this;
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public Builder setQueryContext(
@@ -14050,6 +14193,10 @@ public final class Ddl {
         return this;
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public Builder mergeQueryContext(io.greptime.v1.Common.QueryContext value) {
@@ -14068,6 +14215,10 @@ public final class Ddl {
         return this;
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public Builder clearQueryContext() {
@@ -14082,6 +14233,10 @@ public final class Ddl {
         return this;
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public io.greptime.v1.Common.QueryContext.Builder getQueryContextBuilder() {
@@ -14090,6 +14245,10 @@ public final class Ddl {
         return getQueryContextFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       public io.greptime.v1.Common.QueryContextOrBuilder getQueryContextOrBuilder() {
@@ -14101,6 +14260,10 @@ public final class Ddl {
         }
       }
       /**
+       * <pre>
+       * The query context for the ddl procedures.
+       * </pre>
+       *
        * <code>.greptime.v1.QueryContext query_context = 64;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -14115,6 +14278,104 @@ public final class Ddl {
           queryContext_ = null;
         }
         return queryContextBuilder_;
+      }
+
+      private boolean wait_ ;
+      /**
+       * <pre>
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.
+       * </pre>
+       *
+       * <code>bool wait = 65;</code>
+       * @return The wait.
+       */
+      @java.lang.Override
+      public boolean getWait() {
+        return wait_;
+      }
+      /**
+       * <pre>
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.
+       * </pre>
+       *
+       * <code>bool wait = 65;</code>
+       * @param value The wait to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWait(boolean value) {
+        
+        wait_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.
+       * </pre>
+       *
+       * <code>bool wait = 65;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWait() {
+        
+        wait_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int timeoutSecs_ ;
+      /**
+       * <pre>
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * </pre>
+       *
+       * <code>uint32 timeout_secs = 66;</code>
+       * @return The timeoutSecs.
+       */
+      @java.lang.Override
+      public int getTimeoutSecs() {
+        return timeoutSecs_;
+      }
+      /**
+       * <pre>
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * </pre>
+       *
+       * <code>uint32 timeout_secs = 66;</code>
+       * @param value The timeoutSecs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeoutSecs(int value) {
+        
+        timeoutSecs_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * </pre>
+       *
+       * <code>uint32 timeout_secs = 66;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeoutSecs() {
+        
+        timeoutSecs_ = 0;
+        onChanged();
+        return this;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -18035,44 +18296,45 @@ public final class Ddl {
       "ggerExpr\"E\n\017DropTriggerTask\0222\n\014drop_trig" +
       "ger\030\001 \001(\0132\034.greptime.v1.DropTriggerExpr\"" +
       "?\n\rCommentOnTask\022.\n\ncomment_on\030\001 \001(\0132\032.g" +
-      "reptime.v1.CommentOnExpr\"\265\t\n\016DdlTaskRequ" +
+      "reptime.v1.CommentOnExpr\"\331\t\n\016DdlTaskRequ" +
       "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R" +
       "equestHeader\0220\n\rquery_context\030@ \001(\0132\031.gr" +
-      "eptime.v1.QueryContext\022>\n\021create_table_t" +
-      "ask\030\002 \001(\0132!.greptime.v1.meta.CreateTable" +
-      "TaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037.grepti" +
-      "me.v1.meta.DropTableTaskH\000\022<\n\020alter_tabl" +
-      "e_task\030\004 \001(\0132 .greptime.v1.meta.AlterTab" +
-      "leTaskH\000\022B\n\023truncate_table_task\030\005 \001(\0132#." +
-      "greptime.v1.meta.TruncateTableTaskH\000\022@\n\022" +
-      "create_table_tasks\030\006 \001(\0132\".greptime.v1.m" +
-      "eta.CreateTableTasksH\000\022<\n\020drop_table_tas" +
-      "ks\030\007 \001(\0132 .greptime.v1.meta.DropTableTas" +
-      "ksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!.grepti" +
-      "me.v1.meta.AlterTableTasksH\000\022@\n\022drop_dat" +
-      "abase_task\030\t \001(\0132\".greptime.v1.meta.Drop" +
-      "DatabaseTaskH\000\022D\n\024create_database_task\030\n" +
-      " \001(\0132$.greptime.v1.meta.CreateDatabaseTa" +
-      "skH\000\022<\n\020create_flow_task\030\013 \001(\0132 .greptim" +
-      "e.v1.meta.CreateFlowTaskH\000\0228\n\016drop_flow_" +
-      "task\030\014 \001(\0132\036.greptime.v1.meta.DropFlowTa" +
-      "skH\000\022<\n\020create_view_task\030\r \001(\0132 .greptim" +
-      "e.v1.meta.CreateViewTaskH\000\0228\n\016drop_view_" +
-      "task\030\016 \001(\0132\036.greptime.v1.meta.DropViewTa" +
-      "skH\000\022B\n\023alter_database_task\030\017 \001(\0132#.grep" +
-      "time.v1.meta.AlterDatabaseTaskH\000\022B\n\023crea" +
-      "te_trigger_task\030\020 \001(\0132#.greptime.v1.meta" +
-      ".CreateTriggerTaskH\000\022>\n\021drop_trigger_tas" +
-      "k\030\021 \001(\0132!.greptime.v1.meta.DropTriggerTa" +
-      "skH\000\022:\n\017comment_on_task\030\022 \001(\0132\037.greptime" +
-      ".v1.meta.CommentOnTaskH\000B\006\n\004task\"\230\001\n\017Ddl" +
-      "TaskResponse\0220\n\006header\030\001 \001(\0132 .greptime." +
-      "v1.meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.gr" +
-      "eptime.v1.meta.ProcedureId\022\'\n\ttable_ids\030" +
-      "\005 \003(\0132\024.greptime.v1.TableId*#\n\013DdlTaskTy" +
-      "pe\022\n\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/G" +
-      "reptimeTeam/greptime-proto/go/greptime/v" +
-      "1/metab\006proto3"
+      "eptime.v1.QueryContext\022\014\n\004wait\030A \001(\010\022\024\n\014" +
+      "timeout_secs\030B \001(\r\022>\n\021create_table_task\030" +
+      "\002 \001(\0132!.greptime.v1.meta.CreateTableTask" +
+      "H\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v" +
+      "1.meta.DropTableTaskH\000\022<\n\020alter_table_ta" +
+      "sk\030\004 \001(\0132 .greptime.v1.meta.AlterTableTa" +
+      "skH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grep" +
+      "time.v1.meta.TruncateTableTaskH\000\022@\n\022crea" +
+      "te_table_tasks\030\006 \001(\0132\".greptime.v1.meta." +
+      "CreateTableTasksH\000\022<\n\020drop_table_tasks\030\007" +
+      " \001(\0132 .greptime.v1.meta.DropTableTasksH\000" +
+      "\022>\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v" +
+      "1.meta.AlterTableTasksH\000\022@\n\022drop_databas" +
+      "e_task\030\t \001(\0132\".greptime.v1.meta.DropData" +
+      "baseTaskH\000\022D\n\024create_database_task\030\n \001(\013" +
+      "2$.greptime.v1.meta.CreateDatabaseTaskH\000" +
+      "\022<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1" +
+      ".meta.CreateFlowTaskH\000\0228\n\016drop_flow_task" +
+      "\030\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000" +
+      "\022<\n\020create_view_task\030\r \001(\0132 .greptime.v1" +
+      ".meta.CreateViewTaskH\000\0228\n\016drop_view_task" +
+      "\030\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000" +
+      "\022B\n\023alter_database_task\030\017 \001(\0132#.greptime" +
+      ".v1.meta.AlterDatabaseTaskH\000\022B\n\023create_t" +
+      "rigger_task\030\020 \001(\0132#.greptime.v1.meta.Cre" +
+      "ateTriggerTaskH\000\022>\n\021drop_trigger_task\030\021 " +
+      "\001(\0132!.greptime.v1.meta.DropTriggerTaskH\000" +
+      "\022:\n\017comment_on_task\030\022 \001(\0132\037.greptime.v1." +
+      "meta.CommentOnTaskH\000B\006\n\004task\"\230\001\n\017DdlTask" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
+      "me.v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(" +
+      "\0132\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n" +
+      "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept" +
+      "imeTeam/greptime-proto/go/greptime/v1/me" +
+      "tab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18189,7 +18451,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "Wait", "TimeoutSecs", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
