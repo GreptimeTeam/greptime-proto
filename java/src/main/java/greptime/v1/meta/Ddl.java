@@ -11824,9 +11824,8 @@ public final class Ddl {
 
     /**
      * <pre>
-     *&#47; The timeout will be passed to the procedure.
-     * /
-     * / Note: Each procedure may implement its own timeout handling mechanism.    
+     * The timeout will be passed to the procedure.
+     * Note: Each procedure may implement its own timeout handling mechanism.    
      * </pre>
      *
      * <code>bool wait = 65;</code>
@@ -11836,12 +11835,10 @@ public final class Ddl {
 
     /**
      * <pre>
-     *&#47; The flag that controls whether to wait for the procedure to complete.
-     * /
-     * / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-     * / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-     * /
-     * / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+     * The flag that controls whether to wait for the procedure to complete.
+     * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+     * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+     * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
      * </pre>
      *
      * <code>uint32 timeout_secs = 66;</code>
@@ -12598,9 +12595,8 @@ public final class Ddl {
     private boolean wait_;
     /**
      * <pre>
-     *&#47; The timeout will be passed to the procedure.
-     * /
-     * / Note: Each procedure may implement its own timeout handling mechanism.    
+     * The timeout will be passed to the procedure.
+     * Note: Each procedure may implement its own timeout handling mechanism.    
      * </pre>
      *
      * <code>bool wait = 65;</code>
@@ -12615,12 +12611,10 @@ public final class Ddl {
     private int timeoutSecs_;
     /**
      * <pre>
-     *&#47; The flag that controls whether to wait for the procedure to complete.
-     * /
-     * / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-     * / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-     * /
-     * / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+     * The flag that controls whether to wait for the procedure to complete.
+     * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+     * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+     * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
      * </pre>
      *
      * <code>uint32 timeout_secs = 66;</code>
@@ -14289,9 +14283,8 @@ public final class Ddl {
       private boolean wait_ ;
       /**
        * <pre>
-       *&#47; The timeout will be passed to the procedure.
-       * /
-       * / Note: Each procedure may implement its own timeout handling mechanism.    
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.    
        * </pre>
        *
        * <code>bool wait = 65;</code>
@@ -14303,9 +14296,8 @@ public final class Ddl {
       }
       /**
        * <pre>
-       *&#47; The timeout will be passed to the procedure.
-       * /
-       * / Note: Each procedure may implement its own timeout handling mechanism.    
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.    
        * </pre>
        *
        * <code>bool wait = 65;</code>
@@ -14320,9 +14312,8 @@ public final class Ddl {
       }
       /**
        * <pre>
-       *&#47; The timeout will be passed to the procedure.
-       * /
-       * / Note: Each procedure may implement its own timeout handling mechanism.    
+       * The timeout will be passed to the procedure.
+       * Note: Each procedure may implement its own timeout handling mechanism.    
        * </pre>
        *
        * <code>bool wait = 65;</code>
@@ -14338,12 +14329,10 @@ public final class Ddl {
       private int timeoutSecs_ ;
       /**
        * <pre>
-       *&#47; The flag that controls whether to wait for the procedure to complete.
-       * /
-       * / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-       * / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-       * /
-       * / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
        * </pre>
        *
        * <code>uint32 timeout_secs = 66;</code>
@@ -14355,12 +14344,10 @@ public final class Ddl {
       }
       /**
        * <pre>
-       *&#47; The flag that controls whether to wait for the procedure to complete.
-       * /
-       * / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-       * / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-       * /
-       * / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
        * </pre>
        *
        * <code>uint32 timeout_secs = 66;</code>
@@ -14375,12 +14362,10 @@ public final class Ddl {
       }
       /**
        * <pre>
-       *&#47; The flag that controls whether to wait for the procedure to complete.
-       * /
-       * / If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-       * / Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-       * /
-       * / Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+       * The flag that controls whether to wait for the procedure to complete.
+       * If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+       * Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+       * Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
        * </pre>
        *
        * <code>uint32 timeout_secs = 66;</code>

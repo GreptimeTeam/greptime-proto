@@ -107,18 +107,16 @@ message DdlTaskRequest {
   RequestHeader header = 1;
   // The query context for the ddl procedures.
   QueryContext query_context = 64;
-  
-  /// The timeout will be passed to the procedure.
-  ///
-  /// Note: Each procedure may implement its own timeout handling mechanism.    
+  // The timeout will be passed to the procedure.
+  //
+  // Note: Each procedure may implement its own timeout handling mechanism.    
   bool wait = 65;
-  
-  /// The flag that controls whether to wait for the procedure to complete.
-  ///
-  /// If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
-  /// Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
-  ///
-  /// Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
+  // The flag that controls whether to wait for the procedure to complete.
+  //
+  // If wait is `true`, the procedure will wait for completion(success or failure) and the result will be returned.
+  // Otherwise, the procedure will be submitted and return the [ProcedureId](common_procedure::ProcedureId) immediately.
+  //
+  // Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
   uint32 timeout_secs = 66;
 
   oneof task {
