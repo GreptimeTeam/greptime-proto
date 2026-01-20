@@ -11825,7 +11825,7 @@ public final class Ddl {
     /**
      * <pre>
      * The timeout will be passed to the procedure.
-     * Note: Each procedure may implement its own timeout handling mechanism.    
+     * Note: Each procedure may implement its own timeout handling mechanism.
      * </pre>
      *
      * <code>bool wait = 65;</code>
@@ -12596,7 +12596,7 @@ public final class Ddl {
     /**
      * <pre>
      * The timeout will be passed to the procedure.
-     * Note: Each procedure may implement its own timeout handling mechanism.    
+     * Note: Each procedure may implement its own timeout handling mechanism.
      * </pre>
      *
      * <code>bool wait = 65;</code>
@@ -14284,7 +14284,7 @@ public final class Ddl {
       /**
        * <pre>
        * The timeout will be passed to the procedure.
-       * Note: Each procedure may implement its own timeout handling mechanism.    
+       * Note: Each procedure may implement its own timeout handling mechanism.
        * </pre>
        *
        * <code>bool wait = 65;</code>
@@ -14297,7 +14297,7 @@ public final class Ddl {
       /**
        * <pre>
        * The timeout will be passed to the procedure.
-       * Note: Each procedure may implement its own timeout handling mechanism.    
+       * Note: Each procedure may implement its own timeout handling mechanism.
        * </pre>
        *
        * <code>bool wait = 65;</code>
@@ -14313,7 +14313,7 @@ public final class Ddl {
       /**
        * <pre>
        * The timeout will be passed to the procedure.
-       * Note: Each procedure may implement its own timeout handling mechanism.    
+       * Note: Each procedure may implement its own timeout handling mechanism.
        * </pre>
        *
        * <code>bool wait = 65;</code>
