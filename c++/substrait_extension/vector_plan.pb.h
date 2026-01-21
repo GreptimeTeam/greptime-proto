@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -54,6 +55,32 @@ template<> ::substrait_extension::VectorScan* Arena::CreateMaybeMessage<::substr
 PROTOBUF_NAMESPACE_CLOSE
 namespace substrait_extension {
 
+enum VectorDistanceMetric : int {
+  L2SQ = 0,
+  COSINE = 1,
+  INNERPRODUCT = 2,
+  VectorDistanceMetric_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  VectorDistanceMetric_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool VectorDistanceMetric_IsValid(int value);
+constexpr VectorDistanceMetric VectorDistanceMetric_MIN = L2SQ;
+constexpr VectorDistanceMetric VectorDistanceMetric_MAX = INNERPRODUCT;
+constexpr int VectorDistanceMetric_ARRAYSIZE = VectorDistanceMetric_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* VectorDistanceMetric_descriptor();
+template<typename T>
+inline const std::string& VectorDistanceMetric_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, VectorDistanceMetric>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function VectorDistanceMetric_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    VectorDistanceMetric_descriptor(), enum_t_value);
+}
+inline bool VectorDistanceMetric_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, VectorDistanceMetric* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<VectorDistanceMetric>(
+    VectorDistanceMetric_descriptor(), name, value);
+}
 // ===================================================================
 
 class VectorScan final :
@@ -237,13 +264,13 @@ class VectorScan final :
   void _internal_set_k(uint32_t value);
   public:
 
-  // uint32 metric = 5;
+  // .substrait_extension.VectorDistanceMetric metric = 5;
   void clear_metric();
-  uint32_t metric() const;
-  void set_metric(uint32_t value);
+  ::substrait_extension::VectorDistanceMetric metric() const;
+  void set_metric(::substrait_extension::VectorDistanceMetric value);
   private:
-  uint32_t _internal_metric() const;
-  void _internal_set_metric(uint32_t value);
+  ::substrait_extension::VectorDistanceMetric _internal_metric() const;
+  void _internal_set_metric(::substrait_extension::VectorDistanceMetric value);
   public:
 
   // @@protoc_insertion_point(class_scope:substrait_extension.VectorScan)
@@ -258,7 +285,7 @@ class VectorScan final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr input_;
     uint32_t column_id_;
     uint32_t k_;
-    uint32_t metric_;
+    int metric_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -412,22 +439,22 @@ inline void VectorScan::set_k(uint32_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.VectorScan.k)
 }
 
-// uint32 metric = 5;
+// .substrait_extension.VectorDistanceMetric metric = 5;
 inline void VectorScan::clear_metric() {
-  _impl_.metric_ = 0u;
+  _impl_.metric_ = 0;
 }
-inline uint32_t VectorScan::_internal_metric() const {
-  return _impl_.metric_;
+inline ::substrait_extension::VectorDistanceMetric VectorScan::_internal_metric() const {
+  return static_cast< ::substrait_extension::VectorDistanceMetric >(_impl_.metric_);
 }
-inline uint32_t VectorScan::metric() const {
+inline ::substrait_extension::VectorDistanceMetric VectorScan::metric() const {
   // @@protoc_insertion_point(field_get:substrait_extension.VectorScan.metric)
   return _internal_metric();
 }
-inline void VectorScan::_internal_set_metric(uint32_t value) {
+inline void VectorScan::_internal_set_metric(::substrait_extension::VectorDistanceMetric value) {
   
   _impl_.metric_ = value;
 }
-inline void VectorScan::set_metric(uint32_t value) {
+inline void VectorScan::set_metric(::substrait_extension::VectorDistanceMetric value) {
   _internal_set_metric(value);
   // @@protoc_insertion_point(field_set:substrait_extension.VectorScan.metric)
 }
@@ -439,6 +466,16 @@ inline void VectorScan::set_metric(uint32_t value) {
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace substrait_extension
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::substrait_extension::VectorDistanceMetric> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::substrait_extension::VectorDistanceMetric>() {
+  return ::substrait_extension::VectorDistanceMetric_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

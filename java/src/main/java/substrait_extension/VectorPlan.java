@@ -14,6 +14,127 @@ public final class VectorPlan {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * Vector distance metric
+   * </pre>
+   *
+   * Protobuf enum {@code substrait_extension.VectorDistanceMetric}
+   */
+  public enum VectorDistanceMetric
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>L2SQ = 0;</code>
+     */
+    L2SQ(0),
+    /**
+     * <code>COSINE = 1;</code>
+     */
+    COSINE(1),
+    /**
+     * <code>INNERPRODUCT = 2;</code>
+     */
+    INNERPRODUCT(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>L2SQ = 0;</code>
+     */
+    public static final int L2SQ_VALUE = 0;
+    /**
+     * <code>COSINE = 1;</code>
+     */
+    public static final int COSINE_VALUE = 1;
+    /**
+     * <code>INNERPRODUCT = 2;</code>
+     */
+    public static final int INNERPRODUCT_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static VectorDistanceMetric valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static VectorDistanceMetric forNumber(int value) {
+      switch (value) {
+        case 0: return L2SQ;
+        case 1: return COSINE;
+        case 2: return INNERPRODUCT;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<VectorDistanceMetric>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        VectorDistanceMetric> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<VectorDistanceMetric>() {
+            public VectorDistanceMetric findValueByNumber(int number) {
+              return VectorDistanceMetric.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return substrait_extension.VectorPlan.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final VectorDistanceMetric[] VALUES = values();
+
+    public static VectorDistanceMetric valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private VectorDistanceMetric(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:substrait_extension.VectorDistanceMetric)
+  }
+
   public interface VectorScanOrBuilder extends
       // @@protoc_insertion_point(interface_extends:substrait_extension.VectorScan)
       com.google.protobuf.MessageOrBuilder {
@@ -79,13 +200,22 @@ public final class VectorPlan {
 
     /**
      * <pre>
-     * Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
+     * Distance metric
      * </pre>
      *
-     * <code>uint32 metric = 5;</code>
+     * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+     * @return The enum numeric value on the wire for metric.
+     */
+    int getMetricValue();
+    /**
+     * <pre>
+     * Distance metric
+     * </pre>
+     *
+     * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
      * @return The metric.
      */
-    int getMetric();
+    substrait_extension.VectorPlan.VectorDistanceMetric getMetric();
   }
   /**
    * <pre>
@@ -106,6 +236,7 @@ public final class VectorPlan {
     private VectorScan() {
       input_ = com.google.protobuf.ByteString.EMPTY;
       queryVector_ = emptyFloatList();
+      metric_ = 0;
     }
 
     @java.lang.Override
@@ -176,8 +307,9 @@ public final class VectorPlan {
               break;
             }
             case 40: {
+              int rawValue = input.readEnum();
 
-              metric_ = input.readUInt32();
+              metric_ = rawValue;
               break;
             }
             default: {
@@ -306,15 +438,27 @@ public final class VectorPlan {
     private int metric_;
     /**
      * <pre>
-     * Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
+     * Distance metric
      * </pre>
      *
-     * <code>uint32 metric = 5;</code>
+     * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+     * @return The enum numeric value on the wire for metric.
+     */
+    @java.lang.Override public int getMetricValue() {
+      return metric_;
+    }
+    /**
+     * <pre>
+     * Distance metric
+     * </pre>
+     *
+     * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
      * @return The metric.
      */
-    @java.lang.Override
-    public int getMetric() {
-      return metric_;
+    @java.lang.Override public substrait_extension.VectorPlan.VectorDistanceMetric getMetric() {
+      @SuppressWarnings("deprecation")
+      substrait_extension.VectorPlan.VectorDistanceMetric result = substrait_extension.VectorPlan.VectorDistanceMetric.valueOf(metric_);
+      return result == null ? substrait_extension.VectorPlan.VectorDistanceMetric.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -348,8 +492,8 @@ public final class VectorPlan {
       if (k_ != 0) {
         output.writeUInt32(4, k_);
       }
-      if (metric_ != 0) {
-        output.writeUInt32(5, metric_);
+      if (metric_ != substrait_extension.VectorPlan.VectorDistanceMetric.L2SQ.getNumber()) {
+        output.writeEnum(5, metric_);
       }
       unknownFields.writeTo(output);
     }
@@ -383,9 +527,9 @@ public final class VectorPlan {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, k_);
       }
-      if (metric_ != 0) {
+      if (metric_ != substrait_extension.VectorPlan.VectorDistanceMetric.L2SQ.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, metric_);
+          .computeEnumSize(5, metric_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -410,8 +554,7 @@ public final class VectorPlan {
           .equals(other.getQueryVectorList())) return false;
       if (getK()
           != other.getK()) return false;
-      if (getMetric()
-          != other.getMetric()) return false;
+      if (metric_ != other.metric_) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -434,7 +577,7 @@ public final class VectorPlan {
       hash = (37 * hash) + K_FIELD_NUMBER;
       hash = (53 * hash) + getK();
       hash = (37 * hash) + METRIC_FIELD_NUMBER;
-      hash = (53 * hash) + getMetric();
+      hash = (53 * hash) + metric_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -685,8 +828,8 @@ public final class VectorPlan {
         if (other.getK() != 0) {
           setK(other.getK());
         }
-        if (other.getMetric() != 0) {
-          setMetric(other.getMetric());
+        if (other.metric_ != 0) {
+          setMetricValue(other.getMetricValue());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -957,29 +1100,28 @@ public final class VectorPlan {
         return this;
       }
 
-      private int metric_ ;
+      private int metric_ = 0;
       /**
        * <pre>
-       * Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
+       * Distance metric
        * </pre>
        *
-       * <code>uint32 metric = 5;</code>
-       * @return The metric.
+       * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+       * @return The enum numeric value on the wire for metric.
        */
-      @java.lang.Override
-      public int getMetric() {
+      @java.lang.Override public int getMetricValue() {
         return metric_;
       }
       /**
        * <pre>
-       * Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
+       * Distance metric
        * </pre>
        *
-       * <code>uint32 metric = 5;</code>
-       * @param value The metric to set.
+       * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+       * @param value The enum numeric value on the wire for metric to set.
        * @return This builder for chaining.
        */
-      public Builder setMetric(int value) {
+      public Builder setMetricValue(int value) {
         
         metric_ = value;
         onChanged();
@@ -987,10 +1129,42 @@ public final class VectorPlan {
       }
       /**
        * <pre>
-       * Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
+       * Distance metric
        * </pre>
        *
-       * <code>uint32 metric = 5;</code>
+       * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+       * @return The metric.
+       */
+      @java.lang.Override
+      public substrait_extension.VectorPlan.VectorDistanceMetric getMetric() {
+        @SuppressWarnings("deprecation")
+        substrait_extension.VectorPlan.VectorDistanceMetric result = substrait_extension.VectorPlan.VectorDistanceMetric.valueOf(metric_);
+        return result == null ? substrait_extension.VectorPlan.VectorDistanceMetric.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * Distance metric
+       * </pre>
+       *
+       * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
+       * @param value The metric to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetric(substrait_extension.VectorPlan.VectorDistanceMetric value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        metric_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Distance metric
+       * </pre>
+       *
+       * <code>.substrait_extension.VectorDistanceMetric metric = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearMetric() {
@@ -1067,11 +1241,14 @@ public final class VectorPlan {
   static {
     java.lang.String[] descriptorData = {
       "\n%substrait_extension/vector_plan.proto\022" +
-      "\023substrait_extension\"_\n\nVectorScan\022\r\n\005in" +
-      "put\030\001 \001(\014\022\021\n\tcolumn_id\030\002 \001(\r\022\024\n\014query_ve" +
-      "ctor\030\003 \003(\002\022\t\n\001k\030\004 \001(\r\022\016\n\006metric\030\005 \001(\rB?Z" +
-      "=github.com/GreptimeTeam/greptime-proto/" +
-      "go/substrait_extensionb\006proto3"
+      "\023substrait_extension\"\212\001\n\nVectorScan\022\r\n\005i" +
+      "nput\030\001 \001(\014\022\021\n\tcolumn_id\030\002 \001(\r\022\024\n\014query_v" +
+      "ector\030\003 \003(\002\022\t\n\001k\030\004 \001(\r\0229\n\006metric\030\005 \001(\0162)" +
+      ".substrait_extension.VectorDistanceMetri" +
+      "c*>\n\024VectorDistanceMetric\022\010\n\004L2SQ\020\000\022\n\n\006C" +
+      "OSINE\020\001\022\020\n\014INNERPRODUCT\020\002B?Z=github.com/" +
+      "GreptimeTeam/greptime-proto/go/substrait" +
+      "_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

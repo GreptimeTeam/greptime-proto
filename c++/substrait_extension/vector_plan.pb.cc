@@ -27,7 +27,7 @@ PROTOBUF_CONSTEXPR VectorScan::VectorScan(
   , /*decltype(_impl_.input_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.column_id_)*/0u
   , /*decltype(_impl_.k_)*/0u
-  , /*decltype(_impl_.metric_)*/0u
+  , /*decltype(_impl_.metric_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct VectorScanDefaultTypeInternal {
   PROTOBUF_CONSTEXPR VectorScanDefaultTypeInternal()
@@ -40,7 +40,7 @@ struct VectorScanDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VectorScanDefaultTypeInternal _VectorScan_default_instance_;
 }  // namespace substrait_extension
 static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fvector_5fplan_2eproto[1];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_substrait_5fextension_2fvector_5fplan_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_substrait_5fextension_2fvector_5fplan_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_substrait_5fextension_2fvector_5fplan_2eproto = nullptr;
 
 const uint32_t TableStruct_substrait_5fextension_2fvector_5fplan_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -66,15 +66,18 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_substrait_5fextension_2fvector_5fplan_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n%substrait_extension/vector_plan.proto\022"
-  "\023substrait_extension\"_\n\nVectorScan\022\r\n\005in"
-  "put\030\001 \001(\014\022\021\n\tcolumn_id\030\002 \001(\r\022\024\n\014query_ve"
-  "ctor\030\003 \003(\002\022\t\n\001k\030\004 \001(\r\022\016\n\006metric\030\005 \001(\rB\?Z"
-  "=github.com/GreptimeTeam/greptime-proto/"
-  "go/substrait_extensionb\006proto3"
+  "\023substrait_extension\"\212\001\n\nVectorScan\022\r\n\005i"
+  "nput\030\001 \001(\014\022\021\n\tcolumn_id\030\002 \001(\r\022\024\n\014query_v"
+  "ector\030\003 \003(\002\022\t\n\001k\030\004 \001(\r\0229\n\006metric\030\005 \001(\0162)"
+  ".substrait_extension.VectorDistanceMetri"
+  "c*>\n\024VectorDistanceMetric\022\010\n\004L2SQ\020\000\022\n\n\006C"
+  "OSINE\020\001\022\020\n\014INNERPRODUCT\020\002B\?Z=github.com/"
+  "GreptimeTeam/greptime-proto/go/substrait"
+  "_extensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fvector_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fvector_5fplan_2eproto = {
-    false, false, 230, descriptor_table_protodef_substrait_5fextension_2fvector_5fplan_2eproto,
+    false, false, 338, descriptor_table_protodef_substrait_5fextension_2fvector_5fplan_2eproto,
     "substrait_extension/vector_plan.proto",
     &descriptor_table_substrait_5fextension_2fvector_5fplan_2eproto_once, nullptr, 0, 1,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fvector_5fplan_2eproto::offsets,
@@ -88,6 +91,21 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_substrai
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_substrait_5fextension_2fvector_5fplan_2eproto(&descriptor_table_substrait_5fextension_2fvector_5fplan_2eproto);
 namespace substrait_extension {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* VectorDistanceMetric_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_substrait_5fextension_2fvector_5fplan_2eproto);
+  return file_level_enum_descriptors_substrait_5fextension_2fvector_5fplan_2eproto[0];
+}
+bool VectorDistanceMetric_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -136,7 +154,7 @@ inline void VectorScan::SharedCtor(
     , decltype(_impl_.input_){}
     , decltype(_impl_.column_id_){0u}
     , decltype(_impl_.k_){0u}
-    , decltype(_impl_.metric_){0u}
+    , decltype(_impl_.metric_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.input_.InitDefault();
@@ -220,11 +238,12 @@ const char* VectorScan::_InternalParse(const char* ptr, ::_pbi::ParseContext* ct
         } else
           goto handle_unusual;
         continue;
-      // uint32 metric = 5;
+      // .substrait_extension.VectorDistanceMetric metric = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          _impl_.metric_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+          _internal_set_metric(static_cast<::substrait_extension::VectorDistanceMetric>(val));
         } else
           goto handle_unusual;
         continue;
@@ -280,10 +299,11 @@ uint8_t* VectorScan::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_k(), target);
   }
 
-  // uint32 metric = 5;
+  // .substrait_extension.VectorDistanceMetric metric = 5;
   if (this->_internal_metric() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(5, this->_internal_metric(), target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      5, this->_internal_metric(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -330,9 +350,10 @@ size_t VectorScan::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_k());
   }
 
-  // uint32 metric = 5;
+  // .substrait_extension.VectorDistanceMetric metric = 5;
   if (this->_internal_metric() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_metric());
+    total_size += 1 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_metric());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);

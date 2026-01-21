@@ -18,6 +18,13 @@ package substrait_extension;
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/substrait_extension";
 
+// Vector distance metric
+enum VectorDistanceMetric {
+  L2SQ = 0;
+  COSINE = 1;
+  INNERPRODUCT = 2;
+}
+
 // Vector scan hint for KNN search
 message VectorScan {
   // The input logical plan (Substrait-encoded)
@@ -28,6 +35,6 @@ message VectorScan {
   repeated float query_vector = 3;
   // Number of nearest neighbors (k)
   uint32 k = 4;
-  // Distance metric: 0=L2Squared, 1=Cosine, 2=Dot
-  uint32 metric = 5;
+  // Distance metric
+  VectorDistanceMetric metric = 5;
 }
