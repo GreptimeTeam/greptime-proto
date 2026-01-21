@@ -10966,6 +10966,1551 @@ public final class PromqlPlan {
 
   }
 
+  public interface HistogramFoldOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.HistogramFold)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Column index of the `le` column (histogram bucket bounds)
+     * </pre>
+     *
+     * <code>uint64 le_column_idx = 1;</code>
+     * @return The leColumnIdx.
+     */
+    long getLeColumnIdx();
+
+    /**
+     * <pre>
+     * Column index of the timestamp column
+     * </pre>
+     *
+     * <code>uint64 ts_column_idx = 2;</code>
+     * @return The tsColumnIdx.
+     */
+    long getTsColumnIdx();
+
+    /**
+     * <pre>
+     * Column index of the field column (histogram values)
+     * </pre>
+     *
+     * <code>uint64 field_column_idx = 3;</code>
+     * @return The fieldColumnIdx.
+     */
+    long getFieldColumnIdx();
+
+    /**
+     * <pre>
+     * Quantile value
+     * </pre>
+     *
+     * <code>double quantile = 4;</code>
+     * @return The quantile.
+     */
+    double getQuantile();
+  }
+  /**
+   * Protobuf type {@code substrait_extension.HistogramFold}
+   */
+  public static final class HistogramFold extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.HistogramFold)
+      HistogramFoldOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HistogramFold.newBuilder() to construct.
+    private HistogramFold(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HistogramFold() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HistogramFold();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HistogramFold(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              leColumnIdx_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              tsColumnIdx_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              fieldColumnIdx_ = input.readUInt64();
+              break;
+            }
+            case 33: {
+
+              quantile_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_HistogramFold_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_HistogramFold_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.HistogramFold.class, substrait_extension.PromqlPlan.HistogramFold.Builder.class);
+    }
+
+    public static final int LE_COLUMN_IDX_FIELD_NUMBER = 1;
+    private long leColumnIdx_;
+    /**
+     * <pre>
+     * Column index of the `le` column (histogram bucket bounds)
+     * </pre>
+     *
+     * <code>uint64 le_column_idx = 1;</code>
+     * @return The leColumnIdx.
+     */
+    @java.lang.Override
+    public long getLeColumnIdx() {
+      return leColumnIdx_;
+    }
+
+    public static final int TS_COLUMN_IDX_FIELD_NUMBER = 2;
+    private long tsColumnIdx_;
+    /**
+     * <pre>
+     * Column index of the timestamp column
+     * </pre>
+     *
+     * <code>uint64 ts_column_idx = 2;</code>
+     * @return The tsColumnIdx.
+     */
+    @java.lang.Override
+    public long getTsColumnIdx() {
+      return tsColumnIdx_;
+    }
+
+    public static final int FIELD_COLUMN_IDX_FIELD_NUMBER = 3;
+    private long fieldColumnIdx_;
+    /**
+     * <pre>
+     * Column index of the field column (histogram values)
+     * </pre>
+     *
+     * <code>uint64 field_column_idx = 3;</code>
+     * @return The fieldColumnIdx.
+     */
+    @java.lang.Override
+    public long getFieldColumnIdx() {
+      return fieldColumnIdx_;
+    }
+
+    public static final int QUANTILE_FIELD_NUMBER = 4;
+    private double quantile_;
+    /**
+     * <pre>
+     * Quantile value
+     * </pre>
+     *
+     * <code>double quantile = 4;</code>
+     * @return The quantile.
+     */
+    @java.lang.Override
+    public double getQuantile() {
+      return quantile_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (leColumnIdx_ != 0L) {
+        output.writeUInt64(1, leColumnIdx_);
+      }
+      if (tsColumnIdx_ != 0L) {
+        output.writeUInt64(2, tsColumnIdx_);
+      }
+      if (fieldColumnIdx_ != 0L) {
+        output.writeUInt64(3, fieldColumnIdx_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(quantile_) != 0) {
+        output.writeDouble(4, quantile_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (leColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, leColumnIdx_);
+      }
+      if (tsColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, tsColumnIdx_);
+      }
+      if (fieldColumnIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, fieldColumnIdx_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(quantile_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, quantile_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.HistogramFold)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.HistogramFold other = (substrait_extension.PromqlPlan.HistogramFold) obj;
+
+      if (getLeColumnIdx()
+          != other.getLeColumnIdx()) return false;
+      if (getTsColumnIdx()
+          != other.getTsColumnIdx()) return false;
+      if (getFieldColumnIdx()
+          != other.getFieldColumnIdx()) return false;
+      if (java.lang.Double.doubleToLongBits(getQuantile())
+          != java.lang.Double.doubleToLongBits(
+              other.getQuantile())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + LE_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLeColumnIdx());
+      hash = (37 * hash) + TS_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTsColumnIdx());
+      hash = (37 * hash) + FIELD_COLUMN_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFieldColumnIdx());
+      hash = (37 * hash) + QUANTILE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getQuantile()));
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.HistogramFold parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.HistogramFold prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.HistogramFold}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.HistogramFold)
+        substrait_extension.PromqlPlan.HistogramFoldOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_HistogramFold_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_HistogramFold_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.HistogramFold.class, substrait_extension.PromqlPlan.HistogramFold.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.HistogramFold.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        leColumnIdx_ = 0L;
+
+        tsColumnIdx_ = 0L;
+
+        fieldColumnIdx_ = 0L;
+
+        quantile_ = 0D;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_HistogramFold_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.HistogramFold getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.HistogramFold.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.HistogramFold build() {
+        substrait_extension.PromqlPlan.HistogramFold result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.HistogramFold buildPartial() {
+        substrait_extension.PromqlPlan.HistogramFold result = new substrait_extension.PromqlPlan.HistogramFold(this);
+        result.leColumnIdx_ = leColumnIdx_;
+        result.tsColumnIdx_ = tsColumnIdx_;
+        result.fieldColumnIdx_ = fieldColumnIdx_;
+        result.quantile_ = quantile_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.HistogramFold) {
+          return mergeFrom((substrait_extension.PromqlPlan.HistogramFold)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.HistogramFold other) {
+        if (other == substrait_extension.PromqlPlan.HistogramFold.getDefaultInstance()) return this;
+        if (other.getLeColumnIdx() != 0L) {
+          setLeColumnIdx(other.getLeColumnIdx());
+        }
+        if (other.getTsColumnIdx() != 0L) {
+          setTsColumnIdx(other.getTsColumnIdx());
+        }
+        if (other.getFieldColumnIdx() != 0L) {
+          setFieldColumnIdx(other.getFieldColumnIdx());
+        }
+        if (other.getQuantile() != 0D) {
+          setQuantile(other.getQuantile());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.HistogramFold parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.HistogramFold) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long leColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of the `le` column (histogram bucket bounds)
+       * </pre>
+       *
+       * <code>uint64 le_column_idx = 1;</code>
+       * @return The leColumnIdx.
+       */
+      @java.lang.Override
+      public long getLeColumnIdx() {
+        return leColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of the `le` column (histogram bucket bounds)
+       * </pre>
+       *
+       * <code>uint64 le_column_idx = 1;</code>
+       * @param value The leColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLeColumnIdx(long value) {
+        
+        leColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of the `le` column (histogram bucket bounds)
+       * </pre>
+       *
+       * <code>uint64 le_column_idx = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLeColumnIdx() {
+        
+        leColumnIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long tsColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_column_idx = 2;</code>
+       * @return The tsColumnIdx.
+       */
+      @java.lang.Override
+      public long getTsColumnIdx() {
+        return tsColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_column_idx = 2;</code>
+       * @param value The tsColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTsColumnIdx(long value) {
+        
+        tsColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_column_idx = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTsColumnIdx() {
+        
+        tsColumnIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long fieldColumnIdx_ ;
+      /**
+       * <pre>
+       * Column index of the field column (histogram values)
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 3;</code>
+       * @return The fieldColumnIdx.
+       */
+      @java.lang.Override
+      public long getFieldColumnIdx() {
+        return fieldColumnIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of the field column (histogram values)
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 3;</code>
+       * @param value The fieldColumnIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFieldColumnIdx(long value) {
+        
+        fieldColumnIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of the field column (histogram values)
+       * </pre>
+       *
+       * <code>uint64 field_column_idx = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFieldColumnIdx() {
+        
+        fieldColumnIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double quantile_ ;
+      /**
+       * <pre>
+       * Quantile value
+       * </pre>
+       *
+       * <code>double quantile = 4;</code>
+       * @return The quantile.
+       */
+      @java.lang.Override
+      public double getQuantile() {
+        return quantile_;
+      }
+      /**
+       * <pre>
+       * Quantile value
+       * </pre>
+       *
+       * <code>double quantile = 4;</code>
+       * @param value The quantile to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQuantile(double value) {
+        
+        quantile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Quantile value
+       * </pre>
+       *
+       * <code>double quantile = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearQuantile() {
+        
+        quantile_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.HistogramFold)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.HistogramFold)
+    private static final substrait_extension.PromqlPlan.HistogramFold DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.HistogramFold();
+    }
+
+    public static substrait_extension.PromqlPlan.HistogramFold getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HistogramFold>
+        PARSER = new com.google.protobuf.AbstractParser<HistogramFold>() {
+      @java.lang.Override
+      public HistogramFold parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HistogramFold(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HistogramFold> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HistogramFold> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.HistogramFold getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface UnionDistinctOnOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.UnionDistinctOn)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @return A list containing the compareKeyIndices.
+     */
+    java.util.List<java.lang.Long> getCompareKeyIndicesList();
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @return The count of compareKeyIndices.
+     */
+    int getCompareKeyIndicesCount();
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @param index The index of the element to return.
+     * @return The compareKeyIndices at the given index.
+     */
+    long getCompareKeyIndices(int index);
+
+    /**
+     * <pre>
+     * Column index of the timestamp column
+     * </pre>
+     *
+     * <code>uint64 ts_col_idx = 2;</code>
+     * @return The tsColIdx.
+     */
+    long getTsColIdx();
+  }
+  /**
+   * Protobuf type {@code substrait_extension.UnionDistinctOn}
+   */
+  public static final class UnionDistinctOn extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.UnionDistinctOn)
+      UnionDistinctOnOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UnionDistinctOn.newBuilder() to construct.
+    private UnionDistinctOn(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UnionDistinctOn() {
+      compareKeyIndices_ = emptyLongList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UnionDistinctOn();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnionDistinctOn(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                compareKeyIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              compareKeyIndices_.addLong(input.readUInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                compareKeyIndices_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                compareKeyIndices_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 16: {
+
+              tsColIdx_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          compareKeyIndices_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_UnionDistinctOn_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_UnionDistinctOn_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.UnionDistinctOn.class, substrait_extension.PromqlPlan.UnionDistinctOn.Builder.class);
+    }
+
+    public static final int COMPARE_KEY_INDICES_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList compareKeyIndices_;
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @return A list containing the compareKeyIndices.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getCompareKeyIndicesList() {
+      return compareKeyIndices_;
+    }
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @return The count of compareKeyIndices.
+     */
+    public int getCompareKeyIndicesCount() {
+      return compareKeyIndices_.size();
+    }
+    /**
+     * <pre>
+     * Indices of columns to compare for equality
+     * </pre>
+     *
+     * <code>repeated uint64 compare_key_indices = 1;</code>
+     * @param index The index of the element to return.
+     * @return The compareKeyIndices at the given index.
+     */
+    public long getCompareKeyIndices(int index) {
+      return compareKeyIndices_.getLong(index);
+    }
+    private int compareKeyIndicesMemoizedSerializedSize = -1;
+
+    public static final int TS_COL_IDX_FIELD_NUMBER = 2;
+    private long tsColIdx_;
+    /**
+     * <pre>
+     * Column index of the timestamp column
+     * </pre>
+     *
+     * <code>uint64 ts_col_idx = 2;</code>
+     * @return The tsColIdx.
+     */
+    @java.lang.Override
+    public long getTsColIdx() {
+      return tsColIdx_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getCompareKeyIndicesList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(compareKeyIndicesMemoizedSerializedSize);
+      }
+      for (int i = 0; i < compareKeyIndices_.size(); i++) {
+        output.writeUInt64NoTag(compareKeyIndices_.getLong(i));
+      }
+      if (tsColIdx_ != 0L) {
+        output.writeUInt64(2, tsColIdx_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < compareKeyIndices_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(compareKeyIndices_.getLong(i));
+        }
+        size += dataSize;
+        if (!getCompareKeyIndicesList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        compareKeyIndicesMemoizedSerializedSize = dataSize;
+      }
+      if (tsColIdx_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, tsColIdx_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.UnionDistinctOn)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.UnionDistinctOn other = (substrait_extension.PromqlPlan.UnionDistinctOn) obj;
+
+      if (!getCompareKeyIndicesList()
+          .equals(other.getCompareKeyIndicesList())) return false;
+      if (getTsColIdx()
+          != other.getTsColIdx()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCompareKeyIndicesCount() > 0) {
+        hash = (37 * hash) + COMPARE_KEY_INDICES_FIELD_NUMBER;
+        hash = (53 * hash) + getCompareKeyIndicesList().hashCode();
+      }
+      hash = (37 * hash) + TS_COL_IDX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTsColIdx());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.UnionDistinctOn parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.UnionDistinctOn prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.UnionDistinctOn}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.UnionDistinctOn)
+        substrait_extension.PromqlPlan.UnionDistinctOnOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_UnionDistinctOn_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_UnionDistinctOn_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.UnionDistinctOn.class, substrait_extension.PromqlPlan.UnionDistinctOn.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.UnionDistinctOn.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        compareKeyIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tsColIdx_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_UnionDistinctOn_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.UnionDistinctOn getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.UnionDistinctOn.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.UnionDistinctOn build() {
+        substrait_extension.PromqlPlan.UnionDistinctOn result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.UnionDistinctOn buildPartial() {
+        substrait_extension.PromqlPlan.UnionDistinctOn result = new substrait_extension.PromqlPlan.UnionDistinctOn(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          compareKeyIndices_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.compareKeyIndices_ = compareKeyIndices_;
+        result.tsColIdx_ = tsColIdx_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.UnionDistinctOn) {
+          return mergeFrom((substrait_extension.PromqlPlan.UnionDistinctOn)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.UnionDistinctOn other) {
+        if (other == substrait_extension.PromqlPlan.UnionDistinctOn.getDefaultInstance()) return this;
+        if (!other.compareKeyIndices_.isEmpty()) {
+          if (compareKeyIndices_.isEmpty()) {
+            compareKeyIndices_ = other.compareKeyIndices_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureCompareKeyIndicesIsMutable();
+            compareKeyIndices_.addAll(other.compareKeyIndices_);
+          }
+          onChanged();
+        }
+        if (other.getTsColIdx() != 0L) {
+          setTsColIdx(other.getTsColIdx());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.UnionDistinctOn parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.UnionDistinctOn) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.Internal.LongList compareKeyIndices_ = emptyLongList();
+      private void ensureCompareKeyIndicesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          compareKeyIndices_ = mutableCopy(compareKeyIndices_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @return A list containing the compareKeyIndices.
+       */
+      public java.util.List<java.lang.Long>
+          getCompareKeyIndicesList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(compareKeyIndices_) : compareKeyIndices_;
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @return The count of compareKeyIndices.
+       */
+      public int getCompareKeyIndicesCount() {
+        return compareKeyIndices_.size();
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @param index The index of the element to return.
+       * @return The compareKeyIndices at the given index.
+       */
+      public long getCompareKeyIndices(int index) {
+        return compareKeyIndices_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The compareKeyIndices to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCompareKeyIndices(
+          int index, long value) {
+        ensureCompareKeyIndicesIsMutable();
+        compareKeyIndices_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @param value The compareKeyIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCompareKeyIndices(long value) {
+        ensureCompareKeyIndicesIsMutable();
+        compareKeyIndices_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @param values The compareKeyIndices to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllCompareKeyIndices(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureCompareKeyIndicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, compareKeyIndices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indices of columns to compare for equality
+       * </pre>
+       *
+       * <code>repeated uint64 compare_key_indices = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCompareKeyIndices() {
+        compareKeyIndices_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private long tsColIdx_ ;
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_col_idx = 2;</code>
+       * @return The tsColIdx.
+       */
+      @java.lang.Override
+      public long getTsColIdx() {
+        return tsColIdx_;
+      }
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_col_idx = 2;</code>
+       * @param value The tsColIdx to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTsColIdx(long value) {
+        
+        tsColIdx_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Column index of the timestamp column
+       * </pre>
+       *
+       * <code>uint64 ts_col_idx = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTsColIdx() {
+        
+        tsColIdx_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.UnionDistinctOn)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.UnionDistinctOn)
+    private static final substrait_extension.PromqlPlan.UnionDistinctOn DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.UnionDistinctOn();
+    }
+
+    public static substrait_extension.PromqlPlan.UnionDistinctOn getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UnionDistinctOn>
+        PARSER = new com.google.protobuf.AbstractParser<UnionDistinctOn>() {
+      @java.lang.Override
+      public UnionDistinctOn parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnionDistinctOn(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UnionDistinctOn> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnionDistinctOn> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.UnionDistinctOn getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_EmptyMetric_descriptor;
   private static final 
@@ -11006,6 +12551,16 @@ public final class PromqlPlan {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_LabelPair_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_HistogramFold_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_HistogramFold_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_UnionDistinctOn_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_UnionDistinctOn_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11046,9 +12601,13 @@ public final class PromqlPlan {
       "labels\030\006 \003(\0132\036.substrait_extension.Label" +
       "Pair\022\035\n\025time_index_column_idx\030\007 \001(\004\022\030\n\020v" +
       "alue_column_idx\030\010 \001(\004\"\'\n\tLabelPair\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\tB?Z=github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/substrait_ex" +
-      "tensionb\006proto3"
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"i\n\rHistogramFold\022" +
+      "\025\n\rle_column_idx\030\001 \001(\004\022\025\n\rts_column_idx\030" +
+      "\002 \001(\004\022\030\n\020field_column_idx\030\003 \001(\004\022\020\n\010quant" +
+      "ile\030\004 \001(\001\"B\n\017UnionDistinctOn\022\033\n\023compare_" +
+      "key_indices\030\001 \003(\004\022\022\n\nts_col_idx\030\002 \001(\004B?Z" +
+      "=github.com/GreptimeTeam/greptime-proto/" +
+      "go/substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11102,6 +12661,18 @@ public final class PromqlPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_LabelPair_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_substrait_extension_HistogramFold_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_substrait_extension_HistogramFold_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_HistogramFold_descriptor,
+        new java.lang.String[] { "LeColumnIdx", "TsColumnIdx", "FieldColumnIdx", "Quantile", });
+    internal_static_substrait_extension_UnionDistinctOn_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_substrait_extension_UnionDistinctOn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_UnionDistinctOn_descriptor,
+        new java.lang.String[] { "CompareKeyIndices", "TsColIdx", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
