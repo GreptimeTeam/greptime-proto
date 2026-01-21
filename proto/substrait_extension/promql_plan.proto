@@ -156,7 +156,7 @@ message HistogramFold {
   uint64 ts_column_idx = 2;
   // Column index of the field column (histogram values)
   uint64 field_column_idx = 3;
-  // Quantile value (as f64 bits)
+  // Quantile value
   double quantile = 4;
 }
 
