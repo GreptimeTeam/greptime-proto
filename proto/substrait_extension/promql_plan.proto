@@ -148,3 +148,21 @@ message LabelPair {
   string key = 1;
   string value = 2;
 }
+
+message HistogramFold {
+  // Column index of the `le` column (histogram bucket bounds)
+  uint64 le_column_idx = 1;
+  // Column index of the timestamp column
+  uint64 ts_column_idx = 2;
+  // Column index of the field column (histogram values)
+  uint64 field_column_idx = 3;
+  // Quantile value (as f64 bits)
+  double quantile = 4;
+}
+
+message UnionDistinctOn {
+  // Indices of columns to compare for equality
+  repeated uint64 compare_key_indices = 1;
+  // Column index of the timestamp column
+  uint64 ts_col_idx = 2;
+}
