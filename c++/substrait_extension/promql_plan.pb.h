@@ -51,6 +51,9 @@ extern AbsentDefaultTypeInternal _Absent_default_instance_;
 class EmptyMetric;
 struct EmptyMetricDefaultTypeInternal;
 extern EmptyMetricDefaultTypeInternal _EmptyMetric_default_instance_;
+class HistogramFold;
+struct HistogramFoldDefaultTypeInternal;
+extern HistogramFoldDefaultTypeInternal _HistogramFold_default_instance_;
 class InstantManipulate;
 struct InstantManipulateDefaultTypeInternal;
 extern InstantManipulateDefaultTypeInternal _InstantManipulate_default_instance_;
@@ -69,16 +72,21 @@ extern SeriesDivideDefaultTypeInternal _SeriesDivide_default_instance_;
 class SeriesNormalize;
 struct SeriesNormalizeDefaultTypeInternal;
 extern SeriesNormalizeDefaultTypeInternal _SeriesNormalize_default_instance_;
+class UnionDistinctOn;
+struct UnionDistinctOnDefaultTypeInternal;
+extern UnionDistinctOnDefaultTypeInternal _UnionDistinctOn_default_instance_;
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
 template<> ::substrait_extension::Absent* Arena::CreateMaybeMessage<::substrait_extension::Absent>(Arena*);
 template<> ::substrait_extension::EmptyMetric* Arena::CreateMaybeMessage<::substrait_extension::EmptyMetric>(Arena*);
+template<> ::substrait_extension::HistogramFold* Arena::CreateMaybeMessage<::substrait_extension::HistogramFold>(Arena*);
 template<> ::substrait_extension::InstantManipulate* Arena::CreateMaybeMessage<::substrait_extension::InstantManipulate>(Arena*);
 template<> ::substrait_extension::LabelPair* Arena::CreateMaybeMessage<::substrait_extension::LabelPair>(Arena*);
 template<> ::substrait_extension::RangeManipulate* Arena::CreateMaybeMessage<::substrait_extension::RangeManipulate>(Arena*);
 template<> ::substrait_extension::ScalarCalculate* Arena::CreateMaybeMessage<::substrait_extension::ScalarCalculate>(Arena*);
 template<> ::substrait_extension::SeriesDivide* Arena::CreateMaybeMessage<::substrait_extension::SeriesDivide>(Arena*);
 template<> ::substrait_extension::SeriesNormalize* Arena::CreateMaybeMessage<::substrait_extension::SeriesNormalize>(Arena*);
+template<> ::substrait_extension::UnionDistinctOn* Arena::CreateMaybeMessage<::substrait_extension::UnionDistinctOn>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace substrait_extension {
 
@@ -1886,6 +1894,360 @@ class LabelPair final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class HistogramFold final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.HistogramFold) */ {
+ public:
+  inline HistogramFold() : HistogramFold(nullptr) {}
+  ~HistogramFold() override;
+  explicit PROTOBUF_CONSTEXPR HistogramFold(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  HistogramFold(const HistogramFold& from);
+  HistogramFold(HistogramFold&& from) noexcept
+    : HistogramFold() {
+    *this = ::std::move(from);
+  }
+
+  inline HistogramFold& operator=(const HistogramFold& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline HistogramFold& operator=(HistogramFold&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const HistogramFold& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const HistogramFold* internal_default_instance() {
+    return reinterpret_cast<const HistogramFold*>(
+               &_HistogramFold_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(HistogramFold& a, HistogramFold& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(HistogramFold* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(HistogramFold* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  HistogramFold* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<HistogramFold>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const HistogramFold& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const HistogramFold& from) {
+    HistogramFold::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(HistogramFold* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.HistogramFold";
+  }
+  protected:
+  explicit HistogramFold(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kLeColumnIdxFieldNumber = 1,
+    kTsColumnIdxFieldNumber = 2,
+    kFieldColumnIdxFieldNumber = 3,
+    kQuantileFieldNumber = 4,
+  };
+  // uint64 le_column_idx = 1;
+  void clear_le_column_idx();
+  uint64_t le_column_idx() const;
+  void set_le_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_le_column_idx() const;
+  void _internal_set_le_column_idx(uint64_t value);
+  public:
+
+  // uint64 ts_column_idx = 2;
+  void clear_ts_column_idx();
+  uint64_t ts_column_idx() const;
+  void set_ts_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_ts_column_idx() const;
+  void _internal_set_ts_column_idx(uint64_t value);
+  public:
+
+  // uint64 field_column_idx = 3;
+  void clear_field_column_idx();
+  uint64_t field_column_idx() const;
+  void set_field_column_idx(uint64_t value);
+  private:
+  uint64_t _internal_field_column_idx() const;
+  void _internal_set_field_column_idx(uint64_t value);
+  public:
+
+  // double quantile = 4;
+  void clear_quantile();
+  double quantile() const;
+  void set_quantile(double value);
+  private:
+  double _internal_quantile() const;
+  void _internal_set_quantile(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.HistogramFold)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t le_column_idx_;
+    uint64_t ts_column_idx_;
+    uint64_t field_column_idx_;
+    double quantile_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UnionDistinctOn final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.UnionDistinctOn) */ {
+ public:
+  inline UnionDistinctOn() : UnionDistinctOn(nullptr) {}
+  ~UnionDistinctOn() override;
+  explicit PROTOBUF_CONSTEXPR UnionDistinctOn(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UnionDistinctOn(const UnionDistinctOn& from);
+  UnionDistinctOn(UnionDistinctOn&& from) noexcept
+    : UnionDistinctOn() {
+    *this = ::std::move(from);
+  }
+
+  inline UnionDistinctOn& operator=(const UnionDistinctOn& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UnionDistinctOn& operator=(UnionDistinctOn&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UnionDistinctOn& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UnionDistinctOn* internal_default_instance() {
+    return reinterpret_cast<const UnionDistinctOn*>(
+               &_UnionDistinctOn_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(UnionDistinctOn& a, UnionDistinctOn& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UnionDistinctOn* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UnionDistinctOn* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UnionDistinctOn* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UnionDistinctOn>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UnionDistinctOn& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const UnionDistinctOn& from) {
+    UnionDistinctOn::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UnionDistinctOn* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.UnionDistinctOn";
+  }
+  protected:
+  explicit UnionDistinctOn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCompareKeyIndicesFieldNumber = 1,
+    kTsColIdxFieldNumber = 2,
+  };
+  // repeated uint64 compare_key_indices = 1;
+  int compare_key_indices_size() const;
+  private:
+  int _internal_compare_key_indices_size() const;
+  public:
+  void clear_compare_key_indices();
+  private:
+  uint64_t _internal_compare_key_indices(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_compare_key_indices() const;
+  void _internal_add_compare_key_indices(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_compare_key_indices();
+  public:
+  uint64_t compare_key_indices(int index) const;
+  void set_compare_key_indices(int index, uint64_t value);
+  void add_compare_key_indices(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      compare_key_indices() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_compare_key_indices();
+
+  // uint64 ts_col_idx = 2;
+  void clear_ts_col_idx();
+  uint64_t ts_col_idx() const;
+  void set_ts_col_idx(uint64_t value);
+  private:
+  uint64_t _internal_ts_col_idx() const;
+  void _internal_set_ts_col_idx(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.UnionDistinctOn)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > compare_key_indices_;
+    mutable std::atomic<int> _compare_key_indices_cached_byte_size_;
+    uint64_t ts_col_idx_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -3563,9 +3925,168 @@ inline void LabelPair::set_allocated_value(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:substrait_extension.LabelPair.value)
 }
 
+// -------------------------------------------------------------------
+
+// HistogramFold
+
+// uint64 le_column_idx = 1;
+inline void HistogramFold::clear_le_column_idx() {
+  _impl_.le_column_idx_ = uint64_t{0u};
+}
+inline uint64_t HistogramFold::_internal_le_column_idx() const {
+  return _impl_.le_column_idx_;
+}
+inline uint64_t HistogramFold::le_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.HistogramFold.le_column_idx)
+  return _internal_le_column_idx();
+}
+inline void HistogramFold::_internal_set_le_column_idx(uint64_t value) {
+  
+  _impl_.le_column_idx_ = value;
+}
+inline void HistogramFold::set_le_column_idx(uint64_t value) {
+  _internal_set_le_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.HistogramFold.le_column_idx)
+}
+
+// uint64 ts_column_idx = 2;
+inline void HistogramFold::clear_ts_column_idx() {
+  _impl_.ts_column_idx_ = uint64_t{0u};
+}
+inline uint64_t HistogramFold::_internal_ts_column_idx() const {
+  return _impl_.ts_column_idx_;
+}
+inline uint64_t HistogramFold::ts_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.HistogramFold.ts_column_idx)
+  return _internal_ts_column_idx();
+}
+inline void HistogramFold::_internal_set_ts_column_idx(uint64_t value) {
+  
+  _impl_.ts_column_idx_ = value;
+}
+inline void HistogramFold::set_ts_column_idx(uint64_t value) {
+  _internal_set_ts_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.HistogramFold.ts_column_idx)
+}
+
+// uint64 field_column_idx = 3;
+inline void HistogramFold::clear_field_column_idx() {
+  _impl_.field_column_idx_ = uint64_t{0u};
+}
+inline uint64_t HistogramFold::_internal_field_column_idx() const {
+  return _impl_.field_column_idx_;
+}
+inline uint64_t HistogramFold::field_column_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.HistogramFold.field_column_idx)
+  return _internal_field_column_idx();
+}
+inline void HistogramFold::_internal_set_field_column_idx(uint64_t value) {
+  
+  _impl_.field_column_idx_ = value;
+}
+inline void HistogramFold::set_field_column_idx(uint64_t value) {
+  _internal_set_field_column_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.HistogramFold.field_column_idx)
+}
+
+// double quantile = 4;
+inline void HistogramFold::clear_quantile() {
+  _impl_.quantile_ = 0;
+}
+inline double HistogramFold::_internal_quantile() const {
+  return _impl_.quantile_;
+}
+inline double HistogramFold::quantile() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.HistogramFold.quantile)
+  return _internal_quantile();
+}
+inline void HistogramFold::_internal_set_quantile(double value) {
+  
+  _impl_.quantile_ = value;
+}
+inline void HistogramFold::set_quantile(double value) {
+  _internal_set_quantile(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.HistogramFold.quantile)
+}
+
+// -------------------------------------------------------------------
+
+// UnionDistinctOn
+
+// repeated uint64 compare_key_indices = 1;
+inline int UnionDistinctOn::_internal_compare_key_indices_size() const {
+  return _impl_.compare_key_indices_.size();
+}
+inline int UnionDistinctOn::compare_key_indices_size() const {
+  return _internal_compare_key_indices_size();
+}
+inline void UnionDistinctOn::clear_compare_key_indices() {
+  _impl_.compare_key_indices_.Clear();
+}
+inline uint64_t UnionDistinctOn::_internal_compare_key_indices(int index) const {
+  return _impl_.compare_key_indices_.Get(index);
+}
+inline uint64_t UnionDistinctOn::compare_key_indices(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.UnionDistinctOn.compare_key_indices)
+  return _internal_compare_key_indices(index);
+}
+inline void UnionDistinctOn::set_compare_key_indices(int index, uint64_t value) {
+  _impl_.compare_key_indices_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.UnionDistinctOn.compare_key_indices)
+}
+inline void UnionDistinctOn::_internal_add_compare_key_indices(uint64_t value) {
+  _impl_.compare_key_indices_.Add(value);
+}
+inline void UnionDistinctOn::add_compare_key_indices(uint64_t value) {
+  _internal_add_compare_key_indices(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.UnionDistinctOn.compare_key_indices)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+UnionDistinctOn::_internal_compare_key_indices() const {
+  return _impl_.compare_key_indices_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+UnionDistinctOn::compare_key_indices() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.UnionDistinctOn.compare_key_indices)
+  return _internal_compare_key_indices();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+UnionDistinctOn::_internal_mutable_compare_key_indices() {
+  return &_impl_.compare_key_indices_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+UnionDistinctOn::mutable_compare_key_indices() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.UnionDistinctOn.compare_key_indices)
+  return _internal_mutable_compare_key_indices();
+}
+
+// uint64 ts_col_idx = 2;
+inline void UnionDistinctOn::clear_ts_col_idx() {
+  _impl_.ts_col_idx_ = uint64_t{0u};
+}
+inline uint64_t UnionDistinctOn::_internal_ts_col_idx() const {
+  return _impl_.ts_col_idx_;
+}
+inline uint64_t UnionDistinctOn::ts_col_idx() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.UnionDistinctOn.ts_col_idx)
+  return _internal_ts_col_idx();
+}
+inline void UnionDistinctOn::_internal_set_ts_col_idx(uint64_t value) {
+  
+  _impl_.ts_col_idx_ = value;
+}
+inline void UnionDistinctOn::set_ts_col_idx(uint64_t value) {
+  _internal_set_ts_col_idx(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.UnionDistinctOn.ts_col_idx)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

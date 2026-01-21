@@ -828,6 +828,138 @@ func (x *LabelPair) GetValue() string {
 	return ""
 }
 
+type HistogramFold struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Column index of the `le` column (histogram bucket bounds)
+	LeColumnIdx uint64 `protobuf:"varint,1,opt,name=le_column_idx,json=leColumnIdx,proto3" json:"le_column_idx,omitempty"`
+	// Column index of the timestamp column
+	TsColumnIdx uint64 `protobuf:"varint,2,opt,name=ts_column_idx,json=tsColumnIdx,proto3" json:"ts_column_idx,omitempty"`
+	// Column index of the field column (histogram values)
+	FieldColumnIdx uint64 `protobuf:"varint,3,opt,name=field_column_idx,json=fieldColumnIdx,proto3" json:"field_column_idx,omitempty"`
+	// Quantile value (as f64 bits)
+	Quantile float64 `protobuf:"fixed64,4,opt,name=quantile,proto3" json:"quantile,omitempty"`
+}
+
+func (x *HistogramFold) Reset() {
+	*x = HistogramFold{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_promql_plan_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *HistogramFold) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HistogramFold) ProtoMessage() {}
+
+func (x *HistogramFold) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_promql_plan_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HistogramFold.ProtoReflect.Descriptor instead.
+func (*HistogramFold) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_promql_plan_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *HistogramFold) GetLeColumnIdx() uint64 {
+	if x != nil {
+		return x.LeColumnIdx
+	}
+	return 0
+}
+
+func (x *HistogramFold) GetTsColumnIdx() uint64 {
+	if x != nil {
+		return x.TsColumnIdx
+	}
+	return 0
+}
+
+func (x *HistogramFold) GetFieldColumnIdx() uint64 {
+	if x != nil {
+		return x.FieldColumnIdx
+	}
+	return 0
+}
+
+func (x *HistogramFold) GetQuantile() float64 {
+	if x != nil {
+		return x.Quantile
+	}
+	return 0
+}
+
+type UnionDistinctOn struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Indices of columns to compare for equality
+	CompareKeyIndices []uint64 `protobuf:"varint,1,rep,packed,name=compare_key_indices,json=compareKeyIndices,proto3" json:"compare_key_indices,omitempty"`
+	// Column index of the timestamp column
+	TsColIdx uint64 `protobuf:"varint,2,opt,name=ts_col_idx,json=tsColIdx,proto3" json:"ts_col_idx,omitempty"`
+}
+
+func (x *UnionDistinctOn) Reset() {
+	*x = UnionDistinctOn{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_promql_plan_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnionDistinctOn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnionDistinctOn) ProtoMessage() {}
+
+func (x *UnionDistinctOn) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_promql_plan_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnionDistinctOn.ProtoReflect.Descriptor instead.
+func (*UnionDistinctOn) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_promql_plan_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *UnionDistinctOn) GetCompareKeyIndices() []uint64 {
+	if x != nil {
+		return x.CompareKeyIndices
+	}
+	return nil
+}
+
+func (x *UnionDistinctOn) GetTsColIdx() uint64 {
+	if x != nil {
+		return x.TsColIdx
+	}
+	return 0
+}
+
 var File_substrait_extension_promql_plan_proto protoreflect.FileDescriptor
 
 var file_substrait_extension_promql_plan_proto_rawDesc = []byte{
@@ -944,11 +1076,27 @@ var file_substrait_extension_promql_plan_proto_rawDesc = []byte{
 	0x33, 0x0a, 0x09, 0x4c, 0x61, 0x62, 0x65, 0x6c, 0x50, 0x61, 0x69, 0x72, 0x12, 0x10, 0x0a, 0x03,
 	0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14,
 	0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f,
-	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67,
-	0x6f, 0x2f, 0x73, 0x75, 0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65,
-	0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x9d, 0x01, 0x0a, 0x0d, 0x48, 0x69, 0x73, 0x74, 0x6f, 0x67, 0x72,
+	0x61, 0x6d, 0x46, 0x6f, 0x6c, 0x64, 0x12, 0x22, 0x0a, 0x0d, 0x6c, 0x65, 0x5f, 0x63, 0x6f, 0x6c,
+	0x75, 0x6d, 0x6e, 0x5f, 0x69, 0x64, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0b, 0x6c,
+	0x65, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x49, 0x64, 0x78, 0x12, 0x22, 0x0a, 0x0d, 0x74, 0x73,
+	0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x5f, 0x69, 0x64, 0x78, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x04, 0x52, 0x0b, 0x74, 0x73, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x49, 0x64, 0x78, 0x12, 0x28,
+	0x0a, 0x10, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x5f, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x5f, 0x69,
+	0x64, 0x78, 0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x0e, 0x66, 0x69, 0x65, 0x6c, 0x64, 0x43,
+	0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x49, 0x64, 0x78, 0x12, 0x1a, 0x0a, 0x08, 0x71, 0x75, 0x61, 0x6e,
+	0x74, 0x69, 0x6c, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x01, 0x52, 0x08, 0x71, 0x75, 0x61, 0x6e,
+	0x74, 0x69, 0x6c, 0x65, 0x22, 0x5f, 0x0a, 0x0f, 0x55, 0x6e, 0x69, 0x6f, 0x6e, 0x44, 0x69, 0x73,
+	0x74, 0x69, 0x6e, 0x63, 0x74, 0x4f, 0x6e, 0x12, 0x2e, 0x0a, 0x13, 0x63, 0x6f, 0x6d, 0x70, 0x61,
+	0x72, 0x65, 0x5f, 0x6b, 0x65, 0x79, 0x5f, 0x69, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x04, 0x52, 0x11, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x72, 0x65, 0x4b, 0x65, 0x79,
+	0x49, 0x6e, 0x64, 0x69, 0x63, 0x65, 0x73, 0x12, 0x1c, 0x0a, 0x0a, 0x74, 0x73, 0x5f, 0x63, 0x6f,
+	0x6c, 0x5f, 0x69, 0x64, 0x78, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x08, 0x74, 0x73, 0x43,
+	0x6f, 0x6c, 0x49, 0x64, 0x78, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d,
+	0x2f, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f,
+	0x67, 0x6f, 0x2f, 0x73, 0x75, 0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74,
+	0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -963,7 +1111,7 @@ func file_substrait_extension_promql_plan_proto_rawDescGZIP() []byte {
 	return file_substrait_extension_promql_plan_proto_rawDescData
 }
 
-var file_substrait_extension_promql_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_substrait_extension_promql_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_substrait_extension_promql_plan_proto_goTypes = []interface{}{
 	(*EmptyMetric)(nil),       // 0: substrait_extension.EmptyMetric
 	(*InstantManipulate)(nil), // 1: substrait_extension.InstantManipulate
@@ -973,6 +1121,8 @@ var file_substrait_extension_promql_plan_proto_goTypes = []interface{}{
 	(*ScalarCalculate)(nil),   // 5: substrait_extension.ScalarCalculate
 	(*Absent)(nil),            // 6: substrait_extension.Absent
 	(*LabelPair)(nil),         // 7: substrait_extension.LabelPair
+	(*HistogramFold)(nil),     // 8: substrait_extension.HistogramFold
+	(*UnionDistinctOn)(nil),   // 9: substrait_extension.UnionDistinctOn
 }
 var file_substrait_extension_promql_plan_proto_depIdxs = []int32{
 	7, // 0: substrait_extension.Absent.fake_labels:type_name -> substrait_extension.LabelPair
@@ -1085,6 +1235,30 @@ func file_substrait_extension_promql_plan_proto_init() {
 				return nil
 			}
 		}
+		file_substrait_extension_promql_plan_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*HistogramFold); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_substrait_extension_promql_plan_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnionDistinctOn); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1092,7 +1266,7 @@ func file_substrait_extension_promql_plan_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_substrait_extension_promql_plan_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -169,8 +169,39 @@ struct LabelPairDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LabelPairDefaultTypeInternal _LabelPair_default_instance_;
+PROTOBUF_CONSTEXPR HistogramFold::HistogramFold(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.le_column_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.ts_column_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.field_column_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_.quantile_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct HistogramFoldDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR HistogramFoldDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~HistogramFoldDefaultTypeInternal() {}
+  union {
+    HistogramFold _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HistogramFoldDefaultTypeInternal _HistogramFold_default_instance_;
+PROTOBUF_CONSTEXPR UnionDistinctOn::UnionDistinctOn(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.compare_key_indices_)*/{}
+  , /*decltype(_impl_._compare_key_indices_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.ts_col_idx_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct UnionDistinctOnDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR UnionDistinctOnDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~UnionDistinctOnDefaultTypeInternal() {}
+  union {
+    UnionDistinctOn _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UnionDistinctOnDefaultTypeInternal _UnionDistinctOn_default_instance_;
 }  // namespace substrait_extension
-static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[8];
+static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[10];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto = nullptr;
 
@@ -271,6 +302,24 @@ const uint32_t TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offset
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::LabelPair, _impl_.key_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::LabelPair, _impl_.value_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::HistogramFold, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::HistogramFold, _impl_.le_column_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::HistogramFold, _impl_.ts_column_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::HistogramFold, _impl_.field_column_idx_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::HistogramFold, _impl_.quantile_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::UnionDistinctOn, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::UnionDistinctOn, _impl_.compare_key_indices_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::UnionDistinctOn, _impl_.ts_col_idx_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::substrait_extension::EmptyMetric)},
@@ -281,6 +330,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 59, -1, -1, sizeof(::substrait_extension::ScalarCalculate)},
   { 74, -1, -1, sizeof(::substrait_extension::Absent)},
   { 88, -1, -1, sizeof(::substrait_extension::LabelPair)},
+  { 96, -1, -1, sizeof(::substrait_extension::HistogramFold)},
+  { 106, -1, -1, sizeof(::substrait_extension::UnionDistinctOn)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -292,6 +343,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::substrait_extension::_ScalarCalculate_default_instance_._instance,
   &::substrait_extension::_Absent_default_instance_._instance,
   &::substrait_extension::_LabelPair_default_instance_._instance,
+  &::substrait_extension::_HistogramFold_default_instance_._instance,
+  &::substrait_extension::_UnionDistinctOn_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -326,15 +379,19 @@ const char descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2epro
   "labels\030\006 \003(\0132\036.substrait_extension.Label"
   "Pair\022\035\n\025time_index_column_idx\030\007 \001(\004\022\030\n\020v"
   "alue_column_idx\030\010 \001(\004\"\'\n\tLabelPair\022\013\n\003ke"
-  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\tB\?Z=github.com/Gre"
-  "ptimeTeam/greptime-proto/go/substrait_ex"
-  "tensionb\006proto3"
+  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"i\n\rHistogramFold\022"
+  "\025\n\rle_column_idx\030\001 \001(\004\022\025\n\rts_column_idx\030"
+  "\002 \001(\004\022\030\n\020field_column_idx\030\003 \001(\004\022\020\n\010quant"
+  "ile\030\004 \001(\001\"B\n\017UnionDistinctOn\022\033\n\023compare_"
+  "key_indices\030\001 \003(\004\022\022\n\nts_col_idx\030\002 \001(\004B\?Z"
+  "=github.com/GreptimeTeam/greptime-proto/"
+  "go/substrait_extensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto = {
-    false, false, 1335, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
+    false, false, 1510, descriptor_table_protodef_substrait_5fextension_2fpromql_5fplan_2eproto,
     "substrait_extension/promql_plan.proto",
-    &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 8,
+    &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once, nullptr, 0, 10,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto::offsets,
     file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto, file_level_enum_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto,
     file_level_service_descriptors_substrait_5fextension_2fpromql_5fplan_2eproto,
@@ -3224,6 +3281,497 @@ void LabelPair::InternalSwap(LabelPair* other) {
       file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[7]);
 }
 
+// ===================================================================
+
+class HistogramFold::_Internal {
+ public:
+};
+
+HistogramFold::HistogramFold(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:substrait_extension.HistogramFold)
+}
+HistogramFold::HistogramFold(const HistogramFold& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  HistogramFold* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.le_column_idx_){}
+    , decltype(_impl_.ts_column_idx_){}
+    , decltype(_impl_.field_column_idx_){}
+    , decltype(_impl_.quantile_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.le_column_idx_, &from._impl_.le_column_idx_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.quantile_) -
+    reinterpret_cast<char*>(&_impl_.le_column_idx_)) + sizeof(_impl_.quantile_));
+  // @@protoc_insertion_point(copy_constructor:substrait_extension.HistogramFold)
+}
+
+inline void HistogramFold::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.le_column_idx_){uint64_t{0u}}
+    , decltype(_impl_.ts_column_idx_){uint64_t{0u}}
+    , decltype(_impl_.field_column_idx_){uint64_t{0u}}
+    , decltype(_impl_.quantile_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+HistogramFold::~HistogramFold() {
+  // @@protoc_insertion_point(destructor:substrait_extension.HistogramFold)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void HistogramFold::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void HistogramFold::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void HistogramFold::Clear() {
+// @@protoc_insertion_point(message_clear_start:substrait_extension.HistogramFold)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.le_column_idx_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.quantile_) -
+      reinterpret_cast<char*>(&_impl_.le_column_idx_)) + sizeof(_impl_.quantile_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* HistogramFold::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint64 le_column_idx = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.le_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 ts_column_idx = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.ts_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 field_column_idx = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.field_column_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double quantile = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 33)) {
+          _impl_.quantile_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* HistogramFold::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:substrait_extension.HistogramFold)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 le_column_idx = 1;
+  if (this->_internal_le_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_le_column_idx(), target);
+  }
+
+  // uint64 ts_column_idx = 2;
+  if (this->_internal_ts_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_ts_column_idx(), target);
+  }
+
+  // uint64 field_column_idx = 3;
+  if (this->_internal_field_column_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_field_column_idx(), target);
+  }
+
+  // double quantile = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_quantile = this->_internal_quantile();
+  uint64_t raw_quantile;
+  memcpy(&raw_quantile, &tmp_quantile, sizeof(tmp_quantile));
+  if (raw_quantile != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(4, this->_internal_quantile(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:substrait_extension.HistogramFold)
+  return target;
+}
+
+size_t HistogramFold::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:substrait_extension.HistogramFold)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 le_column_idx = 1;
+  if (this->_internal_le_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_le_column_idx());
+  }
+
+  // uint64 ts_column_idx = 2;
+  if (this->_internal_ts_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_ts_column_idx());
+  }
+
+  // uint64 field_column_idx = 3;
+  if (this->_internal_field_column_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_field_column_idx());
+  }
+
+  // double quantile = 4;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_quantile = this->_internal_quantile();
+  uint64_t raw_quantile;
+  memcpy(&raw_quantile, &tmp_quantile, sizeof(tmp_quantile));
+  if (raw_quantile != 0) {
+    total_size += 1 + 8;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData HistogramFold::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    HistogramFold::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*HistogramFold::GetClassData() const { return &_class_data_; }
+
+
+void HistogramFold::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<HistogramFold*>(&to_msg);
+  auto& from = static_cast<const HistogramFold&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:substrait_extension.HistogramFold)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_le_column_idx() != 0) {
+    _this->_internal_set_le_column_idx(from._internal_le_column_idx());
+  }
+  if (from._internal_ts_column_idx() != 0) {
+    _this->_internal_set_ts_column_idx(from._internal_ts_column_idx());
+  }
+  if (from._internal_field_column_idx() != 0) {
+    _this->_internal_set_field_column_idx(from._internal_field_column_idx());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_quantile = from._internal_quantile();
+  uint64_t raw_quantile;
+  memcpy(&raw_quantile, &tmp_quantile, sizeof(tmp_quantile));
+  if (raw_quantile != 0) {
+    _this->_internal_set_quantile(from._internal_quantile());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void HistogramFold::CopyFrom(const HistogramFold& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:substrait_extension.HistogramFold)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HistogramFold::IsInitialized() const {
+  return true;
+}
+
+void HistogramFold::InternalSwap(HistogramFold* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(HistogramFold, _impl_.quantile_)
+      + sizeof(HistogramFold::_impl_.quantile_)
+      - PROTOBUF_FIELD_OFFSET(HistogramFold, _impl_.le_column_idx_)>(
+          reinterpret_cast<char*>(&_impl_.le_column_idx_),
+          reinterpret_cast<char*>(&other->_impl_.le_column_idx_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata HistogramFold::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_getter, &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once,
+      file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[8]);
+}
+
+// ===================================================================
+
+class UnionDistinctOn::_Internal {
+ public:
+};
+
+UnionDistinctOn::UnionDistinctOn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:substrait_extension.UnionDistinctOn)
+}
+UnionDistinctOn::UnionDistinctOn(const UnionDistinctOn& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  UnionDistinctOn* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.compare_key_indices_){from._impl_.compare_key_indices_}
+    , /*decltype(_impl_._compare_key_indices_cached_byte_size_)*/{0}
+    , decltype(_impl_.ts_col_idx_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.ts_col_idx_ = from._impl_.ts_col_idx_;
+  // @@protoc_insertion_point(copy_constructor:substrait_extension.UnionDistinctOn)
+}
+
+inline void UnionDistinctOn::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.compare_key_indices_){arena}
+    , /*decltype(_impl_._compare_key_indices_cached_byte_size_)*/{0}
+    , decltype(_impl_.ts_col_idx_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+UnionDistinctOn::~UnionDistinctOn() {
+  // @@protoc_insertion_point(destructor:substrait_extension.UnionDistinctOn)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void UnionDistinctOn::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.compare_key_indices_.~RepeatedField();
+}
+
+void UnionDistinctOn::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void UnionDistinctOn::Clear() {
+// @@protoc_insertion_point(message_clear_start:substrait_extension.UnionDistinctOn)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.compare_key_indices_.Clear();
+  _impl_.ts_col_idx_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UnionDistinctOn::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated uint64 compare_key_indices = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_compare_key_indices(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 8) {
+          _internal_add_compare_key_indices(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 ts_col_idx = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.ts_col_idx_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* UnionDistinctOn::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:substrait_extension.UnionDistinctOn)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint64 compare_key_indices = 1;
+  {
+    int byte_size = _impl_._compare_key_indices_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          1, _internal_compare_key_indices(), byte_size, target);
+    }
+  }
+
+  // uint64 ts_col_idx = 2;
+  if (this->_internal_ts_col_idx() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_ts_col_idx(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:substrait_extension.UnionDistinctOn)
+  return target;
+}
+
+size_t UnionDistinctOn::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:substrait_extension.UnionDistinctOn)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint64 compare_key_indices = 1;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.compare_key_indices_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._compare_key_indices_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // uint64 ts_col_idx = 2;
+  if (this->_internal_ts_col_idx() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_ts_col_idx());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UnionDistinctOn::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    UnionDistinctOn::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UnionDistinctOn::GetClassData() const { return &_class_data_; }
+
+
+void UnionDistinctOn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<UnionDistinctOn*>(&to_msg);
+  auto& from = static_cast<const UnionDistinctOn&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:substrait_extension.UnionDistinctOn)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.compare_key_indices_.MergeFrom(from._impl_.compare_key_indices_);
+  if (from._internal_ts_col_idx() != 0) {
+    _this->_internal_set_ts_col_idx(from._internal_ts_col_idx());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UnionDistinctOn::CopyFrom(const UnionDistinctOn& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:substrait_extension.UnionDistinctOn)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UnionDistinctOn::IsInitialized() const {
+  return true;
+}
+
+void UnionDistinctOn::InternalSwap(UnionDistinctOn* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.compare_key_indices_.InternalSwap(&other->_impl_.compare_key_indices_);
+  swap(_impl_.ts_col_idx_, other->_impl_.ts_col_idx_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UnionDistinctOn::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_getter, &descriptor_table_substrait_5fextension_2fpromql_5fplan_2eproto_once,
+      file_level_metadata_substrait_5fextension_2fpromql_5fplan_2eproto[9]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
@@ -3258,6 +3806,14 @@ Arena::CreateMaybeMessage< ::substrait_extension::Absent >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::substrait_extension::LabelPair*
 Arena::CreateMaybeMessage< ::substrait_extension::LabelPair >(Arena* arena) {
   return Arena::CreateMessageInternal< ::substrait_extension::LabelPair >(arena);
+}
+template<> PROTOBUF_NOINLINE ::substrait_extension::HistogramFold*
+Arena::CreateMaybeMessage< ::substrait_extension::HistogramFold >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::substrait_extension::HistogramFold >(arena);
+}
+template<> PROTOBUF_NOINLINE ::substrait_extension::UnionDistinctOn*
+Arena::CreateMaybeMessage< ::substrait_extension::UnionDistinctOn >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::substrait_extension::UnionDistinctOn >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
