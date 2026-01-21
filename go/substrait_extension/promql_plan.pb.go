@@ -839,7 +839,7 @@ type HistogramFold struct {
 	TsColumnIdx uint64 `protobuf:"varint,2,opt,name=ts_column_idx,json=tsColumnIdx,proto3" json:"ts_column_idx,omitempty"`
 	// Column index of the field column (histogram values)
 	FieldColumnIdx uint64 `protobuf:"varint,3,opt,name=field_column_idx,json=fieldColumnIdx,proto3" json:"field_column_idx,omitempty"`
-	// Quantile value (as f64 bits)
+	// Quantile value
 	Quantile float64 `protobuf:"fixed64,4,opt,name=quantile,proto3" json:"quantile,omitempty"`
 }
 

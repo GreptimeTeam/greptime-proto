@@ -11002,7 +11002,7 @@ public final class PromqlPlan {
 
     /**
      * <pre>
-     * Quantile value (as f64 bits)
+     * Quantile value
      * </pre>
      *
      * <code>double quantile = 4;</code>
@@ -11158,7 +11158,7 @@ public final class PromqlPlan {
     private double quantile_;
     /**
      * <pre>
-     * Quantile value (as f64 bits)
+     * Quantile value
      * </pre>
      *
      * <code>double quantile = 4;</code>
@@ -11659,7 +11659,7 @@ public final class PromqlPlan {
       private double quantile_ ;
       /**
        * <pre>
-       * Quantile value (as f64 bits)
+       * Quantile value
        * </pre>
        *
        * <code>double quantile = 4;</code>
@@ -11671,7 +11671,7 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Quantile value (as f64 bits)
+       * Quantile value
        * </pre>
        *
        * <code>double quantile = 4;</code>
@@ -11686,7 +11686,7 @@ public final class PromqlPlan {
       }
       /**
        * <pre>
-       * Quantile value (as f64 bits)
+       * Quantile value
        * </pre>
        *
        * <code>double quantile = 4;</code>
