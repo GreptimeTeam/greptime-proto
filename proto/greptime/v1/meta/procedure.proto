@@ -92,6 +92,50 @@ message ReconcileResponse {
   ProcedureId pid = 2;
 }
 
+message GcRegionsRequest {
+  RequestHeader header = 1;
+  repeated uint64 region_ids = 2;
+  // Whether to perform a full file listing on datanodes when GC'ing the regions.
+  bool full_file_listing = 3;
+  // Timeout in seconds for the GC procedure mailbox operations.
+  uint32 timeout_secs = 4;
+}
+
+message GcRegionsResponse {
+  ResponseHeader header = 1;
+  // Number of regions requested for GC (accepted by the server side).
+  uint64 processed_regions = 2;
+  // Regions that need retry in the next GC round.
+  repeated uint64 need_retry_regions = 3;
+  // Number of deleted SST files.
+  uint64 deleted_files = 4;
+  // Number of deleted index files.
+  uint64 deleted_indexes = 5;
+}
+
+message GcTableRequest {
+  RequestHeader header = 1;
+  string catalog_name = 2;
+  string schema_name = 3;
+  string table_name = 4;
+  // Whether to perform a full file listing on datanodes when GC'ing the regions.
+  bool full_file_listing = 5;
+  // Timeout in seconds for the GC procedure mailbox operations.
+  uint32 timeout_secs = 6;
+}
+
+message GcTableResponse {
+  ResponseHeader header = 1;
+  // Number of regions requested for GC (accepted by the server side).
+  uint64 processed_regions = 2;
+  // Regions that need retry in the next GC round.
+  repeated uint64 need_retry_regions = 3;
+  // Number of deleted SST files.
+  uint64 deleted_files = 4;
+  // Number of deleted index files.
+  uint64 deleted_indexes = 5;
+}
+
 service ProcedureService {
   // Query a submitted procedure state
   rpc query(QueryProcedureRequest) returns (ProcedureStateResponse);
@@ -107,4 +151,10 @@ service ProcedureService {
 
   // Query all submitted procedures details
   rpc details(ProcedureDetailRequest) returns (ProcedureDetailResponse);
+
+  // Manually trigger GC for a specific list of regions
+  rpc gc_regions(GcRegionsRequest) returns (GcRegionsResponse);
+
+  // Manually trigger GC for a table (all its regions)
+  rpc gc_table(GcTableRequest) returns (GcTableResponse);
 }
