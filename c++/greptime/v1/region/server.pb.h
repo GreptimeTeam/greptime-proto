@@ -1694,6 +1694,7 @@ class InsertRequest final :
   enum : int {
     kRowsFieldNumber = 2,
     kRegionIdFieldNumber = 1,
+    kPartitionRuleVersionFieldNumber = 3,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -1722,6 +1723,15 @@ class InsertRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // uint64 partition_rule_version = 3;
+  void clear_partition_rule_version();
+  uint64_t partition_rule_version() const;
+  void set_partition_rule_version(uint64_t value);
+  private:
+  uint64_t _internal_partition_rule_version() const;
+  void _internal_set_partition_rule_version(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.InsertRequest)
  private:
   class _Internal;
@@ -1732,6 +1742,7 @@ class InsertRequest final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     uint64_t region_id_;
+    uint64_t partition_rule_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1862,6 +1873,7 @@ class DeleteRequest final :
   enum : int {
     kRowsFieldNumber = 2,
     kRegionIdFieldNumber = 1,
+    kPartitionRuleVersionFieldNumber = 3,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -1890,6 +1902,15 @@ class DeleteRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // uint64 partition_rule_version = 3;
+  void clear_partition_rule_version();
+  uint64_t partition_rule_version() const;
+  void set_partition_rule_version(uint64_t value);
+  private:
+  uint64_t _internal_partition_rule_version() const;
+  void _internal_set_partition_rule_version(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DeleteRequest)
  private:
   class _Internal;
@@ -1900,6 +1921,7 @@ class DeleteRequest final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     uint64_t region_id_;
+    uint64_t partition_rule_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5915,6 +5937,7 @@ class BulkInsertRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kPartitionRuleVersionFieldNumber = 3,
     kArrowIpcFieldNumber = 2,
   };
   // uint64 region_id = 1;
@@ -5924,6 +5947,15 @@ class BulkInsertRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint64 partition_rule_version = 3;
+  void clear_partition_rule_version();
+  uint64_t partition_rule_version() const;
+  void set_partition_rule_version(uint64_t value);
+  private:
+  uint64_t _internal_partition_rule_version() const;
+  void _internal_set_partition_rule_version(uint64_t value);
   public:
 
   // .greptime.v1.ArrowIpc arrow_ipc = 2;
@@ -5959,6 +5991,7 @@ class BulkInsertRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    uint64_t partition_rule_version_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -9138,6 +9171,26 @@ inline void InsertRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.InsertRequest.rows)
 }
 
+// uint64 partition_rule_version = 3;
+inline void InsertRequest::clear_partition_rule_version() {
+  _impl_.partition_rule_version_ = uint64_t{0u};
+}
+inline uint64_t InsertRequest::_internal_partition_rule_version() const {
+  return _impl_.partition_rule_version_;
+}
+inline uint64_t InsertRequest::partition_rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.InsertRequest.partition_rule_version)
+  return _internal_partition_rule_version();
+}
+inline void InsertRequest::_internal_set_partition_rule_version(uint64_t value) {
+  
+  _impl_.partition_rule_version_ = value;
+}
+inline void InsertRequest::set_partition_rule_version(uint64_t value) {
+  _internal_set_partition_rule_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.InsertRequest.partition_rule_version)
+}
+
 // -------------------------------------------------------------------
 
 // DeleteRequest
@@ -9245,6 +9298,26 @@ inline void DeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   }
   _impl_.rows_ = rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.DeleteRequest.rows)
+}
+
+// uint64 partition_rule_version = 3;
+inline void DeleteRequest::clear_partition_rule_version() {
+  _impl_.partition_rule_version_ = uint64_t{0u};
+}
+inline uint64_t DeleteRequest::_internal_partition_rule_version() const {
+  return _impl_.partition_rule_version_;
+}
+inline uint64_t DeleteRequest::partition_rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DeleteRequest.partition_rule_version)
+  return _internal_partition_rule_version();
+}
+inline void DeleteRequest::_internal_set_partition_rule_version(uint64_t value) {
+  
+  _impl_.partition_rule_version_ = value;
+}
+inline void DeleteRequest::set_partition_rule_version(uint64_t value) {
+  _internal_set_partition_rule_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DeleteRequest.partition_rule_version)
 }
 
 // -------------------------------------------------------------------
@@ -11994,6 +12067,26 @@ inline ::greptime::v1::ArrowIpc* BulkInsertRequest::mutable_arrow_ipc() {
   ::greptime::v1::ArrowIpc* _msg = _internal_mutable_arrow_ipc();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.arrow_ipc)
   return _msg;
+}
+
+// uint64 partition_rule_version = 3;
+inline void BulkInsertRequest::clear_partition_rule_version() {
+  _impl_.partition_rule_version_ = uint64_t{0u};
+}
+inline uint64_t BulkInsertRequest::_internal_partition_rule_version() const {
+  return _impl_.partition_rule_version_;
+}
+inline uint64_t BulkInsertRequest::partition_rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.partition_rule_version)
+  return _internal_partition_rule_version();
+}
+inline void BulkInsertRequest::_internal_set_partition_rule_version(uint64_t value) {
+  
+  _impl_.partition_rule_version_ = value;
+}
+inline void BulkInsertRequest::set_partition_rule_version(uint64_t value) {
+  _internal_set_partition_rule_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.partition_rule_version)
 }
 
 inline bool BulkInsertRequest::has_body() const {
