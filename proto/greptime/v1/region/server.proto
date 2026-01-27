@@ -136,6 +136,9 @@ message DropRequest {
   bool fast_path = 2;
   // Used only by the Metric Engine, to forcibly drop a physical region and all its associated logical regions.
   bool force = 3;
+  // If true, indicates that only a portion of the region is being dropped, and files may still be referenced by other regions.
+  // This is used to prevent deletion of files that are still in use by other regions.
+  bool partial_drop = 4;
 }
 
 message OpenRequest {

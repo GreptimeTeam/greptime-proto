@@ -2828,6 +2828,7 @@ class DropRequest final :
     kRegionIdFieldNumber = 1,
     kFastPathFieldNumber = 2,
     kForceFieldNumber = 3,
+    kPartialDropFieldNumber = 4,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -2856,6 +2857,15 @@ class DropRequest final :
   void _internal_set_force(bool value);
   public:
 
+  // bool partial_drop = 4;
+  void clear_partial_drop();
+  bool partial_drop() const;
+  void set_partial_drop(bool value);
+  private:
+  bool _internal_partial_drop() const;
+  void _internal_set_partial_drop(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DropRequest)
  private:
   class _Internal;
@@ -2867,6 +2877,7 @@ class DropRequest final :
     uint64_t region_id_;
     bool fast_path_;
     bool force_;
+    bool partial_drop_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -9877,6 +9888,26 @@ inline void DropRequest::_internal_set_force(bool value) {
 inline void DropRequest::set_force(bool value) {
   _internal_set_force(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.force)
+}
+
+// bool partial_drop = 4;
+inline void DropRequest::clear_partial_drop() {
+  _impl_.partial_drop_ = false;
+}
+inline bool DropRequest::_internal_partial_drop() const {
+  return _impl_.partial_drop_;
+}
+inline bool DropRequest::partial_drop() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DropRequest.partial_drop)
+  return _internal_partial_drop();
+}
+inline void DropRequest::_internal_set_partial_drop(bool value) {
+  
+  _impl_.partial_drop_ = value;
+}
+inline void DropRequest::set_partial_drop(bool value) {
+  _internal_set_partial_drop(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.partial_drop)
 }
 
 // -------------------------------------------------------------------
