@@ -937,6 +937,7 @@ class InsertRequest final :
   enum : int {
     kRowsFieldNumber = 2,
     kRegionIdFieldNumber = 1,
+    kPartitionRuleVersionFieldNumber = 3,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -965,6 +966,15 @@ class InsertRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // uint64 partition_rule_version = 3;
+  void clear_partition_rule_version();
+  uint64_t partition_rule_version() const;
+  void set_partition_rule_version(uint64_t value);
+  private:
+  uint64_t _internal_partition_rule_version() const;
+  void _internal_set_partition_rule_version(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.InsertRequest)
  private:
   class _Internal;
@@ -975,6 +985,7 @@ class InsertRequest final :
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
     uint64_t region_id_;
+    uint64_t partition_rule_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2510,6 +2521,26 @@ inline void InsertRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   }
   _impl_.rows_ = rows;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.InsertRequest.rows)
+}
+
+// uint64 partition_rule_version = 3;
+inline void InsertRequest::clear_partition_rule_version() {
+  _impl_.partition_rule_version_ = uint64_t{0u};
+}
+inline uint64_t InsertRequest::_internal_partition_rule_version() const {
+  return _impl_.partition_rule_version_;
+}
+inline uint64_t InsertRequest::partition_rule_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.InsertRequest.partition_rule_version)
+  return _internal_partition_rule_version();
+}
+inline void InsertRequest::_internal_set_partition_rule_version(uint64_t value) {
+  
+  _impl_.partition_rule_version_ = value;
+}
+inline void InsertRequest::set_partition_rule_version(uint64_t value) {
+  _internal_set_partition_rule_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.InsertRequest.partition_rule_version)
 }
 
 // -------------------------------------------------------------------

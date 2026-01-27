@@ -3608,6 +3608,12 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.Rows rows = 2;</code>
      */
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
+
+    /**
+     * <code>uint64 partition_rule_version = 3;</code>
+     * @return The partitionRuleVersion.
+     */
+    long getPartitionRuleVersion();
   }
   /**
    * Protobuf type {@code greptime.v1.flow.InsertRequest}
@@ -3670,6 +3676,11 @@ java.lang.String defaultValue);
                 rows_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              partitionRuleVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -3743,6 +3754,17 @@ java.lang.String defaultValue);
       return getRows();
     }
 
+    public static final int PARTITION_RULE_VERSION_FIELD_NUMBER = 3;
+    private long partitionRuleVersion_;
+    /**
+     * <code>uint64 partition_rule_version = 3;</code>
+     * @return The partitionRuleVersion.
+     */
+    @java.lang.Override
+    public long getPartitionRuleVersion() {
+      return partitionRuleVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3763,6 +3785,9 @@ java.lang.String defaultValue);
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
+      if (partitionRuleVersion_ != 0L) {
+        output.writeUInt64(3, partitionRuleVersion_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3779,6 +3804,10 @@ java.lang.String defaultValue);
       if (rows_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
+      }
+      if (partitionRuleVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, partitionRuleVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3802,6 +3831,8 @@ java.lang.String defaultValue);
         if (!getRows()
             .equals(other.getRows())) return false;
       }
+      if (getPartitionRuleVersion()
+          != other.getPartitionRuleVersion()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3820,6 +3851,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
+      hash = (37 * hash) + PARTITION_RULE_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPartitionRuleVersion());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3961,6 +3995,8 @@ java.lang.String defaultValue);
           rows_ = null;
           rowsBuilder_ = null;
         }
+        partitionRuleVersion_ = 0L;
+
         return this;
       }
 
@@ -3993,6 +4029,7 @@ java.lang.String defaultValue);
         } else {
           result.rows_ = rowsBuilder_.build();
         }
+        result.partitionRuleVersion_ = partitionRuleVersion_;
         onBuilt();
         return result;
       }
@@ -4046,6 +4083,9 @@ java.lang.String defaultValue);
         }
         if (other.hasRows()) {
           mergeRows(other.getRows());
+        }
+        if (other.getPartitionRuleVersion() != 0L) {
+          setPartitionRuleVersion(other.getPartitionRuleVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4224,6 +4264,37 @@ java.lang.String defaultValue);
           rows_ = null;
         }
         return rowsBuilder_;
+      }
+
+      private long partitionRuleVersion_ ;
+      /**
+       * <code>uint64 partition_rule_version = 3;</code>
+       * @return The partitionRuleVersion.
+       */
+      @java.lang.Override
+      public long getPartitionRuleVersion() {
+        return partitionRuleVersion_;
+      }
+      /**
+       * <code>uint64 partition_rule_version = 3;</code>
+       * @param value The partitionRuleVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPartitionRuleVersion(long value) {
+        
+        partitionRuleVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 partition_rule_version = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPartitionRuleVersion() {
+        
+        partitionRuleVersion_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10961,44 +11032,45 @@ java.lang.String defaultValue);
       "1.QueryContext\0325\n\023TracingContextEntry\022\013\n" +
       "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"C\n\016InsertR" +
       "equests\0221\n\010requests\030\001 \003(\0132\037.greptime.v1." +
-      "flow.InsertRequest\"C\n\rInsertRequest\022\021\n\tr" +
+      "flow.InsertRequest\"c\n\rInsertRequest\022\021\n\tr" +
       "egion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime." +
-      "v1.Rows\"\332\001\n\013FlowRequest\0223\n\006header\030@ \001(\0132" +
-      "#.greptime.v1.flow.FlowRequestHeader\0221\n\006" +
-      "create\030\001 \001(\0132\037.greptime.v1.flow.CreateRe" +
-      "questH\000\022-\n\004drop\030\002 \001(\0132\035.greptime.v1.flow" +
-      ".DropRequestH\000\022,\n\005flush\030\003 \001(\0132\033.greptime" +
-      ".v1.flow.FlushFlowH\000B\006\n\004body\"\366\001\n\014FlowRes" +
-      "ponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1.Resp" +
-      "onseHeader\022\025\n\raffected_rows\030\002 \001(\004\022+\n\016aff" +
-      "ected_flows\030\003 \003(\0132\023.greptime.v1.FlowId\022B" +
-      "\n\nextensions\030\004 \003(\0132..greptime.v1.flow.Fl" +
-      "owResponse.ExtensionsEntry\0321\n\017Extensions" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003" +
-      "\n\rCreateRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept" +
-      "ime.v1.FlowId\022.\n\020source_table_ids\030\002 \003(\0132" +
-      "\024.greptime.v1.TableId\022/\n\017sink_table_name" +
-      "\030\003 \001(\0132\026.greptime.v1.TableName\022\034\n\024create" +
-      "_if_not_exists\030\004 \001(\010\022.\n\014expire_after\030\005 \001" +
-      "(\0132\030.greptime.v1.ExpireAfter\0220\n\reval_int" +
-      "erval\030\n \001(\0132\031.greptime.v1.EvalInterval\022\017" +
-      "\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_opt" +
-      "ions\030\010 \003(\01320.greptime.v1.flow.CreateRequ" +
-      "est.FlowOptionsEntry\022\022\n\nor_replace\030\t \001(\010" +
-      "\0322\n\020FlowOptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001" +
-      " \001(\0132\023.greptime.v1.FlowId\"1\n\tFlushFlow\022$" +
-      "\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId2\230\002\n" +
-      "\004Flow\022S\n\022HandleCreateRemove\022\035.greptime.v" +
-      "1.flow.FlowRequest\032\036.greptime.v1.flow.Fl" +
-      "owResponse\022W\n\023HandleMirrorRequest\022 .grep" +
-      "time.v1.flow.InsertRequests\032\036.greptime.v" +
-      "1.flow.FlowResponse\022b\n\031HandleMarkDirtyTi" +
-      "meWindow\022%.greptime.v1.flow.DirtyWindowR" +
-      "equests\032\036.greptime.v1.flow.FlowResponseB" +
-      "Y\n\023io.greptime.v1.flowB\006ServerZ:github.c" +
-      "om/GreptimeTeam/greptime-proto/go/grepti" +
-      "me/v1/flowb\006proto3"
+      "v1.Rows\022\036\n\026partition_rule_version\030\003 \001(\004\"" +
+      "\332\001\n\013FlowRequest\0223\n\006header\030@ \001(\0132#.grepti" +
+      "me.v1.flow.FlowRequestHeader\0221\n\006create\030\001" +
+      " \001(\0132\037.greptime.v1.flow.CreateRequestH\000\022" +
+      "-\n\004drop\030\002 \001(\0132\035.greptime.v1.flow.DropReq" +
+      "uestH\000\022,\n\005flush\030\003 \001(\0132\033.greptime.v1.flow" +
+      ".FlushFlowH\000B\006\n\004body\"\366\001\n\014FlowResponse\022+\n" +
+      "\006header\030\001 \001(\0132\033.greptime.v1.ResponseHead" +
+      "er\022\025\n\raffected_rows\030\002 \001(\004\022+\n\016affected_fl" +
+      "ows\030\003 \003(\0132\023.greptime.v1.FlowId\022B\n\nextens" +
+      "ions\030\004 \003(\0132..greptime.v1.flow.FlowRespon" +
+      "se.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreate" +
+      "Request\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.F" +
+      "lowId\022.\n\020source_table_ids\030\002 \003(\0132\024.grepti" +
+      "me.v1.TableId\022/\n\017sink_table_name\030\003 \001(\0132\026" +
+      ".greptime.v1.TableName\022\034\n\024create_if_not_" +
+      "exists\030\004 \001(\010\022.\n\014expire_after\030\005 \001(\0132\030.gre" +
+      "ptime.v1.ExpireAfter\0220\n\reval_interval\030\n " +
+      "\001(\0132\031.greptime.v1.EvalInterval\022\017\n\007commen" +
+      "t\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003" +
+      "(\01320.greptime.v1.flow.CreateRequest.Flow" +
+      "OptionsEntry\022\022\n\nor_replace\030\t \001(\010\0322\n\020Flow" +
+      "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
+      ":\0028\001\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.g" +
+      "reptime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_i" +
+      "d\030\001 \001(\0132\023.greptime.v1.FlowId2\230\002\n\004Flow\022S\n" +
+      "\022HandleCreateRemove\022\035.greptime.v1.flow.F" +
+      "lowRequest\032\036.greptime.v1.flow.FlowRespon" +
+      "se\022W\n\023HandleMirrorRequest\022 .greptime.v1." +
+      "flow.InsertRequests\032\036.greptime.v1.flow.F" +
+      "lowResponse\022b\n\031HandleMarkDirtyTimeWindow" +
+      "\022%.greptime.v1.flow.DirtyWindowRequests\032" +
+      "\036.greptime.v1.flow.FlowResponseBY\n\023io.gr" +
+      "eptime.v1.flowB\006ServerZ:github.com/Grept" +
+      "imeTeam/greptime-proto/go/greptime/v1/fl" +
+      "owb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11042,7 +11114,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Rows", });
+        new java.lang.String[] { "RegionId", "Rows", "PartitionRuleVersion", });
     internal_static_greptime_v1_flow_FlowRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_flow_FlowRequest_fieldAccessorTable = new
