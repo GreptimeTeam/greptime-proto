@@ -101,16 +101,20 @@ message GcRegionsRequest {
   uint32 timeout_secs = 4;
 }
 
+message GcStats {
+  // Number of regions requested for GC (accepted by the server side).
+  uint64 processed_regions = 1;
+  // Regions that need retry in the next GC round.
+  repeated uint64 need_retry_regions = 2;
+  // Number of deleted SST files.
+  uint64 deleted_files = 3;
+  // Number of deleted index files.
+  uint64 deleted_indexes = 4;
+}
+
 message GcRegionsResponse {
   ResponseHeader header = 1;
-  // Number of regions requested for GC (accepted by the server side).
-  uint64 processed_regions = 2;
-  // Regions that need retry in the next GC round.
-  repeated uint64 need_retry_regions = 3;
-  // Number of deleted SST files.
-  uint64 deleted_files = 4;
-  // Number of deleted index files.
-  uint64 deleted_indexes = 5;
+  GcStats stats = 2;
 }
 
 message GcTableRequest {
@@ -126,14 +130,7 @@ message GcTableRequest {
 
 message GcTableResponse {
   ResponseHeader header = 1;
-  // Number of regions requested for GC (accepted by the server side).
-  uint64 processed_regions = 2;
-  // Regions that need retry in the next GC round.
-  repeated uint64 need_retry_regions = 3;
-  // Number of deleted SST files.
-  uint64 deleted_files = 4;
-  // Number of deleted index files.
-  uint64 deleted_indexes = 5;
+  GcStats stats = 2;
 }
 
 service ProcedureService {

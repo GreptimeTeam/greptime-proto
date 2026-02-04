@@ -57,6 +57,9 @@ extern GcRegionsRequestDefaultTypeInternal _GcRegionsRequest_default_instance_;
 class GcRegionsResponse;
 struct GcRegionsResponseDefaultTypeInternal;
 extern GcRegionsResponseDefaultTypeInternal _GcRegionsResponse_default_instance_;
+class GcStats;
+struct GcStatsDefaultTypeInternal;
+extern GcStatsDefaultTypeInternal _GcStats_default_instance_;
 class GcTableRequest;
 struct GcTableRequestDefaultTypeInternal;
 extern GcTableRequestDefaultTypeInternal _GcTableRequest_default_instance_;
@@ -99,6 +102,7 @@ extern ReconcileTableDefaultTypeInternal _ReconcileTable_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::meta::GcRegionsRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::GcRegionsRequest>(Arena*);
 template<> ::greptime::v1::meta::GcRegionsResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::GcRegionsResponse>(Arena*);
+template<> ::greptime::v1::meta::GcStats* Arena::CreateMaybeMessage<::greptime::v1::meta::GcStats>(Arena*);
 template<> ::greptime::v1::meta::GcTableRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::GcTableRequest>(Arena*);
 template<> ::greptime::v1::meta::GcTableResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::GcTableResponse>(Arena*);
 template<> ::greptime::v1::meta::ProcedureDetailRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::ProcedureDetailRequest>(Arena*);
@@ -2298,6 +2302,201 @@ class GcRegionsRequest final :
 };
 // -------------------------------------------------------------------
 
+class GcStats final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.GcStats) */ {
+ public:
+  inline GcStats() : GcStats(nullptr) {}
+  ~GcStats() override;
+  explicit PROTOBUF_CONSTEXPR GcStats(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GcStats(const GcStats& from);
+  GcStats(GcStats&& from) noexcept
+    : GcStats() {
+    *this = ::std::move(from);
+  }
+
+  inline GcStats& operator=(const GcStats& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GcStats& operator=(GcStats&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GcStats& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GcStats* internal_default_instance() {
+    return reinterpret_cast<const GcStats*>(
+               &_GcStats_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(GcStats& a, GcStats& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GcStats* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GcStats* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GcStats* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GcStats>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GcStats& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GcStats& from) {
+    GcStats::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GcStats* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.GcStats";
+  }
+  protected:
+  explicit GcStats(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNeedRetryRegionsFieldNumber = 2,
+    kProcessedRegionsFieldNumber = 1,
+    kDeletedFilesFieldNumber = 3,
+    kDeletedIndexesFieldNumber = 4,
+  };
+  // repeated uint64 need_retry_regions = 2;
+  int need_retry_regions_size() const;
+  private:
+  int _internal_need_retry_regions_size() const;
+  public:
+  void clear_need_retry_regions();
+  private:
+  uint64_t _internal_need_retry_regions(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_need_retry_regions() const;
+  void _internal_add_need_retry_regions(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_need_retry_regions();
+  public:
+  uint64_t need_retry_regions(int index) const;
+  void set_need_retry_regions(int index, uint64_t value);
+  void add_need_retry_regions(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      need_retry_regions() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_need_retry_regions();
+
+  // uint64 processed_regions = 1;
+  void clear_processed_regions();
+  uint64_t processed_regions() const;
+  void set_processed_regions(uint64_t value);
+  private:
+  uint64_t _internal_processed_regions() const;
+  void _internal_set_processed_regions(uint64_t value);
+  public:
+
+  // uint64 deleted_files = 3;
+  void clear_deleted_files();
+  uint64_t deleted_files() const;
+  void set_deleted_files(uint64_t value);
+  private:
+  uint64_t _internal_deleted_files() const;
+  void _internal_set_deleted_files(uint64_t value);
+  public:
+
+  // uint64 deleted_indexes = 4;
+  void clear_deleted_indexes();
+  uint64_t deleted_indexes() const;
+  void set_deleted_indexes(uint64_t value);
+  private:
+  uint64_t _internal_deleted_indexes() const;
+  void _internal_set_deleted_indexes(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.GcStats)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > need_retry_regions_;
+    mutable std::atomic<int> _need_retry_regions_cached_byte_size_;
+    uint64_t processed_regions_;
+    uint64_t deleted_files_;
+    uint64_t deleted_indexes_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GcRegionsResponse final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.GcRegionsResponse) */ {
  public:
@@ -2346,7 +2545,7 @@ class GcRegionsResponse final :
                &_GcRegionsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(GcRegionsResponse& a, GcRegionsResponse& b) {
     a.Swap(&b);
@@ -2419,34 +2618,9 @@ class GcRegionsResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNeedRetryRegionsFieldNumber = 3,
     kHeaderFieldNumber = 1,
-    kProcessedRegionsFieldNumber = 2,
-    kDeletedFilesFieldNumber = 4,
-    kDeletedIndexesFieldNumber = 5,
+    kStatsFieldNumber = 2,
   };
-  // repeated uint64 need_retry_regions = 3;
-  int need_retry_regions_size() const;
-  private:
-  int _internal_need_retry_regions_size() const;
-  public:
-  void clear_need_retry_regions();
-  private:
-  uint64_t _internal_need_retry_regions(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      _internal_need_retry_regions() const;
-  void _internal_add_need_retry_regions(uint64_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      _internal_mutable_need_retry_regions();
-  public:
-  uint64_t need_retry_regions(int index) const;
-  void set_need_retry_regions(int index, uint64_t value);
-  void add_need_retry_regions(uint64_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      need_retry_regions() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      mutable_need_retry_regions();
-
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -2465,32 +2639,23 @@ class GcRegionsResponse final :
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
 
-  // uint64 processed_regions = 2;
-  void clear_processed_regions();
-  uint64_t processed_regions() const;
-  void set_processed_regions(uint64_t value);
+  // .greptime.v1.meta.GcStats stats = 2;
+  bool has_stats() const;
   private:
-  uint64_t _internal_processed_regions() const;
-  void _internal_set_processed_regions(uint64_t value);
+  bool _internal_has_stats() const;
   public:
-
-  // uint64 deleted_files = 4;
-  void clear_deleted_files();
-  uint64_t deleted_files() const;
-  void set_deleted_files(uint64_t value);
+  void clear_stats();
+  const ::greptime::v1::meta::GcStats& stats() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::GcStats* release_stats();
+  ::greptime::v1::meta::GcStats* mutable_stats();
+  void set_allocated_stats(::greptime::v1::meta::GcStats* stats);
   private:
-  uint64_t _internal_deleted_files() const;
-  void _internal_set_deleted_files(uint64_t value);
+  const ::greptime::v1::meta::GcStats& _internal_stats() const;
+  ::greptime::v1::meta::GcStats* _internal_mutable_stats();
   public:
-
-  // uint64 deleted_indexes = 5;
-  void clear_deleted_indexes();
-  uint64_t deleted_indexes() const;
-  void set_deleted_indexes(uint64_t value);
-  private:
-  uint64_t _internal_deleted_indexes() const;
-  void _internal_set_deleted_indexes(uint64_t value);
-  public:
+  void unsafe_arena_set_allocated_stats(
+      ::greptime::v1::meta::GcStats* stats);
+  ::greptime::v1::meta::GcStats* unsafe_arena_release_stats();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.GcRegionsResponse)
  private:
@@ -2500,12 +2665,8 @@ class GcRegionsResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > need_retry_regions_;
-    mutable std::atomic<int> _need_retry_regions_cached_byte_size_;
     ::greptime::v1::meta::ResponseHeader* header_;
-    uint64_t processed_regions_;
-    uint64_t deleted_files_;
-    uint64_t deleted_indexes_;
+    ::greptime::v1::meta::GcStats* stats_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2561,7 +2722,7 @@ class GcTableRequest final :
                &_GcTableRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(GcTableRequest& a, GcTableRequest& b) {
     a.Swap(&b);
@@ -2788,7 +2949,7 @@ class GcTableResponse final :
                &_GcTableResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(GcTableResponse& a, GcTableResponse& b) {
     a.Swap(&b);
@@ -2861,34 +3022,9 @@ class GcTableResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNeedRetryRegionsFieldNumber = 3,
     kHeaderFieldNumber = 1,
-    kProcessedRegionsFieldNumber = 2,
-    kDeletedFilesFieldNumber = 4,
-    kDeletedIndexesFieldNumber = 5,
+    kStatsFieldNumber = 2,
   };
-  // repeated uint64 need_retry_regions = 3;
-  int need_retry_regions_size() const;
-  private:
-  int _internal_need_retry_regions_size() const;
-  public:
-  void clear_need_retry_regions();
-  private:
-  uint64_t _internal_need_retry_regions(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      _internal_need_retry_regions() const;
-  void _internal_add_need_retry_regions(uint64_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      _internal_mutable_need_retry_regions();
-  public:
-  uint64_t need_retry_regions(int index) const;
-  void set_need_retry_regions(int index, uint64_t value);
-  void add_need_retry_regions(uint64_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-      need_retry_regions() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-      mutable_need_retry_regions();
-
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -2907,32 +3043,23 @@ class GcTableResponse final :
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
 
-  // uint64 processed_regions = 2;
-  void clear_processed_regions();
-  uint64_t processed_regions() const;
-  void set_processed_regions(uint64_t value);
+  // .greptime.v1.meta.GcStats stats = 2;
+  bool has_stats() const;
   private:
-  uint64_t _internal_processed_regions() const;
-  void _internal_set_processed_regions(uint64_t value);
+  bool _internal_has_stats() const;
   public:
-
-  // uint64 deleted_files = 4;
-  void clear_deleted_files();
-  uint64_t deleted_files() const;
-  void set_deleted_files(uint64_t value);
+  void clear_stats();
+  const ::greptime::v1::meta::GcStats& stats() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::GcStats* release_stats();
+  ::greptime::v1::meta::GcStats* mutable_stats();
+  void set_allocated_stats(::greptime::v1::meta::GcStats* stats);
   private:
-  uint64_t _internal_deleted_files() const;
-  void _internal_set_deleted_files(uint64_t value);
+  const ::greptime::v1::meta::GcStats& _internal_stats() const;
+  ::greptime::v1::meta::GcStats* _internal_mutable_stats();
   public:
-
-  // uint64 deleted_indexes = 5;
-  void clear_deleted_indexes();
-  uint64_t deleted_indexes() const;
-  void set_deleted_indexes(uint64_t value);
-  private:
-  uint64_t _internal_deleted_indexes() const;
-  void _internal_set_deleted_indexes(uint64_t value);
-  public:
+  void unsafe_arena_set_allocated_stats(
+      ::greptime::v1::meta::GcStats* stats);
+  ::greptime::v1::meta::GcStats* unsafe_arena_release_stats();
 
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.GcTableResponse)
  private:
@@ -2942,12 +3069,8 @@ class GcTableResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > need_retry_regions_;
-    mutable std::atomic<int> _need_retry_regions_cached_byte_size_;
     ::greptime::v1::meta::ResponseHeader* header_;
-    uint64_t processed_regions_;
-    uint64_t deleted_files_;
-    uint64_t deleted_indexes_;
+    ::greptime::v1::meta::GcStats* stats_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4919,6 +5042,117 @@ inline void GcRegionsRequest::set_timeout_secs(uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// GcStats
+
+// uint64 processed_regions = 1;
+inline void GcStats::clear_processed_regions() {
+  _impl_.processed_regions_ = uint64_t{0u};
+}
+inline uint64_t GcStats::_internal_processed_regions() const {
+  return _impl_.processed_regions_;
+}
+inline uint64_t GcStats::processed_regions() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcStats.processed_regions)
+  return _internal_processed_regions();
+}
+inline void GcStats::_internal_set_processed_regions(uint64_t value) {
+  
+  _impl_.processed_regions_ = value;
+}
+inline void GcStats::set_processed_regions(uint64_t value) {
+  _internal_set_processed_regions(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcStats.processed_regions)
+}
+
+// repeated uint64 need_retry_regions = 2;
+inline int GcStats::_internal_need_retry_regions_size() const {
+  return _impl_.need_retry_regions_.size();
+}
+inline int GcStats::need_retry_regions_size() const {
+  return _internal_need_retry_regions_size();
+}
+inline void GcStats::clear_need_retry_regions() {
+  _impl_.need_retry_regions_.Clear();
+}
+inline uint64_t GcStats::_internal_need_retry_regions(int index) const {
+  return _impl_.need_retry_regions_.Get(index);
+}
+inline uint64_t GcStats::need_retry_regions(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcStats.need_retry_regions)
+  return _internal_need_retry_regions(index);
+}
+inline void GcStats::set_need_retry_regions(int index, uint64_t value) {
+  _impl_.need_retry_regions_.Set(index, value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcStats.need_retry_regions)
+}
+inline void GcStats::_internal_add_need_retry_regions(uint64_t value) {
+  _impl_.need_retry_regions_.Add(value);
+}
+inline void GcStats::add_need_retry_regions(uint64_t value) {
+  _internal_add_need_retry_regions(value);
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.GcStats.need_retry_regions)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+GcStats::_internal_need_retry_regions() const {
+  return _impl_.need_retry_regions_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+GcStats::need_retry_regions() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.GcStats.need_retry_regions)
+  return _internal_need_retry_regions();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+GcStats::_internal_mutable_need_retry_regions() {
+  return &_impl_.need_retry_regions_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+GcStats::mutable_need_retry_regions() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.GcStats.need_retry_regions)
+  return _internal_mutable_need_retry_regions();
+}
+
+// uint64 deleted_files = 3;
+inline void GcStats::clear_deleted_files() {
+  _impl_.deleted_files_ = uint64_t{0u};
+}
+inline uint64_t GcStats::_internal_deleted_files() const {
+  return _impl_.deleted_files_;
+}
+inline uint64_t GcStats::deleted_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcStats.deleted_files)
+  return _internal_deleted_files();
+}
+inline void GcStats::_internal_set_deleted_files(uint64_t value) {
+  
+  _impl_.deleted_files_ = value;
+}
+inline void GcStats::set_deleted_files(uint64_t value) {
+  _internal_set_deleted_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcStats.deleted_files)
+}
+
+// uint64 deleted_indexes = 4;
+inline void GcStats::clear_deleted_indexes() {
+  _impl_.deleted_indexes_ = uint64_t{0u};
+}
+inline uint64_t GcStats::_internal_deleted_indexes() const {
+  return _impl_.deleted_indexes_;
+}
+inline uint64_t GcStats::deleted_indexes() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcStats.deleted_indexes)
+  return _internal_deleted_indexes();
+}
+inline void GcStats::_internal_set_deleted_indexes(uint64_t value) {
+  
+  _impl_.deleted_indexes_ = value;
+}
+inline void GcStats::set_deleted_indexes(uint64_t value) {
+  _internal_set_deleted_indexes(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcStats.deleted_indexes)
+}
+
+// -------------------------------------------------------------------
+
 // GcRegionsResponse
 
 // .greptime.v1.meta.ResponseHeader header = 1;
@@ -5006,111 +5240,94 @@ inline void GcRegionsResponse::set_allocated_header(::greptime::v1::meta::Respon
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcRegionsResponse.header)
 }
 
-// uint64 processed_regions = 2;
-inline void GcRegionsResponse::clear_processed_regions() {
-  _impl_.processed_regions_ = uint64_t{0u};
+// .greptime.v1.meta.GcStats stats = 2;
+inline bool GcRegionsResponse::_internal_has_stats() const {
+  return this != internal_default_instance() && _impl_.stats_ != nullptr;
 }
-inline uint64_t GcRegionsResponse::_internal_processed_regions() const {
-  return _impl_.processed_regions_;
+inline bool GcRegionsResponse::has_stats() const {
+  return _internal_has_stats();
 }
-inline uint64_t GcRegionsResponse::processed_regions() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsResponse.processed_regions)
-  return _internal_processed_regions();
+inline void GcRegionsResponse::clear_stats() {
+  if (GetArenaForAllocation() == nullptr && _impl_.stats_ != nullptr) {
+    delete _impl_.stats_;
+  }
+  _impl_.stats_ = nullptr;
 }
-inline void GcRegionsResponse::_internal_set_processed_regions(uint64_t value) {
+inline const ::greptime::v1::meta::GcStats& GcRegionsResponse::_internal_stats() const {
+  const ::greptime::v1::meta::GcStats* p = _impl_.stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::GcStats&>(
+      ::greptime::v1::meta::_GcStats_default_instance_);
+}
+inline const ::greptime::v1::meta::GcStats& GcRegionsResponse::stats() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsResponse.stats)
+  return _internal_stats();
+}
+inline void GcRegionsResponse::unsafe_arena_set_allocated_stats(
+    ::greptime::v1::meta::GcStats* stats) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.stats_);
+  }
+  _impl_.stats_ = stats;
+  if (stats) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcRegionsResponse.stats)
+}
+inline ::greptime::v1::meta::GcStats* GcRegionsResponse::release_stats() {
   
-  _impl_.processed_regions_ = value;
+  ::greptime::v1::meta::GcStats* temp = _impl_.stats_;
+  _impl_.stats_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void GcRegionsResponse::set_processed_regions(uint64_t value) {
-  _internal_set_processed_regions(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcRegionsResponse.processed_regions)
-}
-
-// repeated uint64 need_retry_regions = 3;
-inline int GcRegionsResponse::_internal_need_retry_regions_size() const {
-  return _impl_.need_retry_regions_.size();
-}
-inline int GcRegionsResponse::need_retry_regions_size() const {
-  return _internal_need_retry_regions_size();
-}
-inline void GcRegionsResponse::clear_need_retry_regions() {
-  _impl_.need_retry_regions_.Clear();
-}
-inline uint64_t GcRegionsResponse::_internal_need_retry_regions(int index) const {
-  return _impl_.need_retry_regions_.Get(index);
-}
-inline uint64_t GcRegionsResponse::need_retry_regions(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsResponse.need_retry_regions)
-  return _internal_need_retry_regions(index);
-}
-inline void GcRegionsResponse::set_need_retry_regions(int index, uint64_t value) {
-  _impl_.need_retry_regions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcRegionsResponse.need_retry_regions)
-}
-inline void GcRegionsResponse::_internal_add_need_retry_regions(uint64_t value) {
-  _impl_.need_retry_regions_.Add(value);
-}
-inline void GcRegionsResponse::add_need_retry_regions(uint64_t value) {
-  _internal_add_need_retry_regions(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.GcRegionsResponse.need_retry_regions)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-GcRegionsResponse::_internal_need_retry_regions() const {
-  return _impl_.need_retry_regions_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-GcRegionsResponse::need_retry_regions() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.GcRegionsResponse.need_retry_regions)
-  return _internal_need_retry_regions();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-GcRegionsResponse::_internal_mutable_need_retry_regions() {
-  return &_impl_.need_retry_regions_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-GcRegionsResponse::mutable_need_retry_regions() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.GcRegionsResponse.need_retry_regions)
-  return _internal_mutable_need_retry_regions();
-}
-
-// uint64 deleted_files = 4;
-inline void GcRegionsResponse::clear_deleted_files() {
-  _impl_.deleted_files_ = uint64_t{0u};
-}
-inline uint64_t GcRegionsResponse::_internal_deleted_files() const {
-  return _impl_.deleted_files_;
-}
-inline uint64_t GcRegionsResponse::deleted_files() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsResponse.deleted_files)
-  return _internal_deleted_files();
-}
-inline void GcRegionsResponse::_internal_set_deleted_files(uint64_t value) {
+inline ::greptime::v1::meta::GcStats* GcRegionsResponse::unsafe_arena_release_stats() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcRegionsResponse.stats)
   
-  _impl_.deleted_files_ = value;
+  ::greptime::v1::meta::GcStats* temp = _impl_.stats_;
+  _impl_.stats_ = nullptr;
+  return temp;
 }
-inline void GcRegionsResponse::set_deleted_files(uint64_t value) {
-  _internal_set_deleted_files(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcRegionsResponse.deleted_files)
-}
-
-// uint64 deleted_indexes = 5;
-inline void GcRegionsResponse::clear_deleted_indexes() {
-  _impl_.deleted_indexes_ = uint64_t{0u};
-}
-inline uint64_t GcRegionsResponse::_internal_deleted_indexes() const {
-  return _impl_.deleted_indexes_;
-}
-inline uint64_t GcRegionsResponse::deleted_indexes() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsResponse.deleted_indexes)
-  return _internal_deleted_indexes();
-}
-inline void GcRegionsResponse::_internal_set_deleted_indexes(uint64_t value) {
+inline ::greptime::v1::meta::GcStats* GcRegionsResponse::_internal_mutable_stats() {
   
-  _impl_.deleted_indexes_ = value;
+  if (_impl_.stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::GcStats>(GetArenaForAllocation());
+    _impl_.stats_ = p;
+  }
+  return _impl_.stats_;
 }
-inline void GcRegionsResponse::set_deleted_indexes(uint64_t value) {
-  _internal_set_deleted_indexes(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcRegionsResponse.deleted_indexes)
+inline ::greptime::v1::meta::GcStats* GcRegionsResponse::mutable_stats() {
+  ::greptime::v1::meta::GcStats* _msg = _internal_mutable_stats();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcRegionsResponse.stats)
+  return _msg;
+}
+inline void GcRegionsResponse::set_allocated_stats(::greptime::v1::meta::GcStats* stats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.stats_;
+  }
+  if (stats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(stats);
+    if (message_arena != submessage_arena) {
+      stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, stats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.stats_ = stats;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcRegionsResponse.stats)
 }
 
 // -------------------------------------------------------------------
@@ -5481,116 +5698,101 @@ inline void GcTableResponse::set_allocated_header(::greptime::v1::meta::Response
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcTableResponse.header)
 }
 
-// uint64 processed_regions = 2;
-inline void GcTableResponse::clear_processed_regions() {
-  _impl_.processed_regions_ = uint64_t{0u};
+// .greptime.v1.meta.GcStats stats = 2;
+inline bool GcTableResponse::_internal_has_stats() const {
+  return this != internal_default_instance() && _impl_.stats_ != nullptr;
 }
-inline uint64_t GcTableResponse::_internal_processed_regions() const {
-  return _impl_.processed_regions_;
+inline bool GcTableResponse::has_stats() const {
+  return _internal_has_stats();
 }
-inline uint64_t GcTableResponse::processed_regions() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableResponse.processed_regions)
-  return _internal_processed_regions();
+inline void GcTableResponse::clear_stats() {
+  if (GetArenaForAllocation() == nullptr && _impl_.stats_ != nullptr) {
+    delete _impl_.stats_;
+  }
+  _impl_.stats_ = nullptr;
 }
-inline void GcTableResponse::_internal_set_processed_regions(uint64_t value) {
+inline const ::greptime::v1::meta::GcStats& GcTableResponse::_internal_stats() const {
+  const ::greptime::v1::meta::GcStats* p = _impl_.stats_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::GcStats&>(
+      ::greptime::v1::meta::_GcStats_default_instance_);
+}
+inline const ::greptime::v1::meta::GcStats& GcTableResponse::stats() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableResponse.stats)
+  return _internal_stats();
+}
+inline void GcTableResponse::unsafe_arena_set_allocated_stats(
+    ::greptime::v1::meta::GcStats* stats) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.stats_);
+  }
+  _impl_.stats_ = stats;
+  if (stats) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcTableResponse.stats)
+}
+inline ::greptime::v1::meta::GcStats* GcTableResponse::release_stats() {
   
-  _impl_.processed_regions_ = value;
+  ::greptime::v1::meta::GcStats* temp = _impl_.stats_;
+  _impl_.stats_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void GcTableResponse::set_processed_regions(uint64_t value) {
-  _internal_set_processed_regions(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcTableResponse.processed_regions)
-}
-
-// repeated uint64 need_retry_regions = 3;
-inline int GcTableResponse::_internal_need_retry_regions_size() const {
-  return _impl_.need_retry_regions_.size();
-}
-inline int GcTableResponse::need_retry_regions_size() const {
-  return _internal_need_retry_regions_size();
-}
-inline void GcTableResponse::clear_need_retry_regions() {
-  _impl_.need_retry_regions_.Clear();
-}
-inline uint64_t GcTableResponse::_internal_need_retry_regions(int index) const {
-  return _impl_.need_retry_regions_.Get(index);
-}
-inline uint64_t GcTableResponse::need_retry_regions(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableResponse.need_retry_regions)
-  return _internal_need_retry_regions(index);
-}
-inline void GcTableResponse::set_need_retry_regions(int index, uint64_t value) {
-  _impl_.need_retry_regions_.Set(index, value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcTableResponse.need_retry_regions)
-}
-inline void GcTableResponse::_internal_add_need_retry_regions(uint64_t value) {
-  _impl_.need_retry_regions_.Add(value);
-}
-inline void GcTableResponse::add_need_retry_regions(uint64_t value) {
-  _internal_add_need_retry_regions(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.GcTableResponse.need_retry_regions)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-GcTableResponse::_internal_need_retry_regions() const {
-  return _impl_.need_retry_regions_;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
-GcTableResponse::need_retry_regions() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.GcTableResponse.need_retry_regions)
-  return _internal_need_retry_regions();
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-GcTableResponse::_internal_mutable_need_retry_regions() {
-  return &_impl_.need_retry_regions_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
-GcTableResponse::mutable_need_retry_regions() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.GcTableResponse.need_retry_regions)
-  return _internal_mutable_need_retry_regions();
-}
-
-// uint64 deleted_files = 4;
-inline void GcTableResponse::clear_deleted_files() {
-  _impl_.deleted_files_ = uint64_t{0u};
-}
-inline uint64_t GcTableResponse::_internal_deleted_files() const {
-  return _impl_.deleted_files_;
-}
-inline uint64_t GcTableResponse::deleted_files() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableResponse.deleted_files)
-  return _internal_deleted_files();
-}
-inline void GcTableResponse::_internal_set_deleted_files(uint64_t value) {
+inline ::greptime::v1::meta::GcStats* GcTableResponse::unsafe_arena_release_stats() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcTableResponse.stats)
   
-  _impl_.deleted_files_ = value;
+  ::greptime::v1::meta::GcStats* temp = _impl_.stats_;
+  _impl_.stats_ = nullptr;
+  return temp;
 }
-inline void GcTableResponse::set_deleted_files(uint64_t value) {
-  _internal_set_deleted_files(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcTableResponse.deleted_files)
-}
-
-// uint64 deleted_indexes = 5;
-inline void GcTableResponse::clear_deleted_indexes() {
-  _impl_.deleted_indexes_ = uint64_t{0u};
-}
-inline uint64_t GcTableResponse::_internal_deleted_indexes() const {
-  return _impl_.deleted_indexes_;
-}
-inline uint64_t GcTableResponse::deleted_indexes() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableResponse.deleted_indexes)
-  return _internal_deleted_indexes();
-}
-inline void GcTableResponse::_internal_set_deleted_indexes(uint64_t value) {
+inline ::greptime::v1::meta::GcStats* GcTableResponse::_internal_mutable_stats() {
   
-  _impl_.deleted_indexes_ = value;
+  if (_impl_.stats_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::GcStats>(GetArenaForAllocation());
+    _impl_.stats_ = p;
+  }
+  return _impl_.stats_;
 }
-inline void GcTableResponse::set_deleted_indexes(uint64_t value) {
-  _internal_set_deleted_indexes(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.GcTableResponse.deleted_indexes)
+inline ::greptime::v1::meta::GcStats* GcTableResponse::mutable_stats() {
+  ::greptime::v1::meta::GcStats* _msg = _internal_mutable_stats();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcTableResponse.stats)
+  return _msg;
+}
+inline void GcTableResponse::set_allocated_stats(::greptime::v1::meta::GcStats* stats) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.stats_;
+  }
+  if (stats) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(stats);
+    if (message_arena != submessage_arena) {
+      stats = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, stats, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.stats_ = stats;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcTableResponse.stats)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
