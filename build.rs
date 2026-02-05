@@ -70,6 +70,7 @@ fn main() {
                 "proto/greptime/v1/frontend/server.proto",
                 "proto/greptime/v1/index/bloom_filter.proto",
                 "proto/greptime/v1/index/inverted_index.proto",
+                "proto/greptime/v1/index/vector_index.proto",
                 "proto/prometheus/remote/remote.proto",
                 "proto/substrait_extension/promql_plan.proto",
                 "proto/substrait_extension/dist_plan.proto",
