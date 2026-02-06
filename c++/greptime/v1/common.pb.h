@@ -104,6 +104,9 @@ extern ListTypeExtensionDefaultTypeInternal _ListTypeExtension_default_instance_
 class Metrics;
 struct MetricsDefaultTypeInternal;
 extern MetricsDefaultTypeInternal _Metrics_default_instance_;
+class PartitionRuleVersion;
+struct PartitionRuleVersionDefaultTypeInternal;
+extern PartitionRuleVersionDefaultTypeInternal _PartitionRuleVersion_default_instance_;
 class QueryContext;
 struct QueryContextDefaultTypeInternal;
 extern QueryContextDefaultTypeInternal _QueryContext_default_instance_;
@@ -173,6 +176,7 @@ template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::JsonNativeTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::JsonNativeTypeExtension>(Arena*);
 template<> ::greptime::v1::ListTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ListTypeExtension>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
+template<> ::greptime::v1::PartitionRuleVersion* Arena::CreateMaybeMessage<::greptime::v1::PartitionRuleVersion>(Arena*);
 template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
 template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
@@ -5586,6 +5590,154 @@ class ArrowIpc final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
 };
+// -------------------------------------------------------------------
+
+class PartitionRuleVersion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.PartitionRuleVersion) */ {
+ public:
+  inline PartitionRuleVersion() : PartitionRuleVersion(nullptr) {}
+  ~PartitionRuleVersion() override;
+  explicit PROTOBUF_CONSTEXPR PartitionRuleVersion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PartitionRuleVersion(const PartitionRuleVersion& from);
+  PartitionRuleVersion(PartitionRuleVersion&& from) noexcept
+    : PartitionRuleVersion() {
+    *this = ::std::move(from);
+  }
+
+  inline PartitionRuleVersion& operator=(const PartitionRuleVersion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PartitionRuleVersion& operator=(PartitionRuleVersion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PartitionRuleVersion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PartitionRuleVersion* internal_default_instance() {
+    return reinterpret_cast<const PartitionRuleVersion*>(
+               &_PartitionRuleVersion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    34;
+
+  friend void swap(PartitionRuleVersion& a, PartitionRuleVersion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PartitionRuleVersion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PartitionRuleVersion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PartitionRuleVersion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PartitionRuleVersion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PartitionRuleVersion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PartitionRuleVersion& from) {
+    PartitionRuleVersion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PartitionRuleVersion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.PartitionRuleVersion";
+  }
+  protected:
+  explicit PartitionRuleVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+  };
+  // uint64 value = 1;
+  void clear_value();
+  uint64_t value() const;
+  void set_value(uint64_t value);
+  private:
+  uint64_t _internal_value() const;
+  void _internal_set_value(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.PartitionRuleVersion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t value_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fcommon_2eproto;
+};
 // ===================================================================
 
 
@@ -8972,9 +9124,35 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ArrowIpc.payload)
 }
 
+// -------------------------------------------------------------------
+
+// PartitionRuleVersion
+
+// uint64 value = 1;
+inline void PartitionRuleVersion::clear_value() {
+  _impl_.value_ = uint64_t{0u};
+}
+inline uint64_t PartitionRuleVersion::_internal_value() const {
+  return _impl_.value_;
+}
+inline uint64_t PartitionRuleVersion::value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.PartitionRuleVersion.value)
+  return _internal_value();
+}
+inline void PartitionRuleVersion::_internal_set_value(uint64_t value) {
+  
+  _impl_.value_ = value;
+}
+inline void PartitionRuleVersion::set_value(uint64_t value) {
+  _internal_set_value(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.PartitionRuleVersion.value)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

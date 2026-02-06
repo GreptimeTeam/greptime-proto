@@ -86,11 +86,13 @@ message DeleteRequests {
 message InsertRequest {
   uint64 region_id = 1;
   Rows rows = 2;
+  PartitionRuleVersion partition_rule_version = 3;
 }
 
 message DeleteRequest {
   uint64 region_id = 1;
   Rows rows = 2;
+  PartitionRuleVersion partition_rule_version = 3;
 }
 
 message QueryRequest {
@@ -249,6 +251,7 @@ message BulkInsertRequest {
   oneof body {
     ArrowIpc arrow_ipc = 2;
   }
+  PartitionRuleVersion partition_rule_version = 3;
 }
 
 // Manifest info for mito engine.

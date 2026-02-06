@@ -274,3 +274,7 @@ message ArrowIpc {
   bytes data_header = 2;
   bytes payload = 3;
 }
+
+message PartitionRuleVersion {
+  uint64 value = 1;
+}
