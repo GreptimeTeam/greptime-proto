@@ -8866,10 +8866,19 @@ com.google.protobuf.ByteString defaultValue);
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
 
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
-    long getPartitionRuleVersion();
+    boolean hasVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    io.greptime.v1.Common.PartitionRuleVersion getVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.region.InsertRequest}
@@ -8934,9 +8943,17 @@ com.google.protobuf.ByteString defaultValue);
 
               break;
             }
-            case 24: {
+            case 26: {
+              io.greptime.v1.Common.PartitionRuleVersion.Builder subBuilder = null;
+              if (version_ != null) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(io.greptime.v1.Common.PartitionRuleVersion.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
 
-              partitionRuleVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -9010,15 +9027,30 @@ com.google.protobuf.ByteString defaultValue);
       return getRows();
     }
 
-    public static final int PARTITION_RULE_VERSION_FIELD_NUMBER = 3;
-    private long partitionRuleVersion_;
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private io.greptime.v1.Common.PartitionRuleVersion version_;
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public long getPartitionRuleVersion() {
-      return partitionRuleVersion_;
+    public boolean hasVersion() {
+      return version_ != null;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+      return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+      return getVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9041,8 +9073,8 @@ com.google.protobuf.ByteString defaultValue);
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
-      if (partitionRuleVersion_ != 0L) {
-        output.writeUInt64(3, partitionRuleVersion_);
+      if (version_ != null) {
+        output.writeMessage(3, getVersion());
       }
       unknownFields.writeTo(output);
     }
@@ -9061,9 +9093,9 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
       }
-      if (partitionRuleVersion_ != 0L) {
+      if (version_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, partitionRuleVersion_);
+          .computeMessageSize(3, getVersion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9087,8 +9119,11 @@ com.google.protobuf.ByteString defaultValue);
         if (!getRows()
             .equals(other.getRows())) return false;
       }
-      if (getPartitionRuleVersion()
-          != other.getPartitionRuleVersion()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (!getVersion()
+            .equals(other.getVersion())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9107,9 +9142,10 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
-      hash = (37 * hash) + PARTITION_RULE_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPartitionRuleVersion());
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getVersion().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9251,8 +9287,12 @@ com.google.protobuf.ByteString defaultValue);
           rows_ = null;
           rowsBuilder_ = null;
         }
-        partitionRuleVersion_ = 0L;
-
+        if (versionBuilder_ == null) {
+          version_ = null;
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
         return this;
       }
 
@@ -9285,7 +9325,11 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.rows_ = rowsBuilder_.build();
         }
-        result.partitionRuleVersion_ = partitionRuleVersion_;
+        if (versionBuilder_ == null) {
+          result.version_ = version_;
+        } else {
+          result.version_ = versionBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -9340,8 +9384,8 @@ com.google.protobuf.ByteString defaultValue);
         if (other.hasRows()) {
           mergeRows(other.getRows());
         }
-        if (other.getPartitionRuleVersion() != 0L) {
-          setPartitionRuleVersion(other.getPartitionRuleVersion());
+        if (other.hasVersion()) {
+          mergeVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9522,35 +9566,123 @@ com.google.protobuf.ByteString defaultValue);
         return rowsBuilder_;
       }
 
-      private long partitionRuleVersion_ ;
+      private io.greptime.v1.Common.PartitionRuleVersion version_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> versionBuilder_;
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return The partitionRuleVersion.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return Whether the version field is set.
        */
-      @java.lang.Override
-      public long getPartitionRuleVersion() {
-        return partitionRuleVersion_;
+      public boolean hasVersion() {
+        return versionBuilder_ != null || version_ != null;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @param value The partitionRuleVersion to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return The version.
        */
-      public Builder setPartitionRuleVersion(long value) {
-        
-        partitionRuleVersion_ = value;
-        onChanged();
+      public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+        if (versionBuilder_ == null) {
+          return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        } else {
+          return versionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder setVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          version_ = value;
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
        */
-      public Builder clearPartitionRuleVersion() {
-        
-        partitionRuleVersion_ = 0L;
-        onChanged();
+      public Builder setVersion(
+          io.greptime.v1.Common.PartitionRuleVersion.Builder builderForValue) {
+        if (versionBuilder_ == null) {
+          version_ = builderForValue.build();
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder mergeVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (version_ != null) {
+            version_ =
+              io.greptime.v1.Common.PartitionRuleVersion.newBuilder(version_).mergeFrom(value).buildPartial();
+          } else {
+            version_ = value;
+          }
+          onChanged();
+        } else {
+          versionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder clearVersion() {
+        if (versionBuilder_ == null) {
+          version_ = null;
+          onChanged();
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersion.Builder getVersionBuilder() {
+        
+        onChanged();
+        return getVersionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+        if (versionBuilder_ != null) {
+          return versionBuilder_.getMessageOrBuilder();
+        } else {
+          return version_ == null ?
+              io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> 
+          getVersionFieldBuilder() {
+        if (versionBuilder_ == null) {
+          versionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder>(
+                  getVersion(),
+                  getParentForChildren(),
+                  isClean());
+          version_ = null;
+        }
+        return versionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -9631,10 +9763,19 @@ com.google.protobuf.ByteString defaultValue);
     io.greptime.v1.RowData.RowsOrBuilder getRowsOrBuilder();
 
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
-    long getPartitionRuleVersion();
+    boolean hasVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    io.greptime.v1.Common.PartitionRuleVersion getVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.region.DeleteRequest}
@@ -9699,9 +9840,17 @@ com.google.protobuf.ByteString defaultValue);
 
               break;
             }
-            case 24: {
+            case 26: {
+              io.greptime.v1.Common.PartitionRuleVersion.Builder subBuilder = null;
+              if (version_ != null) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(io.greptime.v1.Common.PartitionRuleVersion.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
 
-              partitionRuleVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -9775,15 +9924,30 @@ com.google.protobuf.ByteString defaultValue);
       return getRows();
     }
 
-    public static final int PARTITION_RULE_VERSION_FIELD_NUMBER = 3;
-    private long partitionRuleVersion_;
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private io.greptime.v1.Common.PartitionRuleVersion version_;
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public long getPartitionRuleVersion() {
-      return partitionRuleVersion_;
+    public boolean hasVersion() {
+      return version_ != null;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+      return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+      return getVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9806,8 +9970,8 @@ com.google.protobuf.ByteString defaultValue);
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
-      if (partitionRuleVersion_ != 0L) {
-        output.writeUInt64(3, partitionRuleVersion_);
+      if (version_ != null) {
+        output.writeMessage(3, getVersion());
       }
       unknownFields.writeTo(output);
     }
@@ -9826,9 +9990,9 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
       }
-      if (partitionRuleVersion_ != 0L) {
+      if (version_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, partitionRuleVersion_);
+          .computeMessageSize(3, getVersion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9852,8 +10016,11 @@ com.google.protobuf.ByteString defaultValue);
         if (!getRows()
             .equals(other.getRows())) return false;
       }
-      if (getPartitionRuleVersion()
-          != other.getPartitionRuleVersion()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (!getVersion()
+            .equals(other.getVersion())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9872,9 +10039,10 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
-      hash = (37 * hash) + PARTITION_RULE_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPartitionRuleVersion());
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getVersion().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10016,8 +10184,12 @@ com.google.protobuf.ByteString defaultValue);
           rows_ = null;
           rowsBuilder_ = null;
         }
-        partitionRuleVersion_ = 0L;
-
+        if (versionBuilder_ == null) {
+          version_ = null;
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
         return this;
       }
 
@@ -10050,7 +10222,11 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.rows_ = rowsBuilder_.build();
         }
-        result.partitionRuleVersion_ = partitionRuleVersion_;
+        if (versionBuilder_ == null) {
+          result.version_ = version_;
+        } else {
+          result.version_ = versionBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -10105,8 +10281,8 @@ com.google.protobuf.ByteString defaultValue);
         if (other.hasRows()) {
           mergeRows(other.getRows());
         }
-        if (other.getPartitionRuleVersion() != 0L) {
-          setPartitionRuleVersion(other.getPartitionRuleVersion());
+        if (other.hasVersion()) {
+          mergeVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10287,35 +10463,123 @@ com.google.protobuf.ByteString defaultValue);
         return rowsBuilder_;
       }
 
-      private long partitionRuleVersion_ ;
+      private io.greptime.v1.Common.PartitionRuleVersion version_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> versionBuilder_;
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return The partitionRuleVersion.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return Whether the version field is set.
        */
-      @java.lang.Override
-      public long getPartitionRuleVersion() {
-        return partitionRuleVersion_;
+      public boolean hasVersion() {
+        return versionBuilder_ != null || version_ != null;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @param value The partitionRuleVersion to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return The version.
        */
-      public Builder setPartitionRuleVersion(long value) {
-        
-        partitionRuleVersion_ = value;
-        onChanged();
+      public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+        if (versionBuilder_ == null) {
+          return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        } else {
+          return versionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder setVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          version_ = value;
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
        */
-      public Builder clearPartitionRuleVersion() {
-        
-        partitionRuleVersion_ = 0L;
-        onChanged();
+      public Builder setVersion(
+          io.greptime.v1.Common.PartitionRuleVersion.Builder builderForValue) {
+        if (versionBuilder_ == null) {
+          version_ = builderForValue.build();
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder mergeVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (version_ != null) {
+            version_ =
+              io.greptime.v1.Common.PartitionRuleVersion.newBuilder(version_).mergeFrom(value).buildPartial();
+          } else {
+            version_ = value;
+          }
+          onChanged();
+        } else {
+          versionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder clearVersion() {
+        if (versionBuilder_ == null) {
+          version_ = null;
+          onChanged();
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersion.Builder getVersionBuilder() {
+        
+        onChanged();
+        return getVersionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+        if (versionBuilder_ != null) {
+          return versionBuilder_.getMessageOrBuilder();
+        } else {
+          return version_ == null ?
+              io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> 
+          getVersionFieldBuilder() {
+        if (versionBuilder_ == null) {
+          versionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder>(
+                  getVersion(),
+                  getParentForChildren(),
+                  isClean());
+          version_ = null;
+        }
+        return versionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -30337,10 +30601,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Common.ArrowIpcOrBuilder getArrowIpcOrBuilder();
 
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
-    long getPartitionRuleVersion();
+    boolean hasVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    io.greptime.v1.Common.PartitionRuleVersion getVersion();
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder();
 
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
@@ -30412,9 +30685,17 @@ java.lang.String defaultValue);
               bodyCase_ = 2;
               break;
             }
-            case 24: {
+            case 26: {
+              io.greptime.v1.Common.PartitionRuleVersion.Builder subBuilder = null;
+              if (version_ != null) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(io.greptime.v1.Common.PartitionRuleVersion.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
 
-              partitionRuleVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -30532,15 +30813,30 @@ java.lang.String defaultValue);
       return io.greptime.v1.Common.ArrowIpc.getDefaultInstance();
     }
 
-    public static final int PARTITION_RULE_VERSION_FIELD_NUMBER = 3;
-    private long partitionRuleVersion_;
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private io.greptime.v1.Common.PartitionRuleVersion version_;
     /**
-     * <code>uint64 partition_rule_version = 3;</code>
-     * @return The partitionRuleVersion.
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return Whether the version field is set.
      */
     @java.lang.Override
-    public long getPartitionRuleVersion() {
-      return partitionRuleVersion_;
+    public boolean hasVersion() {
+      return version_ != null;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+      return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+    }
+    /**
+     * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+      return getVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -30563,8 +30859,8 @@ java.lang.String defaultValue);
       if (bodyCase_ == 2) {
         output.writeMessage(2, (io.greptime.v1.Common.ArrowIpc) body_);
       }
-      if (partitionRuleVersion_ != 0L) {
-        output.writeUInt64(3, partitionRuleVersion_);
+      if (version_ != null) {
+        output.writeMessage(3, getVersion());
       }
       unknownFields.writeTo(output);
     }
@@ -30583,9 +30879,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (io.greptime.v1.Common.ArrowIpc) body_);
       }
-      if (partitionRuleVersion_ != 0L) {
+      if (version_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(3, partitionRuleVersion_);
+          .computeMessageSize(3, getVersion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -30604,8 +30900,11 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (getPartitionRuleVersion()
-          != other.getPartitionRuleVersion()) return false;
+      if (hasVersion() != other.hasVersion()) return false;
+      if (hasVersion()) {
+        if (!getVersion()
+            .equals(other.getVersion())) return false;
+      }
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
         case 2:
@@ -30629,9 +30928,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      hash = (37 * hash) + PARTITION_RULE_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPartitionRuleVersion());
+      if (hasVersion()) {
+        hash = (37 * hash) + VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getVersion().hashCode();
+      }
       switch (bodyCase_) {
         case 2:
           hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
@@ -30779,8 +31079,12 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
-        partitionRuleVersion_ = 0L;
-
+        if (versionBuilder_ == null) {
+          version_ = null;
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -30817,7 +31121,11 @@ java.lang.String defaultValue);
             result.body_ = arrowIpcBuilder_.build();
           }
         }
-        result.partitionRuleVersion_ = partitionRuleVersion_;
+        if (versionBuilder_ == null) {
+          result.version_ = version_;
+        } else {
+          result.version_ = versionBuilder_.build();
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -30870,8 +31178,8 @@ java.lang.String defaultValue);
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
-        if (other.getPartitionRuleVersion() != 0L) {
-          setPartitionRuleVersion(other.getPartitionRuleVersion());
+        if (other.hasVersion()) {
+          mergeVersion(other.getVersion());
         }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
@@ -31099,35 +31407,123 @@ java.lang.String defaultValue);
         return arrowIpcBuilder_;
       }
 
-      private long partitionRuleVersion_ ;
+      private io.greptime.v1.Common.PartitionRuleVersion version_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> versionBuilder_;
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return The partitionRuleVersion.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return Whether the version field is set.
        */
-      @java.lang.Override
-      public long getPartitionRuleVersion() {
-        return partitionRuleVersion_;
+      public boolean hasVersion() {
+        return versionBuilder_ != null || version_ != null;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @param value The partitionRuleVersion to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       * @return The version.
        */
-      public Builder setPartitionRuleVersion(long value) {
-        
-        partitionRuleVersion_ = value;
-        onChanged();
+      public io.greptime.v1.Common.PartitionRuleVersion getVersion() {
+        if (versionBuilder_ == null) {
+          return version_ == null ? io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        } else {
+          return versionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder setVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          version_ = value;
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>uint64 partition_rule_version = 3;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
        */
-      public Builder clearPartitionRuleVersion() {
-        
-        partitionRuleVersion_ = 0L;
-        onChanged();
+      public Builder setVersion(
+          io.greptime.v1.Common.PartitionRuleVersion.Builder builderForValue) {
+        if (versionBuilder_ == null) {
+          version_ = builderForValue.build();
+          onChanged();
+        } else {
+          versionBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder mergeVersion(io.greptime.v1.Common.PartitionRuleVersion value) {
+        if (versionBuilder_ == null) {
+          if (version_ != null) {
+            version_ =
+              io.greptime.v1.Common.PartitionRuleVersion.newBuilder(version_).mergeFrom(value).buildPartial();
+          } else {
+            version_ = value;
+          }
+          onChanged();
+        } else {
+          versionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public Builder clearVersion() {
+        if (versionBuilder_ == null) {
+          version_ = null;
+          onChanged();
+        } else {
+          version_ = null;
+          versionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersion.Builder getVersionBuilder() {
+        
+        onChanged();
+        return getVersionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      public io.greptime.v1.Common.PartitionRuleVersionOrBuilder getVersionOrBuilder() {
+        if (versionBuilder_ != null) {
+          return versionBuilder_.getMessageOrBuilder();
+        } else {
+          return version_ == null ?
+              io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance() : version_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.PartitionRuleVersion version = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder> 
+          getVersionFieldBuilder() {
+        if (versionBuilder_ == null) {
+          versionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.PartitionRuleVersion, io.greptime.v1.Common.PartitionRuleVersion.Builder, io.greptime.v1.Common.PartitionRuleVersionOrBuilder>(
+                  getVersion(),
+                  getParentForChildren(),
+                  isClean());
+          version_ = null;
+        }
+        return versionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -36138,12 +36534,13 @@ java.lang.String defaultValue);
       "ts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regio" +
       "n.InsertRequest\"E\n\016DeleteRequests\0223\n\010req" +
       "uests\030\001 \003(\0132!.greptime.v1.region.DeleteR" +
-      "equest\"c\n\rInsertRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022\036\n\026p" +
-      "artition_rule_version\030\003 \001(\004\"c\n\rDeleteReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021." +
-      "greptime.v1.Rows\022\036\n\026partition_rule_versi" +
-      "on\030\003 \001(\004\"h\n\014QueryRequest\0227\n\006header\030\001 \001(\013" +
+      "equest\"w\n\rInsertRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\0222\n\007v" +
+      "ersion\030\003 \001(\0132!.greptime.v1.PartitionRule" +
+      "Version\"w\n\rDeleteRequest\022\021\n\tregion_id\030\001 " +
+      "\001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\0222\n\007" +
+      "version\030\003 \001(\0132!.greptime.v1.PartitionRul" +
+      "eVersion\"h\n\014QueryRequest\0227\n\006header\030\001 \001(\013" +
       "2\'.greptime.v1.region.RegionRequestHeade" +
       "r\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016Cr" +
       "eateRequests\0223\n\010requests\030\001 \003(\0132!.greptim" +
@@ -36205,29 +36602,29 @@ java.lang.String defaultValue);
       " \001(\0132\027.greptime.v1.TimeRangesH\000B\006\n\004kind\"" +
       "\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncolumn_def\030" +
       "\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolumn_" +
-      "id\030\002 \001(\r\"z\n\021BulkInsertRequest\022\021\n\tregion_" +
-      "id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v" +
-      "1.ArrowIpcH\000\022\036\n\026partition_rule_version\030\003" +
-      " \001(\004B\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025data" +
-      "_manifest_version\030\001 \001(\004\"V\n\022MetricManifes" +
-      "tInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031" +
-      "metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sync" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manif" +
-      "est_info\030\002 \001(\0132$.greptime.v1.region.Mito" +
-      "ManifestInfoH\000\022F\n\024metric_manifest_info\030\003" +
-      " \001(\0132&.greptime.v1.region.MetricManifest" +
-      "InfoH\000B\017\n\rmanifest_info\")\n\023ListMetadataR" +
-      "equest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndex" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022" +
-      "\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifestReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition_exp" +
-      "r\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025\n\rma" +
-      "nifest_path\030\004 \001(\t2Y\n\006Region\022O\n\006Handle\022!." +
-      "greptime.v1.region.RegionRequest\032\".grept" +
-      "ime.v1.region.RegionResponseB]\n\025io.grept" +
-      "ime.v1.regionB\006ServerZ<github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1/reg" +
-      "ionb\006proto3"
+      "id\030\002 \001(\r\"\216\001\n\021BulkInsertRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime." +
+      "v1.ArrowIpcH\000\0222\n\007version\030\003 \001(\0132!.greptim" +
+      "e.v1.PartitionRuleVersionB\006\n\004body\"1\n\020Mit" +
+      "oManifestInfo\022\035\n\025data_manifest_version\030\001" +
+      " \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manif" +
+      "est_version\030\001 \001(\004\022!\n\031metadata_manifest_v" +
+      "ersion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.gr" +
+      "eptime.v1.region.MitoManifestInfoH\000\022F\n\024m" +
+      "etric_manifest_info\030\003 \001(\0132&.greptime.v1." +
+      "region.MetricManifestInfoH\000B\017\n\rmanifest_" +
+      "info\")\n\023ListMetadataRequest\022\022\n\nregion_id" +
+      "s\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033Ap" +
+      "plyStagingManifestRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_" +
+      "region_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t2Y" +
+      "\n\006Region\022O\n\006Handle\022!.greptime.v1.region." +
+      "RegionRequest\032\".greptime.v1.region.Regio" +
+      "nResponseB]\n\025io.greptime.v1.regionB\006Serv" +
+      "erZ<github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -36284,13 +36681,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_InsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Rows", "PartitionRuleVersion", });
+        new java.lang.String[] { "RegionId", "Rows", "Version", });
     internal_static_greptime_v1_region_DeleteRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_region_DeleteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_DeleteRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Rows", "PartitionRuleVersion", });
+        new java.lang.String[] { "RegionId", "Rows", "Version", });
     internal_static_greptime_v1_region_QueryRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_region_QueryRequest_fieldAccessorTable = new
@@ -36434,7 +36831,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionRuleVersion", "Body", });
+        new java.lang.String[] { "RegionId", "ArrowIpc", "Version", "Body", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new

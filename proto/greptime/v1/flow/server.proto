@@ -63,7 +63,7 @@ message InsertRequests {
 message InsertRequest {
   uint64 region_id = 1;
   Rows rows = 2;
-  uint64 partition_rule_version = 3;
+  PartitionRuleVersion version = 3;
 }
 
 message FlowRequest {

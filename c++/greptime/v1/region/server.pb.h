@@ -1693,8 +1693,8 @@ class InsertRequest final :
 
   enum : int {
     kRowsFieldNumber = 2,
+    kVersionFieldNumber = 3,
     kRegionIdFieldNumber = 1,
-    kPartitionRuleVersionFieldNumber = 3,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -1714,6 +1714,24 @@ class InsertRequest final :
       ::greptime::v1::Rows* rows);
   ::greptime::v1::Rows* unsafe_arena_release_rows();
 
+  // .greptime.v1.PartitionRuleVersion version = 3;
+  bool has_version() const;
+  private:
+  bool _internal_has_version() const;
+  public:
+  void clear_version();
+  const ::greptime::v1::PartitionRuleVersion& version() const;
+  PROTOBUF_NODISCARD ::greptime::v1::PartitionRuleVersion* release_version();
+  ::greptime::v1::PartitionRuleVersion* mutable_version();
+  void set_allocated_version(::greptime::v1::PartitionRuleVersion* version);
+  private:
+  const ::greptime::v1::PartitionRuleVersion& _internal_version() const;
+  ::greptime::v1::PartitionRuleVersion* _internal_mutable_version();
+  public:
+  void unsafe_arena_set_allocated_version(
+      ::greptime::v1::PartitionRuleVersion* version);
+  ::greptime::v1::PartitionRuleVersion* unsafe_arena_release_version();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -1721,15 +1739,6 @@ class InsertRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
-  public:
-
-  // uint64 partition_rule_version = 3;
-  void clear_partition_rule_version();
-  uint64_t partition_rule_version() const;
-  void set_partition_rule_version(uint64_t value);
-  private:
-  uint64_t _internal_partition_rule_version() const;
-  void _internal_set_partition_rule_version(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.InsertRequest)
@@ -1741,8 +1750,8 @@ class InsertRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
+    ::greptime::v1::PartitionRuleVersion* version_;
     uint64_t region_id_;
-    uint64_t partition_rule_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1872,8 +1881,8 @@ class DeleteRequest final :
 
   enum : int {
     kRowsFieldNumber = 2,
+    kVersionFieldNumber = 3,
     kRegionIdFieldNumber = 1,
-    kPartitionRuleVersionFieldNumber = 3,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -1893,6 +1902,24 @@ class DeleteRequest final :
       ::greptime::v1::Rows* rows);
   ::greptime::v1::Rows* unsafe_arena_release_rows();
 
+  // .greptime.v1.PartitionRuleVersion version = 3;
+  bool has_version() const;
+  private:
+  bool _internal_has_version() const;
+  public:
+  void clear_version();
+  const ::greptime::v1::PartitionRuleVersion& version() const;
+  PROTOBUF_NODISCARD ::greptime::v1::PartitionRuleVersion* release_version();
+  ::greptime::v1::PartitionRuleVersion* mutable_version();
+  void set_allocated_version(::greptime::v1::PartitionRuleVersion* version);
+  private:
+  const ::greptime::v1::PartitionRuleVersion& _internal_version() const;
+  ::greptime::v1::PartitionRuleVersion* _internal_mutable_version();
+  public:
+  void unsafe_arena_set_allocated_version(
+      ::greptime::v1::PartitionRuleVersion* version);
+  ::greptime::v1::PartitionRuleVersion* unsafe_arena_release_version();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -1900,15 +1927,6 @@ class DeleteRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
-  public:
-
-  // uint64 partition_rule_version = 3;
-  void clear_partition_rule_version();
-  uint64_t partition_rule_version() const;
-  void set_partition_rule_version(uint64_t value);
-  private:
-  uint64_t _internal_partition_rule_version() const;
-  void _internal_set_partition_rule_version(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DeleteRequest)
@@ -1920,8 +1938,8 @@ class DeleteRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::Rows* rows_;
+    ::greptime::v1::PartitionRuleVersion* version_;
     uint64_t region_id_;
-    uint64_t partition_rule_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5936,10 +5954,28 @@ class BulkInsertRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kVersionFieldNumber = 3,
     kRegionIdFieldNumber = 1,
-    kPartitionRuleVersionFieldNumber = 3,
     kArrowIpcFieldNumber = 2,
   };
+  // .greptime.v1.PartitionRuleVersion version = 3;
+  bool has_version() const;
+  private:
+  bool _internal_has_version() const;
+  public:
+  void clear_version();
+  const ::greptime::v1::PartitionRuleVersion& version() const;
+  PROTOBUF_NODISCARD ::greptime::v1::PartitionRuleVersion* release_version();
+  ::greptime::v1::PartitionRuleVersion* mutable_version();
+  void set_allocated_version(::greptime::v1::PartitionRuleVersion* version);
+  private:
+  const ::greptime::v1::PartitionRuleVersion& _internal_version() const;
+  ::greptime::v1::PartitionRuleVersion* _internal_mutable_version();
+  public:
+  void unsafe_arena_set_allocated_version(
+      ::greptime::v1::PartitionRuleVersion* version);
+  ::greptime::v1::PartitionRuleVersion* unsafe_arena_release_version();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -5947,15 +5983,6 @@ class BulkInsertRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
-  public:
-
-  // uint64 partition_rule_version = 3;
-  void clear_partition_rule_version();
-  uint64_t partition_rule_version() const;
-  void set_partition_rule_version(uint64_t value);
-  private:
-  uint64_t _internal_partition_rule_version() const;
-  void _internal_set_partition_rule_version(uint64_t value);
   public:
 
   // .greptime.v1.ArrowIpc arrow_ipc = 2;
@@ -5990,8 +6017,8 @@ class BulkInsertRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::greptime::v1::PartitionRuleVersion* version_;
     uint64_t region_id_;
-    uint64_t partition_rule_version_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -9171,24 +9198,89 @@ inline void InsertRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.InsertRequest.rows)
 }
 
-// uint64 partition_rule_version = 3;
-inline void InsertRequest::clear_partition_rule_version() {
-  _impl_.partition_rule_version_ = uint64_t{0u};
+// .greptime.v1.PartitionRuleVersion version = 3;
+inline bool InsertRequest::_internal_has_version() const {
+  return this != internal_default_instance() && _impl_.version_ != nullptr;
 }
-inline uint64_t InsertRequest::_internal_partition_rule_version() const {
-  return _impl_.partition_rule_version_;
+inline bool InsertRequest::has_version() const {
+  return _internal_has_version();
 }
-inline uint64_t InsertRequest::partition_rule_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.InsertRequest.partition_rule_version)
-  return _internal_partition_rule_version();
+inline const ::greptime::v1::PartitionRuleVersion& InsertRequest::_internal_version() const {
+  const ::greptime::v1::PartitionRuleVersion* p = _impl_.version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::PartitionRuleVersion&>(
+      ::greptime::v1::_PartitionRuleVersion_default_instance_);
 }
-inline void InsertRequest::_internal_set_partition_rule_version(uint64_t value) {
+inline const ::greptime::v1::PartitionRuleVersion& InsertRequest::version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.InsertRequest.version)
+  return _internal_version();
+}
+inline void InsertRequest::unsafe_arena_set_allocated_version(
+    ::greptime::v1::PartitionRuleVersion* version) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  _impl_.version_ = version;
+  if (version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.InsertRequest.version)
+}
+inline ::greptime::v1::PartitionRuleVersion* InsertRequest::release_version() {
   
-  _impl_.partition_rule_version_ = value;
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void InsertRequest::set_partition_rule_version(uint64_t value) {
-  _internal_set_partition_rule_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.InsertRequest.partition_rule_version)
+inline ::greptime::v1::PartitionRuleVersion* InsertRequest::unsafe_arena_release_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.InsertRequest.version)
+  
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::PartitionRuleVersion* InsertRequest::_internal_mutable_version() {
+  
+  if (_impl_.version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::PartitionRuleVersion>(GetArenaForAllocation());
+    _impl_.version_ = p;
+  }
+  return _impl_.version_;
+}
+inline ::greptime::v1::PartitionRuleVersion* InsertRequest::mutable_version() {
+  ::greptime::v1::PartitionRuleVersion* _msg = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.InsertRequest.version)
+  return _msg;
+}
+inline void InsertRequest::set_allocated_version(::greptime::v1::PartitionRuleVersion* version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  if (version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(version));
+    if (message_arena != submessage_arena) {
+      version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.version_ = version;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.InsertRequest.version)
 }
 
 // -------------------------------------------------------------------
@@ -9300,24 +9392,89 @@ inline void DeleteRequest::set_allocated_rows(::greptime::v1::Rows* rows) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.DeleteRequest.rows)
 }
 
-// uint64 partition_rule_version = 3;
-inline void DeleteRequest::clear_partition_rule_version() {
-  _impl_.partition_rule_version_ = uint64_t{0u};
+// .greptime.v1.PartitionRuleVersion version = 3;
+inline bool DeleteRequest::_internal_has_version() const {
+  return this != internal_default_instance() && _impl_.version_ != nullptr;
 }
-inline uint64_t DeleteRequest::_internal_partition_rule_version() const {
-  return _impl_.partition_rule_version_;
+inline bool DeleteRequest::has_version() const {
+  return _internal_has_version();
 }
-inline uint64_t DeleteRequest::partition_rule_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.DeleteRequest.partition_rule_version)
-  return _internal_partition_rule_version();
+inline const ::greptime::v1::PartitionRuleVersion& DeleteRequest::_internal_version() const {
+  const ::greptime::v1::PartitionRuleVersion* p = _impl_.version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::PartitionRuleVersion&>(
+      ::greptime::v1::_PartitionRuleVersion_default_instance_);
 }
-inline void DeleteRequest::_internal_set_partition_rule_version(uint64_t value) {
+inline const ::greptime::v1::PartitionRuleVersion& DeleteRequest::version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DeleteRequest.version)
+  return _internal_version();
+}
+inline void DeleteRequest::unsafe_arena_set_allocated_version(
+    ::greptime::v1::PartitionRuleVersion* version) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  _impl_.version_ = version;
+  if (version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.DeleteRequest.version)
+}
+inline ::greptime::v1::PartitionRuleVersion* DeleteRequest::release_version() {
   
-  _impl_.partition_rule_version_ = value;
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void DeleteRequest::set_partition_rule_version(uint64_t value) {
-  _internal_set_partition_rule_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.DeleteRequest.partition_rule_version)
+inline ::greptime::v1::PartitionRuleVersion* DeleteRequest::unsafe_arena_release_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.DeleteRequest.version)
+  
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::PartitionRuleVersion* DeleteRequest::_internal_mutable_version() {
+  
+  if (_impl_.version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::PartitionRuleVersion>(GetArenaForAllocation());
+    _impl_.version_ = p;
+  }
+  return _impl_.version_;
+}
+inline ::greptime::v1::PartitionRuleVersion* DeleteRequest::mutable_version() {
+  ::greptime::v1::PartitionRuleVersion* _msg = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.DeleteRequest.version)
+  return _msg;
+}
+inline void DeleteRequest::set_allocated_version(::greptime::v1::PartitionRuleVersion* version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  if (version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(version));
+    if (message_arena != submessage_arena) {
+      version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.version_ = version;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.DeleteRequest.version)
 }
 
 // -------------------------------------------------------------------
@@ -12069,24 +12226,89 @@ inline ::greptime::v1::ArrowIpc* BulkInsertRequest::mutable_arrow_ipc() {
   return _msg;
 }
 
-// uint64 partition_rule_version = 3;
-inline void BulkInsertRequest::clear_partition_rule_version() {
-  _impl_.partition_rule_version_ = uint64_t{0u};
+// .greptime.v1.PartitionRuleVersion version = 3;
+inline bool BulkInsertRequest::_internal_has_version() const {
+  return this != internal_default_instance() && _impl_.version_ != nullptr;
 }
-inline uint64_t BulkInsertRequest::_internal_partition_rule_version() const {
-  return _impl_.partition_rule_version_;
+inline bool BulkInsertRequest::has_version() const {
+  return _internal_has_version();
 }
-inline uint64_t BulkInsertRequest::partition_rule_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.partition_rule_version)
-  return _internal_partition_rule_version();
+inline const ::greptime::v1::PartitionRuleVersion& BulkInsertRequest::_internal_version() const {
+  const ::greptime::v1::PartitionRuleVersion* p = _impl_.version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::PartitionRuleVersion&>(
+      ::greptime::v1::_PartitionRuleVersion_default_instance_);
 }
-inline void BulkInsertRequest::_internal_set_partition_rule_version(uint64_t value) {
+inline const ::greptime::v1::PartitionRuleVersion& BulkInsertRequest::version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.version)
+  return _internal_version();
+}
+inline void BulkInsertRequest::unsafe_arena_set_allocated_version(
+    ::greptime::v1::PartitionRuleVersion* version) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  _impl_.version_ = version;
+  if (version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BulkInsertRequest.version)
+}
+inline ::greptime::v1::PartitionRuleVersion* BulkInsertRequest::release_version() {
   
-  _impl_.partition_rule_version_ = value;
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void BulkInsertRequest::set_partition_rule_version(uint64_t value) {
-  _internal_set_partition_rule_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.partition_rule_version)
+inline ::greptime::v1::PartitionRuleVersion* BulkInsertRequest::unsafe_arena_release_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.version)
+  
+  ::greptime::v1::PartitionRuleVersion* temp = _impl_.version_;
+  _impl_.version_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::PartitionRuleVersion* BulkInsertRequest::_internal_mutable_version() {
+  
+  if (_impl_.version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::PartitionRuleVersion>(GetArenaForAllocation());
+    _impl_.version_ = p;
+  }
+  return _impl_.version_;
+}
+inline ::greptime::v1::PartitionRuleVersion* BulkInsertRequest::mutable_version() {
+  ::greptime::v1::PartitionRuleVersion* _msg = _internal_mutable_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.version)
+  return _msg;
+}
+inline void BulkInsertRequest::set_allocated_version(::greptime::v1::PartitionRuleVersion* version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.version_);
+  }
+  if (version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(version));
+    if (message_arena != submessage_arena) {
+      version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.version_ = version;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.version)
 }
 
 inline bool BulkInsertRequest::has_body() const {
