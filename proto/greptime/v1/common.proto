@@ -275,6 +275,6 @@ message ArrowIpc {
   bytes payload = 3;
 }
 
-message PartitionRuleVersion {
+message PartitionExprVersion {
   uint64 value = 1;
 }

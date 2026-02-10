@@ -2116,7 +2116,7 @@ func (x *ArrowIpc) GetPayload() []byte {
 	return nil
 }
 
-type PartitionRuleVersion struct {
+type PartitionExprVersion struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -2124,8 +2124,8 @@ type PartitionRuleVersion struct {
 	Value uint64 `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
 }
 
-func (x *PartitionRuleVersion) Reset() {
-	*x = PartitionRuleVersion{}
+func (x *PartitionExprVersion) Reset() {
+	*x = PartitionExprVersion{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_greptime_v1_common_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2133,13 +2133,13 @@ func (x *PartitionRuleVersion) Reset() {
 	}
 }
 
-func (x *PartitionRuleVersion) String() string {
+func (x *PartitionExprVersion) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PartitionRuleVersion) ProtoMessage() {}
+func (*PartitionExprVersion) ProtoMessage() {}
 
-func (x *PartitionRuleVersion) ProtoReflect() protoreflect.Message {
+func (x *PartitionExprVersion) ProtoReflect() protoreflect.Message {
 	mi := &file_greptime_v1_common_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2151,12 +2151,12 @@ func (x *PartitionRuleVersion) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PartitionRuleVersion.ProtoReflect.Descriptor instead.
-func (*PartitionRuleVersion) Descriptor() ([]byte, []int) {
+// Deprecated: Use PartitionExprVersion.ProtoReflect.Descriptor instead.
+func (*PartitionExprVersion) Descriptor() ([]byte, []int) {
 	return file_greptime_v1_common_proto_rawDescGZIP(), []int{29}
 }
 
-func (x *PartitionRuleVersion) GetValue() uint64 {
+func (x *PartitionExprVersion) GetValue() uint64 {
 	if x != nil {
 		return x.Value
 	}
@@ -2421,7 +2421,7 @@ var file_greptime_v1_common_proto_rawDesc = []byte{
 	0x64, 0x61, 0x74, 0x61, 0x48, 0x65, 0x61, 0x64, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x70, 0x61,
 	0x79, 0x6c, 0x6f, 0x61, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x07, 0x70, 0x61, 0x79,
 	0x6c, 0x6f, 0x61, 0x64, 0x22, 0x2c, 0x0a, 0x14, 0x50, 0x61, 0x72, 0x74, 0x69, 0x74, 0x69, 0x6f,
-	0x6e, 0x52, 0x75, 0x6c, 0x65, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x14, 0x0a, 0x05,
+	0x6e, 0x45, 0x78, 0x70, 0x72, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x14, 0x0a, 0x05,
 	0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x76, 0x61, 0x6c,
 	0x75, 0x65, 0x2a, 0x31, 0x0a, 0x0c, 0x53, 0x65, 0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79,
 	0x70, 0x65, 0x12, 0x07, 0x0a, 0x03, 0x54, 0x41, 0x47, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05, 0x46,
@@ -2523,7 +2523,7 @@ var file_greptime_v1_common_proto_goTypes = []interface{}{
 	(*DictionaryTypeExtension)(nil), // 30: greptime.v1.DictionaryTypeExtension
 	(*ColumnOptions)(nil),           // 31: greptime.v1.ColumnOptions
 	(*ArrowIpc)(nil),                // 32: greptime.v1.ArrowIpc
-	(*PartitionRuleVersion)(nil),    // 33: greptime.v1.PartitionRuleVersion
+	(*PartitionExprVersion)(nil),    // 33: greptime.v1.PartitionExprVersion
 	nil,                             // 34: greptime.v1.QueryContext.ExtensionsEntry
 	nil,                             // 35: greptime.v1.SnapshotSequences.SstMinSequencesEntry
 	nil,                             // 36: greptime.v1.SnapshotSequences.SnapshotSeqsEntry
@@ -2926,7 +2926,7 @@ func file_greptime_v1_common_proto_init() {
 			}
 		}
 		file_greptime_v1_common_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PartitionRuleVersion); i {
+			switch v := v.(*PartitionExprVersion); i {
 			case 0:
 				return &v.state
 			case 1:

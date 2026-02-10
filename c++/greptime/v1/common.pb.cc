@@ -488,19 +488,19 @@ struct ArrowIpcDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ArrowIpcDefaultTypeInternal _ArrowIpc_default_instance_;
-PROTOBUF_CONSTEXPR PartitionRuleVersion::PartitionRuleVersion(
+PROTOBUF_CONSTEXPR PartitionExprVersion::PartitionExprVersion(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.value_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct PartitionRuleVersionDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PartitionRuleVersionDefaultTypeInternal()
+struct PartitionExprVersionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PartitionExprVersionDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PartitionRuleVersionDefaultTypeInternal() {}
+  ~PartitionExprVersionDefaultTypeInternal() {}
   union {
-    PartitionRuleVersion _instance;
+    PartitionExprVersion _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PartitionRuleVersionDefaultTypeInternal _PartitionRuleVersion_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PartitionExprVersionDefaultTypeInternal _PartitionExprVersion_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fcommon_2eproto[35];
@@ -803,12 +803,12 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ArrowIpc, _impl_.data_header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::ArrowIpc, _impl_.payload_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::PartitionRuleVersion, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::PartitionExprVersion, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::PartitionRuleVersion, _impl_.value_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::PartitionExprVersion, _impl_.value_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse)},
@@ -845,7 +845,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 268, 276, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
   { 278, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
   { 285, -1, -1, sizeof(::greptime::v1::ArrowIpc)},
-  { 294, -1, -1, sizeof(::greptime::v1::PartitionRuleVersion)},
+  { 294, -1, -1, sizeof(::greptime::v1::PartitionExprVersion)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -883,7 +883,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::_ColumnOptions_OptionsEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::_ColumnOptions_default_instance_._instance,
   &::greptime::v1::_ArrowIpc_default_instance_._instance,
-  &::greptime::v1::_PartitionRuleVersion_default_instance_._instance,
+  &::greptime::v1::_PartitionExprVersion_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -968,7 +968,7 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   ".ColumnOptions.OptionsEntry\032.\n\014OptionsEn"
   "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\010A"
   "rrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n\013data_header\030\002"
-  " \001(\014\022\017\n\007payload\030\003 \001(\014\"%\n\024PartitionRuleVe"
+  " \001(\014\022\017\n\007payload\030\003 \001(\014\"%\n\024PartitionExprVe"
   "rsion\022\r\n\005value\030\001 \001(\004*1\n\014SemanticType\022\007\n\003"
   "TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\222\004\n\016Colu"
   "mnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT"
@@ -8563,29 +8563,29 @@ void ArrowIpc::InternalSwap(ArrowIpc* other) {
 
 // ===================================================================
 
-class PartitionRuleVersion::_Internal {
+class PartitionExprVersion::_Internal {
  public:
 };
 
-PartitionRuleVersion::PartitionRuleVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+PartitionExprVersion::PartitionExprVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.PartitionRuleVersion)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.PartitionExprVersion)
 }
-PartitionRuleVersion::PartitionRuleVersion(const PartitionRuleVersion& from)
+PartitionExprVersion::PartitionExprVersion(const PartitionExprVersion& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  PartitionRuleVersion* const _this = this; (void)_this;
+  PartitionExprVersion* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.value_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _this->_impl_.value_ = from._impl_.value_;
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.PartitionRuleVersion)
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.PartitionExprVersion)
 }
 
-inline void PartitionRuleVersion::SharedCtor(
+inline void PartitionExprVersion::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -8595,8 +8595,8 @@ inline void PartitionRuleVersion::SharedCtor(
   };
 }
 
-PartitionRuleVersion::~PartitionRuleVersion() {
-  // @@protoc_insertion_point(destructor:greptime.v1.PartitionRuleVersion)
+PartitionExprVersion::~PartitionExprVersion() {
+  // @@protoc_insertion_point(destructor:greptime.v1.PartitionExprVersion)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -8604,16 +8604,16 @@ PartitionRuleVersion::~PartitionRuleVersion() {
   SharedDtor();
 }
 
-inline void PartitionRuleVersion::SharedDtor() {
+inline void PartitionExprVersion::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void PartitionRuleVersion::SetCachedSize(int size) const {
+void PartitionExprVersion::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void PartitionRuleVersion::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.PartitionRuleVersion)
+void PartitionExprVersion::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.PartitionExprVersion)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -8622,7 +8622,7 @@ void PartitionRuleVersion::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PartitionRuleVersion::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* PartitionExprVersion::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -8659,9 +8659,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* PartitionRuleVersion::_InternalSerialize(
+uint8_t* PartitionExprVersion::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.PartitionRuleVersion)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.PartitionExprVersion)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -8675,12 +8675,12 @@ uint8_t* PartitionRuleVersion::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.PartitionRuleVersion)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.PartitionExprVersion)
   return target;
 }
 
-size_t PartitionRuleVersion::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.PartitionRuleVersion)
+size_t PartitionExprVersion::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.PartitionExprVersion)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -8695,17 +8695,17 @@ size_t PartitionRuleVersion::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PartitionRuleVersion::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PartitionExprVersion::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    PartitionRuleVersion::MergeImpl
+    PartitionExprVersion::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PartitionRuleVersion::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PartitionExprVersion::GetClassData() const { return &_class_data_; }
 
 
-void PartitionRuleVersion::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<PartitionRuleVersion*>(&to_msg);
-  auto& from = static_cast<const PartitionRuleVersion&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.PartitionRuleVersion)
+void PartitionExprVersion::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PartitionExprVersion*>(&to_msg);
+  auto& from = static_cast<const PartitionExprVersion&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.PartitionExprVersion)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -8716,24 +8716,24 @@ void PartitionRuleVersion::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PartitionRuleVersion::CopyFrom(const PartitionRuleVersion& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.PartitionRuleVersion)
+void PartitionExprVersion::CopyFrom(const PartitionExprVersion& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.PartitionExprVersion)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PartitionRuleVersion::IsInitialized() const {
+bool PartitionExprVersion::IsInitialized() const {
   return true;
 }
 
-void PartitionRuleVersion::InternalSwap(PartitionRuleVersion* other) {
+void PartitionExprVersion::InternalSwap(PartitionExprVersion* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_.value_, other->_impl_.value_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata PartitionRuleVersion::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata PartitionExprVersion::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fcommon_2eproto_once,
       file_level_metadata_greptime_2fv1_2fcommon_2eproto[34]);
@@ -8879,9 +8879,9 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::ArrowIpc*
 Arena::CreateMaybeMessage< ::greptime::v1::ArrowIpc >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::ArrowIpc >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::PartitionRuleVersion*
-Arena::CreateMaybeMessage< ::greptime::v1::PartitionRuleVersion >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::PartitionRuleVersion >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::PartitionExprVersion*
+Arena::CreateMaybeMessage< ::greptime::v1::PartitionExprVersion >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::PartitionExprVersion >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
