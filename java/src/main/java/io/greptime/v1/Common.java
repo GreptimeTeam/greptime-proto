@@ -24936,8 +24936,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface PartitionRuleVersionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.PartitionRuleVersion)
+  public interface PartitionExprVersionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.PartitionExprVersion)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -24947,25 +24947,25 @@ java.lang.String defaultValue);
     long getValue();
   }
   /**
-   * Protobuf type {@code greptime.v1.PartitionRuleVersion}
+   * Protobuf type {@code greptime.v1.PartitionExprVersion}
    */
-  public static final class PartitionRuleVersion extends
+  public static final class PartitionExprVersion extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.PartitionRuleVersion)
-      PartitionRuleVersionOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.PartitionExprVersion)
+      PartitionExprVersionOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PartitionRuleVersion.newBuilder() to construct.
-    private PartitionRuleVersion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PartitionExprVersion.newBuilder() to construct.
+    private PartitionExprVersion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PartitionRuleVersion() {
+    private PartitionExprVersion() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new PartitionRuleVersion();
+      return new PartitionExprVersion();
     }
 
     @java.lang.Override
@@ -24973,7 +24973,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PartitionRuleVersion(
+    private PartitionExprVersion(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -25019,15 +25019,15 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_PartitionRuleVersion_descriptor;
+      return io.greptime.v1.Common.internal_static_greptime_v1_PartitionExprVersion_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.Common.internal_static_greptime_v1_PartitionRuleVersion_fieldAccessorTable
+      return io.greptime.v1.Common.internal_static_greptime_v1_PartitionExprVersion_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.Common.PartitionRuleVersion.class, io.greptime.v1.Common.PartitionRuleVersion.Builder.class);
+              io.greptime.v1.Common.PartitionExprVersion.class, io.greptime.v1.Common.PartitionExprVersion.Builder.class);
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
@@ -25081,10 +25081,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.Common.PartitionRuleVersion)) {
+      if (!(obj instanceof io.greptime.v1.Common.PartitionExprVersion)) {
         return super.equals(obj);
       }
-      io.greptime.v1.Common.PartitionRuleVersion other = (io.greptime.v1.Common.PartitionRuleVersion) obj;
+      io.greptime.v1.Common.PartitionExprVersion other = (io.greptime.v1.Common.PartitionExprVersion) obj;
 
       if (getValue()
           != other.getValue()) return false;
@@ -25107,69 +25107,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(byte[] data)
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.Common.PartitionExprVersion parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseDelimitedFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.Common.PartitionRuleVersion parseFrom(
+    public static io.greptime.v1.Common.PartitionExprVersion parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -25182,7 +25182,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.Common.PartitionRuleVersion prototype) {
+    public static Builder newBuilder(io.greptime.v1.Common.PartitionExprVersion prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -25198,26 +25198,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.PartitionRuleVersion}
+     * Protobuf type {@code greptime.v1.PartitionExprVersion}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.PartitionRuleVersion)
-        io.greptime.v1.Common.PartitionRuleVersionOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.PartitionExprVersion)
+        io.greptime.v1.Common.PartitionExprVersionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionRuleVersion_descriptor;
+        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionExprVersion_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionRuleVersion_fieldAccessorTable
+        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionExprVersion_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.Common.PartitionRuleVersion.class, io.greptime.v1.Common.PartitionRuleVersion.Builder.class);
+                io.greptime.v1.Common.PartitionExprVersion.class, io.greptime.v1.Common.PartitionExprVersion.Builder.class);
       }
 
-      // Construct using io.greptime.v1.Common.PartitionRuleVersion.newBuilder()
+      // Construct using io.greptime.v1.Common.PartitionExprVersion.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -25243,17 +25243,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionRuleVersion_descriptor;
+        return io.greptime.v1.Common.internal_static_greptime_v1_PartitionExprVersion_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.PartitionRuleVersion getDefaultInstanceForType() {
-        return io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance();
+      public io.greptime.v1.Common.PartitionExprVersion getDefaultInstanceForType() {
+        return io.greptime.v1.Common.PartitionExprVersion.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.PartitionRuleVersion build() {
-        io.greptime.v1.Common.PartitionRuleVersion result = buildPartial();
+      public io.greptime.v1.Common.PartitionExprVersion build() {
+        io.greptime.v1.Common.PartitionExprVersion result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -25261,8 +25261,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.Common.PartitionRuleVersion buildPartial() {
-        io.greptime.v1.Common.PartitionRuleVersion result = new io.greptime.v1.Common.PartitionRuleVersion(this);
+      public io.greptime.v1.Common.PartitionExprVersion buildPartial() {
+        io.greptime.v1.Common.PartitionExprVersion result = new io.greptime.v1.Common.PartitionExprVersion(this);
         result.value_ = value_;
         onBuilt();
         return result;
@@ -25302,16 +25302,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.Common.PartitionRuleVersion) {
-          return mergeFrom((io.greptime.v1.Common.PartitionRuleVersion)other);
+        if (other instanceof io.greptime.v1.Common.PartitionExprVersion) {
+          return mergeFrom((io.greptime.v1.Common.PartitionExprVersion)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.Common.PartitionRuleVersion other) {
-        if (other == io.greptime.v1.Common.PartitionRuleVersion.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.Common.PartitionExprVersion other) {
+        if (other == io.greptime.v1.Common.PartitionExprVersion.getDefaultInstance()) return this;
         if (other.getValue() != 0L) {
           setValue(other.getValue());
         }
@@ -25330,11 +25330,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.Common.PartitionRuleVersion parsedMessage = null;
+        io.greptime.v1.Common.PartitionExprVersion parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.Common.PartitionRuleVersion) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.Common.PartitionExprVersion) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -25387,41 +25387,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.PartitionRuleVersion)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.PartitionExprVersion)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.PartitionRuleVersion)
-    private static final io.greptime.v1.Common.PartitionRuleVersion DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.PartitionExprVersion)
+    private static final io.greptime.v1.Common.PartitionExprVersion DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.Common.PartitionRuleVersion();
+      DEFAULT_INSTANCE = new io.greptime.v1.Common.PartitionExprVersion();
     }
 
-    public static io.greptime.v1.Common.PartitionRuleVersion getDefaultInstance() {
+    public static io.greptime.v1.Common.PartitionExprVersion getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PartitionRuleVersion>
-        PARSER = new com.google.protobuf.AbstractParser<PartitionRuleVersion>() {
+    private static final com.google.protobuf.Parser<PartitionExprVersion>
+        PARSER = new com.google.protobuf.AbstractParser<PartitionExprVersion>() {
       @java.lang.Override
-      public PartitionRuleVersion parsePartialFrom(
+      public PartitionExprVersion parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PartitionRuleVersion(input, extensionRegistry);
+        return new PartitionExprVersion(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PartitionRuleVersion> parser() {
+    public static com.google.protobuf.Parser<PartitionExprVersion> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PartitionRuleVersion> getParserForType() {
+    public com.google.protobuf.Parser<PartitionExprVersion> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.Common.PartitionRuleVersion getDefaultInstanceForType() {
+    public io.greptime.v1.Common.PartitionExprVersion getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -25598,10 +25598,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_ArrowIpc_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_PartitionRuleVersion_descriptor;
+    internal_static_greptime_v1_PartitionExprVersion_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_PartitionRuleVersion_fieldAccessorTable;
+      internal_static_greptime_v1_PartitionExprVersion_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25692,7 +25692,7 @@ java.lang.String defaultValue);
       ".ColumnOptions.OptionsEntry\032.\n\014OptionsEn" +
       "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\010A" +
       "rrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n\013data_header\030\002" +
-      " \001(\014\022\017\n\007payload\030\003 \001(\014\"%\n\024PartitionRuleVe" +
+      " \001(\014\022\017\n\007payload\030\003 \001(\014\"%\n\024PartitionExprVe" +
       "rsion\022\r\n\005value\030\001 \001(\004*1\n\014SemanticType\022\007\n\003" +
       "TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\222\004\n\016Colu" +
       "mnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT" +
@@ -25923,11 +25923,11 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ArrowIpc_descriptor,
         new java.lang.String[] { "Schema", "DataHeader", "Payload", });
-    internal_static_greptime_v1_PartitionRuleVersion_descriptor =
+    internal_static_greptime_v1_PartitionExprVersion_descriptor =
       getDescriptor().getMessageTypes().get(29);
-    internal_static_greptime_v1_PartitionRuleVersion_fieldAccessorTable = new
+    internal_static_greptime_v1_PartitionExprVersion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_PartitionRuleVersion_descriptor,
+        internal_static_greptime_v1_PartitionExprVersion_descriptor,
         new java.lang.String[] { "Value", });
   }
 

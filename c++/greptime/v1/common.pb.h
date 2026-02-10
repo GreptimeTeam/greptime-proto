@@ -104,9 +104,9 @@ extern ListTypeExtensionDefaultTypeInternal _ListTypeExtension_default_instance_
 class Metrics;
 struct MetricsDefaultTypeInternal;
 extern MetricsDefaultTypeInternal _Metrics_default_instance_;
-class PartitionRuleVersion;
-struct PartitionRuleVersionDefaultTypeInternal;
-extern PartitionRuleVersionDefaultTypeInternal _PartitionRuleVersion_default_instance_;
+class PartitionExprVersion;
+struct PartitionExprVersionDefaultTypeInternal;
+extern PartitionExprVersionDefaultTypeInternal _PartitionExprVersion_default_instance_;
 class QueryContext;
 struct QueryContextDefaultTypeInternal;
 extern QueryContextDefaultTypeInternal _QueryContext_default_instance_;
@@ -176,7 +176,7 @@ template<> ::greptime::v1::IntervalMonthDayNano* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::JsonNativeTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::JsonNativeTypeExtension>(Arena*);
 template<> ::greptime::v1::ListTypeExtension* Arena::CreateMaybeMessage<::greptime::v1::ListTypeExtension>(Arena*);
 template<> ::greptime::v1::Metrics* Arena::CreateMaybeMessage<::greptime::v1::Metrics>(Arena*);
-template<> ::greptime::v1::PartitionRuleVersion* Arena::CreateMaybeMessage<::greptime::v1::PartitionRuleVersion>(Arena*);
+template<> ::greptime::v1::PartitionExprVersion* Arena::CreateMaybeMessage<::greptime::v1::PartitionExprVersion>(Arena*);
 template<> ::greptime::v1::QueryContext* Arena::CreateMaybeMessage<::greptime::v1::QueryContext>(Arena*);
 template<> ::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::QueryContext_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::RequestHeader* Arena::CreateMaybeMessage<::greptime::v1::RequestHeader>(Arena*);
@@ -5592,24 +5592,24 @@ class ArrowIpc final :
 };
 // -------------------------------------------------------------------
 
-class PartitionRuleVersion final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.PartitionRuleVersion) */ {
+class PartitionExprVersion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.PartitionExprVersion) */ {
  public:
-  inline PartitionRuleVersion() : PartitionRuleVersion(nullptr) {}
-  ~PartitionRuleVersion() override;
-  explicit PROTOBUF_CONSTEXPR PartitionRuleVersion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline PartitionExprVersion() : PartitionExprVersion(nullptr) {}
+  ~PartitionExprVersion() override;
+  explicit PROTOBUF_CONSTEXPR PartitionExprVersion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  PartitionRuleVersion(const PartitionRuleVersion& from);
-  PartitionRuleVersion(PartitionRuleVersion&& from) noexcept
-    : PartitionRuleVersion() {
+  PartitionExprVersion(const PartitionExprVersion& from);
+  PartitionExprVersion(PartitionExprVersion&& from) noexcept
+    : PartitionExprVersion() {
     *this = ::std::move(from);
   }
 
-  inline PartitionRuleVersion& operator=(const PartitionRuleVersion& from) {
+  inline PartitionExprVersion& operator=(const PartitionExprVersion& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PartitionRuleVersion& operator=(PartitionRuleVersion&& from) noexcept {
+  inline PartitionExprVersion& operator=(PartitionExprVersion&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -5632,20 +5632,20 @@ class PartitionRuleVersion final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const PartitionRuleVersion& default_instance() {
+  static const PartitionExprVersion& default_instance() {
     return *internal_default_instance();
   }
-  static inline const PartitionRuleVersion* internal_default_instance() {
-    return reinterpret_cast<const PartitionRuleVersion*>(
-               &_PartitionRuleVersion_default_instance_);
+  static inline const PartitionExprVersion* internal_default_instance() {
+    return reinterpret_cast<const PartitionExprVersion*>(
+               &_PartitionExprVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     34;
 
-  friend void swap(PartitionRuleVersion& a, PartitionRuleVersion& b) {
+  friend void swap(PartitionExprVersion& a, PartitionExprVersion& b) {
     a.Swap(&b);
   }
-  inline void Swap(PartitionRuleVersion* other) {
+  inline void Swap(PartitionExprVersion* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -5658,7 +5658,7 @@ class PartitionRuleVersion final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PartitionRuleVersion* other) {
+  void UnsafeArenaSwap(PartitionExprVersion* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -5666,14 +5666,14 @@ class PartitionRuleVersion final :
 
   // implements Message ----------------------------------------------
 
-  PartitionRuleVersion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<PartitionRuleVersion>(arena);
+  PartitionExprVersion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PartitionExprVersion>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const PartitionRuleVersion& from);
+  void CopyFrom(const PartitionExprVersion& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const PartitionRuleVersion& from) {
-    PartitionRuleVersion::MergeImpl(*this, from);
+  void MergeFrom( const PartitionExprVersion& from) {
+    PartitionExprVersion::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -5691,15 +5691,15 @@ class PartitionRuleVersion final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PartitionRuleVersion* other);
+  void InternalSwap(PartitionExprVersion* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.PartitionRuleVersion";
+    return "greptime.v1.PartitionExprVersion";
   }
   protected:
-  explicit PartitionRuleVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit PartitionExprVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -5724,7 +5724,7 @@ class PartitionRuleVersion final :
   void _internal_set_value(uint64_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.PartitionRuleVersion)
+  // @@protoc_insertion_point(class_scope:greptime.v1.PartitionExprVersion)
  private:
   class _Internal;
 
@@ -9126,26 +9126,26 @@ inline void ArrowIpc::set_allocated_payload(std::string* payload) {
 
 // -------------------------------------------------------------------
 
-// PartitionRuleVersion
+// PartitionExprVersion
 
 // uint64 value = 1;
-inline void PartitionRuleVersion::clear_value() {
+inline void PartitionExprVersion::clear_value() {
   _impl_.value_ = uint64_t{0u};
 }
-inline uint64_t PartitionRuleVersion::_internal_value() const {
+inline uint64_t PartitionExprVersion::_internal_value() const {
   return _impl_.value_;
 }
-inline uint64_t PartitionRuleVersion::value() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.PartitionRuleVersion.value)
+inline uint64_t PartitionExprVersion::value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.PartitionExprVersion.value)
   return _internal_value();
 }
-inline void PartitionRuleVersion::_internal_set_value(uint64_t value) {
+inline void PartitionExprVersion::_internal_set_value(uint64_t value) {
   
   _impl_.value_ = value;
 }
-inline void PartitionRuleVersion::set_value(uint64_t value) {
+inline void PartitionExprVersion::set_value(uint64_t value) {
   _internal_set_value(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.PartitionRuleVersion.value)
+  // @@protoc_insertion_point(field_set:greptime.v1.PartitionExprVersion.value)
 }
 
 #ifdef __GNUC__
