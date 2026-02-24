@@ -106,6 +106,12 @@ extern MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _Mai
 class NodeInfo;
 struct NodeInfoDefaultTypeInternal;
 extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
+class PullMetaConfigRequest;
+struct PullMetaConfigRequestDefaultTypeInternal;
+extern PullMetaConfigRequestDefaultTypeInternal _PullMetaConfigRequest_default_instance_;
+class PullMetaConfigResponse;
+struct PullMetaConfigResponseDefaultTypeInternal;
+extern PullMetaConfigResponseDefaultTypeInternal _PullMetaConfigResponse_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
@@ -140,6 +146,8 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::MailboxMessageHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
+template<> ::greptime::v1::meta::PullMetaConfigRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::PullMetaConfigRequest>(Arena*);
+template<> ::greptime::v1::meta::PullMetaConfigResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::PullMetaConfigResponse>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
@@ -3373,6 +3381,357 @@ class MailboxMessageHeader final :
 };
 // -------------------------------------------------------------------
 
+class PullMetaConfigRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullMetaConfigRequest) */ {
+ public:
+  inline PullMetaConfigRequest() : PullMetaConfigRequest(nullptr) {}
+  ~PullMetaConfigRequest() override;
+  explicit PROTOBUF_CONSTEXPR PullMetaConfigRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PullMetaConfigRequest(const PullMetaConfigRequest& from);
+  PullMetaConfigRequest(PullMetaConfigRequest&& from) noexcept
+    : PullMetaConfigRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline PullMetaConfigRequest& operator=(const PullMetaConfigRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PullMetaConfigRequest& operator=(PullMetaConfigRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PullMetaConfigRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PullMetaConfigRequest* internal_default_instance() {
+    return reinterpret_cast<const PullMetaConfigRequest*>(
+               &_PullMetaConfigRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(PullMetaConfigRequest& a, PullMetaConfigRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PullMetaConfigRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PullMetaConfigRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PullMetaConfigRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PullMetaConfigRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PullMetaConfigRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PullMetaConfigRequest& from) {
+    PullMetaConfigRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PullMetaConfigRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.PullMetaConfigRequest";
+  }
+  protected:
+  explicit PullMetaConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+  };
+  // .greptime.v1.meta.RequestHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::RequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::RequestHeader* release_header();
+  ::greptime::v1::meta::RequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::RequestHeader* header);
+  private:
+  const ::greptime::v1::meta::RequestHeader& _internal_header() const;
+  ::greptime::v1::meta::RequestHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::RequestHeader* header);
+  ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::RequestHeader* header_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
+class PullMetaConfigResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullMetaConfigResponse) */ {
+ public:
+  inline PullMetaConfigResponse() : PullMetaConfigResponse(nullptr) {}
+  ~PullMetaConfigResponse() override;
+  explicit PROTOBUF_CONSTEXPR PullMetaConfigResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PullMetaConfigResponse(const PullMetaConfigResponse& from);
+  PullMetaConfigResponse(PullMetaConfigResponse&& from) noexcept
+    : PullMetaConfigResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline PullMetaConfigResponse& operator=(const PullMetaConfigResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PullMetaConfigResponse& operator=(PullMetaConfigResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PullMetaConfigResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  enum PayloadCase {
+    kJson = 2,
+    PAYLOAD_NOT_SET = 0,
+  };
+
+  static inline const PullMetaConfigResponse* internal_default_instance() {
+    return reinterpret_cast<const PullMetaConfigResponse*>(
+               &_PullMetaConfigResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(PullMetaConfigResponse& a, PullMetaConfigResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PullMetaConfigResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PullMetaConfigResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PullMetaConfigResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PullMetaConfigResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PullMetaConfigResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PullMetaConfigResponse& from) {
+    PullMetaConfigResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PullMetaConfigResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.PullMetaConfigResponse";
+  }
+  protected:
+  explicit PullMetaConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+    kJsonFieldNumber = 2,
+  };
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::ResponseHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ResponseHeader* release_header();
+  ::greptime::v1::meta::ResponseHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::ResponseHeader* header);
+  private:
+  const ::greptime::v1::meta::ResponseHeader& _internal_header() const;
+  ::greptime::v1::meta::ResponseHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::ResponseHeader* header);
+  ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
+
+  // string json = 2;
+  bool has_json() const;
+  private:
+  bool _internal_has_json() const;
+  public:
+  void clear_json();
+  const std::string& json() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_json(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_json();
+  PROTOBUF_NODISCARD std::string* release_json();
+  void set_allocated_json(std::string* json);
+  private:
+  const std::string& _internal_json() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_json(const std::string& value);
+  std::string* _internal_mutable_json();
+  public:
+
+  void clear_payload();
+  PayloadCase payload_case() const;
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigResponse)
+ private:
+  class _Internal;
+  void set_has_json();
+
+  inline bool has_payload() const;
+  inline void clear_has_payload();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::meta::ResponseHeader* header_;
+    union PayloadUnion {
+      constexpr PayloadUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr json_;
+    } payload_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class MailboxMessage final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.MailboxMessage) */ {
  public:
@@ -3426,7 +3785,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -6274,6 +6633,270 @@ MailboxMessageHeader::mutable_tracing_context() {
 
 // -------------------------------------------------------------------
 
+// PullMetaConfigRequest
+
+// .greptime.v1.meta.RequestHeader header = 1;
+inline bool PullMetaConfigRequest::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool PullMetaConfigRequest::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::RequestHeader& PullMetaConfigRequest::_internal_header() const {
+  const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
+      ::greptime::v1::meta::_RequestHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::RequestHeader& PullMetaConfigRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigRequest.header)
+  return _internal_header();
+}
+inline void PullMetaConfigRequest::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::RequestHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullMetaConfigRequest.header)
+}
+inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::release_header() {
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigRequest.header)
+  
+  ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::mutable_header() {
+  ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigRequest.header)
+  return _msg;
+}
+inline void PullMetaConfigRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigRequest.header)
+}
+
+// -------------------------------------------------------------------
+
+// PullMetaConfigResponse
+
+// .greptime.v1.meta.ResponseHeader header = 1;
+inline bool PullMetaConfigResponse::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool PullMetaConfigResponse::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::meta::ResponseHeader& PullMetaConfigResponse::_internal_header() const {
+  const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
+      ::greptime::v1::meta::_ResponseHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::ResponseHeader& PullMetaConfigResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.header)
+  return _internal_header();
+}
+inline void PullMetaConfigResponse::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::ResponseHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullMetaConfigResponse.header)
+}
+inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::release_header() {
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigResponse.header)
+  
+  ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::mutable_header() {
+  ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.header)
+  return _msg;
+}
+inline void PullMetaConfigResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.header)
+}
+
+// string json = 2;
+inline bool PullMetaConfigResponse::_internal_has_json() const {
+  return payload_case() == kJson;
+}
+inline bool PullMetaConfigResponse::has_json() const {
+  return _internal_has_json();
+}
+inline void PullMetaConfigResponse::set_has_json() {
+  _impl_._oneof_case_[0] = kJson;
+}
+inline void PullMetaConfigResponse::clear_json() {
+  if (_internal_has_json()) {
+    _impl_.payload_.json_.Destroy();
+    clear_has_payload();
+  }
+}
+inline const std::string& PullMetaConfigResponse::json() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.json)
+  return _internal_json();
+}
+template <typename ArgT0, typename... ArgT>
+inline void PullMetaConfigResponse::set_json(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_json()) {
+    clear_payload();
+    set_has_json();
+    _impl_.payload_.json_.InitDefault();
+  }
+  _impl_.payload_.json_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullMetaConfigResponse.json)
+}
+inline std::string* PullMetaConfigResponse::mutable_json() {
+  std::string* _s = _internal_mutable_json();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.json)
+  return _s;
+}
+inline const std::string& PullMetaConfigResponse::_internal_json() const {
+  if (_internal_has_json()) {
+    return _impl_.payload_.json_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void PullMetaConfigResponse::_internal_set_json(const std::string& value) {
+  if (!_internal_has_json()) {
+    clear_payload();
+    set_has_json();
+    _impl_.payload_.json_.InitDefault();
+  }
+  _impl_.payload_.json_.Set(value, GetArenaForAllocation());
+}
+inline std::string* PullMetaConfigResponse::_internal_mutable_json() {
+  if (!_internal_has_json()) {
+    clear_payload();
+    set_has_json();
+    _impl_.payload_.json_.InitDefault();
+  }
+  return _impl_.payload_.json_.Mutable(      GetArenaForAllocation());
+}
+inline std::string* PullMetaConfigResponse::release_json() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigResponse.json)
+  if (_internal_has_json()) {
+    clear_has_payload();
+    return _impl_.payload_.json_.Release();
+  } else {
+    return nullptr;
+  }
+}
+inline void PullMetaConfigResponse::set_allocated_json(std::string* json) {
+  if (has_payload()) {
+    clear_payload();
+  }
+  if (json != nullptr) {
+    set_has_json();
+    _impl_.payload_.json_.InitAllocated(json, GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.json)
+}
+
+inline bool PullMetaConfigResponse::has_payload() const {
+  return payload_case() != PAYLOAD_NOT_SET;
+}
+inline void PullMetaConfigResponse::clear_has_payload() {
+  _impl_._oneof_case_[0] = PAYLOAD_NOT_SET;
+}
+inline PullMetaConfigResponse::PayloadCase PullMetaConfigResponse::payload_case() const {
+  return PullMetaConfigResponse::PayloadCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
 // MailboxMessage
 
 // .greptime.v1.meta.MailboxMessageHeader header = 64;
@@ -6645,6 +7268,10 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

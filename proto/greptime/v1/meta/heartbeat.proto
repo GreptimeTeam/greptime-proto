@@ -29,6 +29,9 @@ service Heartbeat {
 
   // Ask leader's endpoint.
   rpc AskLeader(AskLeaderRequest) returns (AskLeaderResponse) {}
+
+  // Pull meta configuration from meta server.
+  rpc PullMetaConfig(PullMetaConfigRequest) returns (PullMetaConfigResponse) {}
 }
 
 message HeartbeatRequest {
@@ -184,6 +187,17 @@ message MailboxMessageHeader {
   // Encoded trace_id & span_id, follow the w3c Trace Context
   // https://www.w3.org/TR/trace-context/#header-name
   map<string, string> tracing_context = 1;
+}
+
+message PullMetaConfigRequest {
+  RequestHeader header = 1;
+}
+
+message PullMetaConfigResponse {
+  ResponseHeader header = 1;
+  oneof payload {
+    string json = 2;
+  }
 }
 
 message MailboxMessage {
