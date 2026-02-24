@@ -3581,11 +3581,6 @@ class PullMetaConfigResponse final :
   static const PullMetaConfigResponse& default_instance() {
     return *internal_default_instance();
   }
-  enum PayloadCase {
-    kJson = 2,
-    PAYLOAD_NOT_SET = 0,
-  };
-
   static inline const PullMetaConfigResponse* internal_default_instance() {
     return reinterpret_cast<const PullMetaConfigResponse*>(
                &_PullMetaConfigResponse_default_instance_);
@@ -3664,9 +3659,23 @@ class PullMetaConfigResponse final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kPayloadFieldNumber = 2,
     kHeaderFieldNumber = 1,
-    kJsonFieldNumber = 2,
   };
+  // string payload = 2;
+  void clear_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
   // .greptime.v1.meta.ResponseHeader header = 1;
   bool has_header() const;
   private:
@@ -3685,47 +3694,17 @@ class PullMetaConfigResponse final :
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
 
-  // string json = 2;
-  bool has_json() const;
-  private:
-  bool _internal_has_json() const;
-  public:
-  void clear_json();
-  const std::string& json() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_json(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_json();
-  PROTOBUF_NODISCARD std::string* release_json();
-  void set_allocated_json(std::string* json);
-  private:
-  const std::string& _internal_json() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_json(const std::string& value);
-  std::string* _internal_mutable_json();
-  public:
-
-  void clear_payload();
-  PayloadCase payload_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigResponse)
  private:
   class _Internal;
-  void set_has_json();
-
-  inline bool has_payload() const;
-  inline void clear_has_payload();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
     ::greptime::v1::meta::ResponseHeader* header_;
-    union PayloadUnion {
-      constexpr PayloadUnion() : _constinit_{} {}
-        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
-      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr json_;
-    } payload_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t _oneof_case_[1];
-
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
@@ -6809,92 +6788,56 @@ inline void PullMetaConfigResponse::set_allocated_header(::greptime::v1::meta::R
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.header)
 }
 
-// string json = 2;
-inline bool PullMetaConfigResponse::_internal_has_json() const {
-  return payload_case() == kJson;
+// string payload = 2;
+inline void PullMetaConfigResponse::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
 }
-inline bool PullMetaConfigResponse::has_json() const {
-  return _internal_has_json();
-}
-inline void PullMetaConfigResponse::set_has_json() {
-  _impl_._oneof_case_[0] = kJson;
-}
-inline void PullMetaConfigResponse::clear_json() {
-  if (_internal_has_json()) {
-    _impl_.payload_.json_.Destroy();
-    clear_has_payload();
-  }
-}
-inline const std::string& PullMetaConfigResponse::json() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.json)
-  return _internal_json();
+inline const std::string& PullMetaConfigResponse::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.payload)
+  return _internal_payload();
 }
 template <typename ArgT0, typename... ArgT>
-inline void PullMetaConfigResponse::set_json(ArgT0&& arg0, ArgT... args) {
-  if (!_internal_has_json()) {
-    clear_payload();
-    set_has_json();
-    _impl_.payload_.json_.InitDefault();
-  }
-  _impl_.payload_.json_.Set( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullMetaConfigResponse.json)
+inline PROTOBUF_ALWAYS_INLINE
+void PullMetaConfigResponse::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullMetaConfigResponse.payload)
 }
-inline std::string* PullMetaConfigResponse::mutable_json() {
-  std::string* _s = _internal_mutable_json();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.json)
+inline std::string* PullMetaConfigResponse::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.payload)
   return _s;
 }
-inline const std::string& PullMetaConfigResponse::_internal_json() const {
-  if (_internal_has_json()) {
-    return _impl_.payload_.json_.Get();
-  }
-  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+inline const std::string& PullMetaConfigResponse::_internal_payload() const {
+  return _impl_.payload_.Get();
 }
-inline void PullMetaConfigResponse::_internal_set_json(const std::string& value) {
-  if (!_internal_has_json()) {
-    clear_payload();
-    set_has_json();
-    _impl_.payload_.json_.InitDefault();
-  }
-  _impl_.payload_.json_.Set(value, GetArenaForAllocation());
+inline void PullMetaConfigResponse::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
 }
-inline std::string* PullMetaConfigResponse::_internal_mutable_json() {
-  if (!_internal_has_json()) {
-    clear_payload();
-    set_has_json();
-    _impl_.payload_.json_.InitDefault();
-  }
-  return _impl_.payload_.json_.Mutable(      GetArenaForAllocation());
+inline std::string* PullMetaConfigResponse::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
 }
-inline std::string* PullMetaConfigResponse::release_json() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigResponse.json)
-  if (_internal_has_json()) {
-    clear_has_payload();
-    return _impl_.payload_.json_.Release();
+inline std::string* PullMetaConfigResponse::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigResponse.payload)
+  return _impl_.payload_.Release();
+}
+inline void PullMetaConfigResponse::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
   } else {
-    return nullptr;
+    
   }
-}
-inline void PullMetaConfigResponse::set_allocated_json(std::string* json) {
-  if (has_payload()) {
-    clear_payload();
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
   }
-  if (json != nullptr) {
-    set_has_json();
-    _impl_.payload_.json_.InitAllocated(json, GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.json)
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.payload)
 }
 
-inline bool PullMetaConfigResponse::has_payload() const {
-  return payload_case() != PAYLOAD_NOT_SET;
-}
-inline void PullMetaConfigResponse::clear_has_payload() {
-  _impl_._oneof_case_[0] = PAYLOAD_NOT_SET;
-}
-inline PullMetaConfigResponse::PayloadCase PullMetaConfigResponse::payload_case() const {
-  return PullMetaConfigResponse::PayloadCase(_impl_._oneof_case_[0]);
-}
 // -------------------------------------------------------------------
 
 // MailboxMessage

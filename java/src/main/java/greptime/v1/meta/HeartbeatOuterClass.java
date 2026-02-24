@@ -17994,23 +17994,16 @@ java.lang.String defaultValue);
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>string json = 2;</code>
-     * @return Whether the json field is set.
+     * <code>string payload = 2;</code>
+     * @return The payload.
      */
-    boolean hasJson();
+    java.lang.String getPayload();
     /**
-     * <code>string json = 2;</code>
-     * @return The json.
-     */
-    java.lang.String getJson();
-    /**
-     * <code>string json = 2;</code>
-     * @return The bytes for json.
+     * <code>string payload = 2;</code>
+     * @return The bytes for payload.
      */
     com.google.protobuf.ByteString
-        getJsonBytes();
-
-    public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.PayloadCase getPayloadCase();
+        getPayloadBytes();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.PullMetaConfigResponse}
@@ -18025,6 +18018,7 @@ java.lang.String defaultValue);
       super(builder);
     }
     private PullMetaConfigResponse() {
+      payload_ = "";
     }
 
     @java.lang.Override
@@ -18072,7 +18066,7 @@ java.lang.String defaultValue);
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
-              payloadCase_ = 2;
+
               payload_ = s;
               break;
             }
@@ -18110,45 +18104,6 @@ java.lang.String defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.class, greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.Builder.class);
     }
 
-    private int payloadCase_ = 0;
-    private java.lang.Object payload_;
-    public enum PayloadCase
-        implements com.google.protobuf.Internal.EnumLite,
-            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      JSON(2),
-      PAYLOAD_NOT_SET(0);
-      private final int value;
-      private PayloadCase(int value) {
-        this.value = value;
-      }
-      /**
-       * @param value The number of the enum to look for.
-       * @return The enum associated with the given number.
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static PayloadCase valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static PayloadCase forNumber(int value) {
-        switch (value) {
-          case 2: return JSON;
-          case 0: return PAYLOAD_NOT_SET;
-          default: return null;
-        }
-      }
-      public int getNumber() {
-        return this.value;
-      }
-    };
-
-    public PayloadCase
-    getPayloadCase() {
-      return PayloadCase.forNumber(
-          payloadCase_);
-    }
-
     public static final int HEADER_FIELD_NUMBER = 1;
     private greptime.v1.meta.Common.ResponseHeader header_;
     /**
@@ -18175,52 +18130,38 @@ java.lang.String defaultValue);
       return getHeader();
     }
 
-    public static final int JSON_FIELD_NUMBER = 2;
+    public static final int PAYLOAD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object payload_;
     /**
-     * <code>string json = 2;</code>
-     * @return Whether the json field is set.
+     * <code>string payload = 2;</code>
+     * @return The payload.
      */
-    public boolean hasJson() {
-      return payloadCase_ == 2;
-    }
-    /**
-     * <code>string json = 2;</code>
-     * @return The json.
-     */
-    public java.lang.String getJson() {
-      java.lang.Object ref = "";
-      if (payloadCase_ == 2) {
-        ref = payload_;
-      }
+    @java.lang.Override
+    public java.lang.String getPayload() {
+      java.lang.Object ref = payload_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (payloadCase_ == 2) {
-          payload_ = s;
-        }
+        payload_ = s;
         return s;
       }
     }
     /**
-     * <code>string json = 2;</code>
-     * @return The bytes for json.
+     * <code>string payload = 2;</code>
+     * @return The bytes for payload.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getJsonBytes() {
-      java.lang.Object ref = "";
-      if (payloadCase_ == 2) {
-        ref = payload_;
-      }
+        getPayloadBytes() {
+      java.lang.Object ref = payload_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        if (payloadCase_ == 2) {
-          payload_ = b;
-        }
+        payload_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -18244,7 +18185,7 @@ java.lang.String defaultValue);
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (payloadCase_ == 2) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, payload_);
       }
       unknownFields.writeTo(output);
@@ -18260,7 +18201,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (payloadCase_ == 2) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, payload_);
       }
       size += unknownFields.getSerializedSize();
@@ -18283,15 +18224,8 @@ java.lang.String defaultValue);
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getPayloadCase().equals(other.getPayloadCase())) return false;
-      switch (payloadCase_) {
-        case 2:
-          if (!getJson()
-              .equals(other.getJson())) return false;
-          break;
-        case 0:
-        default:
-      }
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18307,14 +18241,8 @@ java.lang.String defaultValue);
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      switch (payloadCase_) {
-        case 2:
-          hash = (37 * hash) + JSON_FIELD_NUMBER;
-          hash = (53 * hash) + getJson().hashCode();
-          break;
-        case 0:
-        default:
-      }
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18454,8 +18382,8 @@ java.lang.String defaultValue);
           header_ = null;
           headerBuilder_ = null;
         }
-        payloadCase_ = 0;
-        payload_ = null;
+        payload_ = "";
+
         return this;
       }
 
@@ -18487,10 +18415,7 @@ java.lang.String defaultValue);
         } else {
           result.header_ = headerBuilder_.build();
         }
-        if (payloadCase_ == 2) {
-          result.payload_ = payload_;
-        }
-        result.payloadCase_ = payloadCase_;
+        result.payload_ = payload_;
         onBuilt();
         return result;
       }
@@ -18542,16 +18467,9 @@ java.lang.String defaultValue);
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        switch (other.getPayloadCase()) {
-          case JSON: {
-            payloadCase_ = 2;
-            payload_ = other.payload_;
-            onChanged();
-            break;
-          }
-          case PAYLOAD_NOT_SET: {
-            break;
-          }
+        if (!other.getPayload().isEmpty()) {
+          payload_ = other.payload_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18581,21 +18499,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int payloadCase_ = 0;
-      private java.lang.Object payload_;
-      public PayloadCase
-          getPayloadCase() {
-        return PayloadCase.forNumber(
-            payloadCase_);
-      }
-
-      public Builder clearPayload() {
-        payloadCase_ = 0;
-        payload_ = null;
-        onChanged();
-        return this;
-      }
-
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -18716,98 +18619,77 @@ java.lang.String defaultValue);
         return headerBuilder_;
       }
 
+      private java.lang.Object payload_ = "";
       /**
-       * <code>string json = 2;</code>
-       * @return Whether the json field is set.
+       * <code>string payload = 2;</code>
+       * @return The payload.
        */
-      @java.lang.Override
-      public boolean hasJson() {
-        return payloadCase_ == 2;
-      }
-      /**
-       * <code>string json = 2;</code>
-       * @return The json.
-       */
-      @java.lang.Override
-      public java.lang.String getJson() {
-        java.lang.Object ref = "";
-        if (payloadCase_ == 2) {
-          ref = payload_;
-        }
+      public java.lang.String getPayload() {
+        java.lang.Object ref = payload_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (payloadCase_ == 2) {
-            payload_ = s;
-          }
+          payload_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string json = 2;</code>
-       * @return The bytes for json.
+       * <code>string payload = 2;</code>
+       * @return The bytes for payload.
        */
-      @java.lang.Override
       public com.google.protobuf.ByteString
-          getJsonBytes() {
-        java.lang.Object ref = "";
-        if (payloadCase_ == 2) {
-          ref = payload_;
-        }
+          getPayloadBytes() {
+        java.lang.Object ref = payload_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          if (payloadCase_ == 2) {
-            payload_ = b;
-          }
+          payload_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string json = 2;</code>
-       * @param value The json to set.
+       * <code>string payload = 2;</code>
+       * @param value The payload to set.
        * @return This builder for chaining.
        */
-      public Builder setJson(
+      public Builder setPayload(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  payloadCase_ = 2;
+  
         payload_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string json = 2;</code>
+       * <code>string payload = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearJson() {
-        if (payloadCase_ == 2) {
-          payloadCase_ = 0;
-          payload_ = null;
-          onChanged();
-        }
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
+        onChanged();
         return this;
       }
       /**
-       * <code>string json = 2;</code>
-       * @param value The bytes for json to set.
+       * <code>string payload = 2;</code>
+       * @param value The bytes for payload to set.
        * @return This builder for chaining.
        */
-      public Builder setJsonBytes(
+      public Builder setPayloadBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        payloadCase_ = 2;
+        
         payload_ = value;
         onChanged();
         return this;
@@ -20695,25 +20577,25 @@ java.lang.String defaultValue);
       "geHeader.TracingContextEntry\0325\n\023TracingC" +
       "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
       "\0028\001\"H\n\025PullMetaConfigRequest\022/\n\006header\030\001" +
-      " \001(\0132\037.greptime.v1.meta.RequestHeader\"e\n" +
+      " \001(\0132\037.greptime.v1.meta.RequestHeader\"[\n" +
       "\026PullMetaConfigResponse\0220\n\006header\030\001 \001(\0132" +
-      " .greptime.v1.meta.ResponseHeader\022\016\n\004jso" +
-      "n\030\002 \001(\tH\000B\t\n\007payload\"\264\001\n\016MailboxMessage\022" +
-      "6\n\006header\030@ \001(\0132&.greptime.v1.meta.Mailb" +
-      "oxMessageHeader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002" +
-      " \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timest" +
-      "amp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payl" +
-      "oad*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Followe" +
-      "r\020\001\022\025\n\021DowngradingLeader\020\0022\246\002\n\tHeartbeat" +
-      "\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbe" +
-      "atRequest\032#.greptime.v1.meta.HeartbeatRe" +
-      "sponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1." +
-      "meta.AskLeaderRequest\032#.greptime.v1.meta" +
-      ".AskLeaderResponse\"\000\022e\n\016PullMetaConfig\022\'" +
-      ".greptime.v1.meta.PullMetaConfigRequest\032" +
-      "(.greptime.v1.meta.PullMetaConfigRespons" +
-      "e\"\000B<Z:github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1/metab\006proto3"
+      " .greptime.v1.meta.ResponseHeader\022\017\n\007pay" +
+      "load\030\002 \001(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030" +
+      "@ \001(\0132&.greptime.v1.meta.MailboxMessageH" +
+      "eader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fr" +
+      "om\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis" +
+      "\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nReg" +
+      "ionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Dow" +
+      "ngradingLeader\020\0022\246\002\n\tHeartbeat\022Z\n\tHeartb" +
+      "eat\022\".greptime.v1.meta.HeartbeatRequest\032" +
+      "#.greptime.v1.meta.HeartbeatResponse\"\000(\001" +
+      "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe" +
+      "aderRequest\032#.greptime.v1.meta.AskLeader" +
+      "Response\"\000\022e\n\016PullMetaConfig\022\'.greptime." +
+      "v1.meta.PullMetaConfigRequest\032(.greptime" +
+      ".v1.meta.PullMetaConfigResponse\"\000B<Z:git" +
+      "hub.com/GreptimeTeam/greptime-proto/go/g" +
+      "reptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20857,7 +20739,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor,
-        new java.lang.String[] { "Header", "Json", "Payload", });
+        new java.lang.String[] { "Header", "Payload", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
