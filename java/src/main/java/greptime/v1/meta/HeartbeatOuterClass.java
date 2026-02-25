@@ -16526,9 +16526,861 @@ com.google.protobuf.ByteString defaultValue);
 
   }
 
+  public interface MailboxMessageHeaderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.MailboxMessageHeader)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    int getTracingContextCount();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    boolean containsTracingContext(
+        java.lang.String key);
+    /**
+     * Use {@link #getTracingContextMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContext();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getTracingContextMap();
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    /* nullable */
+java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue);
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    java.lang.String getTracingContextOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.MailboxMessageHeader}
+   */
+  public static final class MailboxMessageHeader extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.MailboxMessageHeader)
+      MailboxMessageHeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MailboxMessageHeader.newBuilder() to construct.
+    private MailboxMessageHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MailboxMessageHeader() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MailboxMessageHeader();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MailboxMessageHeader(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tracingContext_ = com.google.protobuf.MapField.newMapField(
+                    TracingContextDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              tracingContext__ = input.readMessage(
+                  TracingContextDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              tracingContext_.getMutableMap().put(
+                  tracingContext__.getKey(), tracingContext__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetTracingContext();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.class, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder.class);
+    }
+
+    public static final int TRACING_CONTEXT_FIELD_NUMBER = 1;
+    private static final class TracingContextDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> tracingContext_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetTracingContext() {
+      if (tracingContext_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            TracingContextDefaultEntryHolder.defaultEntry);
+      }
+      return tracingContext_;
+    }
+
+    public int getTracingContextCount() {
+      return internalGetTracingContext().getMap().size();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsTracingContext(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetTracingContext().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getTracingContextMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+      return getTracingContextMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+      return internalGetTracingContext().getMap();
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+     * https://www.w3.org/TR/trace-context/#header-name
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getTracingContextOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetTracingContext().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetTracingContext(),
+          TracingContextDefaultEntryHolder.defaultEntry,
+          1);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetTracingContext().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        tracingContext__ = TracingContextDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, tracingContext__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader other = (greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader) obj;
+
+      if (!internalGetTracingContext().equals(
+          other.internalGetTracingContext())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (!internalGetTracingContext().getMap().isEmpty()) {
+        hash = (37 * hash) + TRACING_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetTracingContext().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.MailboxMessageHeader}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.MailboxMessageHeader)
+        greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableTracingContext();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.class, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        internalGetMutableTracingContext().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader build() {
+        greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader result = new greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader(this);
+        int from_bitField0_ = bitField0_;
+        result.tracingContext_ = internalGetTracingContext();
+        result.tracingContext_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.getDefaultInstance()) return this;
+        internalGetMutableTracingContext().mergeFrom(
+            other.internalGetTracingContext());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> tracingContext_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetTracingContext() {
+        if (tracingContext_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        return tracingContext_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableTracingContext() {
+        onChanged();;
+        if (tracingContext_ == null) {
+          tracingContext_ = com.google.protobuf.MapField.newMapField(
+              TracingContextDefaultEntryHolder.defaultEntry);
+        }
+        if (!tracingContext_.isMutable()) {
+          tracingContext_ = tracingContext_.copy();
+        }
+        return tracingContext_;
+      }
+
+      public int getTracingContextCount() {
+        return internalGetTracingContext().getMap().size();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        return internalGetTracingContext().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getTracingContextMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContext() {
+        return getTracingContextMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getTracingContextMap() {
+        return internalGetTracingContext().getMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getTracingContextOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetTracingContext().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearTracingContext() {
+        internalGetMutableTracingContext().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      public Builder removeTracingContext(
+          java.lang.String key) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        internalGetMutableTracingContext().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableTracingContext() {
+        return internalGetMutableTracingContext().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+      public Builder putTracingContext(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
+        internalGetMutableTracingContext().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Encoded trace_id &amp; span_id, follow the w3c Trace Context
+       * https://www.w3.org/TR/trace-context/#header-name
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; tracing_context = 1;</code>
+       */
+
+      public Builder putAllTracingContext(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableTracingContext().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.MailboxMessageHeader)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.MailboxMessageHeader)
+    private static final greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MailboxMessageHeader>
+        PARSER = new com.google.protobuf.AbstractParser<MailboxMessageHeader>() {
+      @java.lang.Override
+      public MailboxMessageHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MailboxMessageHeader(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MailboxMessageHeader> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MailboxMessageHeader> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MailboxMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.MailboxMessage)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     * @return Whether the header field is set.
+     */
+    boolean hasHeader();
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     * @return The header.
+     */
+    greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getHeader();
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     */
+    greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder getHeaderOrBuilder();
 
     /**
      * <pre>
@@ -16697,6 +17549,19 @@ com.google.protobuf.ByteString defaultValue);
               payload_ = s;
               break;
             }
+            case 514: {
+              greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -16768,6 +17633,44 @@ com.google.protobuf.ByteString defaultValue);
     getPayloadCase() {
       return PayloadCase.forNumber(
           payloadCase_);
+    }
+
+    public static final int HEADER_FIELD_NUMBER = 64;
+    private greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader header_;
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     * @return Whether the header field is set.
+     */
+    @java.lang.Override
+    public boolean hasHeader() {
+      return header_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     * @return The header.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getHeader() {
+      return header_ == null ? greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.getDefaultInstance() : header_;
+    }
+    /**
+     * <pre>
+     *&#47; The header of the mailbox message.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder getHeaderOrBuilder() {
+      return getHeader();
     }
 
     public static final int ID_FIELD_NUMBER = 1;
@@ -17008,6 +17911,9 @@ com.google.protobuf.ByteString defaultValue);
       if (payloadCase_ == 6) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, payload_);
       }
+      if (header_ != null) {
+        output.writeMessage(64, getHeader());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -17037,6 +17943,10 @@ com.google.protobuf.ByteString defaultValue);
       if (payloadCase_ == 6) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, payload_);
       }
+      if (header_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(64, getHeader());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -17052,6 +17962,11 @@ com.google.protobuf.ByteString defaultValue);
       }
       greptime.v1.meta.HeartbeatOuterClass.MailboxMessage other = (greptime.v1.meta.HeartbeatOuterClass.MailboxMessage) obj;
 
+      if (hasHeader() != other.hasHeader()) return false;
+      if (hasHeader()) {
+        if (!getHeader()
+            .equals(other.getHeader())) return false;
+      }
       if (getId()
           != other.getId()) return false;
       if (!getSubject()
@@ -17082,6 +17997,10 @@ com.google.protobuf.ByteString defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasHeader()) {
+        hash = (37 * hash) + HEADER_FIELD_NUMBER;
+        hash = (53 * hash) + getHeader().hashCode();
+      }
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getId());
@@ -17235,6 +18154,12 @@ com.google.protobuf.ByteString defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
         id_ = 0L;
 
         subject_ = "";
@@ -17273,6 +18198,11 @@ com.google.protobuf.ByteString defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.MailboxMessage buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.MailboxMessage result = new greptime.v1.meta.HeartbeatOuterClass.MailboxMessage(this);
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
         result.id_ = id_;
         result.subject_ = subject_;
         result.from_ = from_;
@@ -17330,6 +18260,9 @@ com.google.protobuf.ByteString defaultValue);
 
       public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.MailboxMessage other) {
         if (other == greptime.v1.meta.HeartbeatOuterClass.MailboxMessage.getDefaultInstance()) return this;
+        if (other.hasHeader()) {
+          mergeHeader(other.getHeader());
+        }
         if (other.getId() != 0L) {
           setId(other.getId());
         }
@@ -17402,6 +18335,161 @@ com.google.protobuf.ByteString defaultValue);
         return this;
       }
 
+
+      private greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader header_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder> headerBuilder_;
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       * @return Whether the header field is set.
+       */
+      public boolean hasHeader() {
+        return headerBuilder_ != null || header_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       * @return The header.
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader getHeader() {
+        if (headerBuilder_ == null) {
+          return header_ == null ? greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.getDefaultInstance() : header_;
+        } else {
+          return headerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public Builder setHeader(greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader value) {
+        if (headerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          header_ = value;
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public Builder setHeader(
+          greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder builderForValue) {
+        if (headerBuilder_ == null) {
+          header_ = builderForValue.build();
+          onChanged();
+        } else {
+          headerBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public Builder mergeHeader(greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader value) {
+        if (headerBuilder_ == null) {
+          if (header_ != null) {
+            header_ =
+              greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+          } else {
+            header_ = value;
+          }
+          onChanged();
+        } else {
+          headerBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public Builder clearHeader() {
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
+          headerBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder getHeaderBuilder() {
+        
+        onChanged();
+        return getHeaderFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder getHeaderOrBuilder() {
+        if (headerBuilder_ != null) {
+          return headerBuilder_.getMessageOrBuilder();
+        } else {
+          return header_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.getDefaultInstance() : header_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; The header of the mailbox message.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.MailboxMessageHeader header = 64;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder> 
+          getHeaderFieldBuilder() {
+        if (headerBuilder_ == null) {
+          headerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeader.Builder, greptime.v1.meta.HeartbeatOuterClass.MailboxMessageHeaderOrBuilder>(
+                  getHeader(),
+                  getParentForChildren(),
+                  isClean());
+          header_ = null;
+        }
+        return headerBuilder_;
+      }
 
       private long id_ ;
       /**
@@ -17987,6 +19075,16 @@ com.google.protobuf.ByteString defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_AskLeaderResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_MailboxMessageHeader_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_MailboxMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18067,19 +19165,24 @@ com.google.protobuf.ByteString defaultValue);
       "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
       "tHeader\"m\n\021AskLeaderResponse\0220\n\006header\030\001" +
       " \001(\0132 .greptime.v1.meta.ResponseHeader\022&" +
-      "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"|" +
-      "\n\016MailboxMessage\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030" +
-      "\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020times" +
-      "tamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007pay" +
-      "load*=\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follow" +
-      "er\020\001\022\025\n\021DowngradingLeader\020\0022\277\001\n\tHeartbea" +
-      "t\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartb" +
-      "eatRequest\032#.greptime.v1.meta.HeartbeatR" +
-      "esponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1" +
-      ".meta.AskLeaderRequest\032#.greptime.v1.met" +
-      "a.AskLeaderResponse\"\000B<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242" +
+      "\001\n\024MailboxMessageHeader\022S\n\017tracing_conte" +
+      "xt\030\001 \003(\0132:.greptime.v1.meta.MailboxMessa" +
+      "geHeader.TracingContextEntry\0325\n\023TracingC" +
+      "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
+      "\0028\001\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&" +
+      ".greptime.v1.meta.MailboxMessageHeader\022\n" +
+      "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(" +
+      "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022" +
+      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole" +
+      "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin" +
+      "gLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".g" +
+      "reptime.v1.meta.HeartbeatRequest\032#.grept" +
+      "ime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tA" +
+      "skLeader\022\".greptime.v1.meta.AskLeaderReq" +
+      "uest\032#.greptime.v1.meta.AskLeaderRespons" +
+      "e\"\000B<Z:github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18200,12 +19303,24 @@ com.google.protobuf.ByteString defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AskLeaderResponse_descriptor,
         new java.lang.String[] { "Header", "Leader", });
-    internal_static_greptime_v1_meta_MailboxMessage_descriptor =
+    internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor =
       getDescriptor().getMessageTypes().get(14);
+    internal_static_greptime_v1_meta_MailboxMessageHeader_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor,
+        new java.lang.String[] { "TracingContext", });
+    internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_descriptor =
+      internal_static_greptime_v1_meta_MailboxMessageHeader_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_greptime_v1_meta_MailboxMessage_descriptor =
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,
-        new java.lang.String[] { "Id", "Subject", "From", "To", "TimestampMillis", "Json", "Payload", });
+        new java.lang.String[] { "Header", "Id", "Subject", "From", "To", "TimestampMillis", "Json", "Payload", });
     greptime.v1.meta.Common.getDescriptor();
   }
 

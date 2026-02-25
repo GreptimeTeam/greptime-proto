@@ -97,6 +97,12 @@ extern HeartbeatResponseDefaultTypeInternal _HeartbeatResponse_default_instance_
 class MailboxMessage;
 struct MailboxMessageDefaultTypeInternal;
 extern MailboxMessageDefaultTypeInternal _MailboxMessage_default_instance_;
+class MailboxMessageHeader;
+struct MailboxMessageHeaderDefaultTypeInternal;
+extern MailboxMessageHeaderDefaultTypeInternal _MailboxMessageHeader_default_instance_;
+class MailboxMessageHeader_TracingContextEntry_DoNotUse;
+struct MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal;
+extern MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _MailboxMessageHeader_TracingContextEntry_DoNotUse_default_instance_;
 class NodeInfo;
 struct NodeInfoDefaultTypeInternal;
 extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
@@ -131,6 +137,8 @@ template<> ::greptime::v1::meta::HeartbeatRequest* Arena::CreateMaybeMessage<::g
 template<> ::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatRequest_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::HeartbeatResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::HeartbeatResponse>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessage>(Arena*);
+template<> ::greptime::v1::meta::MailboxMessageHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(Arena*);
+template<> ::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
@@ -3174,6 +3182,197 @@ class AskLeaderResponse final :
 };
 // -------------------------------------------------------------------
 
+class MailboxMessageHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<MailboxMessageHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<MailboxMessageHeader_TracingContextEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  MailboxMessageHeader_TracingContextEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR MailboxMessageHeader_TracingContextEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit MailboxMessageHeader_TracingContextEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const MailboxMessageHeader_TracingContextEntry_DoNotUse& other);
+  static const MailboxMessageHeader_TracingContextEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const MailboxMessageHeader_TracingContextEntry_DoNotUse*>(&_MailboxMessageHeader_TracingContextEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.MailboxMessageHeader.TracingContextEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.meta.MailboxMessageHeader.TracingContextEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class MailboxMessageHeader final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.MailboxMessageHeader) */ {
+ public:
+  inline MailboxMessageHeader() : MailboxMessageHeader(nullptr) {}
+  ~MailboxMessageHeader() override;
+  explicit PROTOBUF_CONSTEXPR MailboxMessageHeader(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  MailboxMessageHeader(const MailboxMessageHeader& from);
+  MailboxMessageHeader(MailboxMessageHeader&& from) noexcept
+    : MailboxMessageHeader() {
+    *this = ::std::move(from);
+  }
+
+  inline MailboxMessageHeader& operator=(const MailboxMessageHeader& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MailboxMessageHeader& operator=(MailboxMessageHeader&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MailboxMessageHeader& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MailboxMessageHeader* internal_default_instance() {
+    return reinterpret_cast<const MailboxMessageHeader*>(
+               &_MailboxMessageHeader_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(MailboxMessageHeader& a, MailboxMessageHeader& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MailboxMessageHeader* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MailboxMessageHeader* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MailboxMessageHeader* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<MailboxMessageHeader>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const MailboxMessageHeader& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const MailboxMessageHeader& from) {
+    MailboxMessageHeader::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MailboxMessageHeader* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.MailboxMessageHeader";
+  }
+  protected:
+  explicit MailboxMessageHeader(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTracingContextFieldNumber = 1,
+  };
+  // map<string, string> tracing_context = 1;
+  int tracing_context_size() const;
+  private:
+  int _internal_tracing_context_size() const;
+  public:
+  void clear_tracing_context();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_tracing_context();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      tracing_context() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_tracing_context();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.MailboxMessageHeader)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        MailboxMessageHeader_TracingContextEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> tracing_context_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class MailboxMessage final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.MailboxMessage) */ {
  public:
@@ -3227,7 +3426,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -3303,6 +3502,7 @@ class MailboxMessage final :
     kSubjectFieldNumber = 2,
     kFromFieldNumber = 3,
     kToFieldNumber = 4,
+    kHeaderFieldNumber = 64,
     kIdFieldNumber = 1,
     kTimestampMillisFieldNumber = 5,
     kJsonFieldNumber = 6,
@@ -3348,6 +3548,24 @@ class MailboxMessage final :
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_to(const std::string& value);
   std::string* _internal_mutable_to();
   public:
+
+  // .greptime.v1.meta.MailboxMessageHeader header = 64;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::meta::MailboxMessageHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::MailboxMessageHeader* release_header();
+  ::greptime::v1::meta::MailboxMessageHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::meta::MailboxMessageHeader* header);
+  private:
+  const ::greptime::v1::meta::MailboxMessageHeader& _internal_header() const;
+  ::greptime::v1::meta::MailboxMessageHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::meta::MailboxMessageHeader* header);
+  ::greptime::v1::meta::MailboxMessageHeader* unsafe_arena_release_header();
 
   // uint64 id = 1;
   void clear_id();
@@ -3402,6 +3620,7 @@ class MailboxMessage final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr subject_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr from_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr to_;
+    ::greptime::v1::meta::MailboxMessageHeader* header_;
     uint64_t id_;
     int64_t timestamp_millis_;
     union PayloadUnion {
@@ -6020,7 +6239,132 @@ inline void AskLeaderResponse::set_allocated_leader(::greptime::v1::meta::Peer* 
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// MailboxMessageHeader
+
+// map<string, string> tracing_context = 1;
+inline int MailboxMessageHeader::_internal_tracing_context_size() const {
+  return _impl_.tracing_context_.size();
+}
+inline int MailboxMessageHeader::tracing_context_size() const {
+  return _internal_tracing_context_size();
+}
+inline void MailboxMessageHeader::clear_tracing_context() {
+  _impl_.tracing_context_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+MailboxMessageHeader::_internal_tracing_context() const {
+  return _impl_.tracing_context_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+MailboxMessageHeader::tracing_context() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.meta.MailboxMessageHeader.tracing_context)
+  return _internal_tracing_context();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+MailboxMessageHeader::_internal_mutable_tracing_context() {
+  return _impl_.tracing_context_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+MailboxMessageHeader::mutable_tracing_context() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.MailboxMessageHeader.tracing_context)
+  return _internal_mutable_tracing_context();
+}
+
+// -------------------------------------------------------------------
+
 // MailboxMessage
+
+// .greptime.v1.meta.MailboxMessageHeader header = 64;
+inline bool MailboxMessage::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool MailboxMessage::has_header() const {
+  return _internal_has_header();
+}
+inline void MailboxMessage::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+inline const ::greptime::v1::meta::MailboxMessageHeader& MailboxMessage::_internal_header() const {
+  const ::greptime::v1::meta::MailboxMessageHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::MailboxMessageHeader&>(
+      ::greptime::v1::meta::_MailboxMessageHeader_default_instance_);
+}
+inline const ::greptime::v1::meta::MailboxMessageHeader& MailboxMessage::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.MailboxMessage.header)
+  return _internal_header();
+}
+inline void MailboxMessage::unsafe_arena_set_allocated_header(
+    ::greptime::v1::meta::MailboxMessageHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.MailboxMessage.header)
+}
+inline ::greptime::v1::meta::MailboxMessageHeader* MailboxMessage::release_header() {
+  
+  ::greptime::v1::meta::MailboxMessageHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::MailboxMessageHeader* MailboxMessage::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.MailboxMessage.header)
+  
+  ::greptime::v1::meta::MailboxMessageHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::MailboxMessageHeader* MailboxMessage::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::meta::MailboxMessageHeader* MailboxMessage::mutable_header() {
+  ::greptime::v1::meta::MailboxMessageHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.MailboxMessage.header)
+  return _msg;
+}
+inline void MailboxMessage::set_allocated_header(::greptime::v1::meta::MailboxMessageHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.MailboxMessage.header)
+}
 
 // uint64 id = 1;
 inline void MailboxMessage::clear_id() {
@@ -6301,6 +6645,10 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
