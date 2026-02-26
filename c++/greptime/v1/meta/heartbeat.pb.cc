@@ -342,23 +342,10 @@ struct PullMetaConfigRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PullMetaConfigRequestDefaultTypeInternal _PullMetaConfigRequest_default_instance_;
-PROTOBUF_CONSTEXPR MetaConfig::MetaConfig(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.content_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct MetaConfigDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MetaConfigDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~MetaConfigDefaultTypeInternal() {}
-  union {
-    MetaConfig _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MetaConfigDefaultTypeInternal _MetaConfig_default_instance_;
 PROTOBUF_CONSTEXPR PullMetaConfigResponse::PullMetaConfigResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.payload_)*/nullptr
+    /*decltype(_impl_.payload_)*/{}
+  , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct PullMetaConfigResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR PullMetaConfigResponseDefaultTypeInternal()
@@ -392,7 +379,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[25];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[24];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto = nullptr;
 
@@ -613,13 +600,6 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigRequest, _impl_.header_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetaConfig, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MetaConfig, _impl_.content_),
-  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -665,9 +645,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 191, 199, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse)},
   { 201, -1, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader)},
   { 208, -1, -1, sizeof(::greptime::v1::meta::PullMetaConfigRequest)},
-  { 215, -1, -1, sizeof(::greptime::v1::meta::MetaConfig)},
-  { 222, -1, -1, sizeof(::greptime::v1::meta::PullMetaConfigResponse)},
-  { 230, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 215, -1, -1, sizeof(::greptime::v1::meta::PullMetaConfigResponse)},
+  { 223, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -693,7 +672,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_MailboxMessageHeader_TracingContextEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::meta::_MailboxMessageHeader_default_instance_._instance,
   &::greptime::v1::meta::_PullMetaConfigRequest_default_instance_._instance,
-  &::greptime::v1::meta::_MetaConfig_default_instance_._instance,
   &::greptime::v1::meta::_PullMetaConfigResponse_default_instance_._instance,
   &::greptime::v1::meta::_MailboxMessage_default_instance_._instance,
 };
@@ -772,36 +750,34 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "geHeader.TracingContextEntry\0325\n\023TracingC"
   "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:"
   "\0028\001\"H\n\025PullMetaConfigRequest\022/\n\006header\030\001"
-  " \001(\0132\037.greptime.v1.meta.RequestHeader\"\035\n"
-  "\nMetaConfig\022\017\n\007content\030\001 \001(\t\"y\n\026PullMeta"
-  "ConfigResponse\0220\n\006header\030\001 \001(\0132 .greptim"
-  "e.v1.meta.ResponseHeader\022-\n\007payload\030\002 \001("
-  "\0132\034.greptime.v1.meta.MetaConfig\"\264\001\n\016Mail"
-  "boxMessage\0226\n\006header\030@ \001(\0132&.greptime.v1"
-  ".meta.MailboxMessageHeader\022\n\n\002id\030\001 \001(\004\022\017"
-  "\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001("
-  "\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001("
-  "\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000"
-  "\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\246\002"
-  "\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1.m"
-  "eta.HeartbeatRequest\032#.greptime.v1.meta."
-  "HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".g"
-  "reptime.v1.meta.AskLeaderRequest\032#.grept"
-  "ime.v1.meta.AskLeaderResponse\"\000\022e\n\016PullM"
-  "etaConfig\022\'.greptime.v1.meta.PullMetaCon"
-  "figRequest\032(.greptime.v1.meta.PullMetaCo"
-  "nfigResponse\"\000B<Z:github.com/GreptimeTea"
-  "m/greptime-proto/go/greptime/v1/metab\006pr"
-  "oto3"
+  " \001(\0132\037.greptime.v1.meta.RequestHeader\"[\n"
+  "\026PullMetaConfigResponse\0220\n\006header\030\001 \001(\0132"
+  " .greptime.v1.meta.ResponseHeader\022\017\n\007pay"
+  "load\030\002 \003(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030"
+  "@ \001(\0132&.greptime.v1.meta.MailboxMessageH"
+  "eader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fr"
+  "om\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis"
+  "\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nReg"
+  "ionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Dow"
+  "ngradingLeader\020\0022\246\002\n\tHeartbeat\022Z\n\tHeartb"
+  "eat\022\".greptime.v1.meta.HeartbeatRequest\032"
+  "#.greptime.v1.meta.HeartbeatResponse\"\000(\001"
+  "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe"
+  "aderRequest\032#.greptime.v1.meta.AskLeader"
+  "Response\"\000\022e\n\016PullMetaConfig\022\'.greptime."
+  "v1.meta.PullMetaConfigRequest\032(.greptime"
+  ".v1.meta.PullMetaConfigResponse\"\000B<Z:git"
+  "hub.com/GreptimeTeam/greptime-proto/go/g"
+  "reptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 3724, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 3663, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 25,
+    &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 24,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
@@ -5712,222 +5688,14 @@ void PullMetaConfigRequest::InternalSwap(PullMetaConfigRequest* other) {
 
 // ===================================================================
 
-class MetaConfig::_Internal {
- public:
-};
-
-MetaConfig::MetaConfig(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.MetaConfig)
-}
-MetaConfig::MetaConfig(const MetaConfig& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  MetaConfig* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.content_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.content_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.content_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_content().empty()) {
-    _this->_impl_.content_.Set(from._internal_content(), 
-      _this->GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.MetaConfig)
-}
-
-inline void MetaConfig::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.content_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.content_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.content_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-MetaConfig::~MetaConfig() {
-  // @@protoc_insertion_point(destructor:greptime.v1.meta.MetaConfig)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void MetaConfig::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.content_.Destroy();
-}
-
-void MetaConfig::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void MetaConfig::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.MetaConfig)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.content_.ClearToEmpty();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* MetaConfig::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // string content = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_content();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.MetaConfig.content"));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* MetaConfig::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.MetaConfig)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string content = 1;
-  if (!this->_internal_content().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_content().data(), static_cast<int>(this->_internal_content().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.meta.MetaConfig.content");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_content(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.MetaConfig)
-  return target;
-}
-
-size_t MetaConfig::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.MetaConfig)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string content = 1;
-  if (!this->_internal_content().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_content());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MetaConfig::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    MetaConfig::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MetaConfig::GetClassData() const { return &_class_data_; }
-
-
-void MetaConfig::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<MetaConfig*>(&to_msg);
-  auto& from = static_cast<const MetaConfig&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.MetaConfig)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (!from._internal_content().empty()) {
-    _this->_internal_set_content(from._internal_content());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void MetaConfig::CopyFrom(const MetaConfig& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.MetaConfig)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool MetaConfig::IsInitialized() const {
-  return true;
-}
-
-void MetaConfig::InternalSwap(MetaConfig* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.content_, lhs_arena,
-      &other->_impl_.content_, rhs_arena
-  );
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata MetaConfig::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[22]);
-}
-
-// ===================================================================
-
 class PullMetaConfigResponse::_Internal {
  public:
   static const ::greptime::v1::meta::ResponseHeader& header(const PullMetaConfigResponse* msg);
-  static const ::greptime::v1::meta::MetaConfig& payload(const PullMetaConfigResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
 PullMetaConfigResponse::_Internal::header(const PullMetaConfigResponse* msg) {
   return *msg->_impl_.header_;
-}
-const ::greptime::v1::meta::MetaConfig&
-PullMetaConfigResponse::_Internal::payload(const PullMetaConfigResponse* msg) {
-  return *msg->_impl_.payload_;
 }
 void PullMetaConfigResponse::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -5945,16 +5713,13 @@ PullMetaConfigResponse::PullMetaConfigResponse(const PullMetaConfigResponse& fro
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   PullMetaConfigResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.payload_){nullptr}
+      decltype(_impl_.payload_){from._impl_.payload_}
+    , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
-  }
-  if (from._internal_has_payload()) {
-    _this->_impl_.payload_ = new ::greptime::v1::meta::MetaConfig(*from._impl_.payload_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.PullMetaConfigResponse)
 }
@@ -5964,8 +5729,8 @@ inline void PullMetaConfigResponse::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.payload_){nullptr}
+      decltype(_impl_.payload_){arena}
+    , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -5981,8 +5746,8 @@ PullMetaConfigResponse::~PullMetaConfigResponse() {
 
 inline void PullMetaConfigResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.payload_.~RepeatedPtrField();
   if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.payload_;
 }
 
 void PullMetaConfigResponse::SetCachedSize(int size) const {
@@ -5995,14 +5760,11 @@ void PullMetaConfigResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.payload_.Clear();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.payload_ != nullptr) {
-    delete _impl_.payload_;
-  }
-  _impl_.payload_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6020,11 +5782,18 @@ const char* PullMetaConfigResponse::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.meta.MetaConfig payload = 2;
+      // repeated string payload = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_payload(), ptr);
-          CHK_(ptr);
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_payload();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.PullMetaConfigResponse.payload"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -6064,11 +5833,14 @@ uint8_t* PullMetaConfigResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.meta.MetaConfig payload = 2;
-  if (this->_internal_has_payload()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::payload(this),
-        _Internal::payload(this).GetCachedSize(), target, stream);
+  // repeated string payload = 2;
+  for (int i = 0, n = this->_internal_payload_size(); i < n; i++) {
+    const auto& s = this->_internal_payload(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.PullMetaConfigResponse.payload");
+    target = stream->WriteString(2, s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -6087,18 +5859,19 @@ size_t PullMetaConfigResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated string payload = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.payload_.size());
+  for (int i = 0, n = _impl_.payload_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.payload_.Get(i));
+  }
+
   // .greptime.v1.meta.ResponseHeader header = 1;
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.header_);
-  }
-
-  // .greptime.v1.meta.MetaConfig payload = 2;
-  if (this->_internal_has_payload()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.payload_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -6119,13 +5892,10 @@ void PullMetaConfigResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.payload_.MergeFrom(from._impl_.payload_);
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
         from._internal_header());
-  }
-  if (from._internal_has_payload()) {
-    _this->_internal_mutable_payload()->::greptime::v1::meta::MetaConfig::MergeFrom(
-        from._internal_payload());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -6144,18 +5914,14 @@ bool PullMetaConfigResponse::IsInitialized() const {
 void PullMetaConfigResponse::InternalSwap(PullMetaConfigResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PullMetaConfigResponse, _impl_.payload_)
-      + sizeof(PullMetaConfigResponse::_impl_.payload_)
-      - PROTOBUF_FIELD_OFFSET(PullMetaConfigResponse, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+  _impl_.payload_.InternalSwap(&other->_impl_.payload_);
+  swap(_impl_.header_, other->_impl_.header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PullMetaConfigResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[23]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[22]);
 }
 
 // ===================================================================
@@ -6636,7 +6402,7 @@ void MailboxMessage::InternalSwap(MailboxMessage* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MailboxMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[24]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[23]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -6731,10 +6497,6 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::MailboxMessageHeader >(Arena* a
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullMetaConfigRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::PullMetaConfigRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::PullMetaConfigRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::greptime::v1::meta::MetaConfig*
-Arena::CreateMaybeMessage< ::greptime::v1::meta::MetaConfig >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::meta::MetaConfig >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullMetaConfigResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::PullMetaConfigResponse >(Arena* arena) {
