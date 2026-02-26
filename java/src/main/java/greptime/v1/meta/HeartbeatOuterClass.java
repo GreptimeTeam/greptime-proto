@@ -17974,6 +17974,576 @@ java.lang.String defaultValue);
 
   }
 
+  public interface MetaConfigOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.MetaConfig)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string content = 1;</code>
+     * @return The content.
+     */
+    java.lang.String getContent();
+    /**
+     * <code>string content = 1;</code>
+     * @return The bytes for content.
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.MetaConfig}
+   */
+  public static final class MetaConfig extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.MetaConfig)
+      MetaConfigOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MetaConfig.newBuilder() to construct.
+    private MetaConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MetaConfig() {
+      content_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MetaConfig();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MetaConfig(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MetaConfig_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MetaConfig_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.HeartbeatOuterClass.MetaConfig.class, greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder.class);
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>string content = 1;</code>
+     * @return The content.
+     */
+    @java.lang.Override
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 1;</code>
+     * @return The bytes for content.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, content_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(content_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, content_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.MetaConfig)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.HeartbeatOuterClass.MetaConfig other = (greptime.v1.meta.HeartbeatOuterClass.MetaConfig) obj;
+
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.MetaConfig prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.MetaConfig}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.MetaConfig)
+        greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MetaConfig_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MetaConfig_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.HeartbeatOuterClass.MetaConfig.class, greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.MetaConfig.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        content_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_MetaConfig_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfig getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.MetaConfig.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfig build() {
+        greptime.v1.meta.HeartbeatOuterClass.MetaConfig result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfig buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.MetaConfig result = new greptime.v1.meta.HeartbeatOuterClass.MetaConfig(this);
+        result.content_ = content_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.MetaConfig) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.MetaConfig)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.MetaConfig other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.MetaConfig.getDefaultInstance()) return this;
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.HeartbeatOuterClass.MetaConfig parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.MetaConfig) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>string content = 1;</code>
+       * @return The content.
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @return The bytes for content.
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @param value The content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 1;</code>
+       * @param value The bytes for content to set.
+       * @return This builder for chaining.
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.MetaConfig)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.MetaConfig)
+    private static final greptime.v1.meta.HeartbeatOuterClass.MetaConfig DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.MetaConfig();
+    }
+
+    public static greptime.v1.meta.HeartbeatOuterClass.MetaConfig getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MetaConfig>
+        PARSER = new com.google.protobuf.AbstractParser<MetaConfig>() {
+      @java.lang.Override
+      public MetaConfig parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MetaConfig(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MetaConfig> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MetaConfig> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.HeartbeatOuterClass.MetaConfig getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PullMetaConfigResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PullMetaConfigResponse)
       com.google.protobuf.MessageOrBuilder {
@@ -17994,16 +18564,19 @@ java.lang.String defaultValue);
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>string payload = 2;</code>
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+     * @return Whether the payload field is set.
+     */
+    boolean hasPayload();
+    /**
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
      * @return The payload.
      */
-    java.lang.String getPayload();
+    greptime.v1.meta.HeartbeatOuterClass.MetaConfig getPayload();
     /**
-     * <code>string payload = 2;</code>
-     * @return The bytes for payload.
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getPayloadBytes();
+    greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder getPayloadOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.PullMetaConfigResponse}
@@ -18018,7 +18591,6 @@ java.lang.String defaultValue);
       super(builder);
     }
     private PullMetaConfigResponse() {
-      payload_ = "";
     }
 
     @java.lang.Override
@@ -18065,9 +18637,16 @@ java.lang.String defaultValue);
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder subBuilder = null;
+              if (payload_ != null) {
+                subBuilder = payload_.toBuilder();
+              }
+              payload_ = input.readMessage(greptime.v1.meta.HeartbeatOuterClass.MetaConfig.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(payload_);
+                payload_ = subBuilder.buildPartial();
+              }
 
-              payload_ = s;
               break;
             }
             default: {
@@ -18131,41 +18710,29 @@ java.lang.String defaultValue);
     }
 
     public static final int PAYLOAD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object payload_;
+    private greptime.v1.meta.HeartbeatOuterClass.MetaConfig payload_;
     /**
-     * <code>string payload = 2;</code>
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+     * @return Whether the payload field is set.
+     */
+    @java.lang.Override
+    public boolean hasPayload() {
+      return payload_ != null;
+    }
+    /**
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
      * @return The payload.
      */
     @java.lang.Override
-    public java.lang.String getPayload() {
-      java.lang.Object ref = payload_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        payload_ = s;
-        return s;
-      }
+    public greptime.v1.meta.HeartbeatOuterClass.MetaConfig getPayload() {
+      return payload_ == null ? greptime.v1.meta.HeartbeatOuterClass.MetaConfig.getDefaultInstance() : payload_;
     }
     /**
-     * <code>string payload = 2;</code>
-     * @return The bytes for payload.
+     * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getPayloadBytes() {
-      java.lang.Object ref = payload_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        payload_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder getPayloadOrBuilder() {
+      return getPayload();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -18185,8 +18752,8 @@ java.lang.String defaultValue);
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, payload_);
+      if (payload_ != null) {
+        output.writeMessage(2, getPayload());
       }
       unknownFields.writeTo(output);
     }
@@ -18201,8 +18768,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, payload_);
+      if (payload_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getPayload());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18224,8 +18792,11 @@ java.lang.String defaultValue);
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getPayload()
-          .equals(other.getPayload())) return false;
+      if (hasPayload() != other.hasPayload()) return false;
+      if (hasPayload()) {
+        if (!getPayload()
+            .equals(other.getPayload())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18241,8 +18812,10 @@ java.lang.String defaultValue);
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-      hash = (53 * hash) + getPayload().hashCode();
+      if (hasPayload()) {
+        hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+        hash = (53 * hash) + getPayload().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18382,8 +18955,12 @@ java.lang.String defaultValue);
           header_ = null;
           headerBuilder_ = null;
         }
-        payload_ = "";
-
+        if (payloadBuilder_ == null) {
+          payload_ = null;
+        } else {
+          payload_ = null;
+          payloadBuilder_ = null;
+        }
         return this;
       }
 
@@ -18415,7 +18992,11 @@ java.lang.String defaultValue);
         } else {
           result.header_ = headerBuilder_.build();
         }
-        result.payload_ = payload_;
+        if (payloadBuilder_ == null) {
+          result.payload_ = payload_;
+        } else {
+          result.payload_ = payloadBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -18467,9 +19048,8 @@ java.lang.String defaultValue);
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (!other.getPayload().isEmpty()) {
-          payload_ = other.payload_;
-          onChanged();
+        if (other.hasPayload()) {
+          mergePayload(other.getPayload());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -18619,80 +19199,123 @@ java.lang.String defaultValue);
         return headerBuilder_;
       }
 
-      private java.lang.Object payload_ = "";
+      private greptime.v1.meta.HeartbeatOuterClass.MetaConfig payload_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.MetaConfig, greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder, greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder> payloadBuilder_;
       /**
-       * <code>string payload = 2;</code>
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+       * @return Whether the payload field is set.
+       */
+      public boolean hasPayload() {
+        return payloadBuilder_ != null || payload_ != null;
+      }
+      /**
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
        * @return The payload.
        */
-      public java.lang.String getPayload() {
-        java.lang.Object ref = payload_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          payload_ = s;
-          return s;
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfig getPayload() {
+        if (payloadBuilder_ == null) {
+          return payload_ == null ? greptime.v1.meta.HeartbeatOuterClass.MetaConfig.getDefaultInstance() : payload_;
         } else {
-          return (java.lang.String) ref;
+          return payloadBuilder_.getMessage();
         }
       }
       /**
-       * <code>string payload = 2;</code>
-       * @return The bytes for payload.
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getPayloadBytes() {
-        java.lang.Object ref = payload_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          payload_ = b;
-          return b;
+      public Builder setPayload(greptime.v1.meta.HeartbeatOuterClass.MetaConfig value) {
+        if (payloadBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          payloadBuilder_.setMessage(value);
         }
+
+        return this;
       }
       /**
-       * <code>string payload = 2;</code>
-       * @param value The payload to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
        */
       public Builder setPayload(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        payload_ = value;
-        onChanged();
+          greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder builderForValue) {
+        if (payloadBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          payloadBuilder_.setMessage(builderForValue.build());
+        }
+
         return this;
       }
       /**
-       * <code>string payload = 2;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+       */
+      public Builder mergePayload(greptime.v1.meta.HeartbeatOuterClass.MetaConfig value) {
+        if (payloadBuilder_ == null) {
+          if (payload_ != null) {
+            payload_ =
+              greptime.v1.meta.HeartbeatOuterClass.MetaConfig.newBuilder(payload_).mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          payloadBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
        */
       public Builder clearPayload() {
-        
-        payload_ = getDefaultInstance().getPayload();
-        onChanged();
+        if (payloadBuilder_ == null) {
+          payload_ = null;
+          onChanged();
+        } else {
+          payload_ = null;
+          payloadBuilder_ = null;
+        }
+
         return this;
       }
       /**
-       * <code>string payload = 2;</code>
-       * @param value The bytes for payload to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
        */
-      public Builder setPayloadBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder getPayloadBuilder() {
         
-        payload_ = value;
         onChanged();
-        return this;
+        return getPayloadFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+       */
+      public greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder getPayloadOrBuilder() {
+        if (payloadBuilder_ != null) {
+          return payloadBuilder_.getMessageOrBuilder();
+        } else {
+          return payload_ == null ?
+              greptime.v1.meta.HeartbeatOuterClass.MetaConfig.getDefaultInstance() : payload_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.MetaConfig payload = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.HeartbeatOuterClass.MetaConfig, greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder, greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder> 
+          getPayloadFieldBuilder() {
+        if (payloadBuilder_ == null) {
+          payloadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.MetaConfig, greptime.v1.meta.HeartbeatOuterClass.MetaConfig.Builder, greptime.v1.meta.HeartbeatOuterClass.MetaConfigOrBuilder>(
+                  getPayload(),
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        return payloadBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -20486,6 +21109,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_PullMetaConfigRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_MetaConfig_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_MetaConfig_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -20577,25 +21205,27 @@ java.lang.String defaultValue);
       "geHeader.TracingContextEntry\0325\n\023TracingC" +
       "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
       "\0028\001\"H\n\025PullMetaConfigRequest\022/\n\006header\030\001" +
-      " \001(\0132\037.greptime.v1.meta.RequestHeader\"[\n" +
-      "\026PullMetaConfigResponse\0220\n\006header\030\001 \001(\0132" +
-      " .greptime.v1.meta.ResponseHeader\022\017\n\007pay" +
-      "load\030\002 \001(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030" +
-      "@ \001(\0132&.greptime.v1.meta.MailboxMessageH" +
-      "eader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fr" +
-      "om\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis" +
-      "\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nReg" +
-      "ionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Dow" +
-      "ngradingLeader\020\0022\246\002\n\tHeartbeat\022Z\n\tHeartb" +
-      "eat\022\".greptime.v1.meta.HeartbeatRequest\032" +
-      "#.greptime.v1.meta.HeartbeatResponse\"\000(\001" +
-      "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe" +
-      "aderRequest\032#.greptime.v1.meta.AskLeader" +
-      "Response\"\000\022e\n\016PullMetaConfig\022\'.greptime." +
-      "v1.meta.PullMetaConfigRequest\032(.greptime" +
-      ".v1.meta.PullMetaConfigResponse\"\000B<Z:git" +
-      "hub.com/GreptimeTeam/greptime-proto/go/g" +
-      "reptime/v1/metab\006proto3"
+      " \001(\0132\037.greptime.v1.meta.RequestHeader\"\035\n" +
+      "\nMetaConfig\022\017\n\007content\030\001 \001(\t\"y\n\026PullMeta" +
+      "ConfigResponse\0220\n\006header\030\001 \001(\0132 .greptim" +
+      "e.v1.meta.ResponseHeader\022-\n\007payload\030\002 \001(" +
+      "\0132\034.greptime.v1.meta.MetaConfig\"\264\001\n\016Mail" +
+      "boxMessage\0226\n\006header\030@ \001(\0132&.greptime.v1" +
+      ".meta.MailboxMessageHeader\022\n\n\002id\030\001 \001(\004\022\017" +
+      "\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(" +
+      "\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(" +
+      "\tH\000B\t\n\007payload*=\n\nRegionRole\022\n\n\006Leader\020\000" +
+      "\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020\0022\246\002" +
+      "\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime.v1.m" +
+      "eta.HeartbeatRequest\032#.greptime.v1.meta." +
+      "HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeader\022\".g" +
+      "reptime.v1.meta.AskLeaderRequest\032#.grept" +
+      "ime.v1.meta.AskLeaderResponse\"\000\022e\n\016PullM" +
+      "etaConfig\022\'.greptime.v1.meta.PullMetaCon" +
+      "figRequest\032(.greptime.v1.meta.PullMetaCo" +
+      "nfigResponse\"\000B<Z:github.com/GreptimeTea" +
+      "m/greptime-proto/go/greptime/v1/metab\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20734,14 +21364,20 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor,
         new java.lang.String[] { "Header", });
-    internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor =
+    internal_static_greptime_v1_meta_MetaConfig_descriptor =
       getDescriptor().getMessageTypes().get(16);
+    internal_static_greptime_v1_meta_MetaConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_MetaConfig_descriptor,
+        new java.lang.String[] { "Content", });
+    internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor,
         new java.lang.String[] { "Header", "Payload", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_meta_MailboxMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessage_descriptor,

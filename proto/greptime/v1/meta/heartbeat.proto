@@ -193,9 +193,14 @@ message PullMetaConfigRequest {
   RequestHeader header = 1;
 }
 
+message MetaConfig {
+  string content = 1;
+  
+}
+
 message PullMetaConfigResponse {
   ResponseHeader header = 1;
-  string payload = 2;
+  MetaConfig payload = 2;
 }
 
 message MailboxMessage {
