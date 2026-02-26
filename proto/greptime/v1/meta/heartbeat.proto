@@ -193,8 +193,6 @@ message PullMetaConfigRequest {
   RequestHeader header = 1;
 }
 
-
-
 message PullMetaConfigResponse {
   ResponseHeader header = 1;
   repeated string payload = 2;
