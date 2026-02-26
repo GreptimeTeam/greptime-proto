@@ -12,11 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::v1::meta::mailbox_message::Payload;
 use crate::v1::meta::MailboxMessage;
+use crate::v1::meta::{mailbox_message::Payload, MailboxMessageHeader};
 use serde::Serialize;
 use serde_json::Result;
-use std::fmt::{Display, Formatter};
+use std::{
+    collections::HashMap,
+    fmt::{Display, Formatter},
+};
 
 impl MailboxMessage {
     pub fn json_message<T>(
@@ -25,12 +28,17 @@ impl MailboxMessage {
         to: &str,
         timestamp_millis: i64,
         payload: &T,
+        tracing_context: Option<HashMap<String, String>>,
     ) -> Result<MailboxMessage>
     where
         T: ?Sized + Serialize + Display,
     {
         let payload = serde_json::to_string(payload)?;
+        let header = MailboxMessageHeader {
+            tracing_context: tracing_context.unwrap_or_default(),
+        };
         Ok(MailboxMessage {
+            header: Some(header),
             id: 0, // "id" will be set by the mailbox.
             subject: subject.to_string(),
             from: from.to_string(),
