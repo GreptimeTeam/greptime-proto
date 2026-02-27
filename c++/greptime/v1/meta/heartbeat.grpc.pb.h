@@ -73,7 +73,7 @@ class Heartbeat final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>> PrepareAsyncAskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>>(PrepareAsyncAskLeaderRaw(context, request, cq));
     }
-    // Pull meta configuration from meta server.
+    // Pull configuration from meta server.
     virtual ::grpc::Status PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::greptime::v1::meta::PullConfigResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>> AsyncPullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>>(AsyncPullConfigRaw(context, request, cq));
@@ -92,7 +92,7 @@ class Heartbeat final {
       // Ask leader's endpoint.
       virtual void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Pull meta configuration from meta server.
+      // Pull configuration from meta server.
       virtual void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
@@ -177,7 +177,7 @@ class Heartbeat final {
     virtual ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::greptime::v1::meta::HeartbeatResponse, ::greptime::v1::meta::HeartbeatRequest>* stream);
     // Ask leader's endpoint.
     virtual ::grpc::Status AskLeader(::grpc::ServerContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response);
-    // Pull meta configuration from meta server.
+    // Pull configuration from meta server.
     virtual ::grpc::Status PullConfig(::grpc::ServerContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response);
   };
   template <class BaseClass>

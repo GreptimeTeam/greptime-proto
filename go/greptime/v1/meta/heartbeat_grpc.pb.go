@@ -29,7 +29,7 @@ type HeartbeatClient interface {
 	Heartbeat(ctx context.Context, opts ...grpc.CallOption) (Heartbeat_HeartbeatClient, error)
 	// Ask leader's endpoint.
 	AskLeader(ctx context.Context, in *AskLeaderRequest, opts ...grpc.CallOption) (*AskLeaderResponse, error)
-	// Pull meta configuration from meta server.
+	// Pull configuration from meta server.
 	PullConfig(ctx context.Context, in *PullConfigRequest, opts ...grpc.CallOption) (*PullConfigResponse, error)
 }
 
@@ -101,7 +101,7 @@ type HeartbeatServer interface {
 	Heartbeat(Heartbeat_HeartbeatServer) error
 	// Ask leader's endpoint.
 	AskLeader(context.Context, *AskLeaderRequest) (*AskLeaderResponse, error)
-	// Pull meta configuration from meta server.
+	// Pull configuration from meta server.
 	PullConfig(context.Context, *PullConfigRequest) (*PullConfigResponse, error)
 	mustEmbedUnimplementedHeartbeatServer()
 }
