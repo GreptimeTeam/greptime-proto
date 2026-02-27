@@ -30,7 +30,7 @@ service Heartbeat {
   // Ask leader's endpoint.
   rpc AskLeader(AskLeaderRequest) returns (AskLeaderResponse) {}
 
-  // Pull meta configuration from meta server.
+  // Pull configuration from meta server.
   rpc PullConfig(PullConfigRequest) returns (PullConfigResponse) {}
 }
 
