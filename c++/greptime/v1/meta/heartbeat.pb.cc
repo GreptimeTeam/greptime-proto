@@ -329,33 +329,33 @@ struct MailboxMessageHeaderDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MailboxMessageHeaderDefaultTypeInternal _MailboxMessageHeader_default_instance_;
-PROTOBUF_CONSTEXPR PullMetaConfigRequest::PullMetaConfigRequest(
+PROTOBUF_CONSTEXPR PullConfigRequest::PullConfigRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct PullMetaConfigRequestDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PullMetaConfigRequestDefaultTypeInternal()
+struct PullConfigRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PullConfigRequestDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PullMetaConfigRequestDefaultTypeInternal() {}
+  ~PullConfigRequestDefaultTypeInternal() {}
   union {
-    PullMetaConfigRequest _instance;
+    PullConfigRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PullMetaConfigRequestDefaultTypeInternal _PullMetaConfigRequest_default_instance_;
-PROTOBUF_CONSTEXPR PullMetaConfigResponse::PullMetaConfigResponse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PullConfigRequestDefaultTypeInternal _PullConfigRequest_default_instance_;
+PROTOBUF_CONSTEXPR PullConfigResponse::PullConfigResponse(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.payload_)*/{}
+    /*decltype(_impl_.payload_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct PullMetaConfigResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PullMetaConfigResponseDefaultTypeInternal()
+struct PullConfigResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PullConfigResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PullMetaConfigResponseDefaultTypeInternal() {}
+  ~PullConfigResponseDefaultTypeInternal() {}
   union {
-    PullMetaConfigResponse _instance;
+    PullConfigResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PullMetaConfigResponseDefaultTypeInternal _PullMetaConfigResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PullConfigResponseDefaultTypeInternal _PullConfigResponse_default_instance_;
 PROTOBUF_CONSTEXPR MailboxMessage::MailboxMessage(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.subject_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -593,20 +593,20 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MailboxMessageHeader, _impl_.tracing_context_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullConfigRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigRequest, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullConfigRequest, _impl_.header_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullConfigResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigResponse, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullMetaConfigResponse, _impl_.payload_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullConfigResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::PullConfigResponse, _impl_.payload_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MailboxMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -644,8 +644,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 183, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
   { 191, 199, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse)},
   { 201, -1, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader)},
-  { 208, -1, -1, sizeof(::greptime::v1::meta::PullMetaConfigRequest)},
-  { 215, -1, -1, sizeof(::greptime::v1::meta::PullMetaConfigResponse)},
+  { 208, -1, -1, sizeof(::greptime::v1::meta::PullConfigRequest)},
+  { 215, -1, -1, sizeof(::greptime::v1::meta::PullConfigResponse)},
   { 223, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
@@ -671,8 +671,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_AskLeaderResponse_default_instance_._instance,
   &::greptime::v1::meta::_MailboxMessageHeader_TracingContextEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::meta::_MailboxMessageHeader_default_instance_._instance,
-  &::greptime::v1::meta::_PullMetaConfigRequest_default_instance_._instance,
-  &::greptime::v1::meta::_PullMetaConfigResponse_default_instance_._instance,
+  &::greptime::v1::meta::_PullConfigRequest_default_instance_._instance,
+  &::greptime::v1::meta::_PullConfigResponse_default_instance_._instance,
   &::greptime::v1::meta::_MailboxMessage_default_instance_._instance,
 };
 
@@ -749,33 +749,33 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "xt\030\001 \003(\0132:.greptime.v1.meta.MailboxMessa"
   "geHeader.TracingContextEntry\0325\n\023TracingC"
   "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:"
-  "\0028\001\"H\n\025PullMetaConfigRequest\022/\n\006header\030\001"
-  " \001(\0132\037.greptime.v1.meta.RequestHeader\"[\n"
-  "\026PullMetaConfigResponse\0220\n\006header\030\001 \001(\0132"
-  " .greptime.v1.meta.ResponseHeader\022\017\n\007pay"
-  "load\030\002 \003(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030"
-  "@ \001(\0132&.greptime.v1.meta.MailboxMessageH"
-  "eader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fr"
-  "om\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis"
-  "\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nReg"
-  "ionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Dow"
-  "ngradingLeader\020\0022\246\002\n\tHeartbeat\022Z\n\tHeartb"
-  "eat\022\".greptime.v1.meta.HeartbeatRequest\032"
-  "#.greptime.v1.meta.HeartbeatResponse\"\000(\001"
-  "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe"
-  "aderRequest\032#.greptime.v1.meta.AskLeader"
-  "Response\"\000\022e\n\016PullMetaConfig\022\'.greptime."
-  "v1.meta.PullMetaConfigRequest\032(.greptime"
-  ".v1.meta.PullMetaConfigResponse\"\000B<Z:git"
-  "hub.com/GreptimeTeam/greptime-proto/go/g"
-  "reptime/v1/metab\006proto3"
+  "\0028\001\"D\n\021PullConfigRequest\022/\n\006header\030\001 \001(\013"
+  "2\037.greptime.v1.meta.RequestHeader\"W\n\022Pul"
+  "lConfigResponse\0220\n\006header\030\001 \001(\0132 .grepti"
+  "me.v1.meta.ResponseHeader\022\017\n\007payload\030\002 \001"
+  "(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&."
+  "greptime.v1.meta.MailboxMessageHeader\022\n\n"
+  "\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t"
+  "\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016"
+  "\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022"
+  "\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrading"
+  "Leader\020\0022\232\002\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr"
+  "eptime.v1.meta.HeartbeatRequest\032#.grepti"
+  "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs"
+  "kLeader\022\".greptime.v1.meta.AskLeaderRequ"
+  "est\032#.greptime.v1.meta.AskLeaderResponse"
+  "\"\000\022Y\n\nPullConfig\022#.greptime.v1.meta.Pull"
+  "ConfigRequest\032$.greptime.v1.meta.PullCon"
+  "figResponse\"\000B<Z:github.com/GreptimeTeam"
+  "/greptime-proto/go/greptime/v1/metab\006pro"
+  "to3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 3663, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 3643, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 24,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -5489,30 +5489,30 @@ void MailboxMessageHeader::InternalSwap(MailboxMessageHeader* other) {
 
 // ===================================================================
 
-class PullMetaConfigRequest::_Internal {
+class PullConfigRequest::_Internal {
  public:
-  static const ::greptime::v1::meta::RequestHeader& header(const PullMetaConfigRequest* msg);
+  static const ::greptime::v1::meta::RequestHeader& header(const PullConfigRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
-PullMetaConfigRequest::_Internal::header(const PullMetaConfigRequest* msg) {
+PullConfigRequest::_Internal::header(const PullConfigRequest* msg) {
   return *msg->_impl_.header_;
 }
-void PullMetaConfigRequest::clear_header() {
+void PullConfigRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
 }
-PullMetaConfigRequest::PullMetaConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+PullConfigRequest::PullConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.PullMetaConfigRequest)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.PullConfigRequest)
 }
-PullMetaConfigRequest::PullMetaConfigRequest(const PullMetaConfigRequest& from)
+PullConfigRequest::PullConfigRequest(const PullConfigRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  PullMetaConfigRequest* const _this = this; (void)_this;
+  PullConfigRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -5521,10 +5521,10 @@ PullMetaConfigRequest::PullMetaConfigRequest(const PullMetaConfigRequest& from)
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
   }
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.PullMetaConfigRequest)
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.PullConfigRequest)
 }
 
-inline void PullMetaConfigRequest::SharedCtor(
+inline void PullConfigRequest::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -5534,8 +5534,8 @@ inline void PullMetaConfigRequest::SharedCtor(
   };
 }
 
-PullMetaConfigRequest::~PullMetaConfigRequest() {
-  // @@protoc_insertion_point(destructor:greptime.v1.meta.PullMetaConfigRequest)
+PullConfigRequest::~PullConfigRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.PullConfigRequest)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -5543,17 +5543,17 @@ PullMetaConfigRequest::~PullMetaConfigRequest() {
   SharedDtor();
 }
 
-inline void PullMetaConfigRequest::SharedDtor() {
+inline void PullConfigRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
-void PullMetaConfigRequest::SetCachedSize(int size) const {
+void PullConfigRequest::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void PullMetaConfigRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.PullMetaConfigRequest)
+void PullConfigRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.PullConfigRequest)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -5565,7 +5565,7 @@ void PullMetaConfigRequest::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PullMetaConfigRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* PullConfigRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -5602,9 +5602,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* PullMetaConfigRequest::_InternalSerialize(
+uint8_t* PullConfigRequest::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.PullMetaConfigRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.PullConfigRequest)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -5619,12 +5619,12 @@ uint8_t* PullMetaConfigRequest::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.PullMetaConfigRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.PullConfigRequest)
   return target;
 }
 
-size_t PullMetaConfigRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.PullMetaConfigRequest)
+size_t PullConfigRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.PullConfigRequest)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -5641,17 +5641,17 @@ size_t PullMetaConfigRequest::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PullMetaConfigRequest::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PullConfigRequest::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    PullMetaConfigRequest::MergeImpl
+    PullConfigRequest::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PullMetaConfigRequest::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PullConfigRequest::GetClassData() const { return &_class_data_; }
 
 
-void PullMetaConfigRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<PullMetaConfigRequest*>(&to_msg);
-  auto& from = static_cast<const PullMetaConfigRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.PullMetaConfigRequest)
+void PullConfigRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PullConfigRequest*>(&to_msg);
+  auto& from = static_cast<const PullConfigRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.PullConfigRequest)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -5663,24 +5663,24 @@ void PullMetaConfigRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PullMetaConfigRequest::CopyFrom(const PullMetaConfigRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.PullMetaConfigRequest)
+void PullConfigRequest::CopyFrom(const PullConfigRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.PullConfigRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PullMetaConfigRequest::IsInitialized() const {
+bool PullConfigRequest::IsInitialized() const {
   return true;
 }
 
-void PullMetaConfigRequest::InternalSwap(PullMetaConfigRequest* other) {
+void PullConfigRequest::InternalSwap(PullConfigRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_.header_, other->_impl_.header_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata PullMetaConfigRequest::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata PullConfigRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
       file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[21]);
@@ -5688,55 +5688,67 @@ void PullMetaConfigRequest::InternalSwap(PullMetaConfigRequest* other) {
 
 // ===================================================================
 
-class PullMetaConfigResponse::_Internal {
+class PullConfigResponse::_Internal {
  public:
-  static const ::greptime::v1::meta::ResponseHeader& header(const PullMetaConfigResponse* msg);
+  static const ::greptime::v1::meta::ResponseHeader& header(const PullConfigResponse* msg);
 };
 
 const ::greptime::v1::meta::ResponseHeader&
-PullMetaConfigResponse::_Internal::header(const PullMetaConfigResponse* msg) {
+PullConfigResponse::_Internal::header(const PullConfigResponse* msg) {
   return *msg->_impl_.header_;
 }
-void PullMetaConfigResponse::clear_header() {
+void PullConfigResponse::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
 }
-PullMetaConfigResponse::PullMetaConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+PullConfigResponse::PullConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.PullMetaConfigResponse)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.PullConfigResponse)
 }
-PullMetaConfigResponse::PullMetaConfigResponse(const PullMetaConfigResponse& from)
+PullConfigResponse::PullConfigResponse(const PullConfigResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  PullMetaConfigResponse* const _this = this; (void)_this;
+  PullConfigResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){from._impl_.payload_}
+      decltype(_impl_.payload_){}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.payload_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_payload().empty()) {
+    _this->_impl_.payload_.Set(from._internal_payload(), 
+      _this->GetArenaForAllocation());
+  }
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
   }
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.PullMetaConfigResponse)
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.PullConfigResponse)
 }
 
-inline void PullMetaConfigResponse::SharedCtor(
+inline void PullConfigResponse::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.payload_){arena}
+      decltype(_impl_.payload_){}
     , decltype(_impl_.header_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.payload_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
-PullMetaConfigResponse::~PullMetaConfigResponse() {
-  // @@protoc_insertion_point(destructor:greptime.v1.meta.PullMetaConfigResponse)
+PullConfigResponse::~PullConfigResponse() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.PullConfigResponse)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -5744,23 +5756,23 @@ PullMetaConfigResponse::~PullMetaConfigResponse() {
   SharedDtor();
 }
 
-inline void PullMetaConfigResponse::SharedDtor() {
+inline void PullConfigResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.payload_.~RepeatedPtrField();
+  _impl_.payload_.Destroy();
   if (this != internal_default_instance()) delete _impl_.header_;
 }
 
-void PullMetaConfigResponse::SetCachedSize(int size) const {
+void PullConfigResponse::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void PullMetaConfigResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.PullMetaConfigResponse)
+void PullConfigResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.PullConfigResponse)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.payload_.Clear();
+  _impl_.payload_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
@@ -5768,7 +5780,7 @@ void PullMetaConfigResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PullMetaConfigResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* PullConfigResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -5782,18 +5794,13 @@ const char* PullMetaConfigResponse::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated string payload = 2;
+      // string payload = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_payload();
-            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(ptr);
-            CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.PullMetaConfigResponse.payload"));
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+          auto str = _internal_mutable_payload();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.PullConfigResponse.payload"));
         } else
           goto handle_unusual;
         continue;
@@ -5820,9 +5827,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* PullMetaConfigResponse::_InternalSerialize(
+uint8_t* PullConfigResponse::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.PullMetaConfigResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.PullConfigResponse)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -5833,38 +5840,37 @@ uint8_t* PullMetaConfigResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // repeated string payload = 2;
-  for (int i = 0, n = this->_internal_payload_size(); i < n; i++) {
-    const auto& s = this->_internal_payload(i);
+  // string payload = 2;
+  if (!this->_internal_payload().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
+      this->_internal_payload().data(), static_cast<int>(this->_internal_payload().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "greptime.v1.meta.PullMetaConfigResponse.payload");
-    target = stream->WriteString(2, s, target);
+      "greptime.v1.meta.PullConfigResponse.payload");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_payload(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.PullMetaConfigResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.PullConfigResponse)
   return target;
 }
 
-size_t PullMetaConfigResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.PullMetaConfigResponse)
+size_t PullConfigResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.PullConfigResponse)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string payload = 2;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.payload_.size());
-  for (int i = 0, n = _impl_.payload_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      _impl_.payload_.Get(i));
+  // string payload = 2;
+  if (!this->_internal_payload().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_payload());
   }
 
   // .greptime.v1.meta.ResponseHeader header = 1;
@@ -5877,22 +5883,24 @@ size_t PullMetaConfigResponse::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PullMetaConfigResponse::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PullConfigResponse::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    PullMetaConfigResponse::MergeImpl
+    PullConfigResponse::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PullMetaConfigResponse::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PullConfigResponse::GetClassData() const { return &_class_data_; }
 
 
-void PullMetaConfigResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<PullMetaConfigResponse*>(&to_msg);
-  auto& from = static_cast<const PullMetaConfigResponse&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.PullMetaConfigResponse)
+void PullConfigResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PullConfigResponse*>(&to_msg);
+  auto& from = static_cast<const PullConfigResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.PullConfigResponse)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.payload_.MergeFrom(from._impl_.payload_);
+  if (!from._internal_payload().empty()) {
+    _this->_internal_set_payload(from._internal_payload());
+  }
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
         from._internal_header());
@@ -5900,25 +5908,30 @@ void PullMetaConfigResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void PullMetaConfigResponse::CopyFrom(const PullMetaConfigResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.PullMetaConfigResponse)
+void PullConfigResponse::CopyFrom(const PullConfigResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.PullConfigResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool PullMetaConfigResponse::IsInitialized() const {
+bool PullConfigResponse::IsInitialized() const {
   return true;
 }
 
-void PullMetaConfigResponse::InternalSwap(PullMetaConfigResponse* other) {
+void PullConfigResponse::InternalSwap(PullConfigResponse* other) {
   using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.payload_.InternalSwap(&other->_impl_.payload_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.payload_, lhs_arena,
+      &other->_impl_.payload_, rhs_arena
+  );
   swap(_impl_.header_, other->_impl_.header_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata PullMetaConfigResponse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata PullConfigResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once,
       file_level_metadata_greptime_2fv1_2fmeta_2fheartbeat_2eproto[22]);
@@ -6494,13 +6507,13 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::meta::MailboxMessageHeader*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::MailboxMessageHeader >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::MailboxMessageHeader >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullMetaConfigRequest*
-Arena::CreateMaybeMessage< ::greptime::v1::meta::PullMetaConfigRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::meta::PullMetaConfigRequest >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullConfigRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::PullConfigRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::PullConfigRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullMetaConfigResponse*
-Arena::CreateMaybeMessage< ::greptime::v1::meta::PullMetaConfigResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::meta::PullMetaConfigResponse >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::PullConfigResponse*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::PullConfigResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::PullConfigResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::MailboxMessage*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::MailboxMessage >(Arena* arena) {

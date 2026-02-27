@@ -30,7 +30,7 @@ type HeartbeatClient interface {
 	// Ask leader's endpoint.
 	AskLeader(ctx context.Context, in *AskLeaderRequest, opts ...grpc.CallOption) (*AskLeaderResponse, error)
 	// Pull meta configuration from meta server.
-	PullMetaConfig(ctx context.Context, in *PullMetaConfigRequest, opts ...grpc.CallOption) (*PullMetaConfigResponse, error)
+	PullConfig(ctx context.Context, in *PullConfigRequest, opts ...grpc.CallOption) (*PullConfigResponse, error)
 }
 
 type heartbeatClient struct {
@@ -81,9 +81,9 @@ func (c *heartbeatClient) AskLeader(ctx context.Context, in *AskLeaderRequest, o
 	return out, nil
 }
 
-func (c *heartbeatClient) PullMetaConfig(ctx context.Context, in *PullMetaConfigRequest, opts ...grpc.CallOption) (*PullMetaConfigResponse, error) {
-	out := new(PullMetaConfigResponse)
-	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Heartbeat/PullMetaConfig", in, out, opts...)
+func (c *heartbeatClient) PullConfig(ctx context.Context, in *PullConfigRequest, opts ...grpc.CallOption) (*PullConfigResponse, error) {
+	out := new(PullConfigResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.Heartbeat/PullConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +102,7 @@ type HeartbeatServer interface {
 	// Ask leader's endpoint.
 	AskLeader(context.Context, *AskLeaderRequest) (*AskLeaderResponse, error)
 	// Pull meta configuration from meta server.
-	PullMetaConfig(context.Context, *PullMetaConfigRequest) (*PullMetaConfigResponse, error)
+	PullConfig(context.Context, *PullConfigRequest) (*PullConfigResponse, error)
 	mustEmbedUnimplementedHeartbeatServer()
 }
 
@@ -116,8 +116,8 @@ func (UnimplementedHeartbeatServer) Heartbeat(Heartbeat_HeartbeatServer) error {
 func (UnimplementedHeartbeatServer) AskLeader(context.Context, *AskLeaderRequest) (*AskLeaderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AskLeader not implemented")
 }
-func (UnimplementedHeartbeatServer) PullMetaConfig(context.Context, *PullMetaConfigRequest) (*PullMetaConfigResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method PullMetaConfig not implemented")
+func (UnimplementedHeartbeatServer) PullConfig(context.Context, *PullConfigRequest) (*PullConfigResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PullConfig not implemented")
 }
 func (UnimplementedHeartbeatServer) mustEmbedUnimplementedHeartbeatServer() {}
 
@@ -176,20 +176,20 @@ func _Heartbeat_AskLeader_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Heartbeat_PullMetaConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PullMetaConfigRequest)
+func _Heartbeat_PullConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PullConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(HeartbeatServer).PullMetaConfig(ctx, in)
+		return srv.(HeartbeatServer).PullConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/greptime.v1.meta.Heartbeat/PullMetaConfig",
+		FullMethod: "/greptime.v1.meta.Heartbeat/PullConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HeartbeatServer).PullMetaConfig(ctx, req.(*PullMetaConfigRequest))
+		return srv.(HeartbeatServer).PullConfig(ctx, req.(*PullConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -206,8 +206,8 @@ var Heartbeat_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Heartbeat_AskLeader_Handler,
 		},
 		{
-			MethodName: "PullMetaConfig",
-			Handler:    _Heartbeat_PullMetaConfig_Handler,
+			MethodName: "PullConfig",
+			Handler:    _Heartbeat_PullConfig_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

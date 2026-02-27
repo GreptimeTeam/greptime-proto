@@ -17351,8 +17351,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface PullMetaConfigRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PullMetaConfigRequest)
+  public interface PullConfigRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PullConfigRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -17371,25 +17371,25 @@ java.lang.String defaultValue);
     greptime.v1.meta.Common.RequestHeaderOrBuilder getHeaderOrBuilder();
   }
   /**
-   * Protobuf type {@code greptime.v1.meta.PullMetaConfigRequest}
+   * Protobuf type {@code greptime.v1.meta.PullConfigRequest}
    */
-  public static final class PullMetaConfigRequest extends
+  public static final class PullConfigRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.PullMetaConfigRequest)
-      PullMetaConfigRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.PullConfigRequest)
+      PullConfigRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PullMetaConfigRequest.newBuilder() to construct.
-    private PullMetaConfigRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PullConfigRequest.newBuilder() to construct.
+    private PullConfigRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PullMetaConfigRequest() {
+    private PullConfigRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new PullMetaConfigRequest();
+      return new PullConfigRequest();
     }
 
     @java.lang.Override
@@ -17397,7 +17397,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PullMetaConfigRequest(
+    private PullConfigRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17451,15 +17451,15 @@ java.lang.String defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor;
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigRequest_fieldAccessorTable
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.class, greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.Builder.class);
+              greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.class, greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.Builder.class);
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
@@ -17528,10 +17528,10 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest)) {
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest other = (greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest) obj;
+      greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest other = (greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest) obj;
 
       if (hasHeader() != other.hasHeader()) return false;
       if (hasHeader()) {
@@ -17558,69 +17558,69 @@ java.lang.String defaultValue);
       return hash;
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(byte[] data)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseDelimitedFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17633,7 +17633,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest prototype) {
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -17649,26 +17649,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.meta.PullMetaConfigRequest}
+     * Protobuf type {@code greptime.v1.meta.PullConfigRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.PullMetaConfigRequest)
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.PullConfigRequest)
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigRequest_fieldAccessorTable
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.class, greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.Builder.class);
+                greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.class, greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.newBuilder()
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -17698,17 +17698,17 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigRequest_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest getDefaultInstanceForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.getDefaultInstance();
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest build() {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest result = buildPartial();
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest build() {
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -17716,8 +17716,8 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest buildPartial() {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest result = new greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest(this);
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest result = new greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest(this);
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
@@ -17761,16 +17761,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest) {
-          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest)other);
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest other) {
-        if (other == greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
@@ -17789,11 +17789,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest parsedMessage = null;
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17934,48 +17934,48 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.PullMetaConfigRequest)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.PullConfigRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigRequest)
-    private static final greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullConfigRequest)
+    private static final greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest();
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest();
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest getDefaultInstance() {
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PullMetaConfigRequest>
-        PARSER = new com.google.protobuf.AbstractParser<PullMetaConfigRequest>() {
+    private static final com.google.protobuf.Parser<PullConfigRequest>
+        PARSER = new com.google.protobuf.AbstractParser<PullConfigRequest>() {
       @java.lang.Override
-      public PullMetaConfigRequest parsePartialFrom(
+      public PullConfigRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PullMetaConfigRequest(input, extensionRegistry);
+        return new PullConfigRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PullMetaConfigRequest> parser() {
+    public static com.google.protobuf.Parser<PullConfigRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PullMetaConfigRequest> getParserForType() {
+    public com.google.protobuf.Parser<PullConfigRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigRequest getDefaultInstanceForType() {
+    public greptime.v1.meta.HeartbeatOuterClass.PullConfigRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface PullMetaConfigResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PullMetaConfigResponse)
+  public interface PullConfigResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PullConfigResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -17994,51 +17994,38 @@ java.lang.String defaultValue);
     greptime.v1.meta.Common.ResponseHeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>repeated string payload = 2;</code>
-     * @return A list containing the payload.
+     * <code>string payload = 2;</code>
+     * @return The payload.
      */
-    java.util.List<java.lang.String>
-        getPayloadList();
+    java.lang.String getPayload();
     /**
-     * <code>repeated string payload = 2;</code>
-     * @return The count of payload.
-     */
-    int getPayloadCount();
-    /**
-     * <code>repeated string payload = 2;</code>
-     * @param index The index of the element to return.
-     * @return The payload at the given index.
-     */
-    java.lang.String getPayload(int index);
-    /**
-     * <code>repeated string payload = 2;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the payload at the given index.
+     * <code>string payload = 2;</code>
+     * @return The bytes for payload.
      */
     com.google.protobuf.ByteString
-        getPayloadBytes(int index);
+        getPayloadBytes();
   }
   /**
-   * Protobuf type {@code greptime.v1.meta.PullMetaConfigResponse}
+   * Protobuf type {@code greptime.v1.meta.PullConfigResponse}
    */
-  public static final class PullMetaConfigResponse extends
+  public static final class PullConfigResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.PullMetaConfigResponse)
-      PullMetaConfigResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.PullConfigResponse)
+      PullConfigResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PullMetaConfigResponse.newBuilder() to construct.
-    private PullMetaConfigResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use PullConfigResponse.newBuilder() to construct.
+    private PullConfigResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PullMetaConfigResponse() {
-      payload_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private PullConfigResponse() {
+      payload_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new PullMetaConfigResponse();
+      return new PullConfigResponse();
     }
 
     @java.lang.Override
@@ -18046,7 +18033,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PullMetaConfigResponse(
+    private PullConfigResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18054,7 +18041,6 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -18080,11 +18066,8 @@ java.lang.String defaultValue);
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                payload_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              payload_.add(s);
+
+              payload_ = s;
               break;
             }
             default: {
@@ -18104,24 +18087,21 @@ java.lang.String defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          payload_ = payload_.getUnmodifiableView();
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor;
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.class, greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.Builder.class);
+              greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.class, greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.Builder.class);
     }
 
     public static final int HEADER_FIELD_NUMBER = 1;
@@ -18151,38 +18131,41 @@ java.lang.String defaultValue);
     }
 
     public static final int PAYLOAD_FIELD_NUMBER = 2;
-    private com.google.protobuf.LazyStringList payload_;
+    private volatile java.lang.Object payload_;
     /**
-     * <code>repeated string payload = 2;</code>
-     * @return A list containing the payload.
+     * <code>string payload = 2;</code>
+     * @return The payload.
      */
-    public com.google.protobuf.ProtocolStringList
-        getPayloadList() {
-      return payload_;
+    @java.lang.Override
+    public java.lang.String getPayload() {
+      java.lang.Object ref = payload_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        payload_ = s;
+        return s;
+      }
     }
     /**
-     * <code>repeated string payload = 2;</code>
-     * @return The count of payload.
+     * <code>string payload = 2;</code>
+     * @return The bytes for payload.
      */
-    public int getPayloadCount() {
-      return payload_.size();
-    }
-    /**
-     * <code>repeated string payload = 2;</code>
-     * @param index The index of the element to return.
-     * @return The payload at the given index.
-     */
-    public java.lang.String getPayload(int index) {
-      return payload_.get(index);
-    }
-    /**
-     * <code>repeated string payload = 2;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the payload at the given index.
-     */
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getPayloadBytes(int index) {
-      return payload_.getByteString(index);
+        getPayloadBytes() {
+      java.lang.Object ref = payload_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        payload_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -18202,8 +18185,8 @@ java.lang.String defaultValue);
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      for (int i = 0; i < payload_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, payload_.getRaw(i));
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -18218,13 +18201,8 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < payload_.size(); i++) {
-          dataSize += computeStringSizeNoTag(payload_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getPayloadList().size();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18236,18 +18214,18 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse)) {
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse other = (greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse) obj;
+      greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse other = (greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse) obj;
 
       if (hasHeader() != other.hasHeader()) return false;
       if (hasHeader()) {
         if (!getHeader()
             .equals(other.getHeader())) return false;
       }
-      if (!getPayloadList()
-          .equals(other.getPayloadList())) return false;
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18263,78 +18241,76 @@ java.lang.String defaultValue);
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      if (getPayloadCount() > 0) {
-        hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
-        hash = (53 * hash) + getPayloadList().hashCode();
-      }
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(byte[] data)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseDelimitedFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18347,7 +18323,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse prototype) {
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -18363,26 +18339,26 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.meta.PullMetaConfigResponse}
+     * Protobuf type {@code greptime.v1.meta.PullConfigResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.PullMetaConfigResponse)
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.PullConfigResponse)
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.class, greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.Builder.class);
+                greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.class, greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.newBuilder()
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -18406,25 +18382,25 @@ java.lang.String defaultValue);
           header_ = null;
           headerBuilder_ = null;
         }
-        payload_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        payload_ = "";
+
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_PullConfigResponse_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse getDefaultInstanceForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.getDefaultInstance();
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse build() {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse result = buildPartial();
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse build() {
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -18432,17 +18408,12 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse buildPartial() {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse result = new greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse(this);
-        int from_bitField0_ = bitField0_;
+      public greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse result = new greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse(this);
         if (headerBuilder_ == null) {
           result.header_ = header_;
         } else {
           result.header_ = headerBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          payload_ = payload_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.payload_ = payload_;
         onBuilt();
@@ -18483,27 +18454,21 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse) {
-          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse)other);
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse other) {
-        if (other == greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse.getDefaultInstance()) return this;
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (!other.payload_.isEmpty()) {
-          if (payload_.isEmpty()) {
-            payload_ = other.payload_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensurePayloadIsMutable();
-            payload_.addAll(other.payload_);
-          }
+        if (!other.getPayload().isEmpty()) {
+          payload_ = other.payload_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -18521,11 +18486,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse parsedMessage = null;
+        greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18534,7 +18499,6 @@ java.lang.String defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private greptime.v1.meta.Common.ResponseHeader header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -18655,112 +18619,78 @@ java.lang.String defaultValue);
         return headerBuilder_;
       }
 
-      private com.google.protobuf.LazyStringList payload_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensurePayloadIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
-          payload_ = new com.google.protobuf.LazyStringArrayList(payload_);
-          bitField0_ |= 0x00000001;
-         }
-      }
+      private java.lang.Object payload_ = "";
       /**
-       * <code>repeated string payload = 2;</code>
-       * @return A list containing the payload.
+       * <code>string payload = 2;</code>
+       * @return The payload.
        */
-      public com.google.protobuf.ProtocolStringList
-          getPayloadList() {
-        return payload_.getUnmodifiableView();
+      public java.lang.String getPayload() {
+        java.lang.Object ref = payload_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          payload_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>repeated string payload = 2;</code>
-       * @return The count of payload.
-       */
-      public int getPayloadCount() {
-        return payload_.size();
-      }
-      /**
-       * <code>repeated string payload = 2;</code>
-       * @param index The index of the element to return.
-       * @return The payload at the given index.
-       */
-      public java.lang.String getPayload(int index) {
-        return payload_.get(index);
-      }
-      /**
-       * <code>repeated string payload = 2;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the payload at the given index.
+       * <code>string payload = 2;</code>
+       * @return The bytes for payload.
        */
       public com.google.protobuf.ByteString
-          getPayloadBytes(int index) {
-        return payload_.getByteString(index);
+          getPayloadBytes() {
+        java.lang.Object ref = payload_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          payload_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
       }
       /**
-       * <code>repeated string payload = 2;</code>
-       * @param index The index to set the value at.
+       * <code>string payload = 2;</code>
        * @param value The payload to set.
        * @return This builder for chaining.
        */
       public Builder setPayload(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePayloadIsMutable();
-        payload_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string payload = 2;</code>
-       * @param value The payload to add.
-       * @return This builder for chaining.
-       */
-      public Builder addPayload(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensurePayloadIsMutable();
-        payload_.add(value);
+  
+        payload_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string payload = 2;</code>
-       * @param values The payload to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllPayload(
-          java.lang.Iterable<java.lang.String> values) {
-        ensurePayloadIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, payload_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated string payload = 2;</code>
+       * <code>string payload = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearPayload() {
-        payload_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
+        payload_ = getDefaultInstance().getPayload();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string payload = 2;</code>
-       * @param value The bytes of the payload to add.
+       * <code>string payload = 2;</code>
+       * @param value The bytes for payload to set.
        * @return This builder for chaining.
        */
-      public Builder addPayloadBytes(
+      public Builder setPayloadBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        ensurePayloadIsMutable();
-        payload_.add(value);
+        
+        payload_ = value;
         onChanged();
         return this;
       }
@@ -18777,41 +18707,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.PullMetaConfigResponse)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.PullConfigResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigResponse)
-    private static final greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullConfigResponse)
+    private static final greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse();
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse();
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse getDefaultInstance() {
+    public static greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PullMetaConfigResponse>
-        PARSER = new com.google.protobuf.AbstractParser<PullMetaConfigResponse>() {
+    private static final com.google.protobuf.Parser<PullConfigResponse>
+        PARSER = new com.google.protobuf.AbstractParser<PullConfigResponse>() {
       @java.lang.Override
-      public PullMetaConfigResponse parsePartialFrom(
+      public PullConfigResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PullMetaConfigResponse(input, extensionRegistry);
+        return new PullConfigResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PullMetaConfigResponse> parser() {
+    public static com.google.protobuf.Parser<PullConfigResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PullMetaConfigResponse> getParserForType() {
+    public com.google.protobuf.Parser<PullConfigResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.PullMetaConfigResponse getDefaultInstanceForType() {
+    public greptime.v1.meta.HeartbeatOuterClass.PullConfigResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20551,15 +20481,15 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor;
+    internal_static_greptime_v1_meta_PullConfigRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_PullMetaConfigRequest_fieldAccessorTable;
+      internal_static_greptime_v1_meta_PullConfigRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor;
+    internal_static_greptime_v1_meta_PullConfigResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable;
+      internal_static_greptime_v1_meta_PullConfigResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_MailboxMessage_descriptor;
   private static final 
@@ -20646,26 +20576,26 @@ java.lang.String defaultValue);
       "xt\030\001 \003(\0132:.greptime.v1.meta.MailboxMessa" +
       "geHeader.TracingContextEntry\0325\n\023TracingC" +
       "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"H\n\025PullMetaConfigRequest\022/\n\006header\030\001" +
-      " \001(\0132\037.greptime.v1.meta.RequestHeader\"[\n" +
-      "\026PullMetaConfigResponse\0220\n\006header\030\001 \001(\0132" +
-      " .greptime.v1.meta.ResponseHeader\022\017\n\007pay" +
-      "load\030\002 \003(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030" +
-      "@ \001(\0132&.greptime.v1.meta.MailboxMessageH" +
-      "eader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fr" +
-      "om\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis" +
-      "\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nReg" +
-      "ionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Dow" +
-      "ngradingLeader\020\0022\246\002\n\tHeartbeat\022Z\n\tHeartb" +
-      "eat\022\".greptime.v1.meta.HeartbeatRequest\032" +
-      "#.greptime.v1.meta.HeartbeatResponse\"\000(\001" +
-      "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe" +
-      "aderRequest\032#.greptime.v1.meta.AskLeader" +
-      "Response\"\000\022e\n\016PullMetaConfig\022\'.greptime." +
-      "v1.meta.PullMetaConfigRequest\032(.greptime" +
-      ".v1.meta.PullMetaConfigResponse\"\000B<Z:git" +
-      "hub.com/GreptimeTeam/greptime-proto/go/g" +
-      "reptime/v1/metab\006proto3"
+      "\0028\001\"D\n\021PullConfigRequest\022/\n\006header\030\001 \001(\013" +
+      "2\037.greptime.v1.meta.RequestHeader\"W\n\022Pul" +
+      "lConfigResponse\0220\n\006header\030\001 \001(\0132 .grepti" +
+      "me.v1.meta.ResponseHeader\022\017\n\007payload\030\002 \001" +
+      "(\t\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&." +
+      "greptime.v1.meta.MailboxMessageHeader\022\n\n" +
+      "\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t" +
+      "\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016" +
+      "\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole\022" +
+      "\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgrading" +
+      "Leader\020\0022\232\002\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr" +
+      "eptime.v1.meta.HeartbeatRequest\032#.grepti" +
+      "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs" +
+      "kLeader\022\".greptime.v1.meta.AskLeaderRequ" +
+      "est\032#.greptime.v1.meta.AskLeaderResponse" +
+      "\"\000\022Y\n\nPullConfig\022#.greptime.v1.meta.Pull" +
+      "ConfigRequest\032$.greptime.v1.meta.PullCon" +
+      "figResponse\"\000B<Z:github.com/GreptimeTeam" +
+      "/greptime-proto/go/greptime/v1/metab\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20798,17 +20728,17 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_MailboxMessageHeader_TracingContextEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor =
+    internal_static_greptime_v1_meta_PullConfigRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_greptime_v1_meta_PullMetaConfigRequest_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_PullConfigRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_PullMetaConfigRequest_descriptor,
+        internal_static_greptime_v1_meta_PullConfigRequest_descriptor,
         new java.lang.String[] { "Header", });
-    internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor =
+    internal_static_greptime_v1_meta_PullConfigResponse_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_greptime_v1_meta_PullMetaConfigResponse_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_PullConfigResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_PullMetaConfigResponse_descriptor,
+        internal_static_greptime_v1_meta_PullConfigResponse_descriptor,
         new java.lang.String[] { "Header", "Payload", });
     internal_static_greptime_v1_meta_MailboxMessage_descriptor =
       getDescriptor().getMessageTypes().get(17);

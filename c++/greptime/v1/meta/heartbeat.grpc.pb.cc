@@ -26,7 +26,7 @@ namespace meta {
 static const char* Heartbeat_method_names[] = {
   "/greptime.v1.meta.Heartbeat/Heartbeat",
   "/greptime.v1.meta.Heartbeat/AskLeader",
-  "/greptime.v1.meta.Heartbeat/PullMetaConfig",
+  "/greptime.v1.meta.Heartbeat/PullConfig",
 };
 
 std::unique_ptr< Heartbeat::Stub> Heartbeat::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -38,7 +38,7 @@ std::unique_ptr< Heartbeat::Stub> Heartbeat::NewStub(const std::shared_ptr< ::gr
 Heartbeat::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_Heartbeat_(Heartbeat_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   , rpcmethod_AskLeader_(Heartbeat_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_PullMetaConfig_(Heartbeat_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_PullConfig_(Heartbeat_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::ClientReaderWriter< ::greptime::v1::meta::HeartbeatRequest, ::greptime::v1::meta::HeartbeatResponse>* Heartbeat::Stub::HeartbeatRaw(::grpc::ClientContext* context) {
@@ -80,25 +80,25 @@ void Heartbeat::Stub::async::AskLeader(::grpc::ClientContext* context, const ::g
   return result;
 }
 
-::grpc::Status Heartbeat::Stub::PullMetaConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullMetaConfigRequest& request, ::greptime::v1::meta::PullMetaConfigResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::PullMetaConfigRequest, ::greptime::v1::meta::PullMetaConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PullMetaConfig_, context, request, response);
+::grpc::Status Heartbeat::Stub::PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::greptime::v1::meta::PullConfigResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_PullConfig_, context, request, response);
 }
 
-void Heartbeat::Stub::async::PullMetaConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullMetaConfigRequest* request, ::greptime::v1::meta::PullMetaConfigResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::PullMetaConfigRequest, ::greptime::v1::meta::PullMetaConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PullMetaConfig_, context, request, response, std::move(f));
+void Heartbeat::Stub::async::PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PullConfig_, context, request, response, std::move(f));
 }
 
-void Heartbeat::Stub::async::PullMetaConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullMetaConfigRequest* request, ::greptime::v1::meta::PullMetaConfigResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PullMetaConfig_, context, request, response, reactor);
+void Heartbeat::Stub::async::PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_PullConfig_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullMetaConfigResponse>* Heartbeat::Stub::PrepareAsyncPullMetaConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullMetaConfigRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::PullMetaConfigResponse, ::greptime::v1::meta::PullMetaConfigRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PullMetaConfig_, context, request);
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>* Heartbeat::Stub::PrepareAsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::meta::PullConfigResponse, ::greptime::v1::meta::PullConfigRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_PullConfig_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullMetaConfigResponse>* Heartbeat::Stub::AsyncPullMetaConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullMetaConfigRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>* Heartbeat::Stub::AsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncPullMetaConfigRaw(context, request, cq);
+    this->PrepareAsyncPullConfigRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -127,12 +127,12 @@ Heartbeat::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Heartbeat_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Heartbeat::Service, ::greptime::v1::meta::PullMetaConfigRequest, ::greptime::v1::meta::PullMetaConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Heartbeat::Service, ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Heartbeat::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::greptime::v1::meta::PullMetaConfigRequest* req,
-             ::greptime::v1::meta::PullMetaConfigResponse* resp) {
-               return service->PullMetaConfig(ctx, req, resp);
+             const ::greptime::v1::meta::PullConfigRequest* req,
+             ::greptime::v1::meta::PullConfigResponse* resp) {
+               return service->PullConfig(ctx, req, resp);
              }, this)));
 }
 
@@ -152,7 +152,7 @@ Heartbeat::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Heartbeat::Service::PullMetaConfig(::grpc::ServerContext* context, const ::greptime::v1::meta::PullMetaConfigRequest* request, ::greptime::v1::meta::PullMetaConfigResponse* response) {
+::grpc::Status Heartbeat::Service::PullConfig(::grpc::ServerContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response) {
   (void) context;
   (void) request;
   (void) response;

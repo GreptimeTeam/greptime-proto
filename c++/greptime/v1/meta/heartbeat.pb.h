@@ -106,12 +106,12 @@ extern MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _Mai
 class NodeInfo;
 struct NodeInfoDefaultTypeInternal;
 extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
-class PullMetaConfigRequest;
-struct PullMetaConfigRequestDefaultTypeInternal;
-extern PullMetaConfigRequestDefaultTypeInternal _PullMetaConfigRequest_default_instance_;
-class PullMetaConfigResponse;
-struct PullMetaConfigResponseDefaultTypeInternal;
-extern PullMetaConfigResponseDefaultTypeInternal _PullMetaConfigResponse_default_instance_;
+class PullConfigRequest;
+struct PullConfigRequestDefaultTypeInternal;
+extern PullConfigRequestDefaultTypeInternal _PullConfigRequest_default_instance_;
+class PullConfigResponse;
+struct PullConfigResponseDefaultTypeInternal;
+extern PullConfigResponseDefaultTypeInternal _PullConfigResponse_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
@@ -146,8 +146,8 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::MailboxMessageHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
-template<> ::greptime::v1::meta::PullMetaConfigRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::PullMetaConfigRequest>(Arena*);
-template<> ::greptime::v1::meta::PullMetaConfigResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::PullMetaConfigResponse>(Arena*);
+template<> ::greptime::v1::meta::PullConfigRequest* Arena::CreateMaybeMessage<::greptime::v1::meta::PullConfigRequest>(Arena*);
+template<> ::greptime::v1::meta::PullConfigResponse* Arena::CreateMaybeMessage<::greptime::v1::meta::PullConfigResponse>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
@@ -3381,24 +3381,24 @@ class MailboxMessageHeader final :
 };
 // -------------------------------------------------------------------
 
-class PullMetaConfigRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullMetaConfigRequest) */ {
+class PullConfigRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullConfigRequest) */ {
  public:
-  inline PullMetaConfigRequest() : PullMetaConfigRequest(nullptr) {}
-  ~PullMetaConfigRequest() override;
-  explicit PROTOBUF_CONSTEXPR PullMetaConfigRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline PullConfigRequest() : PullConfigRequest(nullptr) {}
+  ~PullConfigRequest() override;
+  explicit PROTOBUF_CONSTEXPR PullConfigRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  PullMetaConfigRequest(const PullMetaConfigRequest& from);
-  PullMetaConfigRequest(PullMetaConfigRequest&& from) noexcept
-    : PullMetaConfigRequest() {
+  PullConfigRequest(const PullConfigRequest& from);
+  PullConfigRequest(PullConfigRequest&& from) noexcept
+    : PullConfigRequest() {
     *this = ::std::move(from);
   }
 
-  inline PullMetaConfigRequest& operator=(const PullMetaConfigRequest& from) {
+  inline PullConfigRequest& operator=(const PullConfigRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PullMetaConfigRequest& operator=(PullMetaConfigRequest&& from) noexcept {
+  inline PullConfigRequest& operator=(PullConfigRequest&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3421,20 +3421,20 @@ class PullMetaConfigRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const PullMetaConfigRequest& default_instance() {
+  static const PullConfigRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const PullMetaConfigRequest* internal_default_instance() {
-    return reinterpret_cast<const PullMetaConfigRequest*>(
-               &_PullMetaConfigRequest_default_instance_);
+  static inline const PullConfigRequest* internal_default_instance() {
+    return reinterpret_cast<const PullConfigRequest*>(
+               &_PullConfigRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     21;
 
-  friend void swap(PullMetaConfigRequest& a, PullMetaConfigRequest& b) {
+  friend void swap(PullConfigRequest& a, PullConfigRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(PullMetaConfigRequest* other) {
+  inline void Swap(PullConfigRequest* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3447,7 +3447,7 @@ class PullMetaConfigRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PullMetaConfigRequest* other) {
+  void UnsafeArenaSwap(PullConfigRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3455,14 +3455,14 @@ class PullMetaConfigRequest final :
 
   // implements Message ----------------------------------------------
 
-  PullMetaConfigRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<PullMetaConfigRequest>(arena);
+  PullConfigRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PullConfigRequest>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const PullMetaConfigRequest& from);
+  void CopyFrom(const PullConfigRequest& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const PullMetaConfigRequest& from) {
-    PullMetaConfigRequest::MergeImpl(*this, from);
+  void MergeFrom( const PullConfigRequest& from) {
+    PullConfigRequest::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3480,15 +3480,15 @@ class PullMetaConfigRequest final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PullMetaConfigRequest* other);
+  void InternalSwap(PullConfigRequest* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.PullMetaConfigRequest";
+    return "greptime.v1.meta.PullConfigRequest";
   }
   protected:
-  explicit PullMetaConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit PullConfigRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3522,7 +3522,7 @@ class PullMetaConfigRequest final :
       ::greptime::v1::meta::RequestHeader* header);
   ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigRequest)
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullConfigRequest)
  private:
   class _Internal;
 
@@ -3538,24 +3538,24 @@ class PullMetaConfigRequest final :
 };
 // -------------------------------------------------------------------
 
-class PullMetaConfigResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullMetaConfigResponse) */ {
+class PullConfigResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.PullConfigResponse) */ {
  public:
-  inline PullMetaConfigResponse() : PullMetaConfigResponse(nullptr) {}
-  ~PullMetaConfigResponse() override;
-  explicit PROTOBUF_CONSTEXPR PullMetaConfigResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline PullConfigResponse() : PullConfigResponse(nullptr) {}
+  ~PullConfigResponse() override;
+  explicit PROTOBUF_CONSTEXPR PullConfigResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  PullMetaConfigResponse(const PullMetaConfigResponse& from);
-  PullMetaConfigResponse(PullMetaConfigResponse&& from) noexcept
-    : PullMetaConfigResponse() {
+  PullConfigResponse(const PullConfigResponse& from);
+  PullConfigResponse(PullConfigResponse&& from) noexcept
+    : PullConfigResponse() {
     *this = ::std::move(from);
   }
 
-  inline PullMetaConfigResponse& operator=(const PullMetaConfigResponse& from) {
+  inline PullConfigResponse& operator=(const PullConfigResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline PullMetaConfigResponse& operator=(PullMetaConfigResponse&& from) noexcept {
+  inline PullConfigResponse& operator=(PullConfigResponse&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3578,20 +3578,20 @@ class PullMetaConfigResponse final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const PullMetaConfigResponse& default_instance() {
+  static const PullConfigResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const PullMetaConfigResponse* internal_default_instance() {
-    return reinterpret_cast<const PullMetaConfigResponse*>(
-               &_PullMetaConfigResponse_default_instance_);
+  static inline const PullConfigResponse* internal_default_instance() {
+    return reinterpret_cast<const PullConfigResponse*>(
+               &_PullConfigResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     22;
 
-  friend void swap(PullMetaConfigResponse& a, PullMetaConfigResponse& b) {
+  friend void swap(PullConfigResponse& a, PullConfigResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(PullMetaConfigResponse* other) {
+  inline void Swap(PullConfigResponse* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3604,7 +3604,7 @@ class PullMetaConfigResponse final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(PullMetaConfigResponse* other) {
+  void UnsafeArenaSwap(PullConfigResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3612,14 +3612,14 @@ class PullMetaConfigResponse final :
 
   // implements Message ----------------------------------------------
 
-  PullMetaConfigResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<PullMetaConfigResponse>(arena);
+  PullConfigResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PullConfigResponse>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const PullMetaConfigResponse& from);
+  void CopyFrom(const PullConfigResponse& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const PullMetaConfigResponse& from) {
-    PullMetaConfigResponse::MergeImpl(*this, from);
+  void MergeFrom( const PullConfigResponse& from) {
+    PullConfigResponse::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3637,15 +3637,15 @@ class PullMetaConfigResponse final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(PullMetaConfigResponse* other);
+  void InternalSwap(PullConfigResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "greptime.v1.meta.PullMetaConfigResponse";
+    return "greptime.v1.meta.PullConfigResponse";
   }
   protected:
-  explicit PullMetaConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit PullConfigResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3662,28 +3662,18 @@ class PullMetaConfigResponse final :
     kPayloadFieldNumber = 2,
     kHeaderFieldNumber = 1,
   };
-  // repeated string payload = 2;
-  int payload_size() const;
-  private:
-  int _internal_payload_size() const;
-  public:
+  // string payload = 2;
   void clear_payload();
-  const std::string& payload(int index) const;
-  std::string* mutable_payload(int index);
-  void set_payload(int index, const std::string& value);
-  void set_payload(int index, std::string&& value);
-  void set_payload(int index, const char* value);
-  void set_payload(int index, const char* value, size_t size);
-  std::string* add_payload();
-  void add_payload(const std::string& value);
-  void add_payload(std::string&& value);
-  void add_payload(const char* value);
-  void add_payload(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& payload() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
   private:
-  const std::string& _internal_payload(int index) const;
-  std::string* _internal_add_payload();
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
   public:
 
   // .greptime.v1.meta.ResponseHeader header = 1;
@@ -3704,7 +3694,7 @@ class PullMetaConfigResponse final :
       ::greptime::v1::meta::ResponseHeader* header);
   ::greptime::v1::meta::ResponseHeader* unsafe_arena_release_header();
 
-  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullMetaConfigResponse)
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.PullConfigResponse)
  private:
   class _Internal;
 
@@ -3712,7 +3702,7 @@ class PullMetaConfigResponse final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> payload_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
     ::greptime::v1::meta::ResponseHeader* header_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -6622,25 +6612,25 @@ MailboxMessageHeader::mutable_tracing_context() {
 
 // -------------------------------------------------------------------
 
-// PullMetaConfigRequest
+// PullConfigRequest
 
 // .greptime.v1.meta.RequestHeader header = 1;
-inline bool PullMetaConfigRequest::_internal_has_header() const {
+inline bool PullConfigRequest::_internal_has_header() const {
   return this != internal_default_instance() && _impl_.header_ != nullptr;
 }
-inline bool PullMetaConfigRequest::has_header() const {
+inline bool PullConfigRequest::has_header() const {
   return _internal_has_header();
 }
-inline const ::greptime::v1::meta::RequestHeader& PullMetaConfigRequest::_internal_header() const {
+inline const ::greptime::v1::meta::RequestHeader& PullConfigRequest::_internal_header() const {
   const ::greptime::v1::meta::RequestHeader* p = _impl_.header_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::RequestHeader&>(
       ::greptime::v1::meta::_RequestHeader_default_instance_);
 }
-inline const ::greptime::v1::meta::RequestHeader& PullMetaConfigRequest::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigRequest.header)
+inline const ::greptime::v1::meta::RequestHeader& PullConfigRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullConfigRequest.header)
   return _internal_header();
 }
-inline void PullMetaConfigRequest::unsafe_arena_set_allocated_header(
+inline void PullConfigRequest::unsafe_arena_set_allocated_header(
     ::greptime::v1::meta::RequestHeader* header) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -6651,9 +6641,9 @@ inline void PullMetaConfigRequest::unsafe_arena_set_allocated_header(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullMetaConfigRequest.header)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullConfigRequest.header)
 }
-inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::release_header() {
+inline ::greptime::v1::meta::RequestHeader* PullConfigRequest::release_header() {
   
   ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
@@ -6668,14 +6658,14 @@ inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::release_heade
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigRequest.header)
+inline ::greptime::v1::meta::RequestHeader* PullConfigRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullConfigRequest.header)
   
   ::greptime::v1::meta::RequestHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::_internal_mutable_header() {
+inline ::greptime::v1::meta::RequestHeader* PullConfigRequest::_internal_mutable_header() {
   
   if (_impl_.header_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::RequestHeader>(GetArenaForAllocation());
@@ -6683,12 +6673,12 @@ inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::_internal_mut
   }
   return _impl_.header_;
 }
-inline ::greptime::v1::meta::RequestHeader* PullMetaConfigRequest::mutable_header() {
+inline ::greptime::v1::meta::RequestHeader* PullConfigRequest::mutable_header() {
   ::greptime::v1::meta::RequestHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigRequest.header)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullConfigRequest.header)
   return _msg;
 }
-inline void PullMetaConfigRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
+inline void PullConfigRequest::set_allocated_header(::greptime::v1::meta::RequestHeader* header) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -6706,30 +6696,30 @@ inline void PullMetaConfigRequest::set_allocated_header(::greptime::v1::meta::Re
     
   }
   _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigRequest.header)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullConfigRequest.header)
 }
 
 // -------------------------------------------------------------------
 
-// PullMetaConfigResponse
+// PullConfigResponse
 
 // .greptime.v1.meta.ResponseHeader header = 1;
-inline bool PullMetaConfigResponse::_internal_has_header() const {
+inline bool PullConfigResponse::_internal_has_header() const {
   return this != internal_default_instance() && _impl_.header_ != nullptr;
 }
-inline bool PullMetaConfigResponse::has_header() const {
+inline bool PullConfigResponse::has_header() const {
   return _internal_has_header();
 }
-inline const ::greptime::v1::meta::ResponseHeader& PullMetaConfigResponse::_internal_header() const {
+inline const ::greptime::v1::meta::ResponseHeader& PullConfigResponse::_internal_header() const {
   const ::greptime::v1::meta::ResponseHeader* p = _impl_.header_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ResponseHeader&>(
       ::greptime::v1::meta::_ResponseHeader_default_instance_);
 }
-inline const ::greptime::v1::meta::ResponseHeader& PullMetaConfigResponse::header() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.header)
+inline const ::greptime::v1::meta::ResponseHeader& PullConfigResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullConfigResponse.header)
   return _internal_header();
 }
-inline void PullMetaConfigResponse::unsafe_arena_set_allocated_header(
+inline void PullConfigResponse::unsafe_arena_set_allocated_header(
     ::greptime::v1::meta::ResponseHeader* header) {
   if (GetArenaForAllocation() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -6740,9 +6730,9 @@ inline void PullMetaConfigResponse::unsafe_arena_set_allocated_header(
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullMetaConfigResponse.header)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.PullConfigResponse.header)
 }
-inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::release_header() {
+inline ::greptime::v1::meta::ResponseHeader* PullConfigResponse::release_header() {
   
   ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
@@ -6757,14 +6747,14 @@ inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::release_hea
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::unsafe_arena_release_header() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullMetaConfigResponse.header)
+inline ::greptime::v1::meta::ResponseHeader* PullConfigResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullConfigResponse.header)
   
   ::greptime::v1::meta::ResponseHeader* temp = _impl_.header_;
   _impl_.header_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::_internal_mutable_header() {
+inline ::greptime::v1::meta::ResponseHeader* PullConfigResponse::_internal_mutable_header() {
   
   if (_impl_.header_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::meta::ResponseHeader>(GetArenaForAllocation());
@@ -6772,12 +6762,12 @@ inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::_internal_m
   }
   return _impl_.header_;
 }
-inline ::greptime::v1::meta::ResponseHeader* PullMetaConfigResponse::mutable_header() {
+inline ::greptime::v1::meta::ResponseHeader* PullConfigResponse::mutable_header() {
   ::greptime::v1::meta::ResponseHeader* _msg = _internal_mutable_header();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.header)
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullConfigResponse.header)
   return _msg;
 }
-inline void PullMetaConfigResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
+inline void PullConfigResponse::set_allocated_header(::greptime::v1::meta::ResponseHeader* header) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
@@ -6795,82 +6785,57 @@ inline void PullMetaConfigResponse::set_allocated_header(::greptime::v1::meta::R
     
   }
   _impl_.header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullMetaConfigResponse.header)
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullConfigResponse.header)
 }
 
-// repeated string payload = 2;
-inline int PullMetaConfigResponse::_internal_payload_size() const {
-  return _impl_.payload_.size();
+// string payload = 2;
+inline void PullConfigResponse::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
 }
-inline int PullMetaConfigResponse::payload_size() const {
-  return _internal_payload_size();
+inline const std::string& PullConfigResponse::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullConfigResponse.payload)
+  return _internal_payload();
 }
-inline void PullMetaConfigResponse::clear_payload() {
-  _impl_.payload_.Clear();
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void PullConfigResponse::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullConfigResponse.payload)
 }
-inline std::string* PullMetaConfigResponse::add_payload() {
-  std::string* _s = _internal_add_payload();
-  // @@protoc_insertion_point(field_add_mutable:greptime.v1.meta.PullMetaConfigResponse.payload)
+inline std::string* PullConfigResponse::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullConfigResponse.payload)
   return _s;
 }
-inline const std::string& PullMetaConfigResponse::_internal_payload(int index) const {
-  return _impl_.payload_.Get(index);
+inline const std::string& PullConfigResponse::_internal_payload() const {
+  return _impl_.payload_.Get();
 }
-inline const std::string& PullMetaConfigResponse::payload(int index) const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PullMetaConfigResponse.payload)
-  return _internal_payload(index);
+inline void PullConfigResponse::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
 }
-inline std::string* PullMetaConfigResponse::mutable_payload(int index) {
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PullMetaConfigResponse.payload)
-  return _impl_.payload_.Mutable(index);
+inline std::string* PullConfigResponse::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
 }
-inline void PullMetaConfigResponse::set_payload(int index, const std::string& value) {
-  _impl_.payload_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullMetaConfigResponse.payload)
+inline std::string* PullConfigResponse::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.PullConfigResponse.payload)
+  return _impl_.payload_.Release();
 }
-inline void PullMetaConfigResponse::set_payload(int index, std::string&& value) {
-  _impl_.payload_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline void PullMetaConfigResponse::set_payload(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.payload_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline void PullMetaConfigResponse::set_payload(int index, const char* value, size_t size) {
-  _impl_.payload_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline std::string* PullMetaConfigResponse::_internal_add_payload() {
-  return _impl_.payload_.Add();
-}
-inline void PullMetaConfigResponse::add_payload(const std::string& value) {
-  _impl_.payload_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline void PullMetaConfigResponse::add_payload(std::string&& value) {
-  _impl_.payload_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline void PullMetaConfigResponse::add_payload(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  _impl_.payload_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline void PullMetaConfigResponse::add_payload(const char* value, size_t size) {
-  _impl_.payload_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:greptime.v1.meta.PullMetaConfigResponse.payload)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-PullMetaConfigResponse::payload() const {
-  // @@protoc_insertion_point(field_list:greptime.v1.meta.PullMetaConfigResponse.payload)
-  return _impl_.payload_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-PullMetaConfigResponse::mutable_payload() {
-  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.PullMetaConfigResponse.payload)
-  return &_impl_.payload_;
+inline void PullConfigResponse::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PullConfigResponse.payload)
 }
 
 // -------------------------------------------------------------------

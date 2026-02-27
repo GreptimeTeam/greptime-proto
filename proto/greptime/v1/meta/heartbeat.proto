@@ -31,7 +31,7 @@ service Heartbeat {
   rpc AskLeader(AskLeaderRequest) returns (AskLeaderResponse) {}
 
   // Pull meta configuration from meta server.
-  rpc PullMetaConfig(PullMetaConfigRequest) returns (PullMetaConfigResponse) {}
+  rpc PullConfig(PullConfigRequest) returns (PullConfigResponse) {}
 }
 
 message HeartbeatRequest {
@@ -189,13 +189,13 @@ message MailboxMessageHeader {
   map<string, string> tracing_context = 1;
 }
 
-message PullMetaConfigRequest {
+message PullConfigRequest {
   RequestHeader header = 1;
 }
 
-message PullMetaConfigResponse {
+message PullConfigResponse {
   ResponseHeader header = 1;
-  repeated string payload = 2;
+  string payload = 2;
 }
 
 message MailboxMessage {
