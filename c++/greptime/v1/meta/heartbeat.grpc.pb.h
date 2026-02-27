@@ -73,14 +73,6 @@ class Heartbeat final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>> PrepareAsyncAskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>>(PrepareAsyncAskLeaderRaw(context, request, cq));
     }
-    // Pull configuration from meta server.
-    virtual ::grpc::Status PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::greptime::v1::meta::PullConfigResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>> AsyncPullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>>(AsyncPullConfigRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>> PrepareAsyncPullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>>(PrepareAsyncPullConfigRaw(context, request, cq));
-    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -92,9 +84,6 @@ class Heartbeat final {
       // Ask leader's endpoint.
       virtual void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      // Pull configuration from meta server.
-      virtual void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -105,8 +94,6 @@ class Heartbeat final {
     virtual ::grpc::ClientAsyncReaderWriterInterface< ::greptime::v1::meta::HeartbeatRequest, ::greptime::v1::meta::HeartbeatResponse>* PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>* AsyncAskLeaderRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::AskLeaderResponse>* PrepareAsyncAskLeaderRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>* AsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::PullConfigResponse>* PrepareAsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -127,21 +114,12 @@ class Heartbeat final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::AskLeaderResponse>> PrepareAsyncAskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::AskLeaderResponse>>(PrepareAsyncAskLeaderRaw(context, request, cq));
     }
-    ::grpc::Status PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::greptime::v1::meta::PullConfigResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>> AsyncPullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>>(AsyncPullConfigRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>> PrepareAsyncPullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>>(PrepareAsyncPullConfigRaw(context, request, cq));
-    }
     class async final :
       public StubInterface::async_interface {
      public:
       void Heartbeat(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::greptime::v1::meta::HeartbeatRequest,::greptime::v1::meta::HeartbeatResponse>* reactor) override;
       void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, std::function<void(::grpc::Status)>) override;
       void AskLeader(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, std::function<void(::grpc::Status)>) override;
-      void PullConfig(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -158,11 +136,8 @@ class Heartbeat final {
     ::grpc::ClientAsyncReaderWriter< ::greptime::v1::meta::HeartbeatRequest, ::greptime::v1::meta::HeartbeatResponse>* PrepareAsyncHeartbeatRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::AskLeaderResponse>* AsyncAskLeaderRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::AskLeaderResponse>* PrepareAsyncAskLeaderRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::AskLeaderRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>* AsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::PullConfigResponse>* PrepareAsyncPullConfigRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::PullConfigRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Heartbeat_;
     const ::grpc::internal::RpcMethod rpcmethod_AskLeader_;
-    const ::grpc::internal::RpcMethod rpcmethod_PullConfig_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -177,8 +152,6 @@ class Heartbeat final {
     virtual ::grpc::Status Heartbeat(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::greptime::v1::meta::HeartbeatResponse, ::greptime::v1::meta::HeartbeatRequest>* stream);
     // Ask leader's endpoint.
     virtual ::grpc::Status AskLeader(::grpc::ServerContext* context, const ::greptime::v1::meta::AskLeaderRequest* request, ::greptime::v1::meta::AskLeaderResponse* response);
-    // Pull configuration from meta server.
-    virtual ::grpc::Status PullConfig(::grpc::ServerContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Heartbeat : public BaseClass {
@@ -220,27 +193,7 @@ class Heartbeat final {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  template <class BaseClass>
-  class WithAsyncMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_PullConfig() {
-      ::grpc::Service::MarkMethodAsync(2);
-    }
-    ~WithAsyncMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestPullConfig(::grpc::ServerContext* context, ::greptime::v1::meta::PullConfigRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::PullConfigResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  typedef WithAsyncMethod_Heartbeat<WithAsyncMethod_AskLeader<WithAsyncMethod_PullConfig<Service > > > AsyncService;
+  typedef WithAsyncMethod_Heartbeat<WithAsyncMethod_AskLeader<Service > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Heartbeat : public BaseClass {
    private:
@@ -291,34 +244,7 @@ class Heartbeat final {
     virtual ::grpc::ServerUnaryReactor* AskLeader(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::AskLeaderRequest* /*request*/, ::greptime::v1::meta::AskLeaderResponse* /*response*/)  { return nullptr; }
   };
-  template <class BaseClass>
-  class WithCallbackMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_PullConfig() {
-      ::grpc::Service::MarkMethodCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::PullConfigRequest* request, ::greptime::v1::meta::PullConfigResponse* response) { return this->PullConfig(context, request, response); }));}
-    void SetMessageAllocatorFor_PullConfig(
-        ::grpc::MessageAllocator< ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* PullConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/)  { return nullptr; }
-  };
-  typedef WithCallbackMethod_Heartbeat<WithCallbackMethod_AskLeader<WithCallbackMethod_PullConfig<Service > > > CallbackService;
+  typedef WithCallbackMethod_Heartbeat<WithCallbackMethod_AskLeader<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Heartbeat : public BaseClass {
@@ -350,23 +276,6 @@ class Heartbeat final {
     }
     // disable synchronous version of this method
     ::grpc::Status AskLeader(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::AskLeaderRequest* /*request*/, ::greptime::v1::meta::AskLeaderResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_PullConfig() {
-      ::grpc::Service::MarkMethodGeneric(2);
-    }
-    ~WithGenericMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -409,26 +318,6 @@ class Heartbeat final {
     }
     void RequestAskLeader(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_PullConfig() {
-      ::grpc::Service::MarkMethodRaw(2);
-    }
-    ~WithRawMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestPullConfig(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -477,28 +366,6 @@ class Heartbeat final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_PullConfig() {
-      ::grpc::Service::MarkMethodRawCallback(2,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->PullConfig(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* PullConfig(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_AskLeader : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -525,36 +392,9 @@ class Heartbeat final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedAskLeader(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::AskLeaderRequest,::greptime::v1::meta::AskLeaderResponse>* server_unary_streamer) = 0;
   };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_PullConfig : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_PullConfig() {
-      ::grpc::Service::MarkMethodStreamed(2,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::greptime::v1::meta::PullConfigRequest, ::greptime::v1::meta::PullConfigResponse>* streamer) {
-                       return this->StreamedPullConfig(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_PullConfig() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status PullConfig(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::PullConfigRequest* /*request*/, ::greptime::v1::meta::PullConfigResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedPullConfig(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::PullConfigRequest,::greptime::v1::meta::PullConfigResponse>* server_unary_streamer) = 0;
-  };
-  typedef WithStreamedUnaryMethod_AskLeader<WithStreamedUnaryMethod_PullConfig<Service > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_AskLeader<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_AskLeader<WithStreamedUnaryMethod_PullConfig<Service > > StreamedService;
+  typedef WithStreamedUnaryMethod_AskLeader<Service > StreamedService;
 };
 
 }  // namespace meta
