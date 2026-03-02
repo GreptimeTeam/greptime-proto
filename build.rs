@@ -58,6 +58,7 @@ fn main() {
                 "proto/greptime/v1/wal.proto",
                 "proto/greptime/v1/meta/common.proto",
                 "proto/greptime/v1/meta/heartbeat.proto",
+                "proto/greptime/v1/meta/config.proto",
                 "proto/greptime/v1/meta/route.proto",
                 "proto/greptime/v1/meta/ddl.proto",
                 "proto/greptime/v1/meta/region.proto",
