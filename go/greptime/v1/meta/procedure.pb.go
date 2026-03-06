@@ -821,7 +821,7 @@ type GcRegionsRequest struct {
 	RegionIds []uint64       `protobuf:"varint,2,rep,packed,name=region_ids,json=regionIds,proto3" json:"region_ids,omitempty"`
 	// Whether to perform a full file listing on datanodes when GC'ing the regions.
 	FullFileListing bool `protobuf:"varint,3,opt,name=full_file_listing,json=fullFileListing,proto3" json:"full_file_listing,omitempty"`
-	// Timeout in seconds for the GC procedure mailbox operations.
+	// Timeout in seconds for the entire GC procedure.
 	TimeoutSecs uint32 `protobuf:"varint,4,opt,name=timeout_secs,json=timeoutSecs,proto3" json:"timeout_secs,omitempty"`
 }
 
@@ -1026,7 +1026,7 @@ type GcTableRequest struct {
 	TableName   string         `protobuf:"bytes,4,opt,name=table_name,json=tableName,proto3" json:"table_name,omitempty"`
 	// Whether to perform a full file listing on datanodes when GC'ing the regions.
 	FullFileListing bool `protobuf:"varint,5,opt,name=full_file_listing,json=fullFileListing,proto3" json:"full_file_listing,omitempty"`
-	// Timeout in seconds for the GC procedure mailbox operations.
+	// Timeout in seconds for the entire GC procedure.
 	TimeoutSecs uint32 `protobuf:"varint,6,opt,name=timeout_secs,json=timeoutSecs,proto3" json:"timeout_secs,omitempty"`
 }
 

@@ -97,7 +97,7 @@ message GcRegionsRequest {
   repeated uint64 region_ids = 2;
   // Whether to perform a full file listing on datanodes when GC'ing the regions.
   bool full_file_listing = 3;
-  // Timeout in seconds for the GC procedure mailbox operations.
+  // Timeout in seconds for the entire GC procedure.
   uint32 timeout_secs = 4;
 }
 
@@ -124,7 +124,7 @@ message GcTableRequest {
   string table_name = 4;
   // Whether to perform a full file listing on datanodes when GC'ing the regions.
   bool full_file_listing = 5;
-  // Timeout in seconds for the GC procedure mailbox operations.
+  // Timeout in seconds for the entire GC procedure.
   uint32 timeout_secs = 6;
 }
 

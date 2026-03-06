@@ -9882,7 +9882,7 @@ public final class Procedure {
 
     /**
      * <pre>
-     * Timeout in seconds for the GC procedure mailbox operations.
+     * Timeout in seconds for the entire GC procedure.
      * </pre>
      *
      * <code>uint32 timeout_secs = 4;</code>
@@ -10091,7 +10091,7 @@ public final class Procedure {
     private int timeoutSecs_;
     /**
      * <pre>
-     * Timeout in seconds for the GC procedure mailbox operations.
+     * Timeout in seconds for the entire GC procedure.
      * </pre>
      *
      * <code>uint32 timeout_secs = 4;</code>
@@ -10743,7 +10743,7 @@ public final class Procedure {
       private int timeoutSecs_ ;
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 4;</code>
@@ -10755,7 +10755,7 @@ public final class Procedure {
       }
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 4;</code>
@@ -10770,7 +10770,7 @@ public final class Procedure {
       }
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 4;</code>
@@ -12670,7 +12670,7 @@ public final class Procedure {
 
     /**
      * <pre>
-     * Timeout in seconds for the GC procedure mailbox operations.
+     * Timeout in seconds for the entire GC procedure.
      * </pre>
      *
      * <code>uint32 timeout_secs = 6;</code>
@@ -12960,7 +12960,7 @@ public final class Procedure {
     private int timeoutSecs_;
     /**
      * <pre>
-     * Timeout in seconds for the GC procedure mailbox operations.
+     * Timeout in seconds for the entire GC procedure.
      * </pre>
      *
      * <code>uint32 timeout_secs = 6;</code>
@@ -13765,7 +13765,7 @@ public final class Procedure {
       private int timeoutSecs_ ;
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 6;</code>
@@ -13777,7 +13777,7 @@ public final class Procedure {
       }
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 6;</code>
@@ -13792,7 +13792,7 @@ public final class Procedure {
       }
       /**
        * <pre>
-       * Timeout in seconds for the GC procedure mailbox operations.
+       * Timeout in seconds for the entire GC procedure.
        * </pre>
        *
        * <code>uint32 timeout_secs = 6;</code>
