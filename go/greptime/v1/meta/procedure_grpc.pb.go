@@ -32,6 +32,10 @@ type ProcedureServiceClient interface {
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
 	// Query all submitted procedures details
 	Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error)
+	// Manually trigger GC for a specific list of regions
+	GcRegions(ctx context.Context, in *GcRegionsRequest, opts ...grpc.CallOption) (*GcRegionsResponse, error)
+	// Manually trigger GC for a table (all its regions)
+	GcTable(ctx context.Context, in *GcTableRequest, opts ...grpc.CallOption) (*GcTableResponse, error)
 }
 
 type procedureServiceClient struct {
@@ -87,6 +91,24 @@ func (c *procedureServiceClient) Details(ctx context.Context, in *ProcedureDetai
 	return out, nil
 }
 
+func (c *procedureServiceClient) GcRegions(ctx context.Context, in *GcRegionsRequest, opts ...grpc.CallOption) (*GcRegionsResponse, error) {
+	out := new(GcRegionsResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/gc_regions", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *procedureServiceClient) GcTable(ctx context.Context, in *GcTableRequest, opts ...grpc.CallOption) (*GcTableResponse, error) {
+	out := new(GcTableResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/gc_table", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ProcedureServiceServer is the server API for ProcedureService service.
 // All implementations must embed UnimplementedProcedureServiceServer
 // for forward compatibility
@@ -101,6 +123,10 @@ type ProcedureServiceServer interface {
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)
 	// Query all submitted procedures details
 	Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error)
+	// Manually trigger GC for a specific list of regions
+	GcRegions(context.Context, *GcRegionsRequest) (*GcRegionsResponse, error)
+	// Manually trigger GC for a table (all its regions)
+	GcTable(context.Context, *GcTableRequest) (*GcTableResponse, error)
 	mustEmbedUnimplementedProcedureServiceServer()
 }
 
@@ -122,6 +148,12 @@ func (UnimplementedProcedureServiceServer) Migrate(context.Context, *MigrateRegi
 }
 func (UnimplementedProcedureServiceServer) Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Details not implemented")
+}
+func (UnimplementedProcedureServiceServer) GcRegions(context.Context, *GcRegionsRequest) (*GcRegionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GcRegions not implemented")
+}
+func (UnimplementedProcedureServiceServer) GcTable(context.Context, *GcTableRequest) (*GcTableResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GcTable not implemented")
 }
 func (UnimplementedProcedureServiceServer) mustEmbedUnimplementedProcedureServiceServer() {}
 
@@ -226,6 +258,42 @@ func _ProcedureService_Details_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProcedureService_GcRegions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GcRegionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcedureServiceServer).GcRegions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.ProcedureService/gc_regions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcedureServiceServer).GcRegions(ctx, req.(*GcRegionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ProcedureService_GcTable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GcTableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcedureServiceServer).GcTable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.ProcedureService/gc_table",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcedureServiceServer).GcTable(ctx, req.(*GcTableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ProcedureService_ServiceDesc is the grpc.ServiceDesc for ProcedureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -252,6 +320,14 @@ var ProcedureService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "details",
 			Handler:    _ProcedureService_Details_Handler,
+		},
+		{
+			MethodName: "gc_regions",
+			Handler:    _ProcedureService_GcRegions_Handler,
+		},
+		{
+			MethodName: "gc_table",
+			Handler:    _ProcedureService_GcTable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
