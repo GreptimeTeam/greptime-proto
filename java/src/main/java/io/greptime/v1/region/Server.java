@@ -1577,6 +1577,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.ApplyStagingManifestRequestOrBuilder getApplyStagingManifestOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     * @return Whether the remoteDynFilter field is set.
+     */
+    boolean hasRemoteDynFilter();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     * @return The remoteDynFilter.
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterRequest getRemoteDynFilter();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder getRemoteDynFilterOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -1889,6 +1904,20 @@ java.lang.String defaultValue);
               bodyCase_ = 20;
               break;
             }
+            case 170: {
+              io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder subBuilder = null;
+              if (bodyCase_ == 21) {
+                subBuilder = ((io.greptime.v1.region.Server.RemoteDynFilterRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.region.Server.RemoteDynFilterRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 21;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1946,6 +1975,7 @@ java.lang.String defaultValue);
       LIST_METADATA(18),
       BUILD_INDEX(19),
       APPLY_STAGING_MANIFEST(20),
+      REMOTE_DYN_FILTER(21),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -1981,6 +2011,7 @@ java.lang.String defaultValue);
           case 18: return LIST_METADATA;
           case 19: return BUILD_INDEX;
           case 20: return APPLY_STAGING_MANIFEST;
+          case 21: return REMOTE_DYN_FILTER;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -2580,6 +2611,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.ApplyStagingManifestRequest.getDefaultInstance();
     }
 
+    public static final int REMOTE_DYN_FILTER_FIELD_NUMBER = 21;
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     * @return Whether the remoteDynFilter field is set.
+     */
+    @java.lang.Override
+    public boolean hasRemoteDynFilter() {
+      return bodyCase_ == 21;
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     * @return The remoteDynFilter.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterRequest getRemoteDynFilter() {
+      if (bodyCase_ == 21) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder getRemoteDynFilterOrBuilder() {
+      if (bodyCase_ == 21) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2650,6 +2712,9 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 20) {
         output.writeMessage(20, (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_);
+      }
+      if (bodyCase_ == 21) {
+        output.writeMessage(21, (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_);
       }
       unknownFields.writeTo(output);
     }
@@ -2735,6 +2800,10 @@ java.lang.String defaultValue);
       if (bodyCase_ == 20) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(20, (io.greptime.v1.region.Server.ApplyStagingManifestRequest) body_);
+      }
+      if (bodyCase_ == 21) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2830,6 +2899,10 @@ java.lang.String defaultValue);
           if (!getApplyStagingManifest()
               .equals(other.getApplyStagingManifest())) return false;
           break;
+        case 21:
+          if (!getRemoteDynFilter()
+              .equals(other.getRemoteDynFilter())) return false;
+          break;
         case 0:
         default:
       }
@@ -2920,6 +2993,10 @@ java.lang.String defaultValue);
         case 20:
           hash = (37 * hash) + APPLY_STAGING_MANIFEST_FIELD_NUMBER;
           hash = (53 * hash) + getApplyStagingManifest().hashCode();
+          break;
+        case 21:
+          hash = (37 * hash) + REMOTE_DYN_FILTER_FIELD_NUMBER;
+          hash = (53 * hash) + getRemoteDynFilter().hashCode();
           break;
         case 0:
         default:
@@ -3222,6 +3299,13 @@ java.lang.String defaultValue);
             result.body_ = applyStagingManifestBuilder_.build();
           }
         }
+        if (bodyCase_ == 21) {
+          if (remoteDynFilterBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = remoteDynFilterBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -3345,6 +3429,10 @@ java.lang.String defaultValue);
           }
           case APPLY_STAGING_MANIFEST: {
             mergeApplyStagingManifest(other.getApplyStagingManifest());
+            break;
+          }
+          case REMOTE_DYN_FILTER: {
+            mergeRemoteDynFilter(other.getRemoteDynFilter());
             break;
           }
           case BODY_NOT_SET: {
@@ -6068,6 +6156,148 @@ java.lang.String defaultValue);
         bodyCase_ = 20;
         onChanged();;
         return applyStagingManifestBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterRequest, io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder, io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder> remoteDynFilterBuilder_;
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       * @return Whether the remoteDynFilter field is set.
+       */
+      @java.lang.Override
+      public boolean hasRemoteDynFilter() {
+        return bodyCase_ == 21;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       * @return The remoteDynFilter.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterRequest getRemoteDynFilter() {
+        if (remoteDynFilterBuilder_ == null) {
+          if (bodyCase_ == 21) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 21) {
+            return remoteDynFilterBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      public Builder setRemoteDynFilter(io.greptime.v1.region.Server.RemoteDynFilterRequest value) {
+        if (remoteDynFilterBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          remoteDynFilterBuilder_.setMessage(value);
+        }
+        bodyCase_ = 21;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      public Builder setRemoteDynFilter(
+          io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder builderForValue) {
+        if (remoteDynFilterBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          remoteDynFilterBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 21;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      public Builder mergeRemoteDynFilter(io.greptime.v1.region.Server.RemoteDynFilterRequest value) {
+        if (remoteDynFilterBuilder_ == null) {
+          if (bodyCase_ == 21 &&
+              body_ != io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.region.Server.RemoteDynFilterRequest.newBuilder((io.greptime.v1.region.Server.RemoteDynFilterRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 21) {
+            remoteDynFilterBuilder_.mergeFrom(value);
+          } else {
+            remoteDynFilterBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 21;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      public Builder clearRemoteDynFilter() {
+        if (remoteDynFilterBuilder_ == null) {
+          if (bodyCase_ == 21) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 21) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          remoteDynFilterBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      public io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder getRemoteDynFilterBuilder() {
+        return getRemoteDynFilterFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder getRemoteDynFilterOrBuilder() {
+        if ((bodyCase_ == 21) && (remoteDynFilterBuilder_ != null)) {
+          return remoteDynFilterBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 21) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterRequest, io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder, io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder> 
+          getRemoteDynFilterFieldBuilder() {
+        if (remoteDynFilterBuilder_ == null) {
+          if (!(bodyCase_ == 21)) {
+            body_ = io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+          }
+          remoteDynFilterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.RemoteDynFilterRequest, io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder, io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder>(
+                  (io.greptime.v1.region.Server.RemoteDynFilterRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 21;
+        onChanged();;
+        return remoteDynFilterBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -36279,6 +36509,2463 @@ java.lang.String defaultValue);
 
   }
 
+  public interface RemoteDynFilterRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.RemoteDynFilterRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string query_id = 1;</code>
+     * @return The queryId.
+     */
+    java.lang.String getQueryId();
+    /**
+     * <code>string query_id = 1;</code>
+     * @return The bytes for queryId.
+     */
+    com.google.protobuf.ByteString
+        getQueryIdBytes();
+
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     * @return Whether the update field is set.
+     */
+    boolean hasUpdate();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     * @return The update.
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterUpdate getUpdate();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder getUpdateOrBuilder();
+
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     * @return Whether the unregister field is set.
+     */
+    boolean hasUnregister();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     * @return The unregister.
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterUnregister getUnregister();
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     */
+    io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder getUnregisterOrBuilder();
+
+    public io.greptime.v1.region.Server.RemoteDynFilterRequest.ActionCase getActionCase();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.RemoteDynFilterRequest}
+   */
+  public static final class RemoteDynFilterRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.RemoteDynFilterRequest)
+      RemoteDynFilterRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteDynFilterRequest.newBuilder() to construct.
+    private RemoteDynFilterRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteDynFilterRequest() {
+      queryId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteDynFilterRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteDynFilterRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              queryId_ = s;
+              break;
+            }
+            case 18: {
+              io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder subBuilder = null;
+              if (actionCase_ == 2) {
+                subBuilder = ((io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_).toBuilder();
+              }
+              action_ =
+                  input.readMessage(io.greptime.v1.region.Server.RemoteDynFilterUpdate.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_);
+                action_ = subBuilder.buildPartial();
+              }
+              actionCase_ = 2;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder subBuilder = null;
+              if (actionCase_ == 3) {
+                subBuilder = ((io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_).toBuilder();
+              }
+              action_ =
+                  input.readMessage(io.greptime.v1.region.Server.RemoteDynFilterUnregister.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_);
+                action_ = subBuilder.buildPartial();
+              }
+              actionCase_ = 3;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.RemoteDynFilterRequest.class, io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder.class);
+    }
+
+    private int actionCase_ = 0;
+    private java.lang.Object action_;
+    public enum ActionCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      UPDATE(2),
+      UNREGISTER(3),
+      ACTION_NOT_SET(0);
+      private final int value;
+      private ActionCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ActionCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ActionCase forNumber(int value) {
+        switch (value) {
+          case 2: return UPDATE;
+          case 3: return UNREGISTER;
+          case 0: return ACTION_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public ActionCase
+    getActionCase() {
+      return ActionCase.forNumber(
+          actionCase_);
+    }
+
+    public static final int QUERY_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object queryId_;
+    /**
+     * <code>string query_id = 1;</code>
+     * @return The queryId.
+     */
+    @java.lang.Override
+    public java.lang.String getQueryId() {
+      java.lang.Object ref = queryId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        queryId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string query_id = 1;</code>
+     * @return The bytes for queryId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getQueryIdBytes() {
+      java.lang.Object ref = queryId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        queryId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int UPDATE_FIELD_NUMBER = 2;
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     * @return Whether the update field is set.
+     */
+    @java.lang.Override
+    public boolean hasUpdate() {
+      return actionCase_ == 2;
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     * @return The update.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUpdate getUpdate() {
+      if (actionCase_ == 2) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder getUpdateOrBuilder() {
+      if (actionCase_ == 2) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+    }
+
+    public static final int UNREGISTER_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     * @return Whether the unregister field is set.
+     */
+    @java.lang.Override
+    public boolean hasUnregister() {
+      return actionCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     * @return The unregister.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUnregister getUnregister() {
+      if (actionCase_ == 3) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder getUnregisterOrBuilder() {
+      if (actionCase_ == 3) {
+         return (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_;
+      }
+      return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(queryId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, queryId_);
+      }
+      if (actionCase_ == 2) {
+        output.writeMessage(2, (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_);
+      }
+      if (actionCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(queryId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, queryId_);
+      }
+      if (actionCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_);
+      }
+      if (actionCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.RemoteDynFilterRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.RemoteDynFilterRequest other = (io.greptime.v1.region.Server.RemoteDynFilterRequest) obj;
+
+      if (!getQueryId()
+          .equals(other.getQueryId())) return false;
+      if (!getActionCase().equals(other.getActionCase())) return false;
+      switch (actionCase_) {
+        case 2:
+          if (!getUpdate()
+              .equals(other.getUpdate())) return false;
+          break;
+        case 3:
+          if (!getUnregister()
+              .equals(other.getUnregister())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + QUERY_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getQueryId().hashCode();
+      switch (actionCase_) {
+        case 2:
+          hash = (37 * hash) + UPDATE_FIELD_NUMBER;
+          hash = (53 * hash) + getUpdate().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + UNREGISTER_FIELD_NUMBER;
+          hash = (53 * hash) + getUnregister().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.RemoteDynFilterRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.RemoteDynFilterRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.RemoteDynFilterRequest)
+        io.greptime.v1.region.Server.RemoteDynFilterRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.RemoteDynFilterRequest.class, io.greptime.v1.region.Server.RemoteDynFilterRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.RemoteDynFilterRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        queryId_ = "";
+
+        actionCase_ = 0;
+        action_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterRequest getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterRequest build() {
+        io.greptime.v1.region.Server.RemoteDynFilterRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterRequest buildPartial() {
+        io.greptime.v1.region.Server.RemoteDynFilterRequest result = new io.greptime.v1.region.Server.RemoteDynFilterRequest(this);
+        result.queryId_ = queryId_;
+        if (actionCase_ == 2) {
+          if (updateBuilder_ == null) {
+            result.action_ = action_;
+          } else {
+            result.action_ = updateBuilder_.build();
+          }
+        }
+        if (actionCase_ == 3) {
+          if (unregisterBuilder_ == null) {
+            result.action_ = action_;
+          } else {
+            result.action_ = unregisterBuilder_.build();
+          }
+        }
+        result.actionCase_ = actionCase_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.RemoteDynFilterRequest) {
+          return mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.RemoteDynFilterRequest other) {
+        if (other == io.greptime.v1.region.Server.RemoteDynFilterRequest.getDefaultInstance()) return this;
+        if (!other.getQueryId().isEmpty()) {
+          queryId_ = other.queryId_;
+          onChanged();
+        }
+        switch (other.getActionCase()) {
+          case UPDATE: {
+            mergeUpdate(other.getUpdate());
+            break;
+          }
+          case UNREGISTER: {
+            mergeUnregister(other.getUnregister());
+            break;
+          }
+          case ACTION_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.RemoteDynFilterRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.RemoteDynFilterRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int actionCase_ = 0;
+      private java.lang.Object action_;
+      public ActionCase
+          getActionCase() {
+        return ActionCase.forNumber(
+            actionCase_);
+      }
+
+      public Builder clearAction() {
+        actionCase_ = 0;
+        action_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private java.lang.Object queryId_ = "";
+      /**
+       * <code>string query_id = 1;</code>
+       * @return The queryId.
+       */
+      public java.lang.String getQueryId() {
+        java.lang.Object ref = queryId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          queryId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string query_id = 1;</code>
+       * @return The bytes for queryId.
+       */
+      public com.google.protobuf.ByteString
+          getQueryIdBytes() {
+        java.lang.Object ref = queryId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          queryId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string query_id = 1;</code>
+       * @param value The queryId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQueryId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        queryId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearQueryId() {
+        
+        queryId_ = getDefaultInstance().getQueryId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string query_id = 1;</code>
+       * @param value The bytes for queryId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setQueryIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        queryId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterUpdate, io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder, io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder> updateBuilder_;
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       * @return Whether the update field is set.
+       */
+      @java.lang.Override
+      public boolean hasUpdate() {
+        return actionCase_ == 2;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       * @return The update.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdate getUpdate() {
+        if (updateBuilder_ == null) {
+          if (actionCase_ == 2) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+        } else {
+          if (actionCase_ == 2) {
+            return updateBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      public Builder setUpdate(io.greptime.v1.region.Server.RemoteDynFilterUpdate value) {
+        if (updateBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          action_ = value;
+          onChanged();
+        } else {
+          updateBuilder_.setMessage(value);
+        }
+        actionCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      public Builder setUpdate(
+          io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder builderForValue) {
+        if (updateBuilder_ == null) {
+          action_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateBuilder_.setMessage(builderForValue.build());
+        }
+        actionCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      public Builder mergeUpdate(io.greptime.v1.region.Server.RemoteDynFilterUpdate value) {
+        if (updateBuilder_ == null) {
+          if (actionCase_ == 2 &&
+              action_ != io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance()) {
+            action_ = io.greptime.v1.region.Server.RemoteDynFilterUpdate.newBuilder((io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            action_ = value;
+          }
+          onChanged();
+        } else {
+          if (actionCase_ == 2) {
+            updateBuilder_.mergeFrom(value);
+          } else {
+            updateBuilder_.setMessage(value);
+          }
+        }
+        actionCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      public Builder clearUpdate() {
+        if (updateBuilder_ == null) {
+          if (actionCase_ == 2) {
+            actionCase_ = 0;
+            action_ = null;
+            onChanged();
+          }
+        } else {
+          if (actionCase_ == 2) {
+            actionCase_ = 0;
+            action_ = null;
+          }
+          updateBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder getUpdateBuilder() {
+        return getUpdateFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder getUpdateOrBuilder() {
+        if ((actionCase_ == 2) && (updateBuilder_ != null)) {
+          return updateBuilder_.getMessageOrBuilder();
+        } else {
+          if (actionCase_ == 2) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUpdate update = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterUpdate, io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder, io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder> 
+          getUpdateFieldBuilder() {
+        if (updateBuilder_ == null) {
+          if (!(actionCase_ == 2)) {
+            action_ = io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+          }
+          updateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.RemoteDynFilterUpdate, io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder, io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder>(
+                  (io.greptime.v1.region.Server.RemoteDynFilterUpdate) action_,
+                  getParentForChildren(),
+                  isClean());
+          action_ = null;
+        }
+        actionCase_ = 2;
+        onChanged();;
+        return updateBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterUnregister, io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder, io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder> unregisterBuilder_;
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       * @return Whether the unregister field is set.
+       */
+      @java.lang.Override
+      public boolean hasUnregister() {
+        return actionCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       * @return The unregister.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregister getUnregister() {
+        if (unregisterBuilder_ == null) {
+          if (actionCase_ == 3) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+        } else {
+          if (actionCase_ == 3) {
+            return unregisterBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      public Builder setUnregister(io.greptime.v1.region.Server.RemoteDynFilterUnregister value) {
+        if (unregisterBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          action_ = value;
+          onChanged();
+        } else {
+          unregisterBuilder_.setMessage(value);
+        }
+        actionCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      public Builder setUnregister(
+          io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder builderForValue) {
+        if (unregisterBuilder_ == null) {
+          action_ = builderForValue.build();
+          onChanged();
+        } else {
+          unregisterBuilder_.setMessage(builderForValue.build());
+        }
+        actionCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      public Builder mergeUnregister(io.greptime.v1.region.Server.RemoteDynFilterUnregister value) {
+        if (unregisterBuilder_ == null) {
+          if (actionCase_ == 3 &&
+              action_ != io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance()) {
+            action_ = io.greptime.v1.region.Server.RemoteDynFilterUnregister.newBuilder((io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            action_ = value;
+          }
+          onChanged();
+        } else {
+          if (actionCase_ == 3) {
+            unregisterBuilder_.mergeFrom(value);
+          } else {
+            unregisterBuilder_.setMessage(value);
+          }
+        }
+        actionCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      public Builder clearUnregister() {
+        if (unregisterBuilder_ == null) {
+          if (actionCase_ == 3) {
+            actionCase_ = 0;
+            action_ = null;
+            onChanged();
+          }
+        } else {
+          if (actionCase_ == 3) {
+            actionCase_ = 0;
+            action_ = null;
+          }
+          unregisterBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder getUnregisterBuilder() {
+        return getUnregisterFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder getUnregisterOrBuilder() {
+        if ((actionCase_ == 3) && (unregisterBuilder_ != null)) {
+          return unregisterBuilder_.getMessageOrBuilder();
+        } else {
+          if (actionCase_ == 3) {
+            return (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_;
+          }
+          return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.RemoteDynFilterUnregister unregister = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.RemoteDynFilterUnregister, io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder, io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder> 
+          getUnregisterFieldBuilder() {
+        if (unregisterBuilder_ == null) {
+          if (!(actionCase_ == 3)) {
+            action_ = io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+          }
+          unregisterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.RemoteDynFilterUnregister, io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder, io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder>(
+                  (io.greptime.v1.region.Server.RemoteDynFilterUnregister) action_,
+                  getParentForChildren(),
+                  isClean());
+          action_ = null;
+        }
+        actionCase_ = 3;
+        onChanged();;
+        return unregisterBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.RemoteDynFilterRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterRequest)
+    private static final io.greptime.v1.region.Server.RemoteDynFilterRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.RemoteDynFilterRequest();
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteDynFilterRequest>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteDynFilterRequest>() {
+      @java.lang.Override
+      public RemoteDynFilterRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteDynFilterRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteDynFilterRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteDynFilterRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RemoteDynFilterUpdateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.RemoteDynFilterUpdate)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The filterId.
+     */
+    java.lang.String getFilterId();
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The bytes for filterId.
+     */
+    com.google.protobuf.ByteString
+        getFilterIdBytes();
+
+    /**
+     * <code>bytes payload = 2;</code>
+     * @return The payload.
+     */
+    com.google.protobuf.ByteString getPayload();
+
+    /**
+     * <code>uint64 generation = 3;</code>
+     * @return The generation.
+     */
+    long getGeneration();
+
+    /**
+     * <code>bool is_complete = 4;</code>
+     * @return The isComplete.
+     */
+    boolean getIsComplete();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.RemoteDynFilterUpdate}
+   */
+  public static final class RemoteDynFilterUpdate extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.RemoteDynFilterUpdate)
+      RemoteDynFilterUpdateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteDynFilterUpdate.newBuilder() to construct.
+    private RemoteDynFilterUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteDynFilterUpdate() {
+      filterId_ = "";
+      payload_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteDynFilterUpdate();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteDynFilterUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              filterId_ = s;
+              break;
+            }
+            case 18: {
+
+              payload_ = input.readBytes();
+              break;
+            }
+            case 24: {
+
+              generation_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              isComplete_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.RemoteDynFilterUpdate.class, io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder.class);
+    }
+
+    public static final int FILTER_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object filterId_;
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The filterId.
+     */
+    @java.lang.Override
+    public java.lang.String getFilterId() {
+      java.lang.Object ref = filterId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filterId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The bytes for filterId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilterIdBytes() {
+      java.lang.Object ref = filterId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filterId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString payload_;
+    /**
+     * <code>bytes payload = 2;</code>
+     * @return The payload.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
+    }
+
+    public static final int GENERATION_FIELD_NUMBER = 3;
+    private long generation_;
+    /**
+     * <code>uint64 generation = 3;</code>
+     * @return The generation.
+     */
+    @java.lang.Override
+    public long getGeneration() {
+      return generation_;
+    }
+
+    public static final int IS_COMPLETE_FIELD_NUMBER = 4;
+    private boolean isComplete_;
+    /**
+     * <code>bool is_complete = 4;</code>
+     * @return The isComplete.
+     */
+    @java.lang.Override
+    public boolean getIsComplete() {
+      return isComplete_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filterId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filterId_);
+      }
+      if (!payload_.isEmpty()) {
+        output.writeBytes(2, payload_);
+      }
+      if (generation_ != 0L) {
+        output.writeUInt64(3, generation_);
+      }
+      if (isComplete_ != false) {
+        output.writeBool(4, isComplete_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filterId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filterId_);
+      }
+      if (!payload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, payload_);
+      }
+      if (generation_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, generation_);
+      }
+      if (isComplete_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, isComplete_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.RemoteDynFilterUpdate)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.RemoteDynFilterUpdate other = (io.greptime.v1.region.Server.RemoteDynFilterUpdate) obj;
+
+      if (!getFilterId()
+          .equals(other.getFilterId())) return false;
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
+      if (getGeneration()
+          != other.getGeneration()) return false;
+      if (getIsComplete()
+          != other.getIsComplete()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILTER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getFilterId().hashCode();
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
+      hash = (37 * hash) + GENERATION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getGeneration());
+      hash = (37 * hash) + IS_COMPLETE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsComplete());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.RemoteDynFilterUpdate prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.RemoteDynFilterUpdate}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.RemoteDynFilterUpdate)
+        io.greptime.v1.region.Server.RemoteDynFilterUpdateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.RemoteDynFilterUpdate.class, io.greptime.v1.region.Server.RemoteDynFilterUpdate.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.RemoteDynFilterUpdate.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        filterId_ = "";
+
+        payload_ = com.google.protobuf.ByteString.EMPTY;
+
+        generation_ = 0L;
+
+        isComplete_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdate getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdate build() {
+        io.greptime.v1.region.Server.RemoteDynFilterUpdate result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUpdate buildPartial() {
+        io.greptime.v1.region.Server.RemoteDynFilterUpdate result = new io.greptime.v1.region.Server.RemoteDynFilterUpdate(this);
+        result.filterId_ = filterId_;
+        result.payload_ = payload_;
+        result.generation_ = generation_;
+        result.isComplete_ = isComplete_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.RemoteDynFilterUpdate) {
+          return mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterUpdate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.RemoteDynFilterUpdate other) {
+        if (other == io.greptime.v1.region.Server.RemoteDynFilterUpdate.getDefaultInstance()) return this;
+        if (!other.getFilterId().isEmpty()) {
+          filterId_ = other.filterId_;
+          onChanged();
+        }
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
+        }
+        if (other.getGeneration() != 0L) {
+          setGeneration(other.getGeneration());
+        }
+        if (other.getIsComplete() != false) {
+          setIsComplete(other.getIsComplete());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.RemoteDynFilterUpdate parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.RemoteDynFilterUpdate) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object filterId_ = "";
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return The filterId.
+       */
+      public java.lang.String getFilterId() {
+        java.lang.Object ref = filterId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filterId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return The bytes for filterId.
+       */
+      public com.google.protobuf.ByteString
+          getFilterIdBytes() {
+        java.lang.Object ref = filterId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filterId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @param value The filterId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filterId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilterId() {
+        
+        filterId_ = getDefaultInstance().getFilterId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @param value The bytes for filterId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filterId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes payload = 2;</code>
+       * @return The payload.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
+      }
+      /**
+       * <code>bytes payload = 2;</code>
+       * @param value The payload to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        payload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes payload = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
+        onChanged();
+        return this;
+      }
+
+      private long generation_ ;
+      /**
+       * <code>uint64 generation = 3;</code>
+       * @return The generation.
+       */
+      @java.lang.Override
+      public long getGeneration() {
+        return generation_;
+      }
+      /**
+       * <code>uint64 generation = 3;</code>
+       * @param value The generation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGeneration(long value) {
+        
+        generation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 generation = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGeneration() {
+        
+        generation_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isComplete_ ;
+      /**
+       * <code>bool is_complete = 4;</code>
+       * @return The isComplete.
+       */
+      @java.lang.Override
+      public boolean getIsComplete() {
+        return isComplete_;
+      }
+      /**
+       * <code>bool is_complete = 4;</code>
+       * @param value The isComplete to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsComplete(boolean value) {
+        
+        isComplete_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_complete = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsComplete() {
+        
+        isComplete_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.RemoteDynFilterUpdate)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterUpdate)
+    private static final io.greptime.v1.region.Server.RemoteDynFilterUpdate DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.RemoteDynFilterUpdate();
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterUpdate getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteDynFilterUpdate>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteDynFilterUpdate>() {
+      @java.lang.Override
+      public RemoteDynFilterUpdate parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteDynFilterUpdate(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteDynFilterUpdate> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteDynFilterUpdate> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUpdate getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RemoteDynFilterUnregisterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.RemoteDynFilterUnregister)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The filterId.
+     */
+    java.lang.String getFilterId();
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The bytes for filterId.
+     */
+    com.google.protobuf.ByteString
+        getFilterIdBytes();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.RemoteDynFilterUnregister}
+   */
+  public static final class RemoteDynFilterUnregister extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.RemoteDynFilterUnregister)
+      RemoteDynFilterUnregisterOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteDynFilterUnregister.newBuilder() to construct.
+    private RemoteDynFilterUnregister(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteDynFilterUnregister() {
+      filterId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteDynFilterUnregister();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteDynFilterUnregister(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              filterId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.RemoteDynFilterUnregister.class, io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder.class);
+    }
+
+    public static final int FILTER_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object filterId_;
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The filterId.
+     */
+    @java.lang.Override
+    public java.lang.String getFilterId() {
+      java.lang.Object ref = filterId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filterId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filter_id = 1;</code>
+     * @return The bytes for filterId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFilterIdBytes() {
+      java.lang.Object ref = filterId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filterId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filterId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filterId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filterId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filterId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.RemoteDynFilterUnregister)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.RemoteDynFilterUnregister other = (io.greptime.v1.region.Server.RemoteDynFilterUnregister) obj;
+
+      if (!getFilterId()
+          .equals(other.getFilterId())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILTER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getFilterId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.RemoteDynFilterUnregister prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.RemoteDynFilterUnregister}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.RemoteDynFilterUnregister)
+        io.greptime.v1.region.Server.RemoteDynFilterUnregisterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.RemoteDynFilterUnregister.class, io.greptime.v1.region.Server.RemoteDynFilterUnregister.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.RemoteDynFilterUnregister.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        filterId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregister getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregister build() {
+        io.greptime.v1.region.Server.RemoteDynFilterUnregister result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.RemoteDynFilterUnregister buildPartial() {
+        io.greptime.v1.region.Server.RemoteDynFilterUnregister result = new io.greptime.v1.region.Server.RemoteDynFilterUnregister(this);
+        result.filterId_ = filterId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.RemoteDynFilterUnregister) {
+          return mergeFrom((io.greptime.v1.region.Server.RemoteDynFilterUnregister)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.RemoteDynFilterUnregister other) {
+        if (other == io.greptime.v1.region.Server.RemoteDynFilterUnregister.getDefaultInstance()) return this;
+        if (!other.getFilterId().isEmpty()) {
+          filterId_ = other.filterId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.RemoteDynFilterUnregister parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.RemoteDynFilterUnregister) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object filterId_ = "";
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return The filterId.
+       */
+      public java.lang.String getFilterId() {
+        java.lang.Object ref = filterId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filterId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return The bytes for filterId.
+       */
+      public com.google.protobuf.ByteString
+          getFilterIdBytes() {
+        java.lang.Object ref = filterId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filterId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @param value The filterId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filterId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFilterId() {
+        
+        filterId_ = getDefaultInstance().getFilterId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filter_id = 1;</code>
+       * @param value The bytes for filterId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFilterIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filterId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.RemoteDynFilterUnregister)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterUnregister)
+    private static final io.greptime.v1.region.Server.RemoteDynFilterUnregister DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.RemoteDynFilterUnregister();
+    }
+
+    public static io.greptime.v1.region.Server.RemoteDynFilterUnregister getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteDynFilterUnregister>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteDynFilterUnregister>() {
+      @java.lang.Override
+      public RemoteDynFilterUnregister parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteDynFilterUnregister(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteDynFilterUnregister> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteDynFilterUnregister> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.RemoteDynFilterUnregister getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionRequestHeader_descriptor;
   private static final 
@@ -36479,6 +39166,21 @@ java.lang.String defaultValue);
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -36497,7 +39199,7 @@ java.lang.String defaultValue);
       "eader.TracingContextEntry\022\016\n\006dbname\030\003 \001(" +
       "\t\0220\n\rquery_context\030\006 \001(\0132\031.greptime.v1.Q" +
       "ueryContext\0325\n\023TracingContextEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\277\010\n\rRegionReq" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\210\t\n\rRegionReq" +
       "uest\0227\n\006header\030\001 \001(\0132\'.greptime.v1.regio" +
       "n.RegionRequestHeader\0225\n\007inserts\030\003 \001(\0132\"" +
       ".greptime.v1.region.InsertRequestsH\000\0225\n\007" +
@@ -36524,108 +39226,119 @@ java.lang.String defaultValue);
       "tH\000\022<\n\013build_index\030\023 \001(\0132%.greptime.v1.r" +
       "egion.BuildIndexRequestH\000\022Q\n\026apply_stagi" +
       "ng_manifest\030\024 \001(\0132/.greptime.v1.region.A" +
-      "pplyStagingManifestRequestH\000B\006\n\004body\"\341\001\n" +
-      "\016RegionResponse\022+\n\006header\030\001 \001(\0132\033.grepti" +
-      "me.v1.ResponseHeader\022\025\n\raffected_rows\030\002 " +
-      "\001(\004\022F\n\nextensions\030\003 \003(\01322.greptime.v1.re" +
-      "gion.RegionResponse.ExtensionsEntry\022\020\n\010m" +
-      "etadata\030\004 \001(\014\0321\n\017ExtensionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertReques" +
-      "ts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regio" +
-      "n.InsertRequest\"E\n\016DeleteRequests\0223\n\010req" +
-      "uests\030\001 \003(\0132!.greptime.v1.region.DeleteR" +
-      "equest\"\206\001\n\rInsertRequest\022\021\n\tregion_id\030\001 " +
-      "\001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022A\n\026" +
-      "partition_expr_version\030\003 \001(\0132!.greptime." +
-      "v1.PartitionExprVersion\"\206\001\n\rDeleteReques" +
-      "t\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.gre" +
-      "ptime.v1.Rows\022A\n\026partition_expr_version\030" +
-      "\003 \001(\0132!.greptime.v1.PartitionExprVersion" +
-      "\"h\n\014QueryRequest\0227\n\006header\030\001 \001(\0132\'.grept" +
-      "ime.v1.region.RegionRequestHeader\022\021\n\treg" +
-      "ion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016CreateRequ" +
-      "ests\0223\n\010requests\030\001 \003(\0132!.greptime.v1.reg" +
-      "ion.CreateRequest\"\260\002\n\rCreateRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column" +
-      "_defs\030\003 \003(\0132#.greptime.v1.region.RegionC" +
-      "olumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005 " +
-      "\001(\t\022?\n\007options\030\006 \003(\0132..greptime.v1.regio" +
-      "n.CreateRequest.OptionsEntry\022.\n\tpartitio" +
-      "n\030\007 \001(\0132\033.greptime.v1.meta.Partition\032.\n\014" +
-      "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
-      ":\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132\037" +
-      ".greptime.v1.region.DropRequest\"X\n\013DropR" +
-      "equest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002" +
-      " \001(\010\022\r\n\005force\030\003 \001(\010\022\024\n\014partial_drop\030\004 \001(" +
-      "\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006" +
-      "engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 " +
-      "\003(\0132,.greptime.v1.region.OpenRequest.Opt" +
-      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010request" +
-      "s\030\001 \003(\0132 .greptime.v1.region.AlterReques" +
-      "t\"\311\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
-      "\013add_columns\030\002 \001(\0132\036.greptime.v1.region." +
-      "AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gre" +
-      "ptime.v1.region.DropColumnsH\000\022=\n\023modify_" +
-      "column_types\030\005 \001(\0132\036.greptime.v1.ModifyC" +
-      "olumnTypesH\000\0229\n\021set_table_options\030\006 \001(\0132" +
-      "\034.greptime.v1.SetTableOptionsH\000\022=\n\023unset" +
-      "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
-      "TableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grep" +
-      "time.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132" +
-      "\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defau" +
-      "lts\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022." +
-      "\n\013set_indexes\030\r \001(\0132\027.greptime.v1.SetInd" +
-      "exesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.greptime" +
-      ".v1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001(\013" +
-      "2\030.greptime.v1.SetDefaultsH\000\0227\n\014sync_col" +
-      "umns\030\020 \001(\0132\037.greptime.v1.region.SyncColu" +
-      "mnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n" +
-      "\013SyncColumns\0228\n\013column_defs\030\001 \003(\0132#.grep" +
-      "time.v1.region.RegionColumnDef\"@\n\nAddCol" +
-      "umns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1." +
-      "region.AddColumn\"C\n\013DropColumns\0224\n\014drop_" +
-      "columns\030\001 \003(\0132\036.greptime.v1.region.DropC" +
-      "olumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#" +
-      ".greptime.v1.region.RegionColumnDef\0220\n\010l" +
-      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
-      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flu" +
-      "shRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"" +
-      "&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"" +
-      "\256\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n" +
-      "\007regular\030\002 \001(\0132\033.greptime.v1.region.Regu" +
-      "larH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime." +
-      "v1.region.StrictWindowH\000\022\023\n\013parallelism\030" +
-      "\004 \001(\rB\t\n\007options\"\204\001\n\017TruncateRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime." +
-      "v1.region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.g" +
-      "reptime.v1.TimeRangesH\000B\006\n\004kind\"\005\n\003All\"P" +
-      "\n\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026." +
-      "greptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r" +
-      "\"\235\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.Arrow" +
-      "IpcH\000\022A\n\026partition_expr_version\030\003 \001(\0132!." +
-      "greptime.v1.PartitionExprVersionB\006\n\004body" +
-      "\"1\n\020MitoManifestInfo\022\035\n\025data_manifest_ve" +
-      "rsion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025dat" +
-      "a_manifest_version\030\001 \001(\004\022!\n\031metadata_man" +
-      "ifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001" +
-      "(\0132$.greptime.v1.region.MitoManifestInfo" +
-      "H\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grept" +
-      "ime.v1.region.MetricManifestInfoH\000B\017\n\rma" +
-      "nifest_info\")\n\023ListMetadataRequest\022\022\n\nre" +
-      "gion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(" +
-      "\014\"z\n\033ApplyStagingManifestRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021c" +
-      "entral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030" +
-      "\004 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1." +
-      "region.RegionRequest\032\".greptime.v1.regio" +
-      "n.RegionResponseB]\n\025io.greptime.v1.regio" +
-      "nB\006ServerZ<github.com/GreptimeTeam/grept" +
-      "ime-proto/go/greptime/v1/regionb\006proto3"
+      "pplyStagingManifestRequestH\000\022G\n\021remote_d" +
+      "yn_filter\030\025 \001(\0132*.greptime.v1.region.Rem" +
+      "oteDynFilterRequestH\000B\006\n\004body\"\341\001\n\016Region" +
+      "Response\022+\n\006header\030\001 \001(\0132\033.greptime.v1.R" +
+      "esponseHeader\022\025\n\raffected_rows\030\002 \001(\004\022F\n\n" +
+      "extensions\030\003 \003(\01322.greptime.v1.region.Re" +
+      "gionResponse.ExtensionsEntry\022\020\n\010metadata" +
+      "\030\004 \001(\014\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\014:\0028\001\"E\n\016InsertRequests\0223\n\010r" +
+      "equests\030\001 \003(\0132!.greptime.v1.region.Inser" +
+      "tRequest\"E\n\016DeleteRequests\0223\n\010requests\030\001" +
+      " \003(\0132!.greptime.v1.region.DeleteRequest\"" +
+      "\206\001\n\rInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004" +
+      "rows\030\002 \001(\0132\021.greptime.v1.Rows\022A\n\026partiti" +
+      "on_expr_version\030\003 \001(\0132!.greptime.v1.Part" +
+      "itionExprVersion\"\206\001\n\rDeleteRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v" +
+      "1.Rows\022A\n\026partition_expr_version\030\003 \001(\0132!" +
+      ".greptime.v1.PartitionExprVersion\"h\n\014Que" +
+      "ryRequest\0227\n\006header\030\001 \001(\0132\'.greptime.v1." +
+      "region.RegionRequestHeader\022\021\n\tregion_id\030" +
+      "\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016CreateRequests\0223\n" +
+      "\010requests\030\001 \003(\0132!.greptime.v1.region.Cre" +
+      "ateRequest\"\260\002\n\rCreateRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003" +
+      " \003(\0132#.greptime.v1.region.RegionColumnDe" +
+      "f\022\023\n\013primary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007" +
+      "options\030\006 \003(\0132..greptime.v1.region.Creat" +
+      "eRequest.OptionsEntry\022.\n\tpartition\030\007 \001(\013" +
+      "2\033.greptime.v1.meta.Partition\032.\n\014Options" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"A\n" +
+      "\014DropRequests\0221\n\010requests\030\001 \003(\0132\037.grepti" +
+      "me.v1.region.DropRequest\"X\n\013DropRequest\022" +
+      "\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(\010\022\r\n" +
+      "\005force\030\003 \001(\010\022\024\n\014partial_drop\030\004 \001(\010\"\255\001\n\013O" +
+      "penRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030" +
+      "\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.g" +
+      "reptime.v1.region.OpenRequest.OptionsEnt" +
+      "ry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(\013" +
+      "2 .greptime.v1.region.AlterRequest\"\311\005\n\014A" +
+      "lterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_co" +
+      "lumns\030\002 \001(\0132\036.greptime.v1.region.AddColu" +
+      "mnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime.v" +
+      "1.region.DropColumnsH\000\022=\n\023modify_column_" +
+      "types\030\005 \001(\0132\036.greptime.v1.ModifyColumnTy" +
+      "pesH\000\0229\n\021set_table_options\030\006 \001(\0132\034.grept" +
+      "ime.v1.SetTableOptionsH\000\022=\n\023unset_table_" +
+      "options\030\t \001(\0132\036.greptime.v1.UnsetTableOp" +
+      "tionsH\000\022*\n\tset_index\030\n \001(\0132\025.greptime.v1" +
+      ".SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132\027.grept" +
+      "ime.v1.UnsetIndexH\000\0222\n\rdrop_defaults\030\014 \001" +
+      "(\0132\031.greptime.v1.DropDefaultsH\000\022.\n\013set_i" +
+      "ndexes\030\r \001(\0132\027.greptime.v1.SetIndexesH\000\022" +
+      "2\n\runset_indexes\030\016 \001(\0132\031.greptime.v1.Uns" +
+      "etIndexesH\000\0220\n\014set_defaults\030\017 \001(\0132\030.grep" +
+      "time.v1.SetDefaultsH\000\0227\n\014sync_columns\030\020 " +
+      "\001(\0132\037.greptime.v1.region.SyncColumnsH\000\022\026" +
+      "\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n\013SyncCo" +
+      "lumns\0228\n\013column_defs\030\001 \003(\0132#.greptime.v1" +
+      ".region.RegionColumnDef\"@\n\nAddColumns\0222\n" +
+      "\013add_columns\030\001 \003(\0132\035.greptime.v1.region." +
+      "AddColumn\"C\n\013DropColumns\0224\n\014drop_columns" +
+      "\030\001 \003(\0132\036.greptime.v1.region.DropColumn\"v" +
+      "\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.grepti" +
+      "me.v1.region.RegionColumnDef\0220\n\010location" +
+      "\030\003 \001(\0132\036.greptime.v1.AddColumnLocation\"\032" +
+      "\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014FlushReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014Stri" +
+      "ctWindow\022\026\n\016window_seconds\030\001 \001(\003\"\256\001\n\016Com" +
+      "pactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regula" +
+      "r\030\002 \001(\0132\033.greptime.v1.region.RegularH\000\0229" +
+      "\n\rstrict_window\030\003 \001(\0132 .greptime.v1.regi" +
+      "on.StrictWindowH\000\022\023\n\013parallelism\030\004 \001(\rB\t" +
+      "\n\007options\"\204\001\n\017TruncateRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime.v1.regi" +
+      "on.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.greptime" +
+      ".v1.TimeRangesH\000B\006\n\004kind\"\005\n\003All\"P\n\017Regio" +
+      "nColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptim" +
+      "e.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"\235\001\n\021Bu" +
+      "lkInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tar" +
+      "row_ipc\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000\022A" +
+      "\n\026partition_expr_version\030\003 \001(\0132!.greptim" +
+      "e.v1.PartitionExprVersionB\006\n\004body\"1\n\020Mit" +
+      "oManifestInfo\022\035\n\025data_manifest_version\030\001" +
+      " \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manif" +
+      "est_version\030\001 \001(\004\022!\n\031metadata_manifest_v" +
+      "ersion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.gr" +
+      "eptime.v1.region.MitoManifestInfoH\000\022F\n\024m" +
+      "etric_manifest_info\030\003 \001(\0132&.greptime.v1." +
+      "region.MetricManifestInfoH\000B\017\n\rmanifest_" +
+      "info\")\n\023ListMetadataRequest\022\022\n\nregion_id" +
+      "s\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033Ap" +
+      "plyStagingManifestRequest\022\021\n\tregion_id\030\001" +
+      " \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_" +
+      "region_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266" +
+      "\001\n\026RemoteDynFilterRequest\022\020\n\010query_id\030\001 " +
+      "\001(\t\022;\n\006update\030\002 \001(\0132).greptime.v1.region" +
+      ".RemoteDynFilterUpdateH\000\022C\n\nunregister\030\003" +
+      " \001(\0132-.greptime.v1.region.RemoteDynFilte" +
+      "rUnregisterH\000B\010\n\006action\"d\n\025RemoteDynFilt" +
+      "erUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002" +
+      " \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_complete\030" +
+      "\004 \001(\010\".\n\031RemoteDynFilterUnregister\022\021\n\tfi" +
+      "lter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022!.grep" +
+      "time.v1.region.RegionRequest\032\".greptime." +
+      "v1.region.RegionResponseB]\n\025io.greptime." +
+      "v1.regionB\006ServerZ<github.com/GreptimeTe" +
+      "am/greptime-proto/go/greptime/v1/regionb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -36652,7 +39365,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "ApplyStagingManifest", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "ApplyStagingManifest", "RemoteDynFilter", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
@@ -36875,6 +39588,24 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
         new java.lang.String[] { "RegionId", "PartitionExpr", "CentralRegionId", "ManifestPath", });
+    internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor,
+        new java.lang.String[] { "QueryId", "Update", "Unregister", "Action", });
+    internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor,
+        new java.lang.String[] { "FilterId", "Payload", "Generation", "IsComplete", });
+    internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor,
+        new java.lang.String[] { "FilterId", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     greptime.v1.meta.Route.getDescriptor();

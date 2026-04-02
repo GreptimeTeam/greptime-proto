@@ -61,6 +61,7 @@ message RegionRequest {
     ListMetadataRequest list_metadata = 18;
     BuildIndexRequest build_index = 19;
     ApplyStagingManifestRequest apply_staging_manifest = 20;
+    RemoteDynFilterRequest remote_dyn_filter = 21;
   }
 }
 
@@ -299,4 +300,23 @@ message ApplyStagingManifestRequest {
   uint64 central_region_id = 3;
   // Path to the staging manifest file.
   string manifest_path = 4;
+}
+
+message RemoteDynFilterRequest {
+  string query_id = 1;
+  oneof action {
+    RemoteDynFilterUpdate update = 2;
+    RemoteDynFilterUnregister unregister = 3;
+  }
+}
+
+message RemoteDynFilterUpdate {
+  string filter_id = 1;
+  bytes payload = 2;
+  uint64 generation = 3;
+  bool is_complete = 4;
+}
+
+message RemoteDynFilterUnregister {
+  string filter_id = 1;
 }
