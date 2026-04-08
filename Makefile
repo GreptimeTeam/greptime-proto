@@ -5,7 +5,7 @@ BUILDER_CONTAINER=namely/protoc-all:1.51_2
 all: rust go java cpp
 
 rust:
-	cargo build
+	cargo run --manifest-path xtask/Cargo.toml -- generate-rust
 
 go: go-deps
 	docker run --rm -t -w /greptime-proto \

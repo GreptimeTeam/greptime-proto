@@ -1,16 +1,17 @@
 # greptime-proto
 
-GreptimeDB protobuf files.
+GreptimeDB protobuf definitions and pre-generated Rust bindings.
 
 ## Build
 
 ### Requirement
 
-- [google/protobuf][protobuf] v3
+- Rust consumers do not need `protoc`.
+- Maintainers need [google/protobuf][protobuf] v3 to regenerate Rust bindings after `.proto` changes.
 
 ### Command
 
-- **Compile for Rust**
+- **Generate Rust bindings**
 
   ```console
   make rust
@@ -34,12 +35,11 @@ GreptimeDB protobuf files.
 
 ### Rust
 
-```Toml
-# Add this repository as dependency to your Cargo.toml file:
-greptime-proto = { git = "https://github.com/GreptimeTeam/greptime-proto.git" }
+```toml
+greptime-proto = "0.1"
 ```
 
-```Rust
+```rust
 // To use the GreptimeDB's gRPC service:
 use greptime_proto::v1::*;
 
@@ -48,6 +48,12 @@ use greptime_proto::v1::meta::*;
 
 // To request GreptimeDB as Prometheus remote read/write:
 use greptime_proto::prometheus::remote::*;
+```
+
+When working in this repository, regenerate the checked-in Rust bindings after `.proto` changes with:
+
+```console
+cargo run --manifest-path xtask/Cargo.toml -- generate-rust
 ```
 
 ### Go

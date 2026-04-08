@@ -2,7 +2,23 @@
 name = "greptime-proto"
 version = "0.1.0"
 edition = "2021"
+description = "Rust protobuf bindings for GreptimeDB APIs."
 license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/GreptimeTeam/greptime-proto"
+documentation = "https://docs.rs/greptime-proto"
+keywords = ["greptime", "greptimedb", "grpc", "protobuf", "proto"]
+categories = ["api-bindings"]
+include = [
+    "/Cargo.toml",
+    "/LICENSE",
+    "/README.md",
+    "/proto/**",
+    "/src/**",
+]
+
+[workspace]
+members = ["xtask"]
 
 [dependencies]
 prost = "0.14"
@@ -13,6 +29,3 @@ strum = "0.25"
 strum_macros = "0.25"
 tonic = "0.14"
 tonic-prost = "0.14"
-
-[build-dependencies]
-tonic-prost-build = "0.14"
