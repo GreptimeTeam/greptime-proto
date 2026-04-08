@@ -1,7 +1,37 @@
+// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 use std::env;
 use std::error::Error;
 use std::fs;
 use std::path::PathBuf;
+
+const LICENSE_HEADER: &str = r#"// Copyright 2023 Greptime Team
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+"#;
 
 const PROTO_FILES: &[&str] = &[
     "proto/greptime/v1/database.proto",
@@ -108,5 +138,21 @@ fn generate_rust() -> Result<(), Box<dyn Error>> {
         .bytes(".greptime.v1.ArrowIpc")
         .compile_protos(&proto_files, &include_dirs)?;
 
+    for generated_file in GENERATED_FILES {
+        if generated_file.ends_with(".rs") {
+            prepend_license_header(&generated_dir.join(generated_file))?;
+        }
+    }
+
+    Ok(())
+}
+
+fn prepend_license_header(path: &PathBuf) -> Result<(), Box<dyn Error>> {
+    let contents = fs::read_to_string(path)?;
+    if contents.starts_with(LICENSE_HEADER) {
+        return Ok(());
+    }
+
+    fs::write(path, format!("{LICENSE_HEADER}{contents}"))?;
     Ok(())
 }
