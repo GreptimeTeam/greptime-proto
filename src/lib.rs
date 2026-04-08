@@ -17,10 +17,10 @@ pub mod v1;
 
 pub mod prometheus {
     pub mod remote {
-        tonic::include_proto!("prometheus");
+        include!("generated/prometheus.rs");
     }
 }
 
 pub mod substrait_extension {
-    tonic::include_proto!("substrait_extension");
+    include!("generated/substrait_extension.rs");
 }

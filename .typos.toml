@@ -1,6 +1,7 @@
 [files]
 extend-exclude = [
     # Exclude all generated files
+    "src/generated/**",
     "**/greptime/v1/**",
     "java/**",
     "go/**",
