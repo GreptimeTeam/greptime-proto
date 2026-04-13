@@ -375,6 +375,8 @@ pub enum RegionRole {
     /// This role is used to prevent the region from being written during the
     /// downgrade process.
     DowngradingLeader = 2,
+    /// A leader under staging mode.
+    StagingLeader = 3,
 }
 impl RegionRole {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -386,6 +388,7 @@ impl RegionRole {
             Self::Leader => "Leader",
             Self::Follower => "Follower",
             Self::DowngradingLeader => "DowngradingLeader",
+            Self::StagingLeader => "StagingLeader",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -394,6 +397,7 @@ impl RegionRole {
             "Leader" => Some(Self::Leader),
             "Follower" => Some(Self::Follower),
             "DowngradingLeader" => Some(Self::DowngradingLeader),
+            "StagingLeader" => Some(Self::StagingLeader),
             _ => None,
         }
     }

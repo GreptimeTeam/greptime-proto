@@ -46,6 +46,14 @@ public final class HeartbeatOuterClass {
      * <code>DowngradingLeader = 2;</code>
      */
     DowngradingLeader(2),
+    /**
+     * <pre>
+     * A leader under staging mode.
+     * </pre>
+     *
+     * <code>StagingLeader = 3;</code>
+     */
+    StagingLeader(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -76,6 +84,14 @@ public final class HeartbeatOuterClass {
      * <code>DowngradingLeader = 2;</code>
      */
     public static final int DowngradingLeader_VALUE = 2;
+    /**
+     * <pre>
+     * A leader under staging mode.
+     * </pre>
+     *
+     * <code>StagingLeader = 3;</code>
+     */
+    public static final int StagingLeader_VALUE = 3;
 
 
     public final int getNumber() {
@@ -105,6 +121,7 @@ public final class HeartbeatOuterClass {
         case 0: return Leader;
         case 1: return Follower;
         case 2: return DowngradingLeader;
+        case 3: return StagingLeader;
         default: return null;
       }
     }
@@ -6151,7 +6168,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint32 cpus = 4 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=96
+     *     See greptime/v1/meta/heartbeat.proto;l=98
      * @return The cpus.
      */
     @java.lang.Deprecated int getCpus();
@@ -6163,7 +6180,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=98
+     *     See greptime/v1/meta/heartbeat.proto;l=100
      * @return The memoryBytes.
      */
     @java.lang.Deprecated long getMemoryBytes();
@@ -6479,7 +6496,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint32 cpus = 4 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=96
+     *     See greptime/v1/meta/heartbeat.proto;l=98
      * @return The cpus.
      */
     @java.lang.Override
@@ -6496,7 +6513,7 @@ com.google.protobuf.ByteString defaultValue);
      *
      * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
      * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-     *     See greptime/v1/meta/heartbeat.proto;l=98
+     *     See greptime/v1/meta/heartbeat.proto;l=100
      * @return The memoryBytes.
      */
     @java.lang.Override
@@ -7314,7 +7331,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=96
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @return The cpus.
        */
       @java.lang.Override
@@ -7328,7 +7345,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=96
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @param value The cpus to set.
        * @return This builder for chaining.
        */
@@ -7345,7 +7362,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint32 cpus = 4 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.cpus is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=96
+       *     See greptime/v1/meta/heartbeat.proto;l=98
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearCpus() {
@@ -7363,7 +7380,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=98
+       *     See greptime/v1/meta/heartbeat.proto;l=100
        * @return The memoryBytes.
        */
       @java.lang.Override
@@ -7377,7 +7394,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=98
+       *     See greptime/v1/meta/heartbeat.proto;l=100
        * @param value The memoryBytes to set.
        * @return This builder for chaining.
        */
@@ -7394,7 +7411,7 @@ com.google.protobuf.ByteString defaultValue);
        *
        * <code>uint64 memory_bytes = 5 [deprecated = true];</code>
        * @deprecated greptime.v1.meta.NodeInfo.memory_bytes is deprecated.
-       *     See greptime/v1/meta/heartbeat.proto;l=98
+       *     See greptime/v1/meta/heartbeat.proto;l=100
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearMemoryBytes() {
@@ -19174,15 +19191,16 @@ java.lang.String defaultValue);
       ".greptime.v1.meta.MailboxMessageHeader\022\n" +
       "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(" +
       "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022" +
-      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*=\n\nRegionRole" +
+      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole" +
       "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin" +
-      "gLeader\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".g" +
-      "reptime.v1.meta.HeartbeatRequest\032#.grept" +
-      "ime.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tA" +
-      "skLeader\022\".greptime.v1.meta.AskLeaderReq" +
-      "uest\032#.greptime.v1.meta.AskLeaderRespons" +
-      "e\"\000B<Z:github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1/metab\006proto3"
+      "gLeader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbe" +
+      "at\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heart" +
+      "beatRequest\032#.greptime.v1.meta.Heartbeat" +
+      "Response\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v" +
+      "1.meta.AskLeaderRequest\032#.greptime.v1.me" +
+      "ta.AskLeaderResponse\"\000B<Z:github.com/Gre" +
+      "ptimeTeam/greptime-proto/go/greptime/v1/" +
+      "metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
