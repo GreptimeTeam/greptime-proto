@@ -153,12 +153,13 @@ enum RegionRole : int {
   Leader = 0,
   Follower = 1,
   DowngradingLeader = 2,
+  StagingLeader = 3,
   RegionRole_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   RegionRole_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool RegionRole_IsValid(int value);
 constexpr RegionRole RegionRole_MIN = Leader;
-constexpr RegionRole RegionRole_MAX = DowngradingLeader;
+constexpr RegionRole RegionRole_MAX = StagingLeader;
 constexpr int RegionRole_ARRAYSIZE = RegionRole_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RegionRole_descriptor();

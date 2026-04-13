@@ -84,6 +84,8 @@ enum RegionRole {
   // This role is used to prevent the region from being written during the
   // downgrade process.
   DowngradingLeader = 2;
+  // A leader under staging mode.
+  StagingLeader = 3;
 }
 
 message NodeInfo {
