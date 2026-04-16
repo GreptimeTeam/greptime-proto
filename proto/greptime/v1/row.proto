@@ -100,6 +100,7 @@ message JsonValue {
     string str = 5;
     JsonList array = 6;
     JsonObject object = 7;
+    bytes variant = 8;
   }
 }
 
