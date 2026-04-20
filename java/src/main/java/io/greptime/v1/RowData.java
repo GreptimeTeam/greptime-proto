@@ -9325,6 +9325,17 @@ public final class RowData {
      */
     io.greptime.v1.RowData.JsonObjectOrBuilder getObjectOrBuilder();
 
+    /**
+     * <code>bytes variant = 8;</code>
+     * @return Whether the variant field is set.
+     */
+    boolean hasVariant();
+    /**
+     * <code>bytes variant = 8;</code>
+     * @return The variant.
+     */
+    com.google.protobuf.ByteString getVariant();
+
     public io.greptime.v1.RowData.JsonValue.ValueCase getValueCase();
   }
   /**
@@ -9426,6 +9437,11 @@ public final class RowData {
               valueCase_ = 7;
               break;
             }
+            case 66: {
+              value_ = input.readBytes();
+              valueCase_ = 8;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -9472,6 +9488,7 @@ public final class RowData {
       STR(5),
       ARRAY(6),
       OBJECT(7),
+      VARIANT(8),
       VALUE_NOT_SET(0);
       private final int value;
       private ValueCase(int value) {
@@ -9496,6 +9513,7 @@ public final class RowData {
           case 5: return STR;
           case 6: return ARRAY;
           case 7: return OBJECT;
+          case 8: return VARIANT;
           case 0: return VALUE_NOT_SET;
           default: return null;
         }
@@ -9709,6 +9727,27 @@ public final class RowData {
       return io.greptime.v1.RowData.JsonObject.getDefaultInstance();
     }
 
+    public static final int VARIANT_FIELD_NUMBER = 8;
+    /**
+     * <code>bytes variant = 8;</code>
+     * @return Whether the variant field is set.
+     */
+    @java.lang.Override
+    public boolean hasVariant() {
+      return valueCase_ == 8;
+    }
+    /**
+     * <code>bytes variant = 8;</code>
+     * @return The variant.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getVariant() {
+      if (valueCase_ == 8) {
+        return (com.google.protobuf.ByteString) value_;
+      }
+      return com.google.protobuf.ByteString.EMPTY;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9747,6 +9786,10 @@ public final class RowData {
       }
       if (valueCase_ == 7) {
         output.writeMessage(7, (io.greptime.v1.RowData.JsonObject) value_);
+      }
+      if (valueCase_ == 8) {
+        output.writeBytes(
+            8, (com.google.protobuf.ByteString) value_);
       }
       unknownFields.writeTo(output);
     }
@@ -9787,6 +9830,11 @@ public final class RowData {
       if (valueCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, (io.greptime.v1.RowData.JsonObject) value_);
+      }
+      if (valueCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(
+              8, (com.google.protobuf.ByteString) value_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9834,6 +9882,10 @@ public final class RowData {
           if (!getObject()
               .equals(other.getObject())) return false;
           break;
+        case 8:
+          if (!getVariant()
+              .equals(other.getVariant())) return false;
+          break;
         case 0:
         default:
       }
@@ -9880,6 +9932,10 @@ public final class RowData {
         case 7:
           hash = (37 * hash) + OBJECT_FIELD_NUMBER;
           hash = (53 * hash) + getObject().hashCode();
+          break;
+        case 8:
+          hash = (37 * hash) + VARIANT_FIELD_NUMBER;
+          hash = (53 * hash) + getVariant().hashCode();
           break;
         case 0:
         default:
@@ -10074,6 +10130,9 @@ public final class RowData {
             result.value_ = objectBuilder_.build();
           }
         }
+        if (valueCase_ == 8) {
+          result.value_ = value_;
+        }
         result.valueCase_ = valueCase_;
         onBuilt();
         return result;
@@ -10152,6 +10211,10 @@ public final class RowData {
           }
           case OBJECT: {
             mergeObject(other.getObject());
+            break;
+          }
+          case VARIANT: {
+            setVariant(other.getVariant());
             break;
           }
           case VALUE_NOT_SET: {
@@ -10745,6 +10808,50 @@ public final class RowData {
         valueCase_ = 7;
         onChanged();;
         return objectBuilder_;
+      }
+
+      /**
+       * <code>bytes variant = 8;</code>
+       * @return Whether the variant field is set.
+       */
+      public boolean hasVariant() {
+        return valueCase_ == 8;
+      }
+      /**
+       * <code>bytes variant = 8;</code>
+       * @return The variant.
+       */
+      public com.google.protobuf.ByteString getVariant() {
+        if (valueCase_ == 8) {
+          return (com.google.protobuf.ByteString) value_;
+        }
+        return com.google.protobuf.ByteString.EMPTY;
+      }
+      /**
+       * <code>bytes variant = 8;</code>
+       * @param value The variant to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVariant(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  valueCase_ = 8;
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes variant = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVariant() {
+        if (valueCase_ == 8) {
+          valueCase_ = 0;
+          value_ = null;
+          onChanged();
+        }
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13258,18 +13365,19 @@ public final class RowData {
       "e\030* \001(\0132\026.greptime.v1.JsonValueH\000B\014\n\nval" +
       "ue_data\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.gr" +
       "eptime.v1.Value\"0\n\013StructValue\022!\n\005items\030" +
-      "\002 \003(\0132\022.greptime.v1.Value\"\271\001\n\tJsonValue\022" +
+      "\002 \003(\0132\022.greptime.v1.Value\"\314\001\n\tJsonValue\022" +
       "\021\n\007boolean\030\001 \001(\010H\000\022\r\n\003int\030\002 \001(\003H\000\022\016\n\004uin" +
       "t\030\003 \001(\004H\000\022\017\n\005float\030\004 \001(\001H\000\022\r\n\003str\030\005 \001(\tH" +
       "\000\022&\n\005array\030\006 \001(\0132\025.greptime.v1.JsonListH" +
       "\000\022)\n\006object\030\007 \001(\0132\027.greptime.v1.JsonObje" +
-      "ctH\000B\007\n\005value\"1\n\010JsonList\022%\n\005items\030\001 \003(\013" +
-      "2\026.greptime.v1.JsonValue\"y\n\nJsonObject\022." +
-      "\n\007entries\030\001 \003(\0132\035.greptime.v1.JsonObject" +
-      ".Entry\032;\n\005Entry\022\013\n\003key\030\001 \001(\t\022%\n\005value\030\002 " +
-      "\001(\0132\026.greptime.v1.JsonValueBP\n\016io.grepti" +
-      "me.v1B\007RowDataZ5github.com/GreptimeTeam/" +
-      "greptime-proto/go/greptime/v1b\006proto3"
+      "ctH\000\022\021\n\007variant\030\010 \001(\014H\000B\007\n\005value\"1\n\010Json" +
+      "List\022%\n\005items\030\001 \003(\0132\026.greptime.v1.JsonVa" +
+      "lue\"y\n\nJsonObject\022.\n\007entries\030\001 \003(\0132\035.gre" +
+      "ptime.v1.JsonObject.Entry\032;\n\005Entry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022%\n\005value\030\002 \001(\0132\026.greptime.v1.Jso" +
+      "nValueBP\n\016io.greptime.v1B\007RowDataZ5githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13317,7 +13425,7 @@ public final class RowData {
     internal_static_greptime_v1_JsonValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonValue_descriptor,
-        new java.lang.String[] { "Boolean", "Int", "Uint", "Float", "Str", "Array", "Object", "Value", });
+        new java.lang.String[] { "Boolean", "Int", "Uint", "Float", "Str", "Array", "Object", "Variant", "Value", });
     internal_static_greptime_v1_JsonList_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_JsonList_fieldAccessorTable = new
