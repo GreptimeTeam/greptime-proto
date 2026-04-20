@@ -1707,6 +1707,7 @@ class JsonValue final :
     kStr = 5,
     kArray = 6,
     kObject = 7,
+    kVariant = 8,
     VALUE_NOT_SET = 0,
   };
 
@@ -1795,6 +1796,7 @@ class JsonValue final :
     kStrFieldNumber = 5,
     kArrayFieldNumber = 6,
     kObjectFieldNumber = 7,
+    kVariantFieldNumber = 8,
   };
   // bool boolean = 1;
   bool has_boolean() const;
@@ -1902,6 +1904,24 @@ class JsonValue final :
       ::greptime::v1::JsonObject* object);
   ::greptime::v1::JsonObject* unsafe_arena_release_object();
 
+  // bytes variant = 8;
+  bool has_variant() const;
+  private:
+  bool _internal_has_variant() const;
+  public:
+  void clear_variant();
+  const std::string& variant() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_variant(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_variant();
+  PROTOBUF_NODISCARD std::string* release_variant();
+  void set_allocated_variant(std::string* variant);
+  private:
+  const std::string& _internal_variant() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_variant(const std::string& value);
+  std::string* _internal_mutable_variant();
+  public:
+
   void clear_value();
   ValueCase value_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.JsonValue)
@@ -1914,6 +1934,7 @@ class JsonValue final :
   void set_has_str();
   void set_has_array();
   void set_has_object();
+  void set_has_variant();
 
   inline bool has_value() const;
   inline void clear_has_value();
@@ -1932,6 +1953,7 @@ class JsonValue final :
       ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr str_;
       ::greptime::v1::JsonList* array_;
       ::greptime::v1::JsonObject* object_;
+      ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr variant_;
     } value_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -4690,6 +4712,83 @@ inline ::greptime::v1::JsonObject* JsonValue::mutable_object() {
   ::greptime::v1::JsonObject* _msg = _internal_mutable_object();
   // @@protoc_insertion_point(field_mutable:greptime.v1.JsonValue.object)
   return _msg;
+}
+
+// bytes variant = 8;
+inline bool JsonValue::_internal_has_variant() const {
+  return value_case() == kVariant;
+}
+inline bool JsonValue::has_variant() const {
+  return _internal_has_variant();
+}
+inline void JsonValue::set_has_variant() {
+  _impl_._oneof_case_[0] = kVariant;
+}
+inline void JsonValue::clear_variant() {
+  if (_internal_has_variant()) {
+    _impl_.value_.variant_.Destroy();
+    clear_has_value();
+  }
+}
+inline const std::string& JsonValue::variant() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonValue.variant)
+  return _internal_variant();
+}
+template <typename ArgT0, typename... ArgT>
+inline void JsonValue::set_variant(ArgT0&& arg0, ArgT... args) {
+  if (!_internal_has_variant()) {
+    clear_value();
+    set_has_variant();
+    _impl_.value_.variant_.InitDefault();
+  }
+  _impl_.value_.variant_.SetBytes( static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonValue.variant)
+}
+inline std::string* JsonValue::mutable_variant() {
+  std::string* _s = _internal_mutable_variant();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonValue.variant)
+  return _s;
+}
+inline const std::string& JsonValue::_internal_variant() const {
+  if (_internal_has_variant()) {
+    return _impl_.value_.variant_.Get();
+  }
+  return ::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void JsonValue::_internal_set_variant(const std::string& value) {
+  if (!_internal_has_variant()) {
+    clear_value();
+    set_has_variant();
+    _impl_.value_.variant_.InitDefault();
+  }
+  _impl_.value_.variant_.Set(value, GetArenaForAllocation());
+}
+inline std::string* JsonValue::_internal_mutable_variant() {
+  if (!_internal_has_variant()) {
+    clear_value();
+    set_has_variant();
+    _impl_.value_.variant_.InitDefault();
+  }
+  return _impl_.value_.variant_.Mutable(      GetArenaForAllocation());
+}
+inline std::string* JsonValue::release_variant() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonValue.variant)
+  if (_internal_has_variant()) {
+    clear_has_value();
+    return _impl_.value_.variant_.Release();
+  } else {
+    return nullptr;
+  }
+}
+inline void JsonValue::set_allocated_variant(std::string* variant) {
+  if (has_value()) {
+    clear_value();
+  }
+  if (variant != nullptr) {
+    set_has_variant();
+    _impl_.value_.variant_.InitAllocated(variant, GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonValue.variant)
 }
 
 inline bool JsonValue::has_value() const {

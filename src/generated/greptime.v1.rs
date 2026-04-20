@@ -634,7 +634,7 @@ pub struct StructValue {
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct JsonValue {
-    #[prost(oneof = "json_value::Value", tags = "1, 2, 3, 4, 5, 6, 7")]
+    #[prost(oneof = "json_value::Value", tags = "1, 2, 3, 4, 5, 6, 7, 8")]
     pub value: ::core::option::Option<json_value::Value>,
 }
 /// Nested message and enum types in `JsonValue`.
@@ -655,6 +655,8 @@ pub mod json_value {
         Array(super::JsonList),
         #[prost(message, tag = "7")]
         Object(super::JsonObject),
+        #[prost(bytes, tag = "8")]
+        Variant(::prost::alloc::vec::Vec<u8>),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]

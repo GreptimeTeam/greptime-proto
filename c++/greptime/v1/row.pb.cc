@@ -257,6 +257,7 @@ const uint32_t TableStruct_greptime_2fv1_2frow_2eproto::offsets[] PROTOBUF_SECTI
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonValue, _impl_.value_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonList, _internal_metadata_),
@@ -289,9 +290,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 63, -1, -1, sizeof(::greptime::v1::ListValue)},
   { 70, -1, -1, sizeof(::greptime::v1::StructValue)},
   { 77, -1, -1, sizeof(::greptime::v1::JsonValue)},
-  { 91, -1, -1, sizeof(::greptime::v1::JsonList)},
-  { 98, -1, -1, sizeof(::greptime::v1::JsonObject_Entry)},
-  { 106, -1, -1, sizeof(::greptime::v1::JsonObject)},
+  { 92, -1, -1, sizeof(::greptime::v1::JsonList)},
+  { 99, -1, -1, sizeof(::greptime::v1::JsonObject_Entry)},
+  { 107, -1, -1, sizeof(::greptime::v1::JsonObject)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -345,25 +346,26 @@ const char descriptor_table_protodef_greptime_2fv1_2frow_2eproto[] PROTOBUF_SECT
   "e\030* \001(\0132\026.greptime.v1.JsonValueH\000B\014\n\nval"
   "ue_data\".\n\tListValue\022!\n\005items\030\001 \003(\0132\022.gr"
   "eptime.v1.Value\"0\n\013StructValue\022!\n\005items\030"
-  "\002 \003(\0132\022.greptime.v1.Value\"\271\001\n\tJsonValue\022"
+  "\002 \003(\0132\022.greptime.v1.Value\"\314\001\n\tJsonValue\022"
   "\021\n\007boolean\030\001 \001(\010H\000\022\r\n\003int\030\002 \001(\003H\000\022\016\n\004uin"
   "t\030\003 \001(\004H\000\022\017\n\005float\030\004 \001(\001H\000\022\r\n\003str\030\005 \001(\tH"
   "\000\022&\n\005array\030\006 \001(\0132\025.greptime.v1.JsonListH"
   "\000\022)\n\006object\030\007 \001(\0132\027.greptime.v1.JsonObje"
-  "ctH\000B\007\n\005value\"1\n\010JsonList\022%\n\005items\030\001 \003(\013"
-  "2\026.greptime.v1.JsonValue\"y\n\nJsonObject\022."
-  "\n\007entries\030\001 \003(\0132\035.greptime.v1.JsonObject"
-  ".Entry\032;\n\005Entry\022\013\n\003key\030\001 \001(\t\022%\n\005value\030\002 "
-  "\001(\0132\026.greptime.v1.JsonValueBP\n\016io.grepti"
-  "me.v1B\007RowDataZ5github.com/GreptimeTeam/"
-  "greptime-proto/go/greptime/v1b\006proto3"
+  "ctH\000\022\021\n\007variant\030\010 \001(\014H\000B\007\n\005value\"1\n\010Json"
+  "List\022%\n\005items\030\001 \003(\0132\026.greptime.v1.JsonVa"
+  "lue\"y\n\nJsonObject\022.\n\007entries\030\001 \003(\0132\035.gre"
+  "ptime.v1.JsonObject.Entry\032;\n\005Entry\022\013\n\003ke"
+  "y\030\001 \001(\t\022%\n\005value\030\002 \001(\0132\026.greptime.v1.Jso"
+  "nValueBP\n\016io.greptime.v1B\007RowDataZ5githu"
+  "b.com/GreptimeTeam/greptime-proto/go/gre"
+  "ptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2frow_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2frow_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2frow_2eproto = {
-    false, false, 1957, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
+    false, false, 1976, descriptor_table_protodef_greptime_2fv1_2frow_2eproto,
     "greptime/v1/row.proto",
     &descriptor_table_greptime_2fv1_2frow_2eproto_once, descriptor_table_greptime_2fv1_2frow_2eproto_deps, 1, 10,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2frow_2eproto::offsets,
@@ -2912,6 +2914,10 @@ JsonValue::JsonValue(const JsonValue& from)
           from._internal_object());
       break;
     }
+    case kVariant: {
+      _this->_internal_set_variant(from._internal_variant());
+      break;
+    }
     case VALUE_NOT_SET: {
       break;
     }
@@ -2984,6 +2990,10 @@ void JsonValue::clear_value() {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.value_.object_;
       }
+      break;
+    }
+    case kVariant: {
+      _impl_.value_.variant_.Destroy();
       break;
     }
     case VALUE_NOT_SET: {
@@ -3068,6 +3078,15 @@ const char* JsonValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         } else
           goto handle_unusual;
         continue;
+      // bytes variant = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          auto str = _internal_mutable_variant();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -3145,6 +3164,12 @@ uint8_t* JsonValue::_InternalSerialize(
         _Internal::object(this).GetCachedSize(), target, stream);
   }
 
+  // bytes variant = 8;
+  if (_internal_has_variant()) {
+    target = stream->WriteBytesMaybeAliased(
+        8, this->_internal_variant(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3203,6 +3228,13 @@ size_t JsonValue::ByteSizeLong() const {
           *_impl_.value_.object_);
       break;
     }
+    // bytes variant = 8;
+    case kVariant: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+          this->_internal_variant());
+      break;
+    }
     case VALUE_NOT_SET: {
       break;
     }
@@ -3254,6 +3286,10 @@ void JsonValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
     case kObject: {
       _this->_internal_mutable_object()->::greptime::v1::JsonObject::MergeFrom(
           from._internal_object());
+      break;
+    }
+    case kVariant: {
+      _this->_internal_set_variant(from._internal_variant());
       break;
     }
     case VALUE_NOT_SET: {
