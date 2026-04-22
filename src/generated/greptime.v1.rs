@@ -324,6 +324,7 @@ pub enum SemanticType {
     Tag = 0,
     Field = 1,
     Timestamp = 2,
+    FollowSchema = 3,
 }
 impl SemanticType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -335,6 +336,7 @@ impl SemanticType {
             Self::Tag => "TAG",
             Self::Field => "FIELD",
             Self::Timestamp => "TIMESTAMP",
+            Self::FollowSchema => "FOLLOW_SCHEMA",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -343,6 +345,7 @@ impl SemanticType {
             "TAG" => Some(Self::Tag),
             "FIELD" => Some(Self::Field),
             "TIMESTAMP" => Some(Self::Timestamp),
+            "FOLLOW_SCHEMA" => Some(Self::FollowSchema),
             _ => None,
         }
     }

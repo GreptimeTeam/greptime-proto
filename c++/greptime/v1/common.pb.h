@@ -201,12 +201,13 @@ enum SemanticType : int {
   TAG = 0,
   FIELD = 1,
   TIMESTAMP = 2,
+  FOLLOW_SCHEMA = 3,
   SemanticType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   SemanticType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool SemanticType_IsValid(int value);
 constexpr SemanticType SemanticType_MIN = TAG;
-constexpr SemanticType SemanticType_MAX = TIMESTAMP;
+constexpr SemanticType SemanticType_MAX = FOLLOW_SCHEMA;
 constexpr int SemanticType_ARRAYSIZE = SemanticType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SemanticType_descriptor();
