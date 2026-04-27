@@ -163,6 +163,15 @@ extern RegionResponse_ExtensionsEntry_DoNotUseDefaultTypeInternal _RegionRespons
 class Regular;
 struct RegularDefaultTypeInternal;
 extern RegularDefaultTypeInternal _Regular_default_instance_;
+class RemoteDynFilterRequest;
+struct RemoteDynFilterRequestDefaultTypeInternal;
+extern RemoteDynFilterRequestDefaultTypeInternal _RemoteDynFilterRequest_default_instance_;
+class RemoteDynFilterUnregister;
+struct RemoteDynFilterUnregisterDefaultTypeInternal;
+extern RemoteDynFilterUnregisterDefaultTypeInternal _RemoteDynFilterUnregister_default_instance_;
+class RemoteDynFilterUpdate;
+struct RemoteDynFilterUpdateDefaultTypeInternal;
+extern RemoteDynFilterUpdateDefaultTypeInternal _RemoteDynFilterUpdate_default_instance_;
 class StrictWindow;
 struct StrictWindowDefaultTypeInternal;
 extern StrictWindowDefaultTypeInternal _StrictWindow_default_instance_;
@@ -215,6 +224,9 @@ template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNot
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
+template<> ::greptime::v1::region::RemoteDynFilterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RemoteDynFilterRequest>(Arena*);
+template<> ::greptime::v1::region::RemoteDynFilterUnregister* Arena::CreateMaybeMessage<::greptime::v1::region::RemoteDynFilterUnregister>(Arena*);
+template<> ::greptime::v1::region::RemoteDynFilterUpdate* Arena::CreateMaybeMessage<::greptime::v1::region::RemoteDynFilterUpdate>(Arena*);
 template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::greptime::v1::region::StrictWindow>(Arena*);
 template<> ::greptime::v1::region::SyncColumns* Arena::CreateMaybeMessage<::greptime::v1::region::SyncColumns>(Arena*);
 template<> ::greptime::v1::region::SyncRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SyncRequest>(Arena*);
@@ -515,6 +527,7 @@ class RegionRequest final :
     kListMetadata = 18,
     kBuildIndex = 19,
     kApplyStagingManifest = 20,
+    kRemoteDynFilter = 21,
     BODY_NOT_SET = 0,
   };
 
@@ -615,6 +628,7 @@ class RegionRequest final :
     kListMetadataFieldNumber = 18,
     kBuildIndexFieldNumber = 19,
     kApplyStagingManifestFieldNumber = 20,
+    kRemoteDynFilterFieldNumber = 21,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -958,6 +972,24 @@ class RegionRequest final :
       ::greptime::v1::region::ApplyStagingManifestRequest* apply_staging_manifest);
   ::greptime::v1::region::ApplyStagingManifestRequest* unsafe_arena_release_apply_staging_manifest();
 
+  // .greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;
+  bool has_remote_dyn_filter() const;
+  private:
+  bool _internal_has_remote_dyn_filter() const;
+  public:
+  void clear_remote_dyn_filter();
+  const ::greptime::v1::region::RemoteDynFilterRequest& remote_dyn_filter() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RemoteDynFilterRequest* release_remote_dyn_filter();
+  ::greptime::v1::region::RemoteDynFilterRequest* mutable_remote_dyn_filter();
+  void set_allocated_remote_dyn_filter(::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter);
+  private:
+  const ::greptime::v1::region::RemoteDynFilterRequest& _internal_remote_dyn_filter() const;
+  ::greptime::v1::region::RemoteDynFilterRequest* _internal_mutable_remote_dyn_filter();
+  public:
+  void unsafe_arena_set_allocated_remote_dyn_filter(
+      ::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter);
+  ::greptime::v1::region::RemoteDynFilterRequest* unsafe_arena_release_remote_dyn_filter();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -981,6 +1013,7 @@ class RegionRequest final :
   void set_has_list_metadata();
   void set_has_build_index();
   void set_has_apply_staging_manifest();
+  void set_has_remote_dyn_filter();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -1011,6 +1044,7 @@ class RegionRequest final :
       ::greptime::v1::region::ListMetadataRequest* list_metadata_;
       ::greptime::v1::region::BuildIndexRequest* build_index_;
       ::greptime::v1::region::ApplyStagingManifestRequest* apply_staging_manifest_;
+      ::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -7199,6 +7233,562 @@ class ApplyStagingManifestRequest final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
 };
+// -------------------------------------------------------------------
+
+class RemoteDynFilterRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemoteDynFilterRequest) */ {
+ public:
+  inline RemoteDynFilterRequest() : RemoteDynFilterRequest(nullptr) {}
+  ~RemoteDynFilterRequest() override;
+  explicit PROTOBUF_CONSTEXPR RemoteDynFilterRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteDynFilterRequest(const RemoteDynFilterRequest& from);
+  RemoteDynFilterRequest(RemoteDynFilterRequest&& from) noexcept
+    : RemoteDynFilterRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteDynFilterRequest& operator=(const RemoteDynFilterRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteDynFilterRequest& operator=(RemoteDynFilterRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteDynFilterRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  enum ActionCase {
+    kUpdate = 2,
+    kUnregister = 3,
+    ACTION_NOT_SET = 0,
+  };
+
+  static inline const RemoteDynFilterRequest* internal_default_instance() {
+    return reinterpret_cast<const RemoteDynFilterRequest*>(
+               &_RemoteDynFilterRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    40;
+
+  friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteDynFilterRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteDynFilterRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteDynFilterRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteDynFilterRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoteDynFilterRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoteDynFilterRequest& from) {
+    RemoteDynFilterRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoteDynFilterRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemoteDynFilterRequest";
+  }
+  protected:
+  explicit RemoteDynFilterRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kQueryIdFieldNumber = 1,
+    kUpdateFieldNumber = 2,
+    kUnregisterFieldNumber = 3,
+  };
+  // string query_id = 1;
+  void clear_query_id();
+  const std::string& query_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_query_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_query_id();
+  PROTOBUF_NODISCARD std::string* release_query_id();
+  void set_allocated_query_id(std::string* query_id);
+  private:
+  const std::string& _internal_query_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_query_id(const std::string& value);
+  std::string* _internal_mutable_query_id();
+  public:
+
+  // .greptime.v1.region.RemoteDynFilterUpdate update = 2;
+  bool has_update() const;
+  private:
+  bool _internal_has_update() const;
+  public:
+  void clear_update();
+  const ::greptime::v1::region::RemoteDynFilterUpdate& update() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RemoteDynFilterUpdate* release_update();
+  ::greptime::v1::region::RemoteDynFilterUpdate* mutable_update();
+  void set_allocated_update(::greptime::v1::region::RemoteDynFilterUpdate* update);
+  private:
+  const ::greptime::v1::region::RemoteDynFilterUpdate& _internal_update() const;
+  ::greptime::v1::region::RemoteDynFilterUpdate* _internal_mutable_update();
+  public:
+  void unsafe_arena_set_allocated_update(
+      ::greptime::v1::region::RemoteDynFilterUpdate* update);
+  ::greptime::v1::region::RemoteDynFilterUpdate* unsafe_arena_release_update();
+
+  // .greptime.v1.region.RemoteDynFilterUnregister unregister = 3;
+  bool has_unregister() const;
+  private:
+  bool _internal_has_unregister() const;
+  public:
+  void clear_unregister();
+  const ::greptime::v1::region::RemoteDynFilterUnregister& unregister() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RemoteDynFilterUnregister* release_unregister();
+  ::greptime::v1::region::RemoteDynFilterUnregister* mutable_unregister();
+  void set_allocated_unregister(::greptime::v1::region::RemoteDynFilterUnregister* unregister);
+  private:
+  const ::greptime::v1::region::RemoteDynFilterUnregister& _internal_unregister() const;
+  ::greptime::v1::region::RemoteDynFilterUnregister* _internal_mutable_unregister();
+  public:
+  void unsafe_arena_set_allocated_unregister(
+      ::greptime::v1::region::RemoteDynFilterUnregister* unregister);
+  ::greptime::v1::region::RemoteDynFilterUnregister* unsafe_arena_release_unregister();
+
+  void clear_action();
+  ActionCase action_case() const;
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterRequest)
+ private:
+  class _Internal;
+  void set_has_update();
+  void set_has_unregister();
+
+  inline bool has_action() const;
+  inline void clear_has_action();
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr query_id_;
+    union ActionUnion {
+      constexpr ActionUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::region::RemoteDynFilterUpdate* update_;
+      ::greptime::v1::region::RemoteDynFilterUnregister* unregister_;
+    } action_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemoteDynFilterUpdate final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemoteDynFilterUpdate) */ {
+ public:
+  inline RemoteDynFilterUpdate() : RemoteDynFilterUpdate(nullptr) {}
+  ~RemoteDynFilterUpdate() override;
+  explicit PROTOBUF_CONSTEXPR RemoteDynFilterUpdate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteDynFilterUpdate(const RemoteDynFilterUpdate& from);
+  RemoteDynFilterUpdate(RemoteDynFilterUpdate&& from) noexcept
+    : RemoteDynFilterUpdate() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteDynFilterUpdate& operator=(const RemoteDynFilterUpdate& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteDynFilterUpdate& operator=(RemoteDynFilterUpdate&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteDynFilterUpdate& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoteDynFilterUpdate* internal_default_instance() {
+    return reinterpret_cast<const RemoteDynFilterUpdate*>(
+               &_RemoteDynFilterUpdate_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    41;
+
+  friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteDynFilterUpdate* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteDynFilterUpdate* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteDynFilterUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteDynFilterUpdate>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoteDynFilterUpdate& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoteDynFilterUpdate& from) {
+    RemoteDynFilterUpdate::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoteDynFilterUpdate* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemoteDynFilterUpdate";
+  }
+  protected:
+  explicit RemoteDynFilterUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilterIdFieldNumber = 1,
+    kPayloadFieldNumber = 2,
+    kGenerationFieldNumber = 3,
+    kIsCompleteFieldNumber = 4,
+  };
+  // string filter_id = 1;
+  void clear_filter_id();
+  const std::string& filter_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filter_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filter_id();
+  PROTOBUF_NODISCARD std::string* release_filter_id();
+  void set_allocated_filter_id(std::string* filter_id);
+  private:
+  const std::string& _internal_filter_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filter_id(const std::string& value);
+  std::string* _internal_mutable_filter_id();
+  public:
+
+  // bytes payload = 2;
+  void clear_payload();
+  const std::string& payload() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_payload(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_payload();
+  PROTOBUF_NODISCARD std::string* release_payload();
+  void set_allocated_payload(std::string* payload);
+  private:
+  const std::string& _internal_payload() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_payload(const std::string& value);
+  std::string* _internal_mutable_payload();
+  public:
+
+  // uint64 generation = 3;
+  void clear_generation();
+  uint64_t generation() const;
+  void set_generation(uint64_t value);
+  private:
+  uint64_t _internal_generation() const;
+  void _internal_set_generation(uint64_t value);
+  public:
+
+  // bool is_complete = 4;
+  void clear_is_complete();
+  bool is_complete() const;
+  void set_is_complete(bool value);
+  private:
+  bool _internal_is_complete() const;
+  void _internal_set_is_complete(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterUpdate)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filter_id_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr payload_;
+    uint64_t generation_;
+    bool is_complete_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemoteDynFilterUnregister final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RemoteDynFilterUnregister) */ {
+ public:
+  inline RemoteDynFilterUnregister() : RemoteDynFilterUnregister(nullptr) {}
+  ~RemoteDynFilterUnregister() override;
+  explicit PROTOBUF_CONSTEXPR RemoteDynFilterUnregister(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteDynFilterUnregister(const RemoteDynFilterUnregister& from);
+  RemoteDynFilterUnregister(RemoteDynFilterUnregister&& from) noexcept
+    : RemoteDynFilterUnregister() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteDynFilterUnregister& operator=(const RemoteDynFilterUnregister& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteDynFilterUnregister& operator=(RemoteDynFilterUnregister&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteDynFilterUnregister& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoteDynFilterUnregister* internal_default_instance() {
+    return reinterpret_cast<const RemoteDynFilterUnregister*>(
+               &_RemoteDynFilterUnregister_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    42;
+
+  friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteDynFilterUnregister* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteDynFilterUnregister* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteDynFilterUnregister* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteDynFilterUnregister>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoteDynFilterUnregister& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoteDynFilterUnregister& from) {
+    RemoteDynFilterUnregister::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoteDynFilterUnregister* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RemoteDynFilterUnregister";
+  }
+  protected:
+  explicit RemoteDynFilterUnregister(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilterIdFieldNumber = 1,
+  };
+  // string filter_id = 1;
+  void clear_filter_id();
+  const std::string& filter_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filter_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filter_id();
+  PROTOBUF_NODISCARD std::string* release_filter_id();
+  void set_allocated_filter_id(std::string* filter_id);
+  private:
+  const std::string& _internal_filter_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filter_id(const std::string& value);
+  std::string* _internal_mutable_filter_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RemoteDynFilterUnregister)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filter_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
 // ===================================================================
 
 
@@ -8799,6 +9389,80 @@ inline ::greptime::v1::region::ApplyStagingManifestRequest* RegionRequest::_inte
 inline ::greptime::v1::region::ApplyStagingManifestRequest* RegionRequest::mutable_apply_staging_manifest() {
   ::greptime::v1::region::ApplyStagingManifestRequest* _msg = _internal_mutable_apply_staging_manifest();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.apply_staging_manifest)
+  return _msg;
+}
+
+// .greptime.v1.region.RemoteDynFilterRequest remote_dyn_filter = 21;
+inline bool RegionRequest::_internal_has_remote_dyn_filter() const {
+  return body_case() == kRemoteDynFilter;
+}
+inline bool RegionRequest::has_remote_dyn_filter() const {
+  return _internal_has_remote_dyn_filter();
+}
+inline void RegionRequest::set_has_remote_dyn_filter() {
+  _impl_._oneof_case_[0] = kRemoteDynFilter;
+}
+inline void RegionRequest::clear_remote_dyn_filter() {
+  if (_internal_has_remote_dyn_filter()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.remote_dyn_filter_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::RemoteDynFilterRequest* RegionRequest::release_remote_dyn_filter() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.remote_dyn_filter)
+  if (_internal_has_remote_dyn_filter()) {
+    clear_has_body();
+    ::greptime::v1::region::RemoteDynFilterRequest* temp = _impl_.body_.remote_dyn_filter_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.remote_dyn_filter_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::RemoteDynFilterRequest& RegionRequest::_internal_remote_dyn_filter() const {
+  return _internal_has_remote_dyn_filter()
+      ? *_impl_.body_.remote_dyn_filter_
+      : reinterpret_cast< ::greptime::v1::region::RemoteDynFilterRequest&>(::greptime::v1::region::_RemoteDynFilterRequest_default_instance_);
+}
+inline const ::greptime::v1::region::RemoteDynFilterRequest& RegionRequest::remote_dyn_filter() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.remote_dyn_filter)
+  return _internal_remote_dyn_filter();
+}
+inline ::greptime::v1::region::RemoteDynFilterRequest* RegionRequest::unsafe_arena_release_remote_dyn_filter() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.remote_dyn_filter)
+  if (_internal_has_remote_dyn_filter()) {
+    clear_has_body();
+    ::greptime::v1::region::RemoteDynFilterRequest* temp = _impl_.body_.remote_dyn_filter_;
+    _impl_.body_.remote_dyn_filter_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_remote_dyn_filter(::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter) {
+  clear_body();
+  if (remote_dyn_filter) {
+    set_has_remote_dyn_filter();
+    _impl_.body_.remote_dyn_filter_ = remote_dyn_filter;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.remote_dyn_filter)
+}
+inline ::greptime::v1::region::RemoteDynFilterRequest* RegionRequest::_internal_mutable_remote_dyn_filter() {
+  if (!_internal_has_remote_dyn_filter()) {
+    clear_body();
+    set_has_remote_dyn_filter();
+    _impl_.body_.remote_dyn_filter_ = CreateMaybeMessage< ::greptime::v1::region::RemoteDynFilterRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.remote_dyn_filter_;
+}
+inline ::greptime::v1::region::RemoteDynFilterRequest* RegionRequest::mutable_remote_dyn_filter() {
+  ::greptime::v1::region::RemoteDynFilterRequest* _msg = _internal_mutable_remote_dyn_filter();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.remote_dyn_filter)
   return _msg;
 }
 
@@ -12842,9 +13506,424 @@ inline void ApplyStagingManifestRequest::set_allocated_manifest_path(std::string
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.ApplyStagingManifestRequest.manifest_path)
 }
 
+// -------------------------------------------------------------------
+
+// RemoteDynFilterRequest
+
+// string query_id = 1;
+inline void RemoteDynFilterRequest::clear_query_id() {
+  _impl_.query_id_.ClearToEmpty();
+}
+inline const std::string& RemoteDynFilterRequest::query_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterRequest.query_id)
+  return _internal_query_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteDynFilterRequest::set_query_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.query_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterRequest.query_id)
+}
+inline std::string* RemoteDynFilterRequest::mutable_query_id() {
+  std::string* _s = _internal_mutable_query_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterRequest.query_id)
+  return _s;
+}
+inline const std::string& RemoteDynFilterRequest::_internal_query_id() const {
+  return _impl_.query_id_.Get();
+}
+inline void RemoteDynFilterRequest::_internal_set_query_id(const std::string& value) {
+  
+  _impl_.query_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterRequest::_internal_mutable_query_id() {
+  
+  return _impl_.query_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterRequest::release_query_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterRequest.query_id)
+  return _impl_.query_id_.Release();
+}
+inline void RemoteDynFilterRequest::set_allocated_query_id(std::string* query_id) {
+  if (query_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.query_id_.SetAllocated(query_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.query_id_.IsDefault()) {
+    _impl_.query_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemoteDynFilterRequest.query_id)
+}
+
+// .greptime.v1.region.RemoteDynFilterUpdate update = 2;
+inline bool RemoteDynFilterRequest::_internal_has_update() const {
+  return action_case() == kUpdate;
+}
+inline bool RemoteDynFilterRequest::has_update() const {
+  return _internal_has_update();
+}
+inline void RemoteDynFilterRequest::set_has_update() {
+  _impl_._oneof_case_[0] = kUpdate;
+}
+inline void RemoteDynFilterRequest::clear_update() {
+  if (_internal_has_update()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.action_.update_;
+    }
+    clear_has_action();
+  }
+}
+inline ::greptime::v1::region::RemoteDynFilterUpdate* RemoteDynFilterRequest::release_update() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterRequest.update)
+  if (_internal_has_update()) {
+    clear_has_action();
+    ::greptime::v1::region::RemoteDynFilterUpdate* temp = _impl_.action_.update_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.action_.update_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::RemoteDynFilterUpdate& RemoteDynFilterRequest::_internal_update() const {
+  return _internal_has_update()
+      ? *_impl_.action_.update_
+      : reinterpret_cast< ::greptime::v1::region::RemoteDynFilterUpdate&>(::greptime::v1::region::_RemoteDynFilterUpdate_default_instance_);
+}
+inline const ::greptime::v1::region::RemoteDynFilterUpdate& RemoteDynFilterRequest::update() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterRequest.update)
+  return _internal_update();
+}
+inline ::greptime::v1::region::RemoteDynFilterUpdate* RemoteDynFilterRequest::unsafe_arena_release_update() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RemoteDynFilterRequest.update)
+  if (_internal_has_update()) {
+    clear_has_action();
+    ::greptime::v1::region::RemoteDynFilterUpdate* temp = _impl_.action_.update_;
+    _impl_.action_.update_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RemoteDynFilterRequest::unsafe_arena_set_allocated_update(::greptime::v1::region::RemoteDynFilterUpdate* update) {
+  clear_action();
+  if (update) {
+    set_has_update();
+    _impl_.action_.update_ = update;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RemoteDynFilterRequest.update)
+}
+inline ::greptime::v1::region::RemoteDynFilterUpdate* RemoteDynFilterRequest::_internal_mutable_update() {
+  if (!_internal_has_update()) {
+    clear_action();
+    set_has_update();
+    _impl_.action_.update_ = CreateMaybeMessage< ::greptime::v1::region::RemoteDynFilterUpdate >(GetArenaForAllocation());
+  }
+  return _impl_.action_.update_;
+}
+inline ::greptime::v1::region::RemoteDynFilterUpdate* RemoteDynFilterRequest::mutable_update() {
+  ::greptime::v1::region::RemoteDynFilterUpdate* _msg = _internal_mutable_update();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterRequest.update)
+  return _msg;
+}
+
+// .greptime.v1.region.RemoteDynFilterUnregister unregister = 3;
+inline bool RemoteDynFilterRequest::_internal_has_unregister() const {
+  return action_case() == kUnregister;
+}
+inline bool RemoteDynFilterRequest::has_unregister() const {
+  return _internal_has_unregister();
+}
+inline void RemoteDynFilterRequest::set_has_unregister() {
+  _impl_._oneof_case_[0] = kUnregister;
+}
+inline void RemoteDynFilterRequest::clear_unregister() {
+  if (_internal_has_unregister()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.action_.unregister_;
+    }
+    clear_has_action();
+  }
+}
+inline ::greptime::v1::region::RemoteDynFilterUnregister* RemoteDynFilterRequest::release_unregister() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterRequest.unregister)
+  if (_internal_has_unregister()) {
+    clear_has_action();
+    ::greptime::v1::region::RemoteDynFilterUnregister* temp = _impl_.action_.unregister_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.action_.unregister_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::RemoteDynFilterUnregister& RemoteDynFilterRequest::_internal_unregister() const {
+  return _internal_has_unregister()
+      ? *_impl_.action_.unregister_
+      : reinterpret_cast< ::greptime::v1::region::RemoteDynFilterUnregister&>(::greptime::v1::region::_RemoteDynFilterUnregister_default_instance_);
+}
+inline const ::greptime::v1::region::RemoteDynFilterUnregister& RemoteDynFilterRequest::unregister() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterRequest.unregister)
+  return _internal_unregister();
+}
+inline ::greptime::v1::region::RemoteDynFilterUnregister* RemoteDynFilterRequest::unsafe_arena_release_unregister() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RemoteDynFilterRequest.unregister)
+  if (_internal_has_unregister()) {
+    clear_has_action();
+    ::greptime::v1::region::RemoteDynFilterUnregister* temp = _impl_.action_.unregister_;
+    _impl_.action_.unregister_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RemoteDynFilterRequest::unsafe_arena_set_allocated_unregister(::greptime::v1::region::RemoteDynFilterUnregister* unregister) {
+  clear_action();
+  if (unregister) {
+    set_has_unregister();
+    _impl_.action_.unregister_ = unregister;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RemoteDynFilterRequest.unregister)
+}
+inline ::greptime::v1::region::RemoteDynFilterUnregister* RemoteDynFilterRequest::_internal_mutable_unregister() {
+  if (!_internal_has_unregister()) {
+    clear_action();
+    set_has_unregister();
+    _impl_.action_.unregister_ = CreateMaybeMessage< ::greptime::v1::region::RemoteDynFilterUnregister >(GetArenaForAllocation());
+  }
+  return _impl_.action_.unregister_;
+}
+inline ::greptime::v1::region::RemoteDynFilterUnregister* RemoteDynFilterRequest::mutable_unregister() {
+  ::greptime::v1::region::RemoteDynFilterUnregister* _msg = _internal_mutable_unregister();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterRequest.unregister)
+  return _msg;
+}
+
+inline bool RemoteDynFilterRequest::has_action() const {
+  return action_case() != ACTION_NOT_SET;
+}
+inline void RemoteDynFilterRequest::clear_has_action() {
+  _impl_._oneof_case_[0] = ACTION_NOT_SET;
+}
+inline RemoteDynFilterRequest::ActionCase RemoteDynFilterRequest::action_case() const {
+  return RemoteDynFilterRequest::ActionCase(_impl_._oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// RemoteDynFilterUpdate
+
+// string filter_id = 1;
+inline void RemoteDynFilterUpdate::clear_filter_id() {
+  _impl_.filter_id_.ClearToEmpty();
+}
+inline const std::string& RemoteDynFilterUpdate::filter_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterUpdate.filter_id)
+  return _internal_filter_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteDynFilterUpdate::set_filter_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filter_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterUpdate.filter_id)
+}
+inline std::string* RemoteDynFilterUpdate::mutable_filter_id() {
+  std::string* _s = _internal_mutable_filter_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterUpdate.filter_id)
+  return _s;
+}
+inline const std::string& RemoteDynFilterUpdate::_internal_filter_id() const {
+  return _impl_.filter_id_.Get();
+}
+inline void RemoteDynFilterUpdate::_internal_set_filter_id(const std::string& value) {
+  
+  _impl_.filter_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUpdate::_internal_mutable_filter_id() {
+  
+  return _impl_.filter_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUpdate::release_filter_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterUpdate.filter_id)
+  return _impl_.filter_id_.Release();
+}
+inline void RemoteDynFilterUpdate::set_allocated_filter_id(std::string* filter_id) {
+  if (filter_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filter_id_.SetAllocated(filter_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filter_id_.IsDefault()) {
+    _impl_.filter_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemoteDynFilterUpdate.filter_id)
+}
+
+// bytes payload = 2;
+inline void RemoteDynFilterUpdate::clear_payload() {
+  _impl_.payload_.ClearToEmpty();
+}
+inline const std::string& RemoteDynFilterUpdate::payload() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterUpdate.payload)
+  return _internal_payload();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteDynFilterUpdate::set_payload(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.payload_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterUpdate.payload)
+}
+inline std::string* RemoteDynFilterUpdate::mutable_payload() {
+  std::string* _s = _internal_mutable_payload();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterUpdate.payload)
+  return _s;
+}
+inline const std::string& RemoteDynFilterUpdate::_internal_payload() const {
+  return _impl_.payload_.Get();
+}
+inline void RemoteDynFilterUpdate::_internal_set_payload(const std::string& value) {
+  
+  _impl_.payload_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUpdate::_internal_mutable_payload() {
+  
+  return _impl_.payload_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUpdate::release_payload() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterUpdate.payload)
+  return _impl_.payload_.Release();
+}
+inline void RemoteDynFilterUpdate::set_allocated_payload(std::string* payload) {
+  if (payload != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.payload_.SetAllocated(payload, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.payload_.IsDefault()) {
+    _impl_.payload_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemoteDynFilterUpdate.payload)
+}
+
+// uint64 generation = 3;
+inline void RemoteDynFilterUpdate::clear_generation() {
+  _impl_.generation_ = uint64_t{0u};
+}
+inline uint64_t RemoteDynFilterUpdate::_internal_generation() const {
+  return _impl_.generation_;
+}
+inline uint64_t RemoteDynFilterUpdate::generation() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterUpdate.generation)
+  return _internal_generation();
+}
+inline void RemoteDynFilterUpdate::_internal_set_generation(uint64_t value) {
+  
+  _impl_.generation_ = value;
+}
+inline void RemoteDynFilterUpdate::set_generation(uint64_t value) {
+  _internal_set_generation(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterUpdate.generation)
+}
+
+// bool is_complete = 4;
+inline void RemoteDynFilterUpdate::clear_is_complete() {
+  _impl_.is_complete_ = false;
+}
+inline bool RemoteDynFilterUpdate::_internal_is_complete() const {
+  return _impl_.is_complete_;
+}
+inline bool RemoteDynFilterUpdate::is_complete() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterUpdate.is_complete)
+  return _internal_is_complete();
+}
+inline void RemoteDynFilterUpdate::_internal_set_is_complete(bool value) {
+  
+  _impl_.is_complete_ = value;
+}
+inline void RemoteDynFilterUpdate::set_is_complete(bool value) {
+  _internal_set_is_complete(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterUpdate.is_complete)
+}
+
+// -------------------------------------------------------------------
+
+// RemoteDynFilterUnregister
+
+// string filter_id = 1;
+inline void RemoteDynFilterUnregister::clear_filter_id() {
+  _impl_.filter_id_.ClearToEmpty();
+}
+inline const std::string& RemoteDynFilterUnregister::filter_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RemoteDynFilterUnregister.filter_id)
+  return _internal_filter_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteDynFilterUnregister::set_filter_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filter_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RemoteDynFilterUnregister.filter_id)
+}
+inline std::string* RemoteDynFilterUnregister::mutable_filter_id() {
+  std::string* _s = _internal_mutable_filter_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RemoteDynFilterUnregister.filter_id)
+  return _s;
+}
+inline const std::string& RemoteDynFilterUnregister::_internal_filter_id() const {
+  return _impl_.filter_id_.Get();
+}
+inline void RemoteDynFilterUnregister::_internal_set_filter_id(const std::string& value) {
+  
+  _impl_.filter_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUnregister::_internal_mutable_filter_id() {
+  
+  return _impl_.filter_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteDynFilterUnregister::release_filter_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RemoteDynFilterUnregister.filter_id)
+  return _impl_.filter_id_.Release();
+}
+inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filter_id) {
+  if (filter_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filter_id_.SetAllocated(filter_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filter_id_.IsDefault()) {
+    _impl_.filter_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RemoteDynFilterUnregister.filter_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
