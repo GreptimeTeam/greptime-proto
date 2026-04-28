@@ -15319,6 +15319,17 @@ java.lang.String defaultValue);
      * @return The partialDrop.
      */
     boolean getPartialDrop();
+
+    /**
+     * <pre>
+     * If true, the region will be marked as dropped but not actually deleted. 
+     * This allows for a soft delete, where the region can be recovered if needed.
+     * </pre>
+     *
+     * <code>bool soft_drop = 5;</code>
+     * @return The softDrop.
+     */
+    boolean getSoftDrop();
   }
   /**
    * Protobuf type {@code greptime.v1.region.DropRequest}
@@ -15383,6 +15394,11 @@ java.lang.String defaultValue);
             case 32: {
 
               partialDrop_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              softDrop_ = input.readBool();
               break;
             }
             default: {
@@ -15478,6 +15494,22 @@ java.lang.String defaultValue);
       return partialDrop_;
     }
 
+    public static final int SOFT_DROP_FIELD_NUMBER = 5;
+    private boolean softDrop_;
+    /**
+     * <pre>
+     * If true, the region will be marked as dropped but not actually deleted. 
+     * This allows for a soft delete, where the region can be recovered if needed.
+     * </pre>
+     *
+     * <code>bool soft_drop = 5;</code>
+     * @return The softDrop.
+     */
+    @java.lang.Override
+    public boolean getSoftDrop() {
+      return softDrop_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15504,6 +15536,9 @@ java.lang.String defaultValue);
       if (partialDrop_ != false) {
         output.writeBool(4, partialDrop_);
       }
+      if (softDrop_ != false) {
+        output.writeBool(5, softDrop_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15529,6 +15564,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, partialDrop_);
       }
+      if (softDrop_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, softDrop_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -15552,6 +15591,8 @@ java.lang.String defaultValue);
           != other.getForce()) return false;
       if (getPartialDrop()
           != other.getPartialDrop()) return false;
+      if (getSoftDrop()
+          != other.getSoftDrop()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15575,6 +15616,9 @@ java.lang.String defaultValue);
       hash = (37 * hash) + PARTIAL_DROP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getPartialDrop());
+      hash = (37 * hash) + SOFT_DROP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSoftDrop());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15716,6 +15760,8 @@ java.lang.String defaultValue);
 
         partialDrop_ = false;
 
+        softDrop_ = false;
+
         return this;
       }
 
@@ -15746,6 +15792,7 @@ java.lang.String defaultValue);
         result.fastPath_ = fastPath_;
         result.force_ = force_;
         result.partialDrop_ = partialDrop_;
+        result.softDrop_ = softDrop_;
         onBuilt();
         return result;
       }
@@ -15805,6 +15852,9 @@ java.lang.String defaultValue);
         }
         if (other.getPartialDrop() != false) {
           setPartialDrop(other.getPartialDrop());
+        }
+        if (other.getSoftDrop() != false) {
+          setSoftDrop(other.getSoftDrop());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16000,6 +16050,52 @@ java.lang.String defaultValue);
       public Builder clearPartialDrop() {
         
         partialDrop_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean softDrop_ ;
+      /**
+       * <pre>
+       * If true, the region will be marked as dropped but not actually deleted. 
+       * This allows for a soft delete, where the region can be recovered if needed.
+       * </pre>
+       *
+       * <code>bool soft_drop = 5;</code>
+       * @return The softDrop.
+       */
+      @java.lang.Override
+      public boolean getSoftDrop() {
+        return softDrop_;
+      }
+      /**
+       * <pre>
+       * If true, the region will be marked as dropped but not actually deleted. 
+       * This allows for a soft delete, where the region can be recovered if needed.
+       * </pre>
+       *
+       * <code>bool soft_drop = 5;</code>
+       * @param value The softDrop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSoftDrop(boolean value) {
+        
+        softDrop_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * If true, the region will be marked as dropped but not actually deleted. 
+       * This allows for a soft delete, where the region can be recovered if needed.
+       * </pre>
+       *
+       * <code>bool soft_drop = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSoftDrop() {
+        
+        softDrop_ = false;
         onChanged();
         return this;
       }
@@ -36554,78 +36650,79 @@ java.lang.String defaultValue);
       "n\030\007 \001(\0132\033.greptime.v1.meta.Partition\032.\n\014" +
       "OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t" +
       ":\0028\001\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132\037" +
-      ".greptime.v1.region.DropRequest\"X\n\013DropR" +
+      ".greptime.v1.region.DropRequest\"k\n\013DropR" +
       "equest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002" +
       " \001(\010\022\r\n\005force\030\003 \001(\010\022\024\n\014partial_drop\030\004 \001(" +
-      "\010\"\255\001\n\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006" +
-      "engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 " +
-      "\003(\0132,.greptime.v1.region.OpenRequest.Opt" +
-      "ionsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010request" +
-      "s\030\001 \003(\0132 .greptime.v1.region.AlterReques" +
-      "t\"\311\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
-      "\013add_columns\030\002 \001(\0132\036.greptime.v1.region." +
-      "AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gre" +
-      "ptime.v1.region.DropColumnsH\000\022=\n\023modify_" +
-      "column_types\030\005 \001(\0132\036.greptime.v1.ModifyC" +
-      "olumnTypesH\000\0229\n\021set_table_options\030\006 \001(\0132" +
-      "\034.greptime.v1.SetTableOptionsH\000\022=\n\023unset" +
-      "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
-      "TableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grep" +
-      "time.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132" +
-      "\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defau" +
-      "lts\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022." +
-      "\n\013set_indexes\030\r \001(\0132\027.greptime.v1.SetInd" +
-      "exesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.greptime" +
-      ".v1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001(\013" +
-      "2\030.greptime.v1.SetDefaultsH\000\0227\n\014sync_col" +
-      "umns\030\020 \001(\0132\037.greptime.v1.region.SyncColu" +
-      "mnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n" +
-      "\013SyncColumns\0228\n\013column_defs\030\001 \003(\0132#.grep" +
-      "time.v1.region.RegionColumnDef\"@\n\nAddCol" +
-      "umns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1." +
-      "region.AddColumn\"C\n\013DropColumns\0224\n\014drop_" +
-      "columns\030\001 \003(\0132\036.greptime.v1.region.DropC" +
-      "olumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#" +
-      ".greptime.v1.region.RegionColumnDef\0220\n\010l" +
-      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
-      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flu" +
-      "shRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"" +
-      "&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"" +
-      "\256\001\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n" +
-      "\007regular\030\002 \001(\0132\033.greptime.v1.region.Regu" +
-      "larH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime." +
-      "v1.region.StrictWindowH\000\022\023\n\013parallelism\030" +
-      "\004 \001(\rB\t\n\007options\"\204\001\n\017TruncateRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime." +
-      "v1.region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.g" +
-      "reptime.v1.TimeRangesH\000B\006\n\004kind\"\005\n\003All\"P" +
-      "\n\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026." +
-      "greptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r" +
-      "\"\235\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.Arrow" +
-      "IpcH\000\022A\n\026partition_expr_version\030\003 \001(\0132!." +
-      "greptime.v1.PartitionExprVersionB\006\n\004body" +
-      "\"1\n\020MitoManifestInfo\022\035\n\025data_manifest_ve" +
-      "rsion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025dat" +
-      "a_manifest_version\030\001 \001(\004\022!\n\031metadata_man" +
-      "ifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001" +
-      "(\0132$.greptime.v1.region.MitoManifestInfo" +
-      "H\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grept" +
-      "ime.v1.region.MetricManifestInfoH\000B\017\n\rma" +
-      "nifest_info\")\n\023ListMetadataRequest\022\022\n\nre" +
-      "gion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(" +
-      "\014\"z\n\033ApplyStagingManifestRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021c" +
-      "entral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030" +
-      "\004 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1." +
-      "region.RegionRequest\032\".greptime.v1.regio" +
-      "n.RegionResponseB]\n\025io.greptime.v1.regio" +
-      "nB\006ServerZ<github.com/GreptimeTeam/grept" +
-      "ime-proto/go/greptime/v1/regionb\006proto3"
+      "\010\022\021\n\tsoft_drop\030\005 \001(\010\"\255\001\n\013OpenRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030" +
+      "\003 \001(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.reg" +
+      "ion.OpenRequest.OptionsEntry\032.\n\014OptionsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"!\n\014" +
+      "CloseRequest\022\021\n\tregion_id\030\001 \001(\004\"C\n\rAlter" +
+      "Requests\0222\n\010requests\030\001 \003(\0132 .greptime.v1" +
+      ".region.AlterRequest\"\311\005\n\014AlterRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\0132\036." +
+      "greptime.v1.region.AddColumnsH\000\0227\n\014drop_" +
+      "columns\030\003 \001(\0132\037.greptime.v1.region.DropC" +
+      "olumnsH\000\022=\n\023modify_column_types\030\005 \001(\0132\036." +
+      "greptime.v1.ModifyColumnTypesH\000\0229\n\021set_t" +
+      "able_options\030\006 \001(\0132\034.greptime.v1.SetTabl" +
+      "eOptionsH\000\022=\n\023unset_table_options\030\t \001(\0132" +
+      "\036.greptime.v1.UnsetTableOptionsH\000\022*\n\tset" +
+      "_index\030\n \001(\0132\025.greptime.v1.SetIndexH\000\022.\n" +
+      "\013unset_index\030\013 \001(\0132\027.greptime.v1.UnsetIn" +
+      "dexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.greptime." +
+      "v1.DropDefaultsH\000\022.\n\013set_indexes\030\r \001(\0132\027" +
+      ".greptime.v1.SetIndexesH\000\0222\n\runset_index" +
+      "es\030\016 \001(\0132\031.greptime.v1.UnsetIndexesH\000\0220\n" +
+      "\014set_defaults\030\017 \001(\0132\030.greptime.v1.SetDef" +
+      "aultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.greptime" +
+      ".v1.region.SyncColumnsH\000\022\026\n\016schema_versi" +
+      "on\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013colum" +
+      "n_defs\030\001 \003(\0132#.greptime.v1.region.Region" +
+      "ColumnDef\"@\n\nAddColumns\0222\n\013add_columns\030\001" +
+      " \003(\0132\035.greptime.v1.region.AddColumn\"C\n\013D" +
+      "ropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.grept" +
+      "ime.v1.region.DropColumn\"v\n\tAddColumn\0227\n" +
+      "\ncolumn_def\030\001 \001(\0132#.greptime.v1.region.R" +
+      "egionColumnDef\0220\n\010location\030\003 \001(\0132\036.grept" +
+      "ime.v1.AddColumnLocation\"\032\n\nDropColumn\022\014" +
+      "\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016wi" +
+      "ndow_seconds\030\001 \001(\003\"\256\001\n\016CompactRequest\022\021\n" +
+      "\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.grep" +
+      "time.v1.region.RegularH\000\0229\n\rstrict_windo" +
+      "w\030\003 \001(\0132 .greptime.v1.region.StrictWindo" +
+      "wH\000\022\023\n\013parallelism\030\004 \001(\rB\t\n\007options\"\204\001\n\017" +
+      "TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003al" +
+      "l\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022.\n\013ti" +
+      "me_ranges\030\003 \001(\0132\027.greptime.v1.TimeRanges" +
+      "H\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\n" +
+      "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
+      "\022\021\n\tcolumn_id\030\002 \001(\r\"\235\001\n\021BulkInsertReques" +
+      "t\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132" +
+      "\025.greptime.v1.ArrowIpcH\000\022A\n\026partition_ex" +
+      "pr_version\030\003 \001(\0132!.greptime.v1.Partition" +
+      "ExprVersionB\006\n\004body\"1\n\020MitoManifestInfo\022" +
+      "\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metric" +
+      "ManifestInfo\022\035\n\025data_manifest_version\030\001 " +
+      "\001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004\"\275" +
+      "\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mit" +
+      "o_manifest_info\030\002 \001(\0132$.greptime.v1.regi" +
+      "on.MitoManifestInfoH\000\022F\n\024metric_manifest" +
+      "_info\030\003 \001(\0132&.greptime.v1.region.MetricM" +
+      "anifestInfoH\000B\017\n\rmanifest_info\")\n\023ListMe" +
+      "tadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021Bui" +
+      "ldIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFil" +
+      "eMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingMani" +
+      "festRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partit" +
+      "ion_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(" +
+      "\004\022\025\n\rmanifest_path\030\004 \001(\t2Y\n\006Region\022O\n\006Ha" +
+      "ndle\022!.greptime.v1.region.RegionRequest\032" +
+      "\".greptime.v1.region.RegionResponseB]\n\025i" +
+      "o.greptime.v1.regionB\006ServerZ<github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -36724,7 +36821,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_DropRequest_descriptor,
-        new java.lang.String[] { "RegionId", "FastPath", "Force", "PartialDrop", });
+        new java.lang.String[] { "RegionId", "FastPath", "Force", "PartialDrop", "SoftDrop", });
     internal_static_greptime_v1_region_OpenRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_region_OpenRequest_fieldAccessorTable = new

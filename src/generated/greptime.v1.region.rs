@@ -196,6 +196,10 @@ pub struct DropRequest {
     /// This is used to prevent deletion of files that are still in use by other regions.
     #[prost(bool, tag = "4")]
     pub partial_drop: bool,
+    /// If true, the region will be marked as dropped but not actually deleted.
+    /// This allows for a soft delete, where the region can be recovered if needed.
+    #[prost(bool, tag = "5")]
+    pub soft_drop: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct OpenRequest {
