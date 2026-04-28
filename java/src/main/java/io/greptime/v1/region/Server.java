@@ -15322,7 +15322,7 @@ java.lang.String defaultValue);
 
     /**
      * <pre>
-     * If true, the region will be marked as dropped but not actually deleted. 
+     * If true, the region will be marked as dropped but not actually deleted.
      * This allows for a soft delete, where the region can be recovered if needed.
      * </pre>
      *
@@ -15498,7 +15498,7 @@ java.lang.String defaultValue);
     private boolean softDrop_;
     /**
      * <pre>
-     * If true, the region will be marked as dropped but not actually deleted. 
+     * If true, the region will be marked as dropped but not actually deleted.
      * This allows for a soft delete, where the region can be recovered if needed.
      * </pre>
      *
@@ -16057,7 +16057,7 @@ java.lang.String defaultValue);
       private boolean softDrop_ ;
       /**
        * <pre>
-       * If true, the region will be marked as dropped but not actually deleted. 
+       * If true, the region will be marked as dropped but not actually deleted.
        * This allows for a soft delete, where the region can be recovered if needed.
        * </pre>
        *
@@ -16070,7 +16070,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * If true, the region will be marked as dropped but not actually deleted. 
+       * If true, the region will be marked as dropped but not actually deleted.
        * This allows for a soft delete, where the region can be recovered if needed.
        * </pre>
        *
@@ -16086,7 +16086,7 @@ java.lang.String defaultValue);
       }
       /**
        * <pre>
-       * If true, the region will be marked as dropped but not actually deleted. 
+       * If true, the region will be marked as dropped but not actually deleted.
        * This allows for a soft delete, where the region can be recovered if needed.
        * </pre>
        *
