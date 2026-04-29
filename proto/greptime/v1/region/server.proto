@@ -141,6 +141,9 @@ message DropRequest {
   // If true, indicates that only a portion of the region is being dropped, and files may still be referenced by other regions.
   // This is used to prevent deletion of files that are still in use by other regions.
   bool partial_drop = 4;
+  // If true, the region will be marked as dropped but not actually deleted.
+  // This allows for a soft delete, where the region can be recovered if needed.
+  bool soft_drop = 5;
 }
 
 message OpenRequest {

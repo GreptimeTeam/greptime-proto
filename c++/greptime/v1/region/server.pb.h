@@ -2869,6 +2869,7 @@ class DropRequest final :
     kFastPathFieldNumber = 2,
     kForceFieldNumber = 3,
     kPartialDropFieldNumber = 4,
+    kSoftDropFieldNumber = 5,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -2906,6 +2907,15 @@ class DropRequest final :
   void _internal_set_partial_drop(bool value);
   public:
 
+  // bool soft_drop = 5;
+  void clear_soft_drop();
+  bool soft_drop() const;
+  void set_soft_drop(bool value);
+  private:
+  bool _internal_soft_drop() const;
+  void _internal_set_soft_drop(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.DropRequest)
  private:
   class _Internal;
@@ -2918,6 +2928,7 @@ class DropRequest final :
     bool fast_path_;
     bool force_;
     bool partial_drop_;
+    bool soft_drop_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -10138,6 +10149,26 @@ inline void DropRequest::_internal_set_partial_drop(bool value) {
 inline void DropRequest::set_partial_drop(bool value) {
   _internal_set_partial_drop(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.partial_drop)
+}
+
+// bool soft_drop = 5;
+inline void DropRequest::clear_soft_drop() {
+  _impl_.soft_drop_ = false;
+}
+inline bool DropRequest::_internal_soft_drop() const {
+  return _impl_.soft_drop_;
+}
+inline bool DropRequest::soft_drop() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DropRequest.soft_drop)
+  return _internal_soft_drop();
+}
+inline void DropRequest::_internal_set_soft_drop(bool value) {
+  
+  _impl_.soft_drop_ = value;
+}
+inline void DropRequest::set_soft_drop(bool value) {
+  _internal_set_soft_drop(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DropRequest.soft_drop)
 }
 
 // -------------------------------------------------------------------
