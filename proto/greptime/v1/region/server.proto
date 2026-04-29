@@ -61,6 +61,7 @@ message RegionRequest {
     ListMetadataRequest list_metadata = 18;
     BuildIndexRequest build_index = 19;
     ApplyStagingManifestRequest apply_staging_manifest = 20;
+    RegionPurgeDroppedRequest purge_dropped = 21;
   }
 }
 
@@ -153,6 +154,16 @@ message OpenRequest {
   // Region storage path
   string path = 3;
   // Options of the opened region.
+  map<string, string> options = 4;
+}
+
+message RegionPurgeDroppedRequest {
+  uint64 region_id = 1;
+  // Region engine name.
+  string engine = 2;
+  // Region storage path.
+  string path = 3;
+  // Options used to resolve the region object store.
   map<string, string> options = 4;
 }
 
