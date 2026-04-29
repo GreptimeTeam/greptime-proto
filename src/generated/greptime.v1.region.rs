@@ -36,7 +36,7 @@ pub struct RegionRequest {
     /// query request is handled in flight services.
     #[prost(
         oneof = "region_request::Body",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21"
     )]
     pub body: ::core::option::Option<region_request::Body>,
 }
@@ -82,6 +82,8 @@ pub mod region_request {
         BuildIndex(super::BuildIndexRequest),
         #[prost(message, tag = "20")]
         ApplyStagingManifest(super::ApplyStagingManifestRequest),
+        #[prost(message, tag = "21")]
+        PurgeDropped(super::RegionPurgeDroppedRequest),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -212,6 +214,23 @@ pub struct OpenRequest {
     #[prost(string, tag = "3")]
     pub path: ::prost::alloc::string::String,
     /// Options of the opened region.
+    #[prost(map = "string, string", tag = "4")]
+    pub options: ::std::collections::HashMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RegionPurgeDroppedRequest {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    /// Region engine name.
+    #[prost(string, tag = "2")]
+    pub engine: ::prost::alloc::string::String,
+    /// Region storage path.
+    #[prost(string, tag = "3")]
+    pub path: ::prost::alloc::string::String,
+    /// Options used to resolve the region object store.
     #[prost(map = "string, string", tag = "4")]
     pub options: ::std::collections::HashMap<
         ::prost::alloc::string::String,
