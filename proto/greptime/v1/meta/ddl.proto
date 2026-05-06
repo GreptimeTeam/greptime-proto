@@ -51,17 +51,11 @@ message DropTableTasks {
 }
 
 message UndropTableTask {
-  string catalog_name = 1;
-  string schema_name = 2;
-  string table_name = 3;
-  TableId table_id = 4;
+  UndropTableExpr undrop_table = 1;
 }
 
 message PurgeDroppedTableTask {
-  string catalog_name = 1;
-  string schema_name = 2;
-  string table_name = 3;
-  TableId table_id = 4;
+  PurgeDroppedTableExpr purge_dropped_table = 1;
 }
 
 message AlterTableTask {

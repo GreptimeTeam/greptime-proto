@@ -4035,55 +4035,19 @@ public final class Ddl {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The catalogName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+     * @return Whether the undropTable field is set.
      */
-    java.lang.String getCatalogName();
+    boolean hasUndropTable();
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The bytes for catalogName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+     * @return The undropTable.
      */
-    com.google.protobuf.ByteString
-        getCatalogNameBytes();
-
+    io.greptime.v1.Ddl.UndropTableExpr getUndropTable();
     /**
-     * <code>string schema_name = 2;</code>
-     * @return The schemaName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
      */
-    java.lang.String getSchemaName();
-    /**
-     * <code>string schema_name = 2;</code>
-     * @return The bytes for schemaName.
-     */
-    com.google.protobuf.ByteString
-        getSchemaNameBytes();
-
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The tableName.
-     */
-    java.lang.String getTableName();
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The bytes for tableName.
-     */
-    com.google.protobuf.ByteString
-        getTableNameBytes();
-
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    boolean hasTableId();
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    io.greptime.v1.Ddl.TableId getTableId();
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+    io.greptime.v1.Ddl.UndropTableExprOrBuilder getUndropTableOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.UndropTableTask}
@@ -4098,9 +4062,6 @@ public final class Ddl {
       super(builder);
     }
     private UndropTableTask() {
-      catalogName_ = "";
-      schemaName_ = "";
-      tableName_ = "";
     }
 
     @java.lang.Override
@@ -4134,32 +4095,14 @@ public final class Ddl {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              catalogName_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schemaName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tableName_ = s;
-              break;
-            }
-            case 34: {
-              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
-              if (tableId_ != null) {
-                subBuilder = tableId_.toBuilder();
+              io.greptime.v1.Ddl.UndropTableExpr.Builder subBuilder = null;
+              if (undropTable_ != null) {
+                subBuilder = undropTable_.toBuilder();
               }
-              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              undropTable_ = input.readMessage(io.greptime.v1.Ddl.UndropTableExpr.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(tableId_);
-                tableId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(undropTable_);
+                undropTable_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4198,144 +4141,30 @@ public final class Ddl {
               greptime.v1.meta.Ddl.UndropTableTask.class, greptime.v1.meta.Ddl.UndropTableTask.Builder.class);
     }
 
-    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object catalogName_;
+    public static final int UNDROP_TABLE_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.UndropTableExpr undropTable_;
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The catalogName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+     * @return Whether the undropTable field is set.
      */
     @java.lang.Override
-    public java.lang.String getCatalogName() {
-      java.lang.Object ref = catalogName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        catalogName_ = s;
-        return s;
-      }
+    public boolean hasUndropTable() {
+      return undropTable_ != null;
     }
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The bytes for catalogName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+     * @return The undropTable.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCatalogNameBytes() {
-      java.lang.Object ref = catalogName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        catalogName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object schemaName_;
-    /**
-     * <code>string schema_name = 2;</code>
-     * @return The schemaName.
-     */
-    @java.lang.Override
-    public java.lang.String getSchemaName() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schemaName_ = s;
-        return s;
-      }
+    public io.greptime.v1.Ddl.UndropTableExpr getUndropTable() {
+      return undropTable_ == null ? io.greptime.v1.Ddl.UndropTableExpr.getDefaultInstance() : undropTable_;
     }
     /**
-     * <code>string schema_name = 2;</code>
-     * @return The bytes for schemaName.
+     * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaNameBytes() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schemaName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TABLE_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object tableName_;
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The tableName.
-     */
-    @java.lang.Override
-    public java.lang.String getTableName() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tableName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The bytes for tableName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTableNameBytes() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tableName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TABLE_ID_FIELD_NUMBER = 4;
-    private io.greptime.v1.Ddl.TableId tableId_;
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    @java.lang.Override
-    public boolean hasTableId() {
-      return tableId_ != null;
-    }
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getTableId() {
-      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
-    }
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-      return getTableId();
+    public io.greptime.v1.Ddl.UndropTableExprOrBuilder getUndropTableOrBuilder() {
+      return getUndropTable();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4352,17 +4181,8 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
-      }
-      if (tableId_ != null) {
-        output.writeMessage(4, getTableId());
+      if (undropTable_ != null) {
+        output.writeMessage(1, getUndropTable());
       }
       unknownFields.writeTo(output);
     }
@@ -4373,18 +4193,9 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
-      }
-      if (tableId_ != null) {
+      if (undropTable_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getTableId());
+          .computeMessageSize(1, getUndropTable());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4401,16 +4212,10 @@ public final class Ddl {
       }
       greptime.v1.meta.Ddl.UndropTableTask other = (greptime.v1.meta.Ddl.UndropTableTask) obj;
 
-      if (!getCatalogName()
-          .equals(other.getCatalogName())) return false;
-      if (!getSchemaName()
-          .equals(other.getSchemaName())) return false;
-      if (!getTableName()
-          .equals(other.getTableName())) return false;
-      if (hasTableId() != other.hasTableId()) return false;
-      if (hasTableId()) {
-        if (!getTableId()
-            .equals(other.getTableId())) return false;
+      if (hasUndropTable() != other.hasUndropTable()) return false;
+      if (hasUndropTable()) {
+        if (!getUndropTable()
+            .equals(other.getUndropTable())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -4423,15 +4228,9 @@ public final class Ddl {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalogName().hashCode();
-      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getSchemaName().hashCode();
-      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTableName().hashCode();
-      if (hasTableId()) {
-        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getTableId().hashCode();
+      if (hasUndropTable()) {
+        hash = (37 * hash) + UNDROP_TABLE_FIELD_NUMBER;
+        hash = (53 * hash) + getUndropTable().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4566,17 +4365,11 @@ public final class Ddl {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        catalogName_ = "";
-
-        schemaName_ = "";
-
-        tableName_ = "";
-
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
+        if (undropTableBuilder_ == null) {
+          undropTable_ = null;
         } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
+          undropTable_ = null;
+          undropTableBuilder_ = null;
         }
         return this;
       }
@@ -4604,13 +4397,10 @@ public final class Ddl {
       @java.lang.Override
       public greptime.v1.meta.Ddl.UndropTableTask buildPartial() {
         greptime.v1.meta.Ddl.UndropTableTask result = new greptime.v1.meta.Ddl.UndropTableTask(this);
-        result.catalogName_ = catalogName_;
-        result.schemaName_ = schemaName_;
-        result.tableName_ = tableName_;
-        if (tableIdBuilder_ == null) {
-          result.tableId_ = tableId_;
+        if (undropTableBuilder_ == null) {
+          result.undropTable_ = undropTable_;
         } else {
-          result.tableId_ = tableIdBuilder_.build();
+          result.undropTable_ = undropTableBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4660,20 +4450,8 @@ public final class Ddl {
 
       public Builder mergeFrom(greptime.v1.meta.Ddl.UndropTableTask other) {
         if (other == greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance()) return this;
-        if (!other.getCatalogName().isEmpty()) {
-          catalogName_ = other.catalogName_;
-          onChanged();
-        }
-        if (!other.getSchemaName().isEmpty()) {
-          schemaName_ = other.schemaName_;
-          onChanged();
-        }
-        if (!other.getTableName().isEmpty()) {
-          tableName_ = other.tableName_;
-          onChanged();
-        }
-        if (other.hasTableId()) {
-          mergeTableId(other.getTableId());
+        if (other.hasUndropTable()) {
+          mergeUndropTable(other.getUndropTable());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4704,351 +4482,123 @@ public final class Ddl {
         return this;
       }
 
-      private java.lang.Object catalogName_ = "";
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return The catalogName.
-       */
-      public java.lang.String getCatalogName() {
-        java.lang.Object ref = catalogName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          catalogName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return The bytes for catalogName.
-       */
-      public com.google.protobuf.ByteString
-          getCatalogNameBytes() {
-        java.lang.Object ref = catalogName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          catalogName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @param value The catalogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        catalogName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCatalogName() {
-        
-        catalogName_ = getDefaultInstance().getCatalogName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @param value The bytes for catalogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        catalogName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object schemaName_ = "";
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return The schemaName.
-       */
-      public java.lang.String getSchemaName() {
-        java.lang.Object ref = schemaName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schemaName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return The bytes for schemaName.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaNameBytes() {
-        java.lang.Object ref = schemaName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schemaName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @param value The schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchemaName() {
-        
-        schemaName_ = getDefaultInstance().getSchemaName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @param value The bytes for schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object tableName_ = "";
-      /**
-       * <code>string table_name = 3;</code>
-       * @return The tableName.
-       */
-      public java.lang.String getTableName() {
-        java.lang.Object ref = tableName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tableName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @return The bytes for tableName.
-       */
-      public com.google.protobuf.ByteString
-          getTableNameBytes() {
-        java.lang.Object ref = tableName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tableName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @param value The tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTableName() {
-        
-        tableName_ = getDefaultInstance().getTableName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @param value The bytes for tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.greptime.v1.Ddl.TableId tableId_;
+      private io.greptime.v1.Ddl.UndropTableExpr undropTable_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+          io.greptime.v1.Ddl.UndropTableExpr, io.greptime.v1.Ddl.UndropTableExpr.Builder, io.greptime.v1.Ddl.UndropTableExprOrBuilder> undropTableBuilder_;
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return Whether the tableId field is set.
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+       * @return Whether the undropTable field is set.
        */
-      public boolean hasTableId() {
-        return tableIdBuilder_ != null || tableId_ != null;
+      public boolean hasUndropTable() {
+        return undropTableBuilder_ != null || undropTable_ != null;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return The tableId.
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
+       * @return The undropTable.
        */
-      public io.greptime.v1.Ddl.TableId getTableId() {
-        if (tableIdBuilder_ == null) {
-          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+      public io.greptime.v1.Ddl.UndropTableExpr getUndropTable() {
+        if (undropTableBuilder_ == null) {
+          return undropTable_ == null ? io.greptime.v1.Ddl.UndropTableExpr.getDefaultInstance() : undropTable_;
         } else {
-          return tableIdBuilder_.getMessage();
+          return undropTableBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
+      public Builder setUndropTable(io.greptime.v1.Ddl.UndropTableExpr value) {
+        if (undropTableBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          tableId_ = value;
+          undropTable_ = value;
           onChanged();
         } else {
-          tableIdBuilder_.setMessage(value);
+          undropTableBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public Builder setTableId(
-          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
-        if (tableIdBuilder_ == null) {
-          tableId_ = builderForValue.build();
+      public Builder setUndropTable(
+          io.greptime.v1.Ddl.UndropTableExpr.Builder builderForValue) {
+        if (undropTableBuilder_ == null) {
+          undropTable_ = builderForValue.build();
           onChanged();
         } else {
-          tableIdBuilder_.setMessage(builderForValue.build());
+          undropTableBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
-          if (tableId_ != null) {
-            tableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+      public Builder mergeUndropTable(io.greptime.v1.Ddl.UndropTableExpr value) {
+        if (undropTableBuilder_ == null) {
+          if (undropTable_ != null) {
+            undropTable_ =
+              io.greptime.v1.Ddl.UndropTableExpr.newBuilder(undropTable_).mergeFrom(value).buildPartial();
           } else {
-            tableId_ = value;
+            undropTable_ = value;
           }
           onChanged();
         } else {
-          tableIdBuilder_.mergeFrom(value);
+          undropTableBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public Builder clearTableId() {
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
+      public Builder clearUndropTable() {
+        if (undropTableBuilder_ == null) {
+          undropTable_ = null;
           onChanged();
         } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
+          undropTable_ = null;
+          undropTableBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+      public io.greptime.v1.Ddl.UndropTableExpr.Builder getUndropTableBuilder() {
         
         onChanged();
-        return getTableIdFieldBuilder().getBuilder();
+        return getUndropTableFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-        if (tableIdBuilder_ != null) {
-          return tableIdBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.UndropTableExprOrBuilder getUndropTableOrBuilder() {
+        if (undropTableBuilder_ != null) {
+          return undropTableBuilder_.getMessageOrBuilder();
         } else {
-          return tableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+          return undropTable_ == null ?
+              io.greptime.v1.Ddl.UndropTableExpr.getDefaultInstance() : undropTable_;
         }
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.UndropTableExpr undrop_table = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
-          getTableIdFieldBuilder() {
-        if (tableIdBuilder_ == null) {
-          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
-                  getTableId(),
+          io.greptime.v1.Ddl.UndropTableExpr, io.greptime.v1.Ddl.UndropTableExpr.Builder, io.greptime.v1.Ddl.UndropTableExprOrBuilder> 
+          getUndropTableFieldBuilder() {
+        if (undropTableBuilder_ == null) {
+          undropTableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.UndropTableExpr, io.greptime.v1.Ddl.UndropTableExpr.Builder, io.greptime.v1.Ddl.UndropTableExprOrBuilder>(
+                  getUndropTable(),
                   getParentForChildren(),
                   isClean());
-          tableId_ = null;
+          undropTable_ = null;
         }
-        return tableIdBuilder_;
+        return undropTableBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5108,55 +4658,19 @@ public final class Ddl {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The catalogName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+     * @return Whether the purgeDroppedTable field is set.
      */
-    java.lang.String getCatalogName();
+    boolean hasPurgeDroppedTable();
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The bytes for catalogName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+     * @return The purgeDroppedTable.
      */
-    com.google.protobuf.ByteString
-        getCatalogNameBytes();
-
+    io.greptime.v1.Ddl.PurgeDroppedTableExpr getPurgeDroppedTable();
     /**
-     * <code>string schema_name = 2;</code>
-     * @return The schemaName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
      */
-    java.lang.String getSchemaName();
-    /**
-     * <code>string schema_name = 2;</code>
-     * @return The bytes for schemaName.
-     */
-    com.google.protobuf.ByteString
-        getSchemaNameBytes();
-
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The tableName.
-     */
-    java.lang.String getTableName();
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The bytes for tableName.
-     */
-    com.google.protobuf.ByteString
-        getTableNameBytes();
-
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    boolean hasTableId();
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    io.greptime.v1.Ddl.TableId getTableId();
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+    io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder getPurgeDroppedTableOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.PurgeDroppedTableTask}
@@ -5171,9 +4685,6 @@ public final class Ddl {
       super(builder);
     }
     private PurgeDroppedTableTask() {
-      catalogName_ = "";
-      schemaName_ = "";
-      tableName_ = "";
     }
 
     @java.lang.Override
@@ -5207,32 +4718,14 @@ public final class Ddl {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              catalogName_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              schemaName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tableName_ = s;
-              break;
-            }
-            case 34: {
-              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
-              if (tableId_ != null) {
-                subBuilder = tableId_.toBuilder();
+              io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder subBuilder = null;
+              if (purgeDroppedTable_ != null) {
+                subBuilder = purgeDroppedTable_.toBuilder();
               }
-              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              purgeDroppedTable_ = input.readMessage(io.greptime.v1.Ddl.PurgeDroppedTableExpr.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(tableId_);
-                tableId_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(purgeDroppedTable_);
+                purgeDroppedTable_ = subBuilder.buildPartial();
               }
 
               break;
@@ -5271,144 +4764,30 @@ public final class Ddl {
               greptime.v1.meta.Ddl.PurgeDroppedTableTask.class, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder.class);
     }
 
-    public static final int CATALOG_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object catalogName_;
+    public static final int PURGE_DROPPED_TABLE_FIELD_NUMBER = 1;
+    private io.greptime.v1.Ddl.PurgeDroppedTableExpr purgeDroppedTable_;
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The catalogName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+     * @return Whether the purgeDroppedTable field is set.
      */
     @java.lang.Override
-    public java.lang.String getCatalogName() {
-      java.lang.Object ref = catalogName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        catalogName_ = s;
-        return s;
-      }
+    public boolean hasPurgeDroppedTable() {
+      return purgeDroppedTable_ != null;
     }
     /**
-     * <code>string catalog_name = 1;</code>
-     * @return The bytes for catalogName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+     * @return The purgeDroppedTable.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCatalogNameBytes() {
-      java.lang.Object ref = catalogName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        catalogName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SCHEMA_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object schemaName_;
-    /**
-     * <code>string schema_name = 2;</code>
-     * @return The schemaName.
-     */
-    @java.lang.Override
-    public java.lang.String getSchemaName() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        schemaName_ = s;
-        return s;
-      }
+    public io.greptime.v1.Ddl.PurgeDroppedTableExpr getPurgeDroppedTable() {
+      return purgeDroppedTable_ == null ? io.greptime.v1.Ddl.PurgeDroppedTableExpr.getDefaultInstance() : purgeDroppedTable_;
     }
     /**
-     * <code>string schema_name = 2;</code>
-     * @return The bytes for schemaName.
+     * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSchemaNameBytes() {
-      java.lang.Object ref = schemaName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        schemaName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TABLE_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object tableName_;
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The tableName.
-     */
-    @java.lang.Override
-    public java.lang.String getTableName() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        tableName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string table_name = 3;</code>
-     * @return The bytes for tableName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTableNameBytes() {
-      java.lang.Object ref = tableName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        tableName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TABLE_ID_FIELD_NUMBER = 4;
-    private io.greptime.v1.Ddl.TableId tableId_;
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return Whether the tableId field is set.
-     */
-    @java.lang.Override
-    public boolean hasTableId() {
-      return tableId_ != null;
-    }
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     * @return The tableId.
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableId getTableId() {
-      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
-    }
-    /**
-     * <code>.greptime.v1.TableId table_id = 4;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-      return getTableId();
+    public io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder getPurgeDroppedTableOrBuilder() {
+      return getPurgeDroppedTable();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5425,17 +4804,8 @@ public final class Ddl {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalogName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tableName_);
-      }
-      if (tableId_ != null) {
-        output.writeMessage(4, getTableId());
+      if (purgeDroppedTable_ != null) {
+        output.writeMessage(1, getPurgeDroppedTable());
       }
       unknownFields.writeTo(output);
     }
@@ -5446,18 +4816,9 @@ public final class Ddl {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalogName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalogName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, schemaName_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tableName_);
-      }
-      if (tableId_ != null) {
+      if (purgeDroppedTable_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getTableId());
+          .computeMessageSize(1, getPurgeDroppedTable());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5474,16 +4835,10 @@ public final class Ddl {
       }
       greptime.v1.meta.Ddl.PurgeDroppedTableTask other = (greptime.v1.meta.Ddl.PurgeDroppedTableTask) obj;
 
-      if (!getCatalogName()
-          .equals(other.getCatalogName())) return false;
-      if (!getSchemaName()
-          .equals(other.getSchemaName())) return false;
-      if (!getTableName()
-          .equals(other.getTableName())) return false;
-      if (hasTableId() != other.hasTableId()) return false;
-      if (hasTableId()) {
-        if (!getTableId()
-            .equals(other.getTableId())) return false;
+      if (hasPurgeDroppedTable() != other.hasPurgeDroppedTable()) return false;
+      if (hasPurgeDroppedTable()) {
+        if (!getPurgeDroppedTable()
+            .equals(other.getPurgeDroppedTable())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -5496,15 +4851,9 @@ public final class Ddl {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CATALOG_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalogName().hashCode();
-      hash = (37 * hash) + SCHEMA_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getSchemaName().hashCode();
-      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTableName().hashCode();
-      if (hasTableId()) {
-        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getTableId().hashCode();
+      if (hasPurgeDroppedTable()) {
+        hash = (37 * hash) + PURGE_DROPPED_TABLE_FIELD_NUMBER;
+        hash = (53 * hash) + getPurgeDroppedTable().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5639,17 +4988,11 @@ public final class Ddl {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        catalogName_ = "";
-
-        schemaName_ = "";
-
-        tableName_ = "";
-
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
+        if (purgeDroppedTableBuilder_ == null) {
+          purgeDroppedTable_ = null;
         } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
+          purgeDroppedTable_ = null;
+          purgeDroppedTableBuilder_ = null;
         }
         return this;
       }
@@ -5677,13 +5020,10 @@ public final class Ddl {
       @java.lang.Override
       public greptime.v1.meta.Ddl.PurgeDroppedTableTask buildPartial() {
         greptime.v1.meta.Ddl.PurgeDroppedTableTask result = new greptime.v1.meta.Ddl.PurgeDroppedTableTask(this);
-        result.catalogName_ = catalogName_;
-        result.schemaName_ = schemaName_;
-        result.tableName_ = tableName_;
-        if (tableIdBuilder_ == null) {
-          result.tableId_ = tableId_;
+        if (purgeDroppedTableBuilder_ == null) {
+          result.purgeDroppedTable_ = purgeDroppedTable_;
         } else {
-          result.tableId_ = tableIdBuilder_.build();
+          result.purgeDroppedTable_ = purgeDroppedTableBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5733,20 +5073,8 @@ public final class Ddl {
 
       public Builder mergeFrom(greptime.v1.meta.Ddl.PurgeDroppedTableTask other) {
         if (other == greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance()) return this;
-        if (!other.getCatalogName().isEmpty()) {
-          catalogName_ = other.catalogName_;
-          onChanged();
-        }
-        if (!other.getSchemaName().isEmpty()) {
-          schemaName_ = other.schemaName_;
-          onChanged();
-        }
-        if (!other.getTableName().isEmpty()) {
-          tableName_ = other.tableName_;
-          onChanged();
-        }
-        if (other.hasTableId()) {
-          mergeTableId(other.getTableId());
+        if (other.hasPurgeDroppedTable()) {
+          mergePurgeDroppedTable(other.getPurgeDroppedTable());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5777,351 +5105,123 @@ public final class Ddl {
         return this;
       }
 
-      private java.lang.Object catalogName_ = "";
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return The catalogName.
-       */
-      public java.lang.String getCatalogName() {
-        java.lang.Object ref = catalogName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          catalogName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return The bytes for catalogName.
-       */
-      public com.google.protobuf.ByteString
-          getCatalogNameBytes() {
-        java.lang.Object ref = catalogName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          catalogName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @param value The catalogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        catalogName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCatalogName() {
-        
-        catalogName_ = getDefaultInstance().getCatalogName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog_name = 1;</code>
-       * @param value The bytes for catalogName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        catalogName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object schemaName_ = "";
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return The schemaName.
-       */
-      public java.lang.String getSchemaName() {
-        java.lang.Object ref = schemaName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          schemaName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return The bytes for schemaName.
-       */
-      public com.google.protobuf.ByteString
-          getSchemaNameBytes() {
-        java.lang.Object ref = schemaName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          schemaName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @param value The schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSchemaName() {
-        
-        schemaName_ = getDefaultInstance().getSchemaName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string schema_name = 2;</code>
-       * @param value The bytes for schemaName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSchemaNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        schemaName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object tableName_ = "";
-      /**
-       * <code>string table_name = 3;</code>
-       * @return The tableName.
-       */
-      public java.lang.String getTableName() {
-        java.lang.Object ref = tableName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tableName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @return The bytes for tableName.
-       */
-      public com.google.protobuf.ByteString
-          getTableNameBytes() {
-        java.lang.Object ref = tableName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tableName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @param value The tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearTableName() {
-        
-        tableName_ = getDefaultInstance().getTableName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string table_name = 3;</code>
-       * @param value The bytes for tableName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setTableNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        tableName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.greptime.v1.Ddl.TableId tableId_;
+      private io.greptime.v1.Ddl.PurgeDroppedTableExpr purgeDroppedTable_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+          io.greptime.v1.Ddl.PurgeDroppedTableExpr, io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder, io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder> purgeDroppedTableBuilder_;
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return Whether the tableId field is set.
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+       * @return Whether the purgeDroppedTable field is set.
        */
-      public boolean hasTableId() {
-        return tableIdBuilder_ != null || tableId_ != null;
+      public boolean hasPurgeDroppedTable() {
+        return purgeDroppedTableBuilder_ != null || purgeDroppedTable_ != null;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
-       * @return The tableId.
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
+       * @return The purgeDroppedTable.
        */
-      public io.greptime.v1.Ddl.TableId getTableId() {
-        if (tableIdBuilder_ == null) {
-          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+      public io.greptime.v1.Ddl.PurgeDroppedTableExpr getPurgeDroppedTable() {
+        if (purgeDroppedTableBuilder_ == null) {
+          return purgeDroppedTable_ == null ? io.greptime.v1.Ddl.PurgeDroppedTableExpr.getDefaultInstance() : purgeDroppedTable_;
         } else {
-          return tableIdBuilder_.getMessage();
+          return purgeDroppedTableBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
+      public Builder setPurgeDroppedTable(io.greptime.v1.Ddl.PurgeDroppedTableExpr value) {
+        if (purgeDroppedTableBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          tableId_ = value;
+          purgeDroppedTable_ = value;
           onChanged();
         } else {
-          tableIdBuilder_.setMessage(value);
+          purgeDroppedTableBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public Builder setTableId(
-          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
-        if (tableIdBuilder_ == null) {
-          tableId_ = builderForValue.build();
+      public Builder setPurgeDroppedTable(
+          io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder builderForValue) {
+        if (purgeDroppedTableBuilder_ == null) {
+          purgeDroppedTable_ = builderForValue.build();
           onChanged();
         } else {
-          tableIdBuilder_.setMessage(builderForValue.build());
+          purgeDroppedTableBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
-        if (tableIdBuilder_ == null) {
-          if (tableId_ != null) {
-            tableId_ =
-              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+      public Builder mergePurgeDroppedTable(io.greptime.v1.Ddl.PurgeDroppedTableExpr value) {
+        if (purgeDroppedTableBuilder_ == null) {
+          if (purgeDroppedTable_ != null) {
+            purgeDroppedTable_ =
+              io.greptime.v1.Ddl.PurgeDroppedTableExpr.newBuilder(purgeDroppedTable_).mergeFrom(value).buildPartial();
           } else {
-            tableId_ = value;
+            purgeDroppedTable_ = value;
           }
           onChanged();
         } else {
-          tableIdBuilder_.mergeFrom(value);
+          purgeDroppedTableBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public Builder clearTableId() {
-        if (tableIdBuilder_ == null) {
-          tableId_ = null;
+      public Builder clearPurgeDroppedTable() {
+        if (purgeDroppedTableBuilder_ == null) {
+          purgeDroppedTable_ = null;
           onChanged();
         } else {
-          tableId_ = null;
-          tableIdBuilder_ = null;
+          purgeDroppedTable_ = null;
+          purgeDroppedTableBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+      public io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder getPurgeDroppedTableBuilder() {
         
         onChanged();
-        return getTableIdFieldBuilder().getBuilder();
+        return getPurgeDroppedTableFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
-      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
-        if (tableIdBuilder_ != null) {
-          return tableIdBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder getPurgeDroppedTableOrBuilder() {
+        if (purgeDroppedTableBuilder_ != null) {
+          return purgeDroppedTableBuilder_.getMessageOrBuilder();
         } else {
-          return tableId_ == null ?
-              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+          return purgeDroppedTable_ == null ?
+              io.greptime.v1.Ddl.PurgeDroppedTableExpr.getDefaultInstance() : purgeDroppedTable_;
         }
       }
       /**
-       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * <code>.greptime.v1.PurgeDroppedTableExpr purge_dropped_table = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
-          getTableIdFieldBuilder() {
-        if (tableIdBuilder_ == null) {
-          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
-                  getTableId(),
+          io.greptime.v1.Ddl.PurgeDroppedTableExpr, io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder, io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder> 
+          getPurgeDroppedTableFieldBuilder() {
+        if (purgeDroppedTableBuilder_ == null) {
+          purgeDroppedTableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.PurgeDroppedTableExpr, io.greptime.v1.Ddl.PurgeDroppedTableExpr.Builder, io.greptime.v1.Ddl.PurgeDroppedTableExprOrBuilder>(
+                  getPurgeDroppedTable(),
                   getParentForChildren(),
                   isClean());
-          tableId_ = null;
+          purgeDroppedTable_ = null;
         }
-        return tableIdBuilder_;
+        return purgeDroppedTableBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -20891,76 +19991,73 @@ public final class Ddl {
       "bleTask\"?\n\rDropTableTask\022.\n\ndrop_table\030\001" +
       " \001(\0132\032.greptime.v1.DropTableExpr\"@\n\016Drop" +
       "TableTasks\022.\n\005tasks\030\001 \003(\0132\037.greptime.v1." +
-      "meta.DropTableTask\"x\n\017UndropTableTask\022\024\n" +
-      "\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t" +
-      "\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024" +
-      ".greptime.v1.TableId\"~\n\025PurgeDroppedTabl" +
-      "eTask\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_na" +
-      "me\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022&\n\010table_id" +
-      "\030\004 \001(\0132\024.greptime.v1.TableId\"B\n\016AlterTab" +
-      "leTask\0220\n\013alter_table\030\001 \001(\0132\033.greptime.v" +
-      "1.AlterTableExpr\"B\n\017AlterTableTasks\022/\n\005t" +
-      "asks\030\001 \003(\0132 .greptime.v1.meta.AlterTable" +
-      "Task\"K\n\021TruncateTableTask\0226\n\016truncate_ta" +
-      "ble\030\001 \001(\0132\036.greptime.v1.TruncateTableExp" +
-      "r\"H\n\020DropDatabaseTask\0224\n\rdrop_database\030\001" +
-      " \001(\0132\035.greptime.v1.DropDatabaseExpr\"B\n\016C" +
-      "reateFlowTask\0220\n\013create_flow\030\001 \001(\0132\033.gre" +
-      "ptime.v1.CreateFlowExpr\"<\n\014DropFlowTask\022" +
-      ",\n\tdrop_flow\030\001 \001(\0132\031.greptime.v1.DropFlo" +
-      "wExpr\"U\n\016CreateViewTask\0220\n\013create_view\030\001" +
-      " \001(\0132\033.greptime.v1.CreateViewExpr\022\021\n\tvie" +
-      "w_info\030\002 \001(\014\"<\n\014DropViewTask\022,\n\tdrop_vie" +
-      "w\030\001 \001(\0132\031.greptime.v1.DropViewExpr\"A\n\021Al" +
-      "terDatabaseTask\022,\n\004task\030\001 \001(\0132\036.greptime" +
-      ".v1.AlterDatabaseExpr\"K\n\021CreateTriggerTa" +
-      "sk\0226\n\016create_trigger\030\001 \001(\0132\036.greptime.v1" +
-      ".CreateTriggerExpr\"E\n\017DropTriggerTask\0222\n" +
-      "\014drop_trigger\030\001 \001(\0132\034.greptime.v1.DropTr" +
-      "iggerExpr\"?\n\rCommentOnTask\022.\n\ncomment_on" +
-      "\030\001 \001(\0132\032.greptime.v1.CommentOnExpr\"\346\n\n\016D" +
-      "dlTaskRequest\022/\n\006header\030\001 \001(\0132\037.greptime" +
-      ".v1.meta.RequestHeader\0220\n\rquery_context\030" +
-      "@ \001(\0132\031.greptime.v1.QueryContext\022\014\n\004wait" +
-      "\030A \001(\010\022\024\n\014timeout_secs\030B \001(\r\022>\n\021create_t" +
-      "able_task\030\002 \001(\0132!.greptime.v1.meta.Creat" +
-      "eTableTaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037." +
-      "greptime.v1.meta.DropTableTaskH\000\022<\n\020alte" +
-      "r_table_task\030\004 \001(\0132 .greptime.v1.meta.Al" +
-      "terTableTaskH\000\022B\n\023truncate_table_task\030\005 " +
-      "\001(\0132#.greptime.v1.meta.TruncateTableTask" +
-      "H\000\022@\n\022create_table_tasks\030\006 \001(\0132\".greptim" +
-      "e.v1.meta.CreateTableTasksH\000\022<\n\020drop_tab" +
-      "le_tasks\030\007 \001(\0132 .greptime.v1.meta.DropTa" +
-      "bleTasksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!." +
-      "greptime.v1.meta.AlterTableTasksH\000\022@\n\022dr" +
-      "op_database_task\030\t \001(\0132\".greptime.v1.met" +
-      "a.DropDatabaseTaskH\000\022D\n\024create_database_" +
-      "task\030\n \001(\0132$.greptime.v1.meta.CreateData" +
-      "baseTaskH\000\022<\n\020create_flow_task\030\013 \001(\0132 .g" +
-      "reptime.v1.meta.CreateFlowTaskH\000\0228\n\016drop" +
-      "_flow_task\030\014 \001(\0132\036.greptime.v1.meta.Drop" +
-      "FlowTaskH\000\022<\n\020create_view_task\030\r \001(\0132 .g" +
-      "reptime.v1.meta.CreateViewTaskH\000\0228\n\016drop" +
-      "_view_task\030\016 \001(\0132\036.greptime.v1.meta.Drop" +
-      "ViewTaskH\000\022B\n\023alter_database_task\030\017 \001(\0132" +
-      "#.greptime.v1.meta.AlterDatabaseTaskH\000\022B" +
-      "\n\023create_trigger_task\030\020 \001(\0132#.greptime.v" +
-      "1.meta.CreateTriggerTaskH\000\022>\n\021drop_trigg" +
-      "er_task\030\021 \001(\0132!.greptime.v1.meta.DropTri" +
-      "ggerTaskH\000\022:\n\017comment_on_task\030\022 \001(\0132\037.gr" +
-      "eptime.v1.meta.CommentOnTaskH\000\022>\n\021undrop" +
-      "_table_task\030\023 \001(\0132!.greptime.v1.meta.Und" +
-      "ropTableTaskH\000\022K\n\030purge_dropped_table_ta" +
-      "sk\030\024 \001(\0132\'.greptime.v1.meta.PurgeDropped" +
-      "TableTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskResponse\022" +
-      "0\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respo" +
-      "nseHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.met" +
-      "a.ProcedureId\022\'\n\ttable_ids\030\005 \003(\0132\024.grept" +
-      "ime.v1.TableId*#\n\013DdlTaskType\022\n\n\006Create\020" +
-      "\000\022\010\n\004Drop\020\001B<Z:github.com/GreptimeTeam/g" +
-      "reptime-proto/go/greptime/v1/metab\006proto" +
-      "3"
+      "meta.DropTableTask\"E\n\017UndropTableTask\0222\n" +
+      "\014undrop_table\030\001 \001(\0132\034.greptime.v1.Undrop" +
+      "TableExpr\"X\n\025PurgeDroppedTableTask\022?\n\023pu" +
+      "rge_dropped_table\030\001 \001(\0132\".greptime.v1.Pu" +
+      "rgeDroppedTableExpr\"B\n\016AlterTableTask\0220\n" +
+      "\013alter_table\030\001 \001(\0132\033.greptime.v1.AlterTa" +
+      "bleExpr\"B\n\017AlterTableTasks\022/\n\005tasks\030\001 \003(" +
+      "\0132 .greptime.v1.meta.AlterTableTask\"K\n\021T" +
+      "runcateTableTask\0226\n\016truncate_table\030\001 \001(\013" +
+      "2\036.greptime.v1.TruncateTableExpr\"H\n\020Drop" +
+      "DatabaseTask\0224\n\rdrop_database\030\001 \001(\0132\035.gr" +
+      "eptime.v1.DropDatabaseExpr\"B\n\016CreateFlow" +
+      "Task\0220\n\013create_flow\030\001 \001(\0132\033.greptime.v1." +
+      "CreateFlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_f" +
+      "low\030\001 \001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016" +
+      "CreateViewTask\0220\n\013create_view\030\001 \001(\0132\033.gr" +
+      "eptime.v1.CreateViewExpr\022\021\n\tview_info\030\002 " +
+      "\001(\014\"<\n\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031" +
+      ".greptime.v1.DropViewExpr\"A\n\021AlterDataba" +
+      "seTask\022,\n\004task\030\001 \001(\0132\036.greptime.v1.Alter" +
+      "DatabaseExpr\"K\n\021CreateTriggerTask\0226\n\016cre" +
+      "ate_trigger\030\001 \001(\0132\036.greptime.v1.CreateTr" +
+      "iggerExpr\"E\n\017DropTriggerTask\0222\n\014drop_tri" +
+      "gger\030\001 \001(\0132\034.greptime.v1.DropTriggerExpr" +
+      "\"?\n\rCommentOnTask\022.\n\ncomment_on\030\001 \001(\0132\032." +
+      "greptime.v1.CommentOnExpr\"\346\n\n\016DdlTaskReq" +
+      "uest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta." +
+      "RequestHeader\0220\n\rquery_context\030@ \001(\0132\031.g" +
+      "reptime.v1.QueryContext\022\014\n\004wait\030A \001(\010\022\024\n" +
+      "\014timeout_secs\030B \001(\r\022>\n\021create_table_task" +
+      "\030\002 \001(\0132!.greptime.v1.meta.CreateTableTas" +
+      "kH\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime." +
+      "v1.meta.DropTableTaskH\000\022<\n\020alter_table_t" +
+      "ask\030\004 \001(\0132 .greptime.v1.meta.AlterTableT" +
+      "askH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.gre" +
+      "ptime.v1.meta.TruncateTableTaskH\000\022@\n\022cre" +
+      "ate_table_tasks\030\006 \001(\0132\".greptime.v1.meta" +
+      ".CreateTableTasksH\000\022<\n\020drop_table_tasks\030" +
+      "\007 \001(\0132 .greptime.v1.meta.DropTableTasksH" +
+      "\000\022>\n\021alter_table_tasks\030\010 \001(\0132!.greptime." +
+      "v1.meta.AlterTableTasksH\000\022@\n\022drop_databa" +
+      "se_task\030\t \001(\0132\".greptime.v1.meta.DropDat" +
+      "abaseTaskH\000\022D\n\024create_database_task\030\n \001(" +
+      "\0132$.greptime.v1.meta.CreateDatabaseTaskH" +
+      "\000\022<\n\020create_flow_task\030\013 \001(\0132 .greptime.v" +
+      "1.meta.CreateFlowTaskH\000\0228\n\016drop_flow_tas" +
+      "k\030\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH" +
+      "\000\022<\n\020create_view_task\030\r \001(\0132 .greptime.v" +
+      "1.meta.CreateViewTaskH\000\0228\n\016drop_view_tas" +
+      "k\030\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH" +
+      "\000\022B\n\023alter_database_task\030\017 \001(\0132#.greptim" +
+      "e.v1.meta.AlterDatabaseTaskH\000\022B\n\023create_" +
+      "trigger_task\030\020 \001(\0132#.greptime.v1.meta.Cr" +
+      "eateTriggerTaskH\000\022>\n\021drop_trigger_task\030\021" +
+      " \001(\0132!.greptime.v1.meta.DropTriggerTaskH" +
+      "\000\022:\n\017comment_on_task\030\022 \001(\0132\037.greptime.v1" +
+      ".meta.CommentOnTaskH\000\022>\n\021undrop_table_ta" +
+      "sk\030\023 \001(\0132!.greptime.v1.meta.UndropTableT" +
+      "askH\000\022K\n\030purge_dropped_table_task\030\024 \001(\0132" +
+      "\'.greptime.v1.meta.PurgeDroppedTableTask" +
+      "H\000B\006\n\004task\"\230\001\n\017DdlTaskResponse\0220\n\006header" +
+      "\030\001 \001(\0132 .greptime.v1.meta.ResponseHeader" +
+      "\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta.Procedu" +
+      "reId\022\'\n\ttable_ids\030\005 \003(\0132\024.greptime.v1.Ta" +
+      "bleId*#\n\013DdlTaskType\022\n\n\006Create\020\000\022\010\n\004Drop" +
+      "\020\001B<Z:github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21005,13 +20102,13 @@ public final class Ddl {
     internal_static_greptime_v1_meta_UndropTableTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_UndropTableTask_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
+        new java.lang.String[] { "UndropTable", });
     internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_meta_PurgeDroppedTableTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "TableId", });
+        new java.lang.String[] { "PurgeDroppedTable", });
     internal_static_greptime_v1_meta_AlterTableTask_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_AlterTableTask_fieldAccessorTable = new

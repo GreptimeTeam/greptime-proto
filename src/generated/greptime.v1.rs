@@ -785,7 +785,10 @@ pub mod column {
 /// So create a new DDL expr if you need it.
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DdlRequest {
-    #[prost(oneof = "ddl_request::Expr", tags = "1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13")]
+    #[prost(
+        oneof = "ddl_request::Expr",
+        tags = "1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15"
+    )]
     pub expr: ::core::option::Option<ddl_request::Expr>,
 }
 /// Nested message and enum types in `DdlRequest`.
@@ -814,6 +817,10 @@ pub mod ddl_request {
         AlterDatabase(super::AlterDatabaseExpr),
         #[prost(message, tag = "13")]
         CommentOn(super::CommentOnExpr),
+        #[prost(message, tag = "14")]
+        UndropTable(super::UndropTableExpr),
+        #[prost(message, tag = "15")]
+        PurgeDroppedTable(super::PurgeDroppedTableExpr),
     }
 }
 /// Create a flow to run the SQL when new data arrives.
@@ -1050,6 +1057,28 @@ pub struct DropTableExpr {
     pub table_id: ::core::option::Option<TableId>,
     #[prost(bool, tag = "5")]
     pub drop_if_exists: bool,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct UndropTableExpr {
+    #[prost(string, tag = "1")]
+    pub catalog_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub table_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "4")]
+    pub table_id: ::core::option::Option<TableId>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct PurgeDroppedTableExpr {
+    #[prost(string, tag = "1")]
+    pub catalog_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub table_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "4")]
+    pub table_id: ::core::option::Option<TableId>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateDatabaseExpr {
