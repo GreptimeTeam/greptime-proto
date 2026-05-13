@@ -36,7 +36,7 @@ pub struct RegionRequest {
     /// query request is handled in flight services.
     #[prost(
         oneof = "region_request::Body",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21"
     )]
     pub body: ::core::option::Option<region_request::Body>,
 }
@@ -82,6 +82,8 @@ pub mod region_request {
         BuildIndex(super::BuildIndexRequest),
         #[prost(message, tag = "20")]
         ApplyStagingManifest(super::ApplyStagingManifestRequest),
+        #[prost(message, tag = "21")]
+        RemoteDynFilter(super::RemoteDynFilterRequest),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -447,6 +449,39 @@ pub struct ApplyStagingManifestRequest {
     /// Path to the staging manifest file.
     #[prost(string, tag = "4")]
     pub manifest_path: ::prost::alloc::string::String,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteDynFilterRequest {
+    #[prost(string, tag = "1")]
+    pub query_id: ::prost::alloc::string::String,
+    #[prost(oneof = "remote_dyn_filter_request::Action", tags = "2, 3")]
+    pub action: ::core::option::Option<remote_dyn_filter_request::Action>,
+}
+/// Nested message and enum types in `RemoteDynFilterRequest`.
+pub mod remote_dyn_filter_request {
+    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
+    pub enum Action {
+        #[prost(message, tag = "2")]
+        Update(super::RemoteDynFilterUpdate),
+        #[prost(message, tag = "3")]
+        Unregister(super::RemoteDynFilterUnregister),
+    }
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteDynFilterUpdate {
+    #[prost(string, tag = "1")]
+    pub filter_id: ::prost::alloc::string::String,
+    #[prost(bytes = "vec", tag = "2")]
+    pub payload: ::prost::alloc::vec::Vec<u8>,
+    #[prost(uint64, tag = "3")]
+    pub generation: u64,
+    #[prost(bool, tag = "4")]
+    pub is_complete: bool,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteDynFilterUnregister {
+    #[prost(string, tag = "1")]
+    pub filter_id: ::prost::alloc::string::String,
 }
 /// Generated client implementations.
 pub mod region_client {
