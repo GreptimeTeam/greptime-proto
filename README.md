@@ -7,7 +7,7 @@ GreptimeDB protobuf definitions and pre-generated Rust bindings.
 ### Requirement
 
 - Rust consumers do not need `protoc`.
-- Maintainers need [google/protobuf][protobuf] v3 to regenerate Rust bindings after `.proto` changes.
+- Maintainers need Docker to regenerate checked-in bindings after `.proto` changes.
 
 ### Command
 
@@ -29,7 +29,7 @@ GreptimeDB protobuf definitions and pre-generated Rust bindings.
   make java
   ```
 
-  The compilation for Go and Java will use builder container `namely/protoc-all`.
+  The compilation for Rust, Go, Java and C++ will use local builder image built from `docker/protoc-all/Dockerfile`.
 
 ## Usage
 
