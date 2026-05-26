@@ -29,7 +29,7 @@ GreptimeDB protobuf definitions and pre-generated Rust bindings.
   make java
   ```
 
-  The compilation for Rust, Go, Java and C++ will use local builder image built from `docker/protoc-all/Dockerfile`.
+  Rust generation uses the local builder image built from `docker/protoc-all/Dockerfile`. Go, Java, and C++ generation uses `namely/protoc-all:1.51_2` directly.
 
 ## Usage
 
@@ -53,7 +53,7 @@ use greptime_proto::prometheus::remote::*;
 When working in this repository, regenerate the checked-in Rust bindings after `.proto` changes with:
 
 ```console
-cargo run --manifest-path xtask/Cargo.toml -- generate-rust
+make rust
 ```
 
 ### Go

@@ -12,6 +12,7 @@ build-builder-image:
 
 rust: build-builder-image
 	docker run --rm -t -w /greptime-proto \
+		--user $(shell id -u):$(shell id -g) \
 		--entrypoint ./scripts/generate-rust.sh \
 		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
 
