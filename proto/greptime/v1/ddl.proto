@@ -162,10 +162,21 @@ message UnsetIndex {
 }
 
 message Repartition {
-  // The from partition expressions serialized in JSON format.
-  repeated string from_partition_exprs = 1;
-  // The into partition expressions serialized in JSON format.
+  // Deprecated: use `source.partition_exprs.exprs` instead.
+  repeated string from_partition_exprs = 1 [deprecated = true];
   repeated string into_partition_exprs = 2;
+  oneof source {
+    PartitionExprs partition_exprs = 3;
+    UnpartitionedSource unpartitioned = 4;
+  }
+}
+message PartitionExprs {
+  // The partition expressions serialized in JSON format.
+  repeated string exprs = 1;
+}
+message UnpartitionedSource {
+  // Partition columns for unpartitioned/single-region.
+  repeated string partition_columns = 1;
 }
 
 message DropTableExpr {
