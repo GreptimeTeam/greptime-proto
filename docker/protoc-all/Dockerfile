@@ -15,4 +15,5 @@ RUN rm -f /etc/apt/sources.list.d/nodesource.list \
     && rm -rf /var/lib/apt/lists/* \
     && rustc --version \
     && cargo --version \
-    && protoc --version
+    && protoc --version \
+    && chmod -R a+rwX /usr/local/cargo /usr/local/rustup
