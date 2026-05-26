@@ -1031,12 +1031,36 @@ pub mod unset_index {
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Repartition {
-    /// The from partition expressions serialized in JSON format.
+    /// Deprecated: use `source.partition_exprs.exprs` instead.
+    #[deprecated]
     #[prost(string, repeated, tag = "1")]
     pub from_partition_exprs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    /// The into partition expressions serialized in JSON format.
     #[prost(string, repeated, tag = "2")]
     pub into_partition_exprs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    #[prost(oneof = "repartition::Source", tags = "3, 4")]
+    pub source: ::core::option::Option<repartition::Source>,
+}
+/// Nested message and enum types in `Repartition`.
+pub mod repartition {
+    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
+    pub enum Source {
+        #[prost(message, tag = "3")]
+        PartitionExprs(super::PartitionExprs),
+        #[prost(message, tag = "4")]
+        Unpartitioned(super::UnpartitionedSource),
+    }
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct PartitionExprs {
+    /// The partition expressions serialized in JSON format.
+    #[prost(string, repeated, tag = "1")]
+    pub exprs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct UnpartitionedSource {
+    /// Partition columns for unpartitioned/single-region.
+    #[prost(string, repeated, tag = "1")]
+    pub partition_columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct DropTableExpr {
