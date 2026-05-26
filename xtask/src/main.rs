@@ -102,7 +102,10 @@ fn generate_rust() -> Result<(), Box<dyn Error>> {
         .iter()
         .map(|path| repo_root.join(path))
         .collect();
-    let include_dirs = [repo_root.join("proto")];
+    let mut include_dirs = vec![repo_root.join("proto")];
+    if let Some(protoc_include) = env::var_os("PROTOC_INCLUDE") {
+        include_dirs.push(PathBuf::from(protoc_include));
+    }
 
     tonic_prost_build::configure()
         .out_dir(&generated_dir)
