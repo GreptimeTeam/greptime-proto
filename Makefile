@@ -1,29 +1,25 @@
-.PHONY: all rust go go-deps java cpp check-protoc
+.PHONY: all rust go go-deps java cpp build-builder-image
 
-BUILDER_CONTAINER=namely/protoc-all:1.51_2
-PROTOC_VERSION=3.21.12
+PROTOC_CONTAINER=namely/protoc-all:1.51_2
+BUILDER_CONTAINER=greptime/protoc-all-local:latest
+BUILDER_DOCKERFILE=./docker/protoc-all/Dockerfile
+BUILDER_CONTEXT=./docker/protoc-all
 
 all: rust go java cpp
 
-check-protoc:
-	@if ! command -v protoc >/dev/null 2>&1; then \
-		echo "Error: protoc is not installed. Please install protoc $(PROTOC_VERSION)."; \
-		exit 1; \
-	fi
-	@CURRENT_PROTOC_VERSION=$$(protoc --version | awk '{print $$2}'); \
-	if [ "$$CURRENT_PROTOC_VERSION" != "$(PROTOC_VERSION)" ]; then \
-		echo "Error: Required protoc version is $(PROTOC_VERSION), but found $$CURRENT_PROTOC_VERSION."; \
-		echo "Please install protoc $(PROTOC_VERSION) to ensure generated code is consistent."; \
-		exit 1; \
-	fi
+build-builder-image:
+	docker build -f ${BUILDER_DOCKERFILE} -t ${BUILDER_CONTAINER} ${BUILDER_CONTEXT}
 
-rust: check-protoc
-	cargo run --manifest-path xtask/Cargo.toml -- generate-rust
+rust: build-builder-image
+	docker run --rm -t -w /greptime-proto \
+		--user $(shell id -u):$(shell id -g) \
+		--entrypoint ./scripts/generate-rust.sh \
+		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
 
 go: go-deps
 	docker run --rm -t -w /greptime-proto \
 		--entrypoint ./scripts/generate-go.sh \
-		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
+		-v ${PWD}:/greptime-proto ${PROTOC_CONTAINER}
 
 go-deps:
 	go mod download
@@ -31,9 +27,9 @@ go-deps:
 java:
 	docker run --rm -t -w /greptime-proto \
 		--entrypoint ./scripts/generate-java.sh \
-		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
+		-v ${PWD}:/greptime-proto ${PROTOC_CONTAINER}
 
 cpp:
 	docker run --rm -t -w /greptime-proto \
 		--entrypoint ./scripts/generate-cpp.sh \
-		-v ${PWD}:/greptime-proto ${BUILDER_CONTAINER}
+		-v ${PWD}:/greptime-proto ${PROTOC_CONTAINER}
