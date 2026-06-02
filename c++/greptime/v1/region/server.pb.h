@@ -61,6 +61,9 @@ extern AddColumnDefaultTypeInternal _AddColumn_default_instance_;
 class AddColumns;
 struct AddColumnsDefaultTypeInternal;
 extern AddColumnsDefaultTypeInternal _AddColumns_default_instance_;
+class AlignedSchemaVersion;
+struct AlignedSchemaVersionDefaultTypeInternal;
+extern AlignedSchemaVersionDefaultTypeInternal _AlignedSchemaVersion_default_instance_;
 class All;
 struct AllDefaultTypeInternal;
 extern AllDefaultTypeInternal _All_default_instance_;
@@ -190,6 +193,7 @@ extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::greptime::v1::region::AddColumn* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumn>(Arena*);
 template<> ::greptime::v1::region::AddColumns* Arena::CreateMaybeMessage<::greptime::v1::region::AddColumns>(Arena*);
+template<> ::greptime::v1::region::AlignedSchemaVersion* Arena::CreateMaybeMessage<::greptime::v1::region::AlignedSchemaVersion>(Arena*);
 template<> ::greptime::v1::region::All* Arena::CreateMaybeMessage<::greptime::v1::region::All>(Arena*);
 template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequest>(Arena*);
 template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
@@ -6000,8 +6004,8 @@ class BulkInsertRequest final :
 
   enum : int {
     kPartitionExprVersionFieldNumber = 3,
-    kRegionIdFieldNumber = 1,
     kAlignedSchemaVersionFieldNumber = 4,
+    kRegionIdFieldNumber = 1,
     kArrowIpcFieldNumber = 2,
   };
   // .greptime.v1.PartitionExprVersion partition_expr_version = 3;
@@ -6022,6 +6026,24 @@ class BulkInsertRequest final :
       ::greptime::v1::PartitionExprVersion* partition_expr_version);
   ::greptime::v1::PartitionExprVersion* unsafe_arena_release_partition_expr_version();
 
+  // .greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;
+  bool has_aligned_schema_version() const;
+  private:
+  bool _internal_has_aligned_schema_version() const;
+  public:
+  void clear_aligned_schema_version();
+  const ::greptime::v1::region::AlignedSchemaVersion& aligned_schema_version() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::AlignedSchemaVersion* release_aligned_schema_version();
+  ::greptime::v1::region::AlignedSchemaVersion* mutable_aligned_schema_version();
+  void set_allocated_aligned_schema_version(::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version);
+  private:
+  const ::greptime::v1::region::AlignedSchemaVersion& _internal_aligned_schema_version() const;
+  ::greptime::v1::region::AlignedSchemaVersion* _internal_mutable_aligned_schema_version();
+  public:
+  void unsafe_arena_set_allocated_aligned_schema_version(
+      ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version);
+  ::greptime::v1::region::AlignedSchemaVersion* unsafe_arena_release_aligned_schema_version();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -6029,15 +6051,6 @@ class BulkInsertRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
-  public:
-
-  // uint64 aligned_schema_version = 4;
-  void clear_aligned_schema_version();
-  uint64_t aligned_schema_version() const;
-  void set_aligned_schema_version(uint64_t value);
-  private:
-  uint64_t _internal_aligned_schema_version() const;
-  void _internal_set_aligned_schema_version(uint64_t value);
   public:
 
   // .greptime.v1.ArrowIpc arrow_ipc = 2;
@@ -6073,8 +6086,8 @@ class BulkInsertRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::PartitionExprVersion* partition_expr_version_;
+    ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version_;
     uint64_t region_id_;
-    uint64_t aligned_schema_version_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -6083,6 +6096,154 @@ class BulkInsertRequest final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
 
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class AlignedSchemaVersion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.AlignedSchemaVersion) */ {
+ public:
+  inline AlignedSchemaVersion() : AlignedSchemaVersion(nullptr) {}
+  ~AlignedSchemaVersion() override;
+  explicit PROTOBUF_CONSTEXPR AlignedSchemaVersion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  AlignedSchemaVersion(const AlignedSchemaVersion& from);
+  AlignedSchemaVersion(AlignedSchemaVersion&& from) noexcept
+    : AlignedSchemaVersion() {
+    *this = ::std::move(from);
+  }
+
+  inline AlignedSchemaVersion& operator=(const AlignedSchemaVersion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AlignedSchemaVersion& operator=(AlignedSchemaVersion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AlignedSchemaVersion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AlignedSchemaVersion* internal_default_instance() {
+    return reinterpret_cast<const AlignedSchemaVersion*>(
+               &_AlignedSchemaVersion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    33;
+
+  friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AlignedSchemaVersion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AlignedSchemaVersion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  AlignedSchemaVersion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<AlignedSchemaVersion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const AlignedSchemaVersion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const AlignedSchemaVersion& from) {
+    AlignedSchemaVersion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AlignedSchemaVersion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.AlignedSchemaVersion";
+  }
+  protected:
+  explicit AlignedSchemaVersion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSchemaVersionFieldNumber = 1,
+  };
+  // uint64 schema_version = 1;
+  void clear_schema_version();
+  uint64_t schema_version() const;
+  void set_schema_version(uint64_t value);
+  private:
+  uint64_t _internal_schema_version() const;
+  void _internal_set_schema_version(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.AlignedSchemaVersion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t schema_version_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
@@ -6137,7 +6298,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -6285,7 +6446,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -6450,7 +6611,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -6651,7 +6812,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -6813,7 +6974,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -6961,7 +7122,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -7114,7 +7275,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -7311,7 +7472,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -7517,7 +7678,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -7708,7 +7869,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -13017,24 +13178,94 @@ inline void BulkInsertRequest::set_allocated_partition_expr_version(::greptime::
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.partition_expr_version)
 }
 
-// uint64 aligned_schema_version = 4;
+// .greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;
+inline bool BulkInsertRequest::_internal_has_aligned_schema_version() const {
+  return this != internal_default_instance() && _impl_.aligned_schema_version_ != nullptr;
+}
+inline bool BulkInsertRequest::has_aligned_schema_version() const {
+  return _internal_has_aligned_schema_version();
+}
 inline void BulkInsertRequest::clear_aligned_schema_version() {
-  _impl_.aligned_schema_version_ = uint64_t{0u};
+  if (GetArenaForAllocation() == nullptr && _impl_.aligned_schema_version_ != nullptr) {
+    delete _impl_.aligned_schema_version_;
+  }
+  _impl_.aligned_schema_version_ = nullptr;
 }
-inline uint64_t BulkInsertRequest::_internal_aligned_schema_version() const {
-  return _impl_.aligned_schema_version_;
+inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::_internal_aligned_schema_version() const {
+  const ::greptime::v1::region::AlignedSchemaVersion* p = _impl_.aligned_schema_version_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::AlignedSchemaVersion&>(
+      ::greptime::v1::region::_AlignedSchemaVersion_default_instance_);
 }
-inline uint64_t BulkInsertRequest::aligned_schema_version() const {
+inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::aligned_schema_version() const {
   // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
   return _internal_aligned_schema_version();
 }
-inline void BulkInsertRequest::_internal_set_aligned_schema_version(uint64_t value) {
-  
-  _impl_.aligned_schema_version_ = value;
+inline void BulkInsertRequest::unsafe_arena_set_allocated_aligned_schema_version(
+    ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.aligned_schema_version_);
+  }
+  _impl_.aligned_schema_version_ = aligned_schema_version;
+  if (aligned_schema_version) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
 }
-inline void BulkInsertRequest::set_aligned_schema_version(uint64_t value) {
-  _internal_set_aligned_schema_version(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::release_aligned_schema_version() {
+  
+  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.aligned_schema_version_;
+  _impl_.aligned_schema_version_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::unsafe_arena_release_aligned_schema_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+  
+  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.aligned_schema_version_;
+  _impl_.aligned_schema_version_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::_internal_mutable_aligned_schema_version() {
+  
+  if (_impl_.aligned_schema_version_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::AlignedSchemaVersion>(GetArenaForAllocation());
+    _impl_.aligned_schema_version_ = p;
+  }
+  return _impl_.aligned_schema_version_;
+}
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::mutable_aligned_schema_version() {
+  ::greptime::v1::region::AlignedSchemaVersion* _msg = _internal_mutable_aligned_schema_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+  return _msg;
+}
+inline void BulkInsertRequest::set_allocated_aligned_schema_version(::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.aligned_schema_version_;
+  }
+  if (aligned_schema_version) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(aligned_schema_version);
+    if (message_arena != submessage_arena) {
+      aligned_schema_version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, aligned_schema_version, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.aligned_schema_version_ = aligned_schema_version;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
 }
 
 inline bool BulkInsertRequest::has_body() const {
@@ -13046,6 +13277,30 @@ inline void BulkInsertRequest::clear_has_body() {
 inline BulkInsertRequest::BodyCase BulkInsertRequest::body_case() const {
   return BulkInsertRequest::BodyCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// AlignedSchemaVersion
+
+// uint64 schema_version = 1;
+inline void AlignedSchemaVersion::clear_schema_version() {
+  _impl_.schema_version_ = uint64_t{0u};
+}
+inline uint64_t AlignedSchemaVersion::_internal_schema_version() const {
+  return _impl_.schema_version_;
+}
+inline uint64_t AlignedSchemaVersion::schema_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlignedSchemaVersion.schema_version)
+  return _internal_schema_version();
+}
+inline void AlignedSchemaVersion::_internal_set_schema_version(uint64_t value) {
+  
+  _impl_.schema_version_ = value;
+}
+inline void AlignedSchemaVersion::set_schema_version(uint64_t value) {
+  _internal_set_schema_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.AlignedSchemaVersion.schema_version)
+}
+
 // -------------------------------------------------------------------
 
 // MitoManifestInfo
@@ -13980,6 +14235,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

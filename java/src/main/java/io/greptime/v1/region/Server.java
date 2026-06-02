@@ -30942,10 +30942,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Common.PartitionExprVersionOrBuilder getPartitionExprVersionOrBuilder();
 
     /**
-     * <code>uint64 aligned_schema_version = 4;</code>
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return Whether the alignedSchemaVersion field is set.
+     */
+    boolean hasAlignedSchemaVersion();
+    /**
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
      * @return The alignedSchemaVersion.
      */
-    long getAlignedSchemaVersion();
+    io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion();
+    /**
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     */
+    io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder();
 
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
@@ -31030,9 +31039,17 @@ java.lang.String defaultValue);
 
               break;
             }
-            case 32: {
+            case 34: {
+              io.greptime.v1.region.Server.AlignedSchemaVersion.Builder subBuilder = null;
+              if (alignedSchemaVersion_ != null) {
+                subBuilder = alignedSchemaVersion_.toBuilder();
+              }
+              alignedSchemaVersion_ = input.readMessage(io.greptime.v1.region.Server.AlignedSchemaVersion.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(alignedSchemaVersion_);
+                alignedSchemaVersion_ = subBuilder.buildPartial();
+              }
 
-              alignedSchemaVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -31177,14 +31194,29 @@ java.lang.String defaultValue);
     }
 
     public static final int ALIGNED_SCHEMA_VERSION_FIELD_NUMBER = 4;
-    private long alignedSchemaVersion_;
+    private io.greptime.v1.region.Server.AlignedSchemaVersion alignedSchemaVersion_;
     /**
-     * <code>uint64 aligned_schema_version = 4;</code>
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return Whether the alignedSchemaVersion field is set.
+     */
+    @java.lang.Override
+    public boolean hasAlignedSchemaVersion() {
+      return alignedSchemaVersion_ != null;
+    }
+    /**
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
      * @return The alignedSchemaVersion.
      */
     @java.lang.Override
-    public long getAlignedSchemaVersion() {
-      return alignedSchemaVersion_;
+    public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion() {
+      return alignedSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
+    }
+    /**
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder() {
+      return getAlignedSchemaVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31210,8 +31242,8 @@ java.lang.String defaultValue);
       if (partitionExprVersion_ != null) {
         output.writeMessage(3, getPartitionExprVersion());
       }
-      if (alignedSchemaVersion_ != 0L) {
-        output.writeUInt64(4, alignedSchemaVersion_);
+      if (alignedSchemaVersion_ != null) {
+        output.writeMessage(4, getAlignedSchemaVersion());
       }
       unknownFields.writeTo(output);
     }
@@ -31234,9 +31266,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPartitionExprVersion());
       }
-      if (alignedSchemaVersion_ != 0L) {
+      if (alignedSchemaVersion_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(4, alignedSchemaVersion_);
+          .computeMessageSize(4, getAlignedSchemaVersion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31260,8 +31292,11 @@ java.lang.String defaultValue);
         if (!getPartitionExprVersion()
             .equals(other.getPartitionExprVersion())) return false;
       }
-      if (getAlignedSchemaVersion()
-          != other.getAlignedSchemaVersion()) return false;
+      if (hasAlignedSchemaVersion() != other.hasAlignedSchemaVersion()) return false;
+      if (hasAlignedSchemaVersion()) {
+        if (!getAlignedSchemaVersion()
+            .equals(other.getAlignedSchemaVersion())) return false;
+      }
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
         case 2:
@@ -31289,9 +31324,10 @@ java.lang.String defaultValue);
         hash = (37 * hash) + PARTITION_EXPR_VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getPartitionExprVersion().hashCode();
       }
-      hash = (37 * hash) + ALIGNED_SCHEMA_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAlignedSchemaVersion());
+      if (hasAlignedSchemaVersion()) {
+        hash = (37 * hash) + ALIGNED_SCHEMA_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getAlignedSchemaVersion().hashCode();
+      }
       switch (bodyCase_) {
         case 2:
           hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
@@ -31445,8 +31481,12 @@ java.lang.String defaultValue);
           partitionExprVersion_ = null;
           partitionExprVersionBuilder_ = null;
         }
-        alignedSchemaVersion_ = 0L;
-
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = null;
+        } else {
+          alignedSchemaVersion_ = null;
+          alignedSchemaVersionBuilder_ = null;
+        }
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -31488,7 +31528,11 @@ java.lang.String defaultValue);
         } else {
           result.partitionExprVersion_ = partitionExprVersionBuilder_.build();
         }
-        result.alignedSchemaVersion_ = alignedSchemaVersion_;
+        if (alignedSchemaVersionBuilder_ == null) {
+          result.alignedSchemaVersion_ = alignedSchemaVersion_;
+        } else {
+          result.alignedSchemaVersion_ = alignedSchemaVersionBuilder_.build();
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -31544,8 +31588,8 @@ java.lang.String defaultValue);
         if (other.hasPartitionExprVersion()) {
           mergePartitionExprVersion(other.getPartitionExprVersion());
         }
-        if (other.getAlignedSchemaVersion() != 0L) {
-          setAlignedSchemaVersion(other.getAlignedSchemaVersion());
+        if (other.hasAlignedSchemaVersion()) {
+          mergeAlignedSchemaVersion(other.getAlignedSchemaVersion());
         }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
@@ -31892,35 +31936,123 @@ java.lang.String defaultValue);
         return partitionExprVersionBuilder_;
       }
 
-      private long alignedSchemaVersion_ ;
+      private io.greptime.v1.region.Server.AlignedSchemaVersion alignedSchemaVersion_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder> alignedSchemaVersionBuilder_;
       /**
-       * <code>uint64 aligned_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       * @return Whether the alignedSchemaVersion field is set.
+       */
+      public boolean hasAlignedSchemaVersion() {
+        return alignedSchemaVersionBuilder_ != null || alignedSchemaVersion_ != null;
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        * @return The alignedSchemaVersion.
        */
-      @java.lang.Override
-      public long getAlignedSchemaVersion() {
-        return alignedSchemaVersion_;
+      public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion() {
+        if (alignedSchemaVersionBuilder_ == null) {
+          return alignedSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
+        } else {
+          return alignedSchemaVersionBuilder_.getMessage();
+        }
       }
       /**
-       * <code>uint64 aligned_schema_version = 4;</code>
-       * @param value The alignedSchemaVersion to set.
-       * @return This builder for chaining.
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public Builder setAlignedSchemaVersion(long value) {
-        
-        alignedSchemaVersion_ = value;
-        onChanged();
+      public Builder setAlignedSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
+        if (alignedSchemaVersionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          alignedSchemaVersion_ = value;
+          onChanged();
+        } else {
+          alignedSchemaVersionBuilder_.setMessage(value);
+        }
+
         return this;
       }
       /**
-       * <code>uint64 aligned_schema_version = 4;</code>
-       * @return This builder for chaining.
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       */
+      public Builder setAlignedSchemaVersion(
+          io.greptime.v1.region.Server.AlignedSchemaVersion.Builder builderForValue) {
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = builderForValue.build();
+          onChanged();
+        } else {
+          alignedSchemaVersionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       */
+      public Builder mergeAlignedSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
+        if (alignedSchemaVersionBuilder_ == null) {
+          if (alignedSchemaVersion_ != null) {
+            alignedSchemaVersion_ =
+              io.greptime.v1.region.Server.AlignedSchemaVersion.newBuilder(alignedSchemaVersion_).mergeFrom(value).buildPartial();
+          } else {
+            alignedSchemaVersion_ = value;
+          }
+          onChanged();
+        } else {
+          alignedSchemaVersionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
       public Builder clearAlignedSchemaVersion() {
-        
-        alignedSchemaVersion_ = 0L;
-        onChanged();
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = null;
+          onChanged();
+        } else {
+          alignedSchemaVersion_ = null;
+          alignedSchemaVersionBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       */
+      public io.greptime.v1.region.Server.AlignedSchemaVersion.Builder getAlignedSchemaVersionBuilder() {
+        
+        onChanged();
+        return getAlignedSchemaVersionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       */
+      public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder() {
+        if (alignedSchemaVersionBuilder_ != null) {
+          return alignedSchemaVersionBuilder_.getMessageOrBuilder();
+        } else {
+          return alignedSchemaVersion_ == null ?
+              io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder> 
+          getAlignedSchemaVersionFieldBuilder() {
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder>(
+                  getAlignedSchemaVersion(),
+                  getParentForChildren(),
+                  isClean());
+          alignedSchemaVersion_ = null;
+        }
+        return alignedSchemaVersionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -31970,6 +32102,497 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.region.Server.BulkInsertRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AlignedSchemaVersionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.AlignedSchemaVersion)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 schema_version = 1;</code>
+     * @return The schemaVersion.
+     */
+    long getSchemaVersion();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.AlignedSchemaVersion}
+   */
+  public static final class AlignedSchemaVersion extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.AlignedSchemaVersion)
+      AlignedSchemaVersionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AlignedSchemaVersion.newBuilder() to construct.
+    private AlignedSchemaVersion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AlignedSchemaVersion() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new AlignedSchemaVersion();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AlignedSchemaVersion(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              schemaVersion_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.AlignedSchemaVersion.class, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder.class);
+    }
+
+    public static final int SCHEMA_VERSION_FIELD_NUMBER = 1;
+    private long schemaVersion_;
+    /**
+     * <code>uint64 schema_version = 1;</code>
+     * @return The schemaVersion.
+     */
+    @java.lang.Override
+    public long getSchemaVersion() {
+      return schemaVersion_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (schemaVersion_ != 0L) {
+        output.writeUInt64(1, schemaVersion_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (schemaVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, schemaVersion_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.AlignedSchemaVersion)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.AlignedSchemaVersion other = (io.greptime.v1.region.Server.AlignedSchemaVersion) obj;
+
+      if (getSchemaVersion()
+          != other.getSchemaVersion()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SCHEMA_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSchemaVersion());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.AlignedSchemaVersion prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.AlignedSchemaVersion}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.AlignedSchemaVersion)
+        io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.AlignedSchemaVersion.class, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.AlignedSchemaVersion.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        schemaVersion_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.AlignedSchemaVersion getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.AlignedSchemaVersion build() {
+        io.greptime.v1.region.Server.AlignedSchemaVersion result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.AlignedSchemaVersion buildPartial() {
+        io.greptime.v1.region.Server.AlignedSchemaVersion result = new io.greptime.v1.region.Server.AlignedSchemaVersion(this);
+        result.schemaVersion_ = schemaVersion_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.AlignedSchemaVersion) {
+          return mergeFrom((io.greptime.v1.region.Server.AlignedSchemaVersion)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.AlignedSchemaVersion other) {
+        if (other == io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance()) return this;
+        if (other.getSchemaVersion() != 0L) {
+          setSchemaVersion(other.getSchemaVersion());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.AlignedSchemaVersion parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.AlignedSchemaVersion) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long schemaVersion_ ;
+      /**
+       * <code>uint64 schema_version = 1;</code>
+       * @return The schemaVersion.
+       */
+      @java.lang.Override
+      public long getSchemaVersion() {
+        return schemaVersion_;
+      }
+      /**
+       * <code>uint64 schema_version = 1;</code>
+       * @param value The schemaVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSchemaVersion(long value) {
+        
+        schemaVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 schema_version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSchemaVersion() {
+        
+        schemaVersion_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.AlignedSchemaVersion)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.AlignedSchemaVersion)
+    private static final io.greptime.v1.region.Server.AlignedSchemaVersion DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.AlignedSchemaVersion();
+    }
+
+    public static io.greptime.v1.region.Server.AlignedSchemaVersion getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AlignedSchemaVersion>
+        PARSER = new com.google.protobuf.AbstractParser<AlignedSchemaVersion>() {
+      @java.lang.Override
+      public AlignedSchemaVersion parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AlignedSchemaVersion(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AlignedSchemaVersion> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AlignedSchemaVersion> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.AlignedSchemaVersion getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -39299,6 +39922,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -39474,39 +40102,41 @@ java.lang.String defaultValue);
       "es\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000B\006\n\004k" +
       "ind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncolumn_" +
       "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol" +
-      "umn_id\030\002 \001(\r\"\275\001\n\021BulkInsertRequest\022\021\n\tre" +
+      "umn_id\030\002 \001(\r\"\347\001\n\021BulkInsertRequest\022\021\n\tre" +
       "gion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.grept" +
       "ime.v1.ArrowIpcH\000\022A\n\026partition_expr_vers" +
       "ion\030\003 \001(\0132!.greptime.v1.PartitionExprVer" +
-      "sion\022\036\n\026aligned_schema_version\030\004 \001(\004B\006\n\004" +
-      "body\"1\n\020MitoManifestInfo\022\035\n\025data_manifes" +
-      "t_version\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n" +
-      "\025data_manifest_version\030\001 \001(\004\022!\n\031metadata" +
-      "_manifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_info" +
-      "\030\002 \001(\0132$.greptime.v1.region.MitoManifest" +
-      "InfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.g" +
-      "reptime.v1.region.MetricManifestInfoH\000B\017" +
-      "\n\rmanifest_info\")\n\023ListMetadataRequest\022\022" +
-      "\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022" +
-      "\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030" +
-      "\001 \001(\014\"z\n\033ApplyStagingManifestRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022" +
-      "\031\n\021central_region_id\030\003 \001(\004\022\025\n\rmanifest_p" +
-      "ath\030\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010" +
-      "query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptim" +
-      "e.v1.region.RemoteDynFilterUpdateH\000\022C\n\nu" +
-      "nregister\030\003 \001(\0132-.greptime.v1.region.Rem" +
-      "oteDynFilterUnregisterH\000B\010\n\006action\"d\n\025Re" +
-      "moteDynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017" +
-      "\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013i" +
-      "s_complete\030\004 \001(\010\".\n\031RemoteDynFilterUnreg" +
-      "ister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Ha" +
-      "ndle\022!.greptime.v1.region.RegionRequest\032" +
-      "\".greptime.v1.region.RegionResponseB]\n\025i" +
-      "o.greptime.v1.regionB\006ServerZ<github.com" +
-      "/GreptimeTeam/greptime-proto/go/greptime" +
-      "/v1/regionb\006proto3"
+      "sion\022H\n\026aligned_schema_version\030\004 \001(\0132(.g" +
+      "reptime.v1.region.AlignedSchemaVersionB\006" +
+      "\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016schema" +
+      "_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022\035\n\025da" +
+      "ta_manifest_version\030\001 \001(\004\"V\n\022MetricManif" +
+      "estInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!" +
+      "\n\031metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sy" +
+      "ncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_man" +
+      "ifest_info\030\002 \001(\0132$.greptime.v1.region.Mi" +
+      "toManifestInfoH\000\022F\n\024metric_manifest_info" +
+      "\030\003 \001(\0132&.greptime.v1.region.MetricManife" +
+      "stInfoH\000B\017\n\rmanifest_info\")\n\023ListMetadat" +
+      "aRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildInd" +
+      "exRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMeta" +
+      "s\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifestR" +
+      "equest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition_e" +
+      "xpr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025\n\r" +
+      "manifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFilterR" +
+      "equest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\013" +
+      "2).greptime.v1.region.RemoteDynFilterUpd" +
+      "ateH\000\022C\n\nunregister\030\003 \001(\0132-.greptime.v1." +
+      "region.RemoteDynFilterUnregisterH\000B\010\n\006ac" +
+      "tion\"d\n\025RemoteDynFilterUpdate\022\021\n\tfilter_" +
+      "id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030" +
+      "\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031RemoteDynF" +
+      "ilterUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Re" +
+      "gion\022O\n\006Handle\022!.greptime.v1.region.Regi" +
+      "onRequest\032\".greptime.v1.region.RegionRes" +
+      "ponseB]\n\025io.greptime.v1.regionB\006ServerZ<" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -39714,62 +40344,68 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "Body", });
-    internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
+    internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor =
       getDescriptor().getMessageTypes().get(29);
+    internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor,
+        new java.lang.String[] { "SchemaVersion", });
+    internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
+      getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MitoManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", });
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MetricManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", "MetadataManifestVersion", });
     internal_static_greptime_v1_region_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SyncRequest_descriptor,
         new java.lang.String[] { "RegionId", "MitoManifestInfo", "MetricManifestInfo", "ManifestInfo", });
     internal_static_greptime_v1_region_ListMetadataRequest_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ListMetadataRequest_descriptor,
         new java.lang.String[] { "RegionIds", });
     internal_static_greptime_v1_region_BuildIndexRequest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
         new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_region_FileMetas_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_region_FileMetas_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_FileMetas_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
         new java.lang.String[] { "RegionId", "PartitionExpr", "CentralRegionId", "ManifestPath", });
     internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor,
         new java.lang.String[] { "QueryId", "Update", "Unregister", "Action", });
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor,
         new java.lang.String[] { "FilterId", "Payload", "Generation", "IsComplete", });
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor,
