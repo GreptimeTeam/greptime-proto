@@ -256,7 +256,7 @@ message BulkInsertRequest {
     ArrowIpc arrow_ipc = 2;
   }
   PartitionExprVersion partition_expr_version = 3;
-  AlignedSchemaVersion alignment_schema_version = 4;
+  AlignedSchemaVersion aligned_schema_version = 4;
 }
 
 message AlignedSchemaVersion {

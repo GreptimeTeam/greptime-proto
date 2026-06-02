@@ -374,7 +374,7 @@ pub struct BulkInsertRequest {
     #[prost(message, optional, tag = "3")]
     pub partition_expr_version: ::core::option::Option<super::PartitionExprVersion>,
     #[prost(message, optional, tag = "4")]
-    pub alignment_schema_version: ::core::option::Option<AlignedSchemaVersion>,
+    pub aligned_schema_version: ::core::option::Option<AlignedSchemaVersion>,
     #[prost(oneof = "bulk_insert_request::Body", tags = "2")]
     pub body: ::core::option::Option<bulk_insert_request::Body>,
 }

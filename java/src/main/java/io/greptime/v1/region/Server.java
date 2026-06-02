@@ -30942,19 +30942,19 @@ java.lang.String defaultValue);
     io.greptime.v1.Common.PartitionExprVersionOrBuilder getPartitionExprVersionOrBuilder();
 
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-     * @return Whether the alignmentSchemaVersion field is set.
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return Whether the alignedSchemaVersion field is set.
      */
-    boolean hasAlignmentSchemaVersion();
+    boolean hasAlignedSchemaVersion();
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-     * @return The alignmentSchemaVersion.
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return The alignedSchemaVersion.
      */
-    io.greptime.v1.region.Server.AlignedSchemaVersion getAlignmentSchemaVersion();
+    io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion();
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
      */
-    io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignmentSchemaVersionOrBuilder();
+    io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder();
 
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
@@ -31041,13 +31041,13 @@ java.lang.String defaultValue);
             }
             case 34: {
               io.greptime.v1.region.Server.AlignedSchemaVersion.Builder subBuilder = null;
-              if (alignmentSchemaVersion_ != null) {
-                subBuilder = alignmentSchemaVersion_.toBuilder();
+              if (alignedSchemaVersion_ != null) {
+                subBuilder = alignedSchemaVersion_.toBuilder();
               }
-              alignmentSchemaVersion_ = input.readMessage(io.greptime.v1.region.Server.AlignedSchemaVersion.parser(), extensionRegistry);
+              alignedSchemaVersion_ = input.readMessage(io.greptime.v1.region.Server.AlignedSchemaVersion.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(alignmentSchemaVersion_);
-                alignmentSchemaVersion_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(alignedSchemaVersion_);
+                alignedSchemaVersion_ = subBuilder.buildPartial();
               }
 
               break;
@@ -31193,30 +31193,30 @@ java.lang.String defaultValue);
       return getPartitionExprVersion();
     }
 
-    public static final int ALIGNMENT_SCHEMA_VERSION_FIELD_NUMBER = 4;
-    private io.greptime.v1.region.Server.AlignedSchemaVersion alignmentSchemaVersion_;
+    public static final int ALIGNED_SCHEMA_VERSION_FIELD_NUMBER = 4;
+    private io.greptime.v1.region.Server.AlignedSchemaVersion alignedSchemaVersion_;
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-     * @return Whether the alignmentSchemaVersion field is set.
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return Whether the alignedSchemaVersion field is set.
      */
     @java.lang.Override
-    public boolean hasAlignmentSchemaVersion() {
-      return alignmentSchemaVersion_ != null;
+    public boolean hasAlignedSchemaVersion() {
+      return alignedSchemaVersion_ != null;
     }
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-     * @return The alignmentSchemaVersion.
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+     * @return The alignedSchemaVersion.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignmentSchemaVersion() {
-      return alignmentSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignmentSchemaVersion_;
+    public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion() {
+      return alignedSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
     }
     /**
-     * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+     * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignmentSchemaVersionOrBuilder() {
-      return getAlignmentSchemaVersion();
+    public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder() {
+      return getAlignedSchemaVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31242,8 +31242,8 @@ java.lang.String defaultValue);
       if (partitionExprVersion_ != null) {
         output.writeMessage(3, getPartitionExprVersion());
       }
-      if (alignmentSchemaVersion_ != null) {
-        output.writeMessage(4, getAlignmentSchemaVersion());
+      if (alignedSchemaVersion_ != null) {
+        output.writeMessage(4, getAlignedSchemaVersion());
       }
       unknownFields.writeTo(output);
     }
@@ -31266,9 +31266,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPartitionExprVersion());
       }
-      if (alignmentSchemaVersion_ != null) {
+      if (alignedSchemaVersion_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getAlignmentSchemaVersion());
+          .computeMessageSize(4, getAlignedSchemaVersion());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31292,10 +31292,10 @@ java.lang.String defaultValue);
         if (!getPartitionExprVersion()
             .equals(other.getPartitionExprVersion())) return false;
       }
-      if (hasAlignmentSchemaVersion() != other.hasAlignmentSchemaVersion()) return false;
-      if (hasAlignmentSchemaVersion()) {
-        if (!getAlignmentSchemaVersion()
-            .equals(other.getAlignmentSchemaVersion())) return false;
+      if (hasAlignedSchemaVersion() != other.hasAlignedSchemaVersion()) return false;
+      if (hasAlignedSchemaVersion()) {
+        if (!getAlignedSchemaVersion()
+            .equals(other.getAlignedSchemaVersion())) return false;
       }
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
@@ -31324,9 +31324,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + PARTITION_EXPR_VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getPartitionExprVersion().hashCode();
       }
-      if (hasAlignmentSchemaVersion()) {
-        hash = (37 * hash) + ALIGNMENT_SCHEMA_VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + getAlignmentSchemaVersion().hashCode();
+      if (hasAlignedSchemaVersion()) {
+        hash = (37 * hash) + ALIGNED_SCHEMA_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + getAlignedSchemaVersion().hashCode();
       }
       switch (bodyCase_) {
         case 2:
@@ -31481,11 +31481,11 @@ java.lang.String defaultValue);
           partitionExprVersion_ = null;
           partitionExprVersionBuilder_ = null;
         }
-        if (alignmentSchemaVersionBuilder_ == null) {
-          alignmentSchemaVersion_ = null;
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = null;
         } else {
-          alignmentSchemaVersion_ = null;
-          alignmentSchemaVersionBuilder_ = null;
+          alignedSchemaVersion_ = null;
+          alignedSchemaVersionBuilder_ = null;
         }
         bodyCase_ = 0;
         body_ = null;
@@ -31528,10 +31528,10 @@ java.lang.String defaultValue);
         } else {
           result.partitionExprVersion_ = partitionExprVersionBuilder_.build();
         }
-        if (alignmentSchemaVersionBuilder_ == null) {
-          result.alignmentSchemaVersion_ = alignmentSchemaVersion_;
+        if (alignedSchemaVersionBuilder_ == null) {
+          result.alignedSchemaVersion_ = alignedSchemaVersion_;
         } else {
-          result.alignmentSchemaVersion_ = alignmentSchemaVersionBuilder_.build();
+          result.alignedSchemaVersion_ = alignedSchemaVersionBuilder_.build();
         }
         result.bodyCase_ = bodyCase_;
         onBuilt();
@@ -31588,8 +31588,8 @@ java.lang.String defaultValue);
         if (other.hasPartitionExprVersion()) {
           mergePartitionExprVersion(other.getPartitionExprVersion());
         }
-        if (other.hasAlignmentSchemaVersion()) {
-          mergeAlignmentSchemaVersion(other.getAlignmentSchemaVersion());
+        if (other.hasAlignedSchemaVersion()) {
+          mergeAlignedSchemaVersion(other.getAlignedSchemaVersion());
         }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
@@ -31936,123 +31936,123 @@ java.lang.String defaultValue);
         return partitionExprVersionBuilder_;
       }
 
-      private io.greptime.v1.region.Server.AlignedSchemaVersion alignmentSchemaVersion_;
+      private io.greptime.v1.region.Server.AlignedSchemaVersion alignedSchemaVersion_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder> alignmentSchemaVersionBuilder_;
+          io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder> alignedSchemaVersionBuilder_;
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-       * @return Whether the alignmentSchemaVersion field is set.
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       * @return Whether the alignedSchemaVersion field is set.
        */
-      public boolean hasAlignmentSchemaVersion() {
-        return alignmentSchemaVersionBuilder_ != null || alignmentSchemaVersion_ != null;
+      public boolean hasAlignedSchemaVersion() {
+        return alignedSchemaVersionBuilder_ != null || alignedSchemaVersion_ != null;
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
-       * @return The alignmentSchemaVersion.
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
+       * @return The alignedSchemaVersion.
        */
-      public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignmentSchemaVersion() {
-        if (alignmentSchemaVersionBuilder_ == null) {
-          return alignmentSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignmentSchemaVersion_;
+      public io.greptime.v1.region.Server.AlignedSchemaVersion getAlignedSchemaVersion() {
+        if (alignedSchemaVersionBuilder_ == null) {
+          return alignedSchemaVersion_ == null ? io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
         } else {
-          return alignmentSchemaVersionBuilder_.getMessage();
+          return alignedSchemaVersionBuilder_.getMessage();
         }
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public Builder setAlignmentSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
-        if (alignmentSchemaVersionBuilder_ == null) {
+      public Builder setAlignedSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
+        if (alignedSchemaVersionBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          alignmentSchemaVersion_ = value;
+          alignedSchemaVersion_ = value;
           onChanged();
         } else {
-          alignmentSchemaVersionBuilder_.setMessage(value);
+          alignedSchemaVersionBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public Builder setAlignmentSchemaVersion(
+      public Builder setAlignedSchemaVersion(
           io.greptime.v1.region.Server.AlignedSchemaVersion.Builder builderForValue) {
-        if (alignmentSchemaVersionBuilder_ == null) {
-          alignmentSchemaVersion_ = builderForValue.build();
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = builderForValue.build();
           onChanged();
         } else {
-          alignmentSchemaVersionBuilder_.setMessage(builderForValue.build());
+          alignedSchemaVersionBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public Builder mergeAlignmentSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
-        if (alignmentSchemaVersionBuilder_ == null) {
-          if (alignmentSchemaVersion_ != null) {
-            alignmentSchemaVersion_ =
-              io.greptime.v1.region.Server.AlignedSchemaVersion.newBuilder(alignmentSchemaVersion_).mergeFrom(value).buildPartial();
+      public Builder mergeAlignedSchemaVersion(io.greptime.v1.region.Server.AlignedSchemaVersion value) {
+        if (alignedSchemaVersionBuilder_ == null) {
+          if (alignedSchemaVersion_ != null) {
+            alignedSchemaVersion_ =
+              io.greptime.v1.region.Server.AlignedSchemaVersion.newBuilder(alignedSchemaVersion_).mergeFrom(value).buildPartial();
           } else {
-            alignmentSchemaVersion_ = value;
+            alignedSchemaVersion_ = value;
           }
           onChanged();
         } else {
-          alignmentSchemaVersionBuilder_.mergeFrom(value);
+          alignedSchemaVersionBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public Builder clearAlignmentSchemaVersion() {
-        if (alignmentSchemaVersionBuilder_ == null) {
-          alignmentSchemaVersion_ = null;
+      public Builder clearAlignedSchemaVersion() {
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersion_ = null;
           onChanged();
         } else {
-          alignmentSchemaVersion_ = null;
-          alignmentSchemaVersionBuilder_ = null;
+          alignedSchemaVersion_ = null;
+          alignedSchemaVersionBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public io.greptime.v1.region.Server.AlignedSchemaVersion.Builder getAlignmentSchemaVersionBuilder() {
+      public io.greptime.v1.region.Server.AlignedSchemaVersion.Builder getAlignedSchemaVersionBuilder() {
         
         onChanged();
-        return getAlignmentSchemaVersionFieldBuilder().getBuilder();
+        return getAlignedSchemaVersionFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
-      public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignmentSchemaVersionOrBuilder() {
-        if (alignmentSchemaVersionBuilder_ != null) {
-          return alignmentSchemaVersionBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder() {
+        if (alignedSchemaVersionBuilder_ != null) {
+          return alignedSchemaVersionBuilder_.getMessageOrBuilder();
         } else {
-          return alignmentSchemaVersion_ == null ?
-              io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignmentSchemaVersion_;
+          return alignedSchemaVersion_ == null ?
+              io.greptime.v1.region.Server.AlignedSchemaVersion.getDefaultInstance() : alignedSchemaVersion_;
         }
       }
       /**
-       * <code>.greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;</code>
+       * <code>.greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder> 
-          getAlignmentSchemaVersionFieldBuilder() {
-        if (alignmentSchemaVersionBuilder_ == null) {
-          alignmentSchemaVersionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getAlignedSchemaVersionFieldBuilder() {
+        if (alignedSchemaVersionBuilder_ == null) {
+          alignedSchemaVersionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               io.greptime.v1.region.Server.AlignedSchemaVersion, io.greptime.v1.region.Server.AlignedSchemaVersion.Builder, io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder>(
-                  getAlignmentSchemaVersion(),
+                  getAlignedSchemaVersion(),
                   getParentForChildren(),
                   isClean());
-          alignmentSchemaVersion_ = null;
+          alignedSchemaVersion_ = null;
         }
-        return alignmentSchemaVersionBuilder_;
+        return alignedSchemaVersionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -40102,41 +40102,41 @@ java.lang.String defaultValue);
       "es\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000B\006\n\004k" +
       "ind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncolumn_" +
       "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol" +
-      "umn_id\030\002 \001(\r\"\351\001\n\021BulkInsertRequest\022\021\n\tre" +
+      "umn_id\030\002 \001(\r\"\347\001\n\021BulkInsertRequest\022\021\n\tre" +
       "gion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.grept" +
       "ime.v1.ArrowIpcH\000\022A\n\026partition_expr_vers" +
       "ion\030\003 \001(\0132!.greptime.v1.PartitionExprVer" +
-      "sion\022J\n\030alignment_schema_version\030\004 \001(\0132(" +
-      ".greptime.v1.region.AlignedSchemaVersion" +
-      "B\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016sche" +
-      "ma_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022\035\n\025" +
-      "data_manifest_version\030\001 \001(\004\"V\n\022MetricMan" +
-      "ifestInfo\022\035\n\025data_manifest_version\030\001 \001(\004" +
-      "\022!\n\031metadata_manifest_version\030\002 \001(\004\"\275\001\n\013" +
-      "SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_m" +
-      "anifest_info\030\002 \001(\0132$.greptime.v1.region." +
-      "MitoManifestInfoH\000\022F\n\024metric_manifest_in" +
-      "fo\030\003 \001(\0132&.greptime.v1.region.MetricMani" +
-      "festInfoH\000B\017\n\rmanifest_info\")\n\023ListMetad" +
-      "ataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildI" +
-      "ndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMe" +
-      "tas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifes" +
-      "tRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition" +
-      "_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025" +
-      "\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFilte" +
-      "rRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002 \001" +
-      "(\0132).greptime.v1.region.RemoteDynFilterU" +
-      "pdateH\000\022C\n\nunregister\030\003 \001(\0132-.greptime.v" +
-      "1.region.RemoteDynFilterUnregisterH\000B\010\n\006" +
-      "action\"d\n\025RemoteDynFilterUpdate\022\021\n\tfilte" +
-      "r_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngeneratio" +
-      "n\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031RemoteDy" +
-      "nFilterUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006" +
-      "Region\022O\n\006Handle\022!.greptime.v1.region.Re" +
-      "gionRequest\032\".greptime.v1.region.RegionR" +
-      "esponseB]\n\025io.greptime.v1.regionB\006Server" +
-      "Z<github.com/GreptimeTeam/greptime-proto" +
-      "/go/greptime/v1/regionb\006proto3"
+      "sion\022H\n\026aligned_schema_version\030\004 \001(\0132(.g" +
+      "reptime.v1.region.AlignedSchemaVersionB\006" +
+      "\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016schema" +
+      "_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022\035\n\025da" +
+      "ta_manifest_version\030\001 \001(\004\"V\n\022MetricManif" +
+      "estInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!" +
+      "\n\031metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sy" +
+      "ncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_man" +
+      "ifest_info\030\002 \001(\0132$.greptime.v1.region.Mi" +
+      "toManifestInfoH\000\022F\n\024metric_manifest_info" +
+      "\030\003 \001(\0132&.greptime.v1.region.MetricManife" +
+      "stInfoH\000B\017\n\rmanifest_info\")\n\023ListMetadat" +
+      "aRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildInd" +
+      "exRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMeta" +
+      "s\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifestR" +
+      "equest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition_e" +
+      "xpr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025\n\r" +
+      "manifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFilterR" +
+      "equest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\013" +
+      "2).greptime.v1.region.RemoteDynFilterUpd" +
+      "ateH\000\022C\n\nunregister\030\003 \001(\0132-.greptime.v1." +
+      "region.RemoteDynFilterUnregisterH\000B\010\n\006ac" +
+      "tion\"d\n\025RemoteDynFilterUpdate\022\021\n\tfilter_" +
+      "id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030" +
+      "\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031RemoteDynF" +
+      "ilterUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Re" +
+      "gion\022O\n\006Handle\022!.greptime.v1.region.Regi" +
+      "onRequest\032\".greptime.v1.region.RegionRes" +
+      "ponseB]\n\025io.greptime.v1.regionB\006ServerZ<" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -40343,7 +40343,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignmentSchemaVersion", "Body", });
+        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "Body", });
     internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable = new

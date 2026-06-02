@@ -6004,7 +6004,7 @@ class BulkInsertRequest final :
 
   enum : int {
     kPartitionExprVersionFieldNumber = 3,
-    kAlignmentSchemaVersionFieldNumber = 4,
+    kAlignedSchemaVersionFieldNumber = 4,
     kRegionIdFieldNumber = 1,
     kArrowIpcFieldNumber = 2,
   };
@@ -6026,23 +6026,23 @@ class BulkInsertRequest final :
       ::greptime::v1::PartitionExprVersion* partition_expr_version);
   ::greptime::v1::PartitionExprVersion* unsafe_arena_release_partition_expr_version();
 
-  // .greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;
-  bool has_alignment_schema_version() const;
+  // .greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;
+  bool has_aligned_schema_version() const;
   private:
-  bool _internal_has_alignment_schema_version() const;
+  bool _internal_has_aligned_schema_version() const;
   public:
-  void clear_alignment_schema_version();
-  const ::greptime::v1::region::AlignedSchemaVersion& alignment_schema_version() const;
-  PROTOBUF_NODISCARD ::greptime::v1::region::AlignedSchemaVersion* release_alignment_schema_version();
-  ::greptime::v1::region::AlignedSchemaVersion* mutable_alignment_schema_version();
-  void set_allocated_alignment_schema_version(::greptime::v1::region::AlignedSchemaVersion* alignment_schema_version);
+  void clear_aligned_schema_version();
+  const ::greptime::v1::region::AlignedSchemaVersion& aligned_schema_version() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::AlignedSchemaVersion* release_aligned_schema_version();
+  ::greptime::v1::region::AlignedSchemaVersion* mutable_aligned_schema_version();
+  void set_allocated_aligned_schema_version(::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version);
   private:
-  const ::greptime::v1::region::AlignedSchemaVersion& _internal_alignment_schema_version() const;
-  ::greptime::v1::region::AlignedSchemaVersion* _internal_mutable_alignment_schema_version();
+  const ::greptime::v1::region::AlignedSchemaVersion& _internal_aligned_schema_version() const;
+  ::greptime::v1::region::AlignedSchemaVersion* _internal_mutable_aligned_schema_version();
   public:
-  void unsafe_arena_set_allocated_alignment_schema_version(
-      ::greptime::v1::region::AlignedSchemaVersion* alignment_schema_version);
-  ::greptime::v1::region::AlignedSchemaVersion* unsafe_arena_release_alignment_schema_version();
+  void unsafe_arena_set_allocated_aligned_schema_version(
+      ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version);
+  ::greptime::v1::region::AlignedSchemaVersion* unsafe_arena_release_aligned_schema_version();
 
   // uint64 region_id = 1;
   void clear_region_id();
@@ -6086,7 +6086,7 @@ class BulkInsertRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::greptime::v1::PartitionExprVersion* partition_expr_version_;
-    ::greptime::v1::region::AlignedSchemaVersion* alignment_schema_version_;
+    ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version_;
     uint64_t region_id_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
@@ -13178,45 +13178,45 @@ inline void BulkInsertRequest::set_allocated_partition_expr_version(::greptime::
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.partition_expr_version)
 }
 
-// .greptime.v1.region.AlignedSchemaVersion alignment_schema_version = 4;
-inline bool BulkInsertRequest::_internal_has_alignment_schema_version() const {
-  return this != internal_default_instance() && _impl_.alignment_schema_version_ != nullptr;
+// .greptime.v1.region.AlignedSchemaVersion aligned_schema_version = 4;
+inline bool BulkInsertRequest::_internal_has_aligned_schema_version() const {
+  return this != internal_default_instance() && _impl_.aligned_schema_version_ != nullptr;
 }
-inline bool BulkInsertRequest::has_alignment_schema_version() const {
-  return _internal_has_alignment_schema_version();
+inline bool BulkInsertRequest::has_aligned_schema_version() const {
+  return _internal_has_aligned_schema_version();
 }
-inline void BulkInsertRequest::clear_alignment_schema_version() {
-  if (GetArenaForAllocation() == nullptr && _impl_.alignment_schema_version_ != nullptr) {
-    delete _impl_.alignment_schema_version_;
+inline void BulkInsertRequest::clear_aligned_schema_version() {
+  if (GetArenaForAllocation() == nullptr && _impl_.aligned_schema_version_ != nullptr) {
+    delete _impl_.aligned_schema_version_;
   }
-  _impl_.alignment_schema_version_ = nullptr;
+  _impl_.aligned_schema_version_ = nullptr;
 }
-inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::_internal_alignment_schema_version() const {
-  const ::greptime::v1::region::AlignedSchemaVersion* p = _impl_.alignment_schema_version_;
+inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::_internal_aligned_schema_version() const {
+  const ::greptime::v1::region::AlignedSchemaVersion* p = _impl_.aligned_schema_version_;
   return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::AlignedSchemaVersion&>(
       ::greptime::v1::region::_AlignedSchemaVersion_default_instance_);
 }
-inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::alignment_schema_version() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.alignment_schema_version)
-  return _internal_alignment_schema_version();
+inline const ::greptime::v1::region::AlignedSchemaVersion& BulkInsertRequest::aligned_schema_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+  return _internal_aligned_schema_version();
 }
-inline void BulkInsertRequest::unsafe_arena_set_allocated_alignment_schema_version(
-    ::greptime::v1::region::AlignedSchemaVersion* alignment_schema_version) {
+inline void BulkInsertRequest::unsafe_arena_set_allocated_aligned_schema_version(
+    ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version) {
   if (GetArenaForAllocation() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.alignment_schema_version_);
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.aligned_schema_version_);
   }
-  _impl_.alignment_schema_version_ = alignment_schema_version;
-  if (alignment_schema_version) {
+  _impl_.aligned_schema_version_ = aligned_schema_version;
+  if (aligned_schema_version) {
     
   } else {
     
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BulkInsertRequest.alignment_schema_version)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
 }
-inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::release_alignment_schema_version() {
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::release_aligned_schema_version() {
   
-  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.alignment_schema_version_;
-  _impl_.alignment_schema_version_ = nullptr;
+  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.aligned_schema_version_;
+  _impl_.aligned_schema_version_ = nullptr;
 #ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
   auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
   temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
@@ -13228,44 +13228,44 @@ inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::release_
 #endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
   return temp;
 }
-inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::unsafe_arena_release_alignment_schema_version() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.alignment_schema_version)
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::unsafe_arena_release_aligned_schema_version() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
   
-  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.alignment_schema_version_;
-  _impl_.alignment_schema_version_ = nullptr;
+  ::greptime::v1::region::AlignedSchemaVersion* temp = _impl_.aligned_schema_version_;
+  _impl_.aligned_schema_version_ = nullptr;
   return temp;
 }
-inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::_internal_mutable_alignment_schema_version() {
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::_internal_mutable_aligned_schema_version() {
   
-  if (_impl_.alignment_schema_version_ == nullptr) {
+  if (_impl_.aligned_schema_version_ == nullptr) {
     auto* p = CreateMaybeMessage<::greptime::v1::region::AlignedSchemaVersion>(GetArenaForAllocation());
-    _impl_.alignment_schema_version_ = p;
+    _impl_.aligned_schema_version_ = p;
   }
-  return _impl_.alignment_schema_version_;
+  return _impl_.aligned_schema_version_;
 }
-inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::mutable_alignment_schema_version() {
-  ::greptime::v1::region::AlignedSchemaVersion* _msg = _internal_mutable_alignment_schema_version();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.alignment_schema_version)
+inline ::greptime::v1::region::AlignedSchemaVersion* BulkInsertRequest::mutable_aligned_schema_version() {
+  ::greptime::v1::region::AlignedSchemaVersion* _msg = _internal_mutable_aligned_schema_version();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
   return _msg;
 }
-inline void BulkInsertRequest::set_allocated_alignment_schema_version(::greptime::v1::region::AlignedSchemaVersion* alignment_schema_version) {
+inline void BulkInsertRequest::set_allocated_aligned_schema_version(::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   if (message_arena == nullptr) {
-    delete _impl_.alignment_schema_version_;
+    delete _impl_.aligned_schema_version_;
   }
-  if (alignment_schema_version) {
+  if (aligned_schema_version) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(alignment_schema_version);
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(aligned_schema_version);
     if (message_arena != submessage_arena) {
-      alignment_schema_version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, alignment_schema_version, submessage_arena);
+      aligned_schema_version = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, aligned_schema_version, submessage_arena);
     }
     
   } else {
     
   }
-  _impl_.alignment_schema_version_ = alignment_schema_version;
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.alignment_schema_version)
+  _impl_.aligned_schema_version_ = aligned_schema_version;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
 }
 
 inline bool BulkInsertRequest::has_body() const {
