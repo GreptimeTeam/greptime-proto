@@ -30941,6 +30941,12 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Common.PartitionExprVersionOrBuilder getPartitionExprVersionOrBuilder();
 
+    /**
+     * <code>uint64 aligned_schema_version = 4;</code>
+     * @return The alignedSchemaVersion.
+     */
+    long getAlignedSchemaVersion();
+
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
   /**
@@ -31022,6 +31028,11 @@ java.lang.String defaultValue);
                 partitionExprVersion_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              alignedSchemaVersion_ = input.readUInt64();
               break;
             }
             default: {
@@ -31165,6 +31176,17 @@ java.lang.String defaultValue);
       return getPartitionExprVersion();
     }
 
+    public static final int ALIGNED_SCHEMA_VERSION_FIELD_NUMBER = 4;
+    private long alignedSchemaVersion_;
+    /**
+     * <code>uint64 aligned_schema_version = 4;</code>
+     * @return The alignedSchemaVersion.
+     */
+    @java.lang.Override
+    public long getAlignedSchemaVersion() {
+      return alignedSchemaVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -31188,6 +31210,9 @@ java.lang.String defaultValue);
       if (partitionExprVersion_ != null) {
         output.writeMessage(3, getPartitionExprVersion());
       }
+      if (alignedSchemaVersion_ != 0L) {
+        output.writeUInt64(4, alignedSchemaVersion_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -31208,6 +31233,10 @@ java.lang.String defaultValue);
       if (partitionExprVersion_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPartitionExprVersion());
+      }
+      if (alignedSchemaVersion_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, alignedSchemaVersion_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31231,6 +31260,8 @@ java.lang.String defaultValue);
         if (!getPartitionExprVersion()
             .equals(other.getPartitionExprVersion())) return false;
       }
+      if (getAlignedSchemaVersion()
+          != other.getAlignedSchemaVersion()) return false;
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
         case 2:
@@ -31258,6 +31289,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + PARTITION_EXPR_VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getPartitionExprVersion().hashCode();
       }
+      hash = (37 * hash) + ALIGNED_SCHEMA_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getAlignedSchemaVersion());
       switch (bodyCase_) {
         case 2:
           hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
@@ -31411,6 +31445,8 @@ java.lang.String defaultValue);
           partitionExprVersion_ = null;
           partitionExprVersionBuilder_ = null;
         }
+        alignedSchemaVersion_ = 0L;
+
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -31452,6 +31488,7 @@ java.lang.String defaultValue);
         } else {
           result.partitionExprVersion_ = partitionExprVersionBuilder_.build();
         }
+        result.alignedSchemaVersion_ = alignedSchemaVersion_;
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -31506,6 +31543,9 @@ java.lang.String defaultValue);
         }
         if (other.hasPartitionExprVersion()) {
           mergePartitionExprVersion(other.getPartitionExprVersion());
+        }
+        if (other.getAlignedSchemaVersion() != 0L) {
+          setAlignedSchemaVersion(other.getAlignedSchemaVersion());
         }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
@@ -31850,6 +31890,37 @@ java.lang.String defaultValue);
           partitionExprVersion_ = null;
         }
         return partitionExprVersionBuilder_;
+      }
+
+      private long alignedSchemaVersion_ ;
+      /**
+       * <code>uint64 aligned_schema_version = 4;</code>
+       * @return The alignedSchemaVersion.
+       */
+      @java.lang.Override
+      public long getAlignedSchemaVersion() {
+        return alignedSchemaVersion_;
+      }
+      /**
+       * <code>uint64 aligned_schema_version = 4;</code>
+       * @param value The alignedSchemaVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAlignedSchemaVersion(long value) {
+        
+        alignedSchemaVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 aligned_schema_version = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAlignedSchemaVersion() {
+        
+        alignedSchemaVersion_ = 0L;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -39403,38 +39474,39 @@ java.lang.String defaultValue);
       "es\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000B\006\n\004k" +
       "ind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncolumn_" +
       "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol" +
-      "umn_id\030\002 \001(\r\"\235\001\n\021BulkInsertRequest\022\021\n\tre" +
+      "umn_id\030\002 \001(\r\"\275\001\n\021BulkInsertRequest\022\021\n\tre" +
       "gion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.grept" +
       "ime.v1.ArrowIpcH\000\022A\n\026partition_expr_vers" +
       "ion\030\003 \001(\0132!.greptime.v1.PartitionExprVer" +
-      "sionB\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025data" +
-      "_manifest_version\030\001 \001(\004\"V\n\022MetricManifes" +
-      "tInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031" +
-      "metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sync" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manif" +
-      "est_info\030\002 \001(\0132$.greptime.v1.region.Mito" +
-      "ManifestInfoH\000\022F\n\024metric_manifest_info\030\003" +
-      " \001(\0132&.greptime.v1.region.MetricManifest" +
-      "InfoH\000B\017\n\rmanifest_info\")\n\023ListMetadataR" +
-      "equest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndex" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022" +
-      "\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifestReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition_exp" +
-      "r\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025\n\rma" +
-      "nifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFilterReq" +
-      "uest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132)" +
-      ".greptime.v1.region.RemoteDynFilterUpdat" +
-      "eH\000\022C\n\nunregister\030\003 \001(\0132-.greptime.v1.re" +
-      "gion.RemoteDynFilterUnregisterH\000B\010\n\006acti" +
-      "on\"d\n\025RemoteDynFilterUpdate\022\021\n\tfilter_id" +
-      "\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 " +
-      "\001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031RemoteDynFil" +
-      "terUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Regi" +
-      "on\022O\n\006Handle\022!.greptime.v1.region.Region" +
-      "Request\032\".greptime.v1.region.RegionRespo" +
-      "nseB]\n\025io.greptime.v1.regionB\006ServerZ<gi" +
-      "thub.com/GreptimeTeam/greptime-proto/go/" +
-      "greptime/v1/regionb\006proto3"
+      "sion\022\036\n\026aligned_schema_version\030\004 \001(\004B\006\n\004" +
+      "body\"1\n\020MitoManifestInfo\022\035\n\025data_manifes" +
+      "t_version\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n" +
+      "\025data_manifest_version\030\001 \001(\004\022!\n\031metadata" +
+      "_manifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022" +
+      "\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_info" +
+      "\030\002 \001(\0132$.greptime.v1.region.MitoManifest" +
+      "InfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.g" +
+      "reptime.v1.region.MetricManifestInfoH\000B\017" +
+      "\n\rmanifest_info\")\n\023ListMetadataRequest\022\022" +
+      "\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022" +
+      "\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030" +
+      "\001 \001(\014\"z\n\033ApplyStagingManifestRequest\022\021\n\t" +
+      "region_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022" +
+      "\031\n\021central_region_id\030\003 \001(\004\022\025\n\rmanifest_p" +
+      "ath\030\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010" +
+      "query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptim" +
+      "e.v1.region.RemoteDynFilterUpdateH\000\022C\n\nu" +
+      "nregister\030\003 \001(\0132-.greptime.v1.region.Rem" +
+      "oteDynFilterUnregisterH\000B\010\n\006action\"d\n\025Re" +
+      "moteDynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017" +
+      "\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013i" +
+      "s_complete\030\004 \001(\010\".\n\031RemoteDynFilterUnreg" +
+      "ister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Ha" +
+      "ndle\022!.greptime.v1.region.RegionRequest\032" +
+      "\".greptime.v1.region.RegionResponseB]\n\025i" +
+      "o.greptime.v1.regionB\006ServerZ<github.com" +
+      "/GreptimeTeam/greptime-proto/go/greptime" +
+      "/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -39641,7 +39713,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "Body", });
+        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "Body", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new

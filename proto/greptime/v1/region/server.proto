@@ -256,6 +256,7 @@ message BulkInsertRequest {
     ArrowIpc arrow_ipc = 2;
   }
   PartitionExprVersion partition_expr_version = 3;
+  uint64 aligned_schema_version = 4;
 }
 
 // Manifest info for mito engine.

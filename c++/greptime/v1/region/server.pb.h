@@ -6001,6 +6001,7 @@ class BulkInsertRequest final :
   enum : int {
     kPartitionExprVersionFieldNumber = 3,
     kRegionIdFieldNumber = 1,
+    kAlignedSchemaVersionFieldNumber = 4,
     kArrowIpcFieldNumber = 2,
   };
   // .greptime.v1.PartitionExprVersion partition_expr_version = 3;
@@ -6028,6 +6029,15 @@ class BulkInsertRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint64 aligned_schema_version = 4;
+  void clear_aligned_schema_version();
+  uint64_t aligned_schema_version() const;
+  void set_aligned_schema_version(uint64_t value);
+  private:
+  uint64_t _internal_aligned_schema_version() const;
+  void _internal_set_aligned_schema_version(uint64_t value);
   public:
 
   // .greptime.v1.ArrowIpc arrow_ipc = 2;
@@ -6064,6 +6074,7 @@ class BulkInsertRequest final :
   struct Impl_ {
     ::greptime::v1::PartitionExprVersion* partition_expr_version_;
     uint64_t region_id_;
+    uint64_t aligned_schema_version_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -13004,6 +13015,26 @@ inline void BulkInsertRequest::set_allocated_partition_expr_version(::greptime::
   }
   _impl_.partition_expr_version_ = partition_expr_version;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.partition_expr_version)
+}
+
+// uint64 aligned_schema_version = 4;
+inline void BulkInsertRequest::clear_aligned_schema_version() {
+  _impl_.aligned_schema_version_ = uint64_t{0u};
+}
+inline uint64_t BulkInsertRequest::_internal_aligned_schema_version() const {
+  return _impl_.aligned_schema_version_;
+}
+inline uint64_t BulkInsertRequest::aligned_schema_version() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+  return _internal_aligned_schema_version();
+}
+inline void BulkInsertRequest::_internal_set_aligned_schema_version(uint64_t value) {
+  
+  _impl_.aligned_schema_version_ = value;
+}
+inline void BulkInsertRequest::set_aligned_schema_version(uint64_t value) {
+  _internal_set_aligned_schema_version(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
 }
 
 inline bool BulkInsertRequest::has_body() const {
