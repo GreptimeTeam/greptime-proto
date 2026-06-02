@@ -468,6 +468,7 @@ PROTOBUF_CONSTEXPR BulkInsertRequest::BulkInsertRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.partition_expr_version_)*/nullptr
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.aligned_schema_version_)*/uint64_t{0u}
   , /*decltype(_impl_.body_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_._oneof_case_)*/{}} {}
@@ -940,6 +941,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.region_id_),
   ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.partition_expr_version_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.aligned_schema_version_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::BulkInsertRequest, _impl_.body_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::MitoManifestInfo, _internal_metadata_),
@@ -1059,16 +1061,16 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 287, -1, -1, sizeof(::greptime::v1::region::All)},
   { 293, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
   { 301, -1, -1, sizeof(::greptime::v1::region::BulkInsertRequest)},
-  { 311, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
-  { 318, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
-  { 326, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
-  { 336, -1, -1, sizeof(::greptime::v1::region::ListMetadataRequest)},
-  { 343, -1, -1, sizeof(::greptime::v1::region::BuildIndexRequest)},
-  { 350, -1, -1, sizeof(::greptime::v1::region::FileMetas)},
-  { 357, -1, -1, sizeof(::greptime::v1::region::ApplyStagingManifestRequest)},
-  { 367, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterRequest)},
-  { 377, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUpdate)},
-  { 387, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUnregister)},
+  { 312, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
+  { 319, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
+  { 327, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
+  { 337, -1, -1, sizeof(::greptime::v1::region::ListMetadataRequest)},
+  { 344, -1, -1, sizeof(::greptime::v1::region::BuildIndexRequest)},
+  { 351, -1, -1, sizeof(::greptime::v1::region::FileMetas)},
+  { 358, -1, -1, sizeof(::greptime::v1::region::ApplyStagingManifestRequest)},
+  { 368, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterRequest)},
+  { 378, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUpdate)},
+  { 388, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUnregister)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1235,38 +1237,39 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "es\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000B\006\n\004k"
   "ind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncolumn_"
   "def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcol"
-  "umn_id\030\002 \001(\r\"\235\001\n\021BulkInsertRequest\022\021\n\tre"
+  "umn_id\030\002 \001(\r\"\275\001\n\021BulkInsertRequest\022\021\n\tre"
   "gion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.grept"
   "ime.v1.ArrowIpcH\000\022A\n\026partition_expr_vers"
   "ion\030\003 \001(\0132!.greptime.v1.PartitionExprVer"
-  "sionB\006\n\004body\"1\n\020MitoManifestInfo\022\035\n\025data"
-  "_manifest_version\030\001 \001(\004\"V\n\022MetricManifes"
-  "tInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031"
-  "metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sync"
-  "Request\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manif"
-  "est_info\030\002 \001(\0132$.greptime.v1.region.Mito"
-  "ManifestInfoH\000\022F\n\024metric_manifest_info\030\003"
-  " \001(\0132&.greptime.v1.region.MetricManifest"
-  "InfoH\000B\017\n\rmanifest_info\")\n\023ListMetadataR"
-  "equest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndex"
-  "Request\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022"
-  "\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManifestReq"
-  "uest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partition_exp"
-  "r\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004\022\025\n\rma"
-  "nifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFilterReq"
-  "uest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132)"
-  ".greptime.v1.region.RemoteDynFilterUpdat"
-  "eH\000\022C\n\nunregister\030\003 \001(\0132-.greptime.v1.re"
-  "gion.RemoteDynFilterUnregisterH\000B\010\n\006acti"
-  "on\"d\n\025RemoteDynFilterUpdate\022\021\n\tfilter_id"
-  "\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 "
-  "\001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031RemoteDynFil"
-  "terUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Regi"
-  "on\022O\n\006Handle\022!.greptime.v1.region.Region"
-  "Request\032\".greptime.v1.region.RegionRespo"
-  "nseB]\n\025io.greptime.v1.regionB\006ServerZ<gi"
-  "thub.com/GreptimeTeam/greptime-proto/go/"
-  "greptime/v1/regionb\006proto3"
+  "sion\022\036\n\026aligned_schema_version\030\004 \001(\004B\006\n\004"
+  "body\"1\n\020MitoManifestInfo\022\035\n\025data_manifes"
+  "t_version\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n"
+  "\025data_manifest_version\030\001 \001(\004\022!\n\031metadata"
+  "_manifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022"
+  "\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_info"
+  "\030\002 \001(\0132$.greptime.v1.region.MitoManifest"
+  "InfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.g"
+  "reptime.v1.region.MetricManifestInfoH\000B\017"
+  "\n\rmanifest_info\")\n\023ListMetadataRequest\022\022"
+  "\n\nregion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022"
+  "\021\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030"
+  "\001 \001(\014\"z\n\033ApplyStagingManifestRequest\022\021\n\t"
+  "region_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022"
+  "\031\n\021central_region_id\030\003 \001(\004\022\025\n\rmanifest_p"
+  "ath\030\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010"
+  "query_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptim"
+  "e.v1.region.RemoteDynFilterUpdateH\000\022C\n\nu"
+  "nregister\030\003 \001(\0132-.greptime.v1.region.Rem"
+  "oteDynFilterUnregisterH\000B\010\n\006action\"d\n\025Re"
+  "moteDynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017"
+  "\n\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013i"
+  "s_complete\030\004 \001(\010\".\n\031RemoteDynFilterUnreg"
+  "ister\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Ha"
+  "ndle\022!.greptime.v1.region.RegionRequest\032"
+  "\".greptime.v1.region.RegionResponseB]\n\025i"
+  "o.greptime.v1.regionB\006ServerZ<github.com"
+  "/GreptimeTeam/greptime-proto/go/greptime"
+  "/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -1276,7 +1279,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 5946, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 5978, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 4, 43,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -9836,6 +9839,7 @@ BulkInsertRequest::BulkInsertRequest(const BulkInsertRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.partition_expr_version_){nullptr}
     , decltype(_impl_.region_id_){}
+    , decltype(_impl_.aligned_schema_version_){}
     , decltype(_impl_.body_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}};
@@ -9844,7 +9848,9 @@ BulkInsertRequest::BulkInsertRequest(const BulkInsertRequest& from)
   if (from._internal_has_partition_expr_version()) {
     _this->_impl_.partition_expr_version_ = new ::greptime::v1::PartitionExprVersion(*from._impl_.partition_expr_version_);
   }
-  _this->_impl_.region_id_ = from._impl_.region_id_;
+  ::memcpy(&_impl_.region_id_, &from._impl_.region_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.aligned_schema_version_) -
+    reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.aligned_schema_version_));
   clear_has_body();
   switch (from.body_case()) {
     case kArrowIpc: {
@@ -9866,6 +9872,7 @@ inline void BulkInsertRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.partition_expr_version_){nullptr}
     , decltype(_impl_.region_id_){uint64_t{0u}}
+    , decltype(_impl_.aligned_schema_version_){uint64_t{0u}}
     , decltype(_impl_.body_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , /*decltype(_impl_._oneof_case_)*/{}
@@ -9921,7 +9928,9 @@ void BulkInsertRequest::Clear() {
     delete _impl_.partition_expr_version_;
   }
   _impl_.partition_expr_version_ = nullptr;
-  _impl_.region_id_ = uint64_t{0u};
+  ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.aligned_schema_version_) -
+      reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.aligned_schema_version_));
   clear_body();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -9952,6 +9961,14 @@ const char* BulkInsertRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_partition_expr_version(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 aligned_schema_version = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _impl_.aligned_schema_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -10005,6 +10022,12 @@ uint8_t* BulkInsertRequest::_InternalSerialize(
         _Internal::partition_expr_version(this).GetCachedSize(), target, stream);
   }
 
+  // uint64 aligned_schema_version = 4;
+  if (this->_internal_aligned_schema_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(4, this->_internal_aligned_schema_version(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10031,6 +10054,11 @@ size_t BulkInsertRequest::ByteSizeLong() const {
   // uint64 region_id = 1;
   if (this->_internal_region_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
+  }
+
+  // uint64 aligned_schema_version = 4;
+  if (this->_internal_aligned_schema_version() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_aligned_schema_version());
   }
 
   switch (body_case()) {
@@ -10070,6 +10098,9 @@ void BulkInsertRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());
   }
+  if (from._internal_aligned_schema_version() != 0) {
+    _this->_internal_set_aligned_schema_version(from._internal_aligned_schema_version());
+  }
   switch (from.body_case()) {
     case kArrowIpc: {
       _this->_internal_mutable_arrow_ipc()->::greptime::v1::ArrowIpc::MergeFrom(
@@ -10098,8 +10129,8 @@ void BulkInsertRequest::InternalSwap(BulkInsertRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(BulkInsertRequest, _impl_.region_id_)
-      + sizeof(BulkInsertRequest::_impl_.region_id_)
+      PROTOBUF_FIELD_OFFSET(BulkInsertRequest, _impl_.aligned_schema_version_)
+      + sizeof(BulkInsertRequest::_impl_.aligned_schema_version_)
       - PROTOBUF_FIELD_OFFSET(BulkInsertRequest, _impl_.partition_expr_version_)>(
           reinterpret_cast<char*>(&_impl_.partition_expr_version_),
           reinterpret_cast<char*>(&other->_impl_.partition_expr_version_));

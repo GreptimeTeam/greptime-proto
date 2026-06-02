@@ -373,6 +373,8 @@ pub struct BulkInsertRequest {
     pub region_id: u64,
     #[prost(message, optional, tag = "3")]
     pub partition_expr_version: ::core::option::Option<super::PartitionExprVersion>,
+    #[prost(uint64, tag = "4")]
+    pub aligned_schema_version: u64,
     #[prost(oneof = "bulk_insert_request::Body", tags = "2")]
     pub body: ::core::option::Option<bulk_insert_request::Body>,
 }
