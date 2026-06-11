@@ -124,6 +124,13 @@ message CreateRequest {
   map<string, string> options = 6;
   // Partition of the created region.
   greptime.v1.meta.Partition partition = 7;
+  // The requirements of the created region.
+  RegionRequirements requirements = 8;
+}
+
+message RegionRequirements {
+  // Whether the region data must be backed by object storage.
+  bool object_storage = 1;
 }
 
 // Same as CreateRequests, but for dropping regions.
