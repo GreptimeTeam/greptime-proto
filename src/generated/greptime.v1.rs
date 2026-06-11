@@ -1045,16 +1045,24 @@ pub mod repartition {
     #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
     pub enum Source {
         #[prost(message, tag = "3")]
-        PartitionExprs(super::PartitionExprs),
+        PartitionExprs(super::PartitionedSource),
         #[prost(message, tag = "4")]
         Unpartitioned(super::UnpartitionedSource),
     }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
-pub struct PartitionExprs {
+pub struct TargetPartitionColumns {
+    #[prost(string, repeated, tag = "1")]
+    pub columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct PartitionedSource {
     /// The partition expressions serialized in JSON format.
     #[prost(string, repeated, tag = "1")]
     pub exprs: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// If set, update the table's partition columns during repartition.
+    #[prost(message, optional, tag = "2")]
+    pub target_partition_columns: ::core::option::Option<TargetPartitionColumns>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UnpartitionedSource {
