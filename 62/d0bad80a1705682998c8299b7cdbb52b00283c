@@ -1,0 +1,14 @@
+proto/greptime/v1/ddl.proto
+  h_623774b620da8e 169,173-176,179-180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "62d0bad80a1705682998c8299b7cdbb52b00283c",
+  "prompts": {},
+  "humans": {
+    "h_623774b620da8e": {
+      "author": "WenyXu <wenymedia@gmail.com>"
+    }
+  }
+}
