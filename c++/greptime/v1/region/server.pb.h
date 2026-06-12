@@ -157,6 +157,9 @@ extern RegionRequestHeaderDefaultTypeInternal _RegionRequestHeader_default_insta
 class RegionRequestHeader_TracingContextEntry_DoNotUse;
 struct RegionRequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal;
 extern RegionRequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _RegionRequestHeader_TracingContextEntry_DoNotUse_default_instance_;
+class RegionRequirements;
+struct RegionRequirementsDefaultTypeInternal;
+extern RegionRequirementsDefaultTypeInternal _RegionRequirements_default_instance_;
 class RegionResponse;
 struct RegionResponseDefaultTypeInternal;
 extern RegionResponseDefaultTypeInternal _RegionResponse_default_instance_;
@@ -225,6 +228,7 @@ template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::region::RegionRequirements* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequirements>(Arena*);
 template<> ::greptime::v1::region::RegionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse>(Arena*);
 template<> ::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionResponse_ExtensionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::Regular* Arena::CreateMaybeMessage<::greptime::v1::region::Regular>(Arena*);
@@ -2484,6 +2488,7 @@ class CreateRequest final :
     kEngineFieldNumber = 2,
     kPathFieldNumber = 5,
     kPartitionFieldNumber = 7,
+    kRequirementsFieldNumber = 8,
     kRegionIdFieldNumber = 1,
   };
   // repeated .greptime.v1.region.RegionColumnDef column_defs = 3;
@@ -2589,6 +2594,24 @@ class CreateRequest final :
       ::greptime::v1::meta::Partition* partition);
   ::greptime::v1::meta::Partition* unsafe_arena_release_partition();
 
+  // .greptime.v1.region.RegionRequirements requirements = 8;
+  bool has_requirements() const;
+  private:
+  bool _internal_has_requirements() const;
+  public:
+  void clear_requirements();
+  const ::greptime::v1::region::RegionRequirements& requirements() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RegionRequirements* release_requirements();
+  ::greptime::v1::region::RegionRequirements* mutable_requirements();
+  void set_allocated_requirements(::greptime::v1::region::RegionRequirements* requirements);
+  private:
+  const ::greptime::v1::region::RegionRequirements& _internal_requirements() const;
+  ::greptime::v1::region::RegionRequirements* _internal_mutable_requirements();
+  public:
+  void unsafe_arena_set_allocated_requirements(
+      ::greptime::v1::region::RegionRequirements* requirements);
+  ::greptime::v1::region::RegionRequirements* unsafe_arena_release_requirements();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -2617,7 +2640,156 @@ class CreateRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
     ::greptime::v1::meta::Partition* partition_;
+    ::greptime::v1::region::RegionRequirements* requirements_;
     uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RegionRequirements final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequirements) */ {
+ public:
+  inline RegionRequirements() : RegionRequirements(nullptr) {}
+  ~RegionRequirements() override;
+  explicit PROTOBUF_CONSTEXPR RegionRequirements(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegionRequirements(const RegionRequirements& from);
+  RegionRequirements(RegionRequirements&& from) noexcept
+    : RegionRequirements() {
+    *this = ::std::move(from);
+  }
+
+  inline RegionRequirements& operator=(const RegionRequirements& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegionRequirements& operator=(RegionRequirements&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegionRequirements& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegionRequirements* internal_default_instance() {
+    return reinterpret_cast<const RegionRequirements*>(
+               &_RegionRequirements_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(RegionRequirements& a, RegionRequirements& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegionRequirements* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegionRequirements* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegionRequirements* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegionRequirements>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegionRequirements& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegionRequirements& from) {
+    RegionRequirements::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegionRequirements* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RegionRequirements";
+  }
+  protected:
+  explicit RegionRequirements(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kObjectStorageFieldNumber = 1,
+  };
+  // bool object_storage = 1;
+  void clear_object_storage();
+  bool object_storage() const;
+  void set_object_storage(bool value);
+  private:
+  bool _internal_object_storage() const;
+  void _internal_set_object_storage(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequirements)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    bool object_storage_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -2673,7 +2845,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -2830,7 +3002,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -3050,7 +3222,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -3256,7 +3428,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3404,7 +3576,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -3577,7 +3749,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -3999,7 +4171,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -4156,7 +4328,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4313,7 +4485,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4470,7 +4642,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -4647,7 +4819,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -4800,7 +4972,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -4947,7 +5119,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -5066,7 +5238,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -5220,7 +5392,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -5438,7 +5610,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -5638,7 +5810,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -5757,7 +5929,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -5930,7 +6102,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -6150,7 +6322,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -6298,7 +6470,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -6446,7 +6618,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -6611,7 +6783,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -6812,7 +6984,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -6974,7 +7146,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7122,7 +7294,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -7275,7 +7447,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -7472,7 +7644,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -7678,7 +7850,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -7869,7 +8041,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -10857,6 +11029,120 @@ inline void CreateRequest::set_allocated_partition(::greptime::v1::meta::Partiti
   }
   _impl_.partition_ = partition;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.partition)
+}
+
+// .greptime.v1.region.RegionRequirements requirements = 8;
+inline bool CreateRequest::_internal_has_requirements() const {
+  return this != internal_default_instance() && _impl_.requirements_ != nullptr;
+}
+inline bool CreateRequest::has_requirements() const {
+  return _internal_has_requirements();
+}
+inline void CreateRequest::clear_requirements() {
+  if (GetArenaForAllocation() == nullptr && _impl_.requirements_ != nullptr) {
+    delete _impl_.requirements_;
+  }
+  _impl_.requirements_ = nullptr;
+}
+inline const ::greptime::v1::region::RegionRequirements& CreateRequest::_internal_requirements() const {
+  const ::greptime::v1::region::RegionRequirements* p = _impl_.requirements_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::RegionRequirements&>(
+      ::greptime::v1::region::_RegionRequirements_default_instance_);
+}
+inline const ::greptime::v1::region::RegionRequirements& CreateRequest::requirements() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CreateRequest.requirements)
+  return _internal_requirements();
+}
+inline void CreateRequest::unsafe_arena_set_allocated_requirements(
+    ::greptime::v1::region::RegionRequirements* requirements) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.requirements_);
+  }
+  _impl_.requirements_ = requirements;
+  if (requirements) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CreateRequest.requirements)
+}
+inline ::greptime::v1::region::RegionRequirements* CreateRequest::release_requirements() {
+  
+  ::greptime::v1::region::RegionRequirements* temp = _impl_.requirements_;
+  _impl_.requirements_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequirements* CreateRequest::unsafe_arena_release_requirements() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CreateRequest.requirements)
+  
+  ::greptime::v1::region::RegionRequirements* temp = _impl_.requirements_;
+  _impl_.requirements_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequirements* CreateRequest::_internal_mutable_requirements() {
+  
+  if (_impl_.requirements_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::RegionRequirements>(GetArenaForAllocation());
+    _impl_.requirements_ = p;
+  }
+  return _impl_.requirements_;
+}
+inline ::greptime::v1::region::RegionRequirements* CreateRequest::mutable_requirements() {
+  ::greptime::v1::region::RegionRequirements* _msg = _internal_mutable_requirements();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CreateRequest.requirements)
+  return _msg;
+}
+inline void CreateRequest::set_allocated_requirements(::greptime::v1::region::RegionRequirements* requirements) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.requirements_;
+  }
+  if (requirements) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(requirements);
+    if (message_arena != submessage_arena) {
+      requirements = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, requirements, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.requirements_ = requirements;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CreateRequest.requirements)
+}
+
+// -------------------------------------------------------------------
+
+// RegionRequirements
+
+// bool object_storage = 1;
+inline void RegionRequirements::clear_object_storage() {
+  _impl_.object_storage_ = false;
+}
+inline bool RegionRequirements::_internal_object_storage() const {
+  return _impl_.object_storage_;
+}
+inline bool RegionRequirements::object_storage() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequirements.object_storage)
+  return _internal_object_storage();
+}
+inline void RegionRequirements::_internal_set_object_storage(bool value) {
+  
+  _impl_.object_storage_ = value;
+}
+inline void RegionRequirements::set_object_storage(bool value) {
+  _internal_set_object_storage(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequirements.object_storage)
 }
 
 // -------------------------------------------------------------------
@@ -14235,6 +14521,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

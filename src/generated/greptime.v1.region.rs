@@ -175,6 +175,15 @@ pub struct CreateRequest {
     /// Partition of the created region.
     #[prost(message, optional, tag = "7")]
     pub partition: ::core::option::Option<super::meta::Partition>,
+    /// The requirements of the created region.
+    #[prost(message, optional, tag = "8")]
+    pub requirements: ::core::option::Option<RegionRequirements>,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RegionRequirements {
+    /// Whether the region data must be backed by object storage.
+    #[prost(bool, tag = "1")]
+    pub object_storage: bool,
 }
 /// Same as CreateRequests, but for dropping regions.
 #[derive(Clone, PartialEq, ::prost::Message)]
