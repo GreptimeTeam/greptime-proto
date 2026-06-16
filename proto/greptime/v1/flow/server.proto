@@ -46,6 +46,19 @@ message DirtyWindowRequest {
   // Dirty timestamps. Used to mark this point in time as dirty,
   // so that the flow can be triggered to process the data.
   repeated int64 timestamps = 2;
+  // Per-region write sequence ranges covered by this dirty notification.
+  // Flow can use these ranges to prove dirty notifications have covered a
+  // source scan's region watermark before advancing checkpoints.
+  repeated DirtyWindowSequenceRange sequence_ranges = 3;
+  // If true, the dirty effect cannot be localized to the timestamps above and
+  // the receiver should treat the source as fully dirty for the covered ranges.
+  bool full_dirty = 4;
+}
+
+message DirtyWindowSequenceRange {
+  uint64 region_id = 1;
+  uint64 seq_low = 2;
+  uint64 seq_high = 3;
 }
 
 message FlowRequestHeader {

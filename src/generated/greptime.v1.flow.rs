@@ -20,7 +20,7 @@ pub struct DirtyWindowRequests {
     #[prost(message, repeated, tag = "1")]
     pub requests: ::prost::alloc::vec::Vec<DirtyWindowRequest>,
 }
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DirtyWindowRequest {
     #[prost(uint32, tag = "1")]
     pub table_id: u32,
@@ -28,6 +28,24 @@ pub struct DirtyWindowRequest {
     /// so that the flow can be triggered to process the data.
     #[prost(int64, repeated, tag = "2")]
     pub timestamps: ::prost::alloc::vec::Vec<i64>,
+    /// Per-region write sequence ranges covered by this dirty notification.
+    /// Flow can use these ranges to prove dirty notifications have covered a
+    /// source scan's region watermark before advancing checkpoints.
+    #[prost(message, repeated, tag = "3")]
+    pub sequence_ranges: ::prost::alloc::vec::Vec<DirtyWindowSequenceRange>,
+    /// If true, the dirty effect cannot be localized to the timestamps above and
+    /// the receiver should treat the source as fully dirty for the covered ranges.
+    #[prost(bool, tag = "4")]
+    pub full_dirty: bool,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct DirtyWindowSequenceRange {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    #[prost(uint64, tag = "2")]
+    pub seq_low: u64,
+    #[prost(uint64, tag = "3")]
+    pub seq_high: u64,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FlowRequestHeader {
