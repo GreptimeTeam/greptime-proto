@@ -327,9 +327,45 @@ message RemoteDynFilterRequest {
 
 message RemoteDynFilterUpdate {
   string filter_id = 1;
-  bytes payload = 2;
+  // Deprecated: legacy DataFusion PhysicalExprNode bytes. Use typed_payload instead.
+  bytes payload = 2 [deprecated = true];
   uint64 generation = 3;
   bool is_complete = 4;
+  RemoteDynFilterPayload typed_payload = 5;
+}
+
+message RemoteDynFilterPayload {
+  oneof kind {
+    bytes datafusion_physical_expr = 1;
+    JoinHashBloomPayload join_hash_bloom = 2;
+  }
+}
+
+message JoinHashBloomPayload {
+  uint32 version = 1;
+  JoinHashKind hash_kind = 2;
+  fixed64 df_seed0 = 3;
+  fixed64 df_seed1 = 4;
+  fixed64 df_seed2 = 5;
+  fixed64 df_seed3 = 6;
+  uint64 num_bits = 7;
+  uint32 num_probes = 8;
+  uint64 distinct_hash_count = 9;
+  bytes bitset = 10;
+  repeated uint32 join_key_child_indices = 11 [packed = true];
+  bytes residual_datafusion_physical_expr = 12;
+  BloomHashAlgorithm bloom_hash_algorithm = 13;
+  fixed64 hash_compat_fingerprint = 14;
+}
+
+enum JoinHashKind {
+  JOIN_HASH_KIND_UNSPECIFIED = 0;
+  DATAFUSION_JOIN_HASH_U64 = 1;
+}
+
+enum BloomHashAlgorithm {
+  BLOOM_HASH_ALGORITHM_UNSPECIFIED = 0;
+  SPLITMIX64_DOUBLE_HASH_V1 = 1;
 }
 
 message RemoteDynFilterUnregister {

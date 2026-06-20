@@ -487,17 +487,119 @@ pub mod remote_dyn_filter_request {
 pub struct RemoteDynFilterUpdate {
     #[prost(string, tag = "1")]
     pub filter_id: ::prost::alloc::string::String,
+    /// Deprecated: legacy DataFusion PhysicalExprNode bytes. Use typed_payload instead.
+    #[deprecated]
     #[prost(bytes = "vec", tag = "2")]
     pub payload: ::prost::alloc::vec::Vec<u8>,
     #[prost(uint64, tag = "3")]
     pub generation: u64,
     #[prost(bool, tag = "4")]
     pub is_complete: bool,
+    #[prost(message, optional, tag = "5")]
+    pub typed_payload: ::core::option::Option<RemoteDynFilterPayload>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteDynFilterPayload {
+    #[prost(oneof = "remote_dyn_filter_payload::Kind", tags = "1, 2")]
+    pub kind: ::core::option::Option<remote_dyn_filter_payload::Kind>,
+}
+/// Nested message and enum types in `RemoteDynFilterPayload`.
+pub mod remote_dyn_filter_payload {
+    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
+    pub enum Kind {
+        #[prost(bytes, tag = "1")]
+        DatafusionPhysicalExpr(::prost::alloc::vec::Vec<u8>),
+        #[prost(message, tag = "2")]
+        JoinHashBloom(super::JoinHashBloomPayload),
+    }
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct JoinHashBloomPayload {
+    #[prost(uint32, tag = "1")]
+    pub version: u32,
+    #[prost(enumeration = "JoinHashKind", tag = "2")]
+    pub hash_kind: i32,
+    #[prost(fixed64, tag = "3")]
+    pub df_seed0: u64,
+    #[prost(fixed64, tag = "4")]
+    pub df_seed1: u64,
+    #[prost(fixed64, tag = "5")]
+    pub df_seed2: u64,
+    #[prost(fixed64, tag = "6")]
+    pub df_seed3: u64,
+    #[prost(uint64, tag = "7")]
+    pub num_bits: u64,
+    #[prost(uint32, tag = "8")]
+    pub num_probes: u32,
+    #[prost(uint64, tag = "9")]
+    pub distinct_hash_count: u64,
+    #[prost(bytes = "vec", tag = "10")]
+    pub bitset: ::prost::alloc::vec::Vec<u8>,
+    #[prost(uint32, repeated, tag = "11")]
+    pub join_key_child_indices: ::prost::alloc::vec::Vec<u32>,
+    #[prost(bytes = "vec", tag = "12")]
+    pub residual_datafusion_physical_expr: ::prost::alloc::vec::Vec<u8>,
+    #[prost(enumeration = "BloomHashAlgorithm", tag = "13")]
+    pub bloom_hash_algorithm: i32,
+    #[prost(fixed64, tag = "14")]
+    pub hash_compat_fingerprint: u64,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RemoteDynFilterUnregister {
     #[prost(string, tag = "1")]
     pub filter_id: ::prost::alloc::string::String,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum JoinHashKind {
+    Unspecified = 0,
+    DatafusionJoinHashU64 = 1,
+}
+impl JoinHashKind {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::Unspecified => "JOIN_HASH_KIND_UNSPECIFIED",
+            Self::DatafusionJoinHashU64 => "DATAFUSION_JOIN_HASH_U64",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "JOIN_HASH_KIND_UNSPECIFIED" => Some(Self::Unspecified),
+            "DATAFUSION_JOIN_HASH_U64" => Some(Self::DatafusionJoinHashU64),
+            _ => None,
+        }
+    }
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum BloomHashAlgorithm {
+    Unspecified = 0,
+    Splitmix64DoubleHashV1 = 1,
+}
+impl BloomHashAlgorithm {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::Unspecified => "BLOOM_HASH_ALGORITHM_UNSPECIFIED",
+            Self::Splitmix64DoubleHashV1 => "SPLITMIX64_DOUBLE_HASH_V1",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "BLOOM_HASH_ALGORITHM_UNSPECIFIED" => Some(Self::Unspecified),
+            "SPLITMIX64_DOUBLE_HASH_V1" => Some(Self::Splitmix64DoubleHashV1),
+            _ => None,
+        }
+    }
 }
 /// Generated client implementations.
 pub mod region_client {
