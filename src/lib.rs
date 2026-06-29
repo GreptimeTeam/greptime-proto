@@ -21,6 +21,16 @@ pub mod prometheus {
     }
 }
 
+pub mod io {
+    pub mod prometheus {
+        pub mod write {
+            pub mod v2 {
+                include!("generated/io.prometheus.write.v2.rs");
+            }
+        }
+    }
+}
+
 pub mod substrait_extension {
     include!("generated/substrait_extension.rs");
 }

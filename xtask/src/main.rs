@@ -54,6 +54,7 @@ const PROTO_FILES: &[&str] = &[
     "proto/greptime/v1/index/inverted_index.proto",
     "proto/greptime/v1/index/vector_index.proto",
     "proto/prometheus/remote/remote.proto",
+    "proto/prometheus/io/prometheus/write/v2/types.proto",
     "proto/substrait_extension/promql_plan.proto",
     "proto/substrait_extension/dist_plan.proto",
 ];
@@ -66,6 +67,7 @@ const GENERATED_FILES: &[&str] = &[
     "greptime.v1.frontend.rs",
     "greptime.v1.index.rs",
     "prometheus.rs",
+    "io.prometheus.write.v2.rs",
     "substrait_extension.rs",
     "greptime_grpc_desc.bin",
 ];
