@@ -487,12 +487,56 @@ pub mod remote_dyn_filter_request {
 pub struct RemoteDynFilterUpdate {
     #[prost(string, tag = "1")]
     pub filter_id: ::prost::alloc::string::String,
+    /// Deprecated: legacy DataFusion PhysicalExprNode bytes. Use typed_payload instead.
+    #[deprecated]
     #[prost(bytes = "vec", tag = "2")]
     pub payload: ::prost::alloc::vec::Vec<u8>,
     #[prost(uint64, tag = "3")]
     pub generation: u64,
     #[prost(bool, tag = "4")]
     pub is_complete: bool,
+    #[prost(message, optional, tag = "5")]
+    pub typed_payload: ::core::option::Option<RemoteDynFilterPayload>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteDynFilterPayload {
+    #[prost(oneof = "remote_dyn_filter_payload::Kind", tags = "1, 2")]
+    pub kind: ::core::option::Option<remote_dyn_filter_payload::Kind>,
+}
+/// Nested message and enum types in `RemoteDynFilterPayload`.
+pub mod remote_dyn_filter_payload {
+    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
+    pub enum Kind {
+        #[prost(bytes, tag = "1")]
+        DatafusionPhysicalExpr(::prost::alloc::vec::Vec<u8>),
+        #[prost(message, tag = "2")]
+        JoinHashBloom(super::JoinHashBloomPayload),
+    }
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct JoinHashBloomPayload {
+    #[prost(uint32, tag = "1")]
+    pub version: u32,
+    #[prost(fixed64, tag = "2")]
+    pub df_seed0: u64,
+    #[prost(fixed64, tag = "3")]
+    pub df_seed1: u64,
+    #[prost(fixed64, tag = "4")]
+    pub df_seed2: u64,
+    #[prost(fixed64, tag = "5")]
+    pub df_seed3: u64,
+    #[prost(uint64, tag = "6")]
+    pub num_bits: u64,
+    #[prost(uint32, tag = "7")]
+    pub num_probes: u32,
+    #[prost(bytes = "vec", tag = "8")]
+    pub bitset: ::prost::alloc::vec::Vec<u8>,
+    #[prost(uint32, repeated, tag = "9")]
+    pub join_key_child_indices: ::prost::alloc::vec::Vec<u32>,
+    #[prost(bytes = "vec", tag = "10")]
+    pub residual_datafusion_physical_expr: ::prost::alloc::vec::Vec<u8>,
+    #[prost(fixed64, tag = "11")]
+    pub hash_compat_fingerprint: u64,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RemoteDynFilterUnregister {
