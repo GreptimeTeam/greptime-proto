@@ -1199,14 +1199,8 @@ pub struct DropTableTasks {
     #[prost(message, repeated, tag = "1")]
     pub tasks: ::prost::alloc::vec::Vec<DropTableTask>,
 }
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct UndropTableTask {
-    #[prost(string, tag = "1")]
-    pub catalog_name: ::prost::alloc::string::String,
-    #[prost(string, tag = "2")]
-    pub schema_name: ::prost::alloc::string::String,
-    #[prost(string, tag = "3")]
-    pub table_name: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "4")]
     pub table_id: ::core::option::Option<super::TableId>,
 }
