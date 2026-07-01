@@ -1199,6 +1199,28 @@ pub struct DropTableTasks {
     #[prost(message, repeated, tag = "1")]
     pub tasks: ::prost::alloc::vec::Vec<DropTableTask>,
 }
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct UndropTableTask {
+    #[prost(string, tag = "1")]
+    pub catalog_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub table_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "4")]
+    pub table_id: ::core::option::Option<super::TableId>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct PurgeDroppedTableTask {
+    #[prost(string, tag = "1")]
+    pub catalog_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub schema_name: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub table_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "4")]
+    pub table_id: ::core::option::Option<super::TableId>,
+}
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlterTableTask {
     #[prost(message, optional, tag = "1")]
@@ -1286,7 +1308,7 @@ pub struct DdlTaskRequest {
     pub timeout_secs: u32,
     #[prost(
         oneof = "ddl_task_request::Task",
-        tags = "2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18"
+        tags = "2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
     )]
     pub task: ::core::option::Option<ddl_task_request::Task>,
 }
@@ -1328,6 +1350,10 @@ pub mod ddl_task_request {
         DropTriggerTask(super::DropTriggerTask),
         #[prost(message, tag = "18")]
         CommentOnTask(super::CommentOnTask),
+        #[prost(message, tag = "19")]
+        UndropTableTask(super::UndropTableTask),
+        #[prost(message, tag = "20")]
+        PurgeDroppedTableTask(super::PurgeDroppedTableTask),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
