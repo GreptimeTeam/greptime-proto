@@ -50,6 +50,16 @@ message DropTableTasks {
   repeated DropTableTask tasks = 1;
 }
 
+message UndropTableTask {
+  reserved 1 to 3;
+  TableId table_id = 4;
+}
+
+message PurgeDroppedTableTask {
+  reserved 1 to 3;
+  TableId table_id = 4;
+}
+
 message AlterTableTask {
   AlterTableExpr alter_table = 1;
 }
@@ -136,6 +146,8 @@ message DdlTaskRequest {
     CreateTriggerTask create_trigger_task = 16;
     DropTriggerTask drop_trigger_task = 17;
     CommentOnTask comment_on_task = 18;
+    UndropTableTask undrop_table_task = 19;
+    PurgeDroppedTableTask purge_dropped_table_task = 20;
   }
 }
 

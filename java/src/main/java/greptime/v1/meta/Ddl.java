@@ -4030,6 +4030,1252 @@ public final class Ddl {
 
   }
 
+  public interface UndropTableTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.UndropTableTask)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    boolean hasTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    io.greptime.v1.Ddl.TableId getTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.UndropTableTask}
+   */
+  public static final class UndropTableTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.UndropTableTask)
+      UndropTableTaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use UndropTableTask.newBuilder() to construct.
+    private UndropTableTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private UndropTableTask() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new UndropTableTask();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UndropTableTask(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (tableId_ != null) {
+                subBuilder = tableId_.toBuilder();
+              }
+              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableId_);
+                tableId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_UndropTableTask_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_UndropTableTask_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Ddl.UndropTableTask.class, greptime.v1.meta.Ddl.UndropTableTask.Builder.class);
+    }
+
+    public static final int TABLE_ID_FIELD_NUMBER = 4;
+    private io.greptime.v1.Ddl.TableId tableId_;
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableId() {
+      return tableId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getTableId() {
+      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      return getTableId();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (tableId_ != null) {
+        output.writeMessage(4, getTableId());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (tableId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTableId());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Ddl.UndropTableTask)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Ddl.UndropTableTask other = (greptime.v1.meta.Ddl.UndropTableTask) obj;
+
+      if (hasTableId() != other.hasTableId()) return false;
+      if (hasTableId()) {
+        if (!getTableId()
+            .equals(other.getTableId())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.UndropTableTask parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Ddl.UndropTableTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.UndropTableTask}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.UndropTableTask)
+        greptime.v1.meta.Ddl.UndropTableTaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_UndropTableTask_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_UndropTableTask_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Ddl.UndropTableTask.class, greptime.v1.meta.Ddl.UndropTableTask.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Ddl.UndropTableTask.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_UndropTableTask_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.UndropTableTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.UndropTableTask build() {
+        greptime.v1.meta.Ddl.UndropTableTask result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.UndropTableTask buildPartial() {
+        greptime.v1.meta.Ddl.UndropTableTask result = new greptime.v1.meta.Ddl.UndropTableTask(this);
+        if (tableIdBuilder_ == null) {
+          result.tableId_ = tableId_;
+        } else {
+          result.tableId_ = tableIdBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Ddl.UndropTableTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.UndropTableTask)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Ddl.UndropTableTask other) {
+        if (other == greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance()) return this;
+        if (other.hasTableId()) {
+          mergeTableId(other.getTableId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Ddl.UndropTableTask parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Ddl.UndropTableTask) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.TableId tableId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return Whether the tableId field is set.
+       */
+      public boolean hasTableId() {
+        return tableIdBuilder_ != null || tableId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return The tableId.
+       */
+      public io.greptime.v1.Ddl.TableId getTableId() {
+        if (tableIdBuilder_ == null) {
+          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        } else {
+          return tableIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableId_ = value;
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (tableIdBuilder_ == null) {
+          tableId_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (tableId_ != null) {
+            tableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+          } else {
+            tableId_ = value;
+          }
+          onChanged();
+        } else {
+          tableIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder clearTableId() {
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+          onChanged();
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+        
+        onChanged();
+        return getTableIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+        if (tableIdBuilder_ != null) {
+          return tableIdBuilder_.getMessageOrBuilder();
+        } else {
+          return tableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getTableIdFieldBuilder() {
+        if (tableIdBuilder_ == null) {
+          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getTableId(),
+                  getParentForChildren(),
+                  isClean());
+          tableId_ = null;
+        }
+        return tableIdBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.UndropTableTask)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.UndropTableTask)
+    private static final greptime.v1.meta.Ddl.UndropTableTask DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.UndropTableTask();
+    }
+
+    public static greptime.v1.meta.Ddl.UndropTableTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<UndropTableTask>
+        PARSER = new com.google.protobuf.AbstractParser<UndropTableTask>() {
+      @java.lang.Override
+      public UndropTableTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UndropTableTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<UndropTableTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UndropTableTask> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.UndropTableTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PurgeDroppedTableTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.PurgeDroppedTableTask)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    boolean hasTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    io.greptime.v1.Ddl.TableId getTableId();
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.meta.PurgeDroppedTableTask}
+   */
+  public static final class PurgeDroppedTableTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.PurgeDroppedTableTask)
+      PurgeDroppedTableTaskOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PurgeDroppedTableTask.newBuilder() to construct.
+    private PurgeDroppedTableTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PurgeDroppedTableTask() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PurgeDroppedTableTask();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PurgeDroppedTableTask(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              io.greptime.v1.Ddl.TableId.Builder subBuilder = null;
+              if (tableId_ != null) {
+                subBuilder = tableId_.toBuilder();
+              }
+              tableId_ = input.readMessage(io.greptime.v1.Ddl.TableId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tableId_);
+                tableId_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_PurgeDroppedTableTask_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              greptime.v1.meta.Ddl.PurgeDroppedTableTask.class, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder.class);
+    }
+
+    public static final int TABLE_ID_FIELD_NUMBER = 4;
+    private io.greptime.v1.Ddl.TableId tableId_;
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return Whether the tableId field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableId() {
+      return tableId_ != null;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableId getTableId() {
+      return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+    }
+    /**
+     * <code>.greptime.v1.TableId table_id = 4;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+      return getTableId();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (tableId_ != null) {
+        output.writeMessage(4, getTableId());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (tableId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTableId());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof greptime.v1.meta.Ddl.PurgeDroppedTableTask)) {
+        return super.equals(obj);
+      }
+      greptime.v1.meta.Ddl.PurgeDroppedTableTask other = (greptime.v1.meta.Ddl.PurgeDroppedTableTask) obj;
+
+      if (hasTableId() != other.hasTableId()) return false;
+      if (hasTableId()) {
+        if (!getTableId()
+            .equals(other.getTableId())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(greptime.v1.meta.Ddl.PurgeDroppedTableTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.meta.PurgeDroppedTableTask}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.PurgeDroppedTableTask)
+        greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_PurgeDroppedTableTask_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                greptime.v1.meta.Ddl.PurgeDroppedTableTask.class, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder.class);
+      }
+
+      // Construct using greptime.v1.meta.Ddl.PurgeDroppedTableTask.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return greptime.v1.meta.Ddl.internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTask getDefaultInstanceForType() {
+        return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTask build() {
+        greptime.v1.meta.Ddl.PurgeDroppedTableTask result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTask buildPartial() {
+        greptime.v1.meta.Ddl.PurgeDroppedTableTask result = new greptime.v1.meta.Ddl.PurgeDroppedTableTask(this);
+        if (tableIdBuilder_ == null) {
+          result.tableId_ = tableId_;
+        } else {
+          result.tableId_ = tableIdBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof greptime.v1.meta.Ddl.PurgeDroppedTableTask) {
+          return mergeFrom((greptime.v1.meta.Ddl.PurgeDroppedTableTask)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(greptime.v1.meta.Ddl.PurgeDroppedTableTask other) {
+        if (other == greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance()) return this;
+        if (other.hasTableId()) {
+          mergeTableId(other.getTableId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        greptime.v1.meta.Ddl.PurgeDroppedTableTask parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (greptime.v1.meta.Ddl.PurgeDroppedTableTask) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private io.greptime.v1.Ddl.TableId tableId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> tableIdBuilder_;
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return Whether the tableId field is set.
+       */
+      public boolean hasTableId() {
+        return tableIdBuilder_ != null || tableId_ != null;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       * @return The tableId.
+       */
+      public io.greptime.v1.Ddl.TableId getTableId() {
+        if (tableIdBuilder_ == null) {
+          return tableId_ == null ? io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        } else {
+          return tableIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tableId_ = value;
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder setTableId(
+          io.greptime.v1.Ddl.TableId.Builder builderForValue) {
+        if (tableIdBuilder_ == null) {
+          tableId_ = builderForValue.build();
+          onChanged();
+        } else {
+          tableIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder mergeTableId(io.greptime.v1.Ddl.TableId value) {
+        if (tableIdBuilder_ == null) {
+          if (tableId_ != null) {
+            tableId_ =
+              io.greptime.v1.Ddl.TableId.newBuilder(tableId_).mergeFrom(value).buildPartial();
+          } else {
+            tableId_ = value;
+          }
+          onChanged();
+        } else {
+          tableIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public Builder clearTableId() {
+        if (tableIdBuilder_ == null) {
+          tableId_ = null;
+          onChanged();
+        } else {
+          tableId_ = null;
+          tableIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableId.Builder getTableIdBuilder() {
+        
+        onChanged();
+        return getTableIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      public io.greptime.v1.Ddl.TableIdOrBuilder getTableIdOrBuilder() {
+        if (tableIdBuilder_ != null) {
+          return tableIdBuilder_.getMessageOrBuilder();
+        } else {
+          return tableId_ == null ?
+              io.greptime.v1.Ddl.TableId.getDefaultInstance() : tableId_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.TableId table_id = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder> 
+          getTableIdFieldBuilder() {
+        if (tableIdBuilder_ == null) {
+          tableIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.TableId, io.greptime.v1.Ddl.TableId.Builder, io.greptime.v1.Ddl.TableIdOrBuilder>(
+                  getTableId(),
+                  getParentForChildren(),
+                  isClean());
+          tableId_ = null;
+        }
+        return tableIdBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.PurgeDroppedTableTask)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.PurgeDroppedTableTask)
+    private static final greptime.v1.meta.Ddl.PurgeDroppedTableTask DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new greptime.v1.meta.Ddl.PurgeDroppedTableTask();
+    }
+
+    public static greptime.v1.meta.Ddl.PurgeDroppedTableTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PurgeDroppedTableTask>
+        PARSER = new com.google.protobuf.AbstractParser<PurgeDroppedTableTask>() {
+      @java.lang.Override
+      public PurgeDroppedTableTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PurgeDroppedTableTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PurgeDroppedTableTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PurgeDroppedTableTask> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.PurgeDroppedTableTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface AlterTableTaskOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.AlterTableTask)
       com.google.protobuf.MessageOrBuilder {
@@ -12101,6 +13347,36 @@ public final class Ddl {
      */
     greptime.v1.meta.Ddl.CommentOnTaskOrBuilder getCommentOnTaskOrBuilder();
 
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     * @return Whether the undropTableTask field is set.
+     */
+    boolean hasUndropTableTask();
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     * @return The undropTableTask.
+     */
+    greptime.v1.meta.Ddl.UndropTableTask getUndropTableTask();
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     */
+    greptime.v1.meta.Ddl.UndropTableTaskOrBuilder getUndropTableTaskOrBuilder();
+
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     * @return Whether the purgeDroppedTableTask field is set.
+     */
+    boolean hasPurgeDroppedTableTask();
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     * @return The purgeDroppedTableTask.
+     */
+    greptime.v1.meta.Ddl.PurgeDroppedTableTask getPurgeDroppedTableTask();
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     */
+    greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder getPurgeDroppedTableTaskOrBuilder();
+
     public greptime.v1.meta.Ddl.DdlTaskRequest.TaskCase getTaskCase();
   }
   /**
@@ -12399,6 +13675,34 @@ public final class Ddl {
               taskCase_ = 18;
               break;
             }
+            case 154: {
+              greptime.v1.meta.Ddl.UndropTableTask.Builder subBuilder = null;
+              if (taskCase_ == 19) {
+                subBuilder = ((greptime.v1.meta.Ddl.UndropTableTask) task_).toBuilder();
+              }
+              task_ =
+                  input.readMessage(greptime.v1.meta.Ddl.UndropTableTask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.UndropTableTask) task_);
+                task_ = subBuilder.buildPartial();
+              }
+              taskCase_ = 19;
+              break;
+            }
+            case 162: {
+              greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder subBuilder = null;
+              if (taskCase_ == 20) {
+                subBuilder = ((greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_).toBuilder();
+              }
+              task_ =
+                  input.readMessage(greptime.v1.meta.Ddl.PurgeDroppedTableTask.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_);
+                task_ = subBuilder.buildPartial();
+              }
+              taskCase_ = 20;
+              break;
+            }
             case 514: {
               io.greptime.v1.Common.QueryContext.Builder subBuilder = null;
               if (queryContext_ != null) {
@@ -12478,6 +13782,8 @@ public final class Ddl {
       CREATE_TRIGGER_TASK(16),
       DROP_TRIGGER_TASK(17),
       COMMENT_ON_TASK(18),
+      UNDROP_TABLE_TASK(19),
+      PURGE_DROPPED_TABLE_TASK(20),
       TASK_NOT_SET(0);
       private final int value;
       private TaskCase(int value) {
@@ -12512,6 +13818,8 @@ public final class Ddl {
           case 16: return CREATE_TRIGGER_TASK;
           case 17: return DROP_TRIGGER_TASK;
           case 18: return COMMENT_ON_TASK;
+          case 19: return UNDROP_TABLE_TASK;
+          case 20: return PURGE_DROPPED_TABLE_TASK;
           case 0: return TASK_NOT_SET;
           default: return null;
         }
@@ -13152,6 +14460,68 @@ public final class Ddl {
       return greptime.v1.meta.Ddl.CommentOnTask.getDefaultInstance();
     }
 
+    public static final int UNDROP_TABLE_TASK_FIELD_NUMBER = 19;
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     * @return Whether the undropTableTask field is set.
+     */
+    @java.lang.Override
+    public boolean hasUndropTableTask() {
+      return taskCase_ == 19;
+    }
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     * @return The undropTableTask.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.UndropTableTask getUndropTableTask() {
+      if (taskCase_ == 19) {
+         return (greptime.v1.meta.Ddl.UndropTableTask) task_;
+      }
+      return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.UndropTableTaskOrBuilder getUndropTableTaskOrBuilder() {
+      if (taskCase_ == 19) {
+         return (greptime.v1.meta.Ddl.UndropTableTask) task_;
+      }
+      return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+    }
+
+    public static final int PURGE_DROPPED_TABLE_TASK_FIELD_NUMBER = 20;
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     * @return Whether the purgeDroppedTableTask field is set.
+     */
+    @java.lang.Override
+    public boolean hasPurgeDroppedTableTask() {
+      return taskCase_ == 20;
+    }
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     * @return The purgeDroppedTableTask.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.PurgeDroppedTableTask getPurgeDroppedTableTask() {
+      if (taskCase_ == 20) {
+         return (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_;
+      }
+      return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder getPurgeDroppedTableTaskOrBuilder() {
+      if (taskCase_ == 20) {
+         return (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_;
+      }
+      return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13219,6 +14589,12 @@ public final class Ddl {
       }
       if (taskCase_ == 18) {
         output.writeMessage(18, (greptime.v1.meta.Ddl.CommentOnTask) task_);
+      }
+      if (taskCase_ == 19) {
+        output.writeMessage(19, (greptime.v1.meta.Ddl.UndropTableTask) task_);
+      }
+      if (taskCase_ == 20) {
+        output.writeMessage(20, (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_);
       }
       if (queryContext_ != null) {
         output.writeMessage(64, getQueryContext());
@@ -13309,6 +14685,14 @@ public final class Ddl {
       if (taskCase_ == 18) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, (greptime.v1.meta.Ddl.CommentOnTask) task_);
+      }
+      if (taskCase_ == 19) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, (greptime.v1.meta.Ddl.UndropTableTask) task_);
+      }
+      if (taskCase_ == 20) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_);
       }
       if (queryContext_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -13421,6 +14805,14 @@ public final class Ddl {
           if (!getCommentOnTask()
               .equals(other.getCommentOnTask())) return false;
           break;
+        case 19:
+          if (!getUndropTableTask()
+              .equals(other.getUndropTableTask())) return false;
+          break;
+        case 20:
+          if (!getPurgeDroppedTableTask()
+              .equals(other.getPurgeDroppedTableTask())) return false;
+          break;
         case 0:
         default:
       }
@@ -13516,6 +14908,14 @@ public final class Ddl {
         case 18:
           hash = (37 * hash) + COMMENT_ON_TASK_FIELD_NUMBER;
           hash = (53 * hash) + getCommentOnTask().hashCode();
+          break;
+        case 19:
+          hash = (37 * hash) + UNDROP_TABLE_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getUndropTableTask().hashCode();
+          break;
+        case 20:
+          hash = (37 * hash) + PURGE_DROPPED_TABLE_TASK_FIELD_NUMBER;
+          hash = (53 * hash) + getPurgeDroppedTableTask().hashCode();
           break;
         case 0:
         default:
@@ -13828,6 +15228,20 @@ public final class Ddl {
             result.task_ = commentOnTaskBuilder_.build();
           }
         }
+        if (taskCase_ == 19) {
+          if (undropTableTaskBuilder_ == null) {
+            result.task_ = task_;
+          } else {
+            result.task_ = undropTableTaskBuilder_.build();
+          }
+        }
+        if (taskCase_ == 20) {
+          if (purgeDroppedTableTaskBuilder_ == null) {
+            result.task_ = task_;
+          } else {
+            result.task_ = purgeDroppedTableTaskBuilder_.build();
+          }
+        }
         result.taskCase_ = taskCase_;
         onBuilt();
         return result;
@@ -13956,6 +15370,14 @@ public final class Ddl {
           }
           case COMMENT_ON_TASK: {
             mergeCommentOnTask(other.getCommentOnTask());
+            break;
+          }
+          case UNDROP_TABLE_TASK: {
+            mergeUndropTableTask(other.getUndropTableTask());
+            break;
+          }
+          case PURGE_DROPPED_TABLE_TASK: {
+            mergePurgeDroppedTableTask(other.getPurgeDroppedTableTask());
             break;
           }
           case TASK_NOT_SET: {
@@ -16791,6 +18213,290 @@ public final class Ddl {
         onChanged();;
         return commentOnTaskBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.UndropTableTask, greptime.v1.meta.Ddl.UndropTableTask.Builder, greptime.v1.meta.Ddl.UndropTableTaskOrBuilder> undropTableTaskBuilder_;
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       * @return Whether the undropTableTask field is set.
+       */
+      @java.lang.Override
+      public boolean hasUndropTableTask() {
+        return taskCase_ == 19;
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       * @return The undropTableTask.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.UndropTableTask getUndropTableTask() {
+        if (undropTableTaskBuilder_ == null) {
+          if (taskCase_ == 19) {
+            return (greptime.v1.meta.Ddl.UndropTableTask) task_;
+          }
+          return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+        } else {
+          if (taskCase_ == 19) {
+            return undropTableTaskBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      public Builder setUndropTableTask(greptime.v1.meta.Ddl.UndropTableTask value) {
+        if (undropTableTaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          undropTableTaskBuilder_.setMessage(value);
+        }
+        taskCase_ = 19;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      public Builder setUndropTableTask(
+          greptime.v1.meta.Ddl.UndropTableTask.Builder builderForValue) {
+        if (undropTableTaskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          undropTableTaskBuilder_.setMessage(builderForValue.build());
+        }
+        taskCase_ = 19;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      public Builder mergeUndropTableTask(greptime.v1.meta.Ddl.UndropTableTask value) {
+        if (undropTableTaskBuilder_ == null) {
+          if (taskCase_ == 19 &&
+              task_ != greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.UndropTableTask.newBuilder((greptime.v1.meta.Ddl.UndropTableTask) task_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          if (taskCase_ == 19) {
+            undropTableTaskBuilder_.mergeFrom(value);
+          } else {
+            undropTableTaskBuilder_.setMessage(value);
+          }
+        }
+        taskCase_ = 19;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      public Builder clearUndropTableTask() {
+        if (undropTableTaskBuilder_ == null) {
+          if (taskCase_ == 19) {
+            taskCase_ = 0;
+            task_ = null;
+            onChanged();
+          }
+        } else {
+          if (taskCase_ == 19) {
+            taskCase_ = 0;
+            task_ = null;
+          }
+          undropTableTaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      public greptime.v1.meta.Ddl.UndropTableTask.Builder getUndropTableTaskBuilder() {
+        return getUndropTableTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.UndropTableTaskOrBuilder getUndropTableTaskOrBuilder() {
+        if ((taskCase_ == 19) && (undropTableTaskBuilder_ != null)) {
+          return undropTableTaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (taskCase_ == 19) {
+            return (greptime.v1.meta.Ddl.UndropTableTask) task_;
+          }
+          return greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.UndropTableTask undrop_table_task = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.UndropTableTask, greptime.v1.meta.Ddl.UndropTableTask.Builder, greptime.v1.meta.Ddl.UndropTableTaskOrBuilder> 
+          getUndropTableTaskFieldBuilder() {
+        if (undropTableTaskBuilder_ == null) {
+          if (!(taskCase_ == 19)) {
+            task_ = greptime.v1.meta.Ddl.UndropTableTask.getDefaultInstance();
+          }
+          undropTableTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.UndropTableTask, greptime.v1.meta.Ddl.UndropTableTask.Builder, greptime.v1.meta.Ddl.UndropTableTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.UndropTableTask) task_,
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        taskCase_ = 19;
+        onChanged();;
+        return undropTableTaskBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.PurgeDroppedTableTask, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder, greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder> purgeDroppedTableTaskBuilder_;
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       * @return Whether the purgeDroppedTableTask field is set.
+       */
+      @java.lang.Override
+      public boolean hasPurgeDroppedTableTask() {
+        return taskCase_ == 20;
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       * @return The purgeDroppedTableTask.
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTask getPurgeDroppedTableTask() {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          if (taskCase_ == 20) {
+            return (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_;
+          }
+          return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+        } else {
+          if (taskCase_ == 20) {
+            return purgeDroppedTableTaskBuilder_.getMessage();
+          }
+          return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      public Builder setPurgeDroppedTableTask(greptime.v1.meta.Ddl.PurgeDroppedTableTask value) {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          task_ = value;
+          onChanged();
+        } else {
+          purgeDroppedTableTaskBuilder_.setMessage(value);
+        }
+        taskCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      public Builder setPurgeDroppedTableTask(
+          greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder builderForValue) {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          task_ = builderForValue.build();
+          onChanged();
+        } else {
+          purgeDroppedTableTaskBuilder_.setMessage(builderForValue.build());
+        }
+        taskCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      public Builder mergePurgeDroppedTableTask(greptime.v1.meta.Ddl.PurgeDroppedTableTask value) {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          if (taskCase_ == 20 &&
+              task_ != greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance()) {
+            task_ = greptime.v1.meta.Ddl.PurgeDroppedTableTask.newBuilder((greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            task_ = value;
+          }
+          onChanged();
+        } else {
+          if (taskCase_ == 20) {
+            purgeDroppedTableTaskBuilder_.mergeFrom(value);
+          } else {
+            purgeDroppedTableTaskBuilder_.setMessage(value);
+          }
+        }
+        taskCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      public Builder clearPurgeDroppedTableTask() {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          if (taskCase_ == 20) {
+            taskCase_ = 0;
+            task_ = null;
+            onChanged();
+          }
+        } else {
+          if (taskCase_ == 20) {
+            taskCase_ = 0;
+            task_ = null;
+          }
+          purgeDroppedTableTaskBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder getPurgeDroppedTableTaskBuilder() {
+        return getPurgeDroppedTableTaskFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      @java.lang.Override
+      public greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder getPurgeDroppedTableTaskOrBuilder() {
+        if ((taskCase_ == 20) && (purgeDroppedTableTaskBuilder_ != null)) {
+          return purgeDroppedTableTaskBuilder_.getMessageOrBuilder();
+        } else {
+          if (taskCase_ == 20) {
+            return (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_;
+          }
+          return greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.meta.PurgeDroppedTableTask purge_dropped_table_task = 20;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Ddl.PurgeDroppedTableTask, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder, greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder> 
+          getPurgeDroppedTableTaskFieldBuilder() {
+        if (purgeDroppedTableTaskBuilder_ == null) {
+          if (!(taskCase_ == 20)) {
+            task_ = greptime.v1.meta.Ddl.PurgeDroppedTableTask.getDefaultInstance();
+          }
+          purgeDroppedTableTaskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Ddl.PurgeDroppedTableTask, greptime.v1.meta.Ddl.PurgeDroppedTableTask.Builder, greptime.v1.meta.Ddl.PurgeDroppedTableTaskOrBuilder>(
+                  (greptime.v1.meta.Ddl.PurgeDroppedTableTask) task_,
+                  getParentForChildren(),
+                  isClean());
+          task_ = null;
+        }
+        taskCase_ = 20;
+        onChanged();;
+        return purgeDroppedTableTaskBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -18183,6 +19889,16 @@ public final class Ddl {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_DropTableTasks_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_UndropTableTask_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_UndropTableTask_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_meta_PurgeDroppedTableTask_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_AlterTableTask_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18275,66 +19991,73 @@ public final class Ddl {
       "bleTask\"?\n\rDropTableTask\022.\n\ndrop_table\030\001" +
       " \001(\0132\032.greptime.v1.DropTableExpr\"@\n\016Drop" +
       "TableTasks\022.\n\005tasks\030\001 \003(\0132\037.greptime.v1." +
-      "meta.DropTableTask\"B\n\016AlterTableTask\0220\n\013" +
-      "alter_table\030\001 \001(\0132\033.greptime.v1.AlterTab" +
-      "leExpr\"B\n\017AlterTableTasks\022/\n\005tasks\030\001 \003(\013" +
-      "2 .greptime.v1.meta.AlterTableTask\"K\n\021Tr" +
-      "uncateTableTask\0226\n\016truncate_table\030\001 \001(\0132" +
-      "\036.greptime.v1.TruncateTableExpr\"H\n\020DropD" +
-      "atabaseTask\0224\n\rdrop_database\030\001 \001(\0132\035.gre" +
-      "ptime.v1.DropDatabaseExpr\"B\n\016CreateFlowT" +
-      "ask\0220\n\013create_flow\030\001 \001(\0132\033.greptime.v1.C" +
-      "reateFlowExpr\"<\n\014DropFlowTask\022,\n\tdrop_fl" +
-      "ow\030\001 \001(\0132\031.greptime.v1.DropFlowExpr\"U\n\016C" +
-      "reateViewTask\0220\n\013create_view\030\001 \001(\0132\033.gre" +
-      "ptime.v1.CreateViewExpr\022\021\n\tview_info\030\002 \001" +
-      "(\014\"<\n\014DropViewTask\022,\n\tdrop_view\030\001 \001(\0132\031." +
-      "greptime.v1.DropViewExpr\"A\n\021AlterDatabas" +
-      "eTask\022,\n\004task\030\001 \001(\0132\036.greptime.v1.AlterD" +
-      "atabaseExpr\"K\n\021CreateTriggerTask\0226\n\016crea" +
-      "te_trigger\030\001 \001(\0132\036.greptime.v1.CreateTri" +
-      "ggerExpr\"E\n\017DropTriggerTask\0222\n\014drop_trig" +
-      "ger\030\001 \001(\0132\034.greptime.v1.DropTriggerExpr\"" +
-      "?\n\rCommentOnTask\022.\n\ncomment_on\030\001 \001(\0132\032.g" +
-      "reptime.v1.CommentOnExpr\"\331\t\n\016DdlTaskRequ" +
-      "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R" +
-      "equestHeader\0220\n\rquery_context\030@ \001(\0132\031.gr" +
-      "eptime.v1.QueryContext\022\014\n\004wait\030A \001(\010\022\024\n\014" +
-      "timeout_secs\030B \001(\r\022>\n\021create_table_task\030" +
-      "\002 \001(\0132!.greptime.v1.meta.CreateTableTask" +
-      "H\000\022:\n\017drop_table_task\030\003 \001(\0132\037.greptime.v" +
-      "1.meta.DropTableTaskH\000\022<\n\020alter_table_ta" +
-      "sk\030\004 \001(\0132 .greptime.v1.meta.AlterTableTa" +
-      "skH\000\022B\n\023truncate_table_task\030\005 \001(\0132#.grep" +
-      "time.v1.meta.TruncateTableTaskH\000\022@\n\022crea" +
-      "te_table_tasks\030\006 \001(\0132\".greptime.v1.meta." +
-      "CreateTableTasksH\000\022<\n\020drop_table_tasks\030\007" +
-      " \001(\0132 .greptime.v1.meta.DropTableTasksH\000" +
-      "\022>\n\021alter_table_tasks\030\010 \001(\0132!.greptime.v" +
-      "1.meta.AlterTableTasksH\000\022@\n\022drop_databas" +
-      "e_task\030\t \001(\0132\".greptime.v1.meta.DropData" +
-      "baseTaskH\000\022D\n\024create_database_task\030\n \001(\013" +
-      "2$.greptime.v1.meta.CreateDatabaseTaskH\000" +
-      "\022<\n\020create_flow_task\030\013 \001(\0132 .greptime.v1" +
-      ".meta.CreateFlowTaskH\000\0228\n\016drop_flow_task" +
-      "\030\014 \001(\0132\036.greptime.v1.meta.DropFlowTaskH\000" +
-      "\022<\n\020create_view_task\030\r \001(\0132 .greptime.v1" +
-      ".meta.CreateViewTaskH\000\0228\n\016drop_view_task" +
-      "\030\016 \001(\0132\036.greptime.v1.meta.DropViewTaskH\000" +
-      "\022B\n\023alter_database_task\030\017 \001(\0132#.greptime" +
-      ".v1.meta.AlterDatabaseTaskH\000\022B\n\023create_t" +
-      "rigger_task\030\020 \001(\0132#.greptime.v1.meta.Cre" +
-      "ateTriggerTaskH\000\022>\n\021drop_trigger_task\030\021 " +
-      "\001(\0132!.greptime.v1.meta.DropTriggerTaskH\000" +
-      "\022:\n\017comment_on_task\030\022 \001(\0132\037.greptime.v1." +
-      "meta.CommentOnTaskH\000B\006\n\004task\"\230\001\n\017DdlTask" +
-      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
-      "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
-      "me.v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(" +
-      "\0132\024.greptime.v1.TableId*#\n\013DdlTaskType\022\n" +
-      "\n\006Create\020\000\022\010\n\004Drop\020\001B<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/me" +
-      "tab\006proto3"
+      "meta.DropTableTask\"?\n\017UndropTableTask\022&\n" +
+      "\010table_id\030\004 \001(\0132\024.greptime.v1.TableIdJ\004\010" +
+      "\001\020\004\"E\n\025PurgeDroppedTableTask\022&\n\010table_id" +
+      "\030\004 \001(\0132\024.greptime.v1.TableIdJ\004\010\001\020\004\"B\n\016Al" +
+      "terTableTask\0220\n\013alter_table\030\001 \001(\0132\033.grep" +
+      "time.v1.AlterTableExpr\"B\n\017AlterTableTask" +
+      "s\022/\n\005tasks\030\001 \003(\0132 .greptime.v1.meta.Alte" +
+      "rTableTask\"K\n\021TruncateTableTask\0226\n\016trunc" +
+      "ate_table\030\001 \001(\0132\036.greptime.v1.TruncateTa" +
+      "bleExpr\"H\n\020DropDatabaseTask\0224\n\rdrop_data" +
+      "base\030\001 \001(\0132\035.greptime.v1.DropDatabaseExp" +
+      "r\"B\n\016CreateFlowTask\0220\n\013create_flow\030\001 \001(\013" +
+      "2\033.greptime.v1.CreateFlowExpr\"<\n\014DropFlo" +
+      "wTask\022,\n\tdrop_flow\030\001 \001(\0132\031.greptime.v1.D" +
+      "ropFlowExpr\"U\n\016CreateViewTask\0220\n\013create_" +
+      "view\030\001 \001(\0132\033.greptime.v1.CreateViewExpr\022" +
+      "\021\n\tview_info\030\002 \001(\014\"<\n\014DropViewTask\022,\n\tdr" +
+      "op_view\030\001 \001(\0132\031.greptime.v1.DropViewExpr" +
+      "\"A\n\021AlterDatabaseTask\022,\n\004task\030\001 \001(\0132\036.gr" +
+      "eptime.v1.AlterDatabaseExpr\"K\n\021CreateTri" +
+      "ggerTask\0226\n\016create_trigger\030\001 \001(\0132\036.grept" +
+      "ime.v1.CreateTriggerExpr\"E\n\017DropTriggerT" +
+      "ask\0222\n\014drop_trigger\030\001 \001(\0132\034.greptime.v1." +
+      "DropTriggerExpr\"?\n\rCommentOnTask\022.\n\ncomm" +
+      "ent_on\030\001 \001(\0132\032.greptime.v1.CommentOnExpr" +
+      "\"\346\n\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "eptime.v1.meta.RequestHeader\0220\n\rquery_co" +
+      "ntext\030@ \001(\0132\031.greptime.v1.QueryContext\022\014" +
+      "\n\004wait\030A \001(\010\022\024\n\014timeout_secs\030B \001(\r\022>\n\021cr" +
+      "eate_table_task\030\002 \001(\0132!.greptime.v1.meta" +
+      ".CreateTableTaskH\000\022:\n\017drop_table_task\030\003 " +
+      "\001(\0132\037.greptime.v1.meta.DropTableTaskH\000\022<" +
+      "\n\020alter_table_task\030\004 \001(\0132 .greptime.v1.m" +
+      "eta.AlterTableTaskH\000\022B\n\023truncate_table_t" +
+      "ask\030\005 \001(\0132#.greptime.v1.meta.TruncateTab" +
+      "leTaskH\000\022@\n\022create_table_tasks\030\006 \001(\0132\".g" +
+      "reptime.v1.meta.CreateTableTasksH\000\022<\n\020dr" +
+      "op_table_tasks\030\007 \001(\0132 .greptime.v1.meta." +
+      "DropTableTasksH\000\022>\n\021alter_table_tasks\030\010 " +
+      "\001(\0132!.greptime.v1.meta.AlterTableTasksH\000" +
+      "\022@\n\022drop_database_task\030\t \001(\0132\".greptime." +
+      "v1.meta.DropDatabaseTaskH\000\022D\n\024create_dat" +
+      "abase_task\030\n \001(\0132$.greptime.v1.meta.Crea" +
+      "teDatabaseTaskH\000\022<\n\020create_flow_task\030\013 \001" +
+      "(\0132 .greptime.v1.meta.CreateFlowTaskH\000\0228" +
+      "\n\016drop_flow_task\030\014 \001(\0132\036.greptime.v1.met" +
+      "a.DropFlowTaskH\000\022<\n\020create_view_task\030\r \001" +
+      "(\0132 .greptime.v1.meta.CreateViewTaskH\000\0228" +
+      "\n\016drop_view_task\030\016 \001(\0132\036.greptime.v1.met" +
+      "a.DropViewTaskH\000\022B\n\023alter_database_task\030" +
+      "\017 \001(\0132#.greptime.v1.meta.AlterDatabaseTa" +
+      "skH\000\022B\n\023create_trigger_task\030\020 \001(\0132#.grep" +
+      "time.v1.meta.CreateTriggerTaskH\000\022>\n\021drop" +
+      "_trigger_task\030\021 \001(\0132!.greptime.v1.meta.D" +
+      "ropTriggerTaskH\000\022:\n\017comment_on_task\030\022 \001(" +
+      "\0132\037.greptime.v1.meta.CommentOnTaskH\000\022>\n\021" +
+      "undrop_table_task\030\023 \001(\0132!.greptime.v1.me" +
+      "ta.UndropTableTaskH\000\022K\n\030purge_dropped_ta" +
+      "ble_task\030\024 \001(\0132\'.greptime.v1.meta.PurgeD" +
+      "roppedTableTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskRes" +
+      "ponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta" +
+      ".ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptime." +
+      "v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(\0132\024" +
+      ".greptime.v1.TableId*#\n\013DdlTaskType\022\n\n\006C" +
+      "reate\020\000\022\010\n\004Drop\020\001B<Z:github.com/Greptime" +
+      "Team/greptime-proto/go/greptime/v1/metab" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -18374,86 +20097,98 @@ public final class Ddl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropTableTasks_descriptor,
         new java.lang.String[] { "Tasks", });
-    internal_static_greptime_v1_meta_AlterTableTask_descriptor =
+    internal_static_greptime_v1_meta_UndropTableTask_descriptor =
       getDescriptor().getMessageTypes().get(5);
+    internal_static_greptime_v1_meta_UndropTableTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_UndropTableTask_descriptor,
+        new java.lang.String[] { "TableId", });
+    internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_greptime_v1_meta_PurgeDroppedTableTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_meta_PurgeDroppedTableTask_descriptor,
+        new java.lang.String[] { "TableId", });
+    internal_static_greptime_v1_meta_AlterTableTask_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_AlterTableTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AlterTableTask_descriptor,
         new java.lang.String[] { "AlterTable", });
     internal_static_greptime_v1_meta_AlterTableTasks_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_meta_AlterTableTasks_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AlterTableTasks_descriptor,
         new java.lang.String[] { "Tasks", });
     internal_static_greptime_v1_meta_TruncateTableTask_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_meta_TruncateTableTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_TruncateTableTask_descriptor,
         new java.lang.String[] { "TruncateTable", });
     internal_static_greptime_v1_meta_DropDatabaseTask_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_meta_DropDatabaseTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropDatabaseTask_descriptor,
         new java.lang.String[] { "DropDatabase", });
     internal_static_greptime_v1_meta_CreateFlowTask_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_meta_CreateFlowTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_CreateFlowTask_descriptor,
         new java.lang.String[] { "CreateFlow", });
     internal_static_greptime_v1_meta_DropFlowTask_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_meta_DropFlowTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropFlowTask_descriptor,
         new java.lang.String[] { "DropFlow", });
     internal_static_greptime_v1_meta_CreateViewTask_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_meta_CreateViewTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_CreateViewTask_descriptor,
         new java.lang.String[] { "CreateView", "ViewInfo", });
     internal_static_greptime_v1_meta_DropViewTask_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_meta_DropViewTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropViewTask_descriptor,
         new java.lang.String[] { "DropView", });
     internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_meta_AlterDatabaseTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_AlterDatabaseTask_descriptor,
         new java.lang.String[] { "Task", });
     internal_static_greptime_v1_meta_CreateTriggerTask_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_meta_CreateTriggerTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_CreateTriggerTask_descriptor,
         new java.lang.String[] { "CreateTrigger", });
     internal_static_greptime_v1_meta_DropTriggerTask_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_meta_DropTriggerTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DropTriggerTask_descriptor,
         new java.lang.String[] { "DropTrigger", });
     internal_static_greptime_v1_meta_CommentOnTask_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_meta_CommentOnTask_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_CommentOnTask_descriptor,
         new java.lang.String[] { "CommentOn", });
     internal_static_greptime_v1_meta_DdlTaskRequest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "Wait", "TimeoutSecs", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "Wait", "TimeoutSecs", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "UndropTableTask", "PurgeDroppedTableTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskResponse_descriptor,
