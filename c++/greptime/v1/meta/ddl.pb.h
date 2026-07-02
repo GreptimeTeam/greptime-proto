@@ -1271,53 +1271,8 @@ class PurgeDroppedTableTask final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCatalogNameFieldNumber = 1,
-    kSchemaNameFieldNumber = 2,
-    kTableNameFieldNumber = 3,
     kTableIdFieldNumber = 4,
   };
-  // string catalog_name = 1;
-  void clear_catalog_name();
-  const std::string& catalog_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_catalog_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_catalog_name();
-  PROTOBUF_NODISCARD std::string* release_catalog_name();
-  void set_allocated_catalog_name(std::string* catalog_name);
-  private:
-  const std::string& _internal_catalog_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog_name(const std::string& value);
-  std::string* _internal_mutable_catalog_name();
-  public:
-
-  // string schema_name = 2;
-  void clear_schema_name();
-  const std::string& schema_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_schema_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_schema_name();
-  PROTOBUF_NODISCARD std::string* release_schema_name();
-  void set_allocated_schema_name(std::string* schema_name);
-  private:
-  const std::string& _internal_schema_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_schema_name(const std::string& value);
-  std::string* _internal_mutable_schema_name();
-  public:
-
-  // string table_name = 3;
-  void clear_table_name();
-  const std::string& table_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_table_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_table_name();
-  PROTOBUF_NODISCARD std::string* release_table_name();
-  void set_allocated_table_name(std::string* table_name);
-  private:
-  const std::string& _internal_table_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
-  std::string* _internal_mutable_table_name();
-  public:
-
   // .greptime.v1.TableId table_id = 4;
   bool has_table_id() const;
   private:
@@ -1344,9 +1299,6 @@ class PurgeDroppedTableTask final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::TableId* table_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -4623,156 +4575,6 @@ inline void UndropTableTask::set_allocated_table_id(::greptime::v1::TableId* tab
 // -------------------------------------------------------------------
 
 // PurgeDroppedTableTask
-
-// string catalog_name = 1;
-inline void PurgeDroppedTableTask::clear_catalog_name() {
-  _impl_.catalog_name_.ClearToEmpty();
-}
-inline const std::string& PurgeDroppedTableTask::catalog_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PurgeDroppedTableTask.catalog_name)
-  return _internal_catalog_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void PurgeDroppedTableTask::set_catalog_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.catalog_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PurgeDroppedTableTask.catalog_name)
-}
-inline std::string* PurgeDroppedTableTask::mutable_catalog_name() {
-  std::string* _s = _internal_mutable_catalog_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PurgeDroppedTableTask.catalog_name)
-  return _s;
-}
-inline const std::string& PurgeDroppedTableTask::_internal_catalog_name() const {
-  return _impl_.catalog_name_.Get();
-}
-inline void PurgeDroppedTableTask::_internal_set_catalog_name(const std::string& value) {
-  
-  _impl_.catalog_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::_internal_mutable_catalog_name() {
-  
-  return _impl_.catalog_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::release_catalog_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PurgeDroppedTableTask.catalog_name)
-  return _impl_.catalog_name_.Release();
-}
-inline void PurgeDroppedTableTask::set_allocated_catalog_name(std::string* catalog_name) {
-  if (catalog_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.catalog_name_.SetAllocated(catalog_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.catalog_name_.IsDefault()) {
-    _impl_.catalog_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PurgeDroppedTableTask.catalog_name)
-}
-
-// string schema_name = 2;
-inline void PurgeDroppedTableTask::clear_schema_name() {
-  _impl_.schema_name_.ClearToEmpty();
-}
-inline const std::string& PurgeDroppedTableTask::schema_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PurgeDroppedTableTask.schema_name)
-  return _internal_schema_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void PurgeDroppedTableTask::set_schema_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.schema_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PurgeDroppedTableTask.schema_name)
-}
-inline std::string* PurgeDroppedTableTask::mutable_schema_name() {
-  std::string* _s = _internal_mutable_schema_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PurgeDroppedTableTask.schema_name)
-  return _s;
-}
-inline const std::string& PurgeDroppedTableTask::_internal_schema_name() const {
-  return _impl_.schema_name_.Get();
-}
-inline void PurgeDroppedTableTask::_internal_set_schema_name(const std::string& value) {
-  
-  _impl_.schema_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::_internal_mutable_schema_name() {
-  
-  return _impl_.schema_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::release_schema_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PurgeDroppedTableTask.schema_name)
-  return _impl_.schema_name_.Release();
-}
-inline void PurgeDroppedTableTask::set_allocated_schema_name(std::string* schema_name) {
-  if (schema_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.schema_name_.SetAllocated(schema_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.schema_name_.IsDefault()) {
-    _impl_.schema_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PurgeDroppedTableTask.schema_name)
-}
-
-// string table_name = 3;
-inline void PurgeDroppedTableTask::clear_table_name() {
-  _impl_.table_name_.ClearToEmpty();
-}
-inline const std::string& PurgeDroppedTableTask::table_name() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.PurgeDroppedTableTask.table_name)
-  return _internal_table_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void PurgeDroppedTableTask::set_table_name(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.PurgeDroppedTableTask.table_name)
-}
-inline std::string* PurgeDroppedTableTask::mutable_table_name() {
-  std::string* _s = _internal_mutable_table_name();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.PurgeDroppedTableTask.table_name)
-  return _s;
-}
-inline const std::string& PurgeDroppedTableTask::_internal_table_name() const {
-  return _impl_.table_name_.Get();
-}
-inline void PurgeDroppedTableTask::_internal_set_table_name(const std::string& value) {
-  
-  _impl_.table_name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::_internal_mutable_table_name() {
-  
-  return _impl_.table_name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* PurgeDroppedTableTask::release_table_name() {
-  // @@protoc_insertion_point(field_release:greptime.v1.meta.PurgeDroppedTableTask.table_name)
-  return _impl_.table_name_.Release();
-}
-inline void PurgeDroppedTableTask::set_allocated_table_name(std::string* table_name) {
-  if (table_name != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.table_name_.IsDefault()) {
-    _impl_.table_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.PurgeDroppedTableTask.table_name)
-}
 
 // .greptime.v1.TableId table_id = 4;
 inline bool PurgeDroppedTableTask::_internal_has_table_id() const {
