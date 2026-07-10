@@ -177,6 +177,8 @@ message CleanUpRequest {
 
 message CloseRequest {
   uint64 region_id = 1;
+  // If true, flushes pending memtables before closing the region.
+  bool flush_on_close = 2;
 }
 
 message AlterRequests {

@@ -307,6 +307,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR CloseRequest::CloseRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.region_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.flush_on_close_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CloseRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CloseRequestDefaultTypeInternal()
@@ -896,6 +897,7 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets[] PR
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CloseRequest, _impl_.region_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::CloseRequest, _impl_.flush_on_close_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::AlterRequests, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1139,32 +1141,32 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 184, 192, -1, sizeof(::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse)},
   { 194, -1, -1, sizeof(::greptime::v1::region::CleanUpRequest)},
   { 204, -1, -1, sizeof(::greptime::v1::region::CloseRequest)},
-  { 211, -1, -1, sizeof(::greptime::v1::region::AlterRequests)},
-  { 218, -1, -1, sizeof(::greptime::v1::region::AlterRequest)},
-  { 239, -1, -1, sizeof(::greptime::v1::region::SyncColumns)},
-  { 246, -1, -1, sizeof(::greptime::v1::region::AddColumns)},
-  { 253, -1, -1, sizeof(::greptime::v1::region::DropColumns)},
-  { 260, -1, -1, sizeof(::greptime::v1::region::AddColumn)},
-  { 268, -1, -1, sizeof(::greptime::v1::region::DropColumn)},
-  { 275, -1, -1, sizeof(::greptime::v1::region::FlushRequest)},
-  { 282, -1, -1, sizeof(::greptime::v1::region::Regular)},
-  { 288, -1, -1, sizeof(::greptime::v1::region::StrictWindow)},
-  { 295, -1, -1, sizeof(::greptime::v1::region::CompactRequest)},
-  { 306, -1, -1, sizeof(::greptime::v1::region::TruncateRequest)},
-  { 316, -1, -1, sizeof(::greptime::v1::region::All)},
-  { 322, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
-  { 330, -1, -1, sizeof(::greptime::v1::region::BulkInsertRequest)},
-  { 341, -1, -1, sizeof(::greptime::v1::region::AlignedSchemaVersion)},
-  { 348, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
-  { 355, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
-  { 363, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
-  { 373, -1, -1, sizeof(::greptime::v1::region::ListMetadataRequest)},
-  { 380, -1, -1, sizeof(::greptime::v1::region::BuildIndexRequest)},
-  { 387, -1, -1, sizeof(::greptime::v1::region::FileMetas)},
-  { 394, -1, -1, sizeof(::greptime::v1::region::ApplyStagingManifestRequest)},
-  { 404, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterRequest)},
-  { 414, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUpdate)},
-  { 424, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUnregister)},
+  { 212, -1, -1, sizeof(::greptime::v1::region::AlterRequests)},
+  { 219, -1, -1, sizeof(::greptime::v1::region::AlterRequest)},
+  { 240, -1, -1, sizeof(::greptime::v1::region::SyncColumns)},
+  { 247, -1, -1, sizeof(::greptime::v1::region::AddColumns)},
+  { 254, -1, -1, sizeof(::greptime::v1::region::DropColumns)},
+  { 261, -1, -1, sizeof(::greptime::v1::region::AddColumn)},
+  { 269, -1, -1, sizeof(::greptime::v1::region::DropColumn)},
+  { 276, -1, -1, sizeof(::greptime::v1::region::FlushRequest)},
+  { 283, -1, -1, sizeof(::greptime::v1::region::Regular)},
+  { 289, -1, -1, sizeof(::greptime::v1::region::StrictWindow)},
+  { 296, -1, -1, sizeof(::greptime::v1::region::CompactRequest)},
+  { 307, -1, -1, sizeof(::greptime::v1::region::TruncateRequest)},
+  { 317, -1, -1, sizeof(::greptime::v1::region::All)},
+  { 323, -1, -1, sizeof(::greptime::v1::region::RegionColumnDef)},
+  { 331, -1, -1, sizeof(::greptime::v1::region::BulkInsertRequest)},
+  { 342, -1, -1, sizeof(::greptime::v1::region::AlignedSchemaVersion)},
+  { 349, -1, -1, sizeof(::greptime::v1::region::MitoManifestInfo)},
+  { 356, -1, -1, sizeof(::greptime::v1::region::MetricManifestInfo)},
+  { 364, -1, -1, sizeof(::greptime::v1::region::SyncRequest)},
+  { 374, -1, -1, sizeof(::greptime::v1::region::ListMetadataRequest)},
+  { 381, -1, -1, sizeof(::greptime::v1::region::BuildIndexRequest)},
+  { 388, -1, -1, sizeof(::greptime::v1::region::FileMetas)},
+  { 395, -1, -1, sizeof(::greptime::v1::region::ApplyStagingManifestRequest)},
+  { 405, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterRequest)},
+  { 415, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUpdate)},
+  { 425, -1, -1, sizeof(::greptime::v1::region::RemoteDynFilterUnregister)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1302,83 +1304,83 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto[] P
   "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022@\n\007options\030\004 \003(\0132/"
   ".greptime.v1.region.CleanUpRequest.Optio"
   "nsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
-  "value\030\002 \001(\t:\0028\001\"!\n\014CloseRequest\022\021\n\tregio"
-  "n_id\030\001 \001(\004\"C\n\rAlterRequests\0222\n\010requests\030"
-  "\001 \003(\0132 .greptime.v1.region.AlterRequest\""
-  "\311\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013a"
-  "dd_columns\030\002 \001(\0132\036.greptime.v1.region.Ad"
-  "dColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.grept"
-  "ime.v1.region.DropColumnsH\000\022=\n\023modify_co"
-  "lumn_types\030\005 \001(\0132\036.greptime.v1.ModifyCol"
-  "umnTypesH\000\0229\n\021set_table_options\030\006 \001(\0132\034."
-  "greptime.v1.SetTableOptionsH\000\022=\n\023unset_t"
-  "able_options\030\t \001(\0132\036.greptime.v1.UnsetTa"
-  "bleOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grepti"
-  "me.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132\027."
-  "greptime.v1.UnsetIndexH\000\0222\n\rdrop_default"
-  "s\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022.\n\013"
-  "set_indexes\030\r \001(\0132\027.greptime.v1.SetIndex"
-  "esH\000\0222\n\runset_indexes\030\016 \001(\0132\031.greptime.v"
-  "1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001(\0132\030"
-  ".greptime.v1.SetDefaultsH\000\0227\n\014sync_colum"
-  "ns\030\020 \001(\0132\037.greptime.v1.region.SyncColumn"
-  "sH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n\013S"
-  "yncColumns\0228\n\013column_defs\030\001 \003(\0132#.grepti"
-  "me.v1.region.RegionColumnDef\"@\n\nAddColum"
-  "ns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1.re"
-  "gion.AddColumn\"C\n\013DropColumns\0224\n\014drop_co"
-  "lumns\030\001 \003(\0132\036.greptime.v1.region.DropCol"
-  "umn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#.g"
-  "reptime.v1.region.RegionColumnDef\0220\n\010loc"
-  "ation\030\003 \001(\0132\036.greptime.v1.AddColumnLocat"
-  "ion\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flush"
-  "Request\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"&\n"
-  "\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"\256\001"
-  "\n\016CompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007r"
-  "egular\030\002 \001(\0132\033.greptime.v1.region.Regula"
-  "rH\000\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v1"
-  ".region.StrictWindowH\000\022\023\n\013parallelism\030\004 "
-  "\001(\rB\t\n\007options\"\204\001\n\017TruncateRequest\022\021\n\tre"
-  "gion_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime.v1"
-  ".region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.gre"
-  "ptime.v1.TimeRangesH\000B\006\n\004kind\"\005\n\003All\"P\n\017"
-  "RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.gr"
-  "eptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"\347"
-  "\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022"
-  "*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowIp"
-  "cH\000\022A\n\026partition_expr_version\030\003 \001(\0132!.gr"
-  "eptime.v1.PartitionExprVersion\022H\n\026aligne"
-  "d_schema_version\030\004 \001(\0132(.greptime.v1.reg"
-  "ion.AlignedSchemaVersionB\006\n\004body\".\n\024Alig"
-  "nedSchemaVersion\022\026\n\016schema_version\030\001 \001(\004"
-  "\"1\n\020MitoManifestInfo\022\035\n\025data_manifest_ve"
-  "rsion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025dat"
-  "a_manifest_version\030\001 \001(\004\022!\n\031metadata_man"
-  "ifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tr"
-  "egion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001"
-  "(\0132$.greptime.v1.region.MitoManifestInfo"
-  "H\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grept"
-  "ime.v1.region.MetricManifestInfoH\000B\017\n\rma"
-  "nifest_info\")\n\023ListMetadataRequest\022\022\n\nre"
-  "gion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tr"
-  "egion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001("
-  "\014\"z\n\033ApplyStagingManifestRequest\022\021\n\tregi"
-  "on_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021c"
-  "entral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030"
-  "\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010quer"
-  "y_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptime.v1"
-  ".region.RemoteDynFilterUpdateH\000\022C\n\nunreg"
-  "ister\030\003 \001(\0132-.greptime.v1.region.RemoteD"
-  "ynFilterUnregisterH\000B\010\n\006action\"d\n\025Remote"
-  "DynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007pa"
-  "yload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_co"
-  "mplete\030\004 \001(\010\".\n\031RemoteDynFilterUnregiste"
-  "r\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle"
-  "\022!.greptime.v1.region.RegionRequest\032\".gr"
-  "eptime.v1.region.RegionResponseB]\n\025io.gr"
-  "eptime.v1.regionB\006ServerZ<github.com/Gre"
-  "ptimeTeam/greptime-proto/go/greptime/v1/"
-  "regionb\006proto3"
+  "value\030\002 \001(\t:\0028\001\"9\n\014CloseRequest\022\021\n\tregio"
+  "n_id\030\001 \001(\004\022\026\n\016flush_on_close\030\002 \001(\010\"C\n\rAl"
+  "terRequests\0222\n\010requests\030\001 \003(\0132 .greptime"
+  ".v1.region.AlterRequest\"\311\005\n\014AlterRequest"
+  "\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\013"
+  "2\036.greptime.v1.region.AddColumnsH\000\0227\n\014dr"
+  "op_columns\030\003 \001(\0132\037.greptime.v1.region.Dr"
+  "opColumnsH\000\022=\n\023modify_column_types\030\005 \001(\013"
+  "2\036.greptime.v1.ModifyColumnTypesH\000\0229\n\021se"
+  "t_table_options\030\006 \001(\0132\034.greptime.v1.SetT"
+  "ableOptionsH\000\022=\n\023unset_table_options\030\t \001"
+  "(\0132\036.greptime.v1.UnsetTableOptionsH\000\022*\n\t"
+  "set_index\030\n \001(\0132\025.greptime.v1.SetIndexH\000"
+  "\022.\n\013unset_index\030\013 \001(\0132\027.greptime.v1.Unse"
+  "tIndexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.grepti"
+  "me.v1.DropDefaultsH\000\022.\n\013set_indexes\030\r \001("
+  "\0132\027.greptime.v1.SetIndexesH\000\0222\n\runset_in"
+  "dexes\030\016 \001(\0132\031.greptime.v1.UnsetIndexesH\000"
+  "\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v1.Set"
+  "DefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.grept"
+  "ime.v1.region.SyncColumnsH\000\022\026\n\016schema_ve"
+  "rsion\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013co"
+  "lumn_defs\030\001 \003(\0132#.greptime.v1.region.Reg"
+  "ionColumnDef\"@\n\nAddColumns\0222\n\013add_column"
+  "s\030\001 \003(\0132\035.greptime.v1.region.AddColumn\"C"
+  "\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.gr"
+  "eptime.v1.region.DropColumn\"v\n\tAddColumn"
+  "\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.regio"
+  "n.RegionColumnDef\0220\n\010location\030\003 \001(\0132\036.gr"
+  "eptime.v1.AddColumnLocation\"\032\n\nDropColum"
+  "n\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregio"
+  "n_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n"
+  "\016window_seconds\030\001 \001(\003\"\256\001\n\016CompactRequest"
+  "\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.g"
+  "reptime.v1.region.RegularH\000\0229\n\rstrict_wi"
+  "ndow\030\003 \001(\0132 .greptime.v1.region.StrictWi"
+  "ndowH\000\022\023\n\013parallelism\030\004 \001(\rB\t\n\007options\"\204"
+  "\001\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n"
+  "\003all\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022.\n"
+  "\013time_ranges\030\003 \001(\0132\027.greptime.v1.TimeRan"
+  "gesH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022"
+  "*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Column"
+  "Def\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertReq"
+  "uest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001"
+  "(\0132\025.greptime.v1.ArrowIpcH\000\022A\n\026partition"
+  "_expr_version\030\003 \001(\0132!.greptime.v1.Partit"
+  "ionExprVersion\022H\n\026aligned_schema_version"
+  "\030\004 \001(\0132(.greptime.v1.region.AlignedSchem"
+  "aVersionB\006\n\004body\".\n\024AlignedSchemaVersion"
+  "\022\026\n\016schema_version\030\001 \001(\004\"1\n\020MitoManifest"
+  "Info\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022M"
+  "etricManifestInfo\022\035\n\025data_manifest_versi"
+  "on\030\001 \001(\004\022!\n\031metadata_manifest_version\030\002 "
+  "\001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B"
+  "\n\022mito_manifest_info\030\002 \001(\0132$.greptime.v1"
+  ".region.MitoManifestInfoH\000\022F\n\024metric_man"
+  "ifest_info\030\003 \001(\0132&.greptime.v1.region.Me"
+  "tricManifestInfoH\000B\017\n\rmanifest_info\")\n\023L"
+  "istMetadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&"
+  "\n\021BuildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031"
+  "\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagin"
+  "gManifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016p"
+  "artition_expr\030\002 \001(\t\022\031\n\021central_region_id"
+  "\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026Remote"
+  "DynFilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006up"
+  "date\030\002 \001(\0132).greptime.v1.region.RemoteDy"
+  "nFilterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.gr"
+  "eptime.v1.region.RemoteDynFilterUnregist"
+  "erH\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022"
+  "\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ng"
+  "eneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031"
+  "RemoteDynFilterUnregister\022\021\n\tfilter_id\030\001"
+  " \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.r"
+  "egion.RegionRequest\032\".greptime.v1.region"
+  ".RegionResponseB]\n\025io.greptime.v1.region"
+  "B\006ServerZ<github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps[4] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -1388,7 +1390,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto = {
-    false, false, 6414, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
+    false, false, 6438, descriptor_table_protodef_greptime_2fv1_2fregion_2fserver_2eproto,
     "greptime/v1/region/server.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fserver_2eproto_deps, 4, 47,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fserver_2eproto::offsets,
@@ -6782,10 +6784,13 @@ CloseRequest::CloseRequest(const CloseRequest& from)
   CloseRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.region_id_){}
+    , decltype(_impl_.flush_on_close_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.region_id_ = from._impl_.region_id_;
+  ::memcpy(&_impl_.region_id_, &from._impl_.region_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.flush_on_close_) -
+    reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.flush_on_close_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.CloseRequest)
 }
 
@@ -6795,6 +6800,7 @@ inline void CloseRequest::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.region_id_){uint64_t{0u}}
+    , decltype(_impl_.flush_on_close_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -6822,7 +6828,9 @@ void CloseRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.region_id_ = uint64_t{0u};
+  ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.flush_on_close_) -
+      reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.flush_on_close_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6836,6 +6844,14 @@ const char* CloseRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _impl_.region_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool flush_on_close = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.flush_on_close_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -6875,6 +6891,12 @@ uint8_t* CloseRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_region_id(), target);
   }
 
+  // bool flush_on_close = 2;
+  if (this->_internal_flush_on_close() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_flush_on_close(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6894,6 +6916,11 @@ size_t CloseRequest::ByteSizeLong() const {
   // uint64 region_id = 1;
   if (this->_internal_region_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
+  }
+
+  // bool flush_on_close = 2;
+  if (this->_internal_flush_on_close() != 0) {
+    total_size += 1 + 1;
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -6917,6 +6944,9 @@ void CloseRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());
   }
+  if (from._internal_flush_on_close() != 0) {
+    _this->_internal_set_flush_on_close(from._internal_flush_on_close());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -6934,7 +6964,12 @@ bool CloseRequest::IsInitialized() const {
 void CloseRequest::InternalSwap(CloseRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.region_id_, other->_impl_.region_id_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CloseRequest, _impl_.flush_on_close_)
+      + sizeof(CloseRequest::_impl_.flush_on_close_)
+      - PROTOBUF_FIELD_OFFSET(CloseRequest, _impl_.region_id_)>(
+          reinterpret_cast<char*>(&_impl_.region_id_),
+          reinterpret_cast<char*>(&other->_impl_.region_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CloseRequest::GetMetadata() const {

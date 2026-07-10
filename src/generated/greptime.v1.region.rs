@@ -252,6 +252,9 @@ pub struct CleanUpRequest {
 pub struct CloseRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
+    /// If true, flushes pending memtables before closing the region.
+    #[prost(bool, tag = "2")]
+    pub flush_on_close: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlterRequests {
