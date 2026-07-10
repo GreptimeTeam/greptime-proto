@@ -85,7 +85,7 @@ pub mod region_request {
         #[prost(message, tag = "21")]
         RemoteDynFilter(super::RemoteDynFilterRequest),
         #[prost(message, tag = "22")]
-        CleanUp(super::RegionCleanUpRequest),
+        CleanUp(super::CleanUpRequest),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -232,7 +232,7 @@ pub struct OpenRequest {
     >,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct RegionCleanUpRequest {
+pub struct CleanUpRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
     /// Region engine name
@@ -241,7 +241,7 @@ pub struct RegionCleanUpRequest {
     /// Region storage path
     #[prost(string, tag = "3")]
     pub path: ::prost::alloc::string::String,
-    /// Options of the cleaned region.
+    /// Options used to locate and configure the cleanup operation.
     #[prost(map = "string, string", tag = "4")]
     pub options: ::std::collections::HashMap<
         ::prost::alloc::string::String,
