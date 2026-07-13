@@ -157,6 +157,8 @@ message HeartbeatResponse {
 message HeartbeatConfig {
   uint64 heartbeat_interval_ms = 1;
   uint64 retry_interval_ms = 2;
+  // Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
+  optional bool gc_enabled = 3;
 }
 
 // The granted region is the region that the meta server granted leases.

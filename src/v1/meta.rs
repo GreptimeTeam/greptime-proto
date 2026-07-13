@@ -187,6 +187,7 @@ gen_set_header!(ReconcileRequest);
 
 #[cfg(test)]
 mod tests {
+    use prost::Message;
     use std::vec;
 
     use super::*;
@@ -238,5 +239,27 @@ mod tests {
             ],
             dict.into_peers()
         );
+    }
+
+    #[test]
+    fn test_heartbeat_config_gc_enabled_presence() {
+        for (gc_enabled, expected) in [
+            (None, vec![]),
+            (Some(false), vec![0x18, 0x00]),
+            (Some(true), vec![0x18, 0x01]),
+        ] {
+            let config = HeartbeatConfig {
+                gc_enabled,
+                ..Default::default()
+            };
+
+            let encoded = config.encode_to_vec();
+            assert_eq!(expected, encoded);
+            assert_eq!(config, HeartbeatConfig::decode(encoded.as_slice()).unwrap());
+        }
+
+        let decoded = HeartbeatConfig::decode([0x08, 0x2a].as_slice()).unwrap();
+        assert_eq!(42, decoded.heartbeat_interval_ms);
+        assert_eq!(None, decoded.gc_enabled);
     }
 }
