@@ -82,6 +82,12 @@ extern BuildIndexRequestDefaultTypeInternal _BuildIndexRequest_default_instance_
 class BulkInsertRequest;
 struct BulkInsertRequestDefaultTypeInternal;
 extern BulkInsertRequestDefaultTypeInternal _BulkInsertRequest_default_instance_;
+class CleanUpRequest;
+struct CleanUpRequestDefaultTypeInternal;
+extern CleanUpRequestDefaultTypeInternal _CleanUpRequest_default_instance_;
+class CleanUpRequest_OptionsEntry_DoNotUse;
+struct CleanUpRequest_OptionsEntry_DoNotUseDefaultTypeInternal;
+extern CleanUpRequest_OptionsEntry_DoNotUseDefaultTypeInternal _CleanUpRequest_OptionsEntry_DoNotUse_default_instance_;
 class CloseRequest;
 struct CloseRequestDefaultTypeInternal;
 extern CloseRequestDefaultTypeInternal _CloseRequest_default_instance_;
@@ -203,6 +209,8 @@ template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::gr
 template<> ::greptime::v1::region::ApplyStagingManifestRequest* Arena::CreateMaybeMessage<::greptime::v1::region::ApplyStagingManifestRequest>(Arena*);
 template<> ::greptime::v1::region::BuildIndexRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest>(Arena*);
 template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
+template<> ::greptime::v1::region::CleanUpRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest>(Arena*);
+template<> ::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
 template<> ::greptime::v1::region::CompactRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CompactRequest>(Arena*);
 template<> ::greptime::v1::region::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequest>(Arena*);
@@ -536,6 +544,7 @@ class RegionRequest final :
     kBuildIndex = 19,
     kApplyStagingManifest = 20,
     kRemoteDynFilter = 21,
+    kCleanUp = 22,
     BODY_NOT_SET = 0,
   };
 
@@ -637,6 +646,7 @@ class RegionRequest final :
     kBuildIndexFieldNumber = 19,
     kApplyStagingManifestFieldNumber = 20,
     kRemoteDynFilterFieldNumber = 21,
+    kCleanUpFieldNumber = 22,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -998,6 +1008,24 @@ class RegionRequest final :
       ::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter);
   ::greptime::v1::region::RemoteDynFilterRequest* unsafe_arena_release_remote_dyn_filter();
 
+  // .greptime.v1.region.CleanUpRequest clean_up = 22;
+  bool has_clean_up() const;
+  private:
+  bool _internal_has_clean_up() const;
+  public:
+  void clear_clean_up();
+  const ::greptime::v1::region::CleanUpRequest& clean_up() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::CleanUpRequest* release_clean_up();
+  ::greptime::v1::region::CleanUpRequest* mutable_clean_up();
+  void set_allocated_clean_up(::greptime::v1::region::CleanUpRequest* clean_up);
+  private:
+  const ::greptime::v1::region::CleanUpRequest& _internal_clean_up() const;
+  ::greptime::v1::region::CleanUpRequest* _internal_mutable_clean_up();
+  public:
+  void unsafe_arena_set_allocated_clean_up(
+      ::greptime::v1::region::CleanUpRequest* clean_up);
+  ::greptime::v1::region::CleanUpRequest* unsafe_arena_release_clean_up();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -1022,6 +1050,7 @@ class RegionRequest final :
   void set_has_build_index();
   void set_has_apply_staging_manifest();
   void set_has_remote_dyn_filter();
+  void set_has_clean_up();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -1053,6 +1082,7 @@ class RegionRequest final :
       ::greptime::v1::region::BuildIndexRequest* build_index_;
       ::greptime::v1::region::ApplyStagingManifestRequest* apply_staging_manifest_;
       ::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter_;
+      ::greptime::v1::region::CleanUpRequest* clean_up_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -3380,6 +3410,240 @@ class OpenRequest final :
 };
 // -------------------------------------------------------------------
 
+class CleanUpRequest_OptionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CleanUpRequest_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<CleanUpRequest_OptionsEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> SuperType;
+  CleanUpRequest_OptionsEntry_DoNotUse();
+  explicit PROTOBUF_CONSTEXPR CleanUpRequest_OptionsEntry_DoNotUse(
+      ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  explicit CleanUpRequest_OptionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const CleanUpRequest_OptionsEntry_DoNotUse& other);
+  static const CleanUpRequest_OptionsEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const CleanUpRequest_OptionsEntry_DoNotUse*>(&_CleanUpRequest_OptionsEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.region.CleanUpRequest.OptionsEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "greptime.v1.region.CleanUpRequest.OptionsEntry.value");
+ }
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+
+// -------------------------------------------------------------------
+
+class CleanUpRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CleanUpRequest) */ {
+ public:
+  inline CleanUpRequest() : CleanUpRequest(nullptr) {}
+  ~CleanUpRequest() override;
+  explicit PROTOBUF_CONSTEXPR CleanUpRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CleanUpRequest(const CleanUpRequest& from);
+  CleanUpRequest(CleanUpRequest&& from) noexcept
+    : CleanUpRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CleanUpRequest& operator=(const CleanUpRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CleanUpRequest& operator=(CleanUpRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CleanUpRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CleanUpRequest* internal_default_instance() {
+    return reinterpret_cast<const CleanUpRequest*>(
+               &_CleanUpRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(CleanUpRequest& a, CleanUpRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CleanUpRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CleanUpRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CleanUpRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CleanUpRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CleanUpRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CleanUpRequest& from) {
+    CleanUpRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CleanUpRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.CleanUpRequest";
+  }
+  protected:
+  explicit CleanUpRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOptionsFieldNumber = 4,
+    kEngineFieldNumber = 2,
+    kPathFieldNumber = 3,
+    kRegionIdFieldNumber = 1,
+  };
+  // map<string, string> options = 4;
+  int options_size() const;
+  private:
+  int _internal_options_size() const;
+  public:
+  void clear_options();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_options();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      options() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_options();
+
+  // string engine = 2;
+  void clear_engine();
+  const std::string& engine() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_engine(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_engine();
+  PROTOBUF_NODISCARD std::string* release_engine();
+  void set_allocated_engine(std::string* engine);
+  private:
+  const std::string& _internal_engine() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_engine(const std::string& value);
+  std::string* _internal_mutable_engine();
+  public:
+
+  // string path = 3;
+  void clear_path();
+  const std::string& path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_path();
+  PROTOBUF_NODISCARD std::string* release_path();
+  void set_allocated_path(std::string* path);
+  private:
+  const std::string& _internal_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_path(const std::string& value);
+  std::string* _internal_mutable_path();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.CleanUpRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+        CleanUpRequest_OptionsEntry_DoNotUse,
+        std::string, std::string,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING> options_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr engine_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CloseRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CloseRequest) */ {
  public:
@@ -3428,7 +3692,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3502,6 +3766,7 @@ class CloseRequest final :
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kFlushOnCloseFieldNumber = 2,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -3510,6 +3775,15 @@ class CloseRequest final :
   private:
   uint64_t _internal_region_id() const;
   void _internal_set_region_id(uint64_t value);
+  public:
+
+  // bool flush_on_close = 2;
+  void clear_flush_on_close();
+  bool flush_on_close() const;
+  void set_flush_on_close(bool value);
+  private:
+  bool _internal_flush_on_close() const;
+  void _internal_set_flush_on_close(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:greptime.v1.region.CloseRequest)
@@ -3521,6 +3795,7 @@ class CloseRequest final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    bool flush_on_close_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3576,7 +3851,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    21;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -3749,7 +4024,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -4171,7 +4446,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -4328,7 +4603,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4485,7 +4760,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4642,7 +4917,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -4819,7 +5094,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -4972,7 +5247,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -5119,7 +5394,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -5238,7 +5513,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -5392,7 +5667,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -5610,7 +5885,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -5810,7 +6085,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -5929,7 +6204,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6102,7 +6377,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -6322,7 +6597,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -6470,7 +6745,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -6618,7 +6893,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -6783,7 +7058,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -6984,7 +7259,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -7146,7 +7421,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7294,7 +7569,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -7447,7 +7722,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -7644,7 +7919,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -7850,7 +8125,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -8041,7 +8316,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -9821,6 +10096,80 @@ inline ::greptime::v1::region::RemoteDynFilterRequest* RegionRequest::mutable_re
   return _msg;
 }
 
+// .greptime.v1.region.CleanUpRequest clean_up = 22;
+inline bool RegionRequest::_internal_has_clean_up() const {
+  return body_case() == kCleanUp;
+}
+inline bool RegionRequest::has_clean_up() const {
+  return _internal_has_clean_up();
+}
+inline void RegionRequest::set_has_clean_up() {
+  _impl_._oneof_case_[0] = kCleanUp;
+}
+inline void RegionRequest::clear_clean_up() {
+  if (_internal_has_clean_up()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.clean_up_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::CleanUpRequest* RegionRequest::release_clean_up() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.clean_up)
+  if (_internal_has_clean_up()) {
+    clear_has_body();
+    ::greptime::v1::region::CleanUpRequest* temp = _impl_.body_.clean_up_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.clean_up_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::CleanUpRequest& RegionRequest::_internal_clean_up() const {
+  return _internal_has_clean_up()
+      ? *_impl_.body_.clean_up_
+      : reinterpret_cast< ::greptime::v1::region::CleanUpRequest&>(::greptime::v1::region::_CleanUpRequest_default_instance_);
+}
+inline const ::greptime::v1::region::CleanUpRequest& RegionRequest::clean_up() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.clean_up)
+  return _internal_clean_up();
+}
+inline ::greptime::v1::region::CleanUpRequest* RegionRequest::unsafe_arena_release_clean_up() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.clean_up)
+  if (_internal_has_clean_up()) {
+    clear_has_body();
+    ::greptime::v1::region::CleanUpRequest* temp = _impl_.body_.clean_up_;
+    _impl_.body_.clean_up_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_clean_up(::greptime::v1::region::CleanUpRequest* clean_up) {
+  clear_body();
+  if (clean_up) {
+    set_has_clean_up();
+    _impl_.body_.clean_up_ = clean_up;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.clean_up)
+}
+inline ::greptime::v1::region::CleanUpRequest* RegionRequest::_internal_mutable_clean_up() {
+  if (!_internal_has_clean_up()) {
+    clear_body();
+    set_has_clean_up();
+    _impl_.body_.clean_up_ = CreateMaybeMessage< ::greptime::v1::region::CleanUpRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.clean_up_;
+}
+inline ::greptime::v1::region::CleanUpRequest* RegionRequest::mutable_clean_up() {
+  ::greptime::v1::region::CleanUpRequest* _msg = _internal_mutable_clean_up();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.clean_up)
+  return _msg;
+}
+
 inline bool RegionRequest::has_body() const {
   return body_case() != BODY_NOT_SET;
 }
@@ -11450,6 +11799,161 @@ OpenRequest::mutable_options() {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// CleanUpRequest
+
+// uint64 region_id = 1;
+inline void CleanUpRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t CleanUpRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t CleanUpRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CleanUpRequest.region_id)
+  return _internal_region_id();
+}
+inline void CleanUpRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void CleanUpRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CleanUpRequest.region_id)
+}
+
+// string engine = 2;
+inline void CleanUpRequest::clear_engine() {
+  _impl_.engine_.ClearToEmpty();
+}
+inline const std::string& CleanUpRequest::engine() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CleanUpRequest.engine)
+  return _internal_engine();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CleanUpRequest::set_engine(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.engine_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CleanUpRequest.engine)
+}
+inline std::string* CleanUpRequest::mutable_engine() {
+  std::string* _s = _internal_mutable_engine();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CleanUpRequest.engine)
+  return _s;
+}
+inline const std::string& CleanUpRequest::_internal_engine() const {
+  return _impl_.engine_.Get();
+}
+inline void CleanUpRequest::_internal_set_engine(const std::string& value) {
+  
+  _impl_.engine_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CleanUpRequest::_internal_mutable_engine() {
+  
+  return _impl_.engine_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CleanUpRequest::release_engine() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CleanUpRequest.engine)
+  return _impl_.engine_.Release();
+}
+inline void CleanUpRequest::set_allocated_engine(std::string* engine) {
+  if (engine != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.engine_.SetAllocated(engine, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.engine_.IsDefault()) {
+    _impl_.engine_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CleanUpRequest.engine)
+}
+
+// string path = 3;
+inline void CleanUpRequest::clear_path() {
+  _impl_.path_.ClearToEmpty();
+}
+inline const std::string& CleanUpRequest::path() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CleanUpRequest.path)
+  return _internal_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CleanUpRequest::set_path(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CleanUpRequest.path)
+}
+inline std::string* CleanUpRequest::mutable_path() {
+  std::string* _s = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CleanUpRequest.path)
+  return _s;
+}
+inline const std::string& CleanUpRequest::_internal_path() const {
+  return _impl_.path_.Get();
+}
+inline void CleanUpRequest::_internal_set_path(const std::string& value) {
+  
+  _impl_.path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CleanUpRequest::_internal_mutable_path() {
+  
+  return _impl_.path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CleanUpRequest::release_path() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CleanUpRequest.path)
+  return _impl_.path_.Release();
+}
+inline void CleanUpRequest::set_allocated_path(std::string* path) {
+  if (path != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.path_.SetAllocated(path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.path_.IsDefault()) {
+    _impl_.path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CleanUpRequest.path)
+}
+
+// map<string, string> options = 4;
+inline int CleanUpRequest::_internal_options_size() const {
+  return _impl_.options_.size();
+}
+inline int CleanUpRequest::options_size() const {
+  return _internal_options_size();
+}
+inline void CleanUpRequest::clear_options() {
+  _impl_.options_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CleanUpRequest::_internal_options() const {
+  return _impl_.options_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+CleanUpRequest::options() const {
+  // @@protoc_insertion_point(field_map:greptime.v1.region.CleanUpRequest.options)
+  return _internal_options();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CleanUpRequest::_internal_mutable_options() {
+  return _impl_.options_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+CleanUpRequest::mutable_options() {
+  // @@protoc_insertion_point(field_mutable_map:greptime.v1.region.CleanUpRequest.options)
+  return _internal_mutable_options();
+}
+
+// -------------------------------------------------------------------
+
 // CloseRequest
 
 // uint64 region_id = 1;
@@ -11470,6 +11974,26 @@ inline void CloseRequest::_internal_set_region_id(uint64_t value) {
 inline void CloseRequest::set_region_id(uint64_t value) {
   _internal_set_region_id(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.CloseRequest.region_id)
+}
+
+// bool flush_on_close = 2;
+inline void CloseRequest::clear_flush_on_close() {
+  _impl_.flush_on_close_ = false;
+}
+inline bool CloseRequest::_internal_flush_on_close() const {
+  return _impl_.flush_on_close_;
+}
+inline bool CloseRequest::flush_on_close() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CloseRequest.flush_on_close)
+  return _internal_flush_on_close();
+}
+inline void CloseRequest::_internal_set_flush_on_close(bool value) {
+  
+  _impl_.flush_on_close_ = value;
+}
+inline void CloseRequest::set_flush_on_close(bool value) {
+  _internal_set_flush_on_close(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CloseRequest.flush_on_close)
 }
 
 // -------------------------------------------------------------------
@@ -14521,6 +15045,10 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

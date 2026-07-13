@@ -17,11 +17,21 @@ include!("../generated/greptime.v1.region.rs");
 #[cfg(test)]
 mod test {
     use crate::v1::region::region_request::Body as RegionRequest;
-    use crate::v1::region::InsertRequests;
+    use crate::v1::region::{CloseRequest, InsertRequests};
 
     #[test]
     fn test_region_request_name() {
         let request = RegionRequest::Inserts(InsertRequests { requests: vec![] });
         assert_eq!("Inserts", request.as_ref());
+    }
+
+    #[test]
+    fn test_close_request_flush_on_close() {
+        let request = CloseRequest {
+            region_id: 42,
+            flush_on_close: true,
+        };
+
+        assert!(request.flush_on_close);
     }
 }

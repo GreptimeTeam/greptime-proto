@@ -62,6 +62,7 @@ message RegionRequest {
     BuildIndexRequest build_index = 19;
     ApplyStagingManifestRequest apply_staging_manifest = 20;
     RemoteDynFilterRequest remote_dyn_filter = 21;
+    CleanUpRequest clean_up = 22;
   }
 }
 
@@ -164,8 +165,20 @@ message OpenRequest {
   map<string, string> options = 4;
 }
 
+message CleanUpRequest {
+  uint64 region_id = 1;
+  // Region engine name
+  string engine = 2;
+  // Region storage path
+  string path = 3;
+  // Options used to locate and configure the cleanup operation.
+  map<string, string> options = 4;
+}
+
 message CloseRequest {
   uint64 region_id = 1;
+  // If true, flushes pending memtables before closing the region.
+  bool flush_on_close = 2;
 }
 
 message AlterRequests {

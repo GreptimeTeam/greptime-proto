@@ -36,7 +36,7 @@ pub struct RegionRequest {
     /// query request is handled in flight services.
     #[prost(
         oneof = "region_request::Body",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21"
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22"
     )]
     pub body: ::core::option::Option<region_request::Body>,
 }
@@ -84,6 +84,8 @@ pub mod region_request {
         ApplyStagingManifest(super::ApplyStagingManifestRequest),
         #[prost(message, tag = "21")]
         RemoteDynFilter(super::RemoteDynFilterRequest),
+        #[prost(message, tag = "22")]
+        CleanUp(super::CleanUpRequest),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -229,10 +231,30 @@ pub struct OpenRequest {
         ::prost::alloc::string::String,
     >,
 }
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CleanUpRequest {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    /// Region engine name
+    #[prost(string, tag = "2")]
+    pub engine: ::prost::alloc::string::String,
+    /// Region storage path
+    #[prost(string, tag = "3")]
+    pub path: ::prost::alloc::string::String,
+    /// Options used to locate and configure the cleanup operation.
+    #[prost(map = "string, string", tag = "4")]
+    pub options: ::std::collections::HashMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct CloseRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
+    /// If true, flushes pending memtables before closing the region.
+    #[prost(bool, tag = "2")]
+    pub flush_on_close: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AlterRequests {
