@@ -12485,6 +12485,16 @@ com.google.protobuf.ByteString defaultValue);
      * @return The retryIntervalMs.
      */
     long getRetryIntervalMs();
+
+    /**
+     * <pre>
+     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+     * </pre>
+     *
+     * <code>bool gc_enabled = 3;</code>
+     * @return The gcEnabled.
+     */
+    boolean getGcEnabled();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatConfig}
@@ -12539,6 +12549,11 @@ com.google.protobuf.ByteString defaultValue);
             case 16: {
 
               retryIntervalMs_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              gcEnabled_ = input.readBool();
               break;
             }
             default: {
@@ -12597,6 +12612,21 @@ com.google.protobuf.ByteString defaultValue);
       return retryIntervalMs_;
     }
 
+    public static final int GC_ENABLED_FIELD_NUMBER = 3;
+    private boolean gcEnabled_;
+    /**
+     * <pre>
+     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+     * </pre>
+     *
+     * <code>bool gc_enabled = 3;</code>
+     * @return The gcEnabled.
+     */
+    @java.lang.Override
+    public boolean getGcEnabled() {
+      return gcEnabled_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12617,6 +12647,9 @@ com.google.protobuf.ByteString defaultValue);
       if (retryIntervalMs_ != 0L) {
         output.writeUInt64(2, retryIntervalMs_);
       }
+      if (gcEnabled_ != false) {
+        output.writeBool(3, gcEnabled_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12633,6 +12666,10 @@ com.google.protobuf.ByteString defaultValue);
       if (retryIntervalMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, retryIntervalMs_);
+      }
+      if (gcEnabled_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, gcEnabled_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12653,6 +12690,8 @@ com.google.protobuf.ByteString defaultValue);
           != other.getHeartbeatIntervalMs()) return false;
       if (getRetryIntervalMs()
           != other.getRetryIntervalMs()) return false;
+      if (getGcEnabled()
+          != other.getGcEnabled()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12670,6 +12709,9 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + RETRY_INTERVAL_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRetryIntervalMs());
+      hash = (37 * hash) + GC_ENABLED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getGcEnabled());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12807,6 +12849,8 @@ com.google.protobuf.ByteString defaultValue);
 
         retryIntervalMs_ = 0L;
 
+        gcEnabled_ = false;
+
         return this;
       }
 
@@ -12835,6 +12879,7 @@ com.google.protobuf.ByteString defaultValue);
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig(this);
         result.heartbeatIntervalMs_ = heartbeatIntervalMs_;
         result.retryIntervalMs_ = retryIntervalMs_;
+        result.gcEnabled_ = gcEnabled_;
         onBuilt();
         return result;
       }
@@ -12888,6 +12933,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.getRetryIntervalMs() != 0L) {
           setRetryIntervalMs(other.getRetryIntervalMs());
+        }
+        if (other.getGcEnabled() != false) {
+          setGcEnabled(other.getGcEnabled());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -12976,6 +13024,49 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clearRetryIntervalMs() {
         
         retryIntervalMs_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean gcEnabled_ ;
+      /**
+       * <pre>
+       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+       * </pre>
+       *
+       * <code>bool gc_enabled = 3;</code>
+       * @return The gcEnabled.
+       */
+      @java.lang.Override
+      public boolean getGcEnabled() {
+        return gcEnabled_;
+      }
+      /**
+       * <pre>
+       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+       * </pre>
+       *
+       * <code>bool gc_enabled = 3;</code>
+       * @param value The gcEnabled to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGcEnabled(boolean value) {
+        
+        gcEnabled_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+       * </pre>
+       *
+       * <code>bool gc_enabled = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGcEnabled() {
+        
+        gcEnabled_ = false;
         onChanged();
         return this;
       }
@@ -19167,40 +19258,40 @@ java.lang.String defaultValue);
       "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
       "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
       "egionLease\022;\n\020heartbeat_config\030\004 \001(\0132!.g" +
-      "reptime.v1.meta.HeartbeatConfig\"K\n\017Heart" +
+      "reptime.v1.meta.HeartbeatConfig\"_\n\017Heart" +
       "beatConfig\022\035\n\025heartbeat_interval_ms\030\001 \001(" +
-      "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\"\306\001\n\rGranted" +
-      "Region\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162" +
-      "\034.greptime.v1.meta.RegionRole\022C\n\nextensi" +
-      "ons\030c \003(\0132/.greptime.v1.meta.GrantedRegi" +
-      "on.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Region" +
-      "Lease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.met" +
-      "a.GrantedRegion\022\034\n\024duration_since_epoch\030" +
-      "\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeabl" +
-      "e_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/" +
-      "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques" +
-      "tHeader\"m\n\021AskLeaderResponse\0220\n\006header\030\001" +
-      " \001(\0132 .greptime.v1.meta.ResponseHeader\022&" +
-      "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242" +
-      "\001\n\024MailboxMessageHeader\022S\n\017tracing_conte" +
-      "xt\030\001 \003(\0132:.greptime.v1.meta.MailboxMessa" +
-      "geHeader.TracingContextEntry\0325\n\023TracingC" +
-      "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&" +
-      ".greptime.v1.meta.MailboxMessageHeader\022\n" +
-      "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(" +
-      "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022" +
-      "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole" +
-      "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin" +
-      "gLeader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbe" +
-      "at\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heart" +
-      "beatRequest\032#.greptime.v1.meta.Heartbeat" +
-      "Response\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v" +
-      "1.meta.AskLeaderRequest\032#.greptime.v1.me" +
-      "ta.AskLeaderResponse\"\000B<Z:github.com/Gre" +
-      "ptimeTeam/greptime-proto/go/greptime/v1/" +
-      "metab\006proto3"
+      "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\022\022\n\ngc_enabl" +
+      "ed\030\003 \001(\010\"\306\001\n\rGrantedRegion\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.R" +
+      "egionRole\022C\n\nextensions\030c \003(\0132/.greptime" +
+      ".v1.meta.GrantedRegion.ExtensionsEntry\0321" +
+      "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003" +
+      "(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024d" +
+      "uration_since_epoch\030\002 \001(\004\022\025\n\rlease_secon" +
+      "ds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C" +
+      "\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.gre" +
+      "ptime.v1.meta.RequestHeader\"m\n\021AskLeader" +
+      "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
+      "eta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gre" +
+      "ptime.v1.meta.Peer\"\242\001\n\024MailboxMessageHea" +
+      "der\022S\n\017tracing_context\030\001 \003(\0132:.greptime." +
+      "v1.meta.MailboxMessageHeader.TracingCont" +
+      "extEntry\0325\n\023TracingContextEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\264\001\n\016MailboxMessa" +
+      "ge\0226\n\006header\030@ \001(\0132&.greptime.v1.meta.Ma" +
+      "ilboxMessageHeader\022\n\n\002id\030\001 \001(\004\022\017\n\007subjec" +
+      "t\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020tim" +
+      "estamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007p" +
+      "ayload*P\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Foll" +
+      "ower\020\001\022\025\n\021DowngradingLeader\020\002\022\021\n\rStaging" +
+      "Leader\020\0032\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr" +
+      "eptime.v1.meta.HeartbeatRequest\032#.grepti" +
+      "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs" +
+      "kLeader\022\".greptime.v1.meta.AskLeaderRequ" +
+      "est\032#.greptime.v1.meta.AskLeaderResponse" +
+      "\"\000B<Z:github.com/GreptimeTeam/greptime-p" +
+      "roto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19290,7 +19381,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_HeartbeatConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatConfig_descriptor,
-        new java.lang.String[] { "HeartbeatIntervalMs", "RetryIntervalMs", });
+        new java.lang.String[] { "HeartbeatIntervalMs", "RetryIntervalMs", "GcEnabled", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
