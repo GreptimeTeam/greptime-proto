@@ -12485,25 +12485,6 @@ com.google.protobuf.ByteString defaultValue);
      * @return The retryIntervalMs.
      */
     long getRetryIntervalMs();
-
-    /**
-     * <pre>
-     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-     * </pre>
-     *
-     * <code>optional bool gc_enabled = 3;</code>
-     * @return Whether the gcEnabled field is set.
-     */
-    boolean hasGcEnabled();
-    /**
-     * <pre>
-     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-     * </pre>
-     *
-     * <code>optional bool gc_enabled = 3;</code>
-     * @return The gcEnabled.
-     */
-    boolean getGcEnabled();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.HeartbeatConfig}
@@ -12540,7 +12521,6 @@ com.google.protobuf.ByteString defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -12559,11 +12539,6 @@ com.google.protobuf.ByteString defaultValue);
             case 16: {
 
               retryIntervalMs_ = input.readUInt64();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000001;
-              gcEnabled_ = input.readBool();
               break;
             }
             default: {
@@ -12600,7 +12575,6 @@ com.google.protobuf.ByteString defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.class, greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig.Builder.class);
     }
 
-    private int bitField0_;
     public static final int HEARTBEAT_INTERVAL_MS_FIELD_NUMBER = 1;
     private long heartbeatIntervalMs_;
     /**
@@ -12623,33 +12597,6 @@ com.google.protobuf.ByteString defaultValue);
       return retryIntervalMs_;
     }
 
-    public static final int GC_ENABLED_FIELD_NUMBER = 3;
-    private boolean gcEnabled_;
-    /**
-     * <pre>
-     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-     * </pre>
-     *
-     * <code>optional bool gc_enabled = 3;</code>
-     * @return Whether the gcEnabled field is set.
-     */
-    @java.lang.Override
-    public boolean hasGcEnabled() {
-      return ((bitField0_ & 0x00000001) != 0);
-    }
-    /**
-     * <pre>
-     * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-     * </pre>
-     *
-     * <code>optional bool gc_enabled = 3;</code>
-     * @return The gcEnabled.
-     */
-    @java.lang.Override
-    public boolean getGcEnabled() {
-      return gcEnabled_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12670,9 +12617,6 @@ com.google.protobuf.ByteString defaultValue);
       if (retryIntervalMs_ != 0L) {
         output.writeUInt64(2, retryIntervalMs_);
       }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeBool(3, gcEnabled_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -12689,10 +12633,6 @@ com.google.protobuf.ByteString defaultValue);
       if (retryIntervalMs_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, retryIntervalMs_);
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, gcEnabled_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12713,11 +12653,6 @@ com.google.protobuf.ByteString defaultValue);
           != other.getHeartbeatIntervalMs()) return false;
       if (getRetryIntervalMs()
           != other.getRetryIntervalMs()) return false;
-      if (hasGcEnabled() != other.hasGcEnabled()) return false;
-      if (hasGcEnabled()) {
-        if (getGcEnabled()
-            != other.getGcEnabled()) return false;
-      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12735,11 +12670,6 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + RETRY_INTERVAL_MS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRetryIntervalMs());
-      if (hasGcEnabled()) {
-        hash = (37 * hash) + GC_ENABLED_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getGcEnabled());
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12877,8 +12807,6 @@ com.google.protobuf.ByteString defaultValue);
 
         retryIntervalMs_ = 0L;
 
-        gcEnabled_ = false;
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -12905,15 +12833,8 @@ com.google.protobuf.ByteString defaultValue);
       @java.lang.Override
       public greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig result = new greptime.v1.meta.HeartbeatOuterClass.HeartbeatConfig(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.heartbeatIntervalMs_ = heartbeatIntervalMs_;
         result.retryIntervalMs_ = retryIntervalMs_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.gcEnabled_ = gcEnabled_;
-          to_bitField0_ |= 0x00000001;
-        }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -12968,9 +12889,6 @@ com.google.protobuf.ByteString defaultValue);
         if (other.getRetryIntervalMs() != 0L) {
           setRetryIntervalMs(other.getRetryIntervalMs());
         }
-        if (other.hasGcEnabled()) {
-          setGcEnabled(other.getGcEnabled());
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -12999,7 +12917,6 @@ com.google.protobuf.ByteString defaultValue);
         }
         return this;
       }
-      private int bitField0_;
 
       private long heartbeatIntervalMs_ ;
       /**
@@ -13059,61 +12976,6 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clearRetryIntervalMs() {
         
         retryIntervalMs_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private boolean gcEnabled_ ;
-      /**
-       * <pre>
-       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-       * </pre>
-       *
-       * <code>optional bool gc_enabled = 3;</code>
-       * @return Whether the gcEnabled field is set.
-       */
-      @java.lang.Override
-      public boolean hasGcEnabled() {
-        return ((bitField0_ & 0x00000001) != 0);
-      }
-      /**
-       * <pre>
-       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-       * </pre>
-       *
-       * <code>optional bool gc_enabled = 3;</code>
-       * @return The gcEnabled.
-       */
-      @java.lang.Override
-      public boolean getGcEnabled() {
-        return gcEnabled_;
-      }
-      /**
-       * <pre>
-       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-       * </pre>
-       *
-       * <code>optional bool gc_enabled = 3;</code>
-       * @param value The gcEnabled to set.
-       * @return This builder for chaining.
-       */
-      public Builder setGcEnabled(boolean value) {
-        bitField0_ |= 0x00000001;
-        gcEnabled_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation; not dynamic configuration.
-       * </pre>
-       *
-       * <code>optional bool gc_enabled = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearGcEnabled() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        gcEnabled_ = false;
         onChanged();
         return this;
       }
@@ -19305,10 +19167,9 @@ java.lang.String defaultValue);
       "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n" +
       "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R" +
       "egionLease\022;\n\020heartbeat_config\030\004 \001(\0132!.g" +
-      "reptime.v1.meta.HeartbeatConfig\"s\n\017Heart" +
+      "reptime.v1.meta.HeartbeatConfig\"K\n\017Heart" +
       "beatConfig\022\035\n\025heartbeat_interval_ms\030\001 \001(" +
-      "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\022\027\n\ngc_enabl" +
-      "ed\030\003 \001(\010H\000\210\001\001B\r\n\013_gc_enabled\"\306\001\n\rGranted" +
+      "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\"\306\001\n\rGranted" +
       "Region\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162" +
       "\034.greptime.v1.meta.RegionRole\022C\n\nextensi" +
       "ons\030c \003(\0132/.greptime.v1.meta.GrantedRegi" +
@@ -19429,7 +19290,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_HeartbeatConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatConfig_descriptor,
-        new java.lang.String[] { "HeartbeatIntervalMs", "RetryIntervalMs", "GcEnabled", "GcEnabled", });
+        new java.lang.String[] { "HeartbeatIntervalMs", "RetryIntervalMs", });
     internal_static_greptime_v1_meta_GrantedRegion_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
