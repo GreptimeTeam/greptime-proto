@@ -283,6 +283,9 @@ pub struct HeartbeatConfig {
     pub heartbeat_interval_ms: u64,
     #[prost(uint64, tag = "2")]
     pub retry_interval_ms: u64,
+    /// Advertises Metasrv GC scheduler enablement for datanode startup compatibility validation.
+    #[prost(bool, tag = "3")]
+    pub gc_enabled: bool,
 }
 /// The granted region is the region that the meta server granted leases.
 #[derive(Clone, PartialEq, ::prost::Message)]

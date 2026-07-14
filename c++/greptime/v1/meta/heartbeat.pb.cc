@@ -225,6 +225,7 @@ PROTOBUF_CONSTEXPR HeartbeatConfig::HeartbeatConfig(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.heartbeat_interval_ms_)*/uint64_t{0u}
   , /*decltype(_impl_.retry_interval_ms_)*/uint64_t{0u}
+  , /*decltype(_impl_.gc_enabled_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HeartbeatConfigDefaultTypeInternal {
   PROTOBUF_CONSTEXPR HeartbeatConfigDefaultTypeInternal()
@@ -504,6 +505,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets[] P
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatConfig, _impl_.heartbeat_interval_ms_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatConfig, _impl_.retry_interval_ms_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::HeartbeatConfig, _impl_.gc_enabled_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -595,14 +597,14 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 121, -1, -1, sizeof(::greptime::v1::meta::FlowStat)},
   { 129, -1, -1, sizeof(::greptime::v1::meta::HeartbeatResponse)},
   { 139, -1, -1, sizeof(::greptime::v1::meta::HeartbeatConfig)},
-  { 147, 155, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
-  { 157, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
-  { 166, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
-  { 176, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
-  { 183, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
-  { 191, 199, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse)},
-  { 201, -1, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader)},
-  { 208, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
+  { 148, 156, -1, sizeof(::greptime::v1::meta::GrantedRegion_ExtensionsEntry_DoNotUse)},
+  { 158, -1, -1, sizeof(::greptime::v1::meta::GrantedRegion)},
+  { 167, -1, -1, sizeof(::greptime::v1::meta::RegionLease)},
+  { 177, -1, -1, sizeof(::greptime::v1::meta::AskLeaderRequest)},
+  { 184, -1, -1, sizeof(::greptime::v1::meta::AskLeaderResponse)},
+  { 192, 200, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse)},
+  { 202, -1, -1, sizeof(::greptime::v1::meta::MailboxMessageHeader)},
+  { 209, -1, -1, sizeof(::greptime::v1::meta::MailboxMessage)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -683,47 +685,47 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto[] 
   "\001(\0132 .greptime.v1.meta.MailboxMessage\0223\n"
   "\014region_lease\030\003 \001(\0132\035.greptime.v1.meta.R"
   "egionLease\022;\n\020heartbeat_config\030\004 \001(\0132!.g"
-  "reptime.v1.meta.HeartbeatConfig\"K\n\017Heart"
+  "reptime.v1.meta.HeartbeatConfig\"_\n\017Heart"
   "beatConfig\022\035\n\025heartbeat_interval_ms\030\001 \001("
-  "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\"\306\001\n\rGranted"
-  "Region\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162"
-  "\034.greptime.v1.meta.RegionRole\022C\n\nextensi"
-  "ons\030c \003(\0132/.greptime.v1.meta.GrantedRegi"
-  "on.ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n"
-  "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013Region"
-  "Lease\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.met"
-  "a.GrantedRegion\022\034\n\024duration_since_epoch\030"
-  "\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeabl"
-  "e_region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/"
-  "\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reques"
-  "tHeader\"m\n\021AskLeaderResponse\0220\n\006header\030\001"
-  " \001(\0132 .greptime.v1.meta.ResponseHeader\022&"
-  "\n\006leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242"
-  "\001\n\024MailboxMessageHeader\022S\n\017tracing_conte"
-  "xt\030\001 \003(\0132:.greptime.v1.meta.MailboxMessa"
-  "geHeader.TracingContextEntry\0325\n\023TracingC"
-  "ontextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:"
-  "\0028\001\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&"
-  ".greptime.v1.meta.MailboxMessageHeader\022\n"
-  "\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001("
-  "\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022"
-  "\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole"
-  "\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Downgradin"
-  "gLeader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbe"
-  "at\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heart"
-  "beatRequest\032#.greptime.v1.meta.Heartbeat"
-  "Response\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v"
-  "1.meta.AskLeaderRequest\032#.greptime.v1.me"
-  "ta.AskLeaderResponse\"\000B<Z:github.com/Gre"
-  "ptimeTeam/greptime-proto/go/greptime/v1/"
-  "metab\006proto3"
+  "\004\022\031\n\021retry_interval_ms\030\002 \001(\004\022\022\n\ngc_enabl"
+  "ed\030\003 \001(\010\"\306\001\n\rGrantedRegion\022\021\n\tregion_id\030"
+  "\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime.v1.meta.R"
+  "egionRole\022C\n\nextensions\030c \003(\0132/.greptime"
+  ".v1.meta.GrantedRegion.ExtensionsEntry\0321"
+  "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
+  "\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003"
+  "(\0132\037.greptime.v1.meta.GrantedRegion\022\034\n\024d"
+  "uration_since_epoch\030\002 \001(\004\022\025\n\rlease_secon"
+  "ds\030\003 \001(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C"
+  "\n\020AskLeaderRequest\022/\n\006header\030\001 \001(\0132\037.gre"
+  "ptime.v1.meta.RequestHeader\"m\n\021AskLeader"
+  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
+  "eta.ResponseHeader\022&\n\006leader\030\002 \001(\0132\026.gre"
+  "ptime.v1.meta.Peer\"\242\001\n\024MailboxMessageHea"
+  "der\022S\n\017tracing_context\030\001 \003(\0132:.greptime."
+  "v1.meta.MailboxMessageHeader.TracingCont"
+  "extEntry\0325\n\023TracingContextEntry\022\013\n\003key\030\001"
+  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\264\001\n\016MailboxMessa"
+  "ge\0226\n\006header\030@ \001(\0132&.greptime.v1.meta.Ma"
+  "ilboxMessageHeader\022\n\n\002id\030\001 \001(\004\022\017\n\007subjec"
+  "t\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020tim"
+  "estamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007p"
+  "ayload*P\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Foll"
+  "ower\020\001\022\025\n\021DowngradingLeader\020\002\022\021\n\rStaging"
+  "Leader\020\0032\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".gr"
+  "eptime.v1.meta.HeartbeatRequest\032#.grepti"
+  "me.v1.meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAs"
+  "kLeader\022\".greptime.v1.meta.AskLeaderRequ"
+  "est\032#.greptime.v1.meta.AskLeaderResponse"
+  "\"\000B<Z:github.com/GreptimeTeam/greptime-p"
+  "roto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto = {
-    false, false, 3412, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
+    false, false, 3432, descriptor_table_protodef_greptime_2fv1_2fmeta_2fheartbeat_2eproto,
     "greptime/v1/meta/heartbeat.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fheartbeat_2eproto_deps, 1, 22,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto::offsets,
@@ -3981,12 +3983,13 @@ HeartbeatConfig::HeartbeatConfig(const HeartbeatConfig& from)
   new (&_impl_) Impl_{
       decltype(_impl_.heartbeat_interval_ms_){}
     , decltype(_impl_.retry_interval_ms_){}
+    , decltype(_impl_.gc_enabled_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.heartbeat_interval_ms_, &from._impl_.heartbeat_interval_ms_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.retry_interval_ms_) -
-    reinterpret_cast<char*>(&_impl_.heartbeat_interval_ms_)) + sizeof(_impl_.retry_interval_ms_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.gc_enabled_) -
+    reinterpret_cast<char*>(&_impl_.heartbeat_interval_ms_)) + sizeof(_impl_.gc_enabled_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.HeartbeatConfig)
 }
 
@@ -3997,6 +4000,7 @@ inline void HeartbeatConfig::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.heartbeat_interval_ms_){uint64_t{0u}}
     , decltype(_impl_.retry_interval_ms_){uint64_t{0u}}
+    , decltype(_impl_.gc_enabled_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4025,8 +4029,8 @@ void HeartbeatConfig::Clear() {
   (void) cached_has_bits;
 
   ::memset(&_impl_.heartbeat_interval_ms_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.retry_interval_ms_) -
-      reinterpret_cast<char*>(&_impl_.heartbeat_interval_ms_)) + sizeof(_impl_.retry_interval_ms_));
+      reinterpret_cast<char*>(&_impl_.gc_enabled_) -
+      reinterpret_cast<char*>(&_impl_.heartbeat_interval_ms_)) + sizeof(_impl_.gc_enabled_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4048,6 +4052,14 @@ const char* HeartbeatConfig::_InternalParse(const char* ptr, ::_pbi::ParseContex
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _impl_.retry_interval_ms_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool gc_enabled = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.gc_enabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4093,6 +4105,12 @@ uint8_t* HeartbeatConfig::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_retry_interval_ms(), target);
   }
 
+  // bool gc_enabled = 3;
+  if (this->_internal_gc_enabled() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_gc_enabled(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4119,6 +4137,11 @@ size_t HeartbeatConfig::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_retry_interval_ms());
   }
 
+  // bool gc_enabled = 3;
+  if (this->_internal_gc_enabled() != 0) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4143,6 +4166,9 @@ void HeartbeatConfig::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   if (from._internal_retry_interval_ms() != 0) {
     _this->_internal_set_retry_interval_ms(from._internal_retry_interval_ms());
   }
+  if (from._internal_gc_enabled() != 0) {
+    _this->_internal_set_gc_enabled(from._internal_gc_enabled());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4161,8 +4187,8 @@ void HeartbeatConfig::InternalSwap(HeartbeatConfig* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(HeartbeatConfig, _impl_.retry_interval_ms_)
-      + sizeof(HeartbeatConfig::_impl_.retry_interval_ms_)
+      PROTOBUF_FIELD_OFFSET(HeartbeatConfig, _impl_.gc_enabled_)
+      + sizeof(HeartbeatConfig::_impl_.gc_enabled_)
       - PROTOBUF_FIELD_OFFSET(HeartbeatConfig, _impl_.heartbeat_interval_ms_)>(
           reinterpret_cast<char*>(&_impl_.heartbeat_interval_ms_),
           reinterpret_cast<char*>(&other->_impl_.heartbeat_interval_ms_));

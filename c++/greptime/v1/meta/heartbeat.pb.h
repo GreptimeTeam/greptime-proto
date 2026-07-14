@@ -2398,6 +2398,7 @@ class HeartbeatConfig final :
   enum : int {
     kHeartbeatIntervalMsFieldNumber = 1,
     kRetryIntervalMsFieldNumber = 2,
+    kGcEnabledFieldNumber = 3,
   };
   // uint64 heartbeat_interval_ms = 1;
   void clear_heartbeat_interval_ms();
@@ -2417,6 +2418,15 @@ class HeartbeatConfig final :
   void _internal_set_retry_interval_ms(uint64_t value);
   public:
 
+  // bool gc_enabled = 3;
+  void clear_gc_enabled();
+  bool gc_enabled() const;
+  void set_gc_enabled(bool value);
+  private:
+  bool _internal_gc_enabled() const;
+  void _internal_set_gc_enabled(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.HeartbeatConfig)
  private:
   class _Internal;
@@ -2427,6 +2437,7 @@ class HeartbeatConfig final :
   struct Impl_ {
     uint64_t heartbeat_interval_ms_;
     uint64_t retry_interval_ms_;
+    bool gc_enabled_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5767,6 +5778,26 @@ inline void HeartbeatConfig::_internal_set_retry_interval_ms(uint64_t value) {
 inline void HeartbeatConfig::set_retry_interval_ms(uint64_t value) {
   _internal_set_retry_interval_ms(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatConfig.retry_interval_ms)
+}
+
+// bool gc_enabled = 3;
+inline void HeartbeatConfig::clear_gc_enabled() {
+  _impl_.gc_enabled_ = false;
+}
+inline bool HeartbeatConfig::_internal_gc_enabled() const {
+  return _impl_.gc_enabled_;
+}
+inline bool HeartbeatConfig::gc_enabled() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatConfig.gc_enabled)
+  return _internal_gc_enabled();
+}
+inline void HeartbeatConfig::_internal_set_gc_enabled(bool value) {
+  
+  _impl_.gc_enabled_ = value;
+}
+inline void HeartbeatConfig::set_gc_enabled(bool value) {
+  _internal_set_gc_enabled(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.HeartbeatConfig.gc_enabled)
 }
 
 // -------------------------------------------------------------------
