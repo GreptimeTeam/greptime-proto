@@ -238,3 +238,89 @@ pub struct MergeScan {
     #[prost(bool, tag = "2")]
     pub is_placeholder: bool,
 }
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RangeSelectPartial {
+    #[prost(oneof = "range_select_partial::Payload", tags = "1")]
+    pub payload: ::core::option::Option<range_select_partial::Payload>,
+}
+/// Nested message and enum types in `RangeSelectPartial`.
+pub mod range_select_partial {
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Payload {
+        #[prost(message, tag = "1")]
+        V1(super::RangeSelectPartialV1),
+    }
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RangeSelectPartialV1 {
+    /// This Partial wire contract intentionally has no FILL or Final fields.
+    /// Alignment interval in milliseconds. Consumers must validate that it is in
+    /// the range \[1, INT64_MAX\].
+    #[prost(uint64, tag = "1")]
+    pub align_millis: u64,
+    /// Alignment origin in milliseconds.
+    #[prost(sint64, tag = "2")]
+    pub align_to_millis: i64,
+    /// Index of the time column in the Partial direct input Projection schema.
+    #[prost(uint64, tag = "3")]
+    pub time_column_index: u64,
+    /// Indices of grouping columns in the Partial direct input Projection schema.
+    #[prost(uint64, repeated, tag = "4")]
+    pub by_column_indices: ::prost::alloc::vec::Vec<u64>,
+    /// Range functions to evaluate. This list must be non-empty and its order defines
+    /// the derived \_\_range_state_i column order. Consumers must validate that every
+    /// range is in \[1, INT64_MAX\] and reject unspecified or unknown aggregate kinds.
+    #[prost(message, repeated, tag = "5")]
+    pub range_functions: ::prost::alloc::vec::Vec<RangeFunctionV1>,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RangeFunctionV1 {
+    /// Aggregate function to evaluate. Unspecified and unknown values must be rejected.
+    #[prost(enumeration = "AggregateKind", tag = "1")]
+    pub aggregate: i32,
+    /// Index of the post-coercion materialized function argument in the Partial
+    /// direct input Projection schema.
+    #[prost(uint64, tag = "2")]
+    pub argument_column_index: u64,
+    /// Range in milliseconds. Consumers must validate that it is in \[1, INT64_MAX\].
+    #[prost(uint64, tag = "3")]
+    pub range_millis: u64,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum AggregateKind {
+    Unspecified = 0,
+    Min = 1,
+    Max = 2,
+    Sum = 3,
+    Count = 4,
+    Avg = 5,
+}
+impl AggregateKind {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::Unspecified => "AGGREGATE_KIND_UNSPECIFIED",
+            Self::Min => "AGGREGATE_KIND_MIN",
+            Self::Max => "AGGREGATE_KIND_MAX",
+            Self::Sum => "AGGREGATE_KIND_SUM",
+            Self::Count => "AGGREGATE_KIND_COUNT",
+            Self::Avg => "AGGREGATE_KIND_AVG",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "AGGREGATE_KIND_UNSPECIFIED" => Some(Self::Unspecified),
+            "AGGREGATE_KIND_MIN" => Some(Self::Min),
+            "AGGREGATE_KIND_MAX" => Some(Self::Max),
+            "AGGREGATE_KIND_SUM" => Some(Self::Sum),
+            "AGGREGATE_KIND_COUNT" => Some(Self::Count),
+            "AGGREGATE_KIND_AVG" => Some(Self::Avg),
+            _ => None,
+        }
+    }
+}

@@ -57,6 +57,7 @@ const PROTO_FILES: &[&str] = &[
     "proto/prometheus/io/prometheus/write/v2/types.proto",
     "proto/substrait_extension/promql_plan.proto",
     "proto/substrait_extension/dist_plan.proto",
+    "proto/substrait_extension/range_select_partial.proto",
 ];
 
 const GENERATED_FILES: &[&str] = &[
