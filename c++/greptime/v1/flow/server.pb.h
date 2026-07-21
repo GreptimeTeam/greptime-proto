@@ -92,6 +92,9 @@ extern InsertRequestDefaultTypeInternal _InsertRequest_default_instance_;
 class InsertRequests;
 struct InsertRequestsDefaultTypeInternal;
 extern InsertRequestsDefaultTypeInternal _InsertRequests_default_instance_;
+class TimeRange;
+struct TimeRangeDefaultTypeInternal;
+extern TimeRangeDefaultTypeInternal _TimeRange_default_instance_;
 }  // namespace flow
 }  // namespace v1
 }  // namespace greptime
@@ -109,6 +112,7 @@ template<> ::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse* Arena::C
 template<> ::greptime::v1::flow::FlushFlow* Arena::CreateMaybeMessage<::greptime::v1::flow::FlushFlow>(Arena*);
 template<> ::greptime::v1::flow::InsertRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequest>(Arena*);
 template<> ::greptime::v1::flow::InsertRequests* Arena::CreateMaybeMessage<::greptime::v1::flow::InsertRequests>(Arena*);
+template<> ::greptime::v1::flow::TimeRange* Arena::CreateMaybeMessage<::greptime::v1::flow::TimeRange>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -395,6 +399,7 @@ class DirtyWindowRequest final :
 
   enum : int {
     kTimestampsFieldNumber = 2,
+    kTimeRangesFieldNumber = 3,
     kTableIdFieldNumber = 1,
   };
   // repeated int64 timestamps = 2;
@@ -419,6 +424,24 @@ class DirtyWindowRequest final :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
       mutable_timestamps();
 
+  // repeated .greptime.v1.flow.TimeRange time_ranges = 3;
+  int time_ranges_size() const;
+  private:
+  int _internal_time_ranges_size() const;
+  public:
+  void clear_time_ranges();
+  ::greptime::v1::flow::TimeRange* mutable_time_ranges(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TimeRange >*
+      mutable_time_ranges();
+  private:
+  const ::greptime::v1::flow::TimeRange& _internal_time_ranges(int index) const;
+  ::greptime::v1::flow::TimeRange* _internal_add_time_ranges();
+  public:
+  const ::greptime::v1::flow::TimeRange& time_ranges(int index) const;
+  ::greptime::v1::flow::TimeRange* add_time_ranges();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TimeRange >&
+      time_ranges() const;
+
   // uint32 table_id = 1;
   void clear_table_id();
   uint32_t table_id() const;
@@ -438,7 +461,167 @@ class DirtyWindowRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t > timestamps_;
     mutable std::atomic<int> _timestamps_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TimeRange > time_ranges_;
     uint32_t table_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fflow_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class TimeRange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.TimeRange) */ {
+ public:
+  inline TimeRange() : TimeRange(nullptr) {}
+  ~TimeRange() override;
+  explicit PROTOBUF_CONSTEXPR TimeRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  TimeRange(const TimeRange& from);
+  TimeRange(TimeRange&& from) noexcept
+    : TimeRange() {
+    *this = ::std::move(from);
+  }
+
+  inline TimeRange& operator=(const TimeRange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline TimeRange& operator=(TimeRange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const TimeRange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const TimeRange* internal_default_instance() {
+    return reinterpret_cast<const TimeRange*>(
+               &_TimeRange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(TimeRange& a, TimeRange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(TimeRange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(TimeRange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  TimeRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<TimeRange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const TimeRange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const TimeRange& from) {
+    TimeRange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(TimeRange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.flow.TimeRange";
+  }
+  protected:
+  explicit TimeRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartInclusiveFieldNumber = 1,
+    kEndExclusiveFieldNumber = 2,
+  };
+  // int64 start_inclusive = 1;
+  void clear_start_inclusive();
+  int64_t start_inclusive() const;
+  void set_start_inclusive(int64_t value);
+  private:
+  int64_t _internal_start_inclusive() const;
+  void _internal_set_start_inclusive(int64_t value);
+  public:
+
+  // int64 end_exclusive = 2;
+  void clear_end_exclusive();
+  int64_t end_exclusive() const;
+  void set_end_exclusive(int64_t value);
+  private:
+  int64_t _internal_end_exclusive() const;
+  void _internal_set_end_exclusive(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.flow.TimeRange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t start_inclusive_;
+    int64_t end_exclusive_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -522,7 +705,7 @@ class FlowRequestHeader final :
                &_FlowRequestHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(FlowRequestHeader& a, FlowRequestHeader& b) {
     a.Swap(&b);
@@ -705,7 +888,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -862,7 +1045,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1057,7 +1240,7 @@ class FlowRequest final :
                &_FlowRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(FlowRequest& a, FlowRequest& b) {
     a.Swap(&b);
@@ -1314,7 +1497,7 @@ class FlowResponse final :
                &_FlowResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(FlowResponse& a, FlowResponse& b) {
     a.Swap(&b);
@@ -1556,7 +1739,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -1873,7 +2056,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -2030,7 +2213,7 @@ class FlushFlow final :
                &_FlushFlow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(FlushFlow& a, FlushFlow& b) {
     a.Swap(&b);
@@ -2257,6 +2440,90 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int64_t >*
 DirtyWindowRequest::mutable_timestamps() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.DirtyWindowRequest.timestamps)
   return _internal_mutable_timestamps();
+}
+
+// repeated .greptime.v1.flow.TimeRange time_ranges = 3;
+inline int DirtyWindowRequest::_internal_time_ranges_size() const {
+  return _impl_.time_ranges_.size();
+}
+inline int DirtyWindowRequest::time_ranges_size() const {
+  return _internal_time_ranges_size();
+}
+inline void DirtyWindowRequest::clear_time_ranges() {
+  _impl_.time_ranges_.Clear();
+}
+inline ::greptime::v1::flow::TimeRange* DirtyWindowRequest::mutable_time_ranges(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.DirtyWindowRequest.time_ranges)
+  return _impl_.time_ranges_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TimeRange >*
+DirtyWindowRequest::mutable_time_ranges() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.DirtyWindowRequest.time_ranges)
+  return &_impl_.time_ranges_;
+}
+inline const ::greptime::v1::flow::TimeRange& DirtyWindowRequest::_internal_time_ranges(int index) const {
+  return _impl_.time_ranges_.Get(index);
+}
+inline const ::greptime::v1::flow::TimeRange& DirtyWindowRequest::time_ranges(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.DirtyWindowRequest.time_ranges)
+  return _internal_time_ranges(index);
+}
+inline ::greptime::v1::flow::TimeRange* DirtyWindowRequest::_internal_add_time_ranges() {
+  return _impl_.time_ranges_.Add();
+}
+inline ::greptime::v1::flow::TimeRange* DirtyWindowRequest::add_time_ranges() {
+  ::greptime::v1::flow::TimeRange* _add = _internal_add_time_ranges();
+  // @@protoc_insertion_point(field_add:greptime.v1.flow.DirtyWindowRequest.time_ranges)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::flow::TimeRange >&
+DirtyWindowRequest::time_ranges() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.flow.DirtyWindowRequest.time_ranges)
+  return _impl_.time_ranges_;
+}
+
+// -------------------------------------------------------------------
+
+// TimeRange
+
+// int64 start_inclusive = 1;
+inline void TimeRange::clear_start_inclusive() {
+  _impl_.start_inclusive_ = int64_t{0};
+}
+inline int64_t TimeRange::_internal_start_inclusive() const {
+  return _impl_.start_inclusive_;
+}
+inline int64_t TimeRange::start_inclusive() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.TimeRange.start_inclusive)
+  return _internal_start_inclusive();
+}
+inline void TimeRange::_internal_set_start_inclusive(int64_t value) {
+  
+  _impl_.start_inclusive_ = value;
+}
+inline void TimeRange::set_start_inclusive(int64_t value) {
+  _internal_set_start_inclusive(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.TimeRange.start_inclusive)
+}
+
+// int64 end_exclusive = 2;
+inline void TimeRange::clear_end_exclusive() {
+  _impl_.end_exclusive_ = int64_t{0};
+}
+inline int64_t TimeRange::_internal_end_exclusive() const {
+  return _impl_.end_exclusive_;
+}
+inline int64_t TimeRange::end_exclusive() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.TimeRange.end_exclusive)
+  return _internal_end_exclusive();
+}
+inline void TimeRange::_internal_set_end_exclusive(int64_t value) {
+  
+  _impl_.end_exclusive_ = value;
+}
+inline void TimeRange::set_end_exclusive(int64_t value) {
+  _internal_set_end_exclusive(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.TimeRange.end_exclusive)
 }
 
 // -------------------------------------------------------------------
@@ -3852,6 +4119,8 @@ inline void FlushFlow::set_allocated_flow_id(::greptime::v1::FlowId* flow_id) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
