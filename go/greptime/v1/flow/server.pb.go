@@ -92,8 +92,11 @@ type DirtyWindowRequest struct {
 	TableId uint32 `protobuf:"varint,1,opt,name=table_id,json=tableId,proto3" json:"table_id,omitempty"`
 	// Dirty timestamps. Used to mark this point in time as dirty,
 	// so that the flow can be triggered to process the data.
+	// The timestamps are expressed in the time unit of the table.
 	Timestamps []int64 `protobuf:"varint,2,rep,packed,name=timestamps,proto3" json:"timestamps,omitempty"`
 	// Dirty time ranges. Used to mark a range of time as dirty.
+	// The start and end of each range are expressed in the time unit of
+	// the table, same as `timestamps`.
 	TimeRanges []*TimeRange `protobuf:"bytes,3,rep,name=time_ranges,json=timeRanges,proto3" json:"time_ranges,omitempty"`
 }
 

@@ -45,8 +45,11 @@ message DirtyWindowRequest {
   uint32 table_id = 1;
   // Dirty timestamps. Used to mark this point in time as dirty,
   // so that the flow can be triggered to process the data.
+  // The timestamps are expressed in the time unit of the table.
   repeated int64 timestamps = 2;
   // Dirty time ranges. Used to mark a range of time as dirty.
+  // The start and end of each range are expressed in the time unit of
+  // the table, same as `timestamps`.
   repeated TimeRange time_ranges = 3;
 }
 

@@ -963,6 +963,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -973,6 +974,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -983,6 +985,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -994,6 +997,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1003,6 +1008,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1011,6 +1018,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1019,6 +1028,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1028,6 +1039,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1175,6 +1188,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -1189,6 +1203,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -1201,6 +1216,7 @@ public final class Server {
      * <pre>
      * Dirty timestamps. Used to mark this point in time as dirty,
      * so that the flow can be triggered to process the data.
+     * The timestamps are expressed in the time unit of the table.
      * </pre>
      *
      * <code>repeated int64 timestamps = 2;</code>
@@ -1217,6 +1233,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1228,6 +1246,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1240,6 +1260,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1251,6 +1273,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1262,6 +1286,8 @@ public final class Server {
     /**
      * <pre>
      * Dirty time ranges. Used to mark a range of time as dirty.
+     * The start and end of each range are expressed in the time unit of
+     * the table, same as `timestamps`.
      * </pre>
      *
      * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1718,6 +1744,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1732,6 +1759,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1744,6 +1772,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1757,6 +1786,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1775,6 +1805,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1791,6 +1822,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1809,6 +1841,7 @@ public final class Server {
        * <pre>
        * Dirty timestamps. Used to mark this point in time as dirty,
        * so that the flow can be triggered to process the data.
+       * The timestamps are expressed in the time unit of the table.
        * </pre>
        *
        * <code>repeated int64 timestamps = 2;</code>
@@ -1836,6 +1869,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1850,6 +1885,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1864,6 +1901,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1878,6 +1917,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1899,6 +1940,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1917,6 +1960,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1937,6 +1982,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1958,6 +2005,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1976,6 +2025,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -1994,6 +2045,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2013,6 +2066,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2030,6 +2085,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2047,6 +2104,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2058,6 +2117,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2072,6 +2133,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2087,6 +2150,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2098,6 +2163,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
@@ -2110,6 +2177,8 @@ public final class Server {
       /**
        * <pre>
        * Dirty time ranges. Used to mark a range of time as dirty.
+       * The start and end of each range are expressed in the time unit of
+       * the table, same as `timestamps`.
        * </pre>
        *
        * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
