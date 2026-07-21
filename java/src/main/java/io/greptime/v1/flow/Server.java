@@ -990,6 +990,50 @@ public final class Server {
      * @return The timestamps at the given index.
      */
     long getTimestamps(int index);
+
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    java.util.List<io.greptime.v1.flow.Server.TimeRange> 
+        getTimeRangesList();
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    io.greptime.v1.flow.Server.TimeRange getTimeRanges(int index);
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    int getTimeRangesCount();
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    java.util.List<? extends io.greptime.v1.flow.Server.TimeRangeOrBuilder> 
+        getTimeRangesOrBuilderList();
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    io.greptime.v1.flow.Server.TimeRangeOrBuilder getTimeRangesOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code greptime.v1.flow.DirtyWindowRequest}
@@ -1005,6 +1049,7 @@ public final class Server {
     }
     private DirtyWindowRequest() {
       timestamps_ = emptyLongList();
+      timeRanges_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1064,6 +1109,15 @@ public final class Server {
               input.popLimit(limit);
               break;
             }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                timeRanges_ = new java.util.ArrayList<io.greptime.v1.flow.Server.TimeRange>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              timeRanges_.add(
+                  input.readMessage(io.greptime.v1.flow.Server.TimeRange.parser(), extensionRegistry));
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1083,6 +1137,9 @@ public final class Server {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           timestamps_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          timeRanges_ = java.util.Collections.unmodifiableList(timeRanges_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1155,6 +1212,66 @@ public final class Server {
     }
     private int timestampsMemoizedSerializedSize = -1;
 
+    public static final int TIME_RANGES_FIELD_NUMBER = 3;
+    private java.util.List<io.greptime.v1.flow.Server.TimeRange> timeRanges_;
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.flow.Server.TimeRange> getTimeRangesList() {
+      return timeRanges_;
+    }
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.flow.Server.TimeRangeOrBuilder> 
+        getTimeRangesOrBuilderList() {
+      return timeRanges_;
+    }
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    @java.lang.Override
+    public int getTimeRangesCount() {
+      return timeRanges_.size();
+    }
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.TimeRange getTimeRanges(int index) {
+      return timeRanges_.get(index);
+    }
+    /**
+     * <pre>
+     * Dirty time ranges. Used to mark a range of time as dirty.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.TimeRangeOrBuilder getTimeRangesOrBuilder(
+        int index) {
+      return timeRanges_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1179,6 +1296,9 @@ public final class Server {
       }
       for (int i = 0; i < timestamps_.size(); i++) {
         output.writeInt64NoTag(timestamps_.getLong(i));
+      }
+      for (int i = 0; i < timeRanges_.size(); i++) {
+        output.writeMessage(3, timeRanges_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1207,6 +1327,10 @@ public final class Server {
         }
         timestampsMemoizedSerializedSize = dataSize;
       }
+      for (int i = 0; i < timeRanges_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, timeRanges_.get(i));
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1226,6 +1350,8 @@ public final class Server {
           != other.getTableId()) return false;
       if (!getTimestampsList()
           .equals(other.getTimestampsList())) return false;
+      if (!getTimeRangesList()
+          .equals(other.getTimeRangesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1242,6 +1368,10 @@ public final class Server {
       if (getTimestampsCount() > 0) {
         hash = (37 * hash) + TIMESTAMPS_FIELD_NUMBER;
         hash = (53 * hash) + getTimestampsList().hashCode();
+      }
+      if (getTimeRangesCount() > 0) {
+        hash = (37 * hash) + TIME_RANGES_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeRangesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1371,6 +1501,7 @@ public final class Server {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTimeRangesFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1380,6 +1511,12 @@ public final class Server {
 
         timestamps_ = emptyLongList();
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (timeRangesBuilder_ == null) {
+          timeRanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          timeRangesBuilder_.clear();
+        }
         return this;
       }
 
@@ -1413,6 +1550,15 @@ public final class Server {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.timestamps_ = timestamps_;
+        if (timeRangesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            timeRanges_ = java.util.Collections.unmodifiableList(timeRanges_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.timeRanges_ = timeRanges_;
+        } else {
+          result.timeRanges_ = timeRangesBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1473,6 +1619,32 @@ public final class Server {
             timestamps_.addAll(other.timestamps_);
           }
           onChanged();
+        }
+        if (timeRangesBuilder_ == null) {
+          if (!other.timeRanges_.isEmpty()) {
+            if (timeRanges_.isEmpty()) {
+              timeRanges_ = other.timeRanges_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureTimeRangesIsMutable();
+              timeRanges_.addAll(other.timeRanges_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.timeRanges_.isEmpty()) {
+            if (timeRangesBuilder_.isEmpty()) {
+              timeRangesBuilder_.dispose();
+              timeRangesBuilder_ = null;
+              timeRanges_ = other.timeRanges_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              timeRangesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTimeRangesFieldBuilder() : null;
+            } else {
+              timeRangesBuilder_.addAllMessages(other.timeRanges_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1648,6 +1820,318 @@ public final class Server {
         onChanged();
         return this;
       }
+
+      private java.util.List<io.greptime.v1.flow.Server.TimeRange> timeRanges_ =
+        java.util.Collections.emptyList();
+      private void ensureTimeRangesIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          timeRanges_ = new java.util.ArrayList<io.greptime.v1.flow.Server.TimeRange>(timeRanges_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder> timeRangesBuilder_;
+
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public java.util.List<io.greptime.v1.flow.Server.TimeRange> getTimeRangesList() {
+        if (timeRangesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(timeRanges_);
+        } else {
+          return timeRangesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public int getTimeRangesCount() {
+        if (timeRangesBuilder_ == null) {
+          return timeRanges_.size();
+        } else {
+          return timeRangesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public io.greptime.v1.flow.Server.TimeRange getTimeRanges(int index) {
+        if (timeRangesBuilder_ == null) {
+          return timeRanges_.get(index);
+        } else {
+          return timeRangesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder setTimeRanges(
+          int index, io.greptime.v1.flow.Server.TimeRange value) {
+        if (timeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTimeRangesIsMutable();
+          timeRanges_.set(index, value);
+          onChanged();
+        } else {
+          timeRangesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder setTimeRanges(
+          int index, io.greptime.v1.flow.Server.TimeRange.Builder builderForValue) {
+        if (timeRangesBuilder_ == null) {
+          ensureTimeRangesIsMutable();
+          timeRanges_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          timeRangesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder addTimeRanges(io.greptime.v1.flow.Server.TimeRange value) {
+        if (timeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTimeRangesIsMutable();
+          timeRanges_.add(value);
+          onChanged();
+        } else {
+          timeRangesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder addTimeRanges(
+          int index, io.greptime.v1.flow.Server.TimeRange value) {
+        if (timeRangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTimeRangesIsMutable();
+          timeRanges_.add(index, value);
+          onChanged();
+        } else {
+          timeRangesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder addTimeRanges(
+          io.greptime.v1.flow.Server.TimeRange.Builder builderForValue) {
+        if (timeRangesBuilder_ == null) {
+          ensureTimeRangesIsMutable();
+          timeRanges_.add(builderForValue.build());
+          onChanged();
+        } else {
+          timeRangesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder addTimeRanges(
+          int index, io.greptime.v1.flow.Server.TimeRange.Builder builderForValue) {
+        if (timeRangesBuilder_ == null) {
+          ensureTimeRangesIsMutable();
+          timeRanges_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          timeRangesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder addAllTimeRanges(
+          java.lang.Iterable<? extends io.greptime.v1.flow.Server.TimeRange> values) {
+        if (timeRangesBuilder_ == null) {
+          ensureTimeRangesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, timeRanges_);
+          onChanged();
+        } else {
+          timeRangesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder clearTimeRanges() {
+        if (timeRangesBuilder_ == null) {
+          timeRanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          timeRangesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public Builder removeTimeRanges(int index) {
+        if (timeRangesBuilder_ == null) {
+          ensureTimeRangesIsMutable();
+          timeRanges_.remove(index);
+          onChanged();
+        } else {
+          timeRangesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public io.greptime.v1.flow.Server.TimeRange.Builder getTimeRangesBuilder(
+          int index) {
+        return getTimeRangesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public io.greptime.v1.flow.Server.TimeRangeOrBuilder getTimeRangesOrBuilder(
+          int index) {
+        if (timeRangesBuilder_ == null) {
+          return timeRanges_.get(index);  } else {
+          return timeRangesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.flow.Server.TimeRangeOrBuilder> 
+           getTimeRangesOrBuilderList() {
+        if (timeRangesBuilder_ != null) {
+          return timeRangesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(timeRanges_);
+        }
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public io.greptime.v1.flow.Server.TimeRange.Builder addTimeRangesBuilder() {
+        return getTimeRangesFieldBuilder().addBuilder(
+            io.greptime.v1.flow.Server.TimeRange.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public io.greptime.v1.flow.Server.TimeRange.Builder addTimeRangesBuilder(
+          int index) {
+        return getTimeRangesFieldBuilder().addBuilder(
+            index, io.greptime.v1.flow.Server.TimeRange.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Dirty time ranges. Used to mark a range of time as dirty.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.flow.TimeRange time_ranges = 3;</code>
+       */
+      public java.util.List<io.greptime.v1.flow.Server.TimeRange.Builder> 
+           getTimeRangesBuilderList() {
+        return getTimeRangesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder> 
+          getTimeRangesFieldBuilder() {
+        if (timeRangesBuilder_ == null) {
+          timeRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder>(
+                  timeRanges_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          timeRanges_ = null;
+        }
+        return timeRangesBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1696,6 +2180,568 @@ public final class Server {
 
     @java.lang.Override
     public io.greptime.v1.flow.Server.DirtyWindowRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TimeRangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.TimeRange)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 start_inclusive = 1;</code>
+     * @return The startInclusive.
+     */
+    long getStartInclusive();
+
+    /**
+     * <code>int64 end_exclusive = 2;</code>
+     * @return The endExclusive.
+     */
+    long getEndExclusive();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.flow.TimeRange}
+   */
+  public static final class TimeRange extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.TimeRange)
+      TimeRangeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TimeRange.newBuilder() to construct.
+    private TimeRange(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TimeRange() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TimeRange();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TimeRange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              startInclusive_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              endExclusive_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_TimeRange_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_TimeRange_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.flow.Server.TimeRange.class, io.greptime.v1.flow.Server.TimeRange.Builder.class);
+    }
+
+    public static final int START_INCLUSIVE_FIELD_NUMBER = 1;
+    private long startInclusive_;
+    /**
+     * <code>int64 start_inclusive = 1;</code>
+     * @return The startInclusive.
+     */
+    @java.lang.Override
+    public long getStartInclusive() {
+      return startInclusive_;
+    }
+
+    public static final int END_EXCLUSIVE_FIELD_NUMBER = 2;
+    private long endExclusive_;
+    /**
+     * <code>int64 end_exclusive = 2;</code>
+     * @return The endExclusive.
+     */
+    @java.lang.Override
+    public long getEndExclusive() {
+      return endExclusive_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (startInclusive_ != 0L) {
+        output.writeInt64(1, startInclusive_);
+      }
+      if (endExclusive_ != 0L) {
+        output.writeInt64(2, endExclusive_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (startInclusive_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, startInclusive_);
+      }
+      if (endExclusive_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, endExclusive_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.flow.Server.TimeRange)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.flow.Server.TimeRange other = (io.greptime.v1.flow.Server.TimeRange) obj;
+
+      if (getStartInclusive()
+          != other.getStartInclusive()) return false;
+      if (getEndExclusive()
+          != other.getEndExclusive()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + START_INCLUSIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartInclusive());
+      hash = (37 * hash) + END_EXCLUSIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEndExclusive());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.flow.Server.TimeRange parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.flow.Server.TimeRange prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.flow.TimeRange}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.TimeRange)
+        io.greptime.v1.flow.Server.TimeRangeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_TimeRange_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_TimeRange_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.flow.Server.TimeRange.class, io.greptime.v1.flow.Server.TimeRange.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.flow.Server.TimeRange.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        startInclusive_ = 0L;
+
+        endExclusive_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_TimeRange_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.TimeRange getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.TimeRange.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.TimeRange build() {
+        io.greptime.v1.flow.Server.TimeRange result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.flow.Server.TimeRange buildPartial() {
+        io.greptime.v1.flow.Server.TimeRange result = new io.greptime.v1.flow.Server.TimeRange(this);
+        result.startInclusive_ = startInclusive_;
+        result.endExclusive_ = endExclusive_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.flow.Server.TimeRange) {
+          return mergeFrom((io.greptime.v1.flow.Server.TimeRange)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.flow.Server.TimeRange other) {
+        if (other == io.greptime.v1.flow.Server.TimeRange.getDefaultInstance()) return this;
+        if (other.getStartInclusive() != 0L) {
+          setStartInclusive(other.getStartInclusive());
+        }
+        if (other.getEndExclusive() != 0L) {
+          setEndExclusive(other.getEndExclusive());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.flow.Server.TimeRange parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.flow.Server.TimeRange) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long startInclusive_ ;
+      /**
+       * <code>int64 start_inclusive = 1;</code>
+       * @return The startInclusive.
+       */
+      @java.lang.Override
+      public long getStartInclusive() {
+        return startInclusive_;
+      }
+      /**
+       * <code>int64 start_inclusive = 1;</code>
+       * @param value The startInclusive to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStartInclusive(long value) {
+        
+        startInclusive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 start_inclusive = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStartInclusive() {
+        
+        startInclusive_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long endExclusive_ ;
+      /**
+       * <code>int64 end_exclusive = 2;</code>
+       * @return The endExclusive.
+       */
+      @java.lang.Override
+      public long getEndExclusive() {
+        return endExclusive_;
+      }
+      /**
+       * <code>int64 end_exclusive = 2;</code>
+       * @param value The endExclusive to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEndExclusive(long value) {
+        
+        endExclusive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 end_exclusive = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEndExclusive() {
+        
+        endExclusive_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.TimeRange)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.TimeRange)
+    private static final io.greptime.v1.flow.Server.TimeRange DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.TimeRange();
+    }
+
+    public static io.greptime.v1.flow.Server.TimeRange getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TimeRange>
+        PARSER = new com.google.protobuf.AbstractParser<TimeRange>() {
+      @java.lang.Override
+      public TimeRange parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TimeRange(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TimeRange> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TimeRange> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.flow.Server.TimeRange getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11088,6 +12134,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_DirtyWindowRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_flow_TimeRange_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_flow_TimeRange_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_flow_FlowRequestHeader_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11156,54 +12207,56 @@ java.lang.String defaultValue);
       "ptime/v1/ddl.proto\032\025greptime/v1/row.prot" +
       "o\"M\n\023DirtyWindowRequests\0226\n\010requests\030\001 \003" +
       "(\0132$.greptime.v1.flow.DirtyWindowRequest" +
-      "\":\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r" +
-      "\022\022\n\ntimestamps\030\002 \003(\003\"\316\001\n\021FlowRequestHead" +
-      "er\022P\n\017tracing_context\030\001 \003(\01327.greptime.v" +
-      "1.flow.FlowRequestHeader.TracingContextE" +
-      "ntry\0220\n\rquery_context\030\002 \001(\0132\031.greptime.v" +
-      "1.QueryContext\0325\n\023TracingContextEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"C\n\016InsertR" +
-      "equests\0221\n\010requests\030\001 \003(\0132\037.greptime.v1." +
-      "flow.InsertRequest\"\206\001\n\rInsertRequest\022\021\n\t" +
-      "region_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime" +
-      ".v1.Rows\022A\n\026partition_expr_version\030\003 \001(\013" +
-      "2!.greptime.v1.PartitionExprVersion\"\332\001\n\013" +
-      "FlowRequest\0223\n\006header\030@ \001(\0132#.greptime.v" +
-      "1.flow.FlowRequestHeader\0221\n\006create\030\001 \001(\013" +
-      "2\037.greptime.v1.flow.CreateRequestH\000\022-\n\004d" +
-      "rop\030\002 \001(\0132\035.greptime.v1.flow.DropRequest" +
-      "H\000\022,\n\005flush\030\003 \001(\0132\033.greptime.v1.flow.Flu" +
-      "shFlowH\000B\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006hea" +
-      "der\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025" +
-      "\n\raffected_rows\030\002 \001(\004\022+\n\016affected_flows\030" +
-      "\003 \003(\0132\023.greptime.v1.FlowId\022B\n\nextensions" +
-      "\030\004 \003(\0132..greptime.v1.flow.FlowResponse.E" +
-      "xtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequ" +
-      "est\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowI" +
-      "d\022.\n\020source_table_ids\030\002 \003(\0132\024.greptime.v" +
-      "1.TableId\022/\n\017sink_table_name\030\003 \001(\0132\026.gre" +
-      "ptime.v1.TableName\022\034\n\024create_if_not_exis" +
-      "ts\030\004 \001(\010\022.\n\014expire_after\030\005 \001(\0132\030.greptim" +
-      "e.v1.ExpireAfter\0220\n\reval_interval\030\n \001(\0132" +
-      "\031.greptime.v1.EvalInterval\022\017\n\007comment\030\006 " +
-      "\001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320" +
-      ".greptime.v1.flow.CreateRequest.FlowOpti" +
-      "onsEntry\022\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOpti" +
-      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept" +
-      "ime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 " +
-      "\001(\0132\023.greptime.v1.FlowId2\230\002\n\004Flow\022S\n\022Han" +
-      "dleCreateRemove\022\035.greptime.v1.flow.FlowR" +
-      "equest\032\036.greptime.v1.flow.FlowResponse\022W" +
-      "\n\023HandleMirrorRequest\022 .greptime.v1.flow" +
-      ".InsertRequests\032\036.greptime.v1.flow.FlowR" +
-      "esponse\022b\n\031HandleMarkDirtyTimeWindow\022%.g" +
-      "reptime.v1.flow.DirtyWindowRequests\032\036.gr" +
-      "eptime.v1.flow.FlowResponseBY\n\023io.grepti" +
-      "me.v1.flowB\006ServerZ:github.com/GreptimeT" +
-      "eam/greptime-proto/go/greptime/v1/flowb\006" +
-      "proto3"
+      "\"l\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r" +
+      "\022\022\n\ntimestamps\030\002 \003(\003\0220\n\013time_ranges\030\003 \003(" +
+      "\0132\033.greptime.v1.flow.TimeRange\";\n\tTimeRa" +
+      "nge\022\027\n\017start_inclusive\030\001 \001(\003\022\025\n\rend_excl" +
+      "usive\030\002 \001(\003\"\316\001\n\021FlowRequestHeader\022P\n\017tra" +
+      "cing_context\030\001 \003(\01327.greptime.v1.flow.Fl" +
+      "owRequestHeader.TracingContextEntry\0220\n\rq" +
+      "uery_context\030\002 \001(\0132\031.greptime.v1.QueryCo" +
+      "ntext\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"C\n\016InsertRequests\0221" +
+      "\n\010requests\030\001 \003(\0132\037.greptime.v1.flow.Inse" +
+      "rtRequest\"\206\001\n\rInsertRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022" +
+      "A\n\026partition_expr_version\030\003 \001(\0132!.grepti" +
+      "me.v1.PartitionExprVersion\"\332\001\n\013FlowReque" +
+      "st\0223\n\006header\030@ \001(\0132#.greptime.v1.flow.Fl" +
+      "owRequestHeader\0221\n\006create\030\001 \001(\0132\037.grepti" +
+      "me.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001(\013" +
+      "2\035.greptime.v1.flow.DropRequestH\000\022,\n\005flu" +
+      "sh\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH\000B" +
+      "\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001(\013" +
+      "2\033.greptime.v1.ResponseHeader\022\025\n\raffecte" +
+      "d_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.g" +
+      "reptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132.." +
+      "greptime.v1.flow.FlowResponse.Extensions" +
+      "Entry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022$\n\007fl" +
+      "ow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sour" +
+      "ce_table_ids\030\002 \003(\0132\024.greptime.v1.TableId" +
+      "\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1." +
+      "TableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022" +
+      ".\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expi" +
+      "reAfter\0220\n\reval_interval\030\n \001(\0132\031.greptim" +
+      "e.v1.EvalInterval\022\017\n\007comment\030\006 \001(\t\022\013\n\003sq" +
+      "l\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime" +
+      ".v1.flow.CreateRequest.FlowOptionsEntry\022" +
+      "\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOptionsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropR" +
+      "equest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.Fl" +
+      "owId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.gre" +
+      "ptime.v1.FlowId2\230\002\n\004Flow\022S\n\022HandleCreate" +
+      "Remove\022\035.greptime.v1.flow.FlowRequest\032\036." +
+      "greptime.v1.flow.FlowResponse\022W\n\023HandleM" +
+      "irrorRequest\022 .greptime.v1.flow.InsertRe" +
+      "quests\032\036.greptime.v1.flow.FlowResponse\022b" +
+      "\n\031HandleMarkDirtyTimeWindow\022%.greptime.v" +
+      "1.flow.DirtyWindowRequests\032\036.greptime.v1" +
+      ".flow.FlowResponseBY\n\023io.greptime.v1.flo" +
+      "wB\006ServerZ:github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11223,9 +12276,15 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_DirtyWindowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DirtyWindowRequest_descriptor,
-        new java.lang.String[] { "TableId", "Timestamps", });
-    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor =
+        new java.lang.String[] { "TableId", "Timestamps", "TimeRanges", });
+    internal_static_greptime_v1_flow_TimeRange_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_greptime_v1_flow_TimeRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_flow_TimeRange_descriptor,
+        new java.lang.String[] { "StartInclusive", "EndExclusive", });
+    internal_static_greptime_v1_flow_FlowRequestHeader_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_greptime_v1_flow_FlowRequestHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequestHeader_descriptor,
@@ -11237,25 +12296,25 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_FlowRequestHeader_TracingContextEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_InsertRequests_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_flow_InsertRequests_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequests_descriptor,
         new java.lang.String[] { "Requests", });
     internal_static_greptime_v1_flow_InsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_flow_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_InsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "Rows", "PartitionExprVersion", });
     internal_static_greptime_v1_flow_FlowRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_flow_FlowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequest_descriptor,
         new java.lang.String[] { "Header", "Create", "Drop", "Flush", "Body", });
     internal_static_greptime_v1_flow_FlowResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowResponse_descriptor,
@@ -11267,7 +12326,7 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_FlowResponse_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_CreateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_flow_CreateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_CreateRequest_descriptor,
@@ -11279,13 +12338,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_flow_CreateRequest_FlowOptionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_flow_DropRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_flow_DropRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_DropRequest_descriptor,
         new java.lang.String[] { "FlowId", });
     internal_static_greptime_v1_flow_FlushFlow_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_flow_FlushFlow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlushFlow_descriptor,

@@ -40,6 +40,7 @@ PROTOBUF_CONSTEXPR DirtyWindowRequest::DirtyWindowRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.timestamps_)*/{}
   , /*decltype(_impl_._timestamps_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.time_ranges_)*/{}
   , /*decltype(_impl_.table_id_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct DirtyWindowRequestDefaultTypeInternal {
@@ -51,6 +52,20 @@ struct DirtyWindowRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DirtyWindowRequestDefaultTypeInternal _DirtyWindowRequest_default_instance_;
+PROTOBUF_CONSTEXPR TimeRange::TimeRange(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.start_inclusive_)*/int64_t{0}
+  , /*decltype(_impl_.end_exclusive_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct TimeRangeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR TimeRangeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~TimeRangeDefaultTypeInternal() {}
+  union {
+    TimeRange _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 TimeRangeDefaultTypeInternal _TimeRange_default_instance_;
 PROTOBUF_CONSTEXPR FlowRequestHeader_TracingContextEntry_DoNotUse::FlowRequestHeader_TracingContextEntry_DoNotUse(
     ::_pbi::ConstantInitialized) {}
 struct FlowRequestHeader_TracingContextEntry_DoNotUseDefaultTypeInternal {
@@ -208,7 +223,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace flow
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[13];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[14];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 
@@ -228,6 +243,15 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::DirtyWindowRequest, _impl_.table_id_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::DirtyWindowRequest, _impl_.timestamps_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::DirtyWindowRequest, _impl_.time_ranges_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::TimeRange, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::TimeRange, _impl_.start_inclusive_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::TimeRange, _impl_.end_exclusive_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -337,22 +361,24 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::flow::DirtyWindowRequests)},
   { 7, -1, -1, sizeof(::greptime::v1::flow::DirtyWindowRequest)},
-  { 15, 23, -1, sizeof(::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse)},
-  { 25, -1, -1, sizeof(::greptime::v1::flow::FlowRequestHeader)},
-  { 33, -1, -1, sizeof(::greptime::v1::flow::InsertRequests)},
-  { 40, -1, -1, sizeof(::greptime::v1::flow::InsertRequest)},
-  { 49, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
-  { 60, 68, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse)},
-  { 70, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
-  { 80, 88, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
-  { 90, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
-  { 106, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
-  { 113, -1, -1, sizeof(::greptime::v1::flow::FlushFlow)},
+  { 16, -1, -1, sizeof(::greptime::v1::flow::TimeRange)},
+  { 24, 32, -1, sizeof(::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse)},
+  { 34, -1, -1, sizeof(::greptime::v1::flow::FlowRequestHeader)},
+  { 42, -1, -1, sizeof(::greptime::v1::flow::InsertRequests)},
+  { 49, -1, -1, sizeof(::greptime::v1::flow::InsertRequest)},
+  { 58, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
+  { 69, 77, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse)},
+  { 79, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
+  { 89, 97, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
+  { 99, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
+  { 115, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
+  { 122, -1, -1, sizeof(::greptime::v1::flow::FlushFlow)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::flow::_DirtyWindowRequests_default_instance_._instance,
   &::greptime::v1::flow::_DirtyWindowRequest_default_instance_._instance,
+  &::greptime::v1::flow::_TimeRange_default_instance_._instance,
   &::greptime::v1::flow::_FlowRequestHeader_TracingContextEntry_DoNotUse_default_instance_._instance,
   &::greptime::v1::flow::_FlowRequestHeader_default_instance_._instance,
   &::greptime::v1::flow::_InsertRequests_default_instance_._instance,
@@ -372,54 +398,56 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "ptime/v1/ddl.proto\032\025greptime/v1/row.prot"
   "o\"M\n\023DirtyWindowRequests\0226\n\010requests\030\001 \003"
   "(\0132$.greptime.v1.flow.DirtyWindowRequest"
-  "\":\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r"
-  "\022\022\n\ntimestamps\030\002 \003(\003\"\316\001\n\021FlowRequestHead"
-  "er\022P\n\017tracing_context\030\001 \003(\01327.greptime.v"
-  "1.flow.FlowRequestHeader.TracingContextE"
-  "ntry\0220\n\rquery_context\030\002 \001(\0132\031.greptime.v"
-  "1.QueryContext\0325\n\023TracingContextEntry\022\013\n"
-  "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"C\n\016InsertR"
-  "equests\0221\n\010requests\030\001 \003(\0132\037.greptime.v1."
-  "flow.InsertRequest\"\206\001\n\rInsertRequest\022\021\n\t"
-  "region_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime"
-  ".v1.Rows\022A\n\026partition_expr_version\030\003 \001(\013"
-  "2!.greptime.v1.PartitionExprVersion\"\332\001\n\013"
-  "FlowRequest\0223\n\006header\030@ \001(\0132#.greptime.v"
-  "1.flow.FlowRequestHeader\0221\n\006create\030\001 \001(\013"
-  "2\037.greptime.v1.flow.CreateRequestH\000\022-\n\004d"
-  "rop\030\002 \001(\0132\035.greptime.v1.flow.DropRequest"
-  "H\000\022,\n\005flush\030\003 \001(\0132\033.greptime.v1.flow.Flu"
-  "shFlowH\000B\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006hea"
-  "der\030\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025"
-  "\n\raffected_rows\030\002 \001(\004\022+\n\016affected_flows\030"
-  "\003 \003(\0132\023.greptime.v1.FlowId\022B\n\nextensions"
-  "\030\004 \003(\0132..greptime.v1.flow.FlowResponse.E"
-  "xtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key"
-  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequ"
-  "est\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowI"
-  "d\022.\n\020source_table_ids\030\002 \003(\0132\024.greptime.v"
-  "1.TableId\022/\n\017sink_table_name\030\003 \001(\0132\026.gre"
-  "ptime.v1.TableName\022\034\n\024create_if_not_exis"
-  "ts\030\004 \001(\010\022.\n\014expire_after\030\005 \001(\0132\030.greptim"
-  "e.v1.ExpireAfter\0220\n\reval_interval\030\n \001(\0132"
-  "\031.greptime.v1.EvalInterval\022\017\n\007comment\030\006 "
-  "\001(\t\022\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320"
-  ".greptime.v1.flow.CreateRequest.FlowOpti"
-  "onsEntry\022\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOpti"
-  "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001"
-  "\"3\n\013DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.grept"
-  "ime.v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 "
-  "\001(\0132\023.greptime.v1.FlowId2\230\002\n\004Flow\022S\n\022Han"
-  "dleCreateRemove\022\035.greptime.v1.flow.FlowR"
-  "equest\032\036.greptime.v1.flow.FlowResponse\022W"
-  "\n\023HandleMirrorRequest\022 .greptime.v1.flow"
-  ".InsertRequests\032\036.greptime.v1.flow.FlowR"
-  "esponse\022b\n\031HandleMarkDirtyTimeWindow\022%.g"
-  "reptime.v1.flow.DirtyWindowRequests\032\036.gr"
-  "eptime.v1.flow.FlowResponseBY\n\023io.grepti"
-  "me.v1.flowB\006ServerZ:github.com/GreptimeT"
-  "eam/greptime-proto/go/greptime/v1/flowb\006"
-  "proto3"
+  "\"l\n\022DirtyWindowRequest\022\020\n\010table_id\030\001 \001(\r"
+  "\022\022\n\ntimestamps\030\002 \003(\003\0220\n\013time_ranges\030\003 \003("
+  "\0132\033.greptime.v1.flow.TimeRange\";\n\tTimeRa"
+  "nge\022\027\n\017start_inclusive\030\001 \001(\003\022\025\n\rend_excl"
+  "usive\030\002 \001(\003\"\316\001\n\021FlowRequestHeader\022P\n\017tra"
+  "cing_context\030\001 \003(\01327.greptime.v1.flow.Fl"
+  "owRequestHeader.TracingContextEntry\0220\n\rq"
+  "uery_context\030\002 \001(\0132\031.greptime.v1.QueryCo"
+  "ntext\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"C\n\016InsertRequests\0221"
+  "\n\010requests\030\001 \003(\0132\037.greptime.v1.flow.Inse"
+  "rtRequest\"\206\001\n\rInsertRequest\022\021\n\tregion_id"
+  "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022"
+  "A\n\026partition_expr_version\030\003 \001(\0132!.grepti"
+  "me.v1.PartitionExprVersion\"\332\001\n\013FlowReque"
+  "st\0223\n\006header\030@ \001(\0132#.greptime.v1.flow.Fl"
+  "owRequestHeader\0221\n\006create\030\001 \001(\0132\037.grepti"
+  "me.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001(\013"
+  "2\035.greptime.v1.flow.DropRequestH\000\022,\n\005flu"
+  "sh\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH\000B"
+  "\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001(\013"
+  "2\033.greptime.v1.ResponseHeader\022\025\n\raffecte"
+  "d_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.g"
+  "reptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132.."
+  "greptime.v1.flow.FlowResponse.Extensions"
+  "Entry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
+  "\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022$\n\007fl"
+  "ow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sour"
+  "ce_table_ids\030\002 \003(\0132\024.greptime.v1.TableId"
+  "\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1."
+  "TableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022"
+  ".\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expi"
+  "reAfter\0220\n\reval_interval\030\n \001(\0132\031.greptim"
+  "e.v1.EvalInterval\022\017\n\007comment\030\006 \001(\t\022\013\n\003sq"
+  "l\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime"
+  ".v1.flow.CreateRequest.FlowOptionsEntry\022"
+  "\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOptionsEntry\022"
+  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropR"
+  "equest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.Fl"
+  "owId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.gre"
+  "ptime.v1.FlowId2\230\002\n\004Flow\022S\n\022HandleCreate"
+  "Remove\022\035.greptime.v1.flow.FlowRequest\032\036."
+  "greptime.v1.flow.FlowResponse\022W\n\023HandleM"
+  "irrorRequest\022 .greptime.v1.flow.InsertRe"
+  "quests\032\036.greptime.v1.flow.FlowResponse\022b"
+  "\n\031HandleMarkDirtyTimeWindow\022%.greptime.v"
+  "1.flow.DirtyWindowRequests\032\036.greptime.v1"
+  ".flow.FlowResponseBY\n\023io.greptime.v1.flo"
+  "wB\006ServerZ:github.com/GreptimeTeam/grept"
+  "ime-proto/go/greptime/v1/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -428,9 +456,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 2086, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 2197, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
-    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 13,
+    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 14,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto, file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
@@ -648,6 +676,7 @@ DirtyWindowRequest::DirtyWindowRequest(const DirtyWindowRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_.timestamps_){from._impl_.timestamps_}
     , /*decltype(_impl_._timestamps_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_ranges_){from._impl_.time_ranges_}
     , decltype(_impl_.table_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -663,6 +692,7 @@ inline void DirtyWindowRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.timestamps_){arena}
     , /*decltype(_impl_._timestamps_cached_byte_size_)*/{0}
+    , decltype(_impl_.time_ranges_){arena}
     , decltype(_impl_.table_id_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -680,6 +710,7 @@ DirtyWindowRequest::~DirtyWindowRequest() {
 inline void DirtyWindowRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.timestamps_.~RepeatedField();
+  _impl_.time_ranges_.~RepeatedPtrField();
 }
 
 void DirtyWindowRequest::SetCachedSize(int size) const {
@@ -693,6 +724,7 @@ void DirtyWindowRequest::Clear() {
   (void) cached_has_bits;
 
   _impl_.timestamps_.Clear();
+  _impl_.time_ranges_.Clear();
   _impl_.table_id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -719,6 +751,19 @@ const char* DirtyWindowRequest::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else if (static_cast<uint8_t>(tag) == 16) {
           _internal_add_timestamps(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .greptime.v1.flow.TimeRange time_ranges = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_time_ranges(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -766,6 +811,14 @@ uint8_t* DirtyWindowRequest::_InternalSerialize(
     }
   }
 
+  // repeated .greptime.v1.flow.TimeRange time_ranges = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_time_ranges_size()); i < n; i++) {
+    const auto& repfield = this->_internal_time_ranges(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -796,6 +849,13 @@ size_t DirtyWindowRequest::ByteSizeLong() const {
     total_size += data_size;
   }
 
+  // repeated .greptime.v1.flow.TimeRange time_ranges = 3;
+  total_size += 1UL * this->_internal_time_ranges_size();
+  for (const auto& msg : this->_impl_.time_ranges_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
   // uint32 table_id = 1;
   if (this->_internal_table_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_table_id());
@@ -820,6 +880,7 @@ void DirtyWindowRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   (void) cached_has_bits;
 
   _this->_impl_.timestamps_.MergeFrom(from._impl_.timestamps_);
+  _this->_impl_.time_ranges_.MergeFrom(from._impl_.time_ranges_);
   if (from._internal_table_id() != 0) {
     _this->_internal_set_table_id(from._internal_table_id());
   }
@@ -841,6 +902,7 @@ void DirtyWindowRequest::InternalSwap(DirtyWindowRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.timestamps_.InternalSwap(&other->_impl_.timestamps_);
+  _impl_.time_ranges_.InternalSwap(&other->_impl_.time_ranges_);
   swap(_impl_.table_id_, other->_impl_.table_id_);
 }
 
@@ -848,6 +910,217 @@ void DirtyWindowRequest::InternalSwap(DirtyWindowRequest* other) {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
       file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[1]);
+}
+
+// ===================================================================
+
+class TimeRange::_Internal {
+ public:
+};
+
+TimeRange::TimeRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.flow.TimeRange)
+}
+TimeRange::TimeRange(const TimeRange& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  TimeRange* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.start_inclusive_){}
+    , decltype(_impl_.end_exclusive_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.start_inclusive_, &from._impl_.start_inclusive_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.end_exclusive_) -
+    reinterpret_cast<char*>(&_impl_.start_inclusive_)) + sizeof(_impl_.end_exclusive_));
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.TimeRange)
+}
+
+inline void TimeRange::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.start_inclusive_){int64_t{0}}
+    , decltype(_impl_.end_exclusive_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+TimeRange::~TimeRange() {
+  // @@protoc_insertion_point(destructor:greptime.v1.flow.TimeRange)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void TimeRange::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void TimeRange::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void TimeRange::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.flow.TimeRange)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&_impl_.start_inclusive_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.end_exclusive_) -
+      reinterpret_cast<char*>(&_impl_.start_inclusive_)) + sizeof(_impl_.end_exclusive_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* TimeRange::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 start_inclusive = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.start_inclusive_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 end_exclusive = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.end_exclusive_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* TimeRange::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.flow.TimeRange)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 start_inclusive = 1;
+  if (this->_internal_start_inclusive() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_start_inclusive(), target);
+  }
+
+  // int64 end_exclusive = 2;
+  if (this->_internal_end_exclusive() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_end_exclusive(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.flow.TimeRange)
+  return target;
+}
+
+size_t TimeRange::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.flow.TimeRange)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 start_inclusive = 1;
+  if (this->_internal_start_inclusive() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_start_inclusive());
+  }
+
+  // int64 end_exclusive = 2;
+  if (this->_internal_end_exclusive() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_end_exclusive());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData TimeRange::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    TimeRange::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*TimeRange::GetClassData() const { return &_class_data_; }
+
+
+void TimeRange::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<TimeRange*>(&to_msg);
+  auto& from = static_cast<const TimeRange&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.flow.TimeRange)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_start_inclusive() != 0) {
+    _this->_internal_set_start_inclusive(from._internal_start_inclusive());
+  }
+  if (from._internal_end_exclusive() != 0) {
+    _this->_internal_set_end_exclusive(from._internal_end_exclusive());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void TimeRange::CopyFrom(const TimeRange& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.flow.TimeRange)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool TimeRange::IsInitialized() const {
+  return true;
+}
+
+void TimeRange::InternalSwap(TimeRange* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(TimeRange, _impl_.end_exclusive_)
+      + sizeof(TimeRange::_impl_.end_exclusive_)
+      - PROTOBUF_FIELD_OFFSET(TimeRange, _impl_.start_inclusive_)>(
+          reinterpret_cast<char*>(&_impl_.start_inclusive_),
+          reinterpret_cast<char*>(&other->_impl_.start_inclusive_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata TimeRange::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[2]);
 }
 
 // ===================================================================
@@ -861,7 +1134,7 @@ void FlowRequestHeader_TracingContextEntry_DoNotUse::MergeFrom(const FlowRequest
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowRequestHeader_TracingContextEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[2]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[3]);
 }
 
 // ===================================================================
@@ -1128,7 +1401,7 @@ void FlowRequestHeader::InternalSwap(FlowRequestHeader* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowRequestHeader::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[3]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[4]);
 }
 
 // ===================================================================
@@ -1313,7 +1586,7 @@ void InsertRequests::InternalSwap(InsertRequests* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata InsertRequests::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[4]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[5]);
 }
 
 // ===================================================================
@@ -1590,7 +1863,7 @@ void InsertRequest::InternalSwap(InsertRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata InsertRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[5]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[6]);
 }
 
 // ===================================================================
@@ -1995,7 +2268,7 @@ void FlowRequest::InternalSwap(FlowRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[6]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[7]);
 }
 
 // ===================================================================
@@ -2009,7 +2282,7 @@ void FlowResponse_ExtensionsEntry_DoNotUse::MergeFrom(const FlowResponse_Extensi
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowResponse_ExtensionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[7]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[8]);
 }
 
 // ===================================================================
@@ -2340,7 +2613,7 @@ void FlowResponse::InternalSwap(FlowResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlowResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[8]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[9]);
 }
 
 // ===================================================================
@@ -2354,7 +2627,7 @@ void CreateRequest_FlowOptionsEntry_DoNotUse::MergeFrom(const CreateRequest_Flow
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateRequest_FlowOptionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[9]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[10]);
 }
 
 // ===================================================================
@@ -2960,7 +3233,7 @@ void CreateRequest::InternalSwap(CreateRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CreateRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[11]);
 }
 
 // ===================================================================
@@ -3159,7 +3432,7 @@ void DropRequest::InternalSwap(DropRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DropRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[11]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[12]);
 }
 
 // ===================================================================
@@ -3358,7 +3631,7 @@ void FlushFlow::InternalSwap(FlushFlow* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata FlushFlow::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[13]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -3373,6 +3646,10 @@ Arena::CreateMaybeMessage< ::greptime::v1::flow::DirtyWindowRequests >(Arena* ar
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::DirtyWindowRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::DirtyWindowRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::flow::DirtyWindowRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::TimeRange*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::TimeRange >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::TimeRange >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::FlowRequestHeader_TracingContextEntry_DoNotUse >(Arena* arena) {

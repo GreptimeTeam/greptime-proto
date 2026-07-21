@@ -20,7 +20,7 @@ pub struct DirtyWindowRequests {
     #[prost(message, repeated, tag = "1")]
     pub requests: ::prost::alloc::vec::Vec<DirtyWindowRequest>,
 }
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DirtyWindowRequest {
     #[prost(uint32, tag = "1")]
     pub table_id: u32,
@@ -28,6 +28,16 @@ pub struct DirtyWindowRequest {
     /// so that the flow can be triggered to process the data.
     #[prost(int64, repeated, tag = "2")]
     pub timestamps: ::prost::alloc::vec::Vec<i64>,
+    /// Dirty time ranges. Used to mark a range of time as dirty.
+    #[prost(message, repeated, tag = "3")]
+    pub time_ranges: ::prost::alloc::vec::Vec<TimeRange>,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct TimeRange {
+    #[prost(int64, tag = "1")]
+    pub start_inclusive: i64,
+    #[prost(int64, tag = "2")]
+    pub end_exclusive: i64,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FlowRequestHeader {
