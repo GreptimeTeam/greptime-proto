@@ -997,6 +997,18 @@ public final class RangeSelectPartialOuterClass {
      */
     substrait_extension.RangeSelectPartialOuterClass.RangeFunctionV1OrBuilder getRangeFunctionsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+     * versions. This versions the serialized aggregate accumulator state schema
+     * exchanged between Partial and Final.
+     * </pre>
+     *
+     * <code>uint32 state_abi_version = 6;</code>
+     * @return The stateAbiVersion.
+     */
+    int getStateAbiVersion();
   }
   /**
    * Protobuf type {@code substrait_extension.RangeSelectPartialV1}
@@ -1089,6 +1101,11 @@ public final class RangeSelectPartialOuterClass {
               }
               rangeFunctions_.add(
                   input.readMessage(substrait_extension.RangeSelectPartialOuterClass.RangeFunctionV1.parser(), extensionRegistry));
+              break;
+            }
+            case 48: {
+
+              stateAbiVersion_ = input.readUInt32();
               break;
             }
             default: {
@@ -1288,6 +1305,23 @@ public final class RangeSelectPartialOuterClass {
       return rangeFunctions_.get(index);
     }
 
+    public static final int STATE_ABI_VERSION_FIELD_NUMBER = 6;
+    private int stateAbiVersion_;
+    /**
+     * <pre>
+     * V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+     * versions. This versions the serialized aggregate accumulator state schema
+     * exchanged between Partial and Final.
+     * </pre>
+     *
+     * <code>uint32 state_abi_version = 6;</code>
+     * @return The stateAbiVersion.
+     */
+    @java.lang.Override
+    public int getStateAbiVersion() {
+      return stateAbiVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1321,6 +1355,9 @@ public final class RangeSelectPartialOuterClass {
       }
       for (int i = 0; i < rangeFunctions_.size(); i++) {
         output.writeMessage(5, rangeFunctions_.get(i));
+      }
+      if (stateAbiVersion_ != 0) {
+        output.writeUInt32(6, stateAbiVersion_);
       }
       unknownFields.writeTo(output);
     }
@@ -1361,6 +1398,10 @@ public final class RangeSelectPartialOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, rangeFunctions_.get(i));
       }
+      if (stateAbiVersion_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, stateAbiVersion_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1386,6 +1427,8 @@ public final class RangeSelectPartialOuterClass {
           .equals(other.getByColumnIndicesList())) return false;
       if (!getRangeFunctionsList()
           .equals(other.getRangeFunctionsList())) return false;
+      if (getStateAbiVersion()
+          != other.getStateAbiVersion()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1414,6 +1457,8 @@ public final class RangeSelectPartialOuterClass {
         hash = (37 * hash) + RANGE_FUNCTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getRangeFunctionsList().hashCode();
       }
+      hash = (37 * hash) + STATE_ABI_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getStateAbiVersion();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1562,6 +1607,8 @@ public final class RangeSelectPartialOuterClass {
         } else {
           rangeFunctionsBuilder_.clear();
         }
+        stateAbiVersion_ = 0;
+
         return this;
       }
 
@@ -1606,6 +1653,7 @@ public final class RangeSelectPartialOuterClass {
         } else {
           result.rangeFunctions_ = rangeFunctionsBuilder_.build();
         }
+        result.stateAbiVersion_ = stateAbiVersion_;
         onBuilt();
         return result;
       }
@@ -1698,6 +1746,9 @@ public final class RangeSelectPartialOuterClass {
               rangeFunctionsBuilder_.addAllMessages(other.rangeFunctions_);
             }
           }
+        }
+        if (other.getStateAbiVersion() != 0) {
+          setStateAbiVersion(other.getStateAbiVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2317,6 +2368,55 @@ public final class RangeSelectPartialOuterClass {
           rangeFunctions_ = null;
         }
         return rangeFunctionsBuilder_;
+      }
+
+      private int stateAbiVersion_ ;
+      /**
+       * <pre>
+       * V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+       * versions. This versions the serialized aggregate accumulator state schema
+       * exchanged between Partial and Final.
+       * </pre>
+       *
+       * <code>uint32 state_abi_version = 6;</code>
+       * @return The stateAbiVersion.
+       */
+      @java.lang.Override
+      public int getStateAbiVersion() {
+        return stateAbiVersion_;
+      }
+      /**
+       * <pre>
+       * V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+       * versions. This versions the serialized aggregate accumulator state schema
+       * exchanged between Partial and Final.
+       * </pre>
+       *
+       * <code>uint32 state_abi_version = 6;</code>
+       * @param value The stateAbiVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStateAbiVersion(int value) {
+        
+        stateAbiVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+       * versions. This versions the serialized aggregate accumulator state schema
+       * exchanged between Partial and Final.
+       * </pre>
+       *
+       * <code>uint32 state_abi_version = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStateAbiVersion() {
+        
+        stateAbiVersion_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3149,20 +3249,21 @@ public final class RangeSelectPartialOuterClass {
       "al.proto\022\023substrait_extension\"X\n\022RangeSe" +
       "lectPartial\0227\n\002v1\030\001 \001(\0132).substrait_exte" +
       "nsion.RangeSelectPartialV1H\000B\t\n\007payload\"" +
-      "\272\001\n\024RangeSelectPartialV1\022\024\n\014align_millis" +
+      "\325\001\n\024RangeSelectPartialV1\022\024\n\014align_millis" +
       "\030\001 \001(\004\022\027\n\017align_to_millis\030\002 \001(\022\022\031\n\021time_" +
       "column_index\030\003 \001(\004\022\031\n\021by_column_indices\030" +
       "\004 \003(\004\022=\n\017range_functions\030\005 \003(\0132$.substra" +
-      "it_extension.RangeFunctionV1\"}\n\017RangeFun" +
-      "ctionV1\0225\n\taggregate\030\001 \001(\0162\".substrait_e" +
-      "xtension.AggregateKind\022\035\n\025argument_colum" +
-      "n_index\030\002 \001(\004\022\024\n\014range_millis\030\003 \001(\004*\251\001\n\r" +
-      "AggregateKind\022\036\n\032AGGREGATE_KIND_UNSPECIF" +
-      "IED\020\000\022\026\n\022AGGREGATE_KIND_MIN\020\001\022\026\n\022AGGREGA" +
-      "TE_KIND_MAX\020\002\022\026\n\022AGGREGATE_KIND_SUM\020\003\022\030\n" +
-      "\024AGGREGATE_KIND_COUNT\020\004\022\026\n\022AGGREGATE_KIN" +
-      "D_AVG\020\005B?Z=github.com/GreptimeTeam/grept" +
-      "ime-proto/go/substrait_extensionb\006proto3"
+      "it_extension.RangeFunctionV1\022\031\n\021state_ab" +
+      "i_version\030\006 \001(\r\"}\n\017RangeFunctionV1\0225\n\tag" +
+      "gregate\030\001 \001(\0162\".substrait_extension.Aggr" +
+      "egateKind\022\035\n\025argument_column_index\030\002 \001(\004" +
+      "\022\024\n\014range_millis\030\003 \001(\004*\251\001\n\rAggregateKind" +
+      "\022\036\n\032AGGREGATE_KIND_UNSPECIFIED\020\000\022\026\n\022AGGR" +
+      "EGATE_KIND_MIN\020\001\022\026\n\022AGGREGATE_KIND_MAX\020\002" +
+      "\022\026\n\022AGGREGATE_KIND_SUM\020\003\022\030\n\024AGGREGATE_KI" +
+      "ND_COUNT\020\004\022\026\n\022AGGREGATE_KIND_AVG\020\005B?Z=gi" +
+      "thub.com/GreptimeTeam/greptime-proto/go/" +
+      "substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3179,7 +3280,7 @@ public final class RangeSelectPartialOuterClass {
     internal_static_substrait_extension_RangeSelectPartialV1_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_RangeSelectPartialV1_descriptor,
-        new java.lang.String[] { "AlignMillis", "AlignToMillis", "TimeColumnIndex", "ByColumnIndices", "RangeFunctions", });
+        new java.lang.String[] { "AlignMillis", "AlignToMillis", "TimeColumnIndex", "ByColumnIndices", "RangeFunctions", "StateAbiVersion", });
     internal_static_substrait_extension_RangeFunctionV1_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_substrait_extension_RangeFunctionV1_fieldAccessorTable = new

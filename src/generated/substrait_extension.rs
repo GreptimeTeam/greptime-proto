@@ -272,6 +272,11 @@ pub struct RangeSelectPartialV1 {
     /// range is in \[1, INT64_MAX\] and reject unspecified or unknown aggregate kinds.
     #[prost(message, repeated, tag = "5")]
     pub range_functions: ::prost::alloc::vec::Vec<RangeFunctionV1>,
+    /// V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+    /// versions. This versions the serialized aggregate accumulator state schema
+    /// exchanged between Partial and Final.
+    #[prost(uint32, tag = "6")]
+    pub state_abi_version: u32,
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct RangeFunctionV1 {

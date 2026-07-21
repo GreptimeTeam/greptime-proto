@@ -394,6 +394,7 @@ class RangeSelectPartialV1 final :
     kAlignMillisFieldNumber = 1,
     kAlignToMillisFieldNumber = 2,
     kTimeColumnIndexFieldNumber = 3,
+    kStateAbiVersionFieldNumber = 6,
   };
   // repeated uint64 by_column_indices = 4;
   int by_column_indices_size() const;
@@ -462,6 +463,15 @@ class RangeSelectPartialV1 final :
   void _internal_set_time_column_index(uint64_t value);
   public:
 
+  // uint32 state_abi_version = 6;
+  void clear_state_abi_version();
+  uint32_t state_abi_version() const;
+  void set_state_abi_version(uint32_t value);
+  private:
+  uint32_t _internal_state_abi_version() const;
+  void _internal_set_state_abi_version(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:substrait_extension.RangeSelectPartialV1)
  private:
   class _Internal;
@@ -476,6 +486,7 @@ class RangeSelectPartialV1 final :
     uint64_t align_millis_;
     int64_t align_to_millis_;
     uint64_t time_column_index_;
+    uint32_t state_abi_version_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -894,6 +905,26 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::R
 RangeSelectPartialV1::range_functions() const {
   // @@protoc_insertion_point(field_list:substrait_extension.RangeSelectPartialV1.range_functions)
   return _impl_.range_functions_;
+}
+
+// uint32 state_abi_version = 6;
+inline void RangeSelectPartialV1::clear_state_abi_version() {
+  _impl_.state_abi_version_ = 0u;
+}
+inline uint32_t RangeSelectPartialV1::_internal_state_abi_version() const {
+  return _impl_.state_abi_version_;
+}
+inline uint32_t RangeSelectPartialV1::state_abi_version() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RangeSelectPartialV1.state_abi_version)
+  return _internal_state_abi_version();
+}
+inline void RangeSelectPartialV1::_internal_set_state_abi_version(uint32_t value) {
+  
+  _impl_.state_abi_version_ = value;
+}
+inline void RangeSelectPartialV1::set_state_abi_version(uint32_t value) {
+  _internal_set_state_abi_version(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RangeSelectPartialV1.state_abi_version)
 }
 
 // -------------------------------------------------------------------

@@ -39,6 +39,10 @@ message RangeSelectPartialV1 {
   // the derived __range_state_i column order. Consumers must validate that every
   // range is in [1, INT64_MAX] and reject unspecified or unknown aggregate kinds.
   repeated RangeFunctionV1 range_functions = 5;
+  // V1 senders must emit 1; consumers must reject 0, unknown, or unsupported
+  // versions. This versions the serialized aggregate accumulator state schema
+  // exchanged between Partial and Final.
+  uint32 state_abi_version = 6;
 }
 
 message RangeFunctionV1 {

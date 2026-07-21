@@ -43,6 +43,7 @@ PROTOBUF_CONSTEXPR RangeSelectPartialV1::RangeSelectPartialV1(
   , /*decltype(_impl_.align_millis_)*/uint64_t{0u}
   , /*decltype(_impl_.align_to_millis_)*/int64_t{0}
   , /*decltype(_impl_.time_column_index_)*/uint64_t{0u}
+  , /*decltype(_impl_.state_abi_version_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RangeSelectPartialV1DefaultTypeInternal {
   PROTOBUF_CONSTEXPR RangeSelectPartialV1DefaultTypeInternal()
@@ -93,6 +94,7 @@ const uint32_t TableStruct_substrait_5fextension_2frange_5fselect_5fpartial_2epr
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeSelectPartialV1, _impl_.time_column_index_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeSelectPartialV1, _impl_.by_column_indices_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeSelectPartialV1, _impl_.range_functions_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeSelectPartialV1, _impl_.state_abi_version_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::RangeFunctionV1, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -106,7 +108,7 @@ const uint32_t TableStruct_substrait_5fextension_2frange_5fselect_5fpartial_2epr
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::substrait_extension::RangeSelectPartial)},
   { 8, -1, -1, sizeof(::substrait_extension::RangeSelectPartialV1)},
-  { 19, -1, -1, sizeof(::substrait_extension::RangeFunctionV1)},
+  { 20, -1, -1, sizeof(::substrait_extension::RangeFunctionV1)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -120,24 +122,25 @@ const char descriptor_table_protodef_substrait_5fextension_2frange_5fselect_5fpa
   "al.proto\022\023substrait_extension\"X\n\022RangeSe"
   "lectPartial\0227\n\002v1\030\001 \001(\0132).substrait_exte"
   "nsion.RangeSelectPartialV1H\000B\t\n\007payload\""
-  "\272\001\n\024RangeSelectPartialV1\022\024\n\014align_millis"
+  "\325\001\n\024RangeSelectPartialV1\022\024\n\014align_millis"
   "\030\001 \001(\004\022\027\n\017align_to_millis\030\002 \001(\022\022\031\n\021time_"
   "column_index\030\003 \001(\004\022\031\n\021by_column_indices\030"
   "\004 \003(\004\022=\n\017range_functions\030\005 \003(\0132$.substra"
-  "it_extension.RangeFunctionV1\"}\n\017RangeFun"
-  "ctionV1\0225\n\taggregate\030\001 \001(\0162\".substrait_e"
-  "xtension.AggregateKind\022\035\n\025argument_colum"
-  "n_index\030\002 \001(\004\022\024\n\014range_millis\030\003 \001(\004*\251\001\n\r"
-  "AggregateKind\022\036\n\032AGGREGATE_KIND_UNSPECIF"
-  "IED\020\000\022\026\n\022AGGREGATE_KIND_MIN\020\001\022\026\n\022AGGREGA"
-  "TE_KIND_MAX\020\002\022\026\n\022AGGREGATE_KIND_SUM\020\003\022\030\n"
-  "\024AGGREGATE_KIND_COUNT\020\004\022\026\n\022AGGREGATE_KIN"
-  "D_AVG\020\005B\?Z=github.com/GreptimeTeam/grept"
-  "ime-proto/go/substrait_extensionb\006proto3"
+  "it_extension.RangeFunctionV1\022\031\n\021state_ab"
+  "i_version\030\006 \001(\r\"}\n\017RangeFunctionV1\0225\n\tag"
+  "gregate\030\001 \001(\0162\".substrait_extension.Aggr"
+  "egateKind\022\035\n\025argument_column_index\030\002 \001(\004"
+  "\022\024\n\014range_millis\030\003 \001(\004*\251\001\n\rAggregateKind"
+  "\022\036\n\032AGGREGATE_KIND_UNSPECIFIED\020\000\022\026\n\022AGGR"
+  "EGATE_KIND_MIN\020\001\022\026\n\022AGGREGATE_KIND_MAX\020\002"
+  "\022\026\n\022AGGREGATE_KIND_SUM\020\003\022\030\n\024AGGREGATE_KI"
+  "ND_COUNT\020\004\022\026\n\022AGGREGATE_KIND_AVG\020\005B\?Z=gi"
+  "thub.com/GreptimeTeam/greptime-proto/go/"
+  "substrait_extensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2frange_5fselect_5fpartial_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2frange_5fselect_5fpartial_2eproto = {
-    false, false, 720, descriptor_table_protodef_substrait_5fextension_2frange_5fselect_5fpartial_2eproto,
+    false, false, 747, descriptor_table_protodef_substrait_5fextension_2frange_5fselect_5fpartial_2eproto,
     "substrait_extension/range_select_partial.proto",
     &descriptor_table_substrait_5fextension_2frange_5fselect_5fpartial_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2frange_5fselect_5fpartial_2eproto::offsets,
@@ -439,12 +442,13 @@ RangeSelectPartialV1::RangeSelectPartialV1(const RangeSelectPartialV1& from)
     , decltype(_impl_.align_millis_){}
     , decltype(_impl_.align_to_millis_){}
     , decltype(_impl_.time_column_index_){}
+    , decltype(_impl_.state_abi_version_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.align_millis_, &from._impl_.align_millis_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.time_column_index_) -
-    reinterpret_cast<char*>(&_impl_.align_millis_)) + sizeof(_impl_.time_column_index_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.state_abi_version_) -
+    reinterpret_cast<char*>(&_impl_.align_millis_)) + sizeof(_impl_.state_abi_version_));
   // @@protoc_insertion_point(copy_constructor:substrait_extension.RangeSelectPartialV1)
 }
 
@@ -459,6 +463,7 @@ inline void RangeSelectPartialV1::SharedCtor(
     , decltype(_impl_.align_millis_){uint64_t{0u}}
     , decltype(_impl_.align_to_millis_){int64_t{0}}
     , decltype(_impl_.time_column_index_){uint64_t{0u}}
+    , decltype(_impl_.state_abi_version_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -491,8 +496,8 @@ void RangeSelectPartialV1::Clear() {
   _impl_.by_column_indices_.Clear();
   _impl_.range_functions_.Clear();
   ::memset(&_impl_.align_millis_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.time_column_index_) -
-      reinterpret_cast<char*>(&_impl_.align_millis_)) + sizeof(_impl_.time_column_index_));
+      reinterpret_cast<char*>(&_impl_.state_abi_version_) -
+      reinterpret_cast<char*>(&_impl_.align_millis_)) + sizeof(_impl_.state_abi_version_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -547,6 +552,14 @@ const char* RangeSelectPartialV1::_InternalParse(const char* ptr, ::_pbi::ParseC
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 state_abi_version = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.state_abi_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -614,6 +627,12 @@ uint8_t* RangeSelectPartialV1::_InternalSerialize(
         InternalWriteMessage(5, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // uint32 state_abi_version = 6;
+  if (this->_internal_state_abi_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_state_abi_version(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -666,6 +685,11 @@ size_t RangeSelectPartialV1::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_time_column_index());
   }
 
+  // uint32 state_abi_version = 6;
+  if (this->_internal_state_abi_version() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_state_abi_version());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -695,6 +719,9 @@ void RangeSelectPartialV1::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   if (from._internal_time_column_index() != 0) {
     _this->_internal_set_time_column_index(from._internal_time_column_index());
   }
+  if (from._internal_state_abi_version() != 0) {
+    _this->_internal_set_state_abi_version(from._internal_state_abi_version());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -715,8 +742,8 @@ void RangeSelectPartialV1::InternalSwap(RangeSelectPartialV1* other) {
   _impl_.by_column_indices_.InternalSwap(&other->_impl_.by_column_indices_);
   _impl_.range_functions_.InternalSwap(&other->_impl_.range_functions_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RangeSelectPartialV1, _impl_.time_column_index_)
-      + sizeof(RangeSelectPartialV1::_impl_.time_column_index_)
+      PROTOBUF_FIELD_OFFSET(RangeSelectPartialV1, _impl_.state_abi_version_)
+      + sizeof(RangeSelectPartialV1::_impl_.state_abi_version_)
       - PROTOBUF_FIELD_OFFSET(RangeSelectPartialV1, _impl_.align_millis_)>(
           reinterpret_cast<char*>(&_impl_.align_millis_),
           reinterpret_cast<char*>(&other->_impl_.align_millis_));
