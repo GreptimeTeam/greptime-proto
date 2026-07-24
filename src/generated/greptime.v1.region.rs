@@ -382,7 +382,7 @@ pub mod compact_request {
 pub struct TruncateRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
-    #[prost(oneof = "truncate_request::Kind", tags = "2, 3")]
+    #[prost(oneof = "truncate_request::Kind", tags = "2, 3, 4")]
     pub kind: ::core::option::Option<truncate_request::Kind>,
 }
 /// Nested message and enum types in `TruncateRequest`.
@@ -393,11 +393,16 @@ pub mod truncate_request {
         All(super::All),
         #[prost(message, tag = "3")]
         TimeRanges(super::super::TimeRanges),
+        #[prost(message, tag = "4")]
+        Unflushed(super::Unflushed),
     }
 }
 /// Truncate all data in region
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct All {}
+/// Truncate unflushed data in region
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct Unflushed {}
 /// The column definition of a region. Unlike the message `ColumnDef` in
 /// `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
 /// is for region requests use only. So it carries an extra field `column_id`

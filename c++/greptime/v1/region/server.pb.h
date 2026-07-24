@@ -199,6 +199,9 @@ extern SyncRequestDefaultTypeInternal _SyncRequest_default_instance_;
 class TruncateRequest;
 struct TruncateRequestDefaultTypeInternal;
 extern TruncateRequestDefaultTypeInternal _TruncateRequest_default_instance_;
+class Unflushed;
+struct UnflushedDefaultTypeInternal;
+extern UnflushedDefaultTypeInternal _Unflushed_default_instance_;
 }  // namespace region
 }  // namespace v1
 }  // namespace greptime
@@ -251,6 +254,7 @@ template<> ::greptime::v1::region::StrictWindow* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::region::SyncColumns* Arena::CreateMaybeMessage<::greptime::v1::region::SyncColumns>(Arena*);
 template<> ::greptime::v1::region::SyncRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SyncRequest>(Arena*);
 template<> ::greptime::v1::region::TruncateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::TruncateRequest>(Arena*);
+template<> ::greptime::v1::region::Unflushed* Arena::CreateMaybeMessage<::greptime::v1::region::Unflushed>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace greptime {
 namespace v1 {
@@ -6071,6 +6075,7 @@ class TruncateRequest final :
   enum KindCase {
     kAll = 2,
     kTimeRanges = 3,
+    kUnflushed = 4,
     KIND_NOT_SET = 0,
   };
 
@@ -6155,6 +6160,7 @@ class TruncateRequest final :
     kRegionIdFieldNumber = 1,
     kAllFieldNumber = 2,
     kTimeRangesFieldNumber = 3,
+    kUnflushedFieldNumber = 4,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -6201,6 +6207,24 @@ class TruncateRequest final :
       ::greptime::v1::TimeRanges* time_ranges);
   ::greptime::v1::TimeRanges* unsafe_arena_release_time_ranges();
 
+  // .greptime.v1.region.Unflushed unflushed = 4;
+  bool has_unflushed() const;
+  private:
+  bool _internal_has_unflushed() const;
+  public:
+  void clear_unflushed();
+  const ::greptime::v1::region::Unflushed& unflushed() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::Unflushed* release_unflushed();
+  ::greptime::v1::region::Unflushed* mutable_unflushed();
+  void set_allocated_unflushed(::greptime::v1::region::Unflushed* unflushed);
+  private:
+  const ::greptime::v1::region::Unflushed& _internal_unflushed() const;
+  ::greptime::v1::region::Unflushed* _internal_mutable_unflushed();
+  public:
+  void unsafe_arena_set_allocated_unflushed(
+      ::greptime::v1::region::Unflushed* unflushed);
+  ::greptime::v1::region::Unflushed* unsafe_arena_release_unflushed();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.TruncateRequest)
@@ -6208,6 +6232,7 @@ class TruncateRequest final :
   class _Internal;
   void set_has_all();
   void set_has_time_ranges();
+  void set_has_unflushed();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -6222,6 +6247,7 @@ class TruncateRequest final :
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
       ::greptime::v1::region::All* all_;
       ::greptime::v1::TimeRanges* time_ranges_;
+      ::greptime::v1::region::Unflushed* unflushed_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -6350,6 +6376,124 @@ class All final :
 };
 // -------------------------------------------------------------------
 
+class Unflushed final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.Unflushed) */ {
+ public:
+  inline Unflushed() : Unflushed(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR Unflushed(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Unflushed(const Unflushed& from);
+  Unflushed(Unflushed&& from) noexcept
+    : Unflushed() {
+    *this = ::std::move(from);
+  }
+
+  inline Unflushed& operator=(const Unflushed& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Unflushed& operator=(Unflushed&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Unflushed& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Unflushed* internal_default_instance() {
+    return reinterpret_cast<const Unflushed*>(
+               &_Unflushed_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(Unflushed& a, Unflushed& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Unflushed* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Unflushed* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Unflushed* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Unflushed>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const Unflushed& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const Unflushed& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.Unflushed";
+  }
+  protected:
+  explicit Unflushed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.Unflushed)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionColumnDef final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionColumnDef) */ {
  public:
@@ -6398,7 +6542,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6571,7 +6715,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -6791,7 +6935,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -6939,7 +7083,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -7087,7 +7231,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7252,7 +7396,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -7453,7 +7597,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -7615,7 +7759,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7763,7 +7907,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -7916,7 +8060,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8113,7 +8257,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -8319,7 +8463,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -8510,7 +8654,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -14039,6 +14183,80 @@ inline ::greptime::v1::TimeRanges* TruncateRequest::mutable_time_ranges() {
   return _msg;
 }
 
+// .greptime.v1.region.Unflushed unflushed = 4;
+inline bool TruncateRequest::_internal_has_unflushed() const {
+  return kind_case() == kUnflushed;
+}
+inline bool TruncateRequest::has_unflushed() const {
+  return _internal_has_unflushed();
+}
+inline void TruncateRequest::set_has_unflushed() {
+  _impl_._oneof_case_[0] = kUnflushed;
+}
+inline void TruncateRequest::clear_unflushed() {
+  if (_internal_has_unflushed()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.unflushed_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::region::Unflushed* TruncateRequest::release_unflushed() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.TruncateRequest.unflushed)
+  if (_internal_has_unflushed()) {
+    clear_has_kind();
+    ::greptime::v1::region::Unflushed* temp = _impl_.kind_.unflushed_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.unflushed_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::Unflushed& TruncateRequest::_internal_unflushed() const {
+  return _internal_has_unflushed()
+      ? *_impl_.kind_.unflushed_
+      : reinterpret_cast< ::greptime::v1::region::Unflushed&>(::greptime::v1::region::_Unflushed_default_instance_);
+}
+inline const ::greptime::v1::region::Unflushed& TruncateRequest::unflushed() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.TruncateRequest.unflushed)
+  return _internal_unflushed();
+}
+inline ::greptime::v1::region::Unflushed* TruncateRequest::unsafe_arena_release_unflushed() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.TruncateRequest.unflushed)
+  if (_internal_has_unflushed()) {
+    clear_has_kind();
+    ::greptime::v1::region::Unflushed* temp = _impl_.kind_.unflushed_;
+    _impl_.kind_.unflushed_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void TruncateRequest::unsafe_arena_set_allocated_unflushed(::greptime::v1::region::Unflushed* unflushed) {
+  clear_kind();
+  if (unflushed) {
+    set_has_unflushed();
+    _impl_.kind_.unflushed_ = unflushed;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.TruncateRequest.unflushed)
+}
+inline ::greptime::v1::region::Unflushed* TruncateRequest::_internal_mutable_unflushed() {
+  if (!_internal_has_unflushed()) {
+    clear_kind();
+    set_has_unflushed();
+    _impl_.kind_.unflushed_ = CreateMaybeMessage< ::greptime::v1::region::Unflushed >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.unflushed_;
+}
+inline ::greptime::v1::region::Unflushed* TruncateRequest::mutable_unflushed() {
+  ::greptime::v1::region::Unflushed* _msg = _internal_mutable_unflushed();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.TruncateRequest.unflushed)
+  return _msg;
+}
+
 inline bool TruncateRequest::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -14051,6 +14269,10 @@ inline TruncateRequest::KindCase TruncateRequest::kind_case() const {
 // -------------------------------------------------------------------
 
 // All
+
+// -------------------------------------------------------------------
+
+// Unflushed
 
 // -------------------------------------------------------------------
 
@@ -15393,6 +15615,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

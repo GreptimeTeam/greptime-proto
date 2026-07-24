@@ -262,11 +262,15 @@ message TruncateRequest {
   oneof kind {
     All all = 2;
     TimeRanges time_ranges = 3;
+    Unflushed unflushed = 4;
   }
 }
 
 // Truncate all data in region
 message All {}
+
+// Truncate unflushed data in region
+message Unflushed {}
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
