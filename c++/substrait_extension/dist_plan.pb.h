@@ -23,12 +23,14 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
@@ -48,12 +50,51 @@ namespace substrait_extension {
 class MergeScan;
 struct MergeScanDefaultTypeInternal;
 extern MergeScanDefaultTypeInternal _MergeScan_default_instance_;
+class RemoteReadColumnV1;
+struct RemoteReadColumnV1DefaultTypeInternal;
+extern RemoteReadColumnV1DefaultTypeInternal _RemoteReadColumnV1_default_instance_;
+class RemoteReadInternalV1;
+struct RemoteReadInternalV1DefaultTypeInternal;
+extern RemoteReadInternalV1DefaultTypeInternal _RemoteReadInternalV1_default_instance_;
+class RemoteReadTableV1;
+struct RemoteReadTableV1DefaultTypeInternal;
+extern RemoteReadTableV1DefaultTypeInternal _RemoteReadTableV1_default_instance_;
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
 template<> ::substrait_extension::MergeScan* Arena::CreateMaybeMessage<::substrait_extension::MergeScan>(Arena*);
+template<> ::substrait_extension::RemoteReadColumnV1* Arena::CreateMaybeMessage<::substrait_extension::RemoteReadColumnV1>(Arena*);
+template<> ::substrait_extension::RemoteReadInternalV1* Arena::CreateMaybeMessage<::substrait_extension::RemoteReadInternalV1>(Arena*);
+template<> ::substrait_extension::RemoteReadTableV1* Arena::CreateMaybeMessage<::substrait_extension::RemoteReadTableV1>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace substrait_extension {
 
+enum RemoteReadSemanticTypeV1 : int {
+  REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED = 0,
+  REMOTE_READ_SEMANTIC_TYPE_TAG = 1,
+  REMOTE_READ_SEMANTIC_TYPE_FIELD = 2,
+  REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP = 3,
+  RemoteReadSemanticTypeV1_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  RemoteReadSemanticTypeV1_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool RemoteReadSemanticTypeV1_IsValid(int value);
+constexpr RemoteReadSemanticTypeV1 RemoteReadSemanticTypeV1_MIN = REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED;
+constexpr RemoteReadSemanticTypeV1 RemoteReadSemanticTypeV1_MAX = REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP;
+constexpr int RemoteReadSemanticTypeV1_ARRAYSIZE = RemoteReadSemanticTypeV1_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* RemoteReadSemanticTypeV1_descriptor();
+template<typename T>
+inline const std::string& RemoteReadSemanticTypeV1_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, RemoteReadSemanticTypeV1>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function RemoteReadSemanticTypeV1_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    RemoteReadSemanticTypeV1_descriptor(), enum_t_value);
+}
+inline bool RemoteReadSemanticTypeV1_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RemoteReadSemanticTypeV1* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RemoteReadSemanticTypeV1>(
+    RemoteReadSemanticTypeV1_descriptor(), name, value);
+}
 // ===================================================================
 
 class MergeScan final :
@@ -218,6 +259,518 @@ class MergeScan final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class RemoteReadTableV1 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.RemoteReadTableV1) */ {
+ public:
+  inline RemoteReadTableV1() : RemoteReadTableV1(nullptr) {}
+  ~RemoteReadTableV1() override;
+  explicit PROTOBUF_CONSTEXPR RemoteReadTableV1(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteReadTableV1(const RemoteReadTableV1& from);
+  RemoteReadTableV1(RemoteReadTableV1&& from) noexcept
+    : RemoteReadTableV1() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteReadTableV1& operator=(const RemoteReadTableV1& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteReadTableV1& operator=(RemoteReadTableV1&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteReadTableV1& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoteReadTableV1* internal_default_instance() {
+    return reinterpret_cast<const RemoteReadTableV1*>(
+               &_RemoteReadTableV1_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(RemoteReadTableV1& a, RemoteReadTableV1& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteReadTableV1* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteReadTableV1* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteReadTableV1* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteReadTableV1>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoteReadTableV1& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoteReadTableV1& from) {
+    RemoteReadTableV1::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoteReadTableV1* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.RemoteReadTableV1";
+  }
+  protected:
+  explicit RemoteReadTableV1(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnsFieldNumber = 3,
+    kTableVersionFieldNumber = 2,
+    kTableIdFieldNumber = 1,
+  };
+  // repeated .substrait_extension.RemoteReadColumnV1 columns = 3;
+  int columns_size() const;
+  private:
+  int _internal_columns_size() const;
+  public:
+  void clear_columns();
+  ::substrait_extension::RemoteReadColumnV1* mutable_columns(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::RemoteReadColumnV1 >*
+      mutable_columns();
+  private:
+  const ::substrait_extension::RemoteReadColumnV1& _internal_columns(int index) const;
+  ::substrait_extension::RemoteReadColumnV1* _internal_add_columns();
+  public:
+  const ::substrait_extension::RemoteReadColumnV1& columns(int index) const;
+  ::substrait_extension::RemoteReadColumnV1* add_columns();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::RemoteReadColumnV1 >&
+      columns() const;
+
+  // optional uint64 table_version = 2;
+  bool has_table_version() const;
+  private:
+  bool _internal_has_table_version() const;
+  public:
+  void clear_table_version();
+  uint64_t table_version() const;
+  void set_table_version(uint64_t value);
+  private:
+  uint64_t _internal_table_version() const;
+  void _internal_set_table_version(uint64_t value);
+  public:
+
+  // uint32 table_id = 1;
+  void clear_table_id();
+  uint32_t table_id() const;
+  void set_table_id(uint32_t value);
+  private:
+  uint32_t _internal_table_id() const;
+  void _internal_set_table_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadTableV1)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::RemoteReadColumnV1 > columns_;
+    uint64_t table_version_;
+    uint32_t table_id_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemoteReadInternalV1 final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:substrait_extension.RemoteReadInternalV1) */ {
+ public:
+  inline RemoteReadInternalV1() : RemoteReadInternalV1(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR RemoteReadInternalV1(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteReadInternalV1(const RemoteReadInternalV1& from);
+  RemoteReadInternalV1(RemoteReadInternalV1&& from) noexcept
+    : RemoteReadInternalV1() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteReadInternalV1& operator=(const RemoteReadInternalV1& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteReadInternalV1& operator=(RemoteReadInternalV1&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteReadInternalV1& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoteReadInternalV1* internal_default_instance() {
+    return reinterpret_cast<const RemoteReadInternalV1*>(
+               &_RemoteReadInternalV1_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(RemoteReadInternalV1& a, RemoteReadInternalV1& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteReadInternalV1* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteReadInternalV1* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteReadInternalV1* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteReadInternalV1>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const RemoteReadInternalV1& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const RemoteReadInternalV1& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.RemoteReadInternalV1";
+  }
+  protected:
+  explicit RemoteReadInternalV1(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadInternalV1)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RemoteReadColumnV1 final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.RemoteReadColumnV1) */ {
+ public:
+  inline RemoteReadColumnV1() : RemoteReadColumnV1(nullptr) {}
+  ~RemoteReadColumnV1() override;
+  explicit PROTOBUF_CONSTEXPR RemoteReadColumnV1(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RemoteReadColumnV1(const RemoteReadColumnV1& from);
+  RemoteReadColumnV1(RemoteReadColumnV1&& from) noexcept
+    : RemoteReadColumnV1() {
+    *this = ::std::move(from);
+  }
+
+  inline RemoteReadColumnV1& operator=(const RemoteReadColumnV1& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RemoteReadColumnV1& operator=(RemoteReadColumnV1&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RemoteReadColumnV1& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RemoteReadColumnV1* internal_default_instance() {
+    return reinterpret_cast<const RemoteReadColumnV1*>(
+               &_RemoteReadColumnV1_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(RemoteReadColumnV1& a, RemoteReadColumnV1& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RemoteReadColumnV1* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RemoteReadColumnV1* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RemoteReadColumnV1* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RemoteReadColumnV1>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RemoteReadColumnV1& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RemoteReadColumnV1& from) {
+    RemoteReadColumnV1::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RemoteReadColumnV1* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.RemoteReadColumnV1";
+  }
+  protected:
+  explicit RemoteReadColumnV1(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kColumnIdFieldNumber = 2,
+    kSemanticTypeFieldNumber = 3,
+    kIsTimeIndexFieldNumber = 4,
+    kPrimaryKeyOrdinalFieldNumber = 5,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // uint32 column_id = 2;
+  void clear_column_id();
+  uint32_t column_id() const;
+  void set_column_id(uint32_t value);
+  private:
+  uint32_t _internal_column_id() const;
+  void _internal_set_column_id(uint32_t value);
+  public:
+
+  // optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;
+  bool has_semantic_type() const;
+  private:
+  bool _internal_has_semantic_type() const;
+  public:
+  void clear_semantic_type();
+  ::substrait_extension::RemoteReadSemanticTypeV1 semantic_type() const;
+  void set_semantic_type(::substrait_extension::RemoteReadSemanticTypeV1 value);
+  private:
+  ::substrait_extension::RemoteReadSemanticTypeV1 _internal_semantic_type() const;
+  void _internal_set_semantic_type(::substrait_extension::RemoteReadSemanticTypeV1 value);
+  public:
+
+  // optional bool is_time_index = 4;
+  bool has_is_time_index() const;
+  private:
+  bool _internal_has_is_time_index() const;
+  public:
+  void clear_is_time_index();
+  bool is_time_index() const;
+  void set_is_time_index(bool value);
+  private:
+  bool _internal_is_time_index() const;
+  void _internal_set_is_time_index(bool value);
+  public:
+
+  // optional uint32 primary_key_ordinal = 5;
+  bool has_primary_key_ordinal() const;
+  private:
+  bool _internal_has_primary_key_ordinal() const;
+  public:
+  void clear_primary_key_ordinal();
+  uint32_t primary_key_ordinal() const;
+  void set_primary_key_ordinal(uint32_t value);
+  private:
+  uint32_t _internal_primary_key_ordinal() const;
+  void _internal_set_primary_key_ordinal(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadColumnV1)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    uint32_t column_id_;
+    int semantic_type_;
+    bool is_time_index_;
+    uint32_t primary_key_ordinal_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -299,13 +852,283 @@ inline void MergeScan::set_is_placeholder(bool value) {
   // @@protoc_insertion_point(field_set:substrait_extension.MergeScan.is_placeholder)
 }
 
+// -------------------------------------------------------------------
+
+// RemoteReadTableV1
+
+// uint32 table_id = 1;
+inline void RemoteReadTableV1::clear_table_id() {
+  _impl_.table_id_ = 0u;
+}
+inline uint32_t RemoteReadTableV1::_internal_table_id() const {
+  return _impl_.table_id_;
+}
+inline uint32_t RemoteReadTableV1::table_id() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadTableV1.table_id)
+  return _internal_table_id();
+}
+inline void RemoteReadTableV1::_internal_set_table_id(uint32_t value) {
+  
+  _impl_.table_id_ = value;
+}
+inline void RemoteReadTableV1::set_table_id(uint32_t value) {
+  _internal_set_table_id(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadTableV1.table_id)
+}
+
+// optional uint64 table_version = 2;
+inline bool RemoteReadTableV1::_internal_has_table_version() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RemoteReadTableV1::has_table_version() const {
+  return _internal_has_table_version();
+}
+inline void RemoteReadTableV1::clear_table_version() {
+  _impl_.table_version_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t RemoteReadTableV1::_internal_table_version() const {
+  return _impl_.table_version_;
+}
+inline uint64_t RemoteReadTableV1::table_version() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadTableV1.table_version)
+  return _internal_table_version();
+}
+inline void RemoteReadTableV1::_internal_set_table_version(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.table_version_ = value;
+}
+inline void RemoteReadTableV1::set_table_version(uint64_t value) {
+  _internal_set_table_version(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadTableV1.table_version)
+}
+
+// repeated .substrait_extension.RemoteReadColumnV1 columns = 3;
+inline int RemoteReadTableV1::_internal_columns_size() const {
+  return _impl_.columns_.size();
+}
+inline int RemoteReadTableV1::columns_size() const {
+  return _internal_columns_size();
+}
+inline void RemoteReadTableV1::clear_columns() {
+  _impl_.columns_.Clear();
+}
+inline ::substrait_extension::RemoteReadColumnV1* RemoteReadTableV1::mutable_columns(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RemoteReadTableV1.columns)
+  return _impl_.columns_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::RemoteReadColumnV1 >*
+RemoteReadTableV1::mutable_columns() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.RemoteReadTableV1.columns)
+  return &_impl_.columns_;
+}
+inline const ::substrait_extension::RemoteReadColumnV1& RemoteReadTableV1::_internal_columns(int index) const {
+  return _impl_.columns_.Get(index);
+}
+inline const ::substrait_extension::RemoteReadColumnV1& RemoteReadTableV1::columns(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadTableV1.columns)
+  return _internal_columns(index);
+}
+inline ::substrait_extension::RemoteReadColumnV1* RemoteReadTableV1::_internal_add_columns() {
+  return _impl_.columns_.Add();
+}
+inline ::substrait_extension::RemoteReadColumnV1* RemoteReadTableV1::add_columns() {
+  ::substrait_extension::RemoteReadColumnV1* _add = _internal_add_columns();
+  // @@protoc_insertion_point(field_add:substrait_extension.RemoteReadTableV1.columns)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::substrait_extension::RemoteReadColumnV1 >&
+RemoteReadTableV1::columns() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.RemoteReadTableV1.columns)
+  return _impl_.columns_;
+}
+
+// -------------------------------------------------------------------
+
+// RemoteReadInternalV1
+
+// -------------------------------------------------------------------
+
+// RemoteReadColumnV1
+
+// string name = 1;
+inline void RemoteReadColumnV1::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& RemoteReadColumnV1::name() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadColumnV1.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RemoteReadColumnV1::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadColumnV1.name)
+}
+inline std::string* RemoteReadColumnV1::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RemoteReadColumnV1.name)
+  return _s;
+}
+inline const std::string& RemoteReadColumnV1::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void RemoteReadColumnV1::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RemoteReadColumnV1::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RemoteReadColumnV1::release_name() {
+  // @@protoc_insertion_point(field_release:substrait_extension.RemoteReadColumnV1.name)
+  return _impl_.name_.Release();
+}
+inline void RemoteReadColumnV1::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.RemoteReadColumnV1.name)
+}
+
+// uint32 column_id = 2;
+inline void RemoteReadColumnV1::clear_column_id() {
+  _impl_.column_id_ = 0u;
+}
+inline uint32_t RemoteReadColumnV1::_internal_column_id() const {
+  return _impl_.column_id_;
+}
+inline uint32_t RemoteReadColumnV1::column_id() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadColumnV1.column_id)
+  return _internal_column_id();
+}
+inline void RemoteReadColumnV1::_internal_set_column_id(uint32_t value) {
+  
+  _impl_.column_id_ = value;
+}
+inline void RemoteReadColumnV1::set_column_id(uint32_t value) {
+  _internal_set_column_id(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadColumnV1.column_id)
+}
+
+// optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;
+inline bool RemoteReadColumnV1::_internal_has_semantic_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool RemoteReadColumnV1::has_semantic_type() const {
+  return _internal_has_semantic_type();
+}
+inline void RemoteReadColumnV1::clear_semantic_type() {
+  _impl_.semantic_type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::substrait_extension::RemoteReadSemanticTypeV1 RemoteReadColumnV1::_internal_semantic_type() const {
+  return static_cast< ::substrait_extension::RemoteReadSemanticTypeV1 >(_impl_.semantic_type_);
+}
+inline ::substrait_extension::RemoteReadSemanticTypeV1 RemoteReadColumnV1::semantic_type() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadColumnV1.semantic_type)
+  return _internal_semantic_type();
+}
+inline void RemoteReadColumnV1::_internal_set_semantic_type(::substrait_extension::RemoteReadSemanticTypeV1 value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.semantic_type_ = value;
+}
+inline void RemoteReadColumnV1::set_semantic_type(::substrait_extension::RemoteReadSemanticTypeV1 value) {
+  _internal_set_semantic_type(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadColumnV1.semantic_type)
+}
+
+// optional bool is_time_index = 4;
+inline bool RemoteReadColumnV1::_internal_has_is_time_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool RemoteReadColumnV1::has_is_time_index() const {
+  return _internal_has_is_time_index();
+}
+inline void RemoteReadColumnV1::clear_is_time_index() {
+  _impl_.is_time_index_ = false;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline bool RemoteReadColumnV1::_internal_is_time_index() const {
+  return _impl_.is_time_index_;
+}
+inline bool RemoteReadColumnV1::is_time_index() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadColumnV1.is_time_index)
+  return _internal_is_time_index();
+}
+inline void RemoteReadColumnV1::_internal_set_is_time_index(bool value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.is_time_index_ = value;
+}
+inline void RemoteReadColumnV1::set_is_time_index(bool value) {
+  _internal_set_is_time_index(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadColumnV1.is_time_index)
+}
+
+// optional uint32 primary_key_ordinal = 5;
+inline bool RemoteReadColumnV1::_internal_has_primary_key_ordinal() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool RemoteReadColumnV1::has_primary_key_ordinal() const {
+  return _internal_has_primary_key_ordinal();
+}
+inline void RemoteReadColumnV1::clear_primary_key_ordinal() {
+  _impl_.primary_key_ordinal_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t RemoteReadColumnV1::_internal_primary_key_ordinal() const {
+  return _impl_.primary_key_ordinal_;
+}
+inline uint32_t RemoteReadColumnV1::primary_key_ordinal() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RemoteReadColumnV1.primary_key_ordinal)
+  return _internal_primary_key_ordinal();
+}
+inline void RemoteReadColumnV1::_internal_set_primary_key_ordinal(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.primary_key_ordinal_ = value;
+}
+inline void RemoteReadColumnV1::set_primary_key_ordinal(uint32_t value) {
+  _internal_set_primary_key_ordinal(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RemoteReadColumnV1.primary_key_ordinal)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace substrait_extension
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::substrait_extension::RemoteReadSemanticTypeV1> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::substrait_extension::RemoteReadSemanticTypeV1>() {
+  return ::substrait_extension::RemoteReadSemanticTypeV1_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 

@@ -14,6 +14,137 @@ public final class DistPlan {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * Version 1 metadata for a remote-read column. It intentionally excludes type
+   * and nullability because those are represented by Substrait.
+   * </pre>
+   *
+   * Protobuf enum {@code substrait_extension.RemoteReadSemanticTypeV1}
+   */
+  public enum RemoteReadSemanticTypeV1
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED = 0;</code>
+     */
+    REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED(0),
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_TAG = 1;</code>
+     */
+    REMOTE_READ_SEMANTIC_TYPE_TAG(1),
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_FIELD = 2;</code>
+     */
+    REMOTE_READ_SEMANTIC_TYPE_FIELD(2),
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP = 3;</code>
+     */
+    REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_TAG = 1;</code>
+     */
+    public static final int REMOTE_READ_SEMANTIC_TYPE_TAG_VALUE = 1;
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_FIELD = 2;</code>
+     */
+    public static final int REMOTE_READ_SEMANTIC_TYPE_FIELD_VALUE = 2;
+    /**
+     * <code>REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP = 3;</code>
+     */
+    public static final int REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static RemoteReadSemanticTypeV1 valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static RemoteReadSemanticTypeV1 forNumber(int value) {
+      switch (value) {
+        case 0: return REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED;
+        case 1: return REMOTE_READ_SEMANTIC_TYPE_TAG;
+        case 2: return REMOTE_READ_SEMANTIC_TYPE_FIELD;
+        case 3: return REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<RemoteReadSemanticTypeV1>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        RemoteReadSemanticTypeV1> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<RemoteReadSemanticTypeV1>() {
+            public RemoteReadSemanticTypeV1 findValueByNumber(int number) {
+              return RemoteReadSemanticTypeV1.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final RemoteReadSemanticTypeV1[] VALUES = values();
+
+    public static RemoteReadSemanticTypeV1 valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private RemoteReadSemanticTypeV1(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:substrait_extension.RemoteReadSemanticTypeV1)
+  }
+
   public interface MergeScanOrBuilder extends
       // @@protoc_insertion_point(interface_extends:substrait_extension.MergeScan)
       com.google.protobuf.MessageOrBuilder {
@@ -619,11 +750,2779 @@ public final class DistPlan {
 
   }
 
+  public interface RemoteReadTableV1OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.RemoteReadTableV1)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The stable ID of the table selected when the plan was created.
+     * </pre>
+     *
+     * <code>uint32 table_id = 1;</code>
+     * @return The tableId.
+     */
+    int getTableId();
+
+    /**
+     * <pre>
+     * The FE TableInfo version observed when the plan was created. This is
+     * diagnostic-only and must not be used as a schema-version compatibility
+     * check or execution precondition. Its presence distinguishes an unknown
+     * version from version zero.
+     * </pre>
+     *
+     * <code>optional uint64 table_version = 2;</code>
+     * @return Whether the tableVersion field is set.
+     */
+    boolean hasTableVersion();
+    /**
+     * <pre>
+     * The FE TableInfo version observed when the plan was created. This is
+     * diagnostic-only and must not be used as a schema-version compatibility
+     * check or execution precondition. Its presence distinguishes an unknown
+     * version from version zero.
+     * </pre>
+     *
+     * <code>optional uint64 table_version = 2;</code>
+     * @return The tableVersion.
+     */
+    long getTableVersion();
+
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1> 
+        getColumnsList();
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    substrait_extension.DistPlan.RemoteReadColumnV1 getColumns(int index);
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    int getColumnsCount();
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    java.util.List<? extends substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder> 
+        getColumnsOrBuilderList();
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder getColumnsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * Version 1 metadata needed to execute a remote read that Substrait does not
+   * represent. New versions must be introduced as additive messages or fields;
+   * readers must ignore fields they do not recognize.
+   * </pre>
+   *
+   * Protobuf type {@code substrait_extension.RemoteReadTableV1}
+   */
+  public static final class RemoteReadTableV1 extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.RemoteReadTableV1)
+      RemoteReadTableV1OrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteReadTableV1.newBuilder() to construct.
+    private RemoteReadTableV1(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteReadTableV1() {
+      columns_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteReadTableV1();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteReadTableV1(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              tableId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              tableVersion_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                columns_ = new java.util.ArrayList<substrait_extension.DistPlan.RemoteReadColumnV1>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              columns_.add(
+                  input.readMessage(substrait_extension.DistPlan.RemoteReadColumnV1.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          columns_ = java.util.Collections.unmodifiableList(columns_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadTableV1_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadTableV1_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.DistPlan.RemoteReadTableV1.class, substrait_extension.DistPlan.RemoteReadTableV1.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TABLE_ID_FIELD_NUMBER = 1;
+    private int tableId_;
+    /**
+     * <pre>
+     * The stable ID of the table selected when the plan was created.
+     * </pre>
+     *
+     * <code>uint32 table_id = 1;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public int getTableId() {
+      return tableId_;
+    }
+
+    public static final int TABLE_VERSION_FIELD_NUMBER = 2;
+    private long tableVersion_;
+    /**
+     * <pre>
+     * The FE TableInfo version observed when the plan was created. This is
+     * diagnostic-only and must not be used as a schema-version compatibility
+     * check or execution precondition. Its presence distinguishes an unknown
+     * version from version zero.
+     * </pre>
+     *
+     * <code>optional uint64 table_version = 2;</code>
+     * @return Whether the tableVersion field is set.
+     */
+    @java.lang.Override
+    public boolean hasTableVersion() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The FE TableInfo version observed when the plan was created. This is
+     * diagnostic-only and must not be used as a schema-version compatibility
+     * check or execution precondition. Its presence distinguishes an unknown
+     * version from version zero.
+     * </pre>
+     *
+     * <code>optional uint64 table_version = 2;</code>
+     * @return The tableVersion.
+     */
+    @java.lang.Override
+    public long getTableVersion() {
+      return tableVersion_;
+    }
+
+    public static final int COLUMNS_FIELD_NUMBER = 3;
+    private java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1> columns_;
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1> getColumnsList() {
+      return columns_;
+    }
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder> 
+        getColumnsOrBuilderList() {
+      return columns_;
+    }
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    @java.lang.Override
+    public int getColumnsCount() {
+      return columns_.size();
+    }
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    @java.lang.Override
+    public substrait_extension.DistPlan.RemoteReadColumnV1 getColumns(int index) {
+      return columns_.get(index);
+    }
+    /**
+     * <pre>
+     * Columns in the planned table schema.
+     * </pre>
+     *
+     * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+     */
+    @java.lang.Override
+    public substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder getColumnsOrBuilder(
+        int index) {
+      return columns_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (tableId_ != 0) {
+        output.writeUInt32(1, tableId_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(2, tableVersion_);
+      }
+      for (int i = 0; i < columns_.size(); i++) {
+        output.writeMessage(3, columns_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (tableId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, tableId_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, tableVersion_);
+      }
+      for (int i = 0; i < columns_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, columns_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.DistPlan.RemoteReadTableV1)) {
+        return super.equals(obj);
+      }
+      substrait_extension.DistPlan.RemoteReadTableV1 other = (substrait_extension.DistPlan.RemoteReadTableV1) obj;
+
+      if (getTableId()
+          != other.getTableId()) return false;
+      if (hasTableVersion() != other.hasTableVersion()) return false;
+      if (hasTableVersion()) {
+        if (getTableVersion()
+            != other.getTableVersion()) return false;
+      }
+      if (!getColumnsList()
+          .equals(other.getColumnsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTableId();
+      if (hasTableVersion()) {
+        hash = (37 * hash) + TABLE_VERSION_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTableVersion());
+      }
+      if (getColumnsCount() > 0) {
+        hash = (37 * hash) + COLUMNS_FIELD_NUMBER;
+        hash = (53 * hash) + getColumnsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadTableV1 parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.DistPlan.RemoteReadTableV1 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Version 1 metadata needed to execute a remote read that Substrait does not
+     * represent. New versions must be introduced as additive messages or fields;
+     * readers must ignore fields they do not recognize.
+     * </pre>
+     *
+     * Protobuf type {@code substrait_extension.RemoteReadTableV1}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.RemoteReadTableV1)
+        substrait_extension.DistPlan.RemoteReadTableV1OrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadTableV1_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadTableV1_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.DistPlan.RemoteReadTableV1.class, substrait_extension.DistPlan.RemoteReadTableV1.Builder.class);
+      }
+
+      // Construct using substrait_extension.DistPlan.RemoteReadTableV1.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getColumnsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        tableId_ = 0;
+
+        tableVersion_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (columnsBuilder_ == null) {
+          columns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          columnsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadTableV1_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadTableV1 getDefaultInstanceForType() {
+        return substrait_extension.DistPlan.RemoteReadTableV1.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadTableV1 build() {
+        substrait_extension.DistPlan.RemoteReadTableV1 result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadTableV1 buildPartial() {
+        substrait_extension.DistPlan.RemoteReadTableV1 result = new substrait_extension.DistPlan.RemoteReadTableV1(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.tableId_ = tableId_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.tableVersion_ = tableVersion_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (columnsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            columns_ = java.util.Collections.unmodifiableList(columns_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.columns_ = columns_;
+        } else {
+          result.columns_ = columnsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.DistPlan.RemoteReadTableV1) {
+          return mergeFrom((substrait_extension.DistPlan.RemoteReadTableV1)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.DistPlan.RemoteReadTableV1 other) {
+        if (other == substrait_extension.DistPlan.RemoteReadTableV1.getDefaultInstance()) return this;
+        if (other.getTableId() != 0) {
+          setTableId(other.getTableId());
+        }
+        if (other.hasTableVersion()) {
+          setTableVersion(other.getTableVersion());
+        }
+        if (columnsBuilder_ == null) {
+          if (!other.columns_.isEmpty()) {
+            if (columns_.isEmpty()) {
+              columns_ = other.columns_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureColumnsIsMutable();
+              columns_.addAll(other.columns_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.columns_.isEmpty()) {
+            if (columnsBuilder_.isEmpty()) {
+              columnsBuilder_.dispose();
+              columnsBuilder_ = null;
+              columns_ = other.columns_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              columnsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getColumnsFieldBuilder() : null;
+            } else {
+              columnsBuilder_.addAllMessages(other.columns_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.DistPlan.RemoteReadTableV1 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.DistPlan.RemoteReadTableV1) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int tableId_ ;
+      /**
+       * <pre>
+       * The stable ID of the table selected when the plan was created.
+       * </pre>
+       *
+       * <code>uint32 table_id = 1;</code>
+       * @return The tableId.
+       */
+      @java.lang.Override
+      public int getTableId() {
+        return tableId_;
+      }
+      /**
+       * <pre>
+       * The stable ID of the table selected when the plan was created.
+       * </pre>
+       *
+       * <code>uint32 table_id = 1;</code>
+       * @param value The tableId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableId(int value) {
+        
+        tableId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The stable ID of the table selected when the plan was created.
+       * </pre>
+       *
+       * <code>uint32 table_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableId() {
+        
+        tableId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long tableVersion_ ;
+      /**
+       * <pre>
+       * The FE TableInfo version observed when the plan was created. This is
+       * diagnostic-only and must not be used as a schema-version compatibility
+       * check or execution precondition. Its presence distinguishes an unknown
+       * version from version zero.
+       * </pre>
+       *
+       * <code>optional uint64 table_version = 2;</code>
+       * @return Whether the tableVersion field is set.
+       */
+      @java.lang.Override
+      public boolean hasTableVersion() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The FE TableInfo version observed when the plan was created. This is
+       * diagnostic-only and must not be used as a schema-version compatibility
+       * check or execution precondition. Its presence distinguishes an unknown
+       * version from version zero.
+       * </pre>
+       *
+       * <code>optional uint64 table_version = 2;</code>
+       * @return The tableVersion.
+       */
+      @java.lang.Override
+      public long getTableVersion() {
+        return tableVersion_;
+      }
+      /**
+       * <pre>
+       * The FE TableInfo version observed when the plan was created. This is
+       * diagnostic-only and must not be used as a schema-version compatibility
+       * check or execution precondition. Its presence distinguishes an unknown
+       * version from version zero.
+       * </pre>
+       *
+       * <code>optional uint64 table_version = 2;</code>
+       * @param value The tableVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableVersion(long value) {
+        bitField0_ |= 0x00000001;
+        tableVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The FE TableInfo version observed when the plan was created. This is
+       * diagnostic-only and must not be used as a schema-version compatibility
+       * check or execution precondition. Its presence distinguishes an unknown
+       * version from version zero.
+       * </pre>
+       *
+       * <code>optional uint64 table_version = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableVersion() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tableVersion_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1> columns_ =
+        java.util.Collections.emptyList();
+      private void ensureColumnsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          columns_ = new java.util.ArrayList<substrait_extension.DistPlan.RemoteReadColumnV1>(columns_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          substrait_extension.DistPlan.RemoteReadColumnV1, substrait_extension.DistPlan.RemoteReadColumnV1.Builder, substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder> columnsBuilder_;
+
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1> getColumnsList() {
+        if (columnsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(columns_);
+        } else {
+          return columnsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public int getColumnsCount() {
+        if (columnsBuilder_ == null) {
+          return columns_.size();
+        } else {
+          return columnsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public substrait_extension.DistPlan.RemoteReadColumnV1 getColumns(int index) {
+        if (columnsBuilder_ == null) {
+          return columns_.get(index);
+        } else {
+          return columnsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder setColumns(
+          int index, substrait_extension.DistPlan.RemoteReadColumnV1 value) {
+        if (columnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnsIsMutable();
+          columns_.set(index, value);
+          onChanged();
+        } else {
+          columnsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder setColumns(
+          int index, substrait_extension.DistPlan.RemoteReadColumnV1.Builder builderForValue) {
+        if (columnsBuilder_ == null) {
+          ensureColumnsIsMutable();
+          columns_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder addColumns(substrait_extension.DistPlan.RemoteReadColumnV1 value) {
+        if (columnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnsIsMutable();
+          columns_.add(value);
+          onChanged();
+        } else {
+          columnsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder addColumns(
+          int index, substrait_extension.DistPlan.RemoteReadColumnV1 value) {
+        if (columnsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureColumnsIsMutable();
+          columns_.add(index, value);
+          onChanged();
+        } else {
+          columnsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder addColumns(
+          substrait_extension.DistPlan.RemoteReadColumnV1.Builder builderForValue) {
+        if (columnsBuilder_ == null) {
+          ensureColumnsIsMutable();
+          columns_.add(builderForValue.build());
+          onChanged();
+        } else {
+          columnsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder addColumns(
+          int index, substrait_extension.DistPlan.RemoteReadColumnV1.Builder builderForValue) {
+        if (columnsBuilder_ == null) {
+          ensureColumnsIsMutable();
+          columns_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          columnsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder addAllColumns(
+          java.lang.Iterable<? extends substrait_extension.DistPlan.RemoteReadColumnV1> values) {
+        if (columnsBuilder_ == null) {
+          ensureColumnsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, columns_);
+          onChanged();
+        } else {
+          columnsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder clearColumns() {
+        if (columnsBuilder_ == null) {
+          columns_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          columnsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public Builder removeColumns(int index) {
+        if (columnsBuilder_ == null) {
+          ensureColumnsIsMutable();
+          columns_.remove(index);
+          onChanged();
+        } else {
+          columnsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public substrait_extension.DistPlan.RemoteReadColumnV1.Builder getColumnsBuilder(
+          int index) {
+        return getColumnsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder getColumnsOrBuilder(
+          int index) {
+        if (columnsBuilder_ == null) {
+          return columns_.get(index);  } else {
+          return columnsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public java.util.List<? extends substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder> 
+           getColumnsOrBuilderList() {
+        if (columnsBuilder_ != null) {
+          return columnsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(columns_);
+        }
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public substrait_extension.DistPlan.RemoteReadColumnV1.Builder addColumnsBuilder() {
+        return getColumnsFieldBuilder().addBuilder(
+            substrait_extension.DistPlan.RemoteReadColumnV1.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public substrait_extension.DistPlan.RemoteReadColumnV1.Builder addColumnsBuilder(
+          int index) {
+        return getColumnsFieldBuilder().addBuilder(
+            index, substrait_extension.DistPlan.RemoteReadColumnV1.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Columns in the planned table schema.
+       * </pre>
+       *
+       * <code>repeated .substrait_extension.RemoteReadColumnV1 columns = 3;</code>
+       */
+      public java.util.List<substrait_extension.DistPlan.RemoteReadColumnV1.Builder> 
+           getColumnsBuilderList() {
+        return getColumnsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          substrait_extension.DistPlan.RemoteReadColumnV1, substrait_extension.DistPlan.RemoteReadColumnV1.Builder, substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder> 
+          getColumnsFieldBuilder() {
+        if (columnsBuilder_ == null) {
+          columnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              substrait_extension.DistPlan.RemoteReadColumnV1, substrait_extension.DistPlan.RemoteReadColumnV1.Builder, substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder>(
+                  columns_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          columns_ = null;
+        }
+        return columnsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.RemoteReadTableV1)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadTableV1)
+    private static final substrait_extension.DistPlan.RemoteReadTableV1 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.DistPlan.RemoteReadTableV1();
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadTableV1 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteReadTableV1>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteReadTableV1>() {
+      @java.lang.Override
+      public RemoteReadTableV1 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteReadTableV1(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteReadTableV1> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteReadTableV1> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.DistPlan.RemoteReadTableV1 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RemoteReadInternalV1OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.RemoteReadInternalV1)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   * Version 1 marker for a remote read that contains only recognized internal
+   * inspection providers and therefore has no production table contract.
+   * </pre>
+   *
+   * Protobuf type {@code substrait_extension.RemoteReadInternalV1}
+   */
+  public static final class RemoteReadInternalV1 extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.RemoteReadInternalV1)
+      RemoteReadInternalV1OrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteReadInternalV1.newBuilder() to construct.
+    private RemoteReadInternalV1(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteReadInternalV1() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteReadInternalV1();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteReadInternalV1(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadInternalV1_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadInternalV1_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.DistPlan.RemoteReadInternalV1.class, substrait_extension.DistPlan.RemoteReadInternalV1.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.DistPlan.RemoteReadInternalV1)) {
+        return super.equals(obj);
+      }
+      substrait_extension.DistPlan.RemoteReadInternalV1 other = (substrait_extension.DistPlan.RemoteReadInternalV1) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.DistPlan.RemoteReadInternalV1 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Version 1 marker for a remote read that contains only recognized internal
+     * inspection providers and therefore has no production table contract.
+     * </pre>
+     *
+     * Protobuf type {@code substrait_extension.RemoteReadInternalV1}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.RemoteReadInternalV1)
+        substrait_extension.DistPlan.RemoteReadInternalV1OrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadInternalV1_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadInternalV1_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.DistPlan.RemoteReadInternalV1.class, substrait_extension.DistPlan.RemoteReadInternalV1.Builder.class);
+      }
+
+      // Construct using substrait_extension.DistPlan.RemoteReadInternalV1.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadInternalV1_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadInternalV1 getDefaultInstanceForType() {
+        return substrait_extension.DistPlan.RemoteReadInternalV1.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadInternalV1 build() {
+        substrait_extension.DistPlan.RemoteReadInternalV1 result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadInternalV1 buildPartial() {
+        substrait_extension.DistPlan.RemoteReadInternalV1 result = new substrait_extension.DistPlan.RemoteReadInternalV1(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.DistPlan.RemoteReadInternalV1) {
+          return mergeFrom((substrait_extension.DistPlan.RemoteReadInternalV1)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.DistPlan.RemoteReadInternalV1 other) {
+        if (other == substrait_extension.DistPlan.RemoteReadInternalV1.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.DistPlan.RemoteReadInternalV1 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.DistPlan.RemoteReadInternalV1) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.RemoteReadInternalV1)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadInternalV1)
+    private static final substrait_extension.DistPlan.RemoteReadInternalV1 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.DistPlan.RemoteReadInternalV1();
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadInternalV1 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteReadInternalV1>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteReadInternalV1>() {
+      @java.lang.Override
+      public RemoteReadInternalV1 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteReadInternalV1(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteReadInternalV1> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteReadInternalV1> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.DistPlan.RemoteReadInternalV1 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RemoteReadColumnV1OrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.RemoteReadColumnV1)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The column name in the planned table schema.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    java.lang.String getName();
+    /**
+     * <pre>
+     * The column name in the planned table schema.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <pre>
+     * The stable ID of the column in the planned table schema.
+     * </pre>
+     *
+     * <code>uint32 column_id = 2;</code>
+     * @return The columnId.
+     */
+    int getColumnId();
+
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return Whether the semanticType field is set.
+     */
+    boolean hasSemanticType();
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return The enum numeric value on the wire for semanticType.
+     */
+    int getSemanticTypeValue();
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return The semanticType.
+     */
+    substrait_extension.DistPlan.RemoteReadSemanticTypeV1 getSemanticType();
+
+    /**
+     * <pre>
+     * Whether this column is the table time-index column.
+     * </pre>
+     *
+     * <code>optional bool is_time_index = 4;</code>
+     * @return Whether the isTimeIndex field is set.
+     */
+    boolean hasIsTimeIndex();
+    /**
+     * <pre>
+     * Whether this column is the table time-index column.
+     * </pre>
+     *
+     * <code>optional bool is_time_index = 4;</code>
+     * @return The isTimeIndex.
+     */
+    boolean getIsTimeIndex();
+
+    /**
+     * <pre>
+     * Zero-based position in the table primary key. Presence distinguishes a
+     * non-key column from the first primary-key column.
+     * </pre>
+     *
+     * <code>optional uint32 primary_key_ordinal = 5;</code>
+     * @return Whether the primaryKeyOrdinal field is set.
+     */
+    boolean hasPrimaryKeyOrdinal();
+    /**
+     * <pre>
+     * Zero-based position in the table primary key. Presence distinguishes a
+     * non-key column from the first primary-key column.
+     * </pre>
+     *
+     * <code>optional uint32 primary_key_ordinal = 5;</code>
+     * @return The primaryKeyOrdinal.
+     */
+    int getPrimaryKeyOrdinal();
+  }
+  /**
+   * Protobuf type {@code substrait_extension.RemoteReadColumnV1}
+   */
+  public static final class RemoteReadColumnV1 extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.RemoteReadColumnV1)
+      RemoteReadColumnV1OrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RemoteReadColumnV1.newBuilder() to construct.
+    private RemoteReadColumnV1(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RemoteReadColumnV1() {
+      name_ = "";
+      semanticType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RemoteReadColumnV1();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RemoteReadColumnV1(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 16: {
+
+              columnId_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              bitField0_ |= 0x00000001;
+              semanticType_ = rawValue;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000002;
+              isTimeIndex_ = input.readBool();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000004;
+              primaryKeyOrdinal_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadColumnV1_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadColumnV1_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.DistPlan.RemoteReadColumnV1.class, substrait_extension.DistPlan.RemoteReadColumnV1.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object name_;
+    /**
+     * <pre>
+     * The column name in the planned table schema.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The name.
+     */
+    @java.lang.Override
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The column name in the planned table schema.
+     * </pre>
+     *
+     * <code>string name = 1;</code>
+     * @return The bytes for name.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COLUMN_ID_FIELD_NUMBER = 2;
+    private int columnId_;
+    /**
+     * <pre>
+     * The stable ID of the column in the planned table schema.
+     * </pre>
+     *
+     * <code>uint32 column_id = 2;</code>
+     * @return The columnId.
+     */
+    @java.lang.Override
+    public int getColumnId() {
+      return columnId_;
+    }
+
+    public static final int SEMANTIC_TYPE_FIELD_NUMBER = 3;
+    private int semanticType_;
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return Whether the semanticType field is set.
+     */
+    @java.lang.Override public boolean hasSemanticType() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return The enum numeric value on the wire for semanticType.
+     */
+    @java.lang.Override public int getSemanticTypeValue() {
+      return semanticType_;
+    }
+    /**
+     * <pre>
+     * The Greptime semantic role of this column.
+     * </pre>
+     *
+     * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+     * @return The semanticType.
+     */
+    @java.lang.Override public substrait_extension.DistPlan.RemoteReadSemanticTypeV1 getSemanticType() {
+      @SuppressWarnings("deprecation")
+      substrait_extension.DistPlan.RemoteReadSemanticTypeV1 result = substrait_extension.DistPlan.RemoteReadSemanticTypeV1.valueOf(semanticType_);
+      return result == null ? substrait_extension.DistPlan.RemoteReadSemanticTypeV1.UNRECOGNIZED : result;
+    }
+
+    public static final int IS_TIME_INDEX_FIELD_NUMBER = 4;
+    private boolean isTimeIndex_;
+    /**
+     * <pre>
+     * Whether this column is the table time-index column.
+     * </pre>
+     *
+     * <code>optional bool is_time_index = 4;</code>
+     * @return Whether the isTimeIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsTimeIndex() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Whether this column is the table time-index column.
+     * </pre>
+     *
+     * <code>optional bool is_time_index = 4;</code>
+     * @return The isTimeIndex.
+     */
+    @java.lang.Override
+    public boolean getIsTimeIndex() {
+      return isTimeIndex_;
+    }
+
+    public static final int PRIMARY_KEY_ORDINAL_FIELD_NUMBER = 5;
+    private int primaryKeyOrdinal_;
+    /**
+     * <pre>
+     * Zero-based position in the table primary key. Presence distinguishes a
+     * non-key column from the first primary-key column.
+     * </pre>
+     *
+     * <code>optional uint32 primary_key_ordinal = 5;</code>
+     * @return Whether the primaryKeyOrdinal field is set.
+     */
+    @java.lang.Override
+    public boolean hasPrimaryKeyOrdinal() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Zero-based position in the table primary key. Presence distinguishes a
+     * non-key column from the first primary-key column.
+     * </pre>
+     *
+     * <code>optional uint32 primary_key_ordinal = 5;</code>
+     * @return The primaryKeyOrdinal.
+     */
+    @java.lang.Override
+    public int getPrimaryKeyOrdinal() {
+      return primaryKeyOrdinal_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+      }
+      if (columnId_ != 0) {
+        output.writeUInt32(2, columnId_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeEnum(3, semanticType_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeBool(4, isTimeIndex_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt32(5, primaryKeyOrdinal_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+      }
+      if (columnId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, columnId_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, semanticType_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, isTimeIndex_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, primaryKeyOrdinal_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.DistPlan.RemoteReadColumnV1)) {
+        return super.equals(obj);
+      }
+      substrait_extension.DistPlan.RemoteReadColumnV1 other = (substrait_extension.DistPlan.RemoteReadColumnV1) obj;
+
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (getColumnId()
+          != other.getColumnId()) return false;
+      if (hasSemanticType() != other.hasSemanticType()) return false;
+      if (hasSemanticType()) {
+        if (semanticType_ != other.semanticType_) return false;
+      }
+      if (hasIsTimeIndex() != other.hasIsTimeIndex()) return false;
+      if (hasIsTimeIndex()) {
+        if (getIsTimeIndex()
+            != other.getIsTimeIndex()) return false;
+      }
+      if (hasPrimaryKeyOrdinal() != other.hasPrimaryKeyOrdinal()) return false;
+      if (hasPrimaryKeyOrdinal()) {
+        if (getPrimaryKeyOrdinal()
+            != other.getPrimaryKeyOrdinal()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + COLUMN_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnId();
+      if (hasSemanticType()) {
+        hash = (37 * hash) + SEMANTIC_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + semanticType_;
+      }
+      if (hasIsTimeIndex()) {
+        hash = (37 * hash) + IS_TIME_INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsTimeIndex());
+      }
+      if (hasPrimaryKeyOrdinal()) {
+        hash = (37 * hash) + PRIMARY_KEY_ORDINAL_FIELD_NUMBER;
+        hash = (53 * hash) + getPrimaryKeyOrdinal();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.DistPlan.RemoteReadColumnV1 prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code substrait_extension.RemoteReadColumnV1}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.RemoteReadColumnV1)
+        substrait_extension.DistPlan.RemoteReadColumnV1OrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadColumnV1_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadColumnV1_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.DistPlan.RemoteReadColumnV1.class, substrait_extension.DistPlan.RemoteReadColumnV1.Builder.class);
+      }
+
+      // Construct using substrait_extension.DistPlan.RemoteReadColumnV1.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+
+        columnId_ = 0;
+
+        semanticType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        isTimeIndex_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        primaryKeyOrdinal_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RemoteReadColumnV1_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadColumnV1 getDefaultInstanceForType() {
+        return substrait_extension.DistPlan.RemoteReadColumnV1.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadColumnV1 build() {
+        substrait_extension.DistPlan.RemoteReadColumnV1 result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadColumnV1 buildPartial() {
+        substrait_extension.DistPlan.RemoteReadColumnV1 result = new substrait_extension.DistPlan.RemoteReadColumnV1(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.name_ = name_;
+        result.columnId_ = columnId_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.semanticType_ = semanticType_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.isTimeIndex_ = isTimeIndex_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.primaryKeyOrdinal_ = primaryKeyOrdinal_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.DistPlan.RemoteReadColumnV1) {
+          return mergeFrom((substrait_extension.DistPlan.RemoteReadColumnV1)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.DistPlan.RemoteReadColumnV1 other) {
+        if (other == substrait_extension.DistPlan.RemoteReadColumnV1.getDefaultInstance()) return this;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.getColumnId() != 0) {
+          setColumnId(other.getColumnId());
+        }
+        if (other.hasSemanticType()) {
+          setSemanticType(other.getSemanticType());
+        }
+        if (other.hasIsTimeIndex()) {
+          setIsTimeIndex(other.getIsTimeIndex());
+        }
+        if (other.hasPrimaryKeyOrdinal()) {
+          setPrimaryKeyOrdinal(other.getPrimaryKeyOrdinal());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.DistPlan.RemoteReadColumnV1 parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.DistPlan.RemoteReadColumnV1) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <pre>
+       * The column name in the planned table schema.
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The name.
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The column name in the planned table schema.
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return The bytes for name.
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The column name in the planned table schema.
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The column name in the planned table schema.
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The column name in the planned table schema.
+       * </pre>
+       *
+       * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int columnId_ ;
+      /**
+       * <pre>
+       * The stable ID of the column in the planned table schema.
+       * </pre>
+       *
+       * <code>uint32 column_id = 2;</code>
+       * @return The columnId.
+       */
+      @java.lang.Override
+      public int getColumnId() {
+        return columnId_;
+      }
+      /**
+       * <pre>
+       * The stable ID of the column in the planned table schema.
+       * </pre>
+       *
+       * <code>uint32 column_id = 2;</code>
+       * @param value The columnId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnId(int value) {
+        
+        columnId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The stable ID of the column in the planned table schema.
+       * </pre>
+       *
+       * <code>uint32 column_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumnId() {
+        
+        columnId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int semanticType_ = 0;
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @return Whether the semanticType field is set.
+       */
+      @java.lang.Override public boolean hasSemanticType() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @return The enum numeric value on the wire for semanticType.
+       */
+      @java.lang.Override public int getSemanticTypeValue() {
+        return semanticType_;
+      }
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @param value The enum numeric value on the wire for semanticType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSemanticTypeValue(int value) {
+        bitField0_ |= 0x00000001;
+        semanticType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @return The semanticType.
+       */
+      @java.lang.Override
+      public substrait_extension.DistPlan.RemoteReadSemanticTypeV1 getSemanticType() {
+        @SuppressWarnings("deprecation")
+        substrait_extension.DistPlan.RemoteReadSemanticTypeV1 result = substrait_extension.DistPlan.RemoteReadSemanticTypeV1.valueOf(semanticType_);
+        return result == null ? substrait_extension.DistPlan.RemoteReadSemanticTypeV1.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @param value The semanticType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSemanticType(substrait_extension.DistPlan.RemoteReadSemanticTypeV1 value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        semanticType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The Greptime semantic role of this column.
+       * </pre>
+       *
+       * <code>optional .substrait_extension.RemoteReadSemanticTypeV1 semantic_type = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSemanticType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        semanticType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean isTimeIndex_ ;
+      /**
+       * <pre>
+       * Whether this column is the table time-index column.
+       * </pre>
+       *
+       * <code>optional bool is_time_index = 4;</code>
+       * @return Whether the isTimeIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasIsTimeIndex() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Whether this column is the table time-index column.
+       * </pre>
+       *
+       * <code>optional bool is_time_index = 4;</code>
+       * @return The isTimeIndex.
+       */
+      @java.lang.Override
+      public boolean getIsTimeIndex() {
+        return isTimeIndex_;
+      }
+      /**
+       * <pre>
+       * Whether this column is the table time-index column.
+       * </pre>
+       *
+       * <code>optional bool is_time_index = 4;</code>
+       * @param value The isTimeIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsTimeIndex(boolean value) {
+        bitField0_ |= 0x00000002;
+        isTimeIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether this column is the table time-index column.
+       * </pre>
+       *
+       * <code>optional bool is_time_index = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsTimeIndex() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        isTimeIndex_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int primaryKeyOrdinal_ ;
+      /**
+       * <pre>
+       * Zero-based position in the table primary key. Presence distinguishes a
+       * non-key column from the first primary-key column.
+       * </pre>
+       *
+       * <code>optional uint32 primary_key_ordinal = 5;</code>
+       * @return Whether the primaryKeyOrdinal field is set.
+       */
+      @java.lang.Override
+      public boolean hasPrimaryKeyOrdinal() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * Zero-based position in the table primary key. Presence distinguishes a
+       * non-key column from the first primary-key column.
+       * </pre>
+       *
+       * <code>optional uint32 primary_key_ordinal = 5;</code>
+       * @return The primaryKeyOrdinal.
+       */
+      @java.lang.Override
+      public int getPrimaryKeyOrdinal() {
+        return primaryKeyOrdinal_;
+      }
+      /**
+       * <pre>
+       * Zero-based position in the table primary key. Presence distinguishes a
+       * non-key column from the first primary-key column.
+       * </pre>
+       *
+       * <code>optional uint32 primary_key_ordinal = 5;</code>
+       * @param value The primaryKeyOrdinal to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPrimaryKeyOrdinal(int value) {
+        bitField0_ |= 0x00000004;
+        primaryKeyOrdinal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Zero-based position in the table primary key. Presence distinguishes a
+       * non-key column from the first primary-key column.
+       * </pre>
+       *
+       * <code>optional uint32 primary_key_ordinal = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPrimaryKeyOrdinal() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        primaryKeyOrdinal_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.RemoteReadColumnV1)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.RemoteReadColumnV1)
+    private static final substrait_extension.DistPlan.RemoteReadColumnV1 DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.DistPlan.RemoteReadColumnV1();
+    }
+
+    public static substrait_extension.DistPlan.RemoteReadColumnV1 getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RemoteReadColumnV1>
+        PARSER = new com.google.protobuf.AbstractParser<RemoteReadColumnV1>() {
+      @java.lang.Override
+      public RemoteReadColumnV1 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RemoteReadColumnV1(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RemoteReadColumnV1> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RemoteReadColumnV1> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.DistPlan.RemoteReadColumnV1 getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_MergeScan_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_MergeScan_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_RemoteReadTableV1_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_RemoteReadTableV1_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_RemoteReadInternalV1_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_RemoteReadInternalV1_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_RemoteReadColumnV1_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_RemoteReadColumnV1_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -635,9 +3534,24 @@ public final class DistPlan {
     java.lang.String[] descriptorData = {
       "\n#substrait_extension/dist_plan.proto\022\023s" +
       "ubstrait_extension\"2\n\tMergeScan\022\r\n\005input" +
-      "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010B?Z=github" +
-      ".com/GreptimeTeam/greptime-proto/go/subs" +
-      "trait_extensionb\006proto3"
+      "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010\"\215\001\n\021Remot" +
+      "eReadTableV1\022\020\n\010table_id\030\001 \001(\r\022\032\n\rtable_" +
+      "version\030\002 \001(\004H\000\210\001\001\0228\n\007columns\030\003 \003(\0132\'.su" +
+      "bstrait_extension.RemoteReadColumnV1B\020\n\016" +
+      "_table_version\"\026\n\024RemoteReadInternalV1\"\372" +
+      "\001\n\022RemoteReadColumnV1\022\014\n\004name\030\001 \001(\t\022\021\n\tc" +
+      "olumn_id\030\002 \001(\r\022I\n\rsemantic_type\030\003 \001(\0162-." +
+      "substrait_extension.RemoteReadSemanticTy" +
+      "peV1H\000\210\001\001\022\032\n\ris_time_index\030\004 \001(\010H\001\210\001\001\022 \n" +
+      "\023primary_key_ordinal\030\005 \001(\rH\002\210\001\001B\020\n\016_sema" +
+      "ntic_typeB\020\n\016_is_time_indexB\026\n\024_primary_" +
+      "key_ordinal*\266\001\n\030RemoteReadSemanticTypeV1" +
+      "\022)\n%REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIE" +
+      "D\020\000\022!\n\035REMOTE_READ_SEMANTIC_TYPE_TAG\020\001\022#" +
+      "\n\037REMOTE_READ_SEMANTIC_TYPE_FIELD\020\002\022\'\n#R" +
+      "EMOTE_READ_SEMANTIC_TYPE_TIMESTAMP\020\003B?Z=" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -649,6 +3563,24 @@ public final class DistPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_MergeScan_descriptor,
         new java.lang.String[] { "Input", "IsPlaceholder", });
+    internal_static_substrait_extension_RemoteReadTableV1_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_substrait_extension_RemoteReadTableV1_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_RemoteReadTableV1_descriptor,
+        new java.lang.String[] { "TableId", "TableVersion", "Columns", "TableVersion", });
+    internal_static_substrait_extension_RemoteReadInternalV1_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_substrait_extension_RemoteReadInternalV1_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_RemoteReadInternalV1_descriptor,
+        new java.lang.String[] { });
+    internal_static_substrait_extension_RemoteReadColumnV1_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_substrait_extension_RemoteReadColumnV1_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_RemoteReadColumnV1_descriptor,
+        new java.lang.String[] { "Name", "ColumnId", "SemanticType", "IsTimeIndex", "PrimaryKeyOrdinal", "SemanticType", "IsTimeIndex", "PrimaryKeyOrdinal", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
