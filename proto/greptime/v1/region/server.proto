@@ -240,6 +240,13 @@ message StrictWindow {
   int64 window_seconds = 1;
 }
 
+// Half-open time range [start, end) used to constrain compaction windows.
+message CompactionTimeRange {
+  int64 start = 1;
+  int64 end = 2;
+  greptime.v1.TimeUnit time_unit = 3;
+}
+
 message CompactRequest {
   uint64 region_id = 1;
   oneof options {
@@ -247,6 +254,7 @@ message CompactRequest {
     StrictWindow strict_window = 3;
   }
   uint32 parallelism = 4;
+  CompactionTimeRange time_range = 5;
 }
 
 message TruncateRequest {

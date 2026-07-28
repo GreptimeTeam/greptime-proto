@@ -347,12 +347,24 @@ pub struct StrictWindow {
     #[prost(int64, tag = "1")]
     pub window_seconds: i64,
 }
+/// Half-open time range \[start, end) used to constrain compaction windows.
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct CompactionTimeRange {
+    #[prost(int64, tag = "1")]
+    pub start: i64,
+    #[prost(int64, tag = "2")]
+    pub end: i64,
+    #[prost(enumeration = "super::TimeUnit", tag = "3")]
+    pub time_unit: i32,
+}
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct CompactRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
     #[prost(uint32, tag = "4")]
     pub parallelism: u32,
+    #[prost(message, optional, tag = "5")]
+    pub time_range: ::core::option::Option<CompactionTimeRange>,
     #[prost(oneof = "compact_request::Options", tags = "2, 3")]
     pub options: ::core::option::Option<compact_request::Options>,
 }
