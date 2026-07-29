@@ -29999,6 +29999,683 @@ java.lang.String defaultValue);
 
   }
 
+  public interface CompactionTimeRangeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.CompactionTimeRange)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    long getStart();
+
+    /**
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    long getEnd();
+
+    /**
+     * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+     * @return The enum numeric value on the wire for timeUnit.
+     */
+    int getTimeUnitValue();
+    /**
+     * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+     * @return The timeUnit.
+     */
+    io.greptime.v1.Common.TimeUnit getTimeUnit();
+  }
+  /**
+   * <pre>
+   * Half-open time range [start, end) used to constrain compaction windows.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.CompactionTimeRange}
+   */
+  public static final class CompactionTimeRange extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.CompactionTimeRange)
+      CompactionTimeRangeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CompactionTimeRange.newBuilder() to construct.
+    private CompactionTimeRange(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CompactionTimeRange() {
+      timeUnit_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CompactionTimeRange();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CompactionTimeRange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              start_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              end_ = input.readInt64();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              timeUnit_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_CompactionTimeRange_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_CompactionTimeRange_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.CompactionTimeRange.class, io.greptime.v1.region.Server.CompactionTimeRange.Builder.class);
+    }
+
+    public static final int START_FIELD_NUMBER = 1;
+    private long start_;
+    /**
+     * <code>int64 start = 1;</code>
+     * @return The start.
+     */
+    @java.lang.Override
+    public long getStart() {
+      return start_;
+    }
+
+    public static final int END_FIELD_NUMBER = 2;
+    private long end_;
+    /**
+     * <code>int64 end = 2;</code>
+     * @return The end.
+     */
+    @java.lang.Override
+    public long getEnd() {
+      return end_;
+    }
+
+    public static final int TIME_UNIT_FIELD_NUMBER = 3;
+    private int timeUnit_;
+    /**
+     * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+     * @return The enum numeric value on the wire for timeUnit.
+     */
+    @java.lang.Override public int getTimeUnitValue() {
+      return timeUnit_;
+    }
+    /**
+     * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+     * @return The timeUnit.
+     */
+    @java.lang.Override public io.greptime.v1.Common.TimeUnit getTimeUnit() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Common.TimeUnit result = io.greptime.v1.Common.TimeUnit.valueOf(timeUnit_);
+      return result == null ? io.greptime.v1.Common.TimeUnit.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (start_ != 0L) {
+        output.writeInt64(1, start_);
+      }
+      if (end_ != 0L) {
+        output.writeInt64(2, end_);
+      }
+      if (timeUnit_ != io.greptime.v1.Common.TimeUnit.MILLISECOND.getNumber()) {
+        output.writeEnum(3, timeUnit_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (start_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, start_);
+      }
+      if (end_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, end_);
+      }
+      if (timeUnit_ != io.greptime.v1.Common.TimeUnit.MILLISECOND.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, timeUnit_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.CompactionTimeRange)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.CompactionTimeRange other = (io.greptime.v1.region.Server.CompactionTimeRange) obj;
+
+      if (getStart()
+          != other.getStart()) return false;
+      if (getEnd()
+          != other.getEnd()) return false;
+      if (timeUnit_ != other.timeUnit_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + START_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStart());
+      hash = (37 * hash) + END_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEnd());
+      hash = (37 * hash) + TIME_UNIT_FIELD_NUMBER;
+      hash = (53 * hash) + timeUnit_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.CompactionTimeRange parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.CompactionTimeRange prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Half-open time range [start, end) used to constrain compaction windows.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.CompactionTimeRange}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.CompactionTimeRange)
+        io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_CompactionTimeRange_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_CompactionTimeRange_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.CompactionTimeRange.class, io.greptime.v1.region.Server.CompactionTimeRange.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.CompactionTimeRange.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        start_ = 0L;
+
+        end_ = 0L;
+
+        timeUnit_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_CompactionTimeRange_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.CompactionTimeRange getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.CompactionTimeRange.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.CompactionTimeRange build() {
+        io.greptime.v1.region.Server.CompactionTimeRange result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.CompactionTimeRange buildPartial() {
+        io.greptime.v1.region.Server.CompactionTimeRange result = new io.greptime.v1.region.Server.CompactionTimeRange(this);
+        result.start_ = start_;
+        result.end_ = end_;
+        result.timeUnit_ = timeUnit_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.CompactionTimeRange) {
+          return mergeFrom((io.greptime.v1.region.Server.CompactionTimeRange)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.CompactionTimeRange other) {
+        if (other == io.greptime.v1.region.Server.CompactionTimeRange.getDefaultInstance()) return this;
+        if (other.getStart() != 0L) {
+          setStart(other.getStart());
+        }
+        if (other.getEnd() != 0L) {
+          setEnd(other.getEnd());
+        }
+        if (other.timeUnit_ != 0) {
+          setTimeUnitValue(other.getTimeUnitValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.CompactionTimeRange parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.CompactionTimeRange) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long start_ ;
+      /**
+       * <code>int64 start = 1;</code>
+       * @return The start.
+       */
+      @java.lang.Override
+      public long getStart() {
+        return start_;
+      }
+      /**
+       * <code>int64 start = 1;</code>
+       * @param value The start to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStart(long value) {
+        
+        start_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 start = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStart() {
+        
+        start_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long end_ ;
+      /**
+       * <code>int64 end = 2;</code>
+       * @return The end.
+       */
+      @java.lang.Override
+      public long getEnd() {
+        return end_;
+      }
+      /**
+       * <code>int64 end = 2;</code>
+       * @param value The end to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnd(long value) {
+        
+        end_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 end = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnd() {
+        
+        end_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int timeUnit_ = 0;
+      /**
+       * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+       * @return The enum numeric value on the wire for timeUnit.
+       */
+      @java.lang.Override public int getTimeUnitValue() {
+        return timeUnit_;
+      }
+      /**
+       * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+       * @param value The enum numeric value on the wire for timeUnit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeUnitValue(int value) {
+        
+        timeUnit_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+       * @return The timeUnit.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Common.TimeUnit getTimeUnit() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Common.TimeUnit result = io.greptime.v1.Common.TimeUnit.valueOf(timeUnit_);
+        return result == null ? io.greptime.v1.Common.TimeUnit.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+       * @param value The timeUnit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimeUnit(io.greptime.v1.Common.TimeUnit value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        timeUnit_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.TimeUnit time_unit = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimeUnit() {
+        
+        timeUnit_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.CompactionTimeRange)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.CompactionTimeRange)
+    private static final io.greptime.v1.region.Server.CompactionTimeRange DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.CompactionTimeRange();
+    }
+
+    public static io.greptime.v1.region.Server.CompactionTimeRange getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CompactionTimeRange>
+        PARSER = new com.google.protobuf.AbstractParser<CompactionTimeRange>() {
+      @java.lang.Override
+      public CompactionTimeRange parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CompactionTimeRange(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CompactionTimeRange> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CompactionTimeRange> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.CompactionTimeRange getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface CompactRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.region.CompactRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -30044,6 +30721,21 @@ java.lang.String defaultValue);
      * @return The parallelism.
      */
     int getParallelism();
+
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     * @return Whether the timeRange field is set.
+     */
+    boolean hasTimeRange();
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     * @return The timeRange.
+     */
+    io.greptime.v1.region.Server.CompactionTimeRange getTimeRange();
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     */
+    io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder getTimeRangeOrBuilder();
 
     public io.greptime.v1.region.Server.CompactRequest.OptionsCase getOptionsCase();
   }
@@ -30128,6 +30820,19 @@ java.lang.String defaultValue);
             case 32: {
 
               parallelism_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              io.greptime.v1.region.Server.CompactionTimeRange.Builder subBuilder = null;
+              if (timeRange_ != null) {
+                subBuilder = timeRange_.toBuilder();
+              }
+              timeRange_ = input.readMessage(io.greptime.v1.region.Server.CompactionTimeRange.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeRange_);
+                timeRange_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -30289,6 +30994,32 @@ java.lang.String defaultValue);
       return parallelism_;
     }
 
+    public static final int TIME_RANGE_FIELD_NUMBER = 5;
+    private io.greptime.v1.region.Server.CompactionTimeRange timeRange_;
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     * @return Whether the timeRange field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimeRange() {
+      return timeRange_ != null;
+    }
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     * @return The timeRange.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.CompactionTimeRange getTimeRange() {
+      return timeRange_ == null ? io.greptime.v1.region.Server.CompactionTimeRange.getDefaultInstance() : timeRange_;
+    }
+    /**
+     * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder getTimeRangeOrBuilder() {
+      return getTimeRange();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -30315,6 +31046,9 @@ java.lang.String defaultValue);
       if (parallelism_ != 0) {
         output.writeUInt32(4, parallelism_);
       }
+      if (timeRange_ != null) {
+        output.writeMessage(5, getTimeRange());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -30340,6 +31074,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, parallelism_);
       }
+      if (timeRange_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getTimeRange());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -30359,6 +31097,11 @@ java.lang.String defaultValue);
           != other.getRegionId()) return false;
       if (getParallelism()
           != other.getParallelism()) return false;
+      if (hasTimeRange() != other.hasTimeRange()) return false;
+      if (hasTimeRange()) {
+        if (!getTimeRange()
+            .equals(other.getTimeRange())) return false;
+      }
       if (!getOptionsCase().equals(other.getOptionsCase())) return false;
       switch (optionsCase_) {
         case 2:
@@ -30388,6 +31131,10 @@ java.lang.String defaultValue);
           getRegionId());
       hash = (37 * hash) + PARALLELISM_FIELD_NUMBER;
       hash = (53 * hash) + getParallelism();
+      if (hasTimeRange()) {
+        hash = (37 * hash) + TIME_RANGE_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeRange().hashCode();
+      }
       switch (optionsCase_) {
         case 2:
           hash = (37 * hash) + REGULAR_FIELD_NUMBER;
@@ -30537,6 +31284,12 @@ java.lang.String defaultValue);
 
         parallelism_ = 0;
 
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = null;
+        } else {
+          timeRange_ = null;
+          timeRangeBuilder_ = null;
+        }
         optionsCase_ = 0;
         options_ = null;
         return this;
@@ -30581,6 +31334,11 @@ java.lang.String defaultValue);
           }
         }
         result.parallelism_ = parallelism_;
+        if (timeRangeBuilder_ == null) {
+          result.timeRange_ = timeRange_;
+        } else {
+          result.timeRange_ = timeRangeBuilder_.build();
+        }
         result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
@@ -30635,6 +31393,9 @@ java.lang.String defaultValue);
         }
         if (other.getParallelism() != 0) {
           setParallelism(other.getParallelism());
+        }
+        if (other.hasTimeRange()) {
+          mergeTimeRange(other.getTimeRange());
         }
         switch (other.getOptionsCase()) {
           case REGULAR: {
@@ -31037,6 +31798,125 @@ java.lang.String defaultValue);
         parallelism_ = 0;
         onChanged();
         return this;
+      }
+
+      private io.greptime.v1.region.Server.CompactionTimeRange timeRange_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.CompactionTimeRange, io.greptime.v1.region.Server.CompactionTimeRange.Builder, io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder> timeRangeBuilder_;
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       * @return Whether the timeRange field is set.
+       */
+      public boolean hasTimeRange() {
+        return timeRangeBuilder_ != null || timeRange_ != null;
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       * @return The timeRange.
+       */
+      public io.greptime.v1.region.Server.CompactionTimeRange getTimeRange() {
+        if (timeRangeBuilder_ == null) {
+          return timeRange_ == null ? io.greptime.v1.region.Server.CompactionTimeRange.getDefaultInstance() : timeRange_;
+        } else {
+          return timeRangeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public Builder setTimeRange(io.greptime.v1.region.Server.CompactionTimeRange value) {
+        if (timeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timeRange_ = value;
+          onChanged();
+        } else {
+          timeRangeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public Builder setTimeRange(
+          io.greptime.v1.region.Server.CompactionTimeRange.Builder builderForValue) {
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeRangeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public Builder mergeTimeRange(io.greptime.v1.region.Server.CompactionTimeRange value) {
+        if (timeRangeBuilder_ == null) {
+          if (timeRange_ != null) {
+            timeRange_ =
+              io.greptime.v1.region.Server.CompactionTimeRange.newBuilder(timeRange_).mergeFrom(value).buildPartial();
+          } else {
+            timeRange_ = value;
+          }
+          onChanged();
+        } else {
+          timeRangeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public Builder clearTimeRange() {
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = null;
+          onChanged();
+        } else {
+          timeRange_ = null;
+          timeRangeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public io.greptime.v1.region.Server.CompactionTimeRange.Builder getTimeRangeBuilder() {
+        
+        onChanged();
+        return getTimeRangeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      public io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder getTimeRangeOrBuilder() {
+        if (timeRangeBuilder_ != null) {
+          return timeRangeBuilder_.getMessageOrBuilder();
+        } else {
+          return timeRange_ == null ?
+              io.greptime.v1.region.Server.CompactionTimeRange.getDefaultInstance() : timeRange_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.CompactionTimeRange time_range = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.CompactionTimeRange, io.greptime.v1.region.Server.CompactionTimeRange.Builder, io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder> 
+          getTimeRangeFieldBuilder() {
+        if (timeRangeBuilder_ == null) {
+          timeRangeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.CompactionTimeRange, io.greptime.v1.region.Server.CompactionTimeRange.Builder, io.greptime.v1.region.Server.CompactionTimeRangeOrBuilder>(
+                  getTimeRange(),
+                  getParentForChildren(),
+                  isClean());
+          timeRange_ = null;
+        }
+        return timeRangeBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -42259,6 +43139,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_StrictWindow_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_CompactionTimeRange_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_CompactionTimeRange_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_CompactRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -42463,51 +43348,55 @@ java.lang.String defaultValue);
       "eptime.v1.AddColumnLocation\"\032\n\nDropColum" +
       "n\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregio" +
       "n_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n" +
-      "\016window_seconds\030\001 \001(\003\"\256\001\n\016CompactRequest" +
-      "\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.g" +
-      "reptime.v1.region.RegularH\000\0229\n\rstrict_wi" +
-      "ndow\030\003 \001(\0132 .greptime.v1.region.StrictWi" +
-      "ndowH\000\022\023\n\013parallelism\030\004 \001(\rB\t\n\007options\"\204" +
-      "\001\n\017TruncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n" +
-      "\003all\030\002 \001(\0132\027.greptime.v1.region.AllH\000\022.\n" +
-      "\013time_ranges\030\003 \001(\0132\027.greptime.v1.TimeRan" +
-      "gesH\000B\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022" +
-      "*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Column" +
-      "Def\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001" +
-      "(\0132\025.greptime.v1.ArrowIpcH\000\022A\n\026partition" +
-      "_expr_version\030\003 \001(\0132!.greptime.v1.Partit" +
-      "ionExprVersion\022H\n\026aligned_schema_version" +
-      "\030\004 \001(\0132(.greptime.v1.region.AlignedSchem" +
-      "aVersionB\006\n\004body\".\n\024AlignedSchemaVersion" +
-      "\022\026\n\016schema_version\030\001 \001(\004\"1\n\020MitoManifest" +
-      "Info\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022M" +
-      "etricManifestInfo\022\035\n\025data_manifest_versi" +
-      "on\030\001 \001(\004\022!\n\031metadata_manifest_version\030\002 " +
-      "\001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B" +
-      "\n\022mito_manifest_info\030\002 \001(\0132$.greptime.v1" +
-      ".region.MitoManifestInfoH\000\022F\n\024metric_man" +
-      "ifest_info\030\003 \001(\0132&.greptime.v1.region.Me" +
-      "tricManifestInfoH\000B\017\n\rmanifest_info\")\n\023L" +
-      "istMetadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&" +
-      "\n\021BuildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031" +
-      "\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagin" +
-      "gManifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016p" +
-      "artition_expr\030\002 \001(\t\022\031\n\021central_region_id" +
-      "\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026Remote" +
-      "DynFilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006up" +
-      "date\030\002 \001(\0132).greptime.v1.region.RemoteDy" +
-      "nFilterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.gr" +
-      "eptime.v1.region.RemoteDynFilterUnregist" +
-      "erH\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022" +
-      "\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ng" +
-      "eneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031" +
-      "RemoteDynFilterUnregister\022\021\n\tfilter_id\030\001" +
-      " \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.r" +
-      "egion.RegionRequest\032\".greptime.v1.region" +
-      ".RegionResponseB]\n\025io.greptime.v1.region" +
-      "B\006ServerZ<github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1/regionb\006proto3"
+      "\016window_seconds\030\001 \001(\003\"[\n\023CompactionTimeR" +
+      "ange\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime" +
+      "_unit\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\353\001\n\016C" +
+      "ompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regu" +
+      "lar\030\002 \001(\0132\033.greptime.v1.region.RegularH\000" +
+      "\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v1.re" +
+      "gion.StrictWindowH\000\022\023\n\013parallelism\030\004 \001(\r" +
+      "\022;\n\ntime_range\030\005 \001(\0132\'.greptime.v1.regio" +
+      "n.CompactionTimeRangeB\t\n\007options\"\204\001\n\017Tru" +
+      "ncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002" +
+      " \001(\0132\027.greptime.v1.region.AllH\000\022.\n\013time_" +
+      "ranges\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000B" +
+      "\006\n\004kind\"\005\n\003All\"P\n\017RegionColumnDef\022*\n\ncol" +
+      "umn_def\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n" +
+      "\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertRequest\022\021" +
+      "\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.g" +
+      "reptime.v1.ArrowIpcH\000\022A\n\026partition_expr_" +
+      "version\030\003 \001(\0132!.greptime.v1.PartitionExp" +
+      "rVersion\022H\n\026aligned_schema_version\030\004 \001(\013" +
+      "2(.greptime.v1.region.AlignedSchemaVersi" +
+      "onB\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016sc" +
+      "hema_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022\035" +
+      "\n\025data_manifest_version\030\001 \001(\004\"V\n\022MetricM" +
+      "anifestInfo\022\035\n\025data_manifest_version\030\001 \001" +
+      "(\004\022!\n\031metadata_manifest_version\030\002 \001(\004\"\275\001" +
+      "\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito" +
+      "_manifest_info\030\002 \001(\0132$.greptime.v1.regio" +
+      "n.MitoManifestInfoH\000\022F\n\024metric_manifest_" +
+      "info\030\003 \001(\0132&.greptime.v1.region.MetricMa" +
+      "nifestInfoH\000B\017\n\rmanifest_info\")\n\023ListMet" +
+      "adataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021Buil" +
+      "dIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFile" +
+      "Metas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManif" +
+      "estRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partiti" +
+      "on_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004" +
+      "\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFil" +
+      "terRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002" +
+      " \001(\0132).greptime.v1.region.RemoteDynFilte" +
+      "rUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.greptime" +
+      ".v1.region.RemoteDynFilterUnregisterH\000B\010" +
+      "\n\006action\"d\n\025RemoteDynFilterUpdate\022\021\n\tfil" +
+      "ter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngenerat" +
+      "ion\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031Remote" +
+      "DynFilterUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y" +
+      "\n\006Region\022O\n\006Handle\022!.greptime.v1.region." +
+      "RegionRequest\032\".greptime.v1.region.Regio" +
+      "nResponseB]\n\025io.greptime.v1.regionB\006Serv" +
+      "erZ<github.com/GreptimeTeam/greptime-pro" +
+      "to/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -42703,98 +43592,104 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_StrictWindow_descriptor,
         new java.lang.String[] { "WindowSeconds", });
-    internal_static_greptime_v1_region_CompactRequest_descriptor =
+    internal_static_greptime_v1_region_CompactionTimeRange_descriptor =
       getDescriptor().getMessageTypes().get(26);
+    internal_static_greptime_v1_region_CompactionTimeRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_CompactionTimeRange_descriptor,
+        new java.lang.String[] { "Start", "End", "TimeUnit", });
+    internal_static_greptime_v1_region_CompactRequest_descriptor =
+      getDescriptor().getMessageTypes().get(27);
     internal_static_greptime_v1_region_CompactRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_CompactRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Parallelism", "Options", });
+        new java.lang.String[] { "RegionId", "Regular", "StrictWindow", "Parallelism", "TimeRange", "Options", });
     internal_static_greptime_v1_region_TruncateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_TruncateRequest_descriptor,
         new java.lang.String[] { "RegionId", "All", "TimeRanges", "Kind", });
     internal_static_greptime_v1_region_All_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_greptime_v1_region_All_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_All_descriptor,
         new java.lang.String[] { });
     internal_static_greptime_v1_region_RegionColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionColumnDef_descriptor,
         new java.lang.String[] { "ColumnDef", "ColumnId", });
     internal_static_greptime_v1_region_BulkInsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "Body", });
     internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor,
         new java.lang.String[] { "SchemaVersion", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MitoManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", });
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MetricManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", "MetadataManifestVersion", });
     internal_static_greptime_v1_region_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SyncRequest_descriptor,
         new java.lang.String[] { "RegionId", "MitoManifestInfo", "MetricManifestInfo", "ManifestInfo", });
     internal_static_greptime_v1_region_ListMetadataRequest_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ListMetadataRequest_descriptor,
         new java.lang.String[] { "RegionIds", });
     internal_static_greptime_v1_region_BuildIndexRequest_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
         new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_region_FileMetas_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_region_FileMetas_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_FileMetas_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
         new java.lang.String[] { "RegionId", "PartitionExpr", "CentralRegionId", "ManifestPath", });
     internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor,
         new java.lang.String[] { "QueryId", "Update", "Unregister", "Action", });
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor,
         new java.lang.String[] { "FilterId", "Payload", "Generation", "IsComplete", });
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor,
