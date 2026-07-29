@@ -94,6 +94,9 @@ extern CloseRequestDefaultTypeInternal _CloseRequest_default_instance_;
 class CompactRequest;
 struct CompactRequestDefaultTypeInternal;
 extern CompactRequestDefaultTypeInternal _CompactRequest_default_instance_;
+class CompactionTimeRange;
+struct CompactionTimeRangeDefaultTypeInternal;
+extern CompactionTimeRangeDefaultTypeInternal _CompactionTimeRange_default_instance_;
 class CreateRequest;
 struct CreateRequestDefaultTypeInternal;
 extern CreateRequestDefaultTypeInternal _CreateRequest_default_instance_;
@@ -213,6 +216,7 @@ template<> ::greptime::v1::region::CleanUpRequest* Arena::CreateMaybeMessage<::g
 template<> ::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
 template<> ::greptime::v1::region::CompactRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CompactRequest>(Arena*);
+template<> ::greptime::v1::region::CompactionTimeRange* Arena::CreateMaybeMessage<::greptime::v1::region::CompactionTimeRange>(Arena*);
 template<> ::greptime::v1::region::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequest>(Arena*);
 template<> ::greptime::v1::region::CreateRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequest_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::CreateRequests* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequests>(Arena*);
@@ -5613,6 +5617,176 @@ class StrictWindow final :
 };
 // -------------------------------------------------------------------
 
+class CompactionTimeRange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CompactionTimeRange) */ {
+ public:
+  inline CompactionTimeRange() : CompactionTimeRange(nullptr) {}
+  ~CompactionTimeRange() override;
+  explicit PROTOBUF_CONSTEXPR CompactionTimeRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CompactionTimeRange(const CompactionTimeRange& from);
+  CompactionTimeRange(CompactionTimeRange&& from) noexcept
+    : CompactionTimeRange() {
+    *this = ::std::move(from);
+  }
+
+  inline CompactionTimeRange& operator=(const CompactionTimeRange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CompactionTimeRange& operator=(CompactionTimeRange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CompactionTimeRange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CompactionTimeRange* internal_default_instance() {
+    return reinterpret_cast<const CompactionTimeRange*>(
+               &_CompactionTimeRange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    31;
+
+  friend void swap(CompactionTimeRange& a, CompactionTimeRange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CompactionTimeRange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CompactionTimeRange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CompactionTimeRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CompactionTimeRange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CompactionTimeRange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CompactionTimeRange& from) {
+    CompactionTimeRange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CompactionTimeRange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.CompactionTimeRange";
+  }
+  protected:
+  explicit CompactionTimeRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStartFieldNumber = 1,
+    kEndFieldNumber = 2,
+    kTimeUnitFieldNumber = 3,
+  };
+  // int64 start = 1;
+  void clear_start();
+  int64_t start() const;
+  void set_start(int64_t value);
+  private:
+  int64_t _internal_start() const;
+  void _internal_set_start(int64_t value);
+  public:
+
+  // int64 end = 2;
+  void clear_end();
+  int64_t end() const;
+  void set_end(int64_t value);
+  private:
+  int64_t _internal_end() const;
+  void _internal_set_end(int64_t value);
+  public:
+
+  // .greptime.v1.TimeUnit time_unit = 3;
+  void clear_time_unit();
+  ::greptime::v1::TimeUnit time_unit() const;
+  void set_time_unit(::greptime::v1::TimeUnit value);
+  private:
+  ::greptime::v1::TimeUnit _internal_time_unit() const;
+  void _internal_set_time_unit(::greptime::v1::TimeUnit value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.CompactionTimeRange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t start_;
+    int64_t end_;
+    int time_unit_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CompactRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CompactRequest) */ {
  public:
@@ -5667,7 +5841,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -5740,11 +5914,30 @@ class CompactRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTimeRangeFieldNumber = 5,
     kRegionIdFieldNumber = 1,
     kParallelismFieldNumber = 4,
     kRegularFieldNumber = 2,
     kStrictWindowFieldNumber = 3,
   };
+  // .greptime.v1.region.CompactionTimeRange time_range = 5;
+  bool has_time_range() const;
+  private:
+  bool _internal_has_time_range() const;
+  public:
+  void clear_time_range();
+  const ::greptime::v1::region::CompactionTimeRange& time_range() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::CompactionTimeRange* release_time_range();
+  ::greptime::v1::region::CompactionTimeRange* mutable_time_range();
+  void set_allocated_time_range(::greptime::v1::region::CompactionTimeRange* time_range);
+  private:
+  const ::greptime::v1::region::CompactionTimeRange& _internal_time_range() const;
+  ::greptime::v1::region::CompactionTimeRange* _internal_mutable_time_range();
+  public:
+  void unsafe_arena_set_allocated_time_range(
+      ::greptime::v1::region::CompactionTimeRange* time_range);
+  ::greptime::v1::region::CompactionTimeRange* unsafe_arena_release_time_range();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -5814,6 +6007,7 @@ class CompactRequest final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::greptime::v1::region::CompactionTimeRange* time_range_;
     uint64_t region_id_;
     uint32_t parallelism_;
     union OptionsUnion {
@@ -5885,7 +6079,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -6085,7 +6279,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -6204,7 +6398,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6377,7 +6571,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -6597,7 +6791,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -6745,7 +6939,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -6893,7 +7087,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7058,7 +7252,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -7259,7 +7453,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -7421,7 +7615,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7569,7 +7763,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -7722,7 +7916,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -7919,7 +8113,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -8125,7 +8319,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -8316,7 +8510,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -13328,6 +13522,70 @@ inline void StrictWindow::set_window_seconds(int64_t value) {
 
 // -------------------------------------------------------------------
 
+// CompactionTimeRange
+
+// int64 start = 1;
+inline void CompactionTimeRange::clear_start() {
+  _impl_.start_ = int64_t{0};
+}
+inline int64_t CompactionTimeRange::_internal_start() const {
+  return _impl_.start_;
+}
+inline int64_t CompactionTimeRange::start() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactionTimeRange.start)
+  return _internal_start();
+}
+inline void CompactionTimeRange::_internal_set_start(int64_t value) {
+  
+  _impl_.start_ = value;
+}
+inline void CompactionTimeRange::set_start(int64_t value) {
+  _internal_set_start(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CompactionTimeRange.start)
+}
+
+// int64 end = 2;
+inline void CompactionTimeRange::clear_end() {
+  _impl_.end_ = int64_t{0};
+}
+inline int64_t CompactionTimeRange::_internal_end() const {
+  return _impl_.end_;
+}
+inline int64_t CompactionTimeRange::end() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactionTimeRange.end)
+  return _internal_end();
+}
+inline void CompactionTimeRange::_internal_set_end(int64_t value) {
+  
+  _impl_.end_ = value;
+}
+inline void CompactionTimeRange::set_end(int64_t value) {
+  _internal_set_end(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CompactionTimeRange.end)
+}
+
+// .greptime.v1.TimeUnit time_unit = 3;
+inline void CompactionTimeRange::clear_time_unit() {
+  _impl_.time_unit_ = 0;
+}
+inline ::greptime::v1::TimeUnit CompactionTimeRange::_internal_time_unit() const {
+  return static_cast< ::greptime::v1::TimeUnit >(_impl_.time_unit_);
+}
+inline ::greptime::v1::TimeUnit CompactionTimeRange::time_unit() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactionTimeRange.time_unit)
+  return _internal_time_unit();
+}
+inline void CompactionTimeRange::_internal_set_time_unit(::greptime::v1::TimeUnit value) {
+  
+  _impl_.time_unit_ = value;
+}
+inline void CompactionTimeRange::set_time_unit(::greptime::v1::TimeUnit value) {
+  _internal_set_time_unit(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CompactionTimeRange.time_unit)
+}
+
+// -------------------------------------------------------------------
+
 // CompactRequest
 
 // uint64 region_id = 1;
@@ -13516,6 +13774,96 @@ inline void CompactRequest::_internal_set_parallelism(uint32_t value) {
 inline void CompactRequest::set_parallelism(uint32_t value) {
   _internal_set_parallelism(value);
   // @@protoc_insertion_point(field_set:greptime.v1.region.CompactRequest.parallelism)
+}
+
+// .greptime.v1.region.CompactionTimeRange time_range = 5;
+inline bool CompactRequest::_internal_has_time_range() const {
+  return this != internal_default_instance() && _impl_.time_range_ != nullptr;
+}
+inline bool CompactRequest::has_time_range() const {
+  return _internal_has_time_range();
+}
+inline void CompactRequest::clear_time_range() {
+  if (GetArenaForAllocation() == nullptr && _impl_.time_range_ != nullptr) {
+    delete _impl_.time_range_;
+  }
+  _impl_.time_range_ = nullptr;
+}
+inline const ::greptime::v1::region::CompactionTimeRange& CompactRequest::_internal_time_range() const {
+  const ::greptime::v1::region::CompactionTimeRange* p = _impl_.time_range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::CompactionTimeRange&>(
+      ::greptime::v1::region::_CompactionTimeRange_default_instance_);
+}
+inline const ::greptime::v1::region::CompactionTimeRange& CompactRequest::time_range() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CompactRequest.time_range)
+  return _internal_time_range();
+}
+inline void CompactRequest::unsafe_arena_set_allocated_time_range(
+    ::greptime::v1::region::CompactionTimeRange* time_range) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_range_);
+  }
+  _impl_.time_range_ = time_range;
+  if (time_range) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CompactRequest.time_range)
+}
+inline ::greptime::v1::region::CompactionTimeRange* CompactRequest::release_time_range() {
+  
+  ::greptime::v1::region::CompactionTimeRange* temp = _impl_.time_range_;
+  _impl_.time_range_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::CompactionTimeRange* CompactRequest::unsafe_arena_release_time_range() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CompactRequest.time_range)
+  
+  ::greptime::v1::region::CompactionTimeRange* temp = _impl_.time_range_;
+  _impl_.time_range_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::CompactionTimeRange* CompactRequest::_internal_mutable_time_range() {
+  
+  if (_impl_.time_range_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::CompactionTimeRange>(GetArenaForAllocation());
+    _impl_.time_range_ = p;
+  }
+  return _impl_.time_range_;
+}
+inline ::greptime::v1::region::CompactionTimeRange* CompactRequest::mutable_time_range() {
+  ::greptime::v1::region::CompactionTimeRange* _msg = _internal_mutable_time_range();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CompactRequest.time_range)
+  return _msg;
+}
+inline void CompactRequest::set_allocated_time_range(::greptime::v1::region::CompactionTimeRange* time_range) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.time_range_;
+  }
+  if (time_range) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(time_range);
+    if (message_arena != submessage_arena) {
+      time_range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, time_range, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.time_range_ = time_range;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CompactRequest.time_range)
 }
 
 inline bool CompactRequest::has_options() const {
@@ -15045,6 +15393,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
