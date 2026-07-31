@@ -238,3 +238,86 @@ pub struct MergeScan {
     #[prost(bool, tag = "2")]
     pub is_placeholder: bool,
 }
+/// Version 1 metadata needed to execute a remote read that Substrait does not
+/// represent. New versions must be introduced as additive messages or fields;
+/// readers must ignore fields they do not recognize.
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemoteReadTableV1 {
+    /// The stable ID of the table selected when the plan was created.
+    #[prost(uint32, tag = "1")]
+    pub table_id: u32,
+    /// The FE TableInfo version observed when the plan was created. This is
+    /// diagnostic-only and must not be used as a schema-version compatibility
+    /// check or execution precondition. Its presence distinguishes an unknown
+    /// version from version zero.
+    #[prost(uint64, optional, tag = "2")]
+    pub table_version: ::core::option::Option<u64>,
+    /// Columns in the planned table schema.
+    #[prost(message, repeated, tag = "3")]
+    pub columns: ::prost::alloc::vec::Vec<RemoteReadColumnV1>,
+}
+/// Version 1 marker for a remote read that contains only recognized internal
+/// inspection providers and therefore has no production table contract.
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteReadInternalV1 {}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RemoteReadColumnV1 {
+    /// The column name in the planned table schema.
+    #[prost(string, tag = "1")]
+    pub name: ::prost::alloc::string::String,
+    /// The stable ID of the column in the planned table schema.
+    #[prost(uint32, tag = "2")]
+    pub column_id: u32,
+    /// The Greptime semantic role of this column.
+    #[prost(enumeration = "RemoteReadSemanticTypeV1", optional, tag = "3")]
+    pub semantic_type: ::core::option::Option<i32>,
+    /// Whether this column is the table time-index column.
+    #[prost(bool, optional, tag = "4")]
+    pub is_time_index: ::core::option::Option<bool>,
+    /// Zero-based position in the table primary key. Presence distinguishes a
+    /// non-key column from the first primary-key column.
+    #[prost(uint32, optional, tag = "5")]
+    pub primary_key_ordinal: ::core::option::Option<u32>,
+}
+/// Version 1 metadata for a remote-read column. It intentionally excludes type
+/// and nullability because those are represented by Substrait.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum RemoteReadSemanticTypeV1 {
+    RemoteReadSemanticTypeUnspecified = 0,
+    RemoteReadSemanticTypeTag = 1,
+    RemoteReadSemanticTypeField = 2,
+    RemoteReadSemanticTypeTimestamp = 3,
+}
+impl RemoteReadSemanticTypeV1 {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::RemoteReadSemanticTypeUnspecified => {
+                "REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED"
+            }
+            Self::RemoteReadSemanticTypeTag => "REMOTE_READ_SEMANTIC_TYPE_TAG",
+            Self::RemoteReadSemanticTypeField => "REMOTE_READ_SEMANTIC_TYPE_FIELD",
+            Self::RemoteReadSemanticTypeTimestamp => {
+                "REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP"
+            }
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED" => {
+                Some(Self::RemoteReadSemanticTypeUnspecified)
+            }
+            "REMOTE_READ_SEMANTIC_TYPE_TAG" => Some(Self::RemoteReadSemanticTypeTag),
+            "REMOTE_READ_SEMANTIC_TYPE_FIELD" => Some(Self::RemoteReadSemanticTypeField),
+            "REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP" => {
+                Some(Self::RemoteReadSemanticTypeTimestamp)
+            }
+            _ => None,
+        }
+    }
+}

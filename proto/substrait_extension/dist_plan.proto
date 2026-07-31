@@ -24,3 +24,51 @@ message MergeScan {
   // whether this plan is a placeholder
   bool is_placeholder = 2;
 }
+
+// Version 1 metadata needed to execute a remote read that Substrait does not
+// represent. New versions must be introduced as additive messages or fields;
+// readers must ignore fields they do not recognize.
+message RemoteReadTableV1 {
+  // The stable ID of the table selected when the plan was created.
+  uint32 table_id = 1;
+
+  // The FE TableInfo version observed when the plan was created. This is
+  // diagnostic-only and must not be used as a schema-version compatibility
+  // check or execution precondition. Its presence distinguishes an unknown
+  // version from version zero.
+  optional uint64 table_version = 2;
+
+  // Columns in the planned table schema.
+  repeated RemoteReadColumnV1 columns = 3;
+}
+
+// Version 1 marker for a remote read that contains only recognized internal
+// inspection providers and therefore has no production table contract.
+message RemoteReadInternalV1 {}
+
+// Version 1 metadata for a remote-read column. It intentionally excludes type
+// and nullability because those are represented by Substrait.
+enum RemoteReadSemanticTypeV1 {
+  REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED = 0;
+  REMOTE_READ_SEMANTIC_TYPE_TAG = 1;
+  REMOTE_READ_SEMANTIC_TYPE_FIELD = 2;
+  REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP = 3;
+}
+
+message RemoteReadColumnV1 {
+  // The column name in the planned table schema.
+  string name = 1;
+
+  // The stable ID of the column in the planned table schema.
+  uint32 column_id = 2;
+
+  // The Greptime semantic role of this column.
+  optional RemoteReadSemanticTypeV1 semantic_type = 3;
+
+  // Whether this column is the table time-index column.
+  optional bool is_time_index = 4;
+
+  // Zero-based position in the table primary key. Presence distinguishes a
+  // non-key column from the first primary-key column.
+  optional uint32 primary_key_ordinal = 5;
+}

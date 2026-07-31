@@ -34,6 +34,60 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Version 1 metadata for a remote-read column. It intentionally excludes type
+// and nullability because those are represented by Substrait.
+type RemoteReadSemanticTypeV1 int32
+
+const (
+	RemoteReadSemanticTypeV1_REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED RemoteReadSemanticTypeV1 = 0
+	RemoteReadSemanticTypeV1_REMOTE_READ_SEMANTIC_TYPE_TAG         RemoteReadSemanticTypeV1 = 1
+	RemoteReadSemanticTypeV1_REMOTE_READ_SEMANTIC_TYPE_FIELD       RemoteReadSemanticTypeV1 = 2
+	RemoteReadSemanticTypeV1_REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP   RemoteReadSemanticTypeV1 = 3
+)
+
+// Enum value maps for RemoteReadSemanticTypeV1.
+var (
+	RemoteReadSemanticTypeV1_name = map[int32]string{
+		0: "REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED",
+		1: "REMOTE_READ_SEMANTIC_TYPE_TAG",
+		2: "REMOTE_READ_SEMANTIC_TYPE_FIELD",
+		3: "REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP",
+	}
+	RemoteReadSemanticTypeV1_value = map[string]int32{
+		"REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED": 0,
+		"REMOTE_READ_SEMANTIC_TYPE_TAG":         1,
+		"REMOTE_READ_SEMANTIC_TYPE_FIELD":       2,
+		"REMOTE_READ_SEMANTIC_TYPE_TIMESTAMP":   3,
+	}
+)
+
+func (x RemoteReadSemanticTypeV1) Enum() *RemoteReadSemanticTypeV1 {
+	p := new(RemoteReadSemanticTypeV1)
+	*p = x
+	return p
+}
+
+func (x RemoteReadSemanticTypeV1) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (RemoteReadSemanticTypeV1) Descriptor() protoreflect.EnumDescriptor {
+	return file_substrait_extension_dist_plan_proto_enumTypes[0].Descriptor()
+}
+
+func (RemoteReadSemanticTypeV1) Type() protoreflect.EnumType {
+	return &file_substrait_extension_dist_plan_proto_enumTypes[0]
+}
+
+func (x RemoteReadSemanticTypeV1) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use RemoteReadSemanticTypeV1.Descriptor instead.
+func (RemoteReadSemanticTypeV1) EnumDescriptor() ([]byte, []int) {
+	return file_substrait_extension_dist_plan_proto_rawDescGZIP(), []int{0}
+}
+
 type MergeScan struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -91,6 +145,203 @@ func (x *MergeScan) GetIsPlaceholder() bool {
 	return false
 }
 
+// Version 1 metadata needed to execute a remote read that Substrait does not
+// represent. New versions must be introduced as additive messages or fields;
+// readers must ignore fields they do not recognize.
+type RemoteReadTableV1 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// The stable ID of the table selected when the plan was created.
+	TableId uint32 `protobuf:"varint,1,opt,name=table_id,json=tableId,proto3" json:"table_id,omitempty"`
+	// The FE TableInfo version observed when the plan was created. This is
+	// diagnostic-only and must not be used as a schema-version compatibility
+	// check or execution precondition. Its presence distinguishes an unknown
+	// version from version zero.
+	TableVersion *uint64 `protobuf:"varint,2,opt,name=table_version,json=tableVersion,proto3,oneof" json:"table_version,omitempty"`
+	// Columns in the planned table schema.
+	Columns []*RemoteReadColumnV1 `protobuf:"bytes,3,rep,name=columns,proto3" json:"columns,omitempty"`
+}
+
+func (x *RemoteReadTableV1) Reset() {
+	*x = RemoteReadTableV1{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_dist_plan_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoteReadTableV1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoteReadTableV1) ProtoMessage() {}
+
+func (x *RemoteReadTableV1) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_dist_plan_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoteReadTableV1.ProtoReflect.Descriptor instead.
+func (*RemoteReadTableV1) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_dist_plan_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *RemoteReadTableV1) GetTableId() uint32 {
+	if x != nil {
+		return x.TableId
+	}
+	return 0
+}
+
+func (x *RemoteReadTableV1) GetTableVersion() uint64 {
+	if x != nil && x.TableVersion != nil {
+		return *x.TableVersion
+	}
+	return 0
+}
+
+func (x *RemoteReadTableV1) GetColumns() []*RemoteReadColumnV1 {
+	if x != nil {
+		return x.Columns
+	}
+	return nil
+}
+
+// Version 1 marker for a remote read that contains only recognized internal
+// inspection providers and therefore has no production table contract.
+type RemoteReadInternalV1 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *RemoteReadInternalV1) Reset() {
+	*x = RemoteReadInternalV1{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_dist_plan_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoteReadInternalV1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoteReadInternalV1) ProtoMessage() {}
+
+func (x *RemoteReadInternalV1) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_dist_plan_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoteReadInternalV1.ProtoReflect.Descriptor instead.
+func (*RemoteReadInternalV1) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_dist_plan_proto_rawDescGZIP(), []int{2}
+}
+
+type RemoteReadColumnV1 struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// The column name in the planned table schema.
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// The stable ID of the column in the planned table schema.
+	ColumnId uint32 `protobuf:"varint,2,opt,name=column_id,json=columnId,proto3" json:"column_id,omitempty"`
+	// The Greptime semantic role of this column.
+	SemanticType *RemoteReadSemanticTypeV1 `protobuf:"varint,3,opt,name=semantic_type,json=semanticType,proto3,enum=substrait_extension.RemoteReadSemanticTypeV1,oneof" json:"semantic_type,omitempty"`
+	// Whether this column is the table time-index column.
+	IsTimeIndex *bool `protobuf:"varint,4,opt,name=is_time_index,json=isTimeIndex,proto3,oneof" json:"is_time_index,omitempty"`
+	// Zero-based position in the table primary key. Presence distinguishes a
+	// non-key column from the first primary-key column.
+	PrimaryKeyOrdinal *uint32 `protobuf:"varint,5,opt,name=primary_key_ordinal,json=primaryKeyOrdinal,proto3,oneof" json:"primary_key_ordinal,omitempty"`
+}
+
+func (x *RemoteReadColumnV1) Reset() {
+	*x = RemoteReadColumnV1{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_substrait_extension_dist_plan_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoteReadColumnV1) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoteReadColumnV1) ProtoMessage() {}
+
+func (x *RemoteReadColumnV1) ProtoReflect() protoreflect.Message {
+	mi := &file_substrait_extension_dist_plan_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoteReadColumnV1.ProtoReflect.Descriptor instead.
+func (*RemoteReadColumnV1) Descriptor() ([]byte, []int) {
+	return file_substrait_extension_dist_plan_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RemoteReadColumnV1) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *RemoteReadColumnV1) GetColumnId() uint32 {
+	if x != nil {
+		return x.ColumnId
+	}
+	return 0
+}
+
+func (x *RemoteReadColumnV1) GetSemanticType() RemoteReadSemanticTypeV1 {
+	if x != nil && x.SemanticType != nil {
+		return *x.SemanticType
+	}
+	return RemoteReadSemanticTypeV1_REMOTE_READ_SEMANTIC_TYPE_UNSPECIFIED
+}
+
+func (x *RemoteReadColumnV1) GetIsTimeIndex() bool {
+	if x != nil && x.IsTimeIndex != nil {
+		return *x.IsTimeIndex
+	}
+	return false
+}
+
+func (x *RemoteReadColumnV1) GetPrimaryKeyOrdinal() uint32 {
+	if x != nil && x.PrimaryKeyOrdinal != nil {
+		return *x.PrimaryKeyOrdinal
+	}
+	return 0
+}
+
 var File_substrait_extension_dist_plan_proto protoreflect.FileDescriptor
 
 var file_substrait_extension_dist_plan_proto_rawDesc = []byte{
@@ -102,11 +353,55 @@ var file_substrait_extension_dist_plan_proto_rawDesc = []byte{
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x05, 0x69, 0x6e, 0x70, 0x75, 0x74, 0x12, 0x25, 0x0a,
 	0x0e, 0x69, 0x73, 0x5f, 0x70, 0x6c, 0x61, 0x63, 0x65, 0x68, 0x6f, 0x6c, 0x64, 0x65, 0x72, 0x18,
 	0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0d, 0x69, 0x73, 0x50, 0x6c, 0x61, 0x63, 0x65, 0x68, 0x6f,
-	0x6c, 0x64, 0x65, 0x72, 0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x47, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f,
-	0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67,
-	0x6f, 0x2f, 0x73, 0x75, 0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65,
-	0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6c, 0x64, 0x65, 0x72, 0x22, 0xad, 0x01, 0x0a, 0x11, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x52,
+	0x65, 0x61, 0x64, 0x54, 0x61, 0x62, 0x6c, 0x65, 0x56, 0x31, 0x12, 0x19, 0x0a, 0x08, 0x74, 0x61,
+	0x62, 0x6c, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x74, 0x61,
+	0x62, 0x6c, 0x65, 0x49, 0x64, 0x12, 0x28, 0x0a, 0x0d, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x76,
+	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x48, 0x00, 0x52, 0x0c,
+	0x74, 0x61, 0x62, 0x6c, 0x65, 0x56, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x88, 0x01, 0x01, 0x12,
+	0x41, 0x0a, 0x07, 0x63, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x27, 0x2e, 0x73, 0x75, 0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74,
+	0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x61,
+	0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d, 0x6e, 0x56, 0x31, 0x52, 0x07, 0x63, 0x6f, 0x6c, 0x75, 0x6d,
+	0x6e, 0x73, 0x42, 0x10, 0x0a, 0x0e, 0x5f, 0x74, 0x61, 0x62, 0x6c, 0x65, 0x5f, 0x76, 0x65, 0x72,
+	0x73, 0x69, 0x6f, 0x6e, 0x22, 0x16, 0x0a, 0x14, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x52, 0x65,
+	0x61, 0x64, 0x49, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x56, 0x31, 0x22, 0xb8, 0x02, 0x0a,
+	0x12, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x61, 0x64, 0x43, 0x6f, 0x6c, 0x75, 0x6d,
+	0x6e, 0x56, 0x31, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x63, 0x6f, 0x6c, 0x75, 0x6d,
+	0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x63, 0x6f, 0x6c, 0x75,
+	0x6d, 0x6e, 0x49, 0x64, 0x12, 0x57, 0x0a, 0x0d, 0x73, 0x65, 0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63,
+	0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x2d, 0x2e, 0x73, 0x75,
+	0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
+	0x6e, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x61, 0x64, 0x53, 0x65, 0x6d, 0x61,
+	0x6e, 0x74, 0x69, 0x63, 0x54, 0x79, 0x70, 0x65, 0x56, 0x31, 0x48, 0x00, 0x52, 0x0c, 0x73, 0x65,
+	0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79, 0x70, 0x65, 0x88, 0x01, 0x01, 0x12, 0x27, 0x0a,
+	0x0d, 0x69, 0x73, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x08, 0x48, 0x01, 0x52, 0x0b, 0x69, 0x73, 0x54, 0x69, 0x6d, 0x65, 0x49, 0x6e,
+	0x64, 0x65, 0x78, 0x88, 0x01, 0x01, 0x12, 0x33, 0x0a, 0x13, 0x70, 0x72, 0x69, 0x6d, 0x61, 0x72,
+	0x79, 0x5f, 0x6b, 0x65, 0x79, 0x5f, 0x6f, 0x72, 0x64, 0x69, 0x6e, 0x61, 0x6c, 0x18, 0x05, 0x20,
+	0x01, 0x28, 0x0d, 0x48, 0x02, 0x52, 0x11, 0x70, 0x72, 0x69, 0x6d, 0x61, 0x72, 0x79, 0x4b, 0x65,
+	0x79, 0x4f, 0x72, 0x64, 0x69, 0x6e, 0x61, 0x6c, 0x88, 0x01, 0x01, 0x42, 0x10, 0x0a, 0x0e, 0x5f,
+	0x73, 0x65, 0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x42, 0x10, 0x0a,
+	0x0e, 0x5f, 0x69, 0x73, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x5f, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x42,
+	0x16, 0x0a, 0x14, 0x5f, 0x70, 0x72, 0x69, 0x6d, 0x61, 0x72, 0x79, 0x5f, 0x6b, 0x65, 0x79, 0x5f,
+	0x6f, 0x72, 0x64, 0x69, 0x6e, 0x61, 0x6c, 0x2a, 0xb6, 0x01, 0x0a, 0x18, 0x52, 0x65, 0x6d, 0x6f,
+	0x74, 0x65, 0x52, 0x65, 0x61, 0x64, 0x53, 0x65, 0x6d, 0x61, 0x6e, 0x74, 0x69, 0x63, 0x54, 0x79,
+	0x70, 0x65, 0x56, 0x31, 0x12, 0x29, 0x0a, 0x25, 0x52, 0x45, 0x4d, 0x4f, 0x54, 0x45, 0x5f, 0x52,
+	0x45, 0x41, 0x44, 0x5f, 0x53, 0x45, 0x4d, 0x41, 0x4e, 0x54, 0x49, 0x43, 0x5f, 0x54, 0x59, 0x50,
+	0x45, 0x5f, 0x55, 0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12,
+	0x21, 0x0a, 0x1d, 0x52, 0x45, 0x4d, 0x4f, 0x54, 0x45, 0x5f, 0x52, 0x45, 0x41, 0x44, 0x5f, 0x53,
+	0x45, 0x4d, 0x41, 0x4e, 0x54, 0x49, 0x43, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f, 0x54, 0x41, 0x47,
+	0x10, 0x01, 0x12, 0x23, 0x0a, 0x1f, 0x52, 0x45, 0x4d, 0x4f, 0x54, 0x45, 0x5f, 0x52, 0x45, 0x41,
+	0x44, 0x5f, 0x53, 0x45, 0x4d, 0x41, 0x4e, 0x54, 0x49, 0x43, 0x5f, 0x54, 0x59, 0x50, 0x45, 0x5f,
+	0x46, 0x49, 0x45, 0x4c, 0x44, 0x10, 0x02, 0x12, 0x27, 0x0a, 0x23, 0x52, 0x45, 0x4d, 0x4f, 0x54,
+	0x45, 0x5f, 0x52, 0x45, 0x41, 0x44, 0x5f, 0x53, 0x45, 0x4d, 0x41, 0x4e, 0x54, 0x49, 0x43, 0x5f,
+	0x54, 0x59, 0x50, 0x45, 0x5f, 0x54, 0x49, 0x4d, 0x45, 0x53, 0x54, 0x41, 0x4d, 0x50, 0x10, 0x03,
+	0x42, 0x3f, 0x5a, 0x3d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47,
+	0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x54, 0x65, 0x61, 0x6d, 0x2f, 0x67, 0x72, 0x65, 0x70,
+	0x74, 0x69, 0x6d, 0x65, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x75,
+	0x62, 0x73, 0x74, 0x72, 0x61, 0x69, 0x74, 0x5f, 0x65, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
+	0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -121,16 +416,23 @@ func file_substrait_extension_dist_plan_proto_rawDescGZIP() []byte {
 	return file_substrait_extension_dist_plan_proto_rawDescData
 }
 
-var file_substrait_extension_dist_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_substrait_extension_dist_plan_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_substrait_extension_dist_plan_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_substrait_extension_dist_plan_proto_goTypes = []interface{}{
-	(*MergeScan)(nil), // 0: substrait_extension.MergeScan
+	(RemoteReadSemanticTypeV1)(0), // 0: substrait_extension.RemoteReadSemanticTypeV1
+	(*MergeScan)(nil),             // 1: substrait_extension.MergeScan
+	(*RemoteReadTableV1)(nil),     // 2: substrait_extension.RemoteReadTableV1
+	(*RemoteReadInternalV1)(nil),  // 3: substrait_extension.RemoteReadInternalV1
+	(*RemoteReadColumnV1)(nil),    // 4: substrait_extension.RemoteReadColumnV1
 }
 var file_substrait_extension_dist_plan_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: substrait_extension.RemoteReadTableV1.columns:type_name -> substrait_extension.RemoteReadColumnV1
+	0, // 1: substrait_extension.RemoteReadColumnV1.semantic_type:type_name -> substrait_extension.RemoteReadSemanticTypeV1
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_substrait_extension_dist_plan_proto_init() }
@@ -151,19 +453,58 @@ func file_substrait_extension_dist_plan_proto_init() {
 				return nil
 			}
 		}
+		file_substrait_extension_dist_plan_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoteReadTableV1); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_substrait_extension_dist_plan_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoteReadInternalV1); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_substrait_extension_dist_plan_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoteReadColumnV1); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
+	file_substrait_extension_dist_plan_proto_msgTypes[1].OneofWrappers = []interface{}{}
+	file_substrait_extension_dist_plan_proto_msgTypes[3].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_substrait_extension_dist_plan_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   1,
+			NumEnums:      1,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_substrait_extension_dist_plan_proto_goTypes,
 		DependencyIndexes: file_substrait_extension_dist_plan_proto_depIdxs,
+		EnumInfos:         file_substrait_extension_dist_plan_proto_enumTypes,
 		MessageInfos:      file_substrait_extension_dist_plan_proto_msgTypes,
 	}.Build()
 	File_substrait_extension_dist_plan_proto = out.File
