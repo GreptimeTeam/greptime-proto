@@ -189,7 +189,153 @@ gen_set_header!(ReconcileRequest);
 mod tests {
     use std::vec;
 
+    use prost::Message;
+    use prost_types::field_descriptor_proto::{Label, Type};
+    use prost_types::FileDescriptorSet;
+
     use super::*;
+
+    #[derive(Clone, PartialEq, Message)]
+    struct LegacyHeartbeatResponse {
+        #[prost(message, optional, tag = "1")]
+        header: Option<ResponseHeader>,
+        #[prost(message, optional, tag = "2")]
+        mailbox_message: Option<MailboxMessage>,
+        #[prost(message, optional, tag = "3")]
+        region_lease: Option<RegionLease>,
+        #[prost(message, optional, tag = "4")]
+        heartbeat_config: Option<HeartbeatConfig>,
+    }
+
+    #[test]
+    fn test_heartbeat_response_extensions_round_trip() {
+        let response = HeartbeatResponse {
+            header: Some(ResponseHeader::success()),
+            heartbeat_config: Some(HeartbeatConfig {
+                heartbeat_interval_ms: 3_000,
+                retry_interval_ms: 500,
+                gc_enabled: true,
+            }),
+            extensions: HashMap::from([("test.extension".to_string(), vec![1, 2, 3])]),
+            ..Default::default()
+        };
+
+        let decoded = HeartbeatResponse::decode(response.encode_to_vec().as_slice()).unwrap();
+        assert_eq!(response, decoded);
+    }
+
+    #[test]
+    fn test_heartbeat_response_extensions_wire_layout_is_stable() {
+        let response = HeartbeatResponse {
+            extensions: HashMap::from([("test.extension".to_string(), vec![1, 2, 3])]),
+            ..Default::default()
+        };
+        let golden = [
+            0x9a, 0x06, 0x15, 0x0a, 0x0e, b't', b'e', b's', b't', b'.', b'e', b'x', b't', b'e',
+            b'n', b's', b'i', b'o', b'n', 0x12, 0x03, 0x01, 0x02, 0x03,
+        ];
+
+        assert_eq!(golden, response.encode_to_vec().as_slice());
+        assert_eq!(
+            response,
+            HeartbeatResponse::decode(golden.as_slice()).unwrap()
+        );
+    }
+
+    #[test]
+    fn test_heartbeat_response_extensions_descriptor_is_stable() {
+        let descriptor_set = FileDescriptorSet::decode(crate::v1::GREPTIME_GRPC_DESC).unwrap();
+        let heartbeat_file = descriptor_set
+            .file
+            .iter()
+            .find(|file| file.name.as_deref() == Some("greptime/v1/meta/heartbeat.proto"))
+            .unwrap();
+        let heartbeat_response = heartbeat_file
+            .message_type
+            .iter()
+            .find(|message| message.name.as_deref() == Some("HeartbeatResponse"))
+            .unwrap();
+        let extensions = heartbeat_response
+            .field
+            .iter()
+            .find(|field| field.name.as_deref() == Some("extensions"))
+            .unwrap();
+
+        assert_eq!(Some(99), extensions.number);
+        assert_eq!(Some(Label::Repeated as i32), extensions.label);
+        assert_eq!(Some(Type::Message as i32), extensions.r#type);
+        assert_eq!(
+            Some(".greptime.v1.meta.HeartbeatResponse.ExtensionsEntry"),
+            extensions.type_name.as_deref()
+        );
+
+        let map_entry = heartbeat_response
+            .nested_type
+            .iter()
+            .find(|message| message.name.as_deref() == Some("ExtensionsEntry"))
+            .unwrap();
+        assert_eq!(
+            Some(true),
+            map_entry
+                .options
+                .as_ref()
+                .and_then(|options| options.map_entry)
+        );
+
+        let key = &map_entry.field[0];
+        assert_eq!(
+            (Some("key"), Some(1), Some(Type::String as i32)),
+            (key.name.as_deref(), key.number, key.r#type)
+        );
+        let value = &map_entry.field[1];
+        assert_eq!(
+            (Some("value"), Some(2), Some(Type::Bytes as i32)),
+            (value.name.as_deref(), value.number, value.r#type)
+        );
+    }
+
+    #[test]
+    fn test_heartbeat_response_extensions_wire_compatibility() {
+        let new_response = HeartbeatResponse {
+            header: Some(ResponseHeader::success()),
+            heartbeat_config: Some(HeartbeatConfig {
+                heartbeat_interval_ms: 3_000,
+                retry_interval_ms: 500,
+                gc_enabled: true,
+            }),
+            extensions: HashMap::from([("test.extension".to_string(), vec![1, 2, 3])]),
+            ..Default::default()
+        };
+        let legacy_decoded =
+            LegacyHeartbeatResponse::decode(new_response.encode_to_vec().as_slice()).unwrap();
+        assert_eq!(new_response.header, legacy_decoded.header);
+        assert_eq!(
+            new_response.heartbeat_config,
+            legacy_decoded.heartbeat_config
+        );
+
+        let legacy_response = LegacyHeartbeatResponse {
+            header: Some(ResponseHeader::success()),
+            mailbox_message: None,
+            region_lease: None,
+            heartbeat_config: Some(HeartbeatConfig {
+                heartbeat_interval_ms: 4_000,
+                retry_interval_ms: 1_000,
+                gc_enabled: false,
+            }),
+        };
+        let legacy_golden = [
+            0x0a, 0x02, 0x08, 0x01, 0x22, 0x06, 0x08, 0xa0, 0x1f, 0x10, 0xe8, 0x07,
+        ];
+        assert_eq!(legacy_golden, legacy_response.encode_to_vec().as_slice());
+        let new_decoded = HeartbeatResponse::decode(legacy_golden.as_slice()).unwrap();
+        assert_eq!(legacy_response.header, new_decoded.header);
+        assert_eq!(
+            legacy_response.heartbeat_config,
+            new_decoded.heartbeat_config
+        );
+        assert!(new_decoded.extensions.is_empty());
+    }
 
     #[test]
     fn test_peer_dict() {

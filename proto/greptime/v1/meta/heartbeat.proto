@@ -152,6 +152,7 @@ message HeartbeatResponse {
   // Heartbeat configuration issued by Metasrv
   // Populated only in the handshake response
   HeartbeatConfig heartbeat_config = 4;
+  map<string, bytes> extensions = 99;
 }
 
 message HeartbeatConfig {
