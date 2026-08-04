@@ -276,6 +276,11 @@ pub struct HeartbeatResponse {
     /// Populated only in the handshake response
     #[prost(message, optional, tag = "4")]
     pub heartbeat_config: ::core::option::Option<HeartbeatConfig>,
+    #[prost(map = "string, bytes", tag = "99")]
+    pub extensions: ::std::collections::HashMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::vec::Vec<u8>,
+    >,
 }
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct HeartbeatConfig {
