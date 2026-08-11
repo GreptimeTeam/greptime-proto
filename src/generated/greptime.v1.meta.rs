@@ -77,6 +77,25 @@ pub struct ProcedureId {
     #[prost(bytes = "vec", tag = "1")]
     pub key: ::prost::alloc::vec::Vec<u8>,
 }
+/// The effective user that submitted a procedure.
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct ProcedureActor {
+    #[prost(string, tag = "1")]
+    pub username: ::prost::alloc::string::String,
+}
+/// Stable event metadata recorded with a submitted procedure.
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct ProcedureEventContext {
+    /// Stable trigger reason, such as manual or scheduled_gc.
+    #[prost(string, tag = "1")]
+    pub reason: ::prost::alloc::string::String,
+    /// Protocol derived from the frontend query channel.
+    #[prost(string, tag = "2")]
+    pub protocol: ::prost::alloc::string::String,
+    /// Extensible event metadata. Order is preserved.
+    #[prost(string, repeated, tag = "3")]
+    pub extensions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum Role {
@@ -1302,6 +1321,12 @@ pub struct DdlTaskRequest {
     /// Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
     #[prost(uint32, tag = "66")]
     pub timeout_secs: u32,
+    /// Stable event metadata recorded with the submitted procedure.
+    #[prost(message, optional, tag = "67")]
+    pub event_context: ::core::option::Option<ProcedureEventContext>,
+    /// Effective user that submitted the procedure.
+    #[prost(message, optional, tag = "68")]
+    pub actor: ::core::option::Option<ProcedureActor>,
     #[prost(
         oneof = "ddl_task_request::Task",
         tags = "2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
@@ -1400,6 +1425,12 @@ pub struct MigrateRegionRequest {
     pub to_peer: u64,
     #[prost(uint32, tag = "6")]
     pub timeout_secs: u32,
+    /// Stable event metadata recorded with the submitted procedure.
+    #[prost(message, optional, tag = "67")]
+    pub event_context: ::core::option::Option<ProcedureEventContext>,
+    /// Effective user that submitted the procedure.
+    #[prost(message, optional, tag = "68")]
+    pub actor: ::core::option::Option<ProcedureActor>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MigrateRegionResponse {
@@ -3334,6 +3365,12 @@ pub struct GcRegionsRequest {
     /// Timeout in seconds for the entire GC procedure.
     #[prost(uint32, tag = "4")]
     pub timeout_secs: u32,
+    /// Stable event metadata recorded with the submitted procedure.
+    #[prost(message, optional, tag = "67")]
+    pub event_context: ::core::option::Option<ProcedureEventContext>,
+    /// Effective user that submitted the procedure.
+    #[prost(message, optional, tag = "68")]
+    pub actor: ::core::option::Option<ProcedureActor>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct GcStats {
@@ -3373,6 +3410,12 @@ pub struct GcTableRequest {
     /// Timeout in seconds for the entire GC procedure.
     #[prost(uint32, tag = "6")]
     pub timeout_secs: u32,
+    /// Stable event metadata recorded with the submitted procedure.
+    #[prost(message, optional, tag = "67")]
+    pub event_context: ::core::option::Option<ProcedureEventContext>,
+    /// Effective user that submitted the procedure.
+    #[prost(message, optional, tag = "68")]
+    pub actor: ::core::option::Option<ProcedureActor>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct GcTableResponse {

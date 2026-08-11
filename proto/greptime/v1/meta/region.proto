@@ -26,6 +26,10 @@ message MigrateRegionRequest {
   uint64 from_peer = 4;
   uint64 to_peer = 5;
   uint32 timeout_secs = 6;
+  // Stable event metadata recorded with the submitted procedure.
+  ProcedureEventContext event_context = 67;
+  // Effective user that submitted the procedure.
+  ProcedureActor actor = 68;
 }
 
 message MigrateRegionResponse {
