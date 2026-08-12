@@ -80,6 +80,6 @@ message ProcedureEventContext {
   string reason = 1;
   // Protocol derived from the frontend query channel.
   string protocol = 2;
-  // Extensible event metadata. Order is preserved.
-  repeated string extensions = 3;
+  // Extensible event metadata.
+  map<string, string> extensions = 3;
 }

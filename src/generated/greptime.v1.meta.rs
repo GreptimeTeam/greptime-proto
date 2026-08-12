@@ -84,7 +84,7 @@ pub struct ProcedureActor {
     pub username: ::prost::alloc::string::String,
 }
 /// Stable event metadata recorded with a submitted procedure.
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProcedureEventContext {
     /// Stable trigger reason, such as manual or scheduled_gc.
     #[prost(string, tag = "1")]
@@ -92,9 +92,12 @@ pub struct ProcedureEventContext {
     /// Protocol derived from the frontend query channel.
     #[prost(string, tag = "2")]
     pub protocol: ::prost::alloc::string::String,
-    /// Extensible event metadata. Order is preserved.
-    #[prost(string, repeated, tag = "3")]
-    pub extensions: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// Extensible event metadata.
+    #[prost(map = "string, string", tag = "3")]
+    pub extensions: ::std::collections::HashMap<
+        ::prost::alloc::string::String,
+        ::prost::alloc::string::String,
+    >,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
