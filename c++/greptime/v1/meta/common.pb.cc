@@ -133,10 +133,49 @@ struct ProcedureIdDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureIdDefaultTypeInternal _ProcedureId_default_instance_;
+PROTOBUF_CONSTEXPR ProcedureActor::ProcedureActor(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.username_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ProcedureActorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProcedureActorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProcedureActorDefaultTypeInternal() {}
+  union {
+    ProcedureActor _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureActorDefaultTypeInternal _ProcedureActor_default_instance_;
+PROTOBUF_CONSTEXPR ProcedureEventContext_ExtensionsEntry_DoNotUse::ProcedureEventContext_ExtensionsEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
+struct ProcedureEventContext_ExtensionsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProcedureEventContext_ExtensionsEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProcedureEventContext_ExtensionsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ProcedureEventContext_ExtensionsEntry_DoNotUse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureEventContext_ExtensionsEntry_DoNotUseDefaultTypeInternal _ProcedureEventContext_ExtensionsEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR ProcedureEventContext::ProcedureEventContext(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.extensions_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.reason_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.protocol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct ProcedureEventContextDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ProcedureEventContextDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ProcedureEventContextDefaultTypeInternal() {}
+  union {
+    ProcedureEventContext _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ProcedureEventContextDefaultTypeInternal _ProcedureEventContext_default_instance_;
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[8];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[11];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fcommon_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fcommon_2eproto = nullptr;
 
@@ -208,6 +247,32 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureId, _impl_.key_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureActor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureActor, _impl_.username_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse, key_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse, value_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext, _impl_.reason_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext, _impl_.protocol_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ProcedureEventContext, _impl_.extensions_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::greptime::v1::meta::RequestHeader_TracingContextEntry_DoNotUse)},
@@ -218,6 +283,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 44, -1, -1, sizeof(::greptime::v1::meta::TimeInterval)},
   { 52, -1, -1, sizeof(::greptime::v1::meta::KeyValue)},
   { 60, -1, -1, sizeof(::greptime::v1::meta::ProcedureId)},
+  { 67, -1, -1, sizeof(::greptime::v1::meta::ProcedureActor)},
+  { 74, 82, -1, sizeof(::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse)},
+  { 84, -1, -1, sizeof(::greptime::v1::meta::ProcedureEventContext)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -229,6 +297,9 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_TimeInterval_default_instance_._instance,
   &::greptime::v1::meta::_KeyValue_default_instance_._instance,
   &::greptime::v1::meta::_ProcedureId_default_instance_._instance,
+  &::greptime::v1::meta::_ProcedureActor_default_instance_._instance,
+  &::greptime::v1::meta::_ProcedureEventContext_ExtensionsEntry_DoNotUse_default_instance_._instance,
+  &::greptime::v1::meta::_ProcedureEventContext_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -246,16 +317,22 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto[] PRO
   "\t\"L\n\014TimeInterval\022\036\n\026start_timestamp_mil"
   "lis\030\001 \001(\003\022\034\n\024end_timestamp_millis\030\002 \001(\003\""
   "&\n\010KeyValue\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\""
-  "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014*0\n\004Role\022\014\n\010D"
-  "ATANODE\020\000\022\014\n\010FRONTEND\020\001\022\014\n\010FLOWNODE\020\002B<Z"
-  ":github.com/GreptimeTeam/greptime-proto/"
-  "go/greptime/v1/metab\006proto3"
+  "\032\n\013ProcedureId\022\013\n\003key\030\001 \001(\014\"\"\n\016Procedure"
+  "Actor\022\020\n\010username\030\001 \001(\t\"\271\001\n\025ProcedureEve"
+  "ntContext\022\016\n\006reason\030\001 \001(\t\022\020\n\010protocol\030\002 "
+  "\001(\t\022K\n\nextensions\030\003 \003(\01327.greptime.v1.me"
+  "ta.ProcedureEventContext.ExtensionsEntry"
+  "\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
+  "e\030\002 \001(\t:\0028\001*0\n\004Role\022\014\n\010DATANODE\020\000\022\014\n\010FRO"
+  "NTEND\020\001\022\014\n\010FLOWNODE\020\002B<Z:github.com/Grep"
+  "timeTeam/greptime-proto/go/greptime/v1/m"
+  "etab\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto = {
-    false, false, 707, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
+    false, false, 931, descriptor_table_protodef_greptime_2fv1_2fmeta_2fcommon_2eproto,
     "greptime/v1/meta/common.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once, nullptr, 0, 8,
+    &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once, nullptr, 0, 11,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fcommon_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fcommon_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -1941,6 +2018,544 @@ void ProcedureId::InternalSwap(ProcedureId* other) {
       file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[7]);
 }
 
+// ===================================================================
+
+class ProcedureActor::_Internal {
+ public:
+};
+
+ProcedureActor::ProcedureActor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ProcedureActor)
+}
+ProcedureActor::ProcedureActor(const ProcedureActor& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ProcedureActor* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_username().empty()) {
+    _this->_impl_.username_.Set(from._internal_username(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ProcedureActor)
+}
+
+inline void ProcedureActor::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ProcedureActor::~ProcedureActor() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ProcedureActor)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProcedureActor::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.username_.Destroy();
+}
+
+void ProcedureActor::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ProcedureActor::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ProcedureActor)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.username_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProcedureActor::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string username = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_username();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ProcedureActor.username"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProcedureActor::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ProcedureActor)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_username().data(), static_cast<int>(this->_internal_username().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ProcedureActor.username");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_username(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ProcedureActor)
+  return target;
+}
+
+size_t ProcedureActor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ProcedureActor)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_username());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProcedureActor::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ProcedureActor::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProcedureActor::GetClassData() const { return &_class_data_; }
+
+
+void ProcedureActor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ProcedureActor*>(&to_msg);
+  auto& from = static_cast<const ProcedureActor&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ProcedureActor)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_username().empty()) {
+    _this->_internal_set_username(from._internal_username());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProcedureActor::CopyFrom(const ProcedureActor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ProcedureActor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProcedureActor::IsInitialized() const {
+  return true;
+}
+
+void ProcedureActor::InternalSwap(ProcedureActor* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.username_, lhs_arena,
+      &other->_impl_.username_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProcedureActor::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[8]);
+}
+
+// ===================================================================
+
+ProcedureEventContext_ExtensionsEntry_DoNotUse::ProcedureEventContext_ExtensionsEntry_DoNotUse() {}
+ProcedureEventContext_ExtensionsEntry_DoNotUse::ProcedureEventContext_ExtensionsEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+    : SuperType(arena) {}
+void ProcedureEventContext_ExtensionsEntry_DoNotUse::MergeFrom(const ProcedureEventContext_ExtensionsEntry_DoNotUse& other) {
+  MergeFromInternal(other);
+}
+::PROTOBUF_NAMESPACE_ID::Metadata ProcedureEventContext_ExtensionsEntry_DoNotUse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[9]);
+}
+
+// ===================================================================
+
+class ProcedureEventContext::_Internal {
+ public:
+};
+
+ProcedureEventContext::ProcedureEventContext(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &ProcedureEventContext::ArenaDtor);
+  }
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.ProcedureEventContext)
+}
+ProcedureEventContext::ProcedureEventContext(const ProcedureEventContext& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ProcedureEventContext* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.extensions_)*/{}
+    , decltype(_impl_.reason_){}
+    , decltype(_impl_.protocol_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
+  _impl_.reason_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.reason_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_reason().empty()) {
+    _this->_impl_.reason_.Set(from._internal_reason(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.protocol_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.protocol_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_protocol().empty()) {
+    _this->_impl_.protocol_.Set(from._internal_protocol(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.ProcedureEventContext)
+}
+
+inline void ProcedureEventContext::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.extensions_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.reason_){}
+    , decltype(_impl_.protocol_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.reason_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.reason_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.protocol_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.protocol_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+ProcedureEventContext::~ProcedureEventContext() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.ProcedureEventContext)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
+  SharedDtor();
+}
+
+inline void ProcedureEventContext::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.extensions_.Destruct();
+  _impl_.extensions_.~MapField();
+  _impl_.reason_.Destroy();
+  _impl_.protocol_.Destroy();
+}
+
+void ProcedureEventContext::ArenaDtor(void* object) {
+  ProcedureEventContext* _this = reinterpret_cast< ProcedureEventContext* >(object);
+  _this->_impl_.extensions_.Destruct();
+}
+void ProcedureEventContext::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void ProcedureEventContext::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.ProcedureEventContext)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.extensions_.Clear();
+  _impl_.reason_.ClearToEmpty();
+  _impl_.protocol_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ProcedureEventContext::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string reason = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_reason();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ProcedureEventContext.reason"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string protocol = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_protocol();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.meta.ProcedureEventContext.protocol"));
+        } else
+          goto handle_unusual;
+        continue;
+      // map<string, string> extensions = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(&_impl_.extensions_, ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ProcedureEventContext::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.ProcedureEventContext)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string reason = 1;
+  if (!this->_internal_reason().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_reason().data(), static_cast<int>(this->_internal_reason().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ProcedureEventContext.reason");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_reason(), target);
+  }
+
+  // string protocol = 2;
+  if (!this->_internal_protocol().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_protocol().data(), static_cast<int>(this->_internal_protocol().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.meta.ProcedureEventContext.protocol");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_protocol(), target);
+  }
+
+  // map<string, string> extensions = 3;
+  if (!this->_internal_extensions().empty()) {
+    using MapType = ::_pb::Map<std::string, std::string>;
+    using WireHelper = ProcedureEventContext_ExtensionsEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_extensions();
+    auto check_utf8 = [](const MapType::value_type& entry) {
+      (void)entry;
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.first.data(), static_cast<int>(entry.first.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.meta.ProcedureEventContext.ExtensionsEntry.key");
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        entry.second.data(), static_cast<int>(entry.second.length()),
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+        "greptime.v1.meta.ProcedureEventContext.ExtensionsEntry.value");
+    };
+
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    } else {
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(3, entry.first, entry.second, target, stream);
+        check_utf8(entry);
+      }
+    }
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.ProcedureEventContext)
+  return target;
+}
+
+size_t ProcedureEventContext::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.ProcedureEventContext)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // map<string, string> extensions = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_extensions_size());
+  for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+      it = this->_internal_extensions().begin();
+      it != this->_internal_extensions().end(); ++it) {
+    total_size += ProcedureEventContext_ExtensionsEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
+  }
+
+  // string reason = 1;
+  if (!this->_internal_reason().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_reason());
+  }
+
+  // string protocol = 2;
+  if (!this->_internal_protocol().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_protocol());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ProcedureEventContext::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ProcedureEventContext::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ProcedureEventContext::GetClassData() const { return &_class_data_; }
+
+
+void ProcedureEventContext::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ProcedureEventContext*>(&to_msg);
+  auto& from = static_cast<const ProcedureEventContext&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.ProcedureEventContext)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.extensions_.MergeFrom(from._impl_.extensions_);
+  if (!from._internal_reason().empty()) {
+    _this->_internal_set_reason(from._internal_reason());
+  }
+  if (!from._internal_protocol().empty()) {
+    _this->_internal_set_protocol(from._internal_protocol());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ProcedureEventContext::CopyFrom(const ProcedureEventContext& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.ProcedureEventContext)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ProcedureEventContext::IsInitialized() const {
+  return true;
+}
+
+void ProcedureEventContext::InternalSwap(ProcedureEventContext* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.extensions_.InternalSwap(&other->_impl_.extensions_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.reason_, lhs_arena,
+      &other->_impl_.reason_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.protocol_, lhs_arena,
+      &other->_impl_.protocol_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ProcedureEventContext::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fcommon_2eproto[10]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace meta
 }  // namespace v1
@@ -1977,6 +2592,18 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::KeyValue >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureId*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureId >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureId >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureActor*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureActor >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureActor >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureEventContext_ExtensionsEntry_DoNotUse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ProcedureEventContext*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::ProcedureEventContext >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::ProcedureEventContext >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

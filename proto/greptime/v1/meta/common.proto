@@ -68,3 +68,18 @@ message KeyValue {
 message ProcedureId {
   bytes key = 1;
 }
+
+// The effective user that submitted a procedure.
+message ProcedureActor {
+  string username = 1;
+}
+
+// Stable event metadata recorded with a submitted procedure.
+message ProcedureEventContext {
+  // Stable trigger reason, such as manual or scheduled_gc.
+  string reason = 1;
+  // Protocol derived from the frontend query channel.
+  string protocol = 2;
+  // Extensible event metadata.
+  map<string, string> extensions = 3;
+}

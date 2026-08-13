@@ -179,6 +179,8 @@ PROTOBUF_CONSTEXPR GcRegionsRequest::GcRegionsRequest(
     /*decltype(_impl_.region_ids_)*/{}
   , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
   , /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.event_context_)*/nullptr
+  , /*decltype(_impl_.actor_)*/nullptr
   , /*decltype(_impl_.full_file_listing_)*/false
   , /*decltype(_impl_.timeout_secs_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -228,6 +230,8 @@ PROTOBUF_CONSTEXPR GcTableRequest::GcTableRequest(
   , /*decltype(_impl_.schema_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.event_context_)*/nullptr
+  , /*decltype(_impl_.actor_)*/nullptr
   , /*decltype(_impl_.full_file_listing_)*/false
   , /*decltype(_impl_.timeout_secs_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -365,6 +369,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _impl_.region_ids_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _impl_.full_file_listing_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _impl_.timeout_secs_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _impl_.event_context_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _impl_.actor_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcStats, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -395,6 +401,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableRequest, _impl_.table_name_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableRequest, _impl_.full_file_listing_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableRequest, _impl_.timeout_secs_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableRequest, _impl_.event_context_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableRequest, _impl_.actor_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcTableResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -416,10 +424,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 74, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
   { 85, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
   { 93, -1, -1, sizeof(::greptime::v1::meta::GcRegionsRequest)},
-  { 103, -1, -1, sizeof(::greptime::v1::meta::GcStats)},
-  { 113, -1, -1, sizeof(::greptime::v1::meta::GcRegionsResponse)},
-  { 121, -1, -1, sizeof(::greptime::v1::meta::GcTableRequest)},
-  { 133, -1, -1, sizeof(::greptime::v1::meta::GcTableResponse)},
+  { 105, -1, -1, sizeof(::greptime::v1::meta::GcStats)},
+  { 115, -1, -1, sizeof(::greptime::v1::meta::GcRegionsResponse)},
+  { 123, -1, -1, sizeof(::greptime::v1::meta::GcTableRequest)},
+  { 137, -1, -1, sizeof(::greptime::v1::meta::GcTableResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -481,46 +489,51 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile"
   "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
   "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti"
-  "me.v1.meta.ProcedureId\"\210\001\n\020GcRegionsRequ"
+  "me.v1.meta.ProcedureId\"\371\001\n\020GcRegionsRequ"
   "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R"
   "equestHeader\022\022\n\nregion_ids\030\002 \003(\004\022\031\n\021full"
   "_file_listing\030\003 \001(\010\022\024\n\014timeout_secs\030\004 \001("
-  "\r\"p\n\007GcStats\022\031\n\021processed_regions\030\001 \001(\004\022"
-  "\032\n\022need_retry_regions\030\002 \003(\004\022\025\n\rdeleted_f"
-  "iles\030\003 \001(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021G"
-  "cRegionsResponse\0220\n\006header\030\001 \001(\0132 .grept"
-  "ime.v1.meta.ResponseHeader\022(\n\005stats\030\002 \001("
-  "\0132\031.greptime.v1.meta.GcStats\"\261\001\n\016GcTable"
-  "Request\022/\n\006header\030\001 \001(\0132\037.greptime.v1.me"
-  "ta.RequestHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023"
-  "\n\013schema_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022"
-  "\031\n\021full_file_listing\030\005 \001(\010\022\024\n\014timeout_se"
-  "cs\030\006 \001(\r\"m\n\017GcTableResponse\0220\n\006header\030\001 "
-  "\001(\0132 .greptime.v1.meta.ResponseHeader\022(\n"
-  "\005stats\030\002 \001(\0132\031.greptime.v1.meta.GcStats*"
-  "v\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020"
-  "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo"
-  "llback\020\004\022\017\n\013RollingBack\020\005\022\014\n\010Poisoned\020\006*"
-  "E\n\017ResolveStrategy\022\r\n\tUseLatest\020\000\022\016\n\nUse"
-  "Metasrv\020\001\022\023\n\017AbortOnConflict\020\0022\364\004\n\020Proce"
-  "dureService\022Z\n\005query\022\'.greptime.v1.meta."
-  "QueryProcedureRequest\032(.greptime.v1.meta"
-  ".ProcedureStateResponse\022J\n\003ddl\022 .greptim"
-  "e.v1.meta.DdlTaskRequest\032!.greptime.v1.m"
-  "eta.DdlTaskResponse\022T\n\treconcile\022\".grept"
-  "ime.v1.meta.ReconcileRequest\032#.greptime."
-  "v1.meta.ReconcileResponse\022Z\n\007migrate\022&.g"
-  "reptime.v1.meta.MigrateRegionRequest\032\'.g"
-  "reptime.v1.meta.MigrateRegionResponse\022^\n"
-  "\007details\022(.greptime.v1.meta.ProcedureDet"
-  "ailRequest\032).greptime.v1.meta.ProcedureD"
-  "etailResponse\022U\n\ngc_regions\022\".greptime.v"
-  "1.meta.GcRegionsRequest\032#.greptime.v1.me"
-  "ta.GcRegionsResponse\022O\n\010gc_table\022 .grept"
-  "ime.v1.meta.GcTableRequest\032!.greptime.v1"
-  ".meta.GcTableResponseB<Z:github.com/Grep"
-  "timeTeam/greptime-proto/go/greptime/v1/m"
-  "etab\006proto3"
+  "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m"
+  "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013"
+  "2 .greptime.v1.meta.ProcedureActor\"p\n\007Gc"
+  "Stats\022\031\n\021processed_regions\030\001 \001(\004\022\032\n\022need"
+  "_retry_regions\030\002 \003(\004\022\025\n\rdeleted_files\030\003 "
+  "\001(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021GcRegion"
+  "sResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1."
+  "meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031.gre"
+  "ptime.v1.meta.GcStats\"\242\002\n\016GcTableRequest"
+  "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ"
+  "estHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023\n\013schem"
+  "a_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022\031\n\021full"
+  "_file_listing\030\005 \001(\010\022\024\n\014timeout_secs\030\006 \001("
+  "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m"
+  "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013"
+  "2 .greptime.v1.meta.ProcedureActor\"m\n\017Gc"
+  "TableResponse\0220\n\006header\030\001 \001(\0132 .greptime"
+  ".v1.meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031"
+  ".greptime.v1.meta.GcStats*v\n\017ProcedureSt"
+  "atus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020"
+  "\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Ro"
+  "llingBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStra"
+  "tegy\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017A"
+  "bortOnConflict\020\0022\364\004\n\020ProcedureService\022Z\n"
+  "\005query\022\'.greptime.v1.meta.QueryProcedure"
+  "Request\032(.greptime.v1.meta.ProcedureStat"
+  "eResponse\022J\n\003ddl\022 .greptime.v1.meta.DdlT"
+  "askRequest\032!.greptime.v1.meta.DdlTaskRes"
+  "ponse\022T\n\treconcile\022\".greptime.v1.meta.Re"
+  "concileRequest\032#.greptime.v1.meta.Reconc"
+  "ileResponse\022Z\n\007migrate\022&.greptime.v1.met"
+  "a.MigrateRegionRequest\032\'.greptime.v1.met"
+  "a.MigrateRegionResponse\022^\n\007details\022(.gre"
+  "ptime.v1.meta.ProcedureDetailRequest\032).g"
+  "reptime.v1.meta.ProcedureDetailResponse\022"
+  "U\n\ngc_regions\022\".greptime.v1.meta.GcRegio"
+  "nsRequest\032#.greptime.v1.meta.GcRegionsRe"
+  "sponse\022O\n\010gc_table\022 .greptime.v1.meta.Gc"
+  "TableRequest\032!.greptime.v1.meta.GcTableR"
+  "esponseB<Z:github.com/GreptimeTeam/grept"
+  "ime-proto/go/greptime/v1/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -529,7 +542,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 3171, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 3397, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 15,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
@@ -3556,17 +3569,39 @@ void ReconcileResponse::InternalSwap(ReconcileResponse* other) {
 class GcRegionsRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const GcRegionsRequest* msg);
+  static const ::greptime::v1::meta::ProcedureEventContext& event_context(const GcRegionsRequest* msg);
+  static const ::greptime::v1::meta::ProcedureActor& actor(const GcRegionsRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
 GcRegionsRequest::_Internal::header(const GcRegionsRequest* msg) {
   return *msg->_impl_.header_;
 }
+const ::greptime::v1::meta::ProcedureEventContext&
+GcRegionsRequest::_Internal::event_context(const GcRegionsRequest* msg) {
+  return *msg->_impl_.event_context_;
+}
+const ::greptime::v1::meta::ProcedureActor&
+GcRegionsRequest::_Internal::actor(const GcRegionsRequest* msg) {
+  return *msg->_impl_.actor_;
+}
 void GcRegionsRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+}
+void GcRegionsRequest::clear_event_context() {
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+}
+void GcRegionsRequest::clear_actor() {
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
 }
 GcRegionsRequest::GcRegionsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -3581,6 +3616,8 @@ GcRegionsRequest::GcRegionsRequest(const GcRegionsRequest& from)
       decltype(_impl_.region_ids_){from._impl_.region_ids_}
     , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.full_file_listing_){}
     , decltype(_impl_.timeout_secs_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -3588,6 +3625,12 @@ GcRegionsRequest::GcRegionsRequest(const GcRegionsRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_event_context()) {
+    _this->_impl_.event_context_ = new ::greptime::v1::meta::ProcedureEventContext(*from._impl_.event_context_);
+  }
+  if (from._internal_has_actor()) {
+    _this->_impl_.actor_ = new ::greptime::v1::meta::ProcedureActor(*from._impl_.actor_);
   }
   ::memcpy(&_impl_.full_file_listing_, &from._impl_.full_file_listing_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timeout_secs_) -
@@ -3603,6 +3646,8 @@ inline void GcRegionsRequest::SharedCtor(
       decltype(_impl_.region_ids_){arena}
     , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.full_file_listing_){false}
     , decltype(_impl_.timeout_secs_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -3622,6 +3667,8 @@ inline void GcRegionsRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.region_ids_.~RepeatedField();
   if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.event_context_;
+  if (this != internal_default_instance()) delete _impl_.actor_;
 }
 
 void GcRegionsRequest::SetCachedSize(int size) const {
@@ -3639,6 +3686,14 @@ void GcRegionsRequest::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
   ::memset(&_impl_.full_file_listing_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.timeout_secs_) -
       reinterpret_cast<char*>(&_impl_.full_file_listing_)) + sizeof(_impl_.timeout_secs_));
@@ -3682,6 +3737,22 @@ const char* GcRegionsRequest::_InternalParse(const char* ptr, ::_pbi::ParseConte
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.timeout_secs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+      case 67:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_event_context(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureActor actor = 68;
+      case 68:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_actor(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3743,6 +3814,20 @@ uint8_t* GcRegionsRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_timeout_secs(), target);
   }
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(67, _Internal::event_context(this),
+        _Internal::event_context(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(68, _Internal::actor(this),
+        _Internal::actor(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3780,6 +3865,20 @@ size_t GcRegionsRequest::ByteSizeLong() const {
         *_impl_.header_);
   }
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_context_);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.actor_);
+  }
+
   // bool full_file_listing = 3;
   if (this->_internal_full_file_listing() != 0) {
     total_size += 1 + 1;
@@ -3812,6 +3911,14 @@ void GcRegionsRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
         from._internal_header());
+  }
+  if (from._internal_has_event_context()) {
+    _this->_internal_mutable_event_context()->::greptime::v1::meta::ProcedureEventContext::MergeFrom(
+        from._internal_event_context());
+  }
+  if (from._internal_has_actor()) {
+    _this->_internal_mutable_actor()->::greptime::v1::meta::ProcedureActor::MergeFrom(
+        from._internal_actor());
   }
   if (from._internal_full_file_listing() != 0) {
     _this->_internal_set_full_file_listing(from._internal_full_file_listing());
@@ -4378,17 +4485,39 @@ void GcRegionsResponse::InternalSwap(GcRegionsResponse* other) {
 class GcTableRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const GcTableRequest* msg);
+  static const ::greptime::v1::meta::ProcedureEventContext& event_context(const GcTableRequest* msg);
+  static const ::greptime::v1::meta::ProcedureActor& actor(const GcTableRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
 GcTableRequest::_Internal::header(const GcTableRequest* msg) {
   return *msg->_impl_.header_;
 }
+const ::greptime::v1::meta::ProcedureEventContext&
+GcTableRequest::_Internal::event_context(const GcTableRequest* msg) {
+  return *msg->_impl_.event_context_;
+}
+const ::greptime::v1::meta::ProcedureActor&
+GcTableRequest::_Internal::actor(const GcTableRequest* msg) {
+  return *msg->_impl_.actor_;
+}
 void GcTableRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+}
+void GcTableRequest::clear_event_context() {
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+}
+void GcTableRequest::clear_actor() {
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
 }
 GcTableRequest::GcTableRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4404,6 +4533,8 @@ GcTableRequest::GcTableRequest(const GcTableRequest& from)
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.full_file_listing_){}
     , decltype(_impl_.timeout_secs_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -4436,6 +4567,12 @@ GcTableRequest::GcTableRequest(const GcTableRequest& from)
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
   }
+  if (from._internal_has_event_context()) {
+    _this->_impl_.event_context_ = new ::greptime::v1::meta::ProcedureEventContext(*from._impl_.event_context_);
+  }
+  if (from._internal_has_actor()) {
+    _this->_impl_.actor_ = new ::greptime::v1::meta::ProcedureActor(*from._impl_.actor_);
+  }
   ::memcpy(&_impl_.full_file_listing_, &from._impl_.full_file_listing_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timeout_secs_) -
     reinterpret_cast<char*>(&_impl_.full_file_listing_)) + sizeof(_impl_.timeout_secs_));
@@ -4451,6 +4588,8 @@ inline void GcTableRequest::SharedCtor(
     , decltype(_impl_.schema_name_){}
     , decltype(_impl_.table_name_){}
     , decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.full_file_listing_){false}
     , decltype(_impl_.timeout_secs_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -4484,6 +4623,8 @@ inline void GcTableRequest::SharedDtor() {
   _impl_.schema_name_.Destroy();
   _impl_.table_name_.Destroy();
   if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.event_context_;
+  if (this != internal_default_instance()) delete _impl_.actor_;
 }
 
 void GcTableRequest::SetCachedSize(int size) const {
@@ -4503,6 +4644,14 @@ void GcTableRequest::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
   ::memset(&_impl_.full_file_listing_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.timeout_secs_) -
       reinterpret_cast<char*>(&_impl_.full_file_listing_)) + sizeof(_impl_.timeout_secs_));
@@ -4565,6 +4714,22 @@ const char* GcTableRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _impl_.timeout_secs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+      case 67:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_event_context(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureActor actor = 68;
+      case 68:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_actor(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4647,6 +4812,20 @@ uint8_t* GcTableRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_timeout_secs(), target);
   }
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(67, _Internal::event_context(this),
+        _Internal::event_context(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(68, _Internal::actor(this),
+        _Internal::actor(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4691,6 +4870,20 @@ size_t GcTableRequest::ByteSizeLong() const {
         *_impl_.header_);
   }
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_context_);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.actor_);
+  }
+
   // bool full_file_listing = 5;
   if (this->_internal_full_file_listing() != 0) {
     total_size += 1 + 1;
@@ -4731,6 +4924,14 @@ void GcTableRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
         from._internal_header());
+  }
+  if (from._internal_has_event_context()) {
+    _this->_internal_mutable_event_context()->::greptime::v1::meta::ProcedureEventContext::MergeFrom(
+        from._internal_event_context());
+  }
+  if (from._internal_has_actor()) {
+    _this->_internal_mutable_actor()->::greptime::v1::meta::ProcedureActor::MergeFrom(
+        from._internal_actor());
   }
   if (from._internal_full_file_listing() != 0) {
     _this->_internal_set_full_file_listing(from._internal_full_file_listing());

@@ -9889,6 +9889,60 @@ public final class Procedure {
      * @return The timeoutSecs.
      */
     int getTimeoutSecs();
+
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    boolean hasEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    greptime.v1.meta.Common.ProcedureEventContext getEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder();
+
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    boolean hasActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    greptime.v1.meta.Common.ProcedureActor getActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.GcRegionsRequest}
@@ -9979,6 +10033,32 @@ public final class Procedure {
             case 32: {
 
               timeoutSecs_ = input.readUInt32();
+              break;
+            }
+            case 538: {
+              greptime.v1.meta.Common.ProcedureEventContext.Builder subBuilder = null;
+              if (eventContext_ != null) {
+                subBuilder = eventContext_.toBuilder();
+              }
+              eventContext_ = input.readMessage(greptime.v1.meta.Common.ProcedureEventContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(eventContext_);
+                eventContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 546: {
+              greptime.v1.meta.Common.ProcedureActor.Builder subBuilder = null;
+              if (actor_ != null) {
+                subBuilder = actor_.toBuilder();
+              }
+              actor_ = input.readMessage(greptime.v1.meta.Common.ProcedureActor.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(actor_);
+                actor_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -10102,6 +10182,82 @@ public final class Procedure {
       return timeoutSecs_;
     }
 
+    public static final int EVENT_CONTEXT_FIELD_NUMBER = 67;
+    private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasEventContext() {
+      return eventContext_ != null;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+      return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+      return getEventContext();
+    }
+
+    public static final int ACTOR_FIELD_NUMBER = 68;
+    private greptime.v1.meta.Common.ProcedureActor actor_;
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    @java.lang.Override
+    public boolean hasActor() {
+      return actor_ != null;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActor getActor() {
+      return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+      return getActor();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10132,6 +10288,12 @@ public final class Procedure {
       }
       if (timeoutSecs_ != 0) {
         output.writeUInt32(4, timeoutSecs_);
+      }
+      if (eventContext_ != null) {
+        output.writeMessage(67, getEventContext());
+      }
+      if (actor_ != null) {
+        output.writeMessage(68, getActor());
       }
       unknownFields.writeTo(output);
     }
@@ -10168,6 +10330,14 @@ public final class Procedure {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, timeoutSecs_);
       }
+      if (eventContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(67, getEventContext());
+      }
+      if (actor_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(68, getActor());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -10194,6 +10364,16 @@ public final class Procedure {
           != other.getFullFileListing()) return false;
       if (getTimeoutSecs()
           != other.getTimeoutSecs()) return false;
+      if (hasEventContext() != other.hasEventContext()) return false;
+      if (hasEventContext()) {
+        if (!getEventContext()
+            .equals(other.getEventContext())) return false;
+      }
+      if (hasActor() != other.hasActor()) return false;
+      if (hasActor()) {
+        if (!getActor()
+            .equals(other.getActor())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -10218,6 +10398,14 @@ public final class Procedure {
           getFullFileListing());
       hash = (37 * hash) + TIMEOUT_SECS_FIELD_NUMBER;
       hash = (53 * hash) + getTimeoutSecs();
+      if (hasEventContext()) {
+        hash = (37 * hash) + EVENT_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getEventContext().hashCode();
+      }
+      if (hasActor()) {
+        hash = (37 * hash) + ACTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getActor().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10363,6 +10551,18 @@ public final class Procedure {
 
         timeoutSecs_ = 0;
 
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+        if (actorBuilder_ == null) {
+          actor_ = null;
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
         return this;
       }
 
@@ -10402,6 +10602,16 @@ public final class Procedure {
         result.regionIds_ = regionIds_;
         result.fullFileListing_ = fullFileListing_;
         result.timeoutSecs_ = timeoutSecs_;
+        if (eventContextBuilder_ == null) {
+          result.eventContext_ = eventContext_;
+        } else {
+          result.eventContext_ = eventContextBuilder_.build();
+        }
+        if (actorBuilder_ == null) {
+          result.actor_ = actor_;
+        } else {
+          result.actor_ = actorBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -10468,6 +10678,12 @@ public final class Procedure {
         }
         if (other.getTimeoutSecs() != 0) {
           setTimeoutSecs(other.getTimeoutSecs());
+        }
+        if (other.hasEventContext()) {
+          mergeEventContext(other.getEventContext());
+        }
+        if (other.hasActor()) {
+          mergeActor(other.getActor());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10781,6 +10997,316 @@ public final class Procedure {
         timeoutSecs_ = 0;
         onChanged();
         return this;
+      }
+
+      private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> eventContextBuilder_;
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return Whether the eventContext field is set.
+       */
+      public boolean hasEventContext() {
+        return eventContextBuilder_ != null || eventContext_ != null;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return The eventContext.
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+        if (eventContextBuilder_ == null) {
+          return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        } else {
+          return eventContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          eventContext_ = value;
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(
+          greptime.v1.meta.Common.ProcedureEventContext.Builder builderForValue) {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder mergeEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (eventContext_ != null) {
+            eventContext_ =
+              greptime.v1.meta.Common.ProcedureEventContext.newBuilder(eventContext_).mergeFrom(value).buildPartial();
+          } else {
+            eventContext_ = value;
+          }
+          onChanged();
+        } else {
+          eventContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder clearEventContext() {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+          onChanged();
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext.Builder getEventContextBuilder() {
+        
+        onChanged();
+        return getEventContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+        if (eventContextBuilder_ != null) {
+          return eventContextBuilder_.getMessageOrBuilder();
+        } else {
+          return eventContext_ == null ?
+              greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> 
+          getEventContextFieldBuilder() {
+        if (eventContextBuilder_ == null) {
+          eventContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder>(
+                  getEventContext(),
+                  getParentForChildren(),
+                  isClean());
+          eventContext_ = null;
+        }
+        return eventContextBuilder_;
+      }
+
+      private greptime.v1.meta.Common.ProcedureActor actor_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> actorBuilder_;
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return Whether the actor field is set.
+       */
+      public boolean hasActor() {
+        return actorBuilder_ != null || actor_ != null;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return The actor.
+       */
+      public greptime.v1.meta.Common.ProcedureActor getActor() {
+        if (actorBuilder_ == null) {
+          return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        } else {
+          return actorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          actor_ = value;
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(
+          greptime.v1.meta.Common.ProcedureActor.Builder builderForValue) {
+        if (actorBuilder_ == null) {
+          actor_ = builderForValue.build();
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder mergeActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (actor_ != null) {
+            actor_ =
+              greptime.v1.meta.Common.ProcedureActor.newBuilder(actor_).mergeFrom(value).buildPartial();
+          } else {
+            actor_ = value;
+          }
+          onChanged();
+        } else {
+          actorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder clearActor() {
+        if (actorBuilder_ == null) {
+          actor_ = null;
+          onChanged();
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActor.Builder getActorBuilder() {
+        
+        onChanged();
+        return getActorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+        if (actorBuilder_ != null) {
+          return actorBuilder_.getMessageOrBuilder();
+        } else {
+          return actor_ == null ?
+              greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> 
+          getActorFieldBuilder() {
+        if (actorBuilder_ == null) {
+          actorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder>(
+                  getActor(),
+                  getParentForChildren(),
+                  isClean());
+          actor_ = null;
+        }
+        return actorBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -12677,6 +13203,60 @@ public final class Procedure {
      * @return The timeoutSecs.
      */
     int getTimeoutSecs();
+
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    boolean hasEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    greptime.v1.meta.Common.ProcedureEventContext getEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder();
+
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    boolean hasActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    greptime.v1.meta.Common.ProcedureActor getActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.meta.GcTableRequest}
@@ -12765,6 +13345,32 @@ public final class Procedure {
             case 48: {
 
               timeoutSecs_ = input.readUInt32();
+              break;
+            }
+            case 538: {
+              greptime.v1.meta.Common.ProcedureEventContext.Builder subBuilder = null;
+              if (eventContext_ != null) {
+                subBuilder = eventContext_.toBuilder();
+              }
+              eventContext_ = input.readMessage(greptime.v1.meta.Common.ProcedureEventContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(eventContext_);
+                eventContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 546: {
+              greptime.v1.meta.Common.ProcedureActor.Builder subBuilder = null;
+              if (actor_ != null) {
+                subBuilder = actor_.toBuilder();
+              }
+              actor_ = input.readMessage(greptime.v1.meta.Common.ProcedureActor.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(actor_);
+                actor_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -12971,6 +13577,82 @@ public final class Procedure {
       return timeoutSecs_;
     }
 
+    public static final int EVENT_CONTEXT_FIELD_NUMBER = 67;
+    private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasEventContext() {
+      return eventContext_ != null;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+      return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+      return getEventContext();
+    }
+
+    public static final int ACTOR_FIELD_NUMBER = 68;
+    private greptime.v1.meta.Common.ProcedureActor actor_;
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    @java.lang.Override
+    public boolean hasActor() {
+      return actor_ != null;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActor getActor() {
+      return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+      return getActor();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13003,6 +13685,12 @@ public final class Procedure {
       if (timeoutSecs_ != 0) {
         output.writeUInt32(6, timeoutSecs_);
       }
+      if (eventContext_ != null) {
+        output.writeMessage(67, getEventContext());
+      }
+      if (actor_ != null) {
+        output.writeMessage(68, getActor());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13032,6 +13720,14 @@ public final class Procedure {
       if (timeoutSecs_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, timeoutSecs_);
+      }
+      if (eventContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(67, getEventContext());
+      }
+      if (actor_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(68, getActor());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13063,6 +13759,16 @@ public final class Procedure {
           != other.getFullFileListing()) return false;
       if (getTimeoutSecs()
           != other.getTimeoutSecs()) return false;
+      if (hasEventContext() != other.hasEventContext()) return false;
+      if (hasEventContext()) {
+        if (!getEventContext()
+            .equals(other.getEventContext())) return false;
+      }
+      if (hasActor() != other.hasActor()) return false;
+      if (hasActor()) {
+        if (!getActor()
+            .equals(other.getActor())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13089,6 +13795,14 @@ public final class Procedure {
           getFullFileListing());
       hash = (37 * hash) + TIMEOUT_SECS_FIELD_NUMBER;
       hash = (53 * hash) + getTimeoutSecs();
+      if (hasEventContext()) {
+        hash = (37 * hash) + EVENT_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getEventContext().hashCode();
+      }
+      if (hasActor()) {
+        hash = (37 * hash) + ACTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getActor().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13238,6 +13952,18 @@ public final class Procedure {
 
         timeoutSecs_ = 0;
 
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+        if (actorBuilder_ == null) {
+          actor_ = null;
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
         return this;
       }
 
@@ -13274,6 +14000,16 @@ public final class Procedure {
         result.tableName_ = tableName_;
         result.fullFileListing_ = fullFileListing_;
         result.timeoutSecs_ = timeoutSecs_;
+        if (eventContextBuilder_ == null) {
+          result.eventContext_ = eventContext_;
+        } else {
+          result.eventContext_ = eventContextBuilder_.build();
+        }
+        if (actorBuilder_ == null) {
+          result.actor_ = actor_;
+        } else {
+          result.actor_ = actorBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -13342,6 +14078,12 @@ public final class Procedure {
         }
         if (other.getTimeoutSecs() != 0) {
           setTimeoutSecs(other.getTimeoutSecs());
+        }
+        if (other.hasEventContext()) {
+          mergeEventContext(other.getEventContext());
+        }
+        if (other.hasActor()) {
+          mergeActor(other.getActor());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13803,6 +14545,316 @@ public final class Procedure {
         timeoutSecs_ = 0;
         onChanged();
         return this;
+      }
+
+      private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> eventContextBuilder_;
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return Whether the eventContext field is set.
+       */
+      public boolean hasEventContext() {
+        return eventContextBuilder_ != null || eventContext_ != null;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return The eventContext.
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+        if (eventContextBuilder_ == null) {
+          return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        } else {
+          return eventContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          eventContext_ = value;
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(
+          greptime.v1.meta.Common.ProcedureEventContext.Builder builderForValue) {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder mergeEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (eventContext_ != null) {
+            eventContext_ =
+              greptime.v1.meta.Common.ProcedureEventContext.newBuilder(eventContext_).mergeFrom(value).buildPartial();
+          } else {
+            eventContext_ = value;
+          }
+          onChanged();
+        } else {
+          eventContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder clearEventContext() {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+          onChanged();
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext.Builder getEventContextBuilder() {
+        
+        onChanged();
+        return getEventContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+        if (eventContextBuilder_ != null) {
+          return eventContextBuilder_.getMessageOrBuilder();
+        } else {
+          return eventContext_ == null ?
+              greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> 
+          getEventContextFieldBuilder() {
+        if (eventContextBuilder_ == null) {
+          eventContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder>(
+                  getEventContext(),
+                  getParentForChildren(),
+                  isClean());
+          eventContext_ = null;
+        }
+        return eventContextBuilder_;
+      }
+
+      private greptime.v1.meta.Common.ProcedureActor actor_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> actorBuilder_;
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return Whether the actor field is set.
+       */
+      public boolean hasActor() {
+        return actorBuilder_ != null || actor_ != null;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return The actor.
+       */
+      public greptime.v1.meta.Common.ProcedureActor getActor() {
+        if (actorBuilder_ == null) {
+          return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        } else {
+          return actorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          actor_ = value;
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(
+          greptime.v1.meta.Common.ProcedureActor.Builder builderForValue) {
+        if (actorBuilder_ == null) {
+          actor_ = builderForValue.build();
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder mergeActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (actor_ != null) {
+            actor_ =
+              greptime.v1.meta.Common.ProcedureActor.newBuilder(actor_).mergeFrom(value).buildPartial();
+          } else {
+            actor_ = value;
+          }
+          onChanged();
+        } else {
+          actorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder clearActor() {
+        if (actorBuilder_ == null) {
+          actor_ = null;
+          onChanged();
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActor.Builder getActorBuilder() {
+        
+        onChanged();
+        return getActorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+        if (actorBuilder_ != null) {
+          return actorBuilder_.getMessageOrBuilder();
+        } else {
+          return actor_ == null ?
+              greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> 
+          getActorFieldBuilder() {
+        if (actorBuilder_ == null) {
+          actorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder>(
+                  getActor(),
+                  getParentForChildren(),
+                  isClean());
+          actor_ = null;
+        }
+        return actorBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -14807,46 +15859,51 @@ public final class Procedure {
       "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile" +
       "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m" +
       "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti" +
-      "me.v1.meta.ProcedureId\"\210\001\n\020GcRegionsRequ" +
+      "me.v1.meta.ProcedureId\"\371\001\n\020GcRegionsRequ" +
       "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R" +
       "equestHeader\022\022\n\nregion_ids\030\002 \003(\004\022\031\n\021full" +
       "_file_listing\030\003 \001(\010\022\024\n\014timeout_secs\030\004 \001(" +
-      "\r\"p\n\007GcStats\022\031\n\021processed_regions\030\001 \001(\004\022" +
-      "\032\n\022need_retry_regions\030\002 \003(\004\022\025\n\rdeleted_f" +
-      "iles\030\003 \001(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021G" +
-      "cRegionsResponse\0220\n\006header\030\001 \001(\0132 .grept" +
-      "ime.v1.meta.ResponseHeader\022(\n\005stats\030\002 \001(" +
-      "\0132\031.greptime.v1.meta.GcStats\"\261\001\n\016GcTable" +
-      "Request\022/\n\006header\030\001 \001(\0132\037.greptime.v1.me" +
-      "ta.RequestHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023" +
-      "\n\013schema_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022" +
-      "\031\n\021full_file_listing\030\005 \001(\010\022\024\n\014timeout_se" +
-      "cs\030\006 \001(\r\"m\n\017GcTableResponse\0220\n\006header\030\001 " +
-      "\001(\0132 .greptime.v1.meta.ResponseHeader\022(\n" +
-      "\005stats\030\002 \001(\0132\031.greptime.v1.meta.GcStats*" +
-      "v\n\017ProcedureStatus\022\013\n\007Running\020\000\022\010\n\004Done\020" +
-      "\001\022\014\n\010Retrying\020\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRo" +
-      "llback\020\004\022\017\n\013RollingBack\020\005\022\014\n\010Poisoned\020\006*" +
-      "E\n\017ResolveStrategy\022\r\n\tUseLatest\020\000\022\016\n\nUse" +
-      "Metasrv\020\001\022\023\n\017AbortOnConflict\020\0022\364\004\n\020Proce" +
-      "dureService\022Z\n\005query\022\'.greptime.v1.meta." +
-      "QueryProcedureRequest\032(.greptime.v1.meta" +
-      ".ProcedureStateResponse\022J\n\003ddl\022 .greptim" +
-      "e.v1.meta.DdlTaskRequest\032!.greptime.v1.m" +
-      "eta.DdlTaskResponse\022T\n\treconcile\022\".grept" +
-      "ime.v1.meta.ReconcileRequest\032#.greptime." +
-      "v1.meta.ReconcileResponse\022Z\n\007migrate\022&.g" +
-      "reptime.v1.meta.MigrateRegionRequest\032\'.g" +
-      "reptime.v1.meta.MigrateRegionResponse\022^\n" +
-      "\007details\022(.greptime.v1.meta.ProcedureDet" +
-      "ailRequest\032).greptime.v1.meta.ProcedureD" +
-      "etailResponse\022U\n\ngc_regions\022\".greptime.v" +
-      "1.meta.GcRegionsRequest\032#.greptime.v1.me" +
-      "ta.GcRegionsResponse\022O\n\010gc_table\022 .grept" +
-      "ime.v1.meta.GcTableRequest\032!.greptime.v1" +
-      ".meta.GcTableResponseB<Z:github.com/Grep" +
-      "timeTeam/greptime-proto/go/greptime/v1/m" +
-      "etab\006proto3"
+      "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m" +
+      "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013" +
+      "2 .greptime.v1.meta.ProcedureActor\"p\n\007Gc" +
+      "Stats\022\031\n\021processed_regions\030\001 \001(\004\022\032\n\022need" +
+      "_retry_regions\030\002 \003(\004\022\025\n\rdeleted_files\030\003 " +
+      "\001(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021GcRegion" +
+      "sResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1." +
+      "meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031.gre" +
+      "ptime.v1.meta.GcStats\"\242\002\n\016GcTableRequest" +
+      "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ" +
+      "estHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023\n\013schem" +
+      "a_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022\031\n\021full" +
+      "_file_listing\030\005 \001(\010\022\024\n\014timeout_secs\030\006 \001(" +
+      "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m" +
+      "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013" +
+      "2 .greptime.v1.meta.ProcedureActor\"m\n\017Gc" +
+      "TableResponse\0220\n\006header\030\001 \001(\0132 .greptime" +
+      ".v1.meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031" +
+      ".greptime.v1.meta.GcStats*v\n\017ProcedureSt" +
+      "atus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020" +
+      "\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Ro" +
+      "llingBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStra" +
+      "tegy\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017A" +
+      "bortOnConflict\020\0022\364\004\n\020ProcedureService\022Z\n" +
+      "\005query\022\'.greptime.v1.meta.QueryProcedure" +
+      "Request\032(.greptime.v1.meta.ProcedureStat" +
+      "eResponse\022J\n\003ddl\022 .greptime.v1.meta.DdlT" +
+      "askRequest\032!.greptime.v1.meta.DdlTaskRes" +
+      "ponse\022T\n\treconcile\022\".greptime.v1.meta.Re" +
+      "concileRequest\032#.greptime.v1.meta.Reconc" +
+      "ileResponse\022Z\n\007migrate\022&.greptime.v1.met" +
+      "a.MigrateRegionRequest\032\'.greptime.v1.met" +
+      "a.MigrateRegionResponse\022^\n\007details\022(.gre" +
+      "ptime.v1.meta.ProcedureDetailRequest\032).g" +
+      "reptime.v1.meta.ProcedureDetailResponse\022" +
+      "U\n\ngc_regions\022\".greptime.v1.meta.GcRegio" +
+      "nsRequest\032#.greptime.v1.meta.GcRegionsRe" +
+      "sponse\022O\n\010gc_table\022 .greptime.v1.meta.Gc" +
+      "TableRequest\032!.greptime.v1.meta.GcTableR" +
+      "esponseB<Z:github.com/GreptimeTeam/grept" +
+      "ime-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14920,7 +15977,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_GcRegionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GcRegionsRequest_descriptor,
-        new java.lang.String[] { "Header", "RegionIds", "FullFileListing", "TimeoutSecs", });
+        new java.lang.String[] { "Header", "RegionIds", "FullFileListing", "TimeoutSecs", "EventContext", "Actor", });
     internal_static_greptime_v1_meta_GcStats_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_meta_GcStats_fieldAccessorTable = new
@@ -14938,7 +15995,7 @@ public final class Procedure {
     internal_static_greptime_v1_meta_GcTableRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GcTableRequest_descriptor,
-        new java.lang.String[] { "Header", "CatalogName", "SchemaName", "TableName", "FullFileListing", "TimeoutSecs", });
+        new java.lang.String[] { "Header", "CatalogName", "SchemaName", "TableName", "FullFileListing", "TimeoutSecs", "EventContext", "Actor", });
     internal_static_greptime_v1_meta_GcTableResponse_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_meta_GcTableResponse_fieldAccessorTable = new

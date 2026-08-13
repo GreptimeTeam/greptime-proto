@@ -2221,6 +2221,8 @@ class GcRegionsRequest final :
   enum : int {
     kRegionIdsFieldNumber = 2,
     kHeaderFieldNumber = 1,
+    kEventContextFieldNumber = 67,
+    kActorFieldNumber = 68,
     kFullFileListingFieldNumber = 3,
     kTimeoutSecsFieldNumber = 4,
   };
@@ -2264,6 +2266,42 @@ class GcRegionsRequest final :
       ::greptime::v1::meta::RequestHeader* header);
   ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  bool has_event_context() const;
+  private:
+  bool _internal_has_event_context() const;
+  public:
+  void clear_event_context();
+  const ::greptime::v1::meta::ProcedureEventContext& event_context() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureEventContext* release_event_context();
+  ::greptime::v1::meta::ProcedureEventContext* mutable_event_context();
+  void set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context);
+  private:
+  const ::greptime::v1::meta::ProcedureEventContext& _internal_event_context() const;
+  ::greptime::v1::meta::ProcedureEventContext* _internal_mutable_event_context();
+  public:
+  void unsafe_arena_set_allocated_event_context(
+      ::greptime::v1::meta::ProcedureEventContext* event_context);
+  ::greptime::v1::meta::ProcedureEventContext* unsafe_arena_release_event_context();
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  bool has_actor() const;
+  private:
+  bool _internal_has_actor() const;
+  public:
+  void clear_actor();
+  const ::greptime::v1::meta::ProcedureActor& actor() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureActor* release_actor();
+  ::greptime::v1::meta::ProcedureActor* mutable_actor();
+  void set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor);
+  private:
+  const ::greptime::v1::meta::ProcedureActor& _internal_actor() const;
+  ::greptime::v1::meta::ProcedureActor* _internal_mutable_actor();
+  public:
+  void unsafe_arena_set_allocated_actor(
+      ::greptime::v1::meta::ProcedureActor* actor);
+  ::greptime::v1::meta::ProcedureActor* unsafe_arena_release_actor();
+
   // bool full_file_listing = 3;
   void clear_full_file_listing();
   bool full_file_listing() const;
@@ -2293,6 +2331,8 @@ class GcRegionsRequest final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
     mutable std::atomic<int> _region_ids_cached_byte_size_;
     ::greptime::v1::meta::RequestHeader* header_;
+    ::greptime::v1::meta::ProcedureEventContext* event_context_;
+    ::greptime::v1::meta::ProcedureActor* actor_;
     bool full_file_listing_;
     uint32_t timeout_secs_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2799,6 +2839,8 @@ class GcTableRequest final :
     kSchemaNameFieldNumber = 3,
     kTableNameFieldNumber = 4,
     kHeaderFieldNumber = 1,
+    kEventContextFieldNumber = 67,
+    kActorFieldNumber = 68,
     kFullFileListingFieldNumber = 5,
     kTimeoutSecsFieldNumber = 6,
   };
@@ -2862,6 +2904,42 @@ class GcTableRequest final :
       ::greptime::v1::meta::RequestHeader* header);
   ::greptime::v1::meta::RequestHeader* unsafe_arena_release_header();
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  bool has_event_context() const;
+  private:
+  bool _internal_has_event_context() const;
+  public:
+  void clear_event_context();
+  const ::greptime::v1::meta::ProcedureEventContext& event_context() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureEventContext* release_event_context();
+  ::greptime::v1::meta::ProcedureEventContext* mutable_event_context();
+  void set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context);
+  private:
+  const ::greptime::v1::meta::ProcedureEventContext& _internal_event_context() const;
+  ::greptime::v1::meta::ProcedureEventContext* _internal_mutable_event_context();
+  public:
+  void unsafe_arena_set_allocated_event_context(
+      ::greptime::v1::meta::ProcedureEventContext* event_context);
+  ::greptime::v1::meta::ProcedureEventContext* unsafe_arena_release_event_context();
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  bool has_actor() const;
+  private:
+  bool _internal_has_actor() const;
+  public:
+  void clear_actor();
+  const ::greptime::v1::meta::ProcedureActor& actor() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureActor* release_actor();
+  ::greptime::v1::meta::ProcedureActor* mutable_actor();
+  void set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor);
+  private:
+  const ::greptime::v1::meta::ProcedureActor& _internal_actor() const;
+  ::greptime::v1::meta::ProcedureActor* _internal_mutable_actor();
+  public:
+  void unsafe_arena_set_allocated_actor(
+      ::greptime::v1::meta::ProcedureActor* actor);
+  ::greptime::v1::meta::ProcedureActor* unsafe_arena_release_actor();
+
   // bool full_file_listing = 5;
   void clear_full_file_listing();
   bool full_file_listing() const;
@@ -2892,6 +2970,8 @@ class GcTableRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr schema_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
     ::greptime::v1::meta::RequestHeader* header_;
+    ::greptime::v1::meta::ProcedureEventContext* event_context_;
+    ::greptime::v1::meta::ProcedureActor* actor_;
     bool full_file_listing_;
     uint32_t timeout_secs_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5040,6 +5120,176 @@ inline void GcRegionsRequest::set_timeout_secs(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.GcRegionsRequest.timeout_secs)
 }
 
+// .greptime.v1.meta.ProcedureEventContext event_context = 67;
+inline bool GcRegionsRequest::_internal_has_event_context() const {
+  return this != internal_default_instance() && _impl_.event_context_ != nullptr;
+}
+inline bool GcRegionsRequest::has_event_context() const {
+  return _internal_has_event_context();
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& GcRegionsRequest::_internal_event_context() const {
+  const ::greptime::v1::meta::ProcedureEventContext* p = _impl_.event_context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureEventContext&>(
+      ::greptime::v1::meta::_ProcedureEventContext_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& GcRegionsRequest::event_context() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsRequest.event_context)
+  return _internal_event_context();
+}
+inline void GcRegionsRequest::unsafe_arena_set_allocated_event_context(
+    ::greptime::v1::meta::ProcedureEventContext* event_context) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  _impl_.event_context_ = event_context;
+  if (event_context) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcRegionsRequest.event_context)
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcRegionsRequest::release_event_context() {
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcRegionsRequest::unsafe_arena_release_event_context() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcRegionsRequest.event_context)
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcRegionsRequest::_internal_mutable_event_context() {
+  
+  if (_impl_.event_context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureEventContext>(GetArenaForAllocation());
+    _impl_.event_context_ = p;
+  }
+  return _impl_.event_context_;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcRegionsRequest::mutable_event_context() {
+  ::greptime::v1::meta::ProcedureEventContext* _msg = _internal_mutable_event_context();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcRegionsRequest.event_context)
+  return _msg;
+}
+inline void GcRegionsRequest::set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  if (event_context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_context));
+    if (message_arena != submessage_arena) {
+      event_context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, event_context, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.event_context_ = event_context;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcRegionsRequest.event_context)
+}
+
+// .greptime.v1.meta.ProcedureActor actor = 68;
+inline bool GcRegionsRequest::_internal_has_actor() const {
+  return this != internal_default_instance() && _impl_.actor_ != nullptr;
+}
+inline bool GcRegionsRequest::has_actor() const {
+  return _internal_has_actor();
+}
+inline const ::greptime::v1::meta::ProcedureActor& GcRegionsRequest::_internal_actor() const {
+  const ::greptime::v1::meta::ProcedureActor* p = _impl_.actor_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureActor&>(
+      ::greptime::v1::meta::_ProcedureActor_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureActor& GcRegionsRequest::actor() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcRegionsRequest.actor)
+  return _internal_actor();
+}
+inline void GcRegionsRequest::unsafe_arena_set_allocated_actor(
+    ::greptime::v1::meta::ProcedureActor* actor) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  _impl_.actor_ = actor;
+  if (actor) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcRegionsRequest.actor)
+}
+inline ::greptime::v1::meta::ProcedureActor* GcRegionsRequest::release_actor() {
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcRegionsRequest::unsafe_arena_release_actor() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcRegionsRequest.actor)
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcRegionsRequest::_internal_mutable_actor() {
+  
+  if (_impl_.actor_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureActor>(GetArenaForAllocation());
+    _impl_.actor_ = p;
+  }
+  return _impl_.actor_;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcRegionsRequest::mutable_actor() {
+  ::greptime::v1::meta::ProcedureActor* _msg = _internal_mutable_actor();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcRegionsRequest.actor)
+  return _msg;
+}
+inline void GcRegionsRequest::set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  if (actor) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actor));
+    if (message_arena != submessage_arena) {
+      actor = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actor, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.actor_ = actor;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcRegionsRequest.actor)
+}
+
 // -------------------------------------------------------------------
 
 // GcStats
@@ -5607,6 +5857,176 @@ inline void GcTableRequest::_internal_set_timeout_secs(uint32_t value) {
 inline void GcTableRequest::set_timeout_secs(uint32_t value) {
   _internal_set_timeout_secs(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.GcTableRequest.timeout_secs)
+}
+
+// .greptime.v1.meta.ProcedureEventContext event_context = 67;
+inline bool GcTableRequest::_internal_has_event_context() const {
+  return this != internal_default_instance() && _impl_.event_context_ != nullptr;
+}
+inline bool GcTableRequest::has_event_context() const {
+  return _internal_has_event_context();
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& GcTableRequest::_internal_event_context() const {
+  const ::greptime::v1::meta::ProcedureEventContext* p = _impl_.event_context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureEventContext&>(
+      ::greptime::v1::meta::_ProcedureEventContext_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& GcTableRequest::event_context() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableRequest.event_context)
+  return _internal_event_context();
+}
+inline void GcTableRequest::unsafe_arena_set_allocated_event_context(
+    ::greptime::v1::meta::ProcedureEventContext* event_context) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  _impl_.event_context_ = event_context;
+  if (event_context) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcTableRequest.event_context)
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcTableRequest::release_event_context() {
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcTableRequest::unsafe_arena_release_event_context() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcTableRequest.event_context)
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcTableRequest::_internal_mutable_event_context() {
+  
+  if (_impl_.event_context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureEventContext>(GetArenaForAllocation());
+    _impl_.event_context_ = p;
+  }
+  return _impl_.event_context_;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* GcTableRequest::mutable_event_context() {
+  ::greptime::v1::meta::ProcedureEventContext* _msg = _internal_mutable_event_context();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcTableRequest.event_context)
+  return _msg;
+}
+inline void GcTableRequest::set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  if (event_context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_context));
+    if (message_arena != submessage_arena) {
+      event_context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, event_context, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.event_context_ = event_context;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcTableRequest.event_context)
+}
+
+// .greptime.v1.meta.ProcedureActor actor = 68;
+inline bool GcTableRequest::_internal_has_actor() const {
+  return this != internal_default_instance() && _impl_.actor_ != nullptr;
+}
+inline bool GcTableRequest::has_actor() const {
+  return _internal_has_actor();
+}
+inline const ::greptime::v1::meta::ProcedureActor& GcTableRequest::_internal_actor() const {
+  const ::greptime::v1::meta::ProcedureActor* p = _impl_.actor_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureActor&>(
+      ::greptime::v1::meta::_ProcedureActor_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureActor& GcTableRequest::actor() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GcTableRequest.actor)
+  return _internal_actor();
+}
+inline void GcTableRequest::unsafe_arena_set_allocated_actor(
+    ::greptime::v1::meta::ProcedureActor* actor) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  _impl_.actor_ = actor;
+  if (actor) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.GcTableRequest.actor)
+}
+inline ::greptime::v1::meta::ProcedureActor* GcTableRequest::release_actor() {
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcTableRequest::unsafe_arena_release_actor() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.GcTableRequest.actor)
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcTableRequest::_internal_mutable_actor() {
+  
+  if (_impl_.actor_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureActor>(GetArenaForAllocation());
+    _impl_.actor_ = p;
+  }
+  return _impl_.actor_;
+}
+inline ::greptime::v1::meta::ProcedureActor* GcTableRequest::mutable_actor() {
+  ::greptime::v1::meta::ProcedureActor* _msg = _internal_mutable_actor();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.GcTableRequest.actor)
+  return _msg;
+}
+inline void GcTableRequest::set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  if (actor) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actor));
+    if (message_arena != submessage_arena) {
+      actor = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actor, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.actor_ = actor;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.GcTableRequest.actor)
 }
 
 // -------------------------------------------------------------------

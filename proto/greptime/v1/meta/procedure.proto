@@ -99,6 +99,10 @@ message GcRegionsRequest {
   bool full_file_listing = 3;
   // Timeout in seconds for the entire GC procedure.
   uint32 timeout_secs = 4;
+  // Stable event metadata recorded with the submitted procedure.
+  ProcedureEventContext event_context = 67;
+  // Effective user that submitted the procedure.
+  ProcedureActor actor = 68;
 }
 
 message GcStats {
@@ -126,6 +130,10 @@ message GcTableRequest {
   bool full_file_listing = 5;
   // Timeout in seconds for the entire GC procedure.
   uint32 timeout_secs = 6;
+  // Stable event metadata recorded with the submitted procedure.
+  ProcedureEventContext event_context = 67;
+  // Effective user that submitted the procedure.
+  ProcedureActor actor = 68;
 }
 
 message GcTableResponse {

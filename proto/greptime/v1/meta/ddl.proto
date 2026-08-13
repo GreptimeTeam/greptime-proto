@@ -127,6 +127,10 @@ message DdlTaskRequest {
   //
   // Note: The value of `wait` is independent of the `timeout` option. If a procedure ignores the `timeout` and `wait` is set to true, the operation returns until the procedure completes.
   uint32 timeout_secs = 66;
+  // Stable event metadata recorded with the submitted procedure.
+  ProcedureEventContext event_context = 67;
+  // Effective user that submitted the procedure.
+  ProcedureActor actor = 68;
 
   oneof task {
     CreateTableTask create_table_task = 2;
