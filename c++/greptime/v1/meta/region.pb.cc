@@ -26,6 +26,8 @@ namespace meta {
 PROTOBUF_CONSTEXPR MigrateRegionRequest::MigrateRegionRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.event_context_)*/nullptr
+  , /*decltype(_impl_.actor_)*/nullptr
   , /*decltype(_impl_.region_id_)*/uint64_t{0u}
   , /*decltype(_impl_.from_peer_)*/uint64_t{0u}
   , /*decltype(_impl_.to_peer_)*/uint64_t{0u}
@@ -73,6 +75,8 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fregion_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.from_peer_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.to_peer_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.timeout_secs_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.event_context_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionRequest, _impl_.actor_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::MigrateRegionResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -84,7 +88,7 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fregion_2eproto::offsets[] PROT
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::meta::MigrateRegionRequest)},
-  { 11, -1, -1, sizeof(::greptime::v1::meta::MigrateRegionResponse)},
+  { 13, -1, -1, sizeof(::greptime::v1::meta::MigrateRegionResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -95,22 +99,25 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\035greptime/v1/meta/region.proto\022\020greptim"
   "e.v1.meta\032\035greptime/v1/meta/common.proto"
-  "\"\224\001\n\024MigrateRegionRequest\022/\n\006header\030\001 \001("
+  "\"\205\002\n\024MigrateRegionRequest\022/\n\006header\030\001 \001("
   "\0132\037.greptime.v1.meta.RequestHeader\022\021\n\tre"
   "gion_id\030\003 \001(\004\022\021\n\tfrom_peer\030\004 \001(\004\022\017\n\007to_p"
-  "eer\030\005 \001(\004\022\024\n\014timeout_secs\030\006 \001(\r\"u\n\025Migra"
-  "teRegionResponse\0220\n\006header\030\001 \001(\0132 .grept"
-  "ime.v1.meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132"
-  "\035.greptime.v1.meta.ProcedureIdB<Z:github"
-  ".com/GreptimeTeam/greptime-proto/go/grep"
-  "time/v1/metab\006proto3"
+  "eer\030\005 \001(\004\022\024\n\014timeout_secs\030\006 \001(\r\022>\n\revent"
+  "_context\030C \001(\0132\'.greptime.v1.meta.Proced"
+  "ureEventContext\022/\n\005actor\030D \001(\0132 .greptim"
+  "e.v1.meta.ProcedureActor\"u\n\025MigrateRegio"
+  "nResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1."
+  "meta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grept"
+  "ime.v1.meta.ProcedureIdB<Z:github.com/Gr"
+  "eptimeTeam/greptime-proto/go/greptime/v1"
+  "/metab\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_deps[1] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto = {
-    false, false, 420, descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto,
+    false, false, 533, descriptor_table_protodef_greptime_2fv1_2fmeta_2fregion_2eproto,
     "greptime/v1/meta/region.proto",
     &descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fregion_2eproto_deps, 1, 2,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fregion_2eproto::offsets,
@@ -132,17 +139,39 @@ namespace meta {
 class MigrateRegionRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const MigrateRegionRequest* msg);
+  static const ::greptime::v1::meta::ProcedureEventContext& event_context(const MigrateRegionRequest* msg);
+  static const ::greptime::v1::meta::ProcedureActor& actor(const MigrateRegionRequest* msg);
 };
 
 const ::greptime::v1::meta::RequestHeader&
 MigrateRegionRequest::_Internal::header(const MigrateRegionRequest* msg) {
   return *msg->_impl_.header_;
 }
+const ::greptime::v1::meta::ProcedureEventContext&
+MigrateRegionRequest::_Internal::event_context(const MigrateRegionRequest* msg) {
+  return *msg->_impl_.event_context_;
+}
+const ::greptime::v1::meta::ProcedureActor&
+MigrateRegionRequest::_Internal::actor(const MigrateRegionRequest* msg) {
+  return *msg->_impl_.actor_;
+}
 void MigrateRegionRequest::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+}
+void MigrateRegionRequest::clear_event_context() {
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+}
+void MigrateRegionRequest::clear_actor() {
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
 }
 MigrateRegionRequest::MigrateRegionRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -155,6 +184,8 @@ MigrateRegionRequest::MigrateRegionRequest(const MigrateRegionRequest& from)
   MigrateRegionRequest* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.region_id_){}
     , decltype(_impl_.from_peer_){}
     , decltype(_impl_.to_peer_){}
@@ -164,6 +195,12 @@ MigrateRegionRequest::MigrateRegionRequest(const MigrateRegionRequest& from)
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_event_context()) {
+    _this->_impl_.event_context_ = new ::greptime::v1::meta::ProcedureEventContext(*from._impl_.event_context_);
+  }
+  if (from._internal_has_actor()) {
+    _this->_impl_.actor_ = new ::greptime::v1::meta::ProcedureActor(*from._impl_.actor_);
   }
   ::memcpy(&_impl_.region_id_, &from._impl_.region_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.timeout_secs_) -
@@ -177,6 +214,8 @@ inline void MigrateRegionRequest::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
     , decltype(_impl_.region_id_){uint64_t{0u}}
     , decltype(_impl_.from_peer_){uint64_t{0u}}
     , decltype(_impl_.to_peer_){uint64_t{0u}}
@@ -197,6 +236,8 @@ MigrateRegionRequest::~MigrateRegionRequest() {
 inline void MigrateRegionRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.event_context_;
+  if (this != internal_default_instance()) delete _impl_.actor_;
 }
 
 void MigrateRegionRequest::SetCachedSize(int size) const {
@@ -213,6 +254,14 @@ void MigrateRegionRequest::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
   ::memset(&_impl_.region_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.timeout_secs_) -
       reinterpret_cast<char*>(&_impl_.region_id_)) + sizeof(_impl_.timeout_secs_));
@@ -261,6 +310,22 @@ const char* MigrateRegionRequest::_InternalParse(const char* ptr, ::_pbi::ParseC
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           _impl_.timeout_secs_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+      case 67:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_event_context(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureActor actor = 68;
+      case 68:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_actor(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -325,6 +390,20 @@ uint8_t* MigrateRegionRequest::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(6, this->_internal_timeout_secs(), target);
   }
 
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(67, _Internal::event_context(this),
+        _Internal::event_context(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(68, _Internal::actor(this),
+        _Internal::actor(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -346,6 +425,20 @@ size_t MigrateRegionRequest::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_context_);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.actor_);
   }
 
   // uint64 region_id = 3;
@@ -389,6 +482,14 @@ void MigrateRegionRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   if (from._internal_has_header()) {
     _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
         from._internal_header());
+  }
+  if (from._internal_has_event_context()) {
+    _this->_internal_mutable_event_context()->::greptime::v1::meta::ProcedureEventContext::MergeFrom(
+        from._internal_event_context());
+  }
+  if (from._internal_has_actor()) {
+    _this->_internal_mutable_actor()->::greptime::v1::meta::ProcedureActor::MergeFrom(
+        from._internal_actor());
   }
   if (from._internal_region_id() != 0) {
     _this->_internal_set_region_id(from._internal_region_id());

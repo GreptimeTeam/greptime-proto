@@ -13093,6 +13093,60 @@ public final class Ddl {
     int getTimeoutSecs();
 
     /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    boolean hasEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    greptime.v1.meta.Common.ProcedureEventContext getEventContext();
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder();
+
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    boolean hasActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    greptime.v1.meta.Common.ProcedureActor getActor();
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder();
+
+    /**
      * <code>.greptime.v1.meta.CreateTableTask create_table_task = 2;</code>
      * @return Whether the createTableTask field is set.
      */
@@ -13726,6 +13780,32 @@ public final class Ddl {
               timeoutSecs_ = input.readUInt32();
               break;
             }
+            case 538: {
+              greptime.v1.meta.Common.ProcedureEventContext.Builder subBuilder = null;
+              if (eventContext_ != null) {
+                subBuilder = eventContext_.toBuilder();
+              }
+              eventContext_ = input.readMessage(greptime.v1.meta.Common.ProcedureEventContext.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(eventContext_);
+                eventContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 546: {
+              greptime.v1.meta.Common.ProcedureActor.Builder subBuilder = null;
+              if (actor_ != null) {
+                subBuilder = actor_.toBuilder();
+              }
+              actor_ = input.readMessage(greptime.v1.meta.Common.ProcedureActor.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(actor_);
+                actor_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -13931,6 +14011,82 @@ public final class Ddl {
     @java.lang.Override
     public int getTimeoutSecs() {
       return timeoutSecs_;
+    }
+
+    public static final int EVENT_CONTEXT_FIELD_NUMBER = 67;
+    private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return Whether the eventContext field is set.
+     */
+    @java.lang.Override
+    public boolean hasEventContext() {
+      return eventContext_ != null;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     * @return The eventContext.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+      return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+    }
+    /**
+     * <pre>
+     * Stable event metadata recorded with the submitted procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+      return getEventContext();
+    }
+
+    public static final int ACTOR_FIELD_NUMBER = 68;
+    private greptime.v1.meta.Common.ProcedureActor actor_;
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return Whether the actor field is set.
+     */
+    @java.lang.Override
+    public boolean hasActor() {
+      return actor_ != null;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     * @return The actor.
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActor getActor() {
+      return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+    }
+    /**
+     * <pre>
+     * Effective user that submitted the procedure.
+     * </pre>
+     *
+     * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+     */
+    @java.lang.Override
+    public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+      return getActor();
     }
 
     public static final int CREATE_TABLE_TASK_FIELD_NUMBER = 2;
@@ -14605,6 +14761,12 @@ public final class Ddl {
       if (timeoutSecs_ != 0) {
         output.writeUInt32(66, timeoutSecs_);
       }
+      if (eventContext_ != null) {
+        output.writeMessage(67, getEventContext());
+      }
+      if (actor_ != null) {
+        output.writeMessage(68, getActor());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -14706,6 +14868,14 @@ public final class Ddl {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(66, timeoutSecs_);
       }
+      if (eventContext_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(67, getEventContext());
+      }
+      if (actor_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(68, getActor());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -14735,6 +14905,16 @@ public final class Ddl {
           != other.getWait()) return false;
       if (getTimeoutSecs()
           != other.getTimeoutSecs()) return false;
+      if (hasEventContext() != other.hasEventContext()) return false;
+      if (hasEventContext()) {
+        if (!getEventContext()
+            .equals(other.getEventContext())) return false;
+      }
+      if (hasActor() != other.hasActor()) return false;
+      if (hasActor()) {
+        if (!getActor()
+            .equals(other.getActor())) return false;
+      }
       if (!getTaskCase().equals(other.getTaskCase())) return false;
       switch (taskCase_) {
         case 2:
@@ -14840,6 +15020,14 @@ public final class Ddl {
           getWait());
       hash = (37 * hash) + TIMEOUT_SECS_FIELD_NUMBER;
       hash = (53 * hash) + getTimeoutSecs();
+      if (hasEventContext()) {
+        hash = (37 * hash) + EVENT_CONTEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getEventContext().hashCode();
+      }
+      if (hasActor()) {
+        hash = (37 * hash) + ACTOR_FIELD_NUMBER;
+        hash = (53 * hash) + getActor().hashCode();
+      }
       switch (taskCase_) {
         case 2:
           hash = (37 * hash) + CREATE_TABLE_TASK_FIELD_NUMBER;
@@ -15069,6 +15257,18 @@ public final class Ddl {
 
         timeoutSecs_ = 0;
 
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+        if (actorBuilder_ == null) {
+          actor_ = null;
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
         taskCase_ = 0;
         task_ = null;
         return this;
@@ -15109,6 +15309,16 @@ public final class Ddl {
         }
         result.wait_ = wait_;
         result.timeoutSecs_ = timeoutSecs_;
+        if (eventContextBuilder_ == null) {
+          result.eventContext_ = eventContext_;
+        } else {
+          result.eventContext_ = eventContextBuilder_.build();
+        }
+        if (actorBuilder_ == null) {
+          result.actor_ = actor_;
+        } else {
+          result.actor_ = actorBuilder_.build();
+        }
         if (taskCase_ == 2) {
           if (createTableTaskBuilder_ == null) {
             result.task_ = task_;
@@ -15302,6 +15512,12 @@ public final class Ddl {
         }
         if (other.getTimeoutSecs() != 0) {
           setTimeoutSecs(other.getTimeoutSecs());
+        }
+        if (other.hasEventContext()) {
+          mergeEventContext(other.getEventContext());
+        }
+        if (other.hasActor()) {
+          mergeActor(other.getActor());
         }
         switch (other.getTaskCase()) {
           case CREATE_TABLE_TASK: {
@@ -15798,6 +16014,316 @@ public final class Ddl {
         timeoutSecs_ = 0;
         onChanged();
         return this;
+      }
+
+      private greptime.v1.meta.Common.ProcedureEventContext eventContext_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> eventContextBuilder_;
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return Whether the eventContext field is set.
+       */
+      public boolean hasEventContext() {
+        return eventContextBuilder_ != null || eventContext_ != null;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       * @return The eventContext.
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext getEventContext() {
+        if (eventContextBuilder_ == null) {
+          return eventContext_ == null ? greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        } else {
+          return eventContextBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          eventContext_ = value;
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder setEventContext(
+          greptime.v1.meta.Common.ProcedureEventContext.Builder builderForValue) {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = builderForValue.build();
+          onChanged();
+        } else {
+          eventContextBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder mergeEventContext(greptime.v1.meta.Common.ProcedureEventContext value) {
+        if (eventContextBuilder_ == null) {
+          if (eventContext_ != null) {
+            eventContext_ =
+              greptime.v1.meta.Common.ProcedureEventContext.newBuilder(eventContext_).mergeFrom(value).buildPartial();
+          } else {
+            eventContext_ = value;
+          }
+          onChanged();
+        } else {
+          eventContextBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public Builder clearEventContext() {
+        if (eventContextBuilder_ == null) {
+          eventContext_ = null;
+          onChanged();
+        } else {
+          eventContext_ = null;
+          eventContextBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContext.Builder getEventContextBuilder() {
+        
+        onChanged();
+        return getEventContextFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureEventContextOrBuilder getEventContextOrBuilder() {
+        if (eventContextBuilder_ != null) {
+          return eventContextBuilder_.getMessageOrBuilder();
+        } else {
+          return eventContext_ == null ?
+              greptime.v1.meta.Common.ProcedureEventContext.getDefaultInstance() : eventContext_;
+        }
+      }
+      /**
+       * <pre>
+       * Stable event metadata recorded with the submitted procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureEventContext event_context = 67;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder> 
+          getEventContextFieldBuilder() {
+        if (eventContextBuilder_ == null) {
+          eventContextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureEventContext, greptime.v1.meta.Common.ProcedureEventContext.Builder, greptime.v1.meta.Common.ProcedureEventContextOrBuilder>(
+                  getEventContext(),
+                  getParentForChildren(),
+                  isClean());
+          eventContext_ = null;
+        }
+        return eventContextBuilder_;
+      }
+
+      private greptime.v1.meta.Common.ProcedureActor actor_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> actorBuilder_;
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return Whether the actor field is set.
+       */
+      public boolean hasActor() {
+        return actorBuilder_ != null || actor_ != null;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       * @return The actor.
+       */
+      public greptime.v1.meta.Common.ProcedureActor getActor() {
+        if (actorBuilder_ == null) {
+          return actor_ == null ? greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        } else {
+          return actorBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          actor_ = value;
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder setActor(
+          greptime.v1.meta.Common.ProcedureActor.Builder builderForValue) {
+        if (actorBuilder_ == null) {
+          actor_ = builderForValue.build();
+          onChanged();
+        } else {
+          actorBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder mergeActor(greptime.v1.meta.Common.ProcedureActor value) {
+        if (actorBuilder_ == null) {
+          if (actor_ != null) {
+            actor_ =
+              greptime.v1.meta.Common.ProcedureActor.newBuilder(actor_).mergeFrom(value).buildPartial();
+          } else {
+            actor_ = value;
+          }
+          onChanged();
+        } else {
+          actorBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public Builder clearActor() {
+        if (actorBuilder_ == null) {
+          actor_ = null;
+          onChanged();
+        } else {
+          actor_ = null;
+          actorBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActor.Builder getActorBuilder() {
+        
+        onChanged();
+        return getActorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      public greptime.v1.meta.Common.ProcedureActorOrBuilder getActorOrBuilder() {
+        if (actorBuilder_ != null) {
+          return actorBuilder_.getMessageOrBuilder();
+        } else {
+          return actor_ == null ?
+              greptime.v1.meta.Common.ProcedureActor.getDefaultInstance() : actor_;
+        }
+      }
+      /**
+       * <pre>
+       * Effective user that submitted the procedure.
+       * </pre>
+       *
+       * <code>.greptime.v1.meta.ProcedureActor actor = 68;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder> 
+          getActorFieldBuilder() {
+        if (actorBuilder_ == null) {
+          actorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              greptime.v1.meta.Common.ProcedureActor, greptime.v1.meta.Common.ProcedureActor.Builder, greptime.v1.meta.Common.ProcedureActorOrBuilder>(
+                  getActor(),
+                  getParentForChildren(),
+                  isClean());
+          actor_ = null;
+        }
+        return actorBuilder_;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -20016,48 +20542,50 @@ public final class Ddl {
       "ask\0222\n\014drop_trigger\030\001 \001(\0132\034.greptime.v1." +
       "DropTriggerExpr\"?\n\rCommentOnTask\022.\n\ncomm" +
       "ent_on\030\001 \001(\0132\032.greptime.v1.CommentOnExpr" +
-      "\"\346\n\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
+      "\"\327\013\n\016DdlTaskRequest\022/\n\006header\030\001 \001(\0132\037.gr" +
       "eptime.v1.meta.RequestHeader\0220\n\rquery_co" +
       "ntext\030@ \001(\0132\031.greptime.v1.QueryContext\022\014" +
-      "\n\004wait\030A \001(\010\022\024\n\014timeout_secs\030B \001(\r\022>\n\021cr" +
-      "eate_table_task\030\002 \001(\0132!.greptime.v1.meta" +
-      ".CreateTableTaskH\000\022:\n\017drop_table_task\030\003 " +
-      "\001(\0132\037.greptime.v1.meta.DropTableTaskH\000\022<" +
-      "\n\020alter_table_task\030\004 \001(\0132 .greptime.v1.m" +
-      "eta.AlterTableTaskH\000\022B\n\023truncate_table_t" +
-      "ask\030\005 \001(\0132#.greptime.v1.meta.TruncateTab" +
-      "leTaskH\000\022@\n\022create_table_tasks\030\006 \001(\0132\".g" +
-      "reptime.v1.meta.CreateTableTasksH\000\022<\n\020dr" +
-      "op_table_tasks\030\007 \001(\0132 .greptime.v1.meta." +
-      "DropTableTasksH\000\022>\n\021alter_table_tasks\030\010 " +
-      "\001(\0132!.greptime.v1.meta.AlterTableTasksH\000" +
-      "\022@\n\022drop_database_task\030\t \001(\0132\".greptime." +
-      "v1.meta.DropDatabaseTaskH\000\022D\n\024create_dat" +
-      "abase_task\030\n \001(\0132$.greptime.v1.meta.Crea" +
-      "teDatabaseTaskH\000\022<\n\020create_flow_task\030\013 \001" +
-      "(\0132 .greptime.v1.meta.CreateFlowTaskH\000\0228" +
-      "\n\016drop_flow_task\030\014 \001(\0132\036.greptime.v1.met" +
-      "a.DropFlowTaskH\000\022<\n\020create_view_task\030\r \001" +
-      "(\0132 .greptime.v1.meta.CreateViewTaskH\000\0228" +
-      "\n\016drop_view_task\030\016 \001(\0132\036.greptime.v1.met" +
-      "a.DropViewTaskH\000\022B\n\023alter_database_task\030" +
-      "\017 \001(\0132#.greptime.v1.meta.AlterDatabaseTa" +
-      "skH\000\022B\n\023create_trigger_task\030\020 \001(\0132#.grep" +
-      "time.v1.meta.CreateTriggerTaskH\000\022>\n\021drop" +
-      "_trigger_task\030\021 \001(\0132!.greptime.v1.meta.D" +
-      "ropTriggerTaskH\000\022:\n\017comment_on_task\030\022 \001(" +
-      "\0132\037.greptime.v1.meta.CommentOnTaskH\000\022>\n\021" +
-      "undrop_table_task\030\023 \001(\0132!.greptime.v1.me" +
-      "ta.UndropTableTaskH\000\022K\n\030purge_dropped_ta" +
-      "ble_task\030\024 \001(\0132\'.greptime.v1.meta.PurgeD" +
-      "roppedTableTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskRes" +
-      "ponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta" +
-      ".ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptime." +
-      "v1.meta.ProcedureId\022\'\n\ttable_ids\030\005 \003(\0132\024" +
-      ".greptime.v1.TableId*#\n\013DdlTaskType\022\n\n\006C" +
-      "reate\020\000\022\010\n\004Drop\020\001B<Z:github.com/Greptime" +
-      "Team/greptime-proto/go/greptime/v1/metab" +
-      "\006proto3"
+      "\n\004wait\030A \001(\010\022\024\n\014timeout_secs\030B \001(\r\022>\n\rev" +
+      "ent_context\030C \001(\0132\'.greptime.v1.meta.Pro" +
+      "cedureEventContext\022/\n\005actor\030D \001(\0132 .grep" +
+      "time.v1.meta.ProcedureActor\022>\n\021create_ta" +
+      "ble_task\030\002 \001(\0132!.greptime.v1.meta.Create" +
+      "TableTaskH\000\022:\n\017drop_table_task\030\003 \001(\0132\037.g" +
+      "reptime.v1.meta.DropTableTaskH\000\022<\n\020alter" +
+      "_table_task\030\004 \001(\0132 .greptime.v1.meta.Alt" +
+      "erTableTaskH\000\022B\n\023truncate_table_task\030\005 \001" +
+      "(\0132#.greptime.v1.meta.TruncateTableTaskH" +
+      "\000\022@\n\022create_table_tasks\030\006 \001(\0132\".greptime" +
+      ".v1.meta.CreateTableTasksH\000\022<\n\020drop_tabl" +
+      "e_tasks\030\007 \001(\0132 .greptime.v1.meta.DropTab" +
+      "leTasksH\000\022>\n\021alter_table_tasks\030\010 \001(\0132!.g" +
+      "reptime.v1.meta.AlterTableTasksH\000\022@\n\022dro" +
+      "p_database_task\030\t \001(\0132\".greptime.v1.meta" +
+      ".DropDatabaseTaskH\000\022D\n\024create_database_t" +
+      "ask\030\n \001(\0132$.greptime.v1.meta.CreateDatab" +
+      "aseTaskH\000\022<\n\020create_flow_task\030\013 \001(\0132 .gr" +
+      "eptime.v1.meta.CreateFlowTaskH\000\0228\n\016drop_" +
+      "flow_task\030\014 \001(\0132\036.greptime.v1.meta.DropF" +
+      "lowTaskH\000\022<\n\020create_view_task\030\r \001(\0132 .gr" +
+      "eptime.v1.meta.CreateViewTaskH\000\0228\n\016drop_" +
+      "view_task\030\016 \001(\0132\036.greptime.v1.meta.DropV" +
+      "iewTaskH\000\022B\n\023alter_database_task\030\017 \001(\0132#" +
+      ".greptime.v1.meta.AlterDatabaseTaskH\000\022B\n" +
+      "\023create_trigger_task\030\020 \001(\0132#.greptime.v1" +
+      ".meta.CreateTriggerTaskH\000\022>\n\021drop_trigge" +
+      "r_task\030\021 \001(\0132!.greptime.v1.meta.DropTrig" +
+      "gerTaskH\000\022:\n\017comment_on_task\030\022 \001(\0132\037.gre" +
+      "ptime.v1.meta.CommentOnTaskH\000\022>\n\021undrop_" +
+      "table_task\030\023 \001(\0132!.greptime.v1.meta.Undr" +
+      "opTableTaskH\000\022K\n\030purge_dropped_table_tas" +
+      "k\030\024 \001(\0132\'.greptime.v1.meta.PurgeDroppedT" +
+      "ableTaskH\000B\006\n\004task\"\230\001\n\017DdlTaskResponse\0220" +
+      "\n\006header\030\001 \001(\0132 .greptime.v1.meta.Respon" +
+      "seHeader\022*\n\003pid\030\002 \001(\0132\035.greptime.v1.meta" +
+      ".ProcedureId\022\'\n\ttable_ids\030\005 \003(\0132\024.grepti" +
+      "me.v1.TableId*#\n\013DdlTaskType\022\n\n\006Create\020\000" +
+      "\022\010\n\004Drop\020\001B<Z:github.com/GreptimeTeam/gr" +
+      "eptime-proto/go/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20186,7 +20714,7 @@ public final class Ddl {
     internal_static_greptime_v1_meta_DdlTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_DdlTaskRequest_descriptor,
-        new java.lang.String[] { "Header", "QueryContext", "Wait", "TimeoutSecs", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "UndropTableTask", "PurgeDroppedTableTask", "Task", });
+        new java.lang.String[] { "Header", "QueryContext", "Wait", "TimeoutSecs", "EventContext", "Actor", "CreateTableTask", "DropTableTask", "AlterTableTask", "TruncateTableTask", "CreateTableTasks", "DropTableTasks", "AlterTableTasks", "DropDatabaseTask", "CreateDatabaseTask", "CreateFlowTask", "DropFlowTask", "CreateViewTask", "DropViewTask", "AlterDatabaseTask", "CreateTriggerTask", "DropTriggerTask", "CommentOnTask", "UndropTableTask", "PurgeDroppedTableTask", "Task", });
     internal_static_greptime_v1_meta_DdlTaskResponse_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_greptime_v1_meta_DdlTaskResponse_fieldAccessorTable = new

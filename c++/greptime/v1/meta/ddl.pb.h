@@ -3353,6 +3353,8 @@ class DdlTaskRequest final :
   enum : int {
     kHeaderFieldNumber = 1,
     kQueryContextFieldNumber = 64,
+    kEventContextFieldNumber = 67,
+    kActorFieldNumber = 68,
     kWaitFieldNumber = 65,
     kTimeoutSecsFieldNumber = 66,
     kCreateTableTaskFieldNumber = 2,
@@ -3410,6 +3412,42 @@ class DdlTaskRequest final :
   void unsafe_arena_set_allocated_query_context(
       ::greptime::v1::QueryContext* query_context);
   ::greptime::v1::QueryContext* unsafe_arena_release_query_context();
+
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  bool has_event_context() const;
+  private:
+  bool _internal_has_event_context() const;
+  public:
+  void clear_event_context();
+  const ::greptime::v1::meta::ProcedureEventContext& event_context() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureEventContext* release_event_context();
+  ::greptime::v1::meta::ProcedureEventContext* mutable_event_context();
+  void set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context);
+  private:
+  const ::greptime::v1::meta::ProcedureEventContext& _internal_event_context() const;
+  ::greptime::v1::meta::ProcedureEventContext* _internal_mutable_event_context();
+  public:
+  void unsafe_arena_set_allocated_event_context(
+      ::greptime::v1::meta::ProcedureEventContext* event_context);
+  ::greptime::v1::meta::ProcedureEventContext* unsafe_arena_release_event_context();
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  bool has_actor() const;
+  private:
+  bool _internal_has_actor() const;
+  public:
+  void clear_actor();
+  const ::greptime::v1::meta::ProcedureActor& actor() const;
+  PROTOBUF_NODISCARD ::greptime::v1::meta::ProcedureActor* release_actor();
+  ::greptime::v1::meta::ProcedureActor* mutable_actor();
+  void set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor);
+  private:
+  const ::greptime::v1::meta::ProcedureActor& _internal_actor() const;
+  ::greptime::v1::meta::ProcedureActor* _internal_mutable_actor();
+  public:
+  void unsafe_arena_set_allocated_actor(
+      ::greptime::v1::meta::ProcedureActor* actor);
+  ::greptime::v1::meta::ProcedureActor* unsafe_arena_release_actor();
 
   // bool wait = 65;
   void clear_wait();
@@ -3805,6 +3843,8 @@ class DdlTaskRequest final :
   struct Impl_ {
     ::greptime::v1::meta::RequestHeader* header_;
     ::greptime::v1::QueryContext* query_context_;
+    ::greptime::v1::meta::ProcedureEventContext* event_context_;
+    ::greptime::v1::meta::ProcedureActor* actor_;
     bool wait_;
     uint32_t timeout_secs_;
     union TaskUnion {
@@ -5946,6 +5986,176 @@ inline void DdlTaskRequest::_internal_set_timeout_secs(uint32_t value) {
 inline void DdlTaskRequest::set_timeout_secs(uint32_t value) {
   _internal_set_timeout_secs(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.DdlTaskRequest.timeout_secs)
+}
+
+// .greptime.v1.meta.ProcedureEventContext event_context = 67;
+inline bool DdlTaskRequest::_internal_has_event_context() const {
+  return this != internal_default_instance() && _impl_.event_context_ != nullptr;
+}
+inline bool DdlTaskRequest::has_event_context() const {
+  return _internal_has_event_context();
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& DdlTaskRequest::_internal_event_context() const {
+  const ::greptime::v1::meta::ProcedureEventContext* p = _impl_.event_context_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureEventContext&>(
+      ::greptime::v1::meta::_ProcedureEventContext_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureEventContext& DdlTaskRequest::event_context() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.event_context)
+  return _internal_event_context();
+}
+inline void DdlTaskRequest::unsafe_arena_set_allocated_event_context(
+    ::greptime::v1::meta::ProcedureEventContext* event_context) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  _impl_.event_context_ = event_context;
+  if (event_context) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.event_context)
+}
+inline ::greptime::v1::meta::ProcedureEventContext* DdlTaskRequest::release_event_context() {
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* DdlTaskRequest::unsafe_arena_release_event_context() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.event_context)
+  
+  ::greptime::v1::meta::ProcedureEventContext* temp = _impl_.event_context_;
+  _impl_.event_context_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* DdlTaskRequest::_internal_mutable_event_context() {
+  
+  if (_impl_.event_context_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureEventContext>(GetArenaForAllocation());
+    _impl_.event_context_ = p;
+  }
+  return _impl_.event_context_;
+}
+inline ::greptime::v1::meta::ProcedureEventContext* DdlTaskRequest::mutable_event_context() {
+  ::greptime::v1::meta::ProcedureEventContext* _msg = _internal_mutable_event_context();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.event_context)
+  return _msg;
+}
+inline void DdlTaskRequest::set_allocated_event_context(::greptime::v1::meta::ProcedureEventContext* event_context) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.event_context_);
+  }
+  if (event_context) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(event_context));
+    if (message_arena != submessage_arena) {
+      event_context = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, event_context, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.event_context_ = event_context;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.event_context)
+}
+
+// .greptime.v1.meta.ProcedureActor actor = 68;
+inline bool DdlTaskRequest::_internal_has_actor() const {
+  return this != internal_default_instance() && _impl_.actor_ != nullptr;
+}
+inline bool DdlTaskRequest::has_actor() const {
+  return _internal_has_actor();
+}
+inline const ::greptime::v1::meta::ProcedureActor& DdlTaskRequest::_internal_actor() const {
+  const ::greptime::v1::meta::ProcedureActor* p = _impl_.actor_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::meta::ProcedureActor&>(
+      ::greptime::v1::meta::_ProcedureActor_default_instance_);
+}
+inline const ::greptime::v1::meta::ProcedureActor& DdlTaskRequest::actor() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.DdlTaskRequest.actor)
+  return _internal_actor();
+}
+inline void DdlTaskRequest::unsafe_arena_set_allocated_actor(
+    ::greptime::v1::meta::ProcedureActor* actor) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  _impl_.actor_ = actor;
+  if (actor) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.meta.DdlTaskRequest.actor)
+}
+inline ::greptime::v1::meta::ProcedureActor* DdlTaskRequest::release_actor() {
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* DdlTaskRequest::unsafe_arena_release_actor() {
+  // @@protoc_insertion_point(field_release:greptime.v1.meta.DdlTaskRequest.actor)
+  
+  ::greptime::v1::meta::ProcedureActor* temp = _impl_.actor_;
+  _impl_.actor_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::meta::ProcedureActor* DdlTaskRequest::_internal_mutable_actor() {
+  
+  if (_impl_.actor_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::meta::ProcedureActor>(GetArenaForAllocation());
+    _impl_.actor_ = p;
+  }
+  return _impl_.actor_;
+}
+inline ::greptime::v1::meta::ProcedureActor* DdlTaskRequest::mutable_actor() {
+  ::greptime::v1::meta::ProcedureActor* _msg = _internal_mutable_actor();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.DdlTaskRequest.actor)
+  return _msg;
+}
+inline void DdlTaskRequest::set_allocated_actor(::greptime::v1::meta::ProcedureActor* actor) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.actor_);
+  }
+  if (actor) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(actor));
+    if (message_arena != submessage_arena) {
+      actor = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, actor, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.actor_ = actor;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.meta.DdlTaskRequest.actor)
 }
 
 // .greptime.v1.meta.CreateTableTask create_table_task = 2;
