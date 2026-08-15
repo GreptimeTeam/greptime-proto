@@ -83,6 +83,7 @@ message FlowRequest {
     DropRequest drop = 2;
     FlushFlow flush = 3;
     BackfillFlow backfill = 4;
+    BackfillStatusFlow backfill_status = 5;
   }
 }
 
@@ -128,4 +129,10 @@ message BackfillFlow {
   // Aligned event-time range [start, end) to backfill, in milliseconds.
   int64 start = 3;
   int64 end = 4;
+}
+
+message BackfillStatusFlow {
+  FlowId flow_id = 1;
+  // Enterprise backfill job id (per flow).
+  uint64 job_id = 2;
 }

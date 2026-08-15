@@ -73,7 +73,7 @@ pub struct InsertRequest {
 pub struct FlowRequest {
     #[prost(message, optional, tag = "64")]
     pub header: ::core::option::Option<FlowRequestHeader>,
-    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3, 4")]
+    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3, 4, 5")]
     pub body: ::core::option::Option<flow_request::Body>,
 }
 /// Nested message and enum types in `FlowRequest`.
@@ -88,6 +88,8 @@ pub mod flow_request {
         Flush(super::FlushFlow),
         #[prost(message, tag = "4")]
         Backfill(super::BackfillFlow),
+        #[prost(message, tag = "5")]
+        BackfillStatus(super::BackfillStatusFlow),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -159,6 +161,14 @@ pub struct BackfillFlow {
     pub start: i64,
     #[prost(int64, tag = "4")]
     pub end: i64,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct BackfillStatusFlow {
+    #[prost(message, optional, tag = "1")]
+    pub flow_id: ::core::option::Option<super::FlowId>,
+    /// Enterprise backfill job id (per flow).
+    #[prost(uint64, tag = "2")]
+    pub job_id: u64,
 }
 /// Generated client implementations.
 pub mod flow_client {
