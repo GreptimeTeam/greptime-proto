@@ -73,7 +73,7 @@ pub struct InsertRequest {
 pub struct FlowRequest {
     #[prost(message, optional, tag = "64")]
     pub header: ::core::option::Option<FlowRequestHeader>,
-    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3")]
+    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3, 4")]
     pub body: ::core::option::Option<flow_request::Body>,
 }
 /// Nested message and enum types in `FlowRequest`.
@@ -86,6 +86,8 @@ pub mod flow_request {
         Drop(super::DropRequest),
         #[prost(message, tag = "3")]
         Flush(super::FlushFlow),
+        #[prost(message, tag = "4")]
+        Backfill(super::BackfillFlow),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -144,6 +146,19 @@ pub struct DropRequest {
 pub struct FlushFlow {
     #[prost(message, optional, tag = "1")]
     pub flow_id: ::core::option::Option<super::FlowId>,
+}
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct BackfillFlow {
+    #[prost(message, optional, tag = "1")]
+    pub flow_id: ::core::option::Option<super::FlowId>,
+    /// Enterprise backfill job id (per flow).
+    #[prost(uint64, tag = "2")]
+    pub job_id: u64,
+    /// Aligned event-time range \[start, end) to backfill, in milliseconds.
+    #[prost(int64, tag = "3")]
+    pub start: i64,
+    #[prost(int64, tag = "4")]
+    pub end: i64,
 }
 /// Generated client implementations.
 pub mod flow_client {

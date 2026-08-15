@@ -82,6 +82,7 @@ message FlowRequest {
     CreateRequest create = 1;
     DropRequest drop = 2;
     FlushFlow flush = 3;
+    BackfillFlow backfill = 4;
   }
 }
 
@@ -118,4 +119,13 @@ message DropRequest {
 
 message FlushFlow {
   FlowId flow_id = 1;
+}
+
+message BackfillFlow {
+  FlowId flow_id = 1;
+  // Enterprise backfill job id (per flow).
+  uint64 job_id = 2;
+  // Aligned event-time range [start, end) to backfill, in milliseconds.
+  int64 start = 3;
+  int64 end = 4;
 }
