@@ -934,7 +934,7 @@ pub struct AlterTableExpr {
     pub table_name: ::prost::alloc::string::String,
     #[prost(
         oneof = "alter_table_expr::Kind",
-        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18"
+        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19"
     )]
     pub kind: ::core::option::Option<alter_table_expr::Kind>,
 }
@@ -970,6 +970,8 @@ pub mod alter_table_expr {
         SetDefaults(super::SetDefaults),
         #[prost(message, tag = "18")]
         Repartition(super::Repartition),
+        #[prost(message, tag = "19")]
+        ModifyJsonSettings(super::ModifyJsonSettings),
     }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -1167,6 +1169,13 @@ pub struct ModifyColumnType {
     pub target_type: i32,
     #[prost(message, optional, tag = "3")]
     pub target_type_extension: ::core::option::Option<ColumnDataTypeExtension>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ModifyJsonSettings {
+    #[prost(string, tag = "1")]
+    pub column_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "2")]
+    pub options: ::core::option::Option<ColumnOptions>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {

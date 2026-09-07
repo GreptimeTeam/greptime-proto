@@ -124,6 +124,7 @@ message AlterTableExpr {
     UnsetIndexes unset_indexes = 16;
     SetDefaults set_defaults = 17;
     Repartition repartition = 18;
+    ModifyJsonSettings modify_json_settings = 19;
   }
 }
 
@@ -248,6 +249,11 @@ message ModifyColumnType {
   string column_name = 1;
   ColumnDataType target_type = 2;
   ColumnDataTypeExtension target_type_extension = 3;
+}
+
+message ModifyJsonSettings {
+  string column_name = 1;
+  ColumnOptions options = 2;
 }
 
 message Option {

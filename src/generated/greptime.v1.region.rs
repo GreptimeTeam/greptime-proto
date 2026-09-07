@@ -270,7 +270,7 @@ pub struct AlterRequest {
     pub schema_version: u64,
     #[prost(
         oneof = "alter_request::Kind",
-        tags = "2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16"
+        tags = "2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17"
     )]
     pub kind: ::core::option::Option<alter_request::Kind>,
 }
@@ -304,6 +304,8 @@ pub mod alter_request {
         SetDefaults(super::super::SetDefaults),
         #[prost(message, tag = "16")]
         SyncColumns(super::SyncColumns),
+        #[prost(message, tag = "17")]
+        ModifyJsonSettings(super::super::ModifyJsonSettings),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]

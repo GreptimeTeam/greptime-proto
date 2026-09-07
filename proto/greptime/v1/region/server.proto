@@ -202,6 +202,7 @@ message AlterRequest {
     UnsetIndexes unset_indexes = 14;
     SetDefaults set_defaults = 15;
     SyncColumns sync_columns = 16;
+    ModifyJsonSettings modify_json_settings = 17;
   }
   // The version of the schema before applying the alteration.
   uint64 schema_version = 4;
