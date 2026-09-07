@@ -142,6 +142,9 @@ extern ModifyColumnTypeDefaultTypeInternal _ModifyColumnType_default_instance_;
 class ModifyColumnTypes;
 struct ModifyColumnTypesDefaultTypeInternal;
 extern ModifyColumnTypesDefaultTypeInternal _ModifyColumnTypes_default_instance_;
+class ModifyJsonSettings;
+struct ModifyJsonSettingsDefaultTypeInternal;
+extern ModifyJsonSettingsDefaultTypeInternal _ModifyJsonSettings_default_instance_;
 class NotifyChannel;
 struct NotifyChannelDefaultTypeInternal;
 extern NotifyChannelDefaultTypeInternal _NotifyChannel_default_instance_;
@@ -256,6 +259,7 @@ template<> ::greptime::v1::DropViewExpr* Arena::CreateMaybeMessage<::greptime::v
 template<> ::greptime::v1::FlowId* Arena::CreateMaybeMessage<::greptime::v1::FlowId>(Arena*);
 template<> ::greptime::v1::ModifyColumnType* Arena::CreateMaybeMessage<::greptime::v1::ModifyColumnType>(Arena*);
 template<> ::greptime::v1::ModifyColumnTypes* Arena::CreateMaybeMessage<::greptime::v1::ModifyColumnTypes>(Arena*);
+template<> ::greptime::v1::ModifyJsonSettings* Arena::CreateMaybeMessage<::greptime::v1::ModifyJsonSettings>(Arena*);
 template<> ::greptime::v1::NotifyChannel* Arena::CreateMaybeMessage<::greptime::v1::NotifyChannel>(Arena*);
 template<> ::greptime::v1::Option* Arena::CreateMaybeMessage<::greptime::v1::Option>(Arena*);
 template<> ::greptime::v1::PartitionedSource* Arena::CreateMaybeMessage<::greptime::v1::PartitionedSource>(Arena*);
@@ -2313,6 +2317,7 @@ class AlterTableExpr final :
     kUnsetIndexes = 16,
     kSetDefaults = 17,
     kRepartition = 18,
+    kModifyJsonSettings = 19,
     KIND_NOT_SET = 0,
   };
 
@@ -2410,6 +2415,7 @@ class AlterTableExpr final :
     kUnsetIndexesFieldNumber = 16,
     kSetDefaultsFieldNumber = 17,
     kRepartitionFieldNumber = 18,
+    kModifyJsonSettingsFieldNumber = 19,
   };
   // string catalog_name = 1;
   void clear_catalog_name();
@@ -2687,6 +2693,24 @@ class AlterTableExpr final :
       ::greptime::v1::Repartition* repartition);
   ::greptime::v1::Repartition* unsafe_arena_release_repartition();
 
+  // .greptime.v1.ModifyJsonSettings modify_json_settings = 19;
+  bool has_modify_json_settings() const;
+  private:
+  bool _internal_has_modify_json_settings() const;
+  public:
+  void clear_modify_json_settings();
+  const ::greptime::v1::ModifyJsonSettings& modify_json_settings() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ModifyJsonSettings* release_modify_json_settings();
+  ::greptime::v1::ModifyJsonSettings* mutable_modify_json_settings();
+  void set_allocated_modify_json_settings(::greptime::v1::ModifyJsonSettings* modify_json_settings);
+  private:
+  const ::greptime::v1::ModifyJsonSettings& _internal_modify_json_settings() const;
+  ::greptime::v1::ModifyJsonSettings* _internal_mutable_modify_json_settings();
+  public:
+  void unsafe_arena_set_allocated_modify_json_settings(
+      ::greptime::v1::ModifyJsonSettings* modify_json_settings);
+  ::greptime::v1::ModifyJsonSettings* unsafe_arena_release_modify_json_settings();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.AlterTableExpr)
@@ -2705,6 +2729,7 @@ class AlterTableExpr final :
   void set_has_unset_indexes();
   void set_has_set_defaults();
   void set_has_repartition();
+  void set_has_modify_json_settings();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -2732,6 +2757,7 @@ class AlterTableExpr final :
       ::greptime::v1::UnsetIndexes* unset_indexes_;
       ::greptime::v1::SetDefaults* set_defaults_;
       ::greptime::v1::Repartition* repartition_;
+      ::greptime::v1::ModifyJsonSettings* modify_json_settings_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -6736,6 +6762,179 @@ class ModifyColumnType final :
 };
 // -------------------------------------------------------------------
 
+class ModifyJsonSettings final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.ModifyJsonSettings) */ {
+ public:
+  inline ModifyJsonSettings() : ModifyJsonSettings(nullptr) {}
+  ~ModifyJsonSettings() override;
+  explicit PROTOBUF_CONSTEXPR ModifyJsonSettings(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  ModifyJsonSettings(const ModifyJsonSettings& from);
+  ModifyJsonSettings(ModifyJsonSettings&& from) noexcept
+    : ModifyJsonSettings() {
+    *this = ::std::move(from);
+  }
+
+  inline ModifyJsonSettings& operator=(const ModifyJsonSettings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ModifyJsonSettings& operator=(ModifyJsonSettings&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ModifyJsonSettings& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ModifyJsonSettings* internal_default_instance() {
+    return reinterpret_cast<const ModifyJsonSettings*>(
+               &_ModifyJsonSettings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    32;
+
+  friend void swap(ModifyJsonSettings& a, ModifyJsonSettings& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(ModifyJsonSettings* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ModifyJsonSettings* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ModifyJsonSettings* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ModifyJsonSettings>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ModifyJsonSettings& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ModifyJsonSettings& from) {
+    ModifyJsonSettings::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ModifyJsonSettings* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.ModifyJsonSettings";
+  }
+  protected:
+  explicit ModifyJsonSettings(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnNameFieldNumber = 1,
+    kOptionsFieldNumber = 2,
+  };
+  // string column_name = 1;
+  void clear_column_name();
+  const std::string& column_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column_name();
+  PROTOBUF_NODISCARD std::string* release_column_name();
+  void set_allocated_column_name(std::string* column_name);
+  private:
+  const std::string& _internal_column_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column_name(const std::string& value);
+  std::string* _internal_mutable_column_name();
+  public:
+
+  // .greptime.v1.ColumnOptions options = 2;
+  bool has_options() const;
+  private:
+  bool _internal_has_options() const;
+  public:
+  void clear_options();
+  const ::greptime::v1::ColumnOptions& options() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ColumnOptions* release_options();
+  ::greptime::v1::ColumnOptions* mutable_options();
+  void set_allocated_options(::greptime::v1::ColumnOptions* options);
+  private:
+  const ::greptime::v1::ColumnOptions& _internal_options() const;
+  ::greptime::v1::ColumnOptions* _internal_mutable_options();
+  public:
+  void unsafe_arena_set_allocated_options(
+      ::greptime::v1::ColumnOptions* options);
+  ::greptime::v1::ColumnOptions* unsafe_arena_release_options();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.ModifyJsonSettings)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_name_;
+    ::greptime::v1::ColumnOptions* options_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Option final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.Option) */ {
  public:
@@ -6784,7 +6983,7 @@ class Option final :
                &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(Option& a, Option& b) {
     a.Swap(&b);
@@ -6953,7 +7152,7 @@ class SetTableOptions final :
                &_SetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(SetTableOptions& a, SetTableOptions& b) {
     a.Swap(&b);
@@ -7110,7 +7309,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -7273,7 +7472,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -7426,7 +7625,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -7574,7 +7773,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -7722,7 +7921,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -7980,7 +8179,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -8174,7 +8373,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -8393,7 +8592,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -8546,7 +8745,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -8699,7 +8898,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -8852,7 +9051,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -9049,7 +9248,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -9208,7 +9407,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -9430,7 +9629,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -9587,7 +9786,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -9806,7 +10005,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -10184,7 +10383,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -10397,7 +10596,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    55;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -10576,7 +10775,7 @@ class DropTriggerExpr final :
                &_DropTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    56;
 
   friend void swap(DropTriggerExpr& a, DropTriggerExpr& b) {
     a.Swap(&b);
@@ -10756,7 +10955,7 @@ class CommentOnExpr final :
                &_CommentOnExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(CommentOnExpr& a, CommentOnExpr& b) {
     a.Swap(&b);
@@ -14970,6 +15169,80 @@ inline ::greptime::v1::Repartition* AlterTableExpr::mutable_repartition() {
   return _msg;
 }
 
+// .greptime.v1.ModifyJsonSettings modify_json_settings = 19;
+inline bool AlterTableExpr::_internal_has_modify_json_settings() const {
+  return kind_case() == kModifyJsonSettings;
+}
+inline bool AlterTableExpr::has_modify_json_settings() const {
+  return _internal_has_modify_json_settings();
+}
+inline void AlterTableExpr::set_has_modify_json_settings() {
+  _impl_._oneof_case_[0] = kModifyJsonSettings;
+}
+inline void AlterTableExpr::clear_modify_json_settings() {
+  if (_internal_has_modify_json_settings()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.modify_json_settings_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::ModifyJsonSettings* AlterTableExpr::release_modify_json_settings() {
+  // @@protoc_insertion_point(field_release:greptime.v1.AlterTableExpr.modify_json_settings)
+  if (_internal_has_modify_json_settings()) {
+    clear_has_kind();
+    ::greptime::v1::ModifyJsonSettings* temp = _impl_.kind_.modify_json_settings_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.modify_json_settings_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::ModifyJsonSettings& AlterTableExpr::_internal_modify_json_settings() const {
+  return _internal_has_modify_json_settings()
+      ? *_impl_.kind_.modify_json_settings_
+      : reinterpret_cast< ::greptime::v1::ModifyJsonSettings&>(::greptime::v1::_ModifyJsonSettings_default_instance_);
+}
+inline const ::greptime::v1::ModifyJsonSettings& AlterTableExpr::modify_json_settings() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.AlterTableExpr.modify_json_settings)
+  return _internal_modify_json_settings();
+}
+inline ::greptime::v1::ModifyJsonSettings* AlterTableExpr::unsafe_arena_release_modify_json_settings() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.AlterTableExpr.modify_json_settings)
+  if (_internal_has_modify_json_settings()) {
+    clear_has_kind();
+    ::greptime::v1::ModifyJsonSettings* temp = _impl_.kind_.modify_json_settings_;
+    _impl_.kind_.modify_json_settings_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterTableExpr::unsafe_arena_set_allocated_modify_json_settings(::greptime::v1::ModifyJsonSettings* modify_json_settings) {
+  clear_kind();
+  if (modify_json_settings) {
+    set_has_modify_json_settings();
+    _impl_.kind_.modify_json_settings_ = modify_json_settings;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.AlterTableExpr.modify_json_settings)
+}
+inline ::greptime::v1::ModifyJsonSettings* AlterTableExpr::_internal_mutable_modify_json_settings() {
+  if (!_internal_has_modify_json_settings()) {
+    clear_kind();
+    set_has_modify_json_settings();
+    _impl_.kind_.modify_json_settings_ = CreateMaybeMessage< ::greptime::v1::ModifyJsonSettings >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.modify_json_settings_;
+}
+inline ::greptime::v1::ModifyJsonSettings* AlterTableExpr::mutable_modify_json_settings() {
+  ::greptime::v1::ModifyJsonSettings* _msg = _internal_mutable_modify_json_settings();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.AlterTableExpr.modify_json_settings)
+  return _msg;
+}
+
 inline bool AlterTableExpr::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -17840,6 +18113,145 @@ inline void ModifyColumnType::set_allocated_target_type_extension(::greptime::v1
   }
   _impl_.target_type_extension_ = target_type_extension;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.ModifyColumnType.target_type_extension)
+}
+
+// -------------------------------------------------------------------
+
+// ModifyJsonSettings
+
+// string column_name = 1;
+inline void ModifyJsonSettings::clear_column_name() {
+  _impl_.column_name_.ClearToEmpty();
+}
+inline const std::string& ModifyJsonSettings::column_name() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ModifyJsonSettings.column_name)
+  return _internal_column_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ModifyJsonSettings::set_column_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.ModifyJsonSettings.column_name)
+}
+inline std::string* ModifyJsonSettings::mutable_column_name() {
+  std::string* _s = _internal_mutable_column_name();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ModifyJsonSettings.column_name)
+  return _s;
+}
+inline const std::string& ModifyJsonSettings::_internal_column_name() const {
+  return _impl_.column_name_.Get();
+}
+inline void ModifyJsonSettings::_internal_set_column_name(const std::string& value) {
+  
+  _impl_.column_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ModifyJsonSettings::_internal_mutable_column_name() {
+  
+  return _impl_.column_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ModifyJsonSettings::release_column_name() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ModifyJsonSettings.column_name)
+  return _impl_.column_name_.Release();
+}
+inline void ModifyJsonSettings::set_allocated_column_name(std::string* column_name) {
+  if (column_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.column_name_.SetAllocated(column_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_name_.IsDefault()) {
+    _impl_.column_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ModifyJsonSettings.column_name)
+}
+
+// .greptime.v1.ColumnOptions options = 2;
+inline bool ModifyJsonSettings::_internal_has_options() const {
+  return this != internal_default_instance() && _impl_.options_ != nullptr;
+}
+inline bool ModifyJsonSettings::has_options() const {
+  return _internal_has_options();
+}
+inline const ::greptime::v1::ColumnOptions& ModifyJsonSettings::_internal_options() const {
+  const ::greptime::v1::ColumnOptions* p = _impl_.options_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ColumnOptions&>(
+      ::greptime::v1::_ColumnOptions_default_instance_);
+}
+inline const ::greptime::v1::ColumnOptions& ModifyJsonSettings::options() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.ModifyJsonSettings.options)
+  return _internal_options();
+}
+inline void ModifyJsonSettings::unsafe_arena_set_allocated_options(
+    ::greptime::v1::ColumnOptions* options) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.options_);
+  }
+  _impl_.options_ = options;
+  if (options) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.ModifyJsonSettings.options)
+}
+inline ::greptime::v1::ColumnOptions* ModifyJsonSettings::release_options() {
+  
+  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
+  _impl_.options_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ColumnOptions* ModifyJsonSettings::unsafe_arena_release_options() {
+  // @@protoc_insertion_point(field_release:greptime.v1.ModifyJsonSettings.options)
+  
+  ::greptime::v1::ColumnOptions* temp = _impl_.options_;
+  _impl_.options_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ColumnOptions* ModifyJsonSettings::_internal_mutable_options() {
+  
+  if (_impl_.options_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ColumnOptions>(GetArenaForAllocation());
+    _impl_.options_ = p;
+  }
+  return _impl_.options_;
+}
+inline ::greptime::v1::ColumnOptions* ModifyJsonSettings::mutable_options() {
+  ::greptime::v1::ColumnOptions* _msg = _internal_mutable_options();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.ModifyJsonSettings.options)
+  return _msg;
+}
+inline void ModifyJsonSettings::set_allocated_options(::greptime::v1::ColumnOptions* options) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.options_);
+  }
+  if (options) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(options));
+    if (message_arena != submessage_arena) {
+      options = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, options, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.options_ = options;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.ModifyJsonSettings.options)
 }
 
 // -------------------------------------------------------------------
@@ -20841,6 +21253,8 @@ inline void CommentOnExpr::set_allocated_comment(std::string* comment) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
