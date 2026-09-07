@@ -305,7 +305,7 @@ pub mod alter_request {
         #[prost(message, tag = "16")]
         SyncColumns(super::SyncColumns),
         #[prost(message, tag = "17")]
-        ModifyJsonSettings(super::super::ModifyJsonSettings),
+        SetJsonSettings(super::super::SetJsonSettings),
     }
 }
 #[derive(Clone, PartialEq, ::prost::Message)]

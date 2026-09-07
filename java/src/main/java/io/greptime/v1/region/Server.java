@@ -21482,19 +21482,19 @@ java.lang.String defaultValue);
     io.greptime.v1.region.Server.SyncColumnsOrBuilder getSyncColumnsOrBuilder();
 
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-     * @return Whether the modifyJsonSettings field is set.
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+     * @return Whether the setJsonSettings field is set.
      */
-    boolean hasModifyJsonSettings();
+    boolean hasSetJsonSettings();
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-     * @return The modifyJsonSettings.
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+     * @return The setJsonSettings.
      */
-    io.greptime.v1.Ddl.ModifyJsonSettings getModifyJsonSettings();
+    io.greptime.v1.Ddl.SetJsonSettings getSetJsonSettings();
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
      */
-    io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder getModifyJsonSettingsOrBuilder();
+    io.greptime.v1.Ddl.SetJsonSettingsOrBuilder getSetJsonSettingsOrBuilder();
 
     /**
      * <pre>
@@ -21732,14 +21732,14 @@ java.lang.String defaultValue);
               break;
             }
             case 138: {
-              io.greptime.v1.Ddl.ModifyJsonSettings.Builder subBuilder = null;
+              io.greptime.v1.Ddl.SetJsonSettings.Builder subBuilder = null;
               if (kindCase_ == 17) {
-                subBuilder = ((io.greptime.v1.Ddl.ModifyJsonSettings) kind_).toBuilder();
+                subBuilder = ((io.greptime.v1.Ddl.SetJsonSettings) kind_).toBuilder();
               }
               kind_ =
-                  input.readMessage(io.greptime.v1.Ddl.ModifyJsonSettings.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.Ddl.SetJsonSettings.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.Ddl.ModifyJsonSettings) kind_);
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetJsonSettings) kind_);
                 kind_ = subBuilder.buildPartial();
               }
               kindCase_ = 17;
@@ -21796,7 +21796,7 @@ java.lang.String defaultValue);
       UNSET_INDEXES(14),
       SET_DEFAULTS(15),
       SYNC_COLUMNS(16),
-      MODIFY_JSON_SETTINGS(17),
+      SET_JSON_SETTINGS(17),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -21826,7 +21826,7 @@ java.lang.String defaultValue);
           case 14: return UNSET_INDEXES;
           case 15: return SET_DEFAULTS;
           case 16: return SYNC_COLUMNS;
-          case 17: return MODIFY_JSON_SETTINGS;
+          case 17: return SET_JSON_SETTINGS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -22249,35 +22249,35 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.SyncColumns.getDefaultInstance();
     }
 
-    public static final int MODIFY_JSON_SETTINGS_FIELD_NUMBER = 17;
+    public static final int SET_JSON_SETTINGS_FIELD_NUMBER = 17;
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-     * @return Whether the modifyJsonSettings field is set.
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+     * @return Whether the setJsonSettings field is set.
      */
     @java.lang.Override
-    public boolean hasModifyJsonSettings() {
+    public boolean hasSetJsonSettings() {
       return kindCase_ == 17;
     }
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-     * @return The modifyJsonSettings.
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+     * @return The setJsonSettings.
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ModifyJsonSettings getModifyJsonSettings() {
+    public io.greptime.v1.Ddl.SetJsonSettings getSetJsonSettings() {
       if (kindCase_ == 17) {
-         return (io.greptime.v1.Ddl.ModifyJsonSettings) kind_;
+         return (io.greptime.v1.Ddl.SetJsonSettings) kind_;
       }
-      return io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+      return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+     * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder getModifyJsonSettingsOrBuilder() {
+    public io.greptime.v1.Ddl.SetJsonSettingsOrBuilder getSetJsonSettingsOrBuilder() {
       if (kindCase_ == 17) {
-         return (io.greptime.v1.Ddl.ModifyJsonSettings) kind_;
+         return (io.greptime.v1.Ddl.SetJsonSettings) kind_;
       }
-      return io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+      return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
     }
 
     public static final int SCHEMA_VERSION_FIELD_NUMBER = 4;
@@ -22352,7 +22352,7 @@ java.lang.String defaultValue);
         output.writeMessage(16, (io.greptime.v1.region.Server.SyncColumns) kind_);
       }
       if (kindCase_ == 17) {
-        output.writeMessage(17, (io.greptime.v1.Ddl.ModifyJsonSettings) kind_);
+        output.writeMessage(17, (io.greptime.v1.Ddl.SetJsonSettings) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -22421,7 +22421,7 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 17) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(17, (io.greptime.v1.Ddl.ModifyJsonSettings) kind_);
+          .computeMessageSize(17, (io.greptime.v1.Ddl.SetJsonSettings) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -22493,8 +22493,8 @@ java.lang.String defaultValue);
               .equals(other.getSyncColumns())) return false;
           break;
         case 17:
-          if (!getModifyJsonSettings()
-              .equals(other.getModifyJsonSettings())) return false;
+          if (!getSetJsonSettings()
+              .equals(other.getSetJsonSettings())) return false;
           break;
         case 0:
         default:
@@ -22566,8 +22566,8 @@ java.lang.String defaultValue);
           hash = (53 * hash) + getSyncColumns().hashCode();
           break;
         case 17:
-          hash = (37 * hash) + MODIFY_JSON_SETTINGS_FIELD_NUMBER;
-          hash = (53 * hash) + getModifyJsonSettings().hashCode();
+          hash = (37 * hash) + SET_JSON_SETTINGS_FIELD_NUMBER;
+          hash = (53 * hash) + getSetJsonSettings().hashCode();
           break;
         case 0:
         default:
@@ -22823,10 +22823,10 @@ java.lang.String defaultValue);
           }
         }
         if (kindCase_ == 17) {
-          if (modifyJsonSettingsBuilder_ == null) {
+          if (setJsonSettingsBuilder_ == null) {
             result.kind_ = kind_;
           } else {
-            result.kind_ = modifyJsonSettingsBuilder_.build();
+            result.kind_ = setJsonSettingsBuilder_.build();
           }
         }
         result.schemaVersion_ = schemaVersion_;
@@ -22934,8 +22934,8 @@ java.lang.String defaultValue);
             mergeSyncColumns(other.getSyncColumns());
             break;
           }
-          case MODIFY_JSON_SETTINGS: {
-            mergeModifyJsonSettings(other.getModifyJsonSettings());
+          case SET_JSON_SETTINGS: {
+            mergeSetJsonSettings(other.getSetJsonSettings());
             break;
           }
           case KIND_NOT_SET: {
@@ -24794,71 +24794,71 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ModifyJsonSettings, io.greptime.v1.Ddl.ModifyJsonSettings.Builder, io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder> modifyJsonSettingsBuilder_;
+          io.greptime.v1.Ddl.SetJsonSettings, io.greptime.v1.Ddl.SetJsonSettings.Builder, io.greptime.v1.Ddl.SetJsonSettingsOrBuilder> setJsonSettingsBuilder_;
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-       * @return Whether the modifyJsonSettings field is set.
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+       * @return Whether the setJsonSettings field is set.
        */
       @java.lang.Override
-      public boolean hasModifyJsonSettings() {
+      public boolean hasSetJsonSettings() {
         return kindCase_ == 17;
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
-       * @return The modifyJsonSettings.
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
+       * @return The setJsonSettings.
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ModifyJsonSettings getModifyJsonSettings() {
-        if (modifyJsonSettingsBuilder_ == null) {
+      public io.greptime.v1.Ddl.SetJsonSettings getSetJsonSettings() {
+        if (setJsonSettingsBuilder_ == null) {
           if (kindCase_ == 17) {
-            return (io.greptime.v1.Ddl.ModifyJsonSettings) kind_;
+            return (io.greptime.v1.Ddl.SetJsonSettings) kind_;
           }
-          return io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
         } else {
           if (kindCase_ == 17) {
-            return modifyJsonSettingsBuilder_.getMessage();
+            return setJsonSettingsBuilder_.getMessage();
           }
-          return io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
-      public Builder setModifyJsonSettings(io.greptime.v1.Ddl.ModifyJsonSettings value) {
-        if (modifyJsonSettingsBuilder_ == null) {
+      public Builder setSetJsonSettings(io.greptime.v1.Ddl.SetJsonSettings value) {
+        if (setJsonSettingsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           kind_ = value;
           onChanged();
         } else {
-          modifyJsonSettingsBuilder_.setMessage(value);
+          setJsonSettingsBuilder_.setMessage(value);
         }
         kindCase_ = 17;
         return this;
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
-      public Builder setModifyJsonSettings(
-          io.greptime.v1.Ddl.ModifyJsonSettings.Builder builderForValue) {
-        if (modifyJsonSettingsBuilder_ == null) {
+      public Builder setSetJsonSettings(
+          io.greptime.v1.Ddl.SetJsonSettings.Builder builderForValue) {
+        if (setJsonSettingsBuilder_ == null) {
           kind_ = builderForValue.build();
           onChanged();
         } else {
-          modifyJsonSettingsBuilder_.setMessage(builderForValue.build());
+          setJsonSettingsBuilder_.setMessage(builderForValue.build());
         }
         kindCase_ = 17;
         return this;
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
-      public Builder mergeModifyJsonSettings(io.greptime.v1.Ddl.ModifyJsonSettings value) {
-        if (modifyJsonSettingsBuilder_ == null) {
+      public Builder mergeSetJsonSettings(io.greptime.v1.Ddl.SetJsonSettings value) {
+        if (setJsonSettingsBuilder_ == null) {
           if (kindCase_ == 17 &&
-              kind_ != io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance()) {
-            kind_ = io.greptime.v1.Ddl.ModifyJsonSettings.newBuilder((io.greptime.v1.Ddl.ModifyJsonSettings) kind_)
+              kind_ != io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.SetJsonSettings.newBuilder((io.greptime.v1.Ddl.SetJsonSettings) kind_)
                 .mergeFrom(value).buildPartial();
           } else {
             kind_ = value;
@@ -24866,19 +24866,19 @@ java.lang.String defaultValue);
           onChanged();
         } else {
           if (kindCase_ == 17) {
-            modifyJsonSettingsBuilder_.mergeFrom(value);
+            setJsonSettingsBuilder_.mergeFrom(value);
           } else {
-            modifyJsonSettingsBuilder_.setMessage(value);
+            setJsonSettingsBuilder_.setMessage(value);
           }
         }
         kindCase_ = 17;
         return this;
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
-      public Builder clearModifyJsonSettings() {
-        if (modifyJsonSettingsBuilder_ == null) {
+      public Builder clearSetJsonSettings() {
+        if (setJsonSettingsBuilder_ == null) {
           if (kindCase_ == 17) {
             kindCase_ = 0;
             kind_ = null;
@@ -24889,50 +24889,50 @@ java.lang.String defaultValue);
             kindCase_ = 0;
             kind_ = null;
           }
-          modifyJsonSettingsBuilder_.clear();
+          setJsonSettingsBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
-      public io.greptime.v1.Ddl.ModifyJsonSettings.Builder getModifyJsonSettingsBuilder() {
-        return getModifyJsonSettingsFieldBuilder().getBuilder();
+      public io.greptime.v1.Ddl.SetJsonSettings.Builder getSetJsonSettingsBuilder() {
+        return getSetJsonSettingsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder getModifyJsonSettingsOrBuilder() {
-        if ((kindCase_ == 17) && (modifyJsonSettingsBuilder_ != null)) {
-          return modifyJsonSettingsBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.Ddl.SetJsonSettingsOrBuilder getSetJsonSettingsOrBuilder() {
+        if ((kindCase_ == 17) && (setJsonSettingsBuilder_ != null)) {
+          return setJsonSettingsBuilder_.getMessageOrBuilder();
         } else {
           if (kindCase_ == 17) {
-            return (io.greptime.v1.Ddl.ModifyJsonSettings) kind_;
+            return (io.greptime.v1.Ddl.SetJsonSettings) kind_;
           }
-          return io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+          return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.ModifyJsonSettings modify_json_settings = 17;</code>
+       * <code>.greptime.v1.SetJsonSettings set_json_settings = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.Ddl.ModifyJsonSettings, io.greptime.v1.Ddl.ModifyJsonSettings.Builder, io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder> 
-          getModifyJsonSettingsFieldBuilder() {
-        if (modifyJsonSettingsBuilder_ == null) {
+          io.greptime.v1.Ddl.SetJsonSettings, io.greptime.v1.Ddl.SetJsonSettings.Builder, io.greptime.v1.Ddl.SetJsonSettingsOrBuilder> 
+          getSetJsonSettingsFieldBuilder() {
+        if (setJsonSettingsBuilder_ == null) {
           if (!(kindCase_ == 17)) {
-            kind_ = io.greptime.v1.Ddl.ModifyJsonSettings.getDefaultInstance();
+            kind_ = io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
           }
-          modifyJsonSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.Ddl.ModifyJsonSettings, io.greptime.v1.Ddl.ModifyJsonSettings.Builder, io.greptime.v1.Ddl.ModifyJsonSettingsOrBuilder>(
-                  (io.greptime.v1.Ddl.ModifyJsonSettings) kind_,
+          setJsonSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetJsonSettings, io.greptime.v1.Ddl.SetJsonSettings.Builder, io.greptime.v1.Ddl.SetJsonSettingsOrBuilder>(
+                  (io.greptime.v1.Ddl.SetJsonSettings) kind_,
                   getParentForChildren(),
                   isClean());
           kind_ = null;
         }
         kindCase_ = 17;
         onChanged();;
-        return modifyJsonSettingsBuilder_;
+        return setJsonSettingsBuilder_;
       }
 
       private long schemaVersion_ ;
@@ -44212,7 +44212,7 @@ java.lang.String defaultValue);
       "value\030\002 \001(\t:\0028\001\"9\n\014CloseRequest\022\021\n\tregio" +
       "n_id\030\001 \001(\004\022\026\n\016flush_on_close\030\002 \001(\010\"C\n\rAl" +
       "terRequests\0222\n\010requests\030\001 \003(\0132 .greptime" +
-      ".v1.region.AlterRequest\"\212\006\n\014AlterRequest" +
+      ".v1.region.AlterRequest\"\204\006\n\014AlterRequest" +
       "\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\013" +
       "2\036.greptime.v1.region.AddColumnsH\000\0227\n\014dr" +
       "op_columns\030\003 \001(\0132\037.greptime.v1.region.Dr" +
@@ -44229,71 +44229,70 @@ java.lang.String defaultValue);
       "dexes\030\016 \001(\0132\031.greptime.v1.UnsetIndexesH\000" +
       "\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v1.Set" +
       "DefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.grept" +
-      "ime.v1.region.SyncColumnsH\000\022?\n\024modify_js" +
-      "on_settings\030\021 \001(\0132\037.greptime.v1.ModifyJs" +
-      "onSettingsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004" +
-      "kind\"G\n\013SyncColumns\0228\n\013column_defs\030\001 \003(\013" +
-      "2#.greptime.v1.region.RegionColumnDef\"@\n" +
-      "\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035.grept" +
-      "ime.v1.region.AddColumn\"C\n\013DropColumns\0224" +
-      "\n\014drop_columns\030\001 \003(\0132\036.greptime.v1.regio" +
-      "n.DropColumn\"v\n\tAddColumn\0227\n\ncolumn_def\030" +
-      "\001 \001(\0132#.greptime.v1.region.RegionColumnD" +
-      "ef\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCo" +
-      "lumnLocation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t" +
-      "\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007R" +
-      "egular\"&\n\014StrictWindow\022\026\n\016window_seconds" +
-      "\030\001 \001(\003\"[\n\023CompactionTimeRange\022\r\n\005start\030\001" +
-      " \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_unit\030\003 \001(\0162\025.g" +
-      "reptime.v1.TimeUnit\"\353\001\n\016CompactRequest\022\021" +
-      "\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.gre" +
-      "ptime.v1.region.RegularH\000\0229\n\rstrict_wind" +
-      "ow\030\003 \001(\0132 .greptime.v1.region.StrictWind" +
-      "owH\000\022\023\n\013parallelism\030\004 \001(\r\022;\n\ntime_range\030" +
-      "\005 \001(\0132\'.greptime.v1.region.CompactionTim" +
-      "eRangeB\t\n\007options\"\270\001\n\017TruncateRequest\022\021\n" +
-      "\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime" +
-      ".v1.region.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027." +
-      "greptime.v1.TimeRangesH\000\0222\n\tunflushed\030\004 " +
-      "\001(\0132\035.greptime.v1.region.UnflushedH\000B\006\n\004" +
-      "kind\"\005\n\003All\"\013\n\tUnflushed\"P\n\017RegionColumn" +
-      "Def\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime.v1.Co" +
-      "lumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInser" +
-      "tRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc" +
-      "\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000\022A\n\026parti" +
-      "tion_expr_version\030\003 \001(\0132!.greptime.v1.Pa" +
-      "rtitionExprVersion\022H\n\026aligned_schema_ver" +
-      "sion\030\004 \001(\0132(.greptime.v1.region.AlignedS" +
-      "chemaVersionB\006\n\004body\".\n\024AlignedSchemaVer" +
-      "sion\022\026\n\016schema_version\030\001 \001(\004\"1\n\020MitoMani" +
-      "festInfo\022\035\n\025data_manifest_version\030\001 \001(\004\"" +
-      "V\n\022MetricManifestInfo\022\035\n\025data_manifest_v" +
-      "ersion\030\001 \001(\004\022!\n\031metadata_manifest_versio" +
-      "n\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.greptim" +
-      "e.v1.region.MitoManifestInfoH\000\022F\n\024metric" +
-      "_manifest_info\030\003 \001(\0132&.greptime.v1.regio" +
-      "n.MetricManifestInfoH\000B\017\n\rmanifest_info\"" +
-      ")\n\023ListMetadataRequest\022\022\n\nregion_ids\030\001 \003" +
-      "(\004\"&\n\021BuildIndexRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplySt" +
-      "agingManifestRequest\022\021\n\tregion_id\030\001 \001(\004\022" +
-      "\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_regio" +
-      "n_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026Re" +
-      "moteDynFilterRequest\022\020\n\010query_id\030\001 \001(\t\022;" +
-      "\n\006update\030\002 \001(\0132).greptime.v1.region.Remo" +
-      "teDynFilterUpdateH\000\022C\n\nunregister\030\003 \001(\0132" +
-      "-.greptime.v1.region.RemoteDynFilterUnre" +
-      "gisterH\000B\010\n\006action\"d\n\025RemoteDynFilterUpd" +
-      "ate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022" +
-      "\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010" +
-      "\".\n\031RemoteDynFilterUnregister\022\021\n\tfilter_" +
-      "id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime." +
-      "v1.region.RegionRequest\032\".greptime.v1.re" +
-      "gion.RegionResponseB]\n\025io.greptime.v1.re" +
-      "gionB\006ServerZ<github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1/regionb\006prot" +
-      "o3"
+      "ime.v1.region.SyncColumnsH\000\0229\n\021set_json_" +
+      "settings\030\021 \001(\0132\034.greptime.v1.SetJsonSett" +
+      "ingsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G" +
+      "\n\013SyncColumns\0228\n\013column_defs\030\001 \003(\0132#.gre" +
+      "ptime.v1.region.RegionColumnDef\"@\n\nAddCo" +
+      "lumns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1" +
+      ".region.AddColumn\"C\n\013DropColumns\0224\n\014drop" +
+      "_columns\030\001 \003(\0132\036.greptime.v1.region.Drop" +
+      "Column\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132" +
+      "#.greptime.v1.region.RegionColumnDef\0220\n\010" +
+      "location\030\003 \001(\0132\036.greptime.v1.AddColumnLo" +
+      "cation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Fl" +
+      "ushRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular" +
+      "\"&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003" +
+      "\"[\n\023CompactionTimeRange\022\r\n\005start\030\001 \001(\003\022\013" +
+      "\n\003end\030\002 \001(\003\022(\n\ttime_unit\030\003 \001(\0162\025.greptim" +
+      "e.v1.TimeUnit\"\353\001\n\016CompactRequest\022\021\n\tregi" +
+      "on_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptime." +
+      "v1.region.RegularH\000\0229\n\rstrict_window\030\003 \001" +
+      "(\0132 .greptime.v1.region.StrictWindowH\000\022\023" +
+      "\n\013parallelism\030\004 \001(\r\022;\n\ntime_range\030\005 \001(\0132" +
+      "\'.greptime.v1.region.CompactionTimeRange" +
+      "B\t\n\007options\"\270\001\n\017TruncateRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime.v1.re" +
+      "gion.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.grepti" +
+      "me.v1.TimeRangesH\000\0222\n\tunflushed\030\004 \001(\0132\035." +
+      "greptime.v1.region.UnflushedH\000B\006\n\004kind\"\005" +
+      "\n\003All\"\013\n\tUnflushed\"P\n\017RegionColumnDef\022*\n" +
+      "\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDe" +
+      "f\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertReque" +
+      "st\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\013" +
+      "2\025.greptime.v1.ArrowIpcH\000\022A\n\026partition_e" +
+      "xpr_version\030\003 \001(\0132!.greptime.v1.Partitio" +
+      "nExprVersion\022H\n\026aligned_schema_version\030\004" +
+      " \001(\0132(.greptime.v1.region.AlignedSchemaV" +
+      "ersionB\006\n\004body\".\n\024AlignedSchemaVersion\022\026" +
+      "\n\016schema_version\030\001 \001(\004\"1\n\020MitoManifestIn" +
+      "fo\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Met" +
+      "ricManifestInfo\022\035\n\025data_manifest_version" +
+      "\030\001 \001(\004\022!\n\031metadata_manifest_version\030\002 \001(" +
+      "\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022" +
+      "mito_manifest_info\030\002 \001(\0132$.greptime.v1.r" +
+      "egion.MitoManifestInfoH\000\022F\n\024metric_manif" +
+      "est_info\030\003 \001(\0132&.greptime.v1.region.Metr" +
+      "icManifestInfoH\000B\017\n\rmanifest_info\")\n\023Lis" +
+      "tMetadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021" +
+      "BuildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\t" +
+      "FileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingM" +
+      "anifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016par" +
+      "tition_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003" +
+      " \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDy" +
+      "nFilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006upda" +
+      "te\030\002 \001(\0132).greptime.v1.region.RemoteDynF" +
+      "ilterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.grep" +
+      "time.v1.region.RemoteDynFilterUnregister" +
+      "H\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022\021\n" +
+      "\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngen" +
+      "eration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031Re" +
+      "moteDynFilterUnregister\022\021\n\tfilter_id\030\001 \001" +
+      "(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.reg" +
+      "ion.RegionRequest\032\".greptime.v1.region.R" +
+      "egionResponseB]\n\025io.greptime.v1.regionB\006" +
+      "ServerZ<github.com/GreptimeTeam/greptime" +
+      "-proto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44440,7 +44439,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_AlterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlterRequest_descriptor,
-        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "SyncColumns", "ModifyJsonSettings", "SchemaVersion", "Kind", });
+        new java.lang.String[] { "RegionId", "AddColumns", "DropColumns", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "SyncColumns", "SetJsonSettings", "SchemaVersion", "Kind", });
     internal_static_greptime_v1_region_SyncColumns_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_greptime_v1_region_SyncColumns_fieldAccessorTable = new

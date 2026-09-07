@@ -4024,7 +4024,7 @@ class AlterRequest final :
     kUnsetIndexes = 14,
     kSetDefaults = 15,
     kSyncColumns = 16,
-    kModifyJsonSettings = 17,
+    kSetJsonSettings = 17,
     KIND_NOT_SET = 0,
   };
 
@@ -4120,7 +4120,7 @@ class AlterRequest final :
     kUnsetIndexesFieldNumber = 14,
     kSetDefaultsFieldNumber = 15,
     kSyncColumnsFieldNumber = 16,
-    kModifyJsonSettingsFieldNumber = 17,
+    kSetJsonSettingsFieldNumber = 17,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -4356,23 +4356,23 @@ class AlterRequest final :
       ::greptime::v1::region::SyncColumns* sync_columns);
   ::greptime::v1::region::SyncColumns* unsafe_arena_release_sync_columns();
 
-  // .greptime.v1.ModifyJsonSettings modify_json_settings = 17;
-  bool has_modify_json_settings() const;
+  // .greptime.v1.SetJsonSettings set_json_settings = 17;
+  bool has_set_json_settings() const;
   private:
-  bool _internal_has_modify_json_settings() const;
+  bool _internal_has_set_json_settings() const;
   public:
-  void clear_modify_json_settings();
-  const ::greptime::v1::ModifyJsonSettings& modify_json_settings() const;
-  PROTOBUF_NODISCARD ::greptime::v1::ModifyJsonSettings* release_modify_json_settings();
-  ::greptime::v1::ModifyJsonSettings* mutable_modify_json_settings();
-  void set_allocated_modify_json_settings(::greptime::v1::ModifyJsonSettings* modify_json_settings);
+  void clear_set_json_settings();
+  const ::greptime::v1::SetJsonSettings& set_json_settings() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetJsonSettings* release_set_json_settings();
+  ::greptime::v1::SetJsonSettings* mutable_set_json_settings();
+  void set_allocated_set_json_settings(::greptime::v1::SetJsonSettings* set_json_settings);
   private:
-  const ::greptime::v1::ModifyJsonSettings& _internal_modify_json_settings() const;
-  ::greptime::v1::ModifyJsonSettings* _internal_mutable_modify_json_settings();
+  const ::greptime::v1::SetJsonSettings& _internal_set_json_settings() const;
+  ::greptime::v1::SetJsonSettings* _internal_mutable_set_json_settings();
   public:
-  void unsafe_arena_set_allocated_modify_json_settings(
-      ::greptime::v1::ModifyJsonSettings* modify_json_settings);
-  ::greptime::v1::ModifyJsonSettings* unsafe_arena_release_modify_json_settings();
+  void unsafe_arena_set_allocated_set_json_settings(
+      ::greptime::v1::SetJsonSettings* set_json_settings);
+  ::greptime::v1::SetJsonSettings* unsafe_arena_release_set_json_settings();
 
   void clear_kind();
   KindCase kind_case() const;
@@ -4391,7 +4391,7 @@ class AlterRequest final :
   void set_has_unset_indexes();
   void set_has_set_defaults();
   void set_has_sync_columns();
-  void set_has_modify_json_settings();
+  void set_has_set_json_settings();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -4417,7 +4417,7 @@ class AlterRequest final :
       ::greptime::v1::UnsetIndexes* unset_indexes_;
       ::greptime::v1::SetDefaults* set_defaults_;
       ::greptime::v1::region::SyncColumns* sync_columns_;
-      ::greptime::v1::ModifyJsonSettings* modify_json_settings_;
+      ::greptime::v1::SetJsonSettings* set_json_settings_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -13240,69 +13240,69 @@ inline ::greptime::v1::region::SyncColumns* AlterRequest::mutable_sync_columns()
   return _msg;
 }
 
-// .greptime.v1.ModifyJsonSettings modify_json_settings = 17;
-inline bool AlterRequest::_internal_has_modify_json_settings() const {
-  return kind_case() == kModifyJsonSettings;
+// .greptime.v1.SetJsonSettings set_json_settings = 17;
+inline bool AlterRequest::_internal_has_set_json_settings() const {
+  return kind_case() == kSetJsonSettings;
 }
-inline bool AlterRequest::has_modify_json_settings() const {
-  return _internal_has_modify_json_settings();
+inline bool AlterRequest::has_set_json_settings() const {
+  return _internal_has_set_json_settings();
 }
-inline void AlterRequest::set_has_modify_json_settings() {
-  _impl_._oneof_case_[0] = kModifyJsonSettings;
+inline void AlterRequest::set_has_set_json_settings() {
+  _impl_._oneof_case_[0] = kSetJsonSettings;
 }
-inline ::greptime::v1::ModifyJsonSettings* AlterRequest::release_modify_json_settings() {
-  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.modify_json_settings)
-  if (_internal_has_modify_json_settings()) {
+inline ::greptime::v1::SetJsonSettings* AlterRequest::release_set_json_settings() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.set_json_settings)
+  if (_internal_has_set_json_settings()) {
     clear_has_kind();
-    ::greptime::v1::ModifyJsonSettings* temp = _impl_.kind_.modify_json_settings_;
+    ::greptime::v1::SetJsonSettings* temp = _impl_.kind_.set_json_settings_;
     if (GetArenaForAllocation() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.kind_.modify_json_settings_ = nullptr;
+    _impl_.kind_.set_json_settings_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::greptime::v1::ModifyJsonSettings& AlterRequest::_internal_modify_json_settings() const {
-  return _internal_has_modify_json_settings()
-      ? *_impl_.kind_.modify_json_settings_
-      : reinterpret_cast< ::greptime::v1::ModifyJsonSettings&>(::greptime::v1::_ModifyJsonSettings_default_instance_);
+inline const ::greptime::v1::SetJsonSettings& AlterRequest::_internal_set_json_settings() const {
+  return _internal_has_set_json_settings()
+      ? *_impl_.kind_.set_json_settings_
+      : reinterpret_cast< ::greptime::v1::SetJsonSettings&>(::greptime::v1::_SetJsonSettings_default_instance_);
 }
-inline const ::greptime::v1::ModifyJsonSettings& AlterRequest::modify_json_settings() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.modify_json_settings)
-  return _internal_modify_json_settings();
+inline const ::greptime::v1::SetJsonSettings& AlterRequest::set_json_settings() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.set_json_settings)
+  return _internal_set_json_settings();
 }
-inline ::greptime::v1::ModifyJsonSettings* AlterRequest::unsafe_arena_release_modify_json_settings() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.modify_json_settings)
-  if (_internal_has_modify_json_settings()) {
+inline ::greptime::v1::SetJsonSettings* AlterRequest::unsafe_arena_release_set_json_settings() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.set_json_settings)
+  if (_internal_has_set_json_settings()) {
     clear_has_kind();
-    ::greptime::v1::ModifyJsonSettings* temp = _impl_.kind_.modify_json_settings_;
-    _impl_.kind_.modify_json_settings_ = nullptr;
+    ::greptime::v1::SetJsonSettings* temp = _impl_.kind_.set_json_settings_;
+    _impl_.kind_.set_json_settings_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void AlterRequest::unsafe_arena_set_allocated_modify_json_settings(::greptime::v1::ModifyJsonSettings* modify_json_settings) {
+inline void AlterRequest::unsafe_arena_set_allocated_set_json_settings(::greptime::v1::SetJsonSettings* set_json_settings) {
   clear_kind();
-  if (modify_json_settings) {
-    set_has_modify_json_settings();
-    _impl_.kind_.modify_json_settings_ = modify_json_settings;
+  if (set_json_settings) {
+    set_has_set_json_settings();
+    _impl_.kind_.set_json_settings_ = set_json_settings;
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.modify_json_settings)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.set_json_settings)
 }
-inline ::greptime::v1::ModifyJsonSettings* AlterRequest::_internal_mutable_modify_json_settings() {
-  if (!_internal_has_modify_json_settings()) {
+inline ::greptime::v1::SetJsonSettings* AlterRequest::_internal_mutable_set_json_settings() {
+  if (!_internal_has_set_json_settings()) {
     clear_kind();
-    set_has_modify_json_settings();
-    _impl_.kind_.modify_json_settings_ = CreateMaybeMessage< ::greptime::v1::ModifyJsonSettings >(GetArenaForAllocation());
+    set_has_set_json_settings();
+    _impl_.kind_.set_json_settings_ = CreateMaybeMessage< ::greptime::v1::SetJsonSettings >(GetArenaForAllocation());
   }
-  return _impl_.kind_.modify_json_settings_;
+  return _impl_.kind_.set_json_settings_;
 }
-inline ::greptime::v1::ModifyJsonSettings* AlterRequest::mutable_modify_json_settings() {
-  ::greptime::v1::ModifyJsonSettings* _msg = _internal_mutable_modify_json_settings();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.modify_json_settings)
+inline ::greptime::v1::SetJsonSettings* AlterRequest::mutable_set_json_settings() {
+  ::greptime::v1::SetJsonSettings* _msg = _internal_mutable_set_json_settings();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.set_json_settings)
   return _msg;
 }
 

@@ -971,7 +971,7 @@ pub mod alter_table_expr {
         #[prost(message, tag = "18")]
         Repartition(super::Repartition),
         #[prost(message, tag = "19")]
-        ModifyJsonSettings(super::ModifyJsonSettings),
+        SetJsonSettings(super::SetJsonSettings),
     }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -1171,11 +1171,30 @@ pub struct ModifyColumnType {
     pub target_type_extension: ::core::option::Option<ColumnDataTypeExtension>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ModifyJsonSettings {
+pub struct SetJsonSettings {
     #[prost(string, tag = "1")]
     pub column_name: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "2")]
-    pub options: ::core::option::Option<ColumnOptions>,
+    pub settings: ::core::option::Option<JsonSettings>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct JsonSettings {
+    #[prost(message, repeated, tag = "1")]
+    pub type_hints: ::prost::alloc::vec::Vec<JsonTypeHint>,
+    #[prost(uint32, optional, tag = "2")]
+    pub max_auto_expanded_paths: ::core::option::Option<u32>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct JsonTypeHint {
+    #[prost(string, repeated, tag = "1")]
+    pub path: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    #[prost(enumeration = "ColumnDataType", tag = "2")]
+    pub data_type: i32,
+    #[prost(bool, tag = "3")]
+    pub nullable: bool,
+    /// The JSON representation of the default `Expr`.
+    #[prost(bytes = "vec", tag = "4")]
+    pub default_constraint: ::prost::alloc::vec::Vec<u8>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {

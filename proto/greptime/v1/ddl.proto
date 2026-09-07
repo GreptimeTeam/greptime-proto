@@ -124,7 +124,7 @@ message AlterTableExpr {
     UnsetIndexes unset_indexes = 16;
     SetDefaults set_defaults = 17;
     Repartition repartition = 18;
-    ModifyJsonSettings modify_json_settings = 19;
+    SetJsonSettings set_json_settings = 19;
   }
 }
 
@@ -251,9 +251,22 @@ message ModifyColumnType {
   ColumnDataTypeExtension target_type_extension = 3;
 }
 
-message ModifyJsonSettings {
+message SetJsonSettings {
   string column_name = 1;
-  ColumnOptions options = 2;
+  JsonSettings settings = 2;
+}
+
+message JsonSettings {
+  repeated JsonTypeHint type_hints = 1;
+  optional uint32 max_auto_expanded_paths = 2;
+}
+
+message JsonTypeHint {
+  repeated string path = 1;
+  ColumnDataType data_type = 2;
+  bool nullable = 3;
+  // The JSON representation of the default `Expr`.
+  bytes default_constraint = 4;
 }
 
 message Option {
