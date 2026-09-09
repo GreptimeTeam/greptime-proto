@@ -530,6 +530,7 @@ PROTOBUF_CONSTEXPR JsonTypeHint::JsonTypeHint(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.path_)*/{}
   , /*decltype(_impl_.default_constraint_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.datatype_extension_)*/nullptr
   , /*decltype(_impl_.data_type_)*/0
   , /*decltype(_impl_.nullable_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -1264,6 +1265,7 @@ const uint32_t TableStruct_greptime_2fv1_2fddl_2eproto::offsets[] PROTOBUF_SECTI
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonTypeHint, _impl_.path_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonTypeHint, _impl_.data_type_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonTypeHint, _impl_.datatype_extension_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonTypeHint, _impl_.nullable_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::JsonTypeHint, _impl_.default_constraint_),
   ~0u,  // no _has_bits_
@@ -1532,31 +1534,31 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 326, -1, -1, sizeof(::greptime::v1::SetJsonSettings)},
   { 334, 342, -1, sizeof(::greptime::v1::JsonSettings)},
   { 344, -1, -1, sizeof(::greptime::v1::JsonTypeHint)},
-  { 354, -1, -1, sizeof(::greptime::v1::Option)},
-  { 362, -1, -1, sizeof(::greptime::v1::SetTableOptions)},
-  { 369, -1, -1, sizeof(::greptime::v1::UnsetTableOptions)},
-  { 376, -1, -1, sizeof(::greptime::v1::DropColumn)},
-  { 383, -1, -1, sizeof(::greptime::v1::TableId)},
-  { 390, -1, -1, sizeof(::greptime::v1::FlowId)},
-  { 397, -1, -1, sizeof(::greptime::v1::ColumnDef)},
-  { 411, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
-  { 419, -1, -1, sizeof(::greptime::v1::SetFulltext)},
-  { 432, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
-  { 439, -1, -1, sizeof(::greptime::v1::SetInverted)},
-  { 446, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
-  { 453, -1, -1, sizeof(::greptime::v1::SetSkipping)},
-  { 464, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
-  { 471, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
-  { 482, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
-  { 489, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
-  { 496, 504, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
-  { 506, 514, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
-  { 516, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
-  { 535, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
-  { 544, 552, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
-  { 554, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
-  { 562, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
-  { 571, -1, -1, sizeof(::greptime::v1::CommentOnExpr)},
+  { 355, -1, -1, sizeof(::greptime::v1::Option)},
+  { 363, -1, -1, sizeof(::greptime::v1::SetTableOptions)},
+  { 370, -1, -1, sizeof(::greptime::v1::UnsetTableOptions)},
+  { 377, -1, -1, sizeof(::greptime::v1::DropColumn)},
+  { 384, -1, -1, sizeof(::greptime::v1::TableId)},
+  { 391, -1, -1, sizeof(::greptime::v1::FlowId)},
+  { 398, -1, -1, sizeof(::greptime::v1::ColumnDef)},
+  { 412, -1, -1, sizeof(::greptime::v1::AddColumnLocation)},
+  { 420, -1, -1, sizeof(::greptime::v1::SetFulltext)},
+  { 433, -1, -1, sizeof(::greptime::v1::UnsetFulltext)},
+  { 440, -1, -1, sizeof(::greptime::v1::SetInverted)},
+  { 447, -1, -1, sizeof(::greptime::v1::UnsetInverted)},
+  { 454, -1, -1, sizeof(::greptime::v1::SetSkipping)},
+  { 465, -1, -1, sizeof(::greptime::v1::UnsetSkipping)},
+  { 472, -1, -1, sizeof(::greptime::v1::AlterDatabaseExpr)},
+  { 483, -1, -1, sizeof(::greptime::v1::SetDatabaseOptions)},
+  { 490, -1, -1, sizeof(::greptime::v1::UnsetDatabaseOptions)},
+  { 497, 505, -1, sizeof(::greptime::v1::CreateTriggerExpr_LabelsEntry_DoNotUse)},
+  { 507, 515, -1, sizeof(::greptime::v1::CreateTriggerExpr_AnnotationsEntry_DoNotUse)},
+  { 517, -1, -1, sizeof(::greptime::v1::CreateTriggerExpr)},
+  { 536, -1, -1, sizeof(::greptime::v1::NotifyChannel)},
+  { 545, 553, -1, sizeof(::greptime::v1::WebhookOptions_OptsEntry_DoNotUse)},
+  { 555, -1, -1, sizeof(::greptime::v1::WebhookOptions)},
+  { 563, -1, -1, sizeof(::greptime::v1::DropTriggerExpr)},
+  { 572, -1, -1, sizeof(::greptime::v1::CommentOnExpr)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1756,82 +1758,83 @@ const char descriptor_table_protodef_greptime_2fv1_2fddl_2eproto[] PROTOBUF_SECT
   "v1.JsonSettings\"\177\n\014JsonSettings\022-\n\ntype_"
   "hints\030\001 \003(\0132\031.greptime.v1.JsonTypeHint\022$"
   "\n\027max_auto_expanded_paths\030\002 \001(\rH\000\210\001\001B\032\n\030"
-  "_max_auto_expanded_paths\"z\n\014JsonTypeHint"
-  "\022\014\n\004path\030\001 \003(\t\022.\n\tdata_type\030\002 \001(\0162\033.grep"
-  "time.v1.ColumnDataType\022\020\n\010nullable\030\003 \001(\010"
-  "\022\032\n\022default_constraint\030\004 \001(\014\"$\n\006Option\022\013"
-  "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTableOp"
-  "tions\022*\n\rtable_options\030\001 \003(\0132\023.greptime."
-  "v1.Option\"!\n\021UnsetTableOptions\022\014\n\004keys\030\001"
-  " \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Tabl"
-  "eId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002"
-  "\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002"
-  " \001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_"
-  "nullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001"
-  "(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1."
-  "SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatyp"
-  "e_extension\030\007 \001(\0132$.greptime.v1.ColumnDa"
-  "taTypeExtension\022+\n\007options\030\010 \001(\0132\032.grept"
-  "ime.v1.ColumnOptions\"\230\001\n\021AddColumnLocati"
-  "on\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1."
-  "AddColumnLocation.LocationType\022\031\n\021after_"
-  "column_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIR"
-  "ST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013colum"
-  "n_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer"
-  "\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016case_se"
-  "nsitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.greptim"
-  "e.v1.FulltextBackend\022\023\n\013granularity\030\006 \001("
-  "\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rUnsetF"
-  "ulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInver"
-  "ted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverte"
-  "d\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023"
-  "\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013g"
-  "ranularity\030\003 \001(\004\022;\n\023skipping_index_type\030"
-  "\004 \001(\0162\036.greptime.v1.SkippingIndexType\022\033\n"
-  "\023false_positive_rate\030\005 \001(\001\"$\n\rUnsetSkipp"
-  "ing\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDataba"
-  "seExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_n"
-  "ame\030\002 \001(\t\022\?\n\024set_database_options\030\003 \001(\0132"
-  "\037.greptime.v1.SetDatabaseOptionsH\000\022C\n\026un"
-  "set_database_options\030\004 \001(\0132!.greptime.v1"
-  ".UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetDa"
-  "tabaseOptions\0221\n\024set_database_options\030\001 "
-  "\003(\0132\023.greptime.v1.Option\"$\n\024UnsetDatabas"
-  "eOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTrigger"
-  "Expr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_na"
-  "me\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022\013"
-  "\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.greptime"
-  ".v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*.grep"
-  "time.v1.CreateTriggerExpr.LabelsEntry\022D\n"
-  "\013annotations\030\007 \003(\0132/.greptime.v1.CreateT"
-  "riggerExpr.AnnotationsEntry\022+\n\010interval\030"
-  "\010 \001(\0132\031.google.protobuf.Duration\022\031\n\021raw_"
-  "interval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.googl"
-  "e.protobuf.Duration\022\024\n\014for_raw_expr\030\013 \001("
-  "\t\0222\n\017keep_firing_for\030\014 \001(\0132\031.google.prot"
-  "obuf.Duration\022 \n\030keep_firing_for_raw_exp"
-  "r\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v"
-  "alue\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003ke"
-  "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChan"
-  "nel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.gre"
-  "ptime.v1.WebhookOptionsH\000B\016\n\014channel_typ"
-  "e\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts"
-  "\030\002 \003(\0132%.greptime.v1.WebhookOptions.Opts"
-  "Entry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
-  "\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014catalog"
-  "_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026\n\016dro"
-  "p_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014c"
-  "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223"
-  "\n\013object_type\030\003 \001(\0162\036.greptime.v1.Commen"
-  "tObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n\013colu"
-  "mn_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010Analyz"
-  "er\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Fulltext"
-  "Backend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skipp"
-  "ingIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021Commen"
-  "tObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FL"
-  "OW\020\002BL\n\016io.greptime.v1B\003DdlZ5github.com/"
-  "GreptimeTeam/greptime-proto/go/greptime/"
-  "v1b\006proto3"
+  "_max_auto_expanded_paths\"\274\001\n\014JsonTypeHin"
+  "t\022\014\n\004path\030\001 \003(\t\022.\n\tdata_type\030\002 \001(\0162\033.gre"
+  "ptime.v1.ColumnDataType\022@\n\022datatype_exte"
+  "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType"
+  "Extension\022\020\n\010nullable\030\004 \001(\010\022\032\n\022default_c"
+  "onstraint\030\005 \001(\014\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r"
+  "\n\005value\030\002 \001(\t\"=\n\017SetTableOptions\022*\n\rtabl"
+  "e_options\030\001 \003(\0132\023.greptime.v1.Option\"!\n\021"
+  "UnsetTableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropC"
+  "olumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001"
+  "(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014"
+  "\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grepti"
+  "me.v1.ColumnDataType\022\023\n\013is_nullable\030\003 \001("
+  "\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rsemanti"
+  "c_type\030\005 \001(\0162\031.greptime.v1.SemanticType\022"
+  "\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension\030\007"
+  " \001(\0132$.greptime.v1.ColumnDataTypeExtensi"
+  "on\022+\n\007options\030\010 \001(\0132\032.greptime.v1.Column"
+  "Options\"\230\001\n\021AddColumnLocation\022B\n\rlocatio"
+  "n_type\030\001 \001(\0162+.greptime.v1.AddColumnLoca"
+  "tion.LocationType\022\031\n\021after_column_name\030\002"
+  " \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER"
+  "\020\001\"\324\001\n\013SetFulltext\022\023\n\013column_name\030\001 \001(\t\022"
+  "\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.grep"
+  "time.v1.Analyzer\022\026\n\016case_sensitive\030\004 \001(\010"
+  "\022-\n\007backend\030\005 \001(\0162\034.greptime.v1.Fulltext"
+  "Backend\022\023\n\013granularity\030\006 \001(\004\022\033\n\023false_po"
+  "sitive_rate\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013co"
+  "lumn_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column"
+  "_name\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_n"
+  "ame\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n\013column_name"
+  "\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 "
+  "\001(\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.grept"
+  "ime.v1.SkippingIndexType\022\033\n\023false_positi"
+  "ve_rate\030\005 \001(\001\"$\n\rUnsetSkipping\022\023\n\013column"
+  "_name\030\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014cat"
+  "alog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\?\n\024"
+  "set_database_options\030\003 \001(\0132\037.greptime.v1"
+  ".SetDatabaseOptionsH\000\022C\n\026unset_database_"
+  "options\030\004 \001(\0132!.greptime.v1.UnsetDatabas"
+  "eOptionsH\000B\006\n\004kind\"G\n\022SetDatabaseOptions"
+  "\0221\n\024set_database_options\030\001 \003(\0132\023.greptim"
+  "e.v1.Option\"$\n\024UnsetDatabaseOptions\022\014\n\004k"
+  "eys\030\001 \003(\t\"\331\004\n\021CreateTriggerExpr\022\024\n\014catal"
+  "og_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024c"
+  "reate_if_not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,"
+  "\n\010channels\030\005 \003(\0132\032.greptime.v1.NotifyCha"
+  "nnel\022:\n\006labels\030\006 \003(\0132*.greptime.v1.Creat"
+  "eTriggerExpr.LabelsEntry\022D\n\013annotations\030"
+  "\007 \003(\0132/.greptime.v1.CreateTriggerExpr.An"
+  "notationsEntry\022+\n\010interval\030\010 \001(\0132\031.googl"
+  "e.protobuf.Duration\022\031\n\021raw_interval_expr"
+  "\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.google.protobuf.Du"
+  "ration\022\024\n\014for_raw_expr\030\013 \001(\t\0222\n\017keep_fir"
+  "ing_for\030\014 \001(\0132\031.google.protobuf.Duration"
+  "\022 \n\030keep_firing_for_raw_expr\030\r \001(\t\032-\n\013La"
+  "belsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028"
+  "\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va"
+  "lue\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030\001"
+  " \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.Webh"
+  "ookOptionsH\000B\016\n\014channel_type\"\177\n\016WebhookO"
+  "ptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.grep"
+  "time.v1.WebhookOptions.OptsEntry\032+\n\tOpts"
+  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n"
+  "\017DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024"
+  "\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003"
+  " \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014catalog_name\030\001"
+  " \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n\013object_type"
+  "\030\003 \001(\0162\036.greptime.v1.CommentObjectType\022\023"
+  "\n\013object_name\030\004 \001(\t\022\023\n\013column_name\030\005 \001(\t"
+  "\022\017\n\007comment\030\006 \001(\t*$\n\010Analyzer\022\013\n\007ENGLISH"
+  "\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007TA"
+  "NTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType\022"
+  "\020\n\014BLOOM_FILTER\020\000*4\n\021CommentObjectType\022\t"
+  "\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io.gr"
+  "eptime.v1B\003DdlZ5github.com/GreptimeTeam/"
+  "greptime-proto/go/greptime/v1b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fduration_2eproto,
@@ -1839,7 +1842,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fddl
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fddl_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fddl_2eproto = {
-    false, false, 8330, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
+    false, false, 8397, descriptor_table_protodef_greptime_2fv1_2fddl_2eproto,
     "greptime/v1/ddl.proto",
     &descriptor_table_greptime_2fv1_2fddl_2eproto_once, descriptor_table_greptime_2fv1_2fddl_2eproto_deps, 2, 60,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fddl_2eproto::offsets,
@@ -12649,8 +12652,19 @@ void JsonSettings::InternalSwap(JsonSettings* other) {
 
 class JsonTypeHint::_Internal {
  public:
+  static const ::greptime::v1::ColumnDataTypeExtension& datatype_extension(const JsonTypeHint* msg);
 };
 
+const ::greptime::v1::ColumnDataTypeExtension&
+JsonTypeHint::_Internal::datatype_extension(const JsonTypeHint* msg) {
+  return *msg->_impl_.datatype_extension_;
+}
+void JsonTypeHint::clear_datatype_extension() {
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
+}
 JsonTypeHint::JsonTypeHint(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -12663,6 +12677,7 @@ JsonTypeHint::JsonTypeHint(const JsonTypeHint& from)
   new (&_impl_) Impl_{
       decltype(_impl_.path_){from._impl_.path_}
     , decltype(_impl_.default_constraint_){}
+    , decltype(_impl_.datatype_extension_){nullptr}
     , decltype(_impl_.data_type_){}
     , decltype(_impl_.nullable_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -12675,6 +12690,9 @@ JsonTypeHint::JsonTypeHint(const JsonTypeHint& from)
   if (!from._internal_default_constraint().empty()) {
     _this->_impl_.default_constraint_.Set(from._internal_default_constraint(), 
       _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_datatype_extension()) {
+    _this->_impl_.datatype_extension_ = new ::greptime::v1::ColumnDataTypeExtension(*from._impl_.datatype_extension_);
   }
   ::memcpy(&_impl_.data_type_, &from._impl_.data_type_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.nullable_) -
@@ -12689,6 +12707,7 @@ inline void JsonTypeHint::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.path_){arena}
     , decltype(_impl_.default_constraint_){}
+    , decltype(_impl_.datatype_extension_){nullptr}
     , decltype(_impl_.data_type_){0}
     , decltype(_impl_.nullable_){false}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -12712,6 +12731,7 @@ inline void JsonTypeHint::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.path_.~RepeatedPtrField();
   _impl_.default_constraint_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.datatype_extension_;
 }
 
 void JsonTypeHint::SetCachedSize(int size) const {
@@ -12726,6 +12746,10 @@ void JsonTypeHint::Clear() {
 
   _impl_.path_.Clear();
   _impl_.default_constraint_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.datatype_extension_ != nullptr) {
+    delete _impl_.datatype_extension_;
+  }
+  _impl_.datatype_extension_ = nullptr;
   ::memset(&_impl_.data_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.nullable_) -
       reinterpret_cast<char*>(&_impl_.data_type_)) + sizeof(_impl_.nullable_));
@@ -12762,17 +12786,25 @@ const char* JsonTypeHint::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
         } else
           goto handle_unusual;
         continue;
-      // bool nullable = 3;
+      // .greptime.v1.ColumnDataTypeExtension datatype_extension = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_datatype_extension(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool nullable = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _impl_.nullable_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes default_constraint = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // bytes default_constraint = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_default_constraint();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -12825,16 +12857,23 @@ uint8_t* JsonTypeHint::_InternalSerialize(
       2, this->_internal_data_type(), target);
   }
 
-  // bool nullable = 3;
-  if (this->_internal_nullable() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_nullable(), target);
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 3;
+  if (this->_internal_has_datatype_extension()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::datatype_extension(this),
+        _Internal::datatype_extension(this).GetCachedSize(), target, stream);
   }
 
-  // bytes default_constraint = 4;
+  // bool nullable = 4;
+  if (this->_internal_nullable() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_nullable(), target);
+  }
+
+  // bytes default_constraint = 5;
   if (!this->_internal_default_constraint().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_default_constraint(), target);
+        5, this->_internal_default_constraint(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -12861,11 +12900,18 @@ size_t JsonTypeHint::ByteSizeLong() const {
       _impl_.path_.Get(i));
   }
 
-  // bytes default_constraint = 4;
+  // bytes default_constraint = 5;
   if (!this->_internal_default_constraint().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_default_constraint());
+  }
+
+  // .greptime.v1.ColumnDataTypeExtension datatype_extension = 3;
+  if (this->_internal_has_datatype_extension()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.datatype_extension_);
   }
 
   // .greptime.v1.ColumnDataType data_type = 2;
@@ -12874,7 +12920,7 @@ size_t JsonTypeHint::ByteSizeLong() const {
       ::_pbi::WireFormatLite::EnumSize(this->_internal_data_type());
   }
 
-  // bool nullable = 3;
+  // bool nullable = 4;
   if (this->_internal_nullable() != 0) {
     total_size += 1 + 1;
   }
@@ -12900,6 +12946,10 @@ void JsonTypeHint::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   _this->_impl_.path_.MergeFrom(from._impl_.path_);
   if (!from._internal_default_constraint().empty()) {
     _this->_internal_set_default_constraint(from._internal_default_constraint());
+  }
+  if (from._internal_has_datatype_extension()) {
+    _this->_internal_mutable_datatype_extension()->::greptime::v1::ColumnDataTypeExtension::MergeFrom(
+        from._internal_datatype_extension());
   }
   if (from._internal_data_type() != 0) {
     _this->_internal_set_data_type(from._internal_data_type());
@@ -12934,9 +12984,9 @@ void JsonTypeHint::InternalSwap(JsonTypeHint* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(JsonTypeHint, _impl_.nullable_)
       + sizeof(JsonTypeHint::_impl_.nullable_)
-      - PROTOBUF_FIELD_OFFSET(JsonTypeHint, _impl_.data_type_)>(
-          reinterpret_cast<char*>(&_impl_.data_type_),
-          reinterpret_cast<char*>(&other->_impl_.data_type_));
+      - PROTOBUF_FIELD_OFFSET(JsonTypeHint, _impl_.datatype_extension_)>(
+          reinterpret_cast<char*>(&_impl_.datatype_extension_),
+          reinterpret_cast<char*>(&other->_impl_.datatype_extension_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata JsonTypeHint::GetMetadata() const {

@@ -1184,16 +1184,18 @@ pub struct JsonSettings {
     #[prost(uint32, optional, tag = "2")]
     pub max_auto_expanded_paths: ::core::option::Option<u32>,
 }
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct JsonTypeHint {
     #[prost(string, repeated, tag = "1")]
     pub path: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     #[prost(enumeration = "ColumnDataType", tag = "2")]
     pub data_type: i32,
-    #[prost(bool, tag = "3")]
+    #[prost(message, optional, tag = "3")]
+    pub datatype_extension: ::core::option::Option<ColumnDataTypeExtension>,
+    #[prost(bool, tag = "4")]
     pub nullable: bool,
     /// The JSON representation of the default `Expr`.
-    #[prost(bytes = "vec", tag = "4")]
+    #[prost(bytes = "vec", tag = "5")]
     pub default_constraint: ::prost::alloc::vec::Vec<u8>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
