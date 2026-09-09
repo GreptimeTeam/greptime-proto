@@ -9339,6 +9339,18 @@ com.google.protobuf.ByteString defaultValue);
      * <code>.greptime.v1.PartitionExprVersion partition_expr_version = 3;</code>
      */
     io.greptime.v1.Common.PartitionExprVersionOrBuilder getPartitionExprVersionOrBuilder();
+
+    /**
+     * <pre>
+     * Skip WAL for this insert without changing region options. Data may be lost
+     * on a crash before it is flushed to SSTs. False preserves existing behavior.
+     * Metric Engine must not propagate this option to metadata region writes.
+     * </pre>
+     *
+     * <code>bool skip_wal = 4;</code>
+     * @return The skipWal.
+     */
+    boolean getSkipWal();
   }
   /**
    * Protobuf type {@code greptime.v1.region.InsertRequest}
@@ -9414,6 +9426,11 @@ com.google.protobuf.ByteString defaultValue);
                 partitionExprVersion_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              skipWal_ = input.readBool();
               break;
             }
             default: {
@@ -9513,6 +9530,23 @@ com.google.protobuf.ByteString defaultValue);
       return getPartitionExprVersion();
     }
 
+    public static final int SKIP_WAL_FIELD_NUMBER = 4;
+    private boolean skipWal_;
+    /**
+     * <pre>
+     * Skip WAL for this insert without changing region options. Data may be lost
+     * on a crash before it is flushed to SSTs. False preserves existing behavior.
+     * Metric Engine must not propagate this option to metadata region writes.
+     * </pre>
+     *
+     * <code>bool skip_wal = 4;</code>
+     * @return The skipWal.
+     */
+    @java.lang.Override
+    public boolean getSkipWal() {
+      return skipWal_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9536,6 +9570,9 @@ com.google.protobuf.ByteString defaultValue);
       if (partitionExprVersion_ != null) {
         output.writeMessage(3, getPartitionExprVersion());
       }
+      if (skipWal_ != false) {
+        output.writeBool(4, skipWal_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -9556,6 +9593,10 @@ com.google.protobuf.ByteString defaultValue);
       if (partitionExprVersion_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPartitionExprVersion());
+      }
+      if (skipWal_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, skipWal_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9584,6 +9625,8 @@ com.google.protobuf.ByteString defaultValue);
         if (!getPartitionExprVersion()
             .equals(other.getPartitionExprVersion())) return false;
       }
+      if (getSkipWal()
+          != other.getSkipWal()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9606,6 +9649,9 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + PARTITION_EXPR_VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getPartitionExprVersion().hashCode();
       }
+      hash = (37 * hash) + SKIP_WAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSkipWal());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9753,6 +9799,8 @@ com.google.protobuf.ByteString defaultValue);
           partitionExprVersion_ = null;
           partitionExprVersionBuilder_ = null;
         }
+        skipWal_ = false;
+
         return this;
       }
 
@@ -9790,6 +9838,7 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.partitionExprVersion_ = partitionExprVersionBuilder_.build();
         }
+        result.skipWal_ = skipWal_;
         onBuilt();
         return result;
       }
@@ -9846,6 +9895,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.hasPartitionExprVersion()) {
           mergePartitionExprVersion(other.getPartitionExprVersion());
+        }
+        if (other.getSkipWal() != false) {
+          setSkipWal(other.getSkipWal());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10143,6 +10195,55 @@ com.google.protobuf.ByteString defaultValue);
           partitionExprVersion_ = null;
         }
         return partitionExprVersionBuilder_;
+      }
+
+      private boolean skipWal_ ;
+      /**
+       * <pre>
+       * Skip WAL for this insert without changing region options. Data may be lost
+       * on a crash before it is flushed to SSTs. False preserves existing behavior.
+       * Metric Engine must not propagate this option to metadata region writes.
+       * </pre>
+       *
+       * <code>bool skip_wal = 4;</code>
+       * @return The skipWal.
+       */
+      @java.lang.Override
+      public boolean getSkipWal() {
+        return skipWal_;
+      }
+      /**
+       * <pre>
+       * Skip WAL for this insert without changing region options. Data may be lost
+       * on a crash before it is flushed to SSTs. False preserves existing behavior.
+       * Metric Engine must not propagate this option to metadata region writes.
+       * </pre>
+       *
+       * <code>bool skip_wal = 4;</code>
+       * @param value The skipWal to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSkipWal(boolean value) {
+        
+        skipWal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Skip WAL for this insert without changing region options. Data may be lost
+       * on a crash before it is flushed to SSTs. False preserves existing behavior.
+       * Metric Engine must not propagate this option to metadata region writes.
+       * </pre>
+       *
+       * <code>bool skip_wal = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSkipWal() {
+        
+        skipWal_ = false;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -43944,124 +44045,124 @@ java.lang.String defaultValue);
       "ertRequests\0223\n\010requests\030\001 \003(\0132!.greptime" +
       ".v1.region.InsertRequest\"E\n\016DeleteReques" +
       "ts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regio" +
-      "n.DeleteRequest\"\206\001\n\rInsertRequest\022\021\n\treg" +
+      "n.DeleteRequest\"\230\001\n\rInsertRequest\022\021\n\treg" +
       "ion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1" +
       ".Rows\022A\n\026partition_expr_version\030\003 \001(\0132!." +
-      "greptime.v1.PartitionExprVersion\"\206\001\n\rDel" +
-      "eteRequest\022\021\n\tregion_id\030\001 \001(\004\022\037\n\004rows\030\002 " +
-      "\001(\0132\021.greptime.v1.Rows\022A\n\026partition_expr" +
-      "_version\030\003 \001(\0132!.greptime.v1.PartitionEx" +
-      "prVersion\"h\n\014QueryRequest\0227\n\006header\030\001 \001(" +
-      "\0132\'.greptime.v1.region.RegionRequestHead" +
-      "er\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004plan\030\003 \001(\014\"E\n\016C" +
-      "reateRequests\0223\n\010requests\030\001 \003(\0132!.grepti" +
-      "me.v1.region.CreateRequest\"\356\002\n\rCreateReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022" +
-      "8\n\013column_defs\030\003 \003(\0132#.greptime.v1.regio" +
-      "n.RegionColumnDef\022\023\n\013primary_key\030\004 \003(\r\022\014" +
-      "\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(\0132..greptime" +
-      ".v1.region.CreateRequest.OptionsEntry\022.\n" +
-      "\tpartition\030\007 \001(\0132\033.greptime.v1.meta.Part" +
-      "ition\022<\n\014requirements\030\010 \001(\0132&.greptime.v" +
-      "1.region.RegionRequirements\032.\n\014OptionsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\",\n\022R" +
-      "egionRequirements\022\026\n\016object_storage\030\001 \001(" +
-      "\010\"A\n\014DropRequests\0221\n\010requests\030\001 \003(\0132\037.gr" +
-      "eptime.v1.region.DropRequest\"k\n\013DropRequ" +
-      "est\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfast_path\030\002 \001(" +
-      "\010\022\r\n\005force\030\003 \001(\010\022\024\n\014partial_drop\030\004 \001(\010\022\021" +
-      "\n\tsoft_drop\030\005 \001(\010\"\255\001\n\013OpenRequest\022\021\n\treg" +
-      "ion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001" +
-      "(\t\022=\n\007options\030\004 \003(\0132,.greptime.v1.region" +
-      ".OpenRequest.OptionsEntry\032.\n\014OptionsEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\263\001\n\016Cl" +
-      "eanUpRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engin" +
-      "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022@\n\007options\030\004 \003(\0132/" +
-      ".greptime.v1.region.CleanUpRequest.Optio" +
-      "nsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"9\n\014CloseRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\022\026\n\016flush_on_close\030\002 \001(\010\"C\n\rAl" +
-      "terRequests\0222\n\010requests\030\001 \003(\0132 .greptime" +
-      ".v1.region.AlterRequest\"\311\005\n\014AlterRequest" +
-      "\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_columns\030\002 \001(\013" +
-      "2\036.greptime.v1.region.AddColumnsH\000\0227\n\014dr" +
-      "op_columns\030\003 \001(\0132\037.greptime.v1.region.Dr" +
-      "opColumnsH\000\022=\n\023modify_column_types\030\005 \001(\013" +
-      "2\036.greptime.v1.ModifyColumnTypesH\000\0229\n\021se" +
-      "t_table_options\030\006 \001(\0132\034.greptime.v1.SetT" +
-      "ableOptionsH\000\022=\n\023unset_table_options\030\t \001" +
-      "(\0132\036.greptime.v1.UnsetTableOptionsH\000\022*\n\t" +
-      "set_index\030\n \001(\0132\025.greptime.v1.SetIndexH\000" +
-      "\022.\n\013unset_index\030\013 \001(\0132\027.greptime.v1.Unse" +
-      "tIndexH\000\0222\n\rdrop_defaults\030\014 \001(\0132\031.grepti" +
-      "me.v1.DropDefaultsH\000\022.\n\013set_indexes\030\r \001(" +
-      "\0132\027.greptime.v1.SetIndexesH\000\0222\n\runset_in" +
-      "dexes\030\016 \001(\0132\031.greptime.v1.UnsetIndexesH\000" +
-      "\0220\n\014set_defaults\030\017 \001(\0132\030.greptime.v1.Set" +
-      "DefaultsH\000\0227\n\014sync_columns\030\020 \001(\0132\037.grept" +
-      "ime.v1.region.SyncColumnsH\000\022\026\n\016schema_ve" +
-      "rsion\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013co" +
-      "lumn_defs\030\001 \003(\0132#.greptime.v1.region.Reg" +
-      "ionColumnDef\"@\n\nAddColumns\0222\n\013add_column" +
-      "s\030\001 \003(\0132\035.greptime.v1.region.AddColumn\"C" +
-      "\n\013DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.gr" +
-      "eptime.v1.region.DropColumn\"v\n\tAddColumn" +
-      "\0227\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.regio" +
-      "n.RegionColumnDef\0220\n\010location\030\003 \001(\0132\036.gr" +
-      "eptime.v1.AddColumnLocation\"\032\n\nDropColum" +
-      "n\022\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregio" +
-      "n_id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n" +
-      "\016window_seconds\030\001 \001(\003\"[\n\023CompactionTimeR" +
-      "ange\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime" +
-      "_unit\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\353\001\n\016C" +
-      "ompactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regu" +
-      "lar\030\002 \001(\0132\033.greptime.v1.region.RegularH\000" +
-      "\0229\n\rstrict_window\030\003 \001(\0132 .greptime.v1.re" +
-      "gion.StrictWindowH\000\022\023\n\013parallelism\030\004 \001(\r" +
-      "\022;\n\ntime_range\030\005 \001(\0132\'.greptime.v1.regio" +
-      "n.CompactionTimeRangeB\t\n\007options\"\270\001\n\017Tru" +
-      "ncateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002" +
-      " \001(\0132\027.greptime.v1.region.AllH\000\022.\n\013time_" +
-      "ranges\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000\022" +
-      "2\n\tunflushed\030\004 \001(\0132\035.greptime.v1.region." +
-      "UnflushedH\000B\006\n\004kind\"\005\n\003All\"\013\n\tUnflushed\"" +
-      "P\n\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026" +
-      ".greptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(" +
-      "\r\"\347\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001" +
-      "(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.Arro" +
-      "wIpcH\000\022A\n\026partition_expr_version\030\003 \001(\0132!" +
-      ".greptime.v1.PartitionExprVersion\022H\n\026ali" +
-      "gned_schema_version\030\004 \001(\0132(.greptime.v1." +
-      "region.AlignedSchemaVersionB\006\n\004body\".\n\024A" +
-      "lignedSchemaVersion\022\026\n\016schema_version\030\001 " +
-      "\001(\004\"1\n\020MitoManifestInfo\022\035\n\025data_manifest" +
-      "_version\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025" +
-      "data_manifest_version\030\001 \001(\004\022!\n\031metadata_" +
-      "manifest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021" +
-      "\n\tregion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030" +
-      "\002 \001(\0132$.greptime.v1.region.MitoManifestI" +
-      "nfoH\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.gr" +
-      "eptime.v1.region.MetricManifestInfoH\000B\017\n" +
-      "\rmanifest_info\")\n\023ListMetadataRequest\022\022\n" +
-      "\nregion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021" +
-      "\n\tregion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001" +
-      " \001(\014\"z\n\033ApplyStagingManifestRequest\022\021\n\tr" +
-      "egion_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031" +
-      "\n\021central_region_id\030\003 \001(\004\022\025\n\rmanifest_pa" +
-      "th\030\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010q" +
-      "uery_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptime" +
-      ".v1.region.RemoteDynFilterUpdateH\000\022C\n\nun" +
-      "register\030\003 \001(\0132-.greptime.v1.region.Remo" +
-      "teDynFilterUnregisterH\000B\010\n\006action\"d\n\025Rem" +
-      "oteDynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n" +
-      "\007payload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is" +
-      "_complete\030\004 \001(\010\".\n\031RemoteDynFilterUnregi" +
-      "ster\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Han" +
-      "dle\022!.greptime.v1.region.RegionRequest\032\"" +
-      ".greptime.v1.region.RegionResponseB]\n\025io" +
-      ".greptime.v1.regionB\006ServerZ<github.com/" +
-      "GreptimeTeam/greptime-proto/go/greptime/" +
-      "v1/regionb\006proto3"
+      "greptime.v1.PartitionExprVersion\022\020\n\010skip" +
+      "_wal\030\004 \001(\010\"\206\001\n\rDeleteRequest\022\021\n\tregion_i" +
+      "d\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows" +
+      "\022A\n\026partition_expr_version\030\003 \001(\0132!.grept" +
+      "ime.v1.PartitionExprVersion\"h\n\014QueryRequ" +
+      "est\0227\n\006header\030\001 \001(\0132\'.greptime.v1.region" +
+      ".RegionRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022" +
+      "\014\n\004plan\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010reque" +
+      "sts\030\001 \003(\0132!.greptime.v1.region.CreateReq" +
+      "uest\"\356\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#" +
+      ".greptime.v1.region.RegionColumnDef\022\023\n\013p" +
+      "rimary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007option" +
+      "s\030\006 \003(\0132..greptime.v1.region.CreateReque" +
+      "st.OptionsEntry\022.\n\tpartition\030\007 \001(\0132\033.gre" +
+      "ptime.v1.meta.Partition\022<\n\014requirements\030" +
+      "\010 \001(\0132&.greptime.v1.region.RegionRequire" +
+      "ments\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\",\n\022RegionRequirements\022\026\n\016o" +
+      "bject_storage\030\001 \001(\010\"A\n\014DropRequests\0221\n\010r" +
+      "equests\030\001 \003(\0132\037.greptime.v1.region.DropR" +
+      "equest\"k\n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\022\021\n\tfast_path\030\002 \001(\010\022\r\n\005force\030\003 \001(\010\022\024\n\014pa" +
+      "rtial_drop\030\004 \001(\010\022\021\n\tsoft_drop\030\005 \001(\010\"\255\001\n\013" +
+      "OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine" +
+      "\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,." +
+      "greptime.v1.region.OpenRequest.OptionsEn" +
+      "try\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
+      "e\030\002 \001(\t:\0028\001\"\263\001\n\016CleanUpRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022" +
+      "@\n\007options\030\004 \003(\0132/.greptime.v1.region.Cl" +
+      "eanUpRequest.OptionsEntry\032.\n\014OptionsEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"9\n\014Clo" +
+      "seRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016flush_on" +
+      "_close\030\002 \001(\010\"C\n\rAlterRequests\0222\n\010request" +
+      "s\030\001 \003(\0132 .greptime.v1.region.AlterReques" +
+      "t\"\311\005\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n" +
+      "\013add_columns\030\002 \001(\0132\036.greptime.v1.region." +
+      "AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gre" +
+      "ptime.v1.region.DropColumnsH\000\022=\n\023modify_" +
+      "column_types\030\005 \001(\0132\036.greptime.v1.ModifyC" +
+      "olumnTypesH\000\0229\n\021set_table_options\030\006 \001(\0132" +
+      "\034.greptime.v1.SetTableOptionsH\000\022=\n\023unset" +
+      "_table_options\030\t \001(\0132\036.greptime.v1.Unset" +
+      "TableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.grep" +
+      "time.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132" +
+      "\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defau" +
+      "lts\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022." +
+      "\n\013set_indexes\030\r \001(\0132\027.greptime.v1.SetInd" +
+      "exesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.greptime" +
+      ".v1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001(\013" +
+      "2\030.greptime.v1.SetDefaultsH\000\0227\n\014sync_col" +
+      "umns\030\020 \001(\0132\037.greptime.v1.region.SyncColu" +
+      "mnsH\000\022\026\n\016schema_version\030\004 \001(\004B\006\n\004kind\"G\n" +
+      "\013SyncColumns\0228\n\013column_defs\030\001 \003(\0132#.grep" +
+      "time.v1.region.RegionColumnDef\"@\n\nAddCol" +
+      "umns\0222\n\013add_columns\030\001 \003(\0132\035.greptime.v1." +
+      "region.AddColumn\"C\n\013DropColumns\0224\n\014drop_" +
+      "columns\030\001 \003(\0132\036.greptime.v1.region.DropC" +
+      "olumn\"v\n\tAddColumn\0227\n\ncolumn_def\030\001 \001(\0132#" +
+      ".greptime.v1.region.RegionColumnDef\0220\n\010l" +
+      "ocation\030\003 \001(\0132\036.greptime.v1.AddColumnLoc" +
+      "ation\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"!\n\014Flu" +
+      "shRequest\022\021\n\tregion_id\030\001 \001(\004\"\t\n\007Regular\"" +
+      "&\n\014StrictWindow\022\026\n\016window_seconds\030\001 \001(\003\"" +
+      "[\n\023CompactionTimeRange\022\r\n\005start\030\001 \001(\003\022\013\n" +
+      "\003end\030\002 \001(\003\022(\n\ttime_unit\030\003 \001(\0162\025.greptime" +
+      ".v1.TimeUnit\"\353\001\n\016CompactRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\0132\033.greptime.v" +
+      "1.region.RegularH\000\0229\n\rstrict_window\030\003 \001(" +
+      "\0132 .greptime.v1.region.StrictWindowH\000\022\023\n" +
+      "\013parallelism\030\004 \001(\r\022;\n\ntime_range\030\005 \001(\0132\'" +
+      ".greptime.v1.region.CompactionTimeRangeB" +
+      "\t\n\007options\"\270\001\n\017TruncateRequest\022\021\n\tregion" +
+      "_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.greptime.v1.reg" +
+      "ion.AllH\000\022.\n\013time_ranges\030\003 \001(\0132\027.greptim" +
+      "e.v1.TimeRangesH\000\0222\n\tunflushed\030\004 \001(\0132\035.g" +
+      "reptime.v1.region.UnflushedH\000B\006\n\004kind\"\005\n" +
+      "\003All\"\013\n\tUnflushed\"P\n\017RegionColumnDef\022*\n\n" +
+      "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
+      "\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertReques" +
+      "t\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132" +
+      "\025.greptime.v1.ArrowIpcH\000\022A\n\026partition_ex" +
+      "pr_version\030\003 \001(\0132!.greptime.v1.Partition" +
+      "ExprVersion\022H\n\026aligned_schema_version\030\004 " +
+      "\001(\0132(.greptime.v1.region.AlignedSchemaVe" +
+      "rsionB\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n" +
+      "\016schema_version\030\001 \001(\004\"1\n\020MitoManifestInf" +
+      "o\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metr" +
+      "icManifestInfo\022\035\n\025data_manifest_version\030" +
+      "\001 \001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004" +
+      "\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022m" +
+      "ito_manifest_info\030\002 \001(\0132$.greptime.v1.re" +
+      "gion.MitoManifestInfoH\000\022F\n\024metric_manife" +
+      "st_info\030\003 \001(\0132&.greptime.v1.region.Metri" +
+      "cManifestInfoH\000B\017\n\rmanifest_info\")\n\023List" +
+      "MetadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021B" +
+      "uildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tF" +
+      "ileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingMa" +
+      "nifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016part" +
+      "ition_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 " +
+      "\001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDyn" +
+      "FilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006updat" +
+      "e\030\002 \001(\0132).greptime.v1.region.RemoteDynFi" +
+      "lterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.grept" +
+      "ime.v1.region.RemoteDynFilterUnregisterH" +
+      "\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022\021\n\t" +
+      "filter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngene" +
+      "ration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031Rem" +
+      "oteDynFilterUnregister\022\021\n\tfilter_id\030\001 \001(" +
+      "\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.regi" +
+      "on.RegionRequest\032\".greptime.v1.region.Re" +
+      "gionResponseB]\n\025io.greptime.v1.regionB\006S" +
+      "erverZ<github.com/GreptimeTeam/greptime-" +
+      "proto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44118,7 +44219,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_InsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_InsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "Rows", "PartitionExprVersion", });
+        new java.lang.String[] { "RegionId", "Rows", "PartitionExprVersion", "SkipWal", });
     internal_static_greptime_v1_region_DeleteRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_region_DeleteRequest_fieldAccessorTable = new

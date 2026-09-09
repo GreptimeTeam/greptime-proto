@@ -89,6 +89,10 @@ message InsertRequest {
   uint64 region_id = 1;
   Rows rows = 2;
   PartitionExprVersion partition_expr_version = 3;
+  // Skip WAL for this insert without changing region options. Data may be lost
+  // on a crash before it is flushed to SSTs. False preserves existing behavior.
+  // Metric Engine must not propagate this option to metadata region writes.
+  bool skip_wal = 4;
 }
 
 message DeleteRequest {
