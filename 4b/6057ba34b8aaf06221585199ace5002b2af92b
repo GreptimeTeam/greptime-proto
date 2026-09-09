@@ -1,0 +1,21 @@
+proto/greptime/v1/region/server.proto
+  s_cbf051d9e59a54::t_fca5a530599486 92-95
+src/v1/region.rs
+  s_cbf051d9e59a54::t_61f6f551556bb3 22-24,35-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "4b6057ba34b8aaf06221585199ace5002b2af92b",
+  "prompts": {},
+  "sessions": {
+    "s_cbf051d9e59a54": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0864c-1d9c-7932-be89-8b66f62d14b3",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "WenyXu <wenymedia@gmail.com>"
+    }
+  }
+}
