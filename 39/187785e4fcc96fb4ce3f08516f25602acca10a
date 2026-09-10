@@ -1,0 +1,29 @@
+c++/greptime/v1/region/server.pb.cc
+  s_cbf051d9e59a54::t_2669c4ced9c508 542,1077,1209-1219,1407,1413-1442,1452,11095,11107-11109,11132,11193-11195,11238-11245,11302-11307,11343-11347,11389-11391,11420-11421
+c++/greptime/v1/region/server.pb.h
+  s_cbf051d9e59a54::t_e3c4e4f0b959cd 6805,6853-6861,6897,14693-14712
+go/greptime/v1/region/server.pb.go
+  s_cbf051d9e59a54::t_72d863a1d63db0 2452-2453,2523-2529,3614,3633-3639,3643-3652,3654-3656,3658-3711,3713-3725
+java/src/main/java/io/greptime/v1/region/Server.java
+  s_cbf051d9e59a54::t_618d5f8c2ac3ac 34945-34954,35051-35055,35223-35237,35264-35266,35292-35295,35323-35324,35356-35358,35518-35519,35566,35625-35627,36091-36133,44222,44228-44257,44494
+proto/greptime/v1/region/server.proto
+  s_cbf051d9e59a54::t_3cd1e058b80a97 296-297
+src/generated/greptime.v1.region.rs
+  s_cbf051d9e59a54::t_f73bf3d4727d3c 431-433
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "39187785e4fcc96fb4ce3f08516f25602acca10a",
+  "prompts": {},
+  "sessions": {
+    "s_cbf051d9e59a54": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0864c-1d9c-7932-be89-8b66f62d14b3",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "WenyXu <wenymedia@gmail.com>"
+    }
+  }
+}
