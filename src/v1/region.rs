@@ -19,7 +19,9 @@ mod test {
     use prost::Message;
 
     use crate::v1::region::region_request::Body as RegionRequest;
-    use crate::v1::region::{CloseRequest, CompactRequest, CompactionTimeRange, InsertRequests};
+    use crate::v1::region::{
+        CloseRequest, CompactRequest, CompactionTimeRange, InsertRequest, InsertRequests,
+    };
     use crate::v1::TimeUnit;
 
     #[derive(Clone, PartialEq, Message)]
@@ -28,6 +30,49 @@ mod test {
         region_id: u64,
         #[prost(uint32, tag = "4")]
         parallelism: u32,
+    }
+
+    #[derive(Clone, PartialEq, Message)]
+    struct LegacyInsertRequest {
+        #[prost(uint64, tag = "1")]
+        region_id: u64,
+        #[prost(message, optional, tag = "2")]
+        rows: Option<crate::v1::Rows>,
+        #[prost(message, optional, tag = "3")]
+        partition_expr_version: Option<crate::v1::PartitionExprVersion>,
+    }
+
+    #[test]
+    fn test_insert_skip_wal_wire_compatibility() {
+        let legacy = LegacyInsertRequest {
+            region_id: 42,
+            rows: Some(crate::v1::Rows::default()),
+            partition_expr_version: Some(crate::v1::PartitionExprVersion { value: 7 }),
+        };
+        let decoded = InsertRequest::decode(legacy.encode_to_vec().as_slice()).unwrap();
+        assert_eq!(
+            InsertRequest {
+                region_id: legacy.region_id,
+                rows: legacy.rows.clone(),
+                partition_expr_version: legacy.partition_expr_version,
+                skip_wal: false,
+            },
+            decoded
+        );
+        assert_eq!(legacy.encode_to_vec(), decoded.encode_to_vec());
+
+        for skip_wal in [false, true] {
+            let request = InsertRequest {
+                skip_wal,
+                ..decoded.clone()
+            };
+            let encoded = request.encode_to_vec();
+            assert_eq!(request, InsertRequest::decode(encoded.as_slice()).unwrap());
+            assert_eq!(
+                legacy,
+                LegacyInsertRequest::decode(encoded.as_slice()).unwrap()
+            );
+        }
     }
 
     #[test]

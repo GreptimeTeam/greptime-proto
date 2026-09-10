@@ -1775,6 +1775,7 @@ class InsertRequest final :
     kRowsFieldNumber = 2,
     kPartitionExprVersionFieldNumber = 3,
     kRegionIdFieldNumber = 1,
+    kSkipWalFieldNumber = 4,
   };
   // .greptime.v1.Rows rows = 2;
   bool has_rows() const;
@@ -1821,6 +1822,15 @@ class InsertRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // bool skip_wal = 4;
+  void clear_skip_wal();
+  bool skip_wal() const;
+  void set_skip_wal(bool value);
+  private:
+  bool _internal_skip_wal() const;
+  void _internal_set_skip_wal(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.InsertRequest)
  private:
   class _Internal;
@@ -1832,6 +1842,7 @@ class InsertRequest final :
     ::greptime::v1::Rows* rows_;
     ::greptime::v1::PartitionExprVersion* partition_expr_version_;
     uint64_t region_id_;
+    bool skip_wal_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -10987,6 +10998,26 @@ inline void InsertRequest::set_allocated_partition_expr_version(::greptime::v1::
   }
   _impl_.partition_expr_version_ = partition_expr_version;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.InsertRequest.partition_expr_version)
+}
+
+// bool skip_wal = 4;
+inline void InsertRequest::clear_skip_wal() {
+  _impl_.skip_wal_ = false;
+}
+inline bool InsertRequest::_internal_skip_wal() const {
+  return _impl_.skip_wal_;
+}
+inline bool InsertRequest::skip_wal() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.InsertRequest.skip_wal)
+  return _internal_skip_wal();
+}
+inline void InsertRequest::_internal_set_skip_wal(bool value) {
+  
+  _impl_.skip_wal_ = value;
+}
+inline void InsertRequest::set_skip_wal(bool value) {
+  _internal_set_skip_wal(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.InsertRequest.skip_wal)
 }
 
 // -------------------------------------------------------------------

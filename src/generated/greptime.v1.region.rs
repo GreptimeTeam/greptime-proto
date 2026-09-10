@@ -124,6 +124,11 @@ pub struct InsertRequest {
     pub rows: ::core::option::Option<super::Rows>,
     #[prost(message, optional, tag = "3")]
     pub partition_expr_version: ::core::option::Option<super::PartitionExprVersion>,
+    /// Skip WAL for this insert without changing region options. Data may be lost
+    /// on a crash before it is flushed to SSTs. False preserves existing behavior.
+    /// Metric Engine must not propagate this option to metadata region writes.
+    #[prost(bool, tag = "4")]
+    pub skip_wal: bool,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DeleteRequest {
