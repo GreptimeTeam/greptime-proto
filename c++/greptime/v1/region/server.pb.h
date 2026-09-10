@@ -6802,6 +6802,7 @@ class BulkInsertRequest final :
     kPartitionExprVersionFieldNumber = 3,
     kAlignedSchemaVersionFieldNumber = 4,
     kRegionIdFieldNumber = 1,
+    kSkipWalFieldNumber = 5,
     kArrowIpcFieldNumber = 2,
   };
   // .greptime.v1.PartitionExprVersion partition_expr_version = 3;
@@ -6849,6 +6850,15 @@ class BulkInsertRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // bool skip_wal = 5;
+  void clear_skip_wal();
+  bool skip_wal() const;
+  void set_skip_wal(bool value);
+  private:
+  bool _internal_skip_wal() const;
+  void _internal_set_skip_wal(bool value);
+  public:
+
   // .greptime.v1.ArrowIpc arrow_ipc = 2;
   bool has_arrow_ipc() const;
   private:
@@ -6884,6 +6894,7 @@ class BulkInsertRequest final :
     ::greptime::v1::PartitionExprVersion* partition_expr_version_;
     ::greptime::v1::region::AlignedSchemaVersion* aligned_schema_version_;
     uint64_t region_id_;
+    bool skip_wal_;
     union BodyUnion {
       constexpr BodyUnion() : _constinit_{} {}
         ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
@@ -14677,6 +14688,26 @@ inline void BulkInsertRequest::set_allocated_aligned_schema_version(::greptime::
   }
   _impl_.aligned_schema_version_ = aligned_schema_version;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.BulkInsertRequest.aligned_schema_version)
+}
+
+// bool skip_wal = 5;
+inline void BulkInsertRequest::clear_skip_wal() {
+  _impl_.skip_wal_ = false;
+}
+inline bool BulkInsertRequest::_internal_skip_wal() const {
+  return _impl_.skip_wal_;
+}
+inline bool BulkInsertRequest::skip_wal() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BulkInsertRequest.skip_wal)
+  return _internal_skip_wal();
+}
+inline void BulkInsertRequest::_internal_set_skip_wal(bool value) {
+  
+  _impl_.skip_wal_ = value;
+}
+inline void BulkInsertRequest::set_skip_wal(bool value) {
+  _internal_set_skip_wal(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.BulkInsertRequest.skip_wal)
 }
 
 inline bool BulkInsertRequest::has_body() const {

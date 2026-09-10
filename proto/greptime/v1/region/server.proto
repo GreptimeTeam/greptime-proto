@@ -293,6 +293,8 @@ message BulkInsertRequest {
   }
   PartitionExprVersion partition_expr_version = 3;
   AlignedSchemaVersion aligned_schema_version = 4;
+  // Skip WAL for this bulk insert without changing region options.
+  bool skip_wal = 5;
 }
 
 message AlignedSchemaVersion {

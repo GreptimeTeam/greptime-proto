@@ -428,6 +428,9 @@ pub struct BulkInsertRequest {
     pub partition_expr_version: ::core::option::Option<super::PartitionExprVersion>,
     #[prost(message, optional, tag = "4")]
     pub aligned_schema_version: ::core::option::Option<AlignedSchemaVersion>,
+    /// Skip WAL for this bulk insert without changing region options.
+    #[prost(bool, tag = "5")]
+    pub skip_wal: bool,
     #[prost(oneof = "bulk_insert_request::Body", tags = "2")]
     pub body: ::core::option::Option<bulk_insert_request::Body>,
 }
