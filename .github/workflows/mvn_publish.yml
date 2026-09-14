@@ -4,6 +4,11 @@ on:
   release:
     types: [ created ]
   workflow_dispatch:
+    inputs:
+      verify_only:
+        description: 'Build and sign artifacts without uploading'
+        type: boolean
+        default: true
 
 jobs:
   publish:
@@ -26,8 +31,9 @@ jobs:
       - name: Build with Maven
         run: |
           cd java
-          mvn clean deploy --batch-mode -DskipTests -P release -B -U -e
+          mvn clean "$MAVEN_PHASE" --batch-mode -DskipTests -P release -B -U -e
         env:
+          MAVEN_PHASE: ${{ github.event_name == 'workflow_dispatch' && inputs.verify_only && 'verify' || 'deploy' }}
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
