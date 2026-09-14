@@ -38,11 +38,35 @@ jobs:
           print('Confirmed: upload and validate only; automatic publication disabled')
           PY_CHECK
 
-      - name: Build with Maven
+      - name: Check Central authentication
         run: |
-          cd java
-          mvn clean deploy --batch-mode -DskipTests -P release -B -U -e
+          python3 - <<'PY_AUTH'
+          import base64, os, urllib.request, urllib.error, uuid
+          username = os.environ['MAVEN_USERNAME']
+          password = os.environ['MAVEN_CENTRAL_TOKEN']
+          for label, value in [('username', username), ('token', password)]:
+              print(label + '_present=' + str(bool(value)))
+              print(label + '_edge_whitespace=' + str(value != value.strip()))
+              print(label + '_contains_newline=' + str('\n' in value or '\r' in value))
+          try:
+              combined = b':' in base64.b64decode(password, validate=True)
+          except Exception:
+              combined = False
+          print('token_is_base64_username_password_pair=' + str(combined))
+          url = 'https://central.sonatype.com/api/v1/publisher/status?id=' + str(uuid.uuid4())
+          def probe(label, u, p):
+              header = base64.b64encode((u+':'+p).encode()).decode()
+              request = urllib.request.Request(url, method='POST', headers={'Authorization': 'Bearer '+header})
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      status = response.status
+              except urllib.error.HTTPError as error:
+                  status = error.code
+              print(label + '_HTTP_STATUS=' + str(status))
+          probe('stored_credentials', username, password)
+          if username != username.strip() or password != password.strip():
+              probe('trimmed_credentials', username.strip(), password.strip())
+          PY_AUTH
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_CENTRAL_TOKEN: ${{ secrets.MAVEN_CENTRAL_TOKEN }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
