@@ -34942,6 +34942,16 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.AlignedSchemaVersionOrBuilder getAlignedSchemaVersionOrBuilder();
 
+    /**
+     * <pre>
+     * Skip WAL for this bulk insert without changing region options.
+     * </pre>
+     *
+     * <code>bool skip_wal = 5;</code>
+     * @return The skipWal.
+     */
+    boolean getSkipWal();
+
     public io.greptime.v1.region.Server.BulkInsertRequest.BodyCase getBodyCase();
   }
   /**
@@ -35036,6 +35046,11 @@ java.lang.String defaultValue);
                 alignedSchemaVersion_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 40: {
+
+              skipWal_ = input.readBool();
               break;
             }
             default: {
@@ -35205,6 +35220,21 @@ java.lang.String defaultValue);
       return getAlignedSchemaVersion();
     }
 
+    public static final int SKIP_WAL_FIELD_NUMBER = 5;
+    private boolean skipWal_;
+    /**
+     * <pre>
+     * Skip WAL for this bulk insert without changing region options.
+     * </pre>
+     *
+     * <code>bool skip_wal = 5;</code>
+     * @return The skipWal.
+     */
+    @java.lang.Override
+    public boolean getSkipWal() {
+      return skipWal_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -35231,6 +35261,9 @@ java.lang.String defaultValue);
       if (alignedSchemaVersion_ != null) {
         output.writeMessage(4, getAlignedSchemaVersion());
       }
+      if (skipWal_ != false) {
+        output.writeBool(5, skipWal_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -35255,6 +35288,10 @@ java.lang.String defaultValue);
       if (alignedSchemaVersion_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getAlignedSchemaVersion());
+      }
+      if (skipWal_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, skipWal_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -35283,6 +35320,8 @@ java.lang.String defaultValue);
         if (!getAlignedSchemaVersion()
             .equals(other.getAlignedSchemaVersion())) return false;
       }
+      if (getSkipWal()
+          != other.getSkipWal()) return false;
       if (!getBodyCase().equals(other.getBodyCase())) return false;
       switch (bodyCase_) {
         case 2:
@@ -35314,6 +35353,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ALIGNED_SCHEMA_VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getAlignedSchemaVersion().hashCode();
       }
+      hash = (37 * hash) + SKIP_WAL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSkipWal());
       switch (bodyCase_) {
         case 2:
           hash = (37 * hash) + ARROW_IPC_FIELD_NUMBER;
@@ -35473,6 +35515,8 @@ java.lang.String defaultValue);
           alignedSchemaVersion_ = null;
           alignedSchemaVersionBuilder_ = null;
         }
+        skipWal_ = false;
+
         bodyCase_ = 0;
         body_ = null;
         return this;
@@ -35519,6 +35563,7 @@ java.lang.String defaultValue);
         } else {
           result.alignedSchemaVersion_ = alignedSchemaVersionBuilder_.build();
         }
+        result.skipWal_ = skipWal_;
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -35576,6 +35621,9 @@ java.lang.String defaultValue);
         }
         if (other.hasAlignedSchemaVersion()) {
           mergeAlignedSchemaVersion(other.getAlignedSchemaVersion());
+        }
+        if (other.getSkipWal() != false) {
+          setSkipWal(other.getSkipWal());
         }
         switch (other.getBodyCase()) {
           case ARROW_IPC: {
@@ -36039,6 +36087,49 @@ java.lang.String defaultValue);
           alignedSchemaVersion_ = null;
         }
         return alignedSchemaVersionBuilder_;
+      }
+
+      private boolean skipWal_ ;
+      /**
+       * <pre>
+       * Skip WAL for this bulk insert without changing region options.
+       * </pre>
+       *
+       * <code>bool skip_wal = 5;</code>
+       * @return The skipWal.
+       */
+      @java.lang.Override
+      public boolean getSkipWal() {
+        return skipWal_;
+      }
+      /**
+       * <pre>
+       * Skip WAL for this bulk insert without changing region options.
+       * </pre>
+       *
+       * <code>bool skip_wal = 5;</code>
+       * @param value The skipWal to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSkipWal(boolean value) {
+        
+        skipWal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Skip WAL for this bulk insert without changing region options.
+       * </pre>
+       *
+       * <code>bool skip_wal = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSkipWal() {
+        
+        skipWal_ = false;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -44128,41 +44219,42 @@ java.lang.String defaultValue);
       "reptime.v1.region.UnflushedH\000B\006\n\004kind\"\005\n" +
       "\003All\"\013\n\tUnflushed\"P\n\017RegionColumnDef\022*\n\n" +
       "column_def\030\001 \001(\0132\026.greptime.v1.ColumnDef" +
-      "\022\021\n\tcolumn_id\030\002 \001(\r\"\347\001\n\021BulkInsertReques" +
+      "\022\021\n\tcolumn_id\030\002 \001(\r\"\371\001\n\021BulkInsertReques" +
       "t\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132" +
       "\025.greptime.v1.ArrowIpcH\000\022A\n\026partition_ex" +
       "pr_version\030\003 \001(\0132!.greptime.v1.Partition" +
       "ExprVersion\022H\n\026aligned_schema_version\030\004 " +
       "\001(\0132(.greptime.v1.region.AlignedSchemaVe" +
-      "rsionB\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n" +
-      "\016schema_version\030\001 \001(\004\"1\n\020MitoManifestInf" +
-      "o\022\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metr" +
-      "icManifestInfo\022\035\n\025data_manifest_version\030" +
-      "\001 \001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004" +
-      "\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022m" +
-      "ito_manifest_info\030\002 \001(\0132$.greptime.v1.re" +
-      "gion.MitoManifestInfoH\000\022F\n\024metric_manife" +
-      "st_info\030\003 \001(\0132&.greptime.v1.region.Metri" +
-      "cManifestInfoH\000B\017\n\rmanifest_info\")\n\023List" +
-      "MetadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021B" +
-      "uildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tF" +
-      "ileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingMa" +
-      "nifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016part" +
-      "ition_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 " +
-      "\001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDyn" +
-      "FilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006updat" +
-      "e\030\002 \001(\0132).greptime.v1.region.RemoteDynFi" +
-      "lterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.grept" +
-      "ime.v1.region.RemoteDynFilterUnregisterH" +
-      "\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022\021\n\t" +
-      "filter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngene" +
-      "ration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031Rem" +
-      "oteDynFilterUnregister\022\021\n\tfilter_id\030\001 \001(" +
-      "\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.regi" +
-      "on.RegionRequest\032\".greptime.v1.region.Re" +
-      "gionResponseB]\n\025io.greptime.v1.regionB\006S" +
-      "erverZ<github.com/GreptimeTeam/greptime-" +
-      "proto/go/greptime/v1/regionb\006proto3"
+      "rsion\022\020\n\010skip_wal\030\005 \001(\010B\006\n\004body\".\n\024Align" +
+      "edSchemaVersion\022\026\n\016schema_version\030\001 \001(\004\"" +
+      "1\n\020MitoManifestInfo\022\035\n\025data_manifest_ver" +
+      "sion\030\001 \001(\004\"V\n\022MetricManifestInfo\022\035\n\025data" +
+      "_manifest_version\030\001 \001(\004\022!\n\031metadata_mani" +
+      "fest_version\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(" +
+      "\0132$.greptime.v1.region.MitoManifestInfoH" +
+      "\000\022F\n\024metric_manifest_info\030\003 \001(\0132&.grepti" +
+      "me.v1.region.MetricManifestInfoH\000B\017\n\rman" +
+      "ifest_info\")\n\023ListMetadataRequest\022\022\n\nreg" +
+      "ion_ids\030\001 \003(\004\"&\n\021BuildIndexRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014" +
+      "\"z\n\033ApplyStagingManifestRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021ce" +
+      "ntral_region_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004" +
+      " \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010query" +
+      "_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptime.v1." +
+      "region.RemoteDynFilterUpdateH\000\022C\n\nunregi" +
+      "ster\030\003 \001(\0132-.greptime.v1.region.RemoteDy" +
+      "nFilterUnregisterH\000B\010\n\006action\"d\n\025RemoteD" +
+      "ynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007pay" +
+      "load\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_com" +
+      "plete\030\004 \001(\010\".\n\031RemoteDynFilterUnregister" +
+      "\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022" +
+      "!.greptime.v1.region.RegionRequest\032\".gre" +
+      "ptime.v1.region.RegionResponseB]\n\025io.gre" +
+      "ptime.v1.regionB\006ServerZ<github.com/Grep" +
+      "timeTeam/greptime-proto/go/greptime/v1/r" +
+      "egionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44399,7 +44491,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
-        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "Body", });
+        new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "SkipWal", "Body", });
     internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable = new
