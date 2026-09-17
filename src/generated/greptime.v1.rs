@@ -934,7 +934,7 @@ pub struct AlterTableExpr {
     pub table_name: ::prost::alloc::string::String,
     #[prost(
         oneof = "alter_table_expr::Kind",
-        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18"
+        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19"
     )]
     pub kind: ::core::option::Option<alter_table_expr::Kind>,
 }
@@ -970,6 +970,8 @@ pub mod alter_table_expr {
         SetDefaults(super::SetDefaults),
         #[prost(message, tag = "18")]
         Repartition(super::Repartition),
+        #[prost(message, tag = "19")]
+        SetJsonSettings(super::SetJsonSettings),
     }
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
@@ -1167,6 +1169,34 @@ pub struct ModifyColumnType {
     pub target_type: i32,
     #[prost(message, optional, tag = "3")]
     pub target_type_extension: ::core::option::Option<ColumnDataTypeExtension>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetJsonSettings {
+    #[prost(string, tag = "1")]
+    pub column_name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "2")]
+    pub settings: ::core::option::Option<JsonSettings>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct JsonSettings {
+    #[prost(message, repeated, tag = "1")]
+    pub type_hints: ::prost::alloc::vec::Vec<JsonTypeHint>,
+    #[prost(uint32, optional, tag = "2")]
+    pub max_auto_expanded_paths: ::core::option::Option<u32>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct JsonTypeHint {
+    #[prost(string, repeated, tag = "1")]
+    pub path: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    #[prost(enumeration = "ColumnDataType", tag = "2")]
+    pub data_type: i32,
+    #[prost(message, optional, tag = "3")]
+    pub datatype_extension: ::core::option::Option<ColumnDataTypeExtension>,
+    #[prost(bool, tag = "4")]
+    pub nullable: bool,
+    /// The JSON representation of the default `Expr`.
+    #[prost(bytes = "vec", tag = "5")]
+    pub default_constraint: ::prost::alloc::vec::Vec<u8>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {
