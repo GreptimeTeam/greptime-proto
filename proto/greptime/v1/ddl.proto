@@ -265,9 +265,6 @@ message JsonTypeHint {
   repeated string path = 1;
   ColumnDataType data_type = 2;
   ColumnDataTypeExtension datatype_extension = 3;
-  bool nullable = 4;
-  // The JSON representation of the default `Expr`.
-  bytes default_constraint = 5;
 }
 
 message Option {
