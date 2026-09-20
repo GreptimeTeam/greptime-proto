@@ -1192,11 +1192,6 @@ pub struct JsonTypeHint {
     pub data_type: i32,
     #[prost(message, optional, tag = "3")]
     pub datatype_extension: ::core::option::Option<ColumnDataTypeExtension>,
-    #[prost(bool, tag = "4")]
-    pub nullable: bool,
-    /// The JSON representation of the default `Expr`.
-    #[prost(bytes = "vec", tag = "5")]
-    pub default_constraint: ::prost::alloc::vec::Vec<u8>,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {

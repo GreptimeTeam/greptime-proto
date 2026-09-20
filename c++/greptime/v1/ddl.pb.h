@@ -7238,10 +7238,8 @@ class JsonTypeHint final :
 
   enum : int {
     kPathFieldNumber = 1,
-    kDefaultConstraintFieldNumber = 5,
     kDatatypeExtensionFieldNumber = 3,
     kDataTypeFieldNumber = 2,
-    kNullableFieldNumber = 4,
   };
   // repeated string path = 1;
   int path_size() const;
@@ -7265,20 +7263,6 @@ class JsonTypeHint final :
   private:
   const std::string& _internal_path(int index) const;
   std::string* _internal_add_path();
-  public:
-
-  // bytes default_constraint = 5;
-  void clear_default_constraint();
-  const std::string& default_constraint() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_default_constraint(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_default_constraint();
-  PROTOBUF_NODISCARD std::string* release_default_constraint();
-  void set_allocated_default_constraint(std::string* default_constraint);
-  private:
-  const std::string& _internal_default_constraint() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_constraint(const std::string& value);
-  std::string* _internal_mutable_default_constraint();
   public:
 
   // .greptime.v1.ColumnDataTypeExtension datatype_extension = 3;
@@ -7308,15 +7292,6 @@ class JsonTypeHint final :
   void _internal_set_data_type(::greptime::v1::ColumnDataType value);
   public:
 
-  // bool nullable = 4;
-  void clear_nullable();
-  bool nullable() const;
-  void set_nullable(bool value);
-  private:
-  bool _internal_nullable() const;
-  void _internal_set_nullable(bool value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.JsonTypeHint)
  private:
   class _Internal;
@@ -7326,10 +7301,8 @@ class JsonTypeHint final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> path_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr default_constraint_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     int data_type_;
-    bool nullable_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -18915,76 +18888,6 @@ inline void JsonTypeHint::set_allocated_datatype_extension(::greptime::v1::Colum
   }
   _impl_.datatype_extension_ = datatype_extension;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonTypeHint.datatype_extension)
-}
-
-// bool nullable = 4;
-inline void JsonTypeHint::clear_nullable() {
-  _impl_.nullable_ = false;
-}
-inline bool JsonTypeHint::_internal_nullable() const {
-  return _impl_.nullable_;
-}
-inline bool JsonTypeHint::nullable() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.JsonTypeHint.nullable)
-  return _internal_nullable();
-}
-inline void JsonTypeHint::_internal_set_nullable(bool value) {
-  
-  _impl_.nullable_ = value;
-}
-inline void JsonTypeHint::set_nullable(bool value) {
-  _internal_set_nullable(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.JsonTypeHint.nullable)
-}
-
-// bytes default_constraint = 5;
-inline void JsonTypeHint::clear_default_constraint() {
-  _impl_.default_constraint_.ClearToEmpty();
-}
-inline const std::string& JsonTypeHint::default_constraint() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.JsonTypeHint.default_constraint)
-  return _internal_default_constraint();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void JsonTypeHint::set_default_constraint(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.default_constraint_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:greptime.v1.JsonTypeHint.default_constraint)
-}
-inline std::string* JsonTypeHint::mutable_default_constraint() {
-  std::string* _s = _internal_mutable_default_constraint();
-  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonTypeHint.default_constraint)
-  return _s;
-}
-inline const std::string& JsonTypeHint::_internal_default_constraint() const {
-  return _impl_.default_constraint_.Get();
-}
-inline void JsonTypeHint::_internal_set_default_constraint(const std::string& value) {
-  
-  _impl_.default_constraint_.Set(value, GetArenaForAllocation());
-}
-inline std::string* JsonTypeHint::_internal_mutable_default_constraint() {
-  
-  return _impl_.default_constraint_.Mutable(GetArenaForAllocation());
-}
-inline std::string* JsonTypeHint::release_default_constraint() {
-  // @@protoc_insertion_point(field_release:greptime.v1.JsonTypeHint.default_constraint)
-  return _impl_.default_constraint_.Release();
-}
-inline void JsonTypeHint::set_allocated_default_constraint(std::string* default_constraint) {
-  if (default_constraint != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.default_constraint_.SetAllocated(default_constraint, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.default_constraint_.IsDefault()) {
-    _impl_.default_constraint_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonTypeHint.default_constraint)
 }
 
 // -------------------------------------------------------------------
