@@ -39638,6 +39638,38 @@ java.lang.String defaultValue);
      * @return The regionId.
      */
     long getRegionId();
+
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     * @return Whether the sstIndex field is set.
+     */
+    boolean hasSstIndex();
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     * @return The sstIndex.
+     */
+    io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getSstIndex();
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     */
+    io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder getSstIndexOrBuilder();
+
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     * @return Whether the seriesIndex field is set.
+     */
+    boolean hasSeriesIndex();
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     * @return The seriesIndex.
+     */
+    io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getSeriesIndex();
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     */
+    io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder getSeriesIndexOrBuilder();
+
+    public io.greptime.v1.region.Server.BuildIndexRequest.OptionsCase getOptionsCase();
   }
   /**
    * Protobuf type {@code greptime.v1.region.BuildIndexRequest}
@@ -39689,6 +39721,34 @@ java.lang.String defaultValue);
               regionId_ = input.readUInt64();
               break;
             }
+            case 18: {
+              io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder subBuilder = null;
+              if (optionsCase_ == 2) {
+                subBuilder = ((io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_).toBuilder();
+              }
+              options_ =
+                  input.readMessage(io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_);
+                options_ = subBuilder.buildPartial();
+              }
+              optionsCase_ = 2;
+              break;
+            }
+            case 26: {
+              io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder subBuilder = null;
+              if (optionsCase_ == 3) {
+                subBuilder = ((io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_).toBuilder();
+              }
+              options_ =
+                  input.readMessage(io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_);
+                options_ = subBuilder.buildPartial();
+              }
+              optionsCase_ = 3;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -39723,6 +39783,895 @@ java.lang.String defaultValue);
               io.greptime.v1.region.Server.BuildIndexRequest.class, io.greptime.v1.region.Server.BuildIndexRequest.Builder.class);
     }
 
+    public interface SstIndexOptionsOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+        com.google.protobuf.MessageOrBuilder {
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.BuildIndexRequest.SstIndexOptions}
+     */
+    public static final class SstIndexOptions extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+        SstIndexOptionsOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use SstIndexOptions.newBuilder() to construct.
+      private SstIndexOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private SstIndexOptions() {
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new SstIndexOptions();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private SstIndexOptions(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.class, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder.class);
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions)) {
+          return super.equals(obj);
+        }
+        io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions other = (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) obj;
+
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code greptime.v1.region.BuildIndexRequest.SstIndexOptions}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.class, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder.class);
+        }
+
+        // Construct using io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getDefaultInstanceForType() {
+          return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions build() {
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions buildPartial() {
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions result = new io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions(this);
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) {
+            return mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions other) {
+          if (other == io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance()) return this;
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+      }
+
+      // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+      private static final io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions();
+      }
+
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<SstIndexOptions>
+          PARSER = new com.google.protobuf.AbstractParser<SstIndexOptions>() {
+        @java.lang.Override
+        public SstIndexOptions parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SstIndexOptions(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<SstIndexOptions> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<SstIndexOptions> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public interface SeriesIndexOptionsOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+        com.google.protobuf.MessageOrBuilder {
+    }
+    /**
+     * <pre>
+     * Reconciles eligible series indexes and waits for publication.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.BuildIndexRequest.SeriesIndexOptions}
+     */
+    public static final class SeriesIndexOptions extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+        SeriesIndexOptionsOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use SeriesIndexOptions.newBuilder() to construct.
+      private SeriesIndexOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private SeriesIndexOptions() {
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new SeriesIndexOptions();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private SeriesIndexOptions(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.class, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder.class);
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions)) {
+          return super.equals(obj);
+        }
+        io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions other = (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) obj;
+
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * Reconciles eligible series indexes and waits for publication.
+       * </pre>
+       *
+       * Protobuf type {@code greptime.v1.region.BuildIndexRequest.SeriesIndexOptions}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.class, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder.class);
+        }
+
+        // Construct using io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return io.greptime.v1.region.Server.internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getDefaultInstanceForType() {
+          return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions build() {
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions buildPartial() {
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions result = new io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions(this);
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) {
+            return mergeFrom((io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions other) {
+          if (other == io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance()) return this;
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+      }
+
+      // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+      private static final io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions();
+      }
+
+      public static io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<SeriesIndexOptions>
+          PARSER = new com.google.protobuf.AbstractParser<SeriesIndexOptions>() {
+        @java.lang.Override
+        public SeriesIndexOptions parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SeriesIndexOptions(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<SeriesIndexOptions> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<SeriesIndexOptions> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int optionsCase_ = 0;
+    private java.lang.Object options_;
+    public enum OptionsCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      SST_INDEX(2),
+      SERIES_INDEX(3),
+      OPTIONS_NOT_SET(0);
+      private final int value;
+      private OptionsCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static OptionsCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static OptionsCase forNumber(int value) {
+        switch (value) {
+          case 2: return SST_INDEX;
+          case 3: return SERIES_INDEX;
+          case 0: return OPTIONS_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public OptionsCase
+    getOptionsCase() {
+      return OptionsCase.forNumber(
+          optionsCase_);
+    }
+
     public static final int REGION_ID_FIELD_NUMBER = 1;
     private long regionId_;
     /**
@@ -39732,6 +40681,68 @@ java.lang.String defaultValue);
     @java.lang.Override
     public long getRegionId() {
       return regionId_;
+    }
+
+    public static final int SST_INDEX_FIELD_NUMBER = 2;
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     * @return Whether the sstIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasSstIndex() {
+      return optionsCase_ == 2;
+    }
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     * @return The sstIndex.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getSstIndex() {
+      if (optionsCase_ == 2) {
+         return (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_;
+      }
+      return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder getSstIndexOrBuilder() {
+      if (optionsCase_ == 2) {
+         return (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_;
+      }
+      return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+    }
+
+    public static final int SERIES_INDEX_FIELD_NUMBER = 3;
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     * @return Whether the seriesIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasSeriesIndex() {
+      return optionsCase_ == 3;
+    }
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     * @return The seriesIndex.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getSeriesIndex() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_;
+      }
+      return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder getSeriesIndexOrBuilder() {
+      if (optionsCase_ == 3) {
+         return (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_;
+      }
+      return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -39751,6 +40762,12 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
+      if (optionsCase_ == 2) {
+        output.writeMessage(2, (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_);
+      }
+      if (optionsCase_ == 3) {
+        output.writeMessage(3, (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -39763,6 +40780,14 @@ java.lang.String defaultValue);
       if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
+      }
+      if (optionsCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_);
+      }
+      if (optionsCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -39781,6 +40806,19 @@ java.lang.String defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
+      if (!getOptionsCase().equals(other.getOptionsCase())) return false;
+      switch (optionsCase_) {
+        case 2:
+          if (!getSstIndex()
+              .equals(other.getSstIndex())) return false;
+          break;
+        case 3:
+          if (!getSeriesIndex()
+              .equals(other.getSeriesIndex())) return false;
+          break;
+        case 0:
+        default:
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -39795,6 +40833,18 @@ java.lang.String defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
+      switch (optionsCase_) {
+        case 2:
+          hash = (37 * hash) + SST_INDEX_FIELD_NUMBER;
+          hash = (53 * hash) + getSstIndex().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + SERIES_INDEX_FIELD_NUMBER;
+          hash = (53 * hash) + getSeriesIndex().hashCode();
+          break;
+        case 0:
+        default:
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -39930,6 +40980,8 @@ java.lang.String defaultValue);
         super.clear();
         regionId_ = 0L;
 
+        optionsCase_ = 0;
+        options_ = null;
         return this;
       }
 
@@ -39957,6 +41009,21 @@ java.lang.String defaultValue);
       public io.greptime.v1.region.Server.BuildIndexRequest buildPartial() {
         io.greptime.v1.region.Server.BuildIndexRequest result = new io.greptime.v1.region.Server.BuildIndexRequest(this);
         result.regionId_ = regionId_;
+        if (optionsCase_ == 2) {
+          if (sstIndexBuilder_ == null) {
+            result.options_ = options_;
+          } else {
+            result.options_ = sstIndexBuilder_.build();
+          }
+        }
+        if (optionsCase_ == 3) {
+          if (seriesIndexBuilder_ == null) {
+            result.options_ = options_;
+          } else {
+            result.options_ = seriesIndexBuilder_.build();
+          }
+        }
+        result.optionsCase_ = optionsCase_;
         onBuilt();
         return result;
       }
@@ -40008,6 +41075,19 @@ java.lang.String defaultValue);
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
         }
+        switch (other.getOptionsCase()) {
+          case SST_INDEX: {
+            mergeSstIndex(other.getSstIndex());
+            break;
+          }
+          case SERIES_INDEX: {
+            mergeSeriesIndex(other.getSeriesIndex());
+            break;
+          }
+          case OPTIONS_NOT_SET: {
+            break;
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -40036,6 +41116,21 @@ java.lang.String defaultValue);
         }
         return this;
       }
+      private int optionsCase_ = 0;
+      private java.lang.Object options_;
+      public OptionsCase
+          getOptionsCase() {
+        return OptionsCase.forNumber(
+            optionsCase_);
+      }
+
+      public Builder clearOptions() {
+        optionsCase_ = 0;
+        options_ = null;
+        onChanged();
+        return this;
+      }
+
 
       private long regionId_ ;
       /**
@@ -40066,6 +41161,290 @@ java.lang.String defaultValue);
         regionId_ = 0L;
         onChanged();
         return this;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder> sstIndexBuilder_;
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       * @return Whether the sstIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasSstIndex() {
+        return optionsCase_ == 2;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       * @return The sstIndex.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions getSstIndex() {
+        if (sstIndexBuilder_ == null) {
+          if (optionsCase_ == 2) {
+            return (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_;
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+        } else {
+          if (optionsCase_ == 2) {
+            return sstIndexBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      public Builder setSstIndex(io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions value) {
+        if (sstIndexBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          sstIndexBuilder_.setMessage(value);
+        }
+        optionsCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      public Builder setSstIndex(
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder builderForValue) {
+        if (sstIndexBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          sstIndexBuilder_.setMessage(builderForValue.build());
+        }
+        optionsCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      public Builder mergeSstIndex(io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions value) {
+        if (sstIndexBuilder_ == null) {
+          if (optionsCase_ == 2 &&
+              options_ != io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance()) {
+            options_ = io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.newBuilder((io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          if (optionsCase_ == 2) {
+            sstIndexBuilder_.mergeFrom(value);
+          } else {
+            sstIndexBuilder_.setMessage(value);
+          }
+        }
+        optionsCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      public Builder clearSstIndex() {
+        if (sstIndexBuilder_ == null) {
+          if (optionsCase_ == 2) {
+            optionsCase_ = 0;
+            options_ = null;
+            onChanged();
+          }
+        } else {
+          if (optionsCase_ == 2) {
+            optionsCase_ = 0;
+            options_ = null;
+          }
+          sstIndexBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder getSstIndexBuilder() {
+        return getSstIndexFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder getSstIndexOrBuilder() {
+        if ((optionsCase_ == 2) && (sstIndexBuilder_ != null)) {
+          return sstIndexBuilder_.getMessageOrBuilder();
+        } else {
+          if (optionsCase_ == 2) {
+            return (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_;
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder> 
+          getSstIndexFieldBuilder() {
+        if (sstIndexBuilder_ == null) {
+          if (!(optionsCase_ == 2)) {
+            options_ = io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.getDefaultInstance();
+          }
+          sstIndexBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptionsOrBuilder>(
+                  (io.greptime.v1.region.Server.BuildIndexRequest.SstIndexOptions) options_,
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        optionsCase_ = 2;
+        onChanged();;
+        return sstIndexBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder> seriesIndexBuilder_;
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       * @return Whether the seriesIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasSeriesIndex() {
+        return optionsCase_ == 3;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       * @return The seriesIndex.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions getSeriesIndex() {
+        if (seriesIndexBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_;
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+        } else {
+          if (optionsCase_ == 3) {
+            return seriesIndexBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      public Builder setSeriesIndex(io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions value) {
+        if (seriesIndexBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          seriesIndexBuilder_.setMessage(value);
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      public Builder setSeriesIndex(
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder builderForValue) {
+        if (seriesIndexBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          seriesIndexBuilder_.setMessage(builderForValue.build());
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      public Builder mergeSeriesIndex(io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions value) {
+        if (seriesIndexBuilder_ == null) {
+          if (optionsCase_ == 3 &&
+              options_ != io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance()) {
+            options_ = io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.newBuilder((io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          if (optionsCase_ == 3) {
+            seriesIndexBuilder_.mergeFrom(value);
+          } else {
+            seriesIndexBuilder_.setMessage(value);
+          }
+        }
+        optionsCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      public Builder clearSeriesIndex() {
+        if (seriesIndexBuilder_ == null) {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+            onChanged();
+          }
+        } else {
+          if (optionsCase_ == 3) {
+            optionsCase_ = 0;
+            options_ = null;
+          }
+          seriesIndexBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder getSeriesIndexBuilder() {
+        return getSeriesIndexFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder getSeriesIndexOrBuilder() {
+        if ((optionsCase_ == 3) && (seriesIndexBuilder_ != null)) {
+          return seriesIndexBuilder_.getMessageOrBuilder();
+        } else {
+          if (optionsCase_ == 3) {
+            return (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_;
+          }
+          return io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder> 
+          getSeriesIndexFieldBuilder() {
+        if (seriesIndexBuilder_ == null) {
+          if (!(optionsCase_ == 3)) {
+            options_ = io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.getDefaultInstance();
+          }
+          seriesIndexBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions.Builder, io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptionsOrBuilder>(
+                  (io.greptime.v1.region.Server.BuildIndexRequest.SeriesIndexOptions) options_,
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        optionsCase_ = 3;
+        onChanged();;
+        return seriesIndexBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -44284,6 +45663,16 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_FileMetas_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -44467,25 +45856,31 @@ java.lang.String defaultValue);
       "n.MitoManifestInfoH\000\022F\n\024metric_manifest_" +
       "info\030\003 \001(\0132&.greptime.v1.region.MetricMa" +
       "nifestInfoH\000B\017\n\rmanifest_info\")\n\023ListMet" +
-      "adataRequest\022\022\n\nregion_ids\030\001 \003(\004\"&\n\021Buil" +
-      "dIndexRequest\022\021\n\tregion_id\030\001 \001(\004\"\031\n\tFile" +
-      "Metas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStagingManif" +
-      "estRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016partiti" +
-      "on_expr\030\002 \001(\t\022\031\n\021central_region_id\030\003 \001(\004" +
-      "\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteDynFil" +
-      "terRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006update\030\002" +
-      " \001(\0132).greptime.v1.region.RemoteDynFilte" +
-      "rUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.greptime" +
-      ".v1.region.RemoteDynFilterUnregisterH\000B\010" +
-      "\n\006action\"d\n\025RemoteDynFilterUpdate\022\021\n\tfil" +
-      "ter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\ngenerat" +
-      "ion\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031Remote" +
-      "DynFilterUnregister\022\021\n\tfilter_id\030\001 \001(\t2Y" +
-      "\n\006Region\022O\n\006Handle\022!.greptime.v1.region." +
-      "RegionRequest\032\".greptime.v1.region.Regio" +
-      "nResponseB]\n\025io.greptime.v1.regionB\006Serv" +
-      "erZ<github.com/GreptimeTeam/greptime-pro" +
-      "to/go/greptime/v1/regionb\006proto3"
+      "adataRequest\022\022\n\nregion_ids\030\001 \003(\004\"\370\001\n\021Bui" +
+      "ldIndexRequest\022\021\n\tregion_id\030\001 \001(\004\022J\n\tsst" +
+      "_index\030\002 \001(\01325.greptime.v1.region.BuildI" +
+      "ndexRequest.SstIndexOptionsH\000\022P\n\014series_" +
+      "index\030\003 \001(\01328.greptime.v1.region.BuildIn" +
+      "dexRequest.SeriesIndexOptionsH\000\032\021\n\017SstIn" +
+      "dexOptions\032\024\n\022SeriesIndexOptionsB\t\n\007opti" +
+      "ons\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyS" +
+      "tagingManifestRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_regi" +
+      "on_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026R" +
+      "emoteDynFilterRequest\022\020\n\010query_id\030\001 \001(\t\022" +
+      ";\n\006update\030\002 \001(\0132).greptime.v1.region.Rem" +
+      "oteDynFilterUpdateH\000\022C\n\nunregister\030\003 \001(\013" +
+      "2-.greptime.v1.region.RemoteDynFilterUnr" +
+      "egisterH\000B\010\n\006action\"d\n\025RemoteDynFilterUp" +
+      "date\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014" +
+      "\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(" +
+      "\010\".\n\031RemoteDynFilterUnregister\022\021\n\tfilter" +
+      "_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime" +
+      ".v1.region.RegionRequest\032\".greptime.v1.r" +
+      "egion.RegionResponseB]\n\025io.greptime.v1.r" +
+      "egionB\006ServerZ<github.com/GreptimeTeam/g" +
+      "reptime-proto/go/greptime/v1/regionb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -44758,7 +46153,19 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
-        new java.lang.String[] { "RegionId", });
+        new java.lang.String[] { "RegionId", "SstIndex", "SeriesIndex", "Options", });
+    internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor =
+      internal_static_greptime_v1_region_BuildIndexRequest_descriptor.getNestedTypes().get(0);
+    internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_BuildIndexRequest_SstIndexOptions_descriptor,
+        new java.lang.String[] { });
+    internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor =
+      internal_static_greptime_v1_region_BuildIndexRequest_descriptor.getNestedTypes().get(1);
+    internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor,
+        new java.lang.String[] { });
     internal_static_greptime_v1_region_FileMetas_descriptor =
       getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_region_FileMetas_fieldAccessorTable = new
