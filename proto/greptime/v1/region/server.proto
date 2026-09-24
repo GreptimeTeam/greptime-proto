@@ -329,6 +329,17 @@ message ListMetadataRequest {
 
 message BuildIndexRequest {
   uint64 region_id = 1;
+
+  // When absent, builds SST indexes for backward compatibility.
+  oneof options {
+    SstIndexOptions sst_index = 2;
+    SeriesIndexOptions series_index = 3;
+  }
+
+  message SstIndexOptions {}
+
+  // Reconciles eligible series indexes and waits for publication.
+  message SeriesIndexOptions {}
 }
 
 // The file metas of a staging manifest.

@@ -79,6 +79,12 @@ extern ApplyStagingManifestRequestDefaultTypeInternal _ApplyStagingManifestReque
 class BuildIndexRequest;
 struct BuildIndexRequestDefaultTypeInternal;
 extern BuildIndexRequestDefaultTypeInternal _BuildIndexRequest_default_instance_;
+class BuildIndexRequest_SeriesIndexOptions;
+struct BuildIndexRequest_SeriesIndexOptionsDefaultTypeInternal;
+extern BuildIndexRequest_SeriesIndexOptionsDefaultTypeInternal _BuildIndexRequest_SeriesIndexOptions_default_instance_;
+class BuildIndexRequest_SstIndexOptions;
+struct BuildIndexRequest_SstIndexOptionsDefaultTypeInternal;
+extern BuildIndexRequest_SstIndexOptionsDefaultTypeInternal _BuildIndexRequest_SstIndexOptions_default_instance_;
 class BulkInsertRequest;
 struct BulkInsertRequestDefaultTypeInternal;
 extern BulkInsertRequestDefaultTypeInternal _BulkInsertRequest_default_instance_;
@@ -214,6 +220,8 @@ template<> ::greptime::v1::region::AlterRequest* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::region::AlterRequests* Arena::CreateMaybeMessage<::greptime::v1::region::AlterRequests>(Arena*);
 template<> ::greptime::v1::region::ApplyStagingManifestRequest* Arena::CreateMaybeMessage<::greptime::v1::region::ApplyStagingManifestRequest>(Arena*);
 template<> ::greptime::v1::region::BuildIndexRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest>(Arena*);
+template<> ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions>(Arena*);
+template<> ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest_SstIndexOptions>(Arena*);
 template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
 template<> ::greptime::v1::region::CleanUpRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest>(Arena*);
 template<> ::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse>(Arena*);
@@ -7755,6 +7763,242 @@ class ListMetadataRequest final :
 };
 // -------------------------------------------------------------------
 
+class BuildIndexRequest_SstIndexOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.BuildIndexRequest.SstIndexOptions) */ {
+ public:
+  inline BuildIndexRequest_SstIndexOptions() : BuildIndexRequest_SstIndexOptions(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR BuildIndexRequest_SstIndexOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BuildIndexRequest_SstIndexOptions(const BuildIndexRequest_SstIndexOptions& from);
+  BuildIndexRequest_SstIndexOptions(BuildIndexRequest_SstIndexOptions&& from) noexcept
+    : BuildIndexRequest_SstIndexOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline BuildIndexRequest_SstIndexOptions& operator=(const BuildIndexRequest_SstIndexOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BuildIndexRequest_SstIndexOptions& operator=(BuildIndexRequest_SstIndexOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BuildIndexRequest_SstIndexOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BuildIndexRequest_SstIndexOptions* internal_default_instance() {
+    return reinterpret_cast<const BuildIndexRequest_SstIndexOptions*>(
+               &_BuildIndexRequest_SstIndexOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    43;
+
+  friend void swap(BuildIndexRequest_SstIndexOptions& a, BuildIndexRequest_SstIndexOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BuildIndexRequest_SstIndexOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BuildIndexRequest_SstIndexOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BuildIndexRequest_SstIndexOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BuildIndexRequest_SstIndexOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const BuildIndexRequest_SstIndexOptions& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const BuildIndexRequest_SstIndexOptions& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.BuildIndexRequest.SstIndexOptions";
+  }
+  protected:
+  explicit BuildIndexRequest_SstIndexOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest.SstIndexOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BuildIndexRequest_SeriesIndexOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions) */ {
+ public:
+  inline BuildIndexRequest_SeriesIndexOptions() : BuildIndexRequest_SeriesIndexOptions(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR BuildIndexRequest_SeriesIndexOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BuildIndexRequest_SeriesIndexOptions(const BuildIndexRequest_SeriesIndexOptions& from);
+  BuildIndexRequest_SeriesIndexOptions(BuildIndexRequest_SeriesIndexOptions&& from) noexcept
+    : BuildIndexRequest_SeriesIndexOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline BuildIndexRequest_SeriesIndexOptions& operator=(const BuildIndexRequest_SeriesIndexOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BuildIndexRequest_SeriesIndexOptions& operator=(BuildIndexRequest_SeriesIndexOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BuildIndexRequest_SeriesIndexOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BuildIndexRequest_SeriesIndexOptions* internal_default_instance() {
+    return reinterpret_cast<const BuildIndexRequest_SeriesIndexOptions*>(
+               &_BuildIndexRequest_SeriesIndexOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    44;
+
+  friend void swap(BuildIndexRequest_SeriesIndexOptions& a, BuildIndexRequest_SeriesIndexOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BuildIndexRequest_SeriesIndexOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BuildIndexRequest_SeriesIndexOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BuildIndexRequest_SeriesIndexOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BuildIndexRequest_SeriesIndexOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const BuildIndexRequest_SeriesIndexOptions& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const BuildIndexRequest_SeriesIndexOptions& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+  public:
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.BuildIndexRequest.SeriesIndexOptions";
+  }
+  protected:
+  explicit BuildIndexRequest_SeriesIndexOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest.SeriesIndexOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class BuildIndexRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.BuildIndexRequest) */ {
  public:
@@ -7798,12 +8042,18 @@ class BuildIndexRequest final :
   static const BuildIndexRequest& default_instance() {
     return *internal_default_instance();
   }
+  enum OptionsCase {
+    kSstIndex = 2,
+    kSeriesIndex = 3,
+    OPTIONS_NOT_SET = 0,
+  };
+
   static inline const BuildIndexRequest* internal_default_instance() {
     return reinterpret_cast<const BuildIndexRequest*>(
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7873,10 +8123,15 @@ class BuildIndexRequest final :
 
   // nested types ----------------------------------------------------
 
+  typedef BuildIndexRequest_SstIndexOptions SstIndexOptions;
+  typedef BuildIndexRequest_SeriesIndexOptions SeriesIndexOptions;
+
   // accessors -------------------------------------------------------
 
   enum : int {
     kRegionIdFieldNumber = 1,
+    kSstIndexFieldNumber = 2,
+    kSeriesIndexFieldNumber = 3,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -7887,16 +8142,67 @@ class BuildIndexRequest final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // .greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;
+  bool has_sst_index() const;
+  private:
+  bool _internal_has_sst_index() const;
+  public:
+  void clear_sst_index();
+  const ::greptime::v1::region::BuildIndexRequest_SstIndexOptions& sst_index() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* release_sst_index();
+  ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* mutable_sst_index();
+  void set_allocated_sst_index(::greptime::v1::region::BuildIndexRequest_SstIndexOptions* sst_index);
+  private:
+  const ::greptime::v1::region::BuildIndexRequest_SstIndexOptions& _internal_sst_index() const;
+  ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* _internal_mutable_sst_index();
+  public:
+  void unsafe_arena_set_allocated_sst_index(
+      ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* sst_index);
+  ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* unsafe_arena_release_sst_index();
+
+  // .greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;
+  bool has_series_index() const;
+  private:
+  bool _internal_has_series_index() const;
+  public:
+  void clear_series_index();
+  const ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions& series_index() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* release_series_index();
+  ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* mutable_series_index();
+  void set_allocated_series_index(::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* series_index);
+  private:
+  const ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions& _internal_series_index() const;
+  ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* _internal_mutable_series_index();
+  public:
+  void unsafe_arena_set_allocated_series_index(
+      ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* series_index);
+  ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* unsafe_arena_release_series_index();
+
+  void clear_options();
+  OptionsCase options_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.BuildIndexRequest)
  private:
   class _Internal;
+  void set_has_sst_index();
+  void set_has_series_index();
+
+  inline bool has_options() const;
+  inline void clear_has_options();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
     uint64_t region_id_;
+    union OptionsUnion {
+      constexpr OptionsUnion() : _constinit_{} {}
+        ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized _constinit_;
+      ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* sst_index_;
+      ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* series_index_;
+    } options_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t _oneof_case_[1];
+
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
@@ -7951,7 +8257,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -8104,7 +8410,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8301,7 +8607,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -8507,7 +8813,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    49;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -8698,7 +9004,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -15133,6 +15439,14 @@ ListMetadataRequest::mutable_region_ids() {
 
 // -------------------------------------------------------------------
 
+// BuildIndexRequest_SstIndexOptions
+
+// -------------------------------------------------------------------
+
+// BuildIndexRequest_SeriesIndexOptions
+
+// -------------------------------------------------------------------
+
 // BuildIndexRequest
 
 // uint64 region_id = 1;
@@ -15155,6 +15469,163 @@ inline void BuildIndexRequest::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.region.BuildIndexRequest.region_id)
 }
 
+// .greptime.v1.region.BuildIndexRequest.SstIndexOptions sst_index = 2;
+inline bool BuildIndexRequest::_internal_has_sst_index() const {
+  return options_case() == kSstIndex;
+}
+inline bool BuildIndexRequest::has_sst_index() const {
+  return _internal_has_sst_index();
+}
+inline void BuildIndexRequest::set_has_sst_index() {
+  _impl_._oneof_case_[0] = kSstIndex;
+}
+inline void BuildIndexRequest::clear_sst_index() {
+  if (_internal_has_sst_index()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.sst_index_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* BuildIndexRequest::release_sst_index() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BuildIndexRequest.sst_index)
+  if (_internal_has_sst_index()) {
+    clear_has_options();
+    ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* temp = _impl_.options_.sst_index_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.sst_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::BuildIndexRequest_SstIndexOptions& BuildIndexRequest::_internal_sst_index() const {
+  return _internal_has_sst_index()
+      ? *_impl_.options_.sst_index_
+      : reinterpret_cast< ::greptime::v1::region::BuildIndexRequest_SstIndexOptions&>(::greptime::v1::region::_BuildIndexRequest_SstIndexOptions_default_instance_);
+}
+inline const ::greptime::v1::region::BuildIndexRequest_SstIndexOptions& BuildIndexRequest::sst_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BuildIndexRequest.sst_index)
+  return _internal_sst_index();
+}
+inline ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* BuildIndexRequest::unsafe_arena_release_sst_index() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.BuildIndexRequest.sst_index)
+  if (_internal_has_sst_index()) {
+    clear_has_options();
+    ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* temp = _impl_.options_.sst_index_;
+    _impl_.options_.sst_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void BuildIndexRequest::unsafe_arena_set_allocated_sst_index(::greptime::v1::region::BuildIndexRequest_SstIndexOptions* sst_index) {
+  clear_options();
+  if (sst_index) {
+    set_has_sst_index();
+    _impl_.options_.sst_index_ = sst_index;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BuildIndexRequest.sst_index)
+}
+inline ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* BuildIndexRequest::_internal_mutable_sst_index() {
+  if (!_internal_has_sst_index()) {
+    clear_options();
+    set_has_sst_index();
+    _impl_.options_.sst_index_ = CreateMaybeMessage< ::greptime::v1::region::BuildIndexRequest_SstIndexOptions >(GetArenaForAllocation());
+  }
+  return _impl_.options_.sst_index_;
+}
+inline ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* BuildIndexRequest::mutable_sst_index() {
+  ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* _msg = _internal_mutable_sst_index();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BuildIndexRequest.sst_index)
+  return _msg;
+}
+
+// .greptime.v1.region.BuildIndexRequest.SeriesIndexOptions series_index = 3;
+inline bool BuildIndexRequest::_internal_has_series_index() const {
+  return options_case() == kSeriesIndex;
+}
+inline bool BuildIndexRequest::has_series_index() const {
+  return _internal_has_series_index();
+}
+inline void BuildIndexRequest::set_has_series_index() {
+  _impl_._oneof_case_[0] = kSeriesIndex;
+}
+inline void BuildIndexRequest::clear_series_index() {
+  if (_internal_has_series_index()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.options_.series_index_;
+    }
+    clear_has_options();
+  }
+}
+inline ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* BuildIndexRequest::release_series_index() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.BuildIndexRequest.series_index)
+  if (_internal_has_series_index()) {
+    clear_has_options();
+    ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* temp = _impl_.options_.series_index_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.options_.series_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions& BuildIndexRequest::_internal_series_index() const {
+  return _internal_has_series_index()
+      ? *_impl_.options_.series_index_
+      : reinterpret_cast< ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions&>(::greptime::v1::region::_BuildIndexRequest_SeriesIndexOptions_default_instance_);
+}
+inline const ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions& BuildIndexRequest::series_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.BuildIndexRequest.series_index)
+  return _internal_series_index();
+}
+inline ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* BuildIndexRequest::unsafe_arena_release_series_index() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.BuildIndexRequest.series_index)
+  if (_internal_has_series_index()) {
+    clear_has_options();
+    ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* temp = _impl_.options_.series_index_;
+    _impl_.options_.series_index_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void BuildIndexRequest::unsafe_arena_set_allocated_series_index(::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* series_index) {
+  clear_options();
+  if (series_index) {
+    set_has_series_index();
+    _impl_.options_.series_index_ = series_index;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.BuildIndexRequest.series_index)
+}
+inline ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* BuildIndexRequest::_internal_mutable_series_index() {
+  if (!_internal_has_series_index()) {
+    clear_options();
+    set_has_series_index();
+    _impl_.options_.series_index_ = CreateMaybeMessage< ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions >(GetArenaForAllocation());
+  }
+  return _impl_.options_.series_index_;
+}
+inline ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* BuildIndexRequest::mutable_series_index() {
+  ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* _msg = _internal_mutable_series_index();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.BuildIndexRequest.series_index)
+  return _msg;
+}
+
+inline bool BuildIndexRequest::has_options() const {
+  return options_case() != OPTIONS_NOT_SET;
+}
+inline void BuildIndexRequest::clear_has_options() {
+  _impl_._oneof_case_[0] = OPTIONS_NOT_SET;
+}
+inline BuildIndexRequest::OptionsCase BuildIndexRequest::options_case() const {
+  return BuildIndexRequest::OptionsCase(_impl_._oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // FileMetas
@@ -15765,6 +16236,10 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

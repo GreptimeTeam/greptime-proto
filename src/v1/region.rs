@@ -43,6 +43,31 @@ mod test {
     }
 
     #[test]
+    fn test_build_index_options_wire_compatibility() {
+        use crate::v1::region::{build_index_request, BuildIndexRequest};
+
+        // Legacy requests contain only the region ID and retain SST behavior.
+        let legacy = BuildIndexRequest::decode(&[0x08, 42][..]).unwrap();
+        assert_eq!(42, legacy.region_id);
+        assert!(legacy.options.is_none());
+        assert_eq!(vec![0x08, 42], legacy.encode_to_vec());
+
+        for options in [
+            build_index_request::Options::SstIndex(Default::default()),
+            build_index_request::Options::SeriesIndex(Default::default()),
+        ] {
+            let request = BuildIndexRequest {
+                region_id: 42,
+                options: Some(options),
+            };
+            assert_eq!(
+                request,
+                BuildIndexRequest::decode(request.encode_to_vec().as_slice()).unwrap()
+            );
+        }
+    }
+
+    #[test]
     fn test_insert_skip_wal_wire_compatibility() {
         let legacy = LegacyInsertRequest {
             region_id: 42,

@@ -491,6 +491,25 @@ pub struct ListMetadataRequest {
 pub struct BuildIndexRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
+    /// When absent, builds SST indexes for backward compatibility.
+    #[prost(oneof = "build_index_request::Options", tags = "2, 3")]
+    pub options: ::core::option::Option<build_index_request::Options>,
+}
+/// Nested message and enum types in `BuildIndexRequest`.
+pub mod build_index_request {
+    #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+    pub struct SstIndexOptions {}
+    /// Reconciles eligible series indexes and waits for publication.
+    #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+    pub struct SeriesIndexOptions {}
+    /// When absent, builds SST indexes for backward compatibility.
+    #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Oneof)]
+    pub enum Options {
+        #[prost(message, tag = "2")]
+        SstIndex(SstIndexOptions),
+        #[prost(message, tag = "3")]
+        SeriesIndex(SeriesIndexOptions),
+    }
 }
 /// The file metas of a staging manifest.
 /// It is a json array of file metadatas.
