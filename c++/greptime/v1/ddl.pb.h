@@ -7240,6 +7240,7 @@ class JsonTypeHint final :
     kPathFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 3,
     kDataTypeFieldNumber = 2,
+    kInvertedIndexFieldNumber = 4,
   };
   // repeated string path = 1;
   int path_size() const;
@@ -7292,6 +7293,15 @@ class JsonTypeHint final :
   void _internal_set_data_type(::greptime::v1::ColumnDataType value);
   public:
 
+  // bool inverted_index = 4;
+  void clear_inverted_index();
+  bool inverted_index() const;
+  void set_inverted_index(bool value);
+  private:
+  bool _internal_inverted_index() const;
+  void _internal_set_inverted_index(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.JsonTypeHint)
  private:
   class _Internal;
@@ -7303,6 +7313,7 @@ class JsonTypeHint final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> path_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     int data_type_;
+    bool inverted_index_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -18888,6 +18899,26 @@ inline void JsonTypeHint::set_allocated_datatype_extension(::greptime::v1::Colum
   }
   _impl_.datatype_extension_ = datatype_extension;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonTypeHint.datatype_extension)
+}
+
+// bool inverted_index = 4;
+inline void JsonTypeHint::clear_inverted_index() {
+  _impl_.inverted_index_ = false;
+}
+inline bool JsonTypeHint::_internal_inverted_index() const {
+  return _impl_.inverted_index_;
+}
+inline bool JsonTypeHint::inverted_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonTypeHint.inverted_index)
+  return _internal_inverted_index();
+}
+inline void JsonTypeHint::_internal_set_inverted_index(bool value) {
+  
+  _impl_.inverted_index_ = value;
+}
+inline void JsonTypeHint::set_inverted_index(bool value) {
+  _internal_set_inverted_index(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonTypeHint.inverted_index)
 }
 
 // -------------------------------------------------------------------

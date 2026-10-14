@@ -1196,6 +1196,9 @@ pub struct JsonTypeHint {
     pub data_type: i32,
     #[prost(message, optional, tag = "3")]
     pub datatype_extension: ::core::option::Option<ColumnDataTypeExtension>,
+    /// Whether to build an inverted index for this hinted path.
+    #[prost(bool, tag = "4")]
+    pub inverted_index: bool,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {

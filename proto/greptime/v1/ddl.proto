@@ -265,6 +265,8 @@ message JsonTypeHint {
   repeated string path = 1;
   ColumnDataType data_type = 2;
   ColumnDataTypeExtension datatype_extension = 3;
+  // Whether to build an inverted index for this hinted path.
+  bool inverted_index = 4;
 }
 
 message Option {

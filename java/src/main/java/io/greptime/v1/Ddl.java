@@ -38445,6 +38445,16 @@ java.lang.String defaultValue);
      * <code>.greptime.v1.ColumnDataTypeExtension datatype_extension = 3;</code>
      */
     io.greptime.v1.Common.ColumnDataTypeExtensionOrBuilder getDatatypeExtensionOrBuilder();
+
+    /**
+     * <pre>
+     * Whether to build an inverted index for this hinted path.
+     * </pre>
+     *
+     * <code>bool inverted_index = 4;</code>
+     * @return The invertedIndex.
+     */
+    boolean getInvertedIndex();
   }
   /**
    * Protobuf type {@code greptime.v1.JsonTypeHint}
@@ -38520,6 +38530,11 @@ java.lang.String defaultValue);
                 datatypeExtension_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 32: {
+
+              invertedIndex_ = input.readBool();
               break;
             }
             default: {
@@ -38639,6 +38654,21 @@ java.lang.String defaultValue);
       return getDatatypeExtension();
     }
 
+    public static final int INVERTED_INDEX_FIELD_NUMBER = 4;
+    private boolean invertedIndex_;
+    /**
+     * <pre>
+     * Whether to build an inverted index for this hinted path.
+     * </pre>
+     *
+     * <code>bool inverted_index = 4;</code>
+     * @return The invertedIndex.
+     */
+    @java.lang.Override
+    public boolean getInvertedIndex() {
+      return invertedIndex_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -38661,6 +38691,9 @@ java.lang.String defaultValue);
       }
       if (datatypeExtension_ != null) {
         output.writeMessage(3, getDatatypeExtension());
+      }
+      if (invertedIndex_ != false) {
+        output.writeBool(4, invertedIndex_);
       }
       unknownFields.writeTo(output);
     }
@@ -38687,6 +38720,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getDatatypeExtension());
       }
+      if (invertedIndex_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, invertedIndex_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -38710,6 +38747,8 @@ java.lang.String defaultValue);
         if (!getDatatypeExtension()
             .equals(other.getDatatypeExtension())) return false;
       }
+      if (getInvertedIndex()
+          != other.getInvertedIndex()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -38731,6 +38770,9 @@ java.lang.String defaultValue);
         hash = (37 * hash) + DATATYPE_EXTENSION_FIELD_NUMBER;
         hash = (53 * hash) + getDatatypeExtension().hashCode();
       }
+      hash = (37 * hash) + INVERTED_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getInvertedIndex());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -38874,6 +38916,8 @@ java.lang.String defaultValue);
           datatypeExtension_ = null;
           datatypeExtensionBuilder_ = null;
         }
+        invertedIndex_ = false;
+
         return this;
       }
 
@@ -38912,6 +38956,7 @@ java.lang.String defaultValue);
         } else {
           result.datatypeExtension_ = datatypeExtensionBuilder_.build();
         }
+        result.invertedIndex_ = invertedIndex_;
         onBuilt();
         return result;
       }
@@ -38975,6 +39020,9 @@ java.lang.String defaultValue);
         }
         if (other.hasDatatypeExtension()) {
           mergeDatatypeExtension(other.getDatatypeExtension());
+        }
+        if (other.getInvertedIndex() != false) {
+          setInvertedIndex(other.getInvertedIndex());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -39287,6 +39335,49 @@ java.lang.String defaultValue);
           datatypeExtension_ = null;
         }
         return datatypeExtensionBuilder_;
+      }
+
+      private boolean invertedIndex_ ;
+      /**
+       * <pre>
+       * Whether to build an inverted index for this hinted path.
+       * </pre>
+       *
+       * <code>bool inverted_index = 4;</code>
+       * @return The invertedIndex.
+       */
+      @java.lang.Override
+      public boolean getInvertedIndex() {
+        return invertedIndex_;
+      }
+      /**
+       * <pre>
+       * Whether to build an inverted index for this hinted path.
+       * </pre>
+       *
+       * <code>bool inverted_index = 4;</code>
+       * @param value The invertedIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInvertedIndex(boolean value) {
+        
+        invertedIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Whether to build an inverted index for this hinted path.
+       * </pre>
+       *
+       * <code>bool inverted_index = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInvertedIndex() {
+        
+        invertedIndex_ = false;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -60301,82 +60392,83 @@ java.lang.String defaultValue);
       "v1.JsonSettings\"\177\n\014JsonSettings\022-\n\ntype_" +
       "hints\030\001 \003(\0132\031.greptime.v1.JsonTypeHint\022$" +
       "\n\027max_auto_expanded_paths\030\002 \001(\rH\000\210\001\001B\032\n\030" +
-      "_max_auto_expanded_paths\"\216\001\n\014JsonTypeHin" +
+      "_max_auto_expanded_paths\"\246\001\n\014JsonTypeHin" +
       "t\022\014\n\004path\030\001 \003(\t\022.\n\tdata_type\030\002 \001(\0162\033.gre" +
       "ptime.v1.ColumnDataType\022@\n\022datatype_exte" +
       "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
-      "Extension\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005valu" +
-      "e\030\002 \001(\t\"=\n\017SetTableOptions\022*\n\rtable_opti" +
-      "ons\030\001 \003(\0132\023.greptime.v1.Option\"!\n\021UnsetT" +
-      "ableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022" +
-      "\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006" +
-      "FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name" +
-      "\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.greptime.v1." +
-      "ColumnDataType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022d" +
-      "efault_constraint\030\004 \001(\014\0220\n\rsemantic_type" +
-      "\030\005 \001(\0162\031.greptime.v1.SemanticType\022\017\n\007com" +
-      "ment\030\006 \001(\t\022@\n\022datatype_extension\030\007 \001(\0132$" +
-      ".greptime.v1.ColumnDataTypeExtension\022+\n\007" +
-      "options\030\010 \001(\0132\032.greptime.v1.ColumnOption" +
-      "s\"\230\001\n\021AddColumnLocation\022B\n\rlocation_type" +
-      "\030\001 \001(\0162+.greptime.v1.AddColumnLocation.L" +
-      "ocationType\022\031\n\021after_column_name\030\002 \001(\t\"$" +
-      "\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n" +
-      "\013SetFulltext\022\023\n\013column_name\030\001 \001(\t\022\016\n\006ena" +
-      "ble\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v" +
-      "1.Analyzer\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007ba" +
-      "ckend\030\005 \001(\0162\034.greptime.v1.FulltextBacken" +
-      "d\022\023\n\013granularity\030\006 \001(\004\022\033\n\023false_positive" +
-      "_rate\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013column_n" +
-      "ame\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013column_name\030" +
-      "\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column_name\030\001 " +
-      "\001(\t\"\241\001\n\013SetSkipping\022\023\n\013column_name\030\001 \001(\t" +
-      "\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n" +
-      "\023skipping_index_type\030\004 \001(\0162\036.greptime.v1" +
-      ".SkippingIndexType\022\033\n\023false_positive_rat" +
-      "e\030\005 \001(\001\"$\n\rUnsetSkipping\022\023\n\013column_name\030" +
-      "\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014catalog_n" +
-      "ame\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_da" +
-      "tabase_options\030\003 \001(\0132\037.greptime.v1.SetDa" +
-      "tabaseOptionsH\000\022C\n\026unset_database_option" +
-      "s\030\004 \001(\0132!.greptime.v1.UnsetDatabaseOptio" +
-      "nsH\000B\006\n\004kind\"G\n\022SetDatabaseOptions\0221\n\024se" +
-      "t_database_options\030\001 \003(\0132\023.greptime.v1.O" +
-      "ption\"$\n\024UnsetDatabaseOptions\022\014\n\004keys\030\001 " +
-      "\003(\t\"\331\004\n\021CreateTriggerExpr\022\024\n\014catalog_nam" +
-      "e\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_" +
-      "if_not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010chan" +
-      "nels\030\005 \003(\0132\032.greptime.v1.NotifyChannel\022:" +
-      "\n\006labels\030\006 \003(\0132*.greptime.v1.CreateTrigg" +
-      "erExpr.LabelsEntry\022D\n\013annotations\030\007 \003(\0132" +
-      "/.greptime.v1.CreateTriggerExpr.Annotati" +
-      "onsEntry\022+\n\010interval\030\010 \001(\0132\031.google.prot" +
-      "obuf.Duration\022\031\n\021raw_interval_expr\030\t \001(\t" +
-      "\022&\n\003for\030\n \001(\0132\031.google.protobuf.Duration" +
-      "\022\024\n\014for_raw_expr\030\013 \001(\t\0222\n\017keep_firing_fo" +
-      "r\030\014 \001(\0132\031.google.protobuf.Duration\022 \n\030ke" +
-      "ep_firing_for_raw_expr\030\r \001(\t\032-\n\013LabelsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020A" +
-      "nnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022." +
-      "\n\007webhook\030\002 \001(\0132\033.greptime.v1.WebhookOpt" +
-      "ionsH\000B\016\n\014channel_type\"\177\n\016WebhookOptions" +
-      "\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v" +
-      "1.WebhookOptions.OptsEntry\032+\n\tOptsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropT" +
-      "riggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trig" +
-      "ger_name\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"\252" +
-      "\001\n\rCommentOnExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023" +
-      "\n\013schema_name\030\002 \001(\t\0223\n\013object_type\030\003 \001(\016" +
-      "2\036.greptime.v1.CommentObjectType\022\023\n\013obje" +
-      "ct_name\030\004 \001(\t\022\023\n\013column_name\030\005 \001(\t\022\017\n\007co" +
-      "mment\030\006 \001(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007" +
-      "CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020" +
-      "\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexType\022\020\n\014BLO" +
-      "OM_FILTER\020\000*4\n\021CommentObjectType\022\t\n\005TABL" +
-      "E\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io.greptime" +
-      ".v1B\003DdlZ5github.com/GreptimeTeam/grepti" +
-      "me-proto/go/greptime/v1b\006proto3"
+      "Extension\022\026\n\016inverted_index\030\004 \001(\010\"$\n\006Opt" +
+      "ion\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTa" +
+      "bleOptions\022*\n\rtable_options\030\001 \003(\0132\023.grep" +
+      "time.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004k" +
+      "eys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n" +
+      "\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001" +
+      "(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_t" +
+      "ype\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023" +
+      "\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constrain" +
+      "t\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptim" +
+      "e.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022da" +
+      "tatype_extension\030\007 \001(\0132$.greptime.v1.Col" +
+      "umnDataTypeExtension\022+\n\007options\030\010 \001(\0132\032." +
+      "greptime.v1.ColumnOptions\"\230\001\n\021AddColumnL" +
+      "ocation\022B\n\rlocation_type\030\001 \001(\0162+.greptim" +
+      "e.v1.AddColumnLocation.LocationType\022\031\n\021a" +
+      "fter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t" +
+      "\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013" +
+      "column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010ana" +
+      "lyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016ca" +
+      "se_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.gr" +
+      "eptime.v1.FulltextBackend\022\023\n\013granularity" +
+      "\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rU" +
+      "nsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013Set" +
+      "Inverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetIn" +
+      "verted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkipp" +
+      "ing\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010" +
+      "\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_index_" +
+      "type\030\004 \001(\0162\036.greptime.v1.SkippingIndexTy" +
+      "pe\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\rUnset" +
+      "Skipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterD" +
+      "atabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
+      "ema_name\030\002 \001(\t\022?\n\024set_database_options\030\003" +
+      " \001(\0132\037.greptime.v1.SetDatabaseOptionsH\000\022" +
+      "C\n\026unset_database_options\030\004 \001(\0132!.grepti" +
+      "me.v1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022" +
+      "SetDatabaseOptions\0221\n\024set_database_optio" +
+      "ns\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024UnsetDa" +
+      "tabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTr" +
+      "iggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigg" +
+      "er_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 " +
+      "\001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.gre" +
+      "ptime.v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*" +
+      ".greptime.v1.CreateTriggerExpr.LabelsEnt" +
+      "ry\022D\n\013annotations\030\007 \003(\0132/.greptime.v1.Cr" +
+      "eateTriggerExpr.AnnotationsEntry\022+\n\010inte" +
+      "rval\030\010 \001(\0132\031.google.protobuf.Duration\022\031\n" +
+      "\021raw_interval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031." +
+      "google.protobuf.Duration\022\024\n\014for_raw_expr" +
+      "\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001(\0132\031.google" +
+      ".protobuf.Duration\022 \n\030keep_firing_for_ra" +
+      "w_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022" +
+      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotif" +
+      "yChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132" +
+      "\033.greptime.v1.WebhookOptionsH\000B\016\n\014channe" +
+      "l_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n" +
+      "\004opts\030\002 \003(\0132%.greptime.v1.WebhookOptions" +
+      ".OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026" +
+      "\n\016drop_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr" +
+      "\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 " +
+      "\001(\t\0223\n\013object_type\030\003 \001(\0162\036.greptime.v1.C" +
+      "ommentObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n" +
+      "\013column_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010A" +
+      "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Ful" +
+      "ltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021" +
+      "SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021C" +
+      "ommentObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022" +
+      "\010\n\004FLOW\020\002BL\n\016io.greptime.v1B\003DdlZ5github" +
+      ".com/GreptimeTeam/greptime-proto/go/grep" +
+      "time/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -60593,7 +60685,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_JsonTypeHint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonTypeHint_descriptor,
-        new java.lang.String[] { "Path", "DataType", "DatatypeExtension", });
+        new java.lang.String[] { "Path", "DataType", "DatatypeExtension", "InvertedIndex", });
     internal_static_greptime_v1_Option_descriptor =
       getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_Option_fieldAccessorTable = new
