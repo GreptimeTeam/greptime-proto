@@ -30,6 +30,8 @@ type ProcedureServiceClient interface {
 	Reconcile(ctx context.Context, in *ReconcileRequest, opts ...grpc.CallOption) (*ReconcileResponse, error)
 	// Submits a region migration task
 	Migrate(ctx context.Context, in *MigrateRegionRequest, opts ...grpc.CallOption) (*MigrateRegionResponse, error)
+	// Submits a datanode drain task
+	DrainNode(ctx context.Context, in *DrainNodeRequest, opts ...grpc.CallOption) (*DrainNodeResponse, error)
 	// Query all submitted procedures details
 	Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error)
 	// Manually trigger GC for a specific list of regions
@@ -82,6 +84,15 @@ func (c *procedureServiceClient) Migrate(ctx context.Context, in *MigrateRegionR
 	return out, nil
 }
 
+func (c *procedureServiceClient) DrainNode(ctx context.Context, in *DrainNodeRequest, opts ...grpc.CallOption) (*DrainNodeResponse, error) {
+	out := new(DrainNodeResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/drain_node", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *procedureServiceClient) Details(ctx context.Context, in *ProcedureDetailRequest, opts ...grpc.CallOption) (*ProcedureDetailResponse, error) {
 	out := new(ProcedureDetailResponse)
 	err := c.cc.Invoke(ctx, "/greptime.v1.meta.ProcedureService/details", in, out, opts...)
@@ -121,6 +132,8 @@ type ProcedureServiceServer interface {
 	Reconcile(context.Context, *ReconcileRequest) (*ReconcileResponse, error)
 	// Submits a region migration task
 	Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error)
+	// Submits a datanode drain task
+	DrainNode(context.Context, *DrainNodeRequest) (*DrainNodeResponse, error)
 	// Query all submitted procedures details
 	Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error)
 	// Manually trigger GC for a specific list of regions
@@ -145,6 +158,9 @@ func (UnimplementedProcedureServiceServer) Reconcile(context.Context, *Reconcile
 }
 func (UnimplementedProcedureServiceServer) Migrate(context.Context, *MigrateRegionRequest) (*MigrateRegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Migrate not implemented")
+}
+func (UnimplementedProcedureServiceServer) DrainNode(context.Context, *DrainNodeRequest) (*DrainNodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DrainNode not implemented")
 }
 func (UnimplementedProcedureServiceServer) Details(context.Context, *ProcedureDetailRequest) (*ProcedureDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Details not implemented")
@@ -240,6 +256,24 @@ func _ProcedureService_Migrate_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ProcedureService_DrainNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DrainNodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ProcedureServiceServer).DrainNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.meta.ProcedureService/drain_node",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ProcedureServiceServer).DrainNode(ctx, req.(*DrainNodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ProcedureService_Details_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProcedureDetailRequest)
 	if err := dec(in); err != nil {
@@ -316,6 +350,10 @@ var ProcedureService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "migrate",
 			Handler:    _ProcedureService_Migrate_Handler,
+		},
+		{
+			MethodName: "drain_node",
+			Handler:    _ProcedureService_DrainNode_Handler,
 		},
 		{
 			MethodName: "details",

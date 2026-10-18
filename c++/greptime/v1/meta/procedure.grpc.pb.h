@@ -74,6 +74,14 @@ class ProcedureService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MigrateRegionResponse>> PrepareAsyncmigrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MigrateRegionResponse>>(PrepareAsyncmigrateRaw(context, request, cq));
     }
+    // Submits a datanode drain task
+    virtual ::grpc::Status drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::greptime::v1::meta::DrainNodeResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>> Asyncdrain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>>(Asyncdrain_nodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>> PrepareAsyncdrain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>>(PrepareAsyncdrain_nodeRaw(context, request, cq));
+    }
     // Query all submitted procedures details
     virtual ::grpc::Status details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::greptime::v1::meta::ProcedureDetailResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ProcedureDetailResponse>> Asyncdetails(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) {
@@ -113,6 +121,9 @@ class ProcedureService final {
       // Submits a region migration task
       virtual void migrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void migrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Submits a datanode drain task
+      virtual void drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Query all submitted procedures details
       virtual void details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -135,6 +146,8 @@ class ProcedureService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ReconcileResponse>* PrepareAsyncreconcileRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MigrateRegionResponse>* AsyncmigrateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::MigrateRegionResponse>* PrepareAsyncmigrateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>* Asyncdrain_nodeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::DrainNodeResponse>* PrepareAsyncdrain_nodeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ProcedureDetailResponse>* AsyncdetailsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::ProcedureDetailResponse>* PrepareAsyncdetailsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::meta::GcRegionsResponse>* Asyncgc_regionsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::GcRegionsRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -173,6 +186,13 @@ class ProcedureService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MigrateRegionResponse>> PrepareAsyncmigrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MigrateRegionResponse>>(PrepareAsyncmigrateRaw(context, request, cq));
     }
+    ::grpc::Status drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::greptime::v1::meta::DrainNodeResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>> Asyncdrain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>>(Asyncdrain_nodeRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>> PrepareAsyncdrain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>>(PrepareAsyncdrain_nodeRaw(context, request, cq));
+    }
     ::grpc::Status details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::greptime::v1::meta::ProcedureDetailResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureDetailResponse>> Asyncdetails(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureDetailResponse>>(AsyncdetailsRaw(context, request, cq));
@@ -205,6 +225,8 @@ class ProcedureService final {
       void reconcile(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest* request, ::greptime::v1::meta::ReconcileResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void migrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response, std::function<void(::grpc::Status)>) override;
       void migrate(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response, std::function<void(::grpc::Status)>) override;
+      void drain_node(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response, std::function<void(::grpc::Status)>) override;
       void details(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void gc_regions(::grpc::ClientContext* context, const ::greptime::v1::meta::GcRegionsRequest* request, ::greptime::v1::meta::GcRegionsResponse* response, std::function<void(::grpc::Status)>) override;
@@ -230,6 +252,8 @@ class ProcedureService final {
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ReconcileResponse>* PrepareAsyncreconcileRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ReconcileRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MigrateRegionResponse>* AsyncmigrateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::MigrateRegionResponse>* PrepareAsyncmigrateRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::MigrateRegionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>* Asyncdrain_nodeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::DrainNodeResponse>* PrepareAsyncdrain_nodeRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::DrainNodeRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureDetailResponse>* AsyncdetailsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::ProcedureDetailResponse>* PrepareAsyncdetailsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::ProcedureDetailRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::meta::GcRegionsResponse>* Asyncgc_regionsRaw(::grpc::ClientContext* context, const ::greptime::v1::meta::GcRegionsRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -240,6 +264,7 @@ class ProcedureService final {
     const ::grpc::internal::RpcMethod rpcmethod_ddl_;
     const ::grpc::internal::RpcMethod rpcmethod_reconcile_;
     const ::grpc::internal::RpcMethod rpcmethod_migrate_;
+    const ::grpc::internal::RpcMethod rpcmethod_drain_node_;
     const ::grpc::internal::RpcMethod rpcmethod_details_;
     const ::grpc::internal::RpcMethod rpcmethod_gc_regions_;
     const ::grpc::internal::RpcMethod rpcmethod_gc_table_;
@@ -258,6 +283,8 @@ class ProcedureService final {
     virtual ::grpc::Status reconcile(::grpc::ServerContext* context, const ::greptime::v1::meta::ReconcileRequest* request, ::greptime::v1::meta::ReconcileResponse* response);
     // Submits a region migration task
     virtual ::grpc::Status migrate(::grpc::ServerContext* context, const ::greptime::v1::meta::MigrateRegionRequest* request, ::greptime::v1::meta::MigrateRegionResponse* response);
+    // Submits a datanode drain task
+    virtual ::grpc::Status drain_node(::grpc::ServerContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response);
     // Query all submitted procedures details
     virtual ::grpc::Status details(::grpc::ServerContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response);
     // Manually trigger GC for a specific list of regions
@@ -346,12 +373,32 @@ class ProcedureService final {
     }
   };
   template <class BaseClass>
+  class WithAsyncMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_drain_node() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestdrain_node(::grpc::ServerContext* context, ::greptime::v1::meta::DrainNodeRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::DrainNodeResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithAsyncMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_details() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_details() override {
       BaseClassMustBeDerivedFromService(this);
@@ -362,7 +409,7 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestdetails(::grpc::ServerContext* context, ::greptime::v1::meta::ProcedureDetailRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::ProcedureDetailResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -371,7 +418,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_gc_regions() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_gc_regions() override {
       BaseClassMustBeDerivedFromService(this);
@@ -382,7 +429,7 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestgc_regions(::grpc::ServerContext* context, ::greptime::v1::meta::GcRegionsRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::GcRegionsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -391,7 +438,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_gc_table() {
-      ::grpc::Service::MarkMethodAsync(6);
+      ::grpc::Service::MarkMethodAsync(7);
     }
     ~WithAsyncMethod_gc_table() override {
       BaseClassMustBeDerivedFromService(this);
@@ -402,10 +449,10 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestgc_table(::grpc::ServerContext* context, ::greptime::v1::meta::GcTableRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::meta::GcTableResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_query<WithAsyncMethod_ddl<WithAsyncMethod_reconcile<WithAsyncMethod_migrate<WithAsyncMethod_details<WithAsyncMethod_gc_regions<WithAsyncMethod_gc_table<Service > > > > > > > AsyncService;
+  typedef WithAsyncMethod_query<WithAsyncMethod_ddl<WithAsyncMethod_reconcile<WithAsyncMethod_migrate<WithAsyncMethod_drain_node<WithAsyncMethod_details<WithAsyncMethod_gc_regions<WithAsyncMethod_gc_table<Service > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_query : public BaseClass {
    private:
@@ -515,18 +562,45 @@ class ProcedureService final {
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::MigrateRegionRequest* /*request*/, ::greptime::v1::meta::MigrateRegionResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithCallbackMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_drain_node() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::DrainNodeRequest, ::greptime::v1::meta::DrainNodeResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::DrainNodeRequest* request, ::greptime::v1::meta::DrainNodeResponse* response) { return this->drain_node(context, request, response); }));}
+    void SetMessageAllocatorFor_drain_node(
+        ::grpc::MessageAllocator< ::greptime::v1::meta::DrainNodeRequest, ::greptime::v1::meta::DrainNodeResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::DrainNodeRequest, ::greptime::v1::meta::DrainNodeResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* drain_node(
+      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithCallbackMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_details() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::ProcedureDetailRequest, ::greptime::v1::meta::ProcedureDetailResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::ProcedureDetailRequest* request, ::greptime::v1::meta::ProcedureDetailResponse* response) { return this->details(context, request, response); }));}
     void SetMessageAllocatorFor_details(
         ::grpc::MessageAllocator< ::greptime::v1::meta::ProcedureDetailRequest, ::greptime::v1::meta::ProcedureDetailResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::ProcedureDetailRequest, ::greptime::v1::meta::ProcedureDetailResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -547,13 +621,13 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_gc_regions() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::GcRegionsRequest, ::greptime::v1::meta::GcRegionsResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::GcRegionsRequest* request, ::greptime::v1::meta::GcRegionsResponse* response) { return this->gc_regions(context, request, response); }));}
     void SetMessageAllocatorFor_gc_regions(
         ::grpc::MessageAllocator< ::greptime::v1::meta::GcRegionsRequest, ::greptime::v1::meta::GcRegionsResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::GcRegionsRequest, ::greptime::v1::meta::GcRegionsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -574,13 +648,13 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_gc_table() {
-      ::grpc::Service::MarkMethodCallback(6,
+      ::grpc::Service::MarkMethodCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::GcTableRequest, ::greptime::v1::meta::GcTableResponse>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::greptime::v1::meta::GcTableRequest* request, ::greptime::v1::meta::GcTableResponse* response) { return this->gc_table(context, request, response); }));}
     void SetMessageAllocatorFor_gc_table(
         ::grpc::MessageAllocator< ::greptime::v1::meta::GcTableRequest, ::greptime::v1::meta::GcTableResponse>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(7);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::meta::GcTableRequest, ::greptime::v1::meta::GcTableResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -595,7 +669,7 @@ class ProcedureService final {
     virtual ::grpc::ServerUnaryReactor* gc_table(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::meta::GcTableRequest* /*request*/, ::greptime::v1::meta::GcTableResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_query<WithCallbackMethod_ddl<WithCallbackMethod_reconcile<WithCallbackMethod_migrate<WithCallbackMethod_details<WithCallbackMethod_gc_regions<WithCallbackMethod_gc_table<Service > > > > > > > CallbackService;
+  typedef WithCallbackMethod_query<WithCallbackMethod_ddl<WithCallbackMethod_reconcile<WithCallbackMethod_migrate<WithCallbackMethod_drain_node<WithCallbackMethod_details<WithCallbackMethod_gc_regions<WithCallbackMethod_gc_table<Service > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_query : public BaseClass {
@@ -666,12 +740,29 @@ class ProcedureService final {
     }
   };
   template <class BaseClass>
+  class WithGenericMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_drain_node() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
   class WithGenericMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_details() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_details() override {
       BaseClassMustBeDerivedFromService(this);
@@ -688,7 +779,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_gc_regions() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_gc_regions() override {
       BaseClassMustBeDerivedFromService(this);
@@ -705,7 +796,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_gc_table() {
-      ::grpc::Service::MarkMethodGeneric(6);
+      ::grpc::Service::MarkMethodGeneric(7);
     }
     ~WithGenericMethod_gc_table() override {
       BaseClassMustBeDerivedFromService(this);
@@ -797,12 +888,32 @@ class ProcedureService final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_drain_node() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestdrain_node(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_details() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_details() override {
       BaseClassMustBeDerivedFromService(this);
@@ -813,7 +924,7 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestdetails(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -822,7 +933,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_gc_regions() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_gc_regions() override {
       BaseClassMustBeDerivedFromService(this);
@@ -833,7 +944,7 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestgc_regions(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -842,7 +953,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_gc_table() {
-      ::grpc::Service::MarkMethodRaw(6);
+      ::grpc::Service::MarkMethodRaw(7);
     }
     ~WithRawMethod_gc_table() override {
       BaseClassMustBeDerivedFromService(this);
@@ -853,7 +964,7 @@ class ProcedureService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestgc_table(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -945,12 +1056,34 @@ class ProcedureService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
+  class WithRawCallbackMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_drain_node() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->drain_node(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* drain_node(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_details() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->details(context, request, response); }));
@@ -972,7 +1105,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_gc_regions() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->gc_regions(context, request, response); }));
@@ -994,7 +1127,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_gc_table() {
-      ::grpc::Service::MarkMethodRawCallback(6,
+      ::grpc::Service::MarkMethodRawCallback(7,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->gc_table(context, request, response); }));
@@ -1119,12 +1252,39 @@ class ProcedureService final {
     virtual ::grpc::Status Streamedmigrate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::MigrateRegionRequest,::greptime::v1::meta::MigrateRegionResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
+  class WithStreamedUnaryMethod_drain_node : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_drain_node() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::greptime::v1::meta::DrainNodeRequest, ::greptime::v1::meta::DrainNodeResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::greptime::v1::meta::DrainNodeRequest, ::greptime::v1::meta::DrainNodeResponse>* streamer) {
+                       return this->Streameddrain_node(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_drain_node() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status drain_node(::grpc::ServerContext* /*context*/, const ::greptime::v1::meta::DrainNodeRequest* /*request*/, ::greptime::v1::meta::DrainNodeResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status Streameddrain_node(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::DrainNodeRequest,::greptime::v1::meta::DrainNodeResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_details : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_details() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::greptime::v1::meta::ProcedureDetailRequest, ::greptime::v1::meta::ProcedureDetailResponse>(
             [this](::grpc::ServerContext* context,
@@ -1151,7 +1311,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_gc_regions() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::greptime::v1::meta::GcRegionsRequest, ::greptime::v1::meta::GcRegionsResponse>(
             [this](::grpc::ServerContext* context,
@@ -1178,7 +1338,7 @@ class ProcedureService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_gc_table() {
-      ::grpc::Service::MarkMethodStreamed(6,
+      ::grpc::Service::MarkMethodStreamed(7,
         new ::grpc::internal::StreamedUnaryHandler<
           ::greptime::v1::meta::GcTableRequest, ::greptime::v1::meta::GcTableResponse>(
             [this](::grpc::ServerContext* context,
@@ -1199,9 +1359,9 @@ class ProcedureService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status Streamedgc_table(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::meta::GcTableRequest,::greptime::v1::meta::GcTableResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_query<WithStreamedUnaryMethod_ddl<WithStreamedUnaryMethod_reconcile<WithStreamedUnaryMethod_migrate<WithStreamedUnaryMethod_details<WithStreamedUnaryMethod_gc_regions<WithStreamedUnaryMethod_gc_table<Service > > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_query<WithStreamedUnaryMethod_ddl<WithStreamedUnaryMethod_reconcile<WithStreamedUnaryMethod_migrate<WithStreamedUnaryMethod_drain_node<WithStreamedUnaryMethod_details<WithStreamedUnaryMethod_gc_regions<WithStreamedUnaryMethod_gc_table<Service > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_query<WithStreamedUnaryMethod_ddl<WithStreamedUnaryMethod_reconcile<WithStreamedUnaryMethod_migrate<WithStreamedUnaryMethod_details<WithStreamedUnaryMethod_gc_regions<WithStreamedUnaryMethod_gc_table<Service > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_query<WithStreamedUnaryMethod_ddl<WithStreamedUnaryMethod_reconcile<WithStreamedUnaryMethod_migrate<WithStreamedUnaryMethod_drain_node<WithStreamedUnaryMethod_details<WithStreamedUnaryMethod_gc_regions<WithStreamedUnaryMethod_gc_table<Service > > > > > > > > StreamedService;
 };
 
 }  // namespace meta
