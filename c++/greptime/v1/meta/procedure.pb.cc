@@ -174,6 +174,36 @@ struct ReconcileResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ReconcileResponseDefaultTypeInternal _ReconcileResponse_default_instance_;
+PROTOBUF_CONSTEXPR DrainNodeRequest::DrainNodeRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.event_context_)*/nullptr
+  , /*decltype(_impl_.actor_)*/nullptr
+  , /*decltype(_impl_.datanode_id_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DrainNodeRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DrainNodeRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DrainNodeRequestDefaultTypeInternal() {}
+  union {
+    DrainNodeRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DrainNodeRequestDefaultTypeInternal _DrainNodeRequest_default_instance_;
+PROTOBUF_CONSTEXPR DrainNodeResponse::DrainNodeResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.header_)*/nullptr
+  , /*decltype(_impl_.pid_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DrainNodeResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DrainNodeResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DrainNodeResponseDefaultTypeInternal() {}
+  union {
+    DrainNodeResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DrainNodeResponseDefaultTypeInternal _DrainNodeResponse_default_instance_;
 PROTOBUF_CONSTEXPR GcRegionsRequest::GcRegionsRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.region_ids_)*/{}
@@ -261,7 +291,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 }  // namespace meta
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[15];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[17];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto = nullptr;
 
@@ -360,6 +390,24 @@ const uint32_t TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::ReconcileResponse, _impl_.pid_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeRequest, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeRequest, _impl_.datanode_id_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeRequest, _impl_.event_context_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeRequest, _impl_.actor_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::DrainNodeResponse, _impl_.pid_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::meta::GcRegionsRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -423,11 +471,13 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 65, -1, -1, sizeof(::greptime::v1::meta::ReconcileCatalog)},
   { 74, -1, -1, sizeof(::greptime::v1::meta::ReconcileRequest)},
   { 85, -1, -1, sizeof(::greptime::v1::meta::ReconcileResponse)},
-  { 93, -1, -1, sizeof(::greptime::v1::meta::GcRegionsRequest)},
-  { 105, -1, -1, sizeof(::greptime::v1::meta::GcStats)},
-  { 115, -1, -1, sizeof(::greptime::v1::meta::GcRegionsResponse)},
-  { 123, -1, -1, sizeof(::greptime::v1::meta::GcTableRequest)},
-  { 137, -1, -1, sizeof(::greptime::v1::meta::GcTableResponse)},
+  { 93, -1, -1, sizeof(::greptime::v1::meta::DrainNodeRequest)},
+  { 103, -1, -1, sizeof(::greptime::v1::meta::DrainNodeResponse)},
+  { 111, -1, -1, sizeof(::greptime::v1::meta::GcRegionsRequest)},
+  { 123, -1, -1, sizeof(::greptime::v1::meta::GcStats)},
+  { 133, -1, -1, sizeof(::greptime::v1::meta::GcRegionsResponse)},
+  { 141, -1, -1, sizeof(::greptime::v1::meta::GcTableRequest)},
+  { 155, -1, -1, sizeof(::greptime::v1::meta::GcTableResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -441,6 +491,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::meta::_ReconcileCatalog_default_instance_._instance,
   &::greptime::v1::meta::_ReconcileRequest_default_instance_._instance,
   &::greptime::v1::meta::_ReconcileResponse_default_instance_._instance,
+  &::greptime::v1::meta::_DrainNodeRequest_default_instance_._instance,
+  &::greptime::v1::meta::_DrainNodeResponse_default_instance_._instance,
   &::greptime::v1::meta::_GcRegionsRequest_default_instance_._instance,
   &::greptime::v1::meta::_GcStats_default_instance_._instance,
   &::greptime::v1::meta::_GcRegionsResponse_default_instance_._instance,
@@ -489,51 +541,62 @@ const char descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto[] 
   "econcileCatalogH\000B\010\n\006target\"q\n\021Reconcile"
   "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
   "eta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.grepti"
-  "me.v1.meta.ProcedureId\"\371\001\n\020GcRegionsRequ"
+  "me.v1.meta.ProcedureId\"\311\001\n\020DrainNodeRequ"
   "est\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.R"
-  "equestHeader\022\022\n\nregion_ids\030\002 \003(\004\022\031\n\021full"
-  "_file_listing\030\003 \001(\010\022\024\n\014timeout_secs\030\004 \001("
-  "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m"
-  "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013"
-  "2 .greptime.v1.meta.ProcedureActor\"p\n\007Gc"
-  "Stats\022\031\n\021processed_regions\030\001 \001(\004\022\032\n\022need"
-  "_retry_regions\030\002 \003(\004\022\025\n\rdeleted_files\030\003 "
-  "\001(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021GcRegion"
-  "sResponse\0220\n\006header\030\001 \001(\0132 .greptime.v1."
-  "meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031.gre"
-  "ptime.v1.meta.GcStats\"\242\002\n\016GcTableRequest"
-  "\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Requ"
-  "estHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023\n\013schem"
-  "a_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022\031\n\021full"
-  "_file_listing\030\005 \001(\010\022\024\n\014timeout_secs\030\006 \001("
-  "\r\022>\n\revent_context\030C \001(\0132\'.greptime.v1.m"
-  "eta.ProcedureEventContext\022/\n\005actor\030D \001(\013"
-  "2 .greptime.v1.meta.ProcedureActor\"m\n\017Gc"
-  "TableResponse\0220\n\006header\030\001 \001(\0132 .greptime"
-  ".v1.meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031"
-  ".greptime.v1.meta.GcStats*v\n\017ProcedureSt"
-  "atus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020"
-  "\002\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Ro"
-  "llingBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStra"
-  "tegy\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017A"
-  "bortOnConflict\020\0022\364\004\n\020ProcedureService\022Z\n"
-  "\005query\022\'.greptime.v1.meta.QueryProcedure"
-  "Request\032(.greptime.v1.meta.ProcedureStat"
-  "eResponse\022J\n\003ddl\022 .greptime.v1.meta.DdlT"
-  "askRequest\032!.greptime.v1.meta.DdlTaskRes"
-  "ponse\022T\n\treconcile\022\".greptime.v1.meta.Re"
-  "concileRequest\032#.greptime.v1.meta.Reconc"
-  "ileResponse\022Z\n\007migrate\022&.greptime.v1.met"
-  "a.MigrateRegionRequest\032\'.greptime.v1.met"
-  "a.MigrateRegionResponse\022^\n\007details\022(.gre"
-  "ptime.v1.meta.ProcedureDetailRequest\032).g"
-  "reptime.v1.meta.ProcedureDetailResponse\022"
-  "U\n\ngc_regions\022\".greptime.v1.meta.GcRegio"
-  "nsRequest\032#.greptime.v1.meta.GcRegionsRe"
-  "sponse\022O\n\010gc_table\022 .greptime.v1.meta.Gc"
-  "TableRequest\032!.greptime.v1.meta.GcTableR"
-  "esponseB<Z:github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1/metab\006proto3"
+  "equestHeader\022\023\n\013datanode_id\030\002 \001(\004\022>\n\reve"
+  "nt_context\030C \001(\0132\'.greptime.v1.meta.Proc"
+  "edureEventContext\022/\n\005actor\030D \001(\0132 .grept"
+  "ime.v1.meta.ProcedureActor\"q\n\021DrainNodeR"
+  "esponse\0220\n\006header\030\001 \001(\0132 .greptime.v1.me"
+  "ta.ResponseHeader\022*\n\003pid\030\002 \001(\0132\035.greptim"
+  "e.v1.meta.ProcedureId\"\371\001\n\020GcRegionsReque"
+  "st\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Re"
+  "questHeader\022\022\n\nregion_ids\030\002 \003(\004\022\031\n\021full_"
+  "file_listing\030\003 \001(\010\022\024\n\014timeout_secs\030\004 \001(\r"
+  "\022>\n\revent_context\030C \001(\0132\'.greptime.v1.me"
+  "ta.ProcedureEventContext\022/\n\005actor\030D \001(\0132"
+  " .greptime.v1.meta.ProcedureActor\"p\n\007GcS"
+  "tats\022\031\n\021processed_regions\030\001 \001(\004\022\032\n\022need_"
+  "retry_regions\030\002 \003(\004\022\025\n\rdeleted_files\030\003 \001"
+  "(\004\022\027\n\017deleted_indexes\030\004 \001(\004\"o\n\021GcRegions"
+  "Response\0220\n\006header\030\001 \001(\0132 .greptime.v1.m"
+  "eta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031.grep"
+  "time.v1.meta.GcStats\"\242\002\n\016GcTableRequest\022"
+  "/\n\006header\030\001 \001(\0132\037.greptime.v1.meta.Reque"
+  "stHeader\022\024\n\014catalog_name\030\002 \001(\t\022\023\n\013schema"
+  "_name\030\003 \001(\t\022\022\n\ntable_name\030\004 \001(\t\022\031\n\021full_"
+  "file_listing\030\005 \001(\010\022\024\n\014timeout_secs\030\006 \001(\r"
+  "\022>\n\revent_context\030C \001(\0132\'.greptime.v1.me"
+  "ta.ProcedureEventContext\022/\n\005actor\030D \001(\0132"
+  " .greptime.v1.meta.ProcedureActor\"m\n\017GcT"
+  "ableResponse\0220\n\006header\030\001 \001(\0132 .greptime."
+  "v1.meta.ResponseHeader\022(\n\005stats\030\002 \001(\0132\031."
+  "greptime.v1.meta.GcStats*v\n\017ProcedureSta"
+  "tus\022\013\n\007Running\020\000\022\010\n\004Done\020\001\022\014\n\010Retrying\020\002"
+  "\022\n\n\006Failed\020\003\022\023\n\017PrepareRollback\020\004\022\017\n\013Rol"
+  "lingBack\020\005\022\014\n\010Poisoned\020\006*E\n\017ResolveStrat"
+  "egy\022\r\n\tUseLatest\020\000\022\016\n\nUseMetasrv\020\001\022\023\n\017Ab"
+  "ortOnConflict\020\0022\313\005\n\020ProcedureService\022Z\n\005"
+  "query\022\'.greptime.v1.meta.QueryProcedureR"
+  "equest\032(.greptime.v1.meta.ProcedureState"
+  "Response\022J\n\003ddl\022 .greptime.v1.meta.DdlTa"
+  "skRequest\032!.greptime.v1.meta.DdlTaskResp"
+  "onse\022T\n\treconcile\022\".greptime.v1.meta.Rec"
+  "oncileRequest\032#.greptime.v1.meta.Reconci"
+  "leResponse\022Z\n\007migrate\022&.greptime.v1.meta"
+  ".MigrateRegionRequest\032\'.greptime.v1.meta"
+  ".MigrateRegionResponse\022U\n\ndrain_node\022\".g"
+  "reptime.v1.meta.DrainNodeRequest\032#.grept"
+  "ime.v1.meta.DrainNodeResponse\022^\n\007details"
+  "\022(.greptime.v1.meta.ProcedureDetailReque"
+  "st\032).greptime.v1.meta.ProcedureDetailRes"
+  "ponse\022U\n\ngc_regions\022\".greptime.v1.meta.G"
+  "cRegionsRequest\032#.greptime.v1.meta.GcReg"
+  "ionsResponse\022O\n\010gc_table\022 .greptime.v1.m"
+  "eta.GcTableRequest\032!.greptime.v1.meta.Gc"
+  "TableResponseB<Z:github.com/GreptimeTeam"
+  "/greptime-proto/go/greptime/v1/metab\006pro"
+  "to3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fmeta_2fcommon_2eproto,
@@ -542,9 +605,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fmet
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto = {
-    false, false, 3397, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
+    false, false, 3803, descriptor_table_protodef_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     "greptime/v1/meta/procedure.proto",
-    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 15,
+    &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once, descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_deps, 3, 17,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fmeta_2fprocedure_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto, file_level_enum_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fmeta_2fprocedure_2eproto,
@@ -3566,6 +3629,581 @@ void ReconcileResponse::InternalSwap(ReconcileResponse* other) {
 
 // ===================================================================
 
+class DrainNodeRequest::_Internal {
+ public:
+  static const ::greptime::v1::meta::RequestHeader& header(const DrainNodeRequest* msg);
+  static const ::greptime::v1::meta::ProcedureEventContext& event_context(const DrainNodeRequest* msg);
+  static const ::greptime::v1::meta::ProcedureActor& actor(const DrainNodeRequest* msg);
+};
+
+const ::greptime::v1::meta::RequestHeader&
+DrainNodeRequest::_Internal::header(const DrainNodeRequest* msg) {
+  return *msg->_impl_.header_;
+}
+const ::greptime::v1::meta::ProcedureEventContext&
+DrainNodeRequest::_Internal::event_context(const DrainNodeRequest* msg) {
+  return *msg->_impl_.event_context_;
+}
+const ::greptime::v1::meta::ProcedureActor&
+DrainNodeRequest::_Internal::actor(const DrainNodeRequest* msg) {
+  return *msg->_impl_.actor_;
+}
+void DrainNodeRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+void DrainNodeRequest::clear_event_context() {
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+}
+void DrainNodeRequest::clear_actor() {
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
+}
+DrainNodeRequest::DrainNodeRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.DrainNodeRequest)
+}
+DrainNodeRequest::DrainNodeRequest(const DrainNodeRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DrainNodeRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
+    , decltype(_impl_.datanode_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::RequestHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_event_context()) {
+    _this->_impl_.event_context_ = new ::greptime::v1::meta::ProcedureEventContext(*from._impl_.event_context_);
+  }
+  if (from._internal_has_actor()) {
+    _this->_impl_.actor_ = new ::greptime::v1::meta::ProcedureActor(*from._impl_.actor_);
+  }
+  _this->_impl_.datanode_id_ = from._impl_.datanode_id_;
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DrainNodeRequest)
+}
+
+inline void DrainNodeRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.event_context_){nullptr}
+    , decltype(_impl_.actor_){nullptr}
+    , decltype(_impl_.datanode_id_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+DrainNodeRequest::~DrainNodeRequest() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.DrainNodeRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DrainNodeRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.event_context_;
+  if (this != internal_default_instance()) delete _impl_.actor_;
+}
+
+void DrainNodeRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DrainNodeRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.DrainNodeRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.event_context_ != nullptr) {
+    delete _impl_.event_context_;
+  }
+  _impl_.event_context_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.actor_ != nullptr) {
+    delete _impl_.actor_;
+  }
+  _impl_.actor_ = nullptr;
+  _impl_.datanode_id_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DrainNodeRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.RequestHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 datanode_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.datanode_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+      case 67:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_event_context(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureActor actor = 68;
+      case 68:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_actor(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DrainNodeRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.DrainNodeRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // uint64 datanode_id = 2;
+  if (this->_internal_datanode_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(2, this->_internal_datanode_id(), target);
+  }
+
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(67, _Internal::event_context(this),
+        _Internal::event_context(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(68, _Internal::actor(this),
+        _Internal::actor(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.DrainNodeRequest)
+  return target;
+}
+
+size_t DrainNodeRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.DrainNodeRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.RequestHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureEventContext event_context = 67;
+  if (this->_internal_has_event_context()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_context_);
+  }
+
+  // .greptime.v1.meta.ProcedureActor actor = 68;
+  if (this->_internal_has_actor()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.actor_);
+  }
+
+  // uint64 datanode_id = 2;
+  if (this->_internal_datanode_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_datanode_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DrainNodeRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DrainNodeRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DrainNodeRequest::GetClassData() const { return &_class_data_; }
+
+
+void DrainNodeRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DrainNodeRequest*>(&to_msg);
+  auto& from = static_cast<const DrainNodeRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.DrainNodeRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::RequestHeader::MergeFrom(
+        from._internal_header());
+  }
+  if (from._internal_has_event_context()) {
+    _this->_internal_mutable_event_context()->::greptime::v1::meta::ProcedureEventContext::MergeFrom(
+        from._internal_event_context());
+  }
+  if (from._internal_has_actor()) {
+    _this->_internal_mutable_actor()->::greptime::v1::meta::ProcedureActor::MergeFrom(
+        from._internal_actor());
+  }
+  if (from._internal_datanode_id() != 0) {
+    _this->_internal_set_datanode_id(from._internal_datanode_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DrainNodeRequest::CopyFrom(const DrainNodeRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.DrainNodeRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DrainNodeRequest::IsInitialized() const {
+  return true;
+}
+
+void DrainNodeRequest::InternalSwap(DrainNodeRequest* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DrainNodeRequest, _impl_.datanode_id_)
+      + sizeof(DrainNodeRequest::_impl_.datanode_id_)
+      - PROTOBUF_FIELD_OFFSET(DrainNodeRequest, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DrainNodeRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10]);
+}
+
+// ===================================================================
+
+class DrainNodeResponse::_Internal {
+ public:
+  static const ::greptime::v1::meta::ResponseHeader& header(const DrainNodeResponse* msg);
+  static const ::greptime::v1::meta::ProcedureId& pid(const DrainNodeResponse* msg);
+};
+
+const ::greptime::v1::meta::ResponseHeader&
+DrainNodeResponse::_Internal::header(const DrainNodeResponse* msg) {
+  return *msg->_impl_.header_;
+}
+const ::greptime::v1::meta::ProcedureId&
+DrainNodeResponse::_Internal::pid(const DrainNodeResponse* msg) {
+  return *msg->_impl_.pid_;
+}
+void DrainNodeResponse::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+void DrainNodeResponse::clear_pid() {
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
+}
+DrainNodeResponse::DrainNodeResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.meta.DrainNodeResponse)
+}
+DrainNodeResponse::DrainNodeResponse(const DrainNodeResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  DrainNodeResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::greptime::v1::meta::ResponseHeader(*from._impl_.header_);
+  }
+  if (from._internal_has_pid()) {
+    _this->_impl_.pid_ = new ::greptime::v1::meta::ProcedureId(*from._impl_.pid_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.meta.DrainNodeResponse)
+}
+
+inline void DrainNodeResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.header_){nullptr}
+    , decltype(_impl_.pid_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+DrainNodeResponse::~DrainNodeResponse() {
+  // @@protoc_insertion_point(destructor:greptime.v1.meta.DrainNodeResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void DrainNodeResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete _impl_.pid_;
+}
+
+void DrainNodeResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void DrainNodeResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.meta.DrainNodeResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.pid_ != nullptr) {
+    delete _impl_.pid_;
+  }
+  _impl_.pid_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DrainNodeResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .greptime.v1.meta.ResponseHeader header = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.meta.ProcedureId pid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_pid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* DrainNodeResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.meta.DrainNodeResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::pid(this),
+        _Internal::pid(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.meta.DrainNodeResponse)
+  return target;
+}
+
+size_t DrainNodeResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.meta.DrainNodeResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .greptime.v1.meta.ResponseHeader header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  // .greptime.v1.meta.ProcedureId pid = 2;
+  if (this->_internal_has_pid()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.pid_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DrainNodeResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    DrainNodeResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DrainNodeResponse::GetClassData() const { return &_class_data_; }
+
+
+void DrainNodeResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<DrainNodeResponse*>(&to_msg);
+  auto& from = static_cast<const DrainNodeResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.meta.DrainNodeResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::greptime::v1::meta::ResponseHeader::MergeFrom(
+        from._internal_header());
+  }
+  if (from._internal_has_pid()) {
+    _this->_internal_mutable_pid()->::greptime::v1::meta::ProcedureId::MergeFrom(
+        from._internal_pid());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DrainNodeResponse::CopyFrom(const DrainNodeResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.meta.DrainNodeResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DrainNodeResponse::IsInitialized() const {
+  return true;
+}
+
+void DrainNodeResponse::InternalSwap(DrainNodeResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(DrainNodeResponse, _impl_.pid_)
+      + sizeof(DrainNodeResponse::_impl_.pid_)
+      - PROTOBUF_FIELD_OFFSET(DrainNodeResponse, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DrainNodeResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[11]);
+}
+
+// ===================================================================
+
 class GcRegionsRequest::_Internal {
  public:
   static const ::greptime::v1::meta::RequestHeader& header(const GcRegionsRequest* msg);
@@ -3955,7 +4593,7 @@ void GcRegionsRequest::InternalSwap(GcRegionsRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GcRegionsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[10]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[12]);
 }
 
 // ===================================================================
@@ -4232,7 +4870,7 @@ void GcStats::InternalSwap(GcStats* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GcStats::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[11]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[13]);
 }
 
 // ===================================================================
@@ -4477,7 +5115,7 @@ void GcRegionsResponse::InternalSwap(GcRegionsResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GcRegionsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[12]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[14]);
 }
 
 // ===================================================================
@@ -4981,7 +5619,7 @@ void GcTableRequest::InternalSwap(GcTableRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GcTableRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[13]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[15]);
 }
 
 // ===================================================================
@@ -5226,7 +5864,7 @@ void GcTableResponse::InternalSwap(GcTableResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GcTableResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_getter, &descriptor_table_greptime_2fv1_2fmeta_2fprocedure_2eproto_once,
-      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[14]);
+      file_level_metadata_greptime_2fv1_2fmeta_2fprocedure_2eproto[16]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -5273,6 +5911,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileRequest >(Arena* arena
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::ReconcileResponse*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::ReconcileResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::meta::ReconcileResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::DrainNodeRequest*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::DrainNodeRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::DrainNodeRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::meta::DrainNodeResponse*
+Arena::CreateMaybeMessage< ::greptime::v1::meta::DrainNodeResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::meta::DrainNodeResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::meta::GcRegionsRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::meta::GcRegionsRequest >(Arena* arena) {

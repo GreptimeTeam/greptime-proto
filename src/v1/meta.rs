@@ -181,6 +181,7 @@ gen_set_header!(LockRequest);
 gen_set_header!(UnlockRequest);
 gen_set_header!(DdlTaskRequest);
 gen_set_header!(MigrateRegionRequest);
+gen_set_header!(DrainNodeRequest);
 gen_set_header!(QueryProcedureRequest);
 gen_set_header!(ProcedureDetailRequest);
 gen_set_header!(ReconcileRequest);

@@ -92,6 +92,20 @@ message ReconcileResponse {
   ProcedureId pid = 2;
 }
 
+message DrainNodeRequest {
+  RequestHeader header = 1;
+  uint64 datanode_id = 2;
+  // Stable event metadata recorded with the submitted procedure.
+  ProcedureEventContext event_context = 67;
+  // Effective user that submitted the procedure.
+  ProcedureActor actor = 68;
+}
+
+message DrainNodeResponse {
+  ResponseHeader header = 1;
+  ProcedureId pid = 2;
+}
+
 message GcRegionsRequest {
   RequestHeader header = 1;
   repeated uint64 region_ids = 2;
@@ -153,6 +167,9 @@ service ProcedureService {
 
   // Submits a region migration task
   rpc migrate(MigrateRegionRequest) returns (MigrateRegionResponse);
+
+  // Submits a datanode drain task
+  rpc drain_node(DrainNodeRequest) returns (DrainNodeResponse);
 
   // Query all submitted procedures details
   rpc details(ProcedureDetailRequest) returns (ProcedureDetailResponse);

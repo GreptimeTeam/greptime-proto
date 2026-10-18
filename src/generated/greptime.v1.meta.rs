@@ -3357,6 +3357,26 @@ pub struct ReconcileResponse {
     pub pid: ::core::option::Option<ProcedureId>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct DrainNodeRequest {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<RequestHeader>,
+    #[prost(uint64, tag = "2")]
+    pub datanode_id: u64,
+    /// Stable event metadata recorded with the submitted procedure.
+    #[prost(message, optional, tag = "67")]
+    pub event_context: ::core::option::Option<ProcedureEventContext>,
+    /// Effective user that submitted the procedure.
+    #[prost(message, optional, tag = "68")]
+    pub actor: ::core::option::Option<ProcedureActor>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct DrainNodeResponse {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<ResponseHeader>,
+    #[prost(message, optional, tag = "2")]
+    pub pid: ::core::option::Option<ProcedureId>,
+}
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GcRegionsRequest {
     #[prost(message, optional, tag = "1")]
     pub header: ::core::option::Option<RequestHeader>,
@@ -3690,6 +3710,33 @@ pub mod procedure_service_client {
                 .insert(GrpcMethod::new("greptime.v1.meta.ProcedureService", "migrate"));
             self.inner.unary(req, path, codec).await
         }
+        /// Submits a datanode drain task
+        pub async fn drain_node(
+            &mut self,
+            request: impl tonic::IntoRequest<super::DrainNodeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::DrainNodeResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::unknown(
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic_prost::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/greptime.v1.meta.ProcedureService/drain_node",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("greptime.v1.meta.ProcedureService", "drain_node"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
         /// Query all submitted procedures details
         pub async fn details(
             &mut self,
@@ -3811,6 +3858,14 @@ pub mod procedure_service_server {
             request: tonic::Request<super::MigrateRegionRequest>,
         ) -> std::result::Result<
             tonic::Response<super::MigrateRegionResponse>,
+            tonic::Status,
+        >;
+        /// Submits a datanode drain task
+        async fn drain_node(
+            &self,
+            request: tonic::Request<super::DrainNodeRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::DrainNodeResponse>,
             tonic::Status,
         >;
         /// Query all submitted procedures details
@@ -4075,6 +4130,51 @@ pub mod procedure_service_server {
                     let inner = self.inner.clone();
                     let fut = async move {
                         let method = migrateSvc(inner);
+                        let codec = tonic_prost::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/greptime.v1.meta.ProcedureService/drain_node" => {
+                    #[allow(non_camel_case_types)]
+                    struct drain_nodeSvc<T: ProcedureService>(pub Arc<T>);
+                    impl<
+                        T: ProcedureService,
+                    > tonic::server::UnaryService<super::DrainNodeRequest>
+                    for drain_nodeSvc<T> {
+                        type Response = super::DrainNodeResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::DrainNodeRequest>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                <T as ProcedureService>::drain_node(&inner, request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let method = drain_nodeSvc(inner);
                         let codec = tonic_prost::ProstCodec::default();
                         let mut grpc = tonic::server::Grpc::new(codec)
                             .apply_compression_config(
