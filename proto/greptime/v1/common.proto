@@ -69,6 +69,9 @@ message Status {
   // Corresponding to the `StatusCode` definition of GreptimeDB
   uint32 status_code = 1;
   string err_msg = 2;
+  // Uses the same values as the x-greptime-err-retry-hint gRPC metadata.
+  // Empty or unrecognized values do not grant permission to retry.
+  string retry_hint = 3;
 }
 
 message AuthHeader {

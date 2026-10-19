@@ -1557,6 +1557,7 @@ class Status final :
 
   enum : int {
     kErrMsgFieldNumber = 2,
+    kRetryHintFieldNumber = 3,
     kStatusCodeFieldNumber = 1,
   };
   // string err_msg = 2;
@@ -1571,6 +1572,20 @@ class Status final :
   const std::string& _internal_err_msg() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_err_msg(const std::string& value);
   std::string* _internal_mutable_err_msg();
+  public:
+
+  // string retry_hint = 3;
+  void clear_retry_hint();
+  const std::string& retry_hint() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_retry_hint(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_retry_hint();
+  PROTOBUF_NODISCARD std::string* release_retry_hint();
+  void set_allocated_retry_hint(std::string* retry_hint);
+  private:
+  const std::string& _internal_retry_hint() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_retry_hint(const std::string& value);
+  std::string* _internal_mutable_retry_hint();
   public:
 
   // uint32 status_code = 1;
@@ -1591,6 +1606,7 @@ class Status final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr err_msg_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr retry_hint_;
     uint32_t status_code_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -6711,6 +6727,56 @@ inline void Status::set_allocated_err_msg(std::string* err_msg) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.Status.err_msg)
+}
+
+// string retry_hint = 3;
+inline void Status::clear_retry_hint() {
+  _impl_.retry_hint_.ClearToEmpty();
+}
+inline const std::string& Status::retry_hint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.Status.retry_hint)
+  return _internal_retry_hint();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Status::set_retry_hint(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.retry_hint_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.Status.retry_hint)
+}
+inline std::string* Status::mutable_retry_hint() {
+  std::string* _s = _internal_mutable_retry_hint();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.Status.retry_hint)
+  return _s;
+}
+inline const std::string& Status::_internal_retry_hint() const {
+  return _impl_.retry_hint_.Get();
+}
+inline void Status::_internal_set_retry_hint(const std::string& value) {
+  
+  _impl_.retry_hint_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Status::_internal_mutable_retry_hint() {
+  
+  return _impl_.retry_hint_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Status::release_retry_hint() {
+  // @@protoc_insertion_point(field_release:greptime.v1.Status.retry_hint)
+  return _impl_.retry_hint_.Release();
+}
+inline void Status::set_allocated_retry_hint(std::string* retry_hint) {
+  if (retry_hint != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.retry_hint_.SetAllocated(retry_hint, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.retry_hint_.IsDefault()) {
+    _impl_.retry_hint_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.Status.retry_hint)
 }
 
 // -------------------------------------------------------------------
