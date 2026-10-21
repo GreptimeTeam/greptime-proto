@@ -75,6 +75,19 @@ message RegionResponse {
   // The length of the array is equal to the number of regions in the list request.
   // The element is null if the region is not found.
   bytes metadata = 4;
+  // Only populated for inserts/deletes. Each index refers to an entry in the
+  // original request list. Unlisted entries succeeded; all entries may fail.
+  // A non-empty list requires a non-success header status. affected_rows and
+  // extensions then describe successful entries only. Clients must not retry
+  // the entire request based on the header status.
+  repeated RegionRequestFailure failures = 5;
+}
+
+message RegionRequestFailure {
+  // Zero-based index into the request's inserts.requests or deletes.requests.
+  uint32 request_index = 1;
+  // Required and must contain a non-success status code.
+  Status status = 2;
 }
 
 message InsertRequests {

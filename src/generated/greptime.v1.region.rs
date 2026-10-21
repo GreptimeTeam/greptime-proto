@@ -105,6 +105,22 @@ pub struct RegionResponse {
     /// The element is null if the region is not found.
     #[prost(bytes = "vec", tag = "4")]
     pub metadata: ::prost::alloc::vec::Vec<u8>,
+    /// Only populated for inserts/deletes. Each index refers to an entry in the
+    /// original request list. Unlisted entries succeeded; all entries may fail.
+    /// A non-empty list requires a non-success header status. affected_rows and
+    /// extensions then describe successful entries only. Clients must not retry
+    /// the entire request based on the header status.
+    #[prost(message, repeated, tag = "5")]
+    pub failures: ::prost::alloc::vec::Vec<RegionRequestFailure>,
+}
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RegionRequestFailure {
+    /// Zero-based index into the request's inserts.requests or deletes.requests.
+    #[prost(uint32, tag = "1")]
+    pub request_index: u32,
+    /// Required and must contain a non-success status code.
+    #[prost(message, optional, tag = "2")]
+    pub status: ::core::option::Option<super::Status>,
 }
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct InsertRequests {

@@ -459,6 +459,12 @@ type RegionResponse struct {
 	// The length of the array is equal to the number of regions in the list request.
 	// The element is null if the region is not found.
 	Metadata []byte `protobuf:"bytes,4,opt,name=metadata,proto3" json:"metadata,omitempty"`
+	// Only populated for inserts/deletes. Each index refers to an entry in the
+	// original request list. Unlisted entries succeeded; all entries may fail.
+	// A non-empty list requires a non-success header status. affected_rows and
+	// extensions then describe successful entries only. Clients must not retry
+	// the entire request based on the header status.
+	Failures []*RegionRequestFailure `protobuf:"bytes,5,rep,name=failures,proto3" json:"failures,omitempty"`
 }
 
 func (x *RegionResponse) Reset() {
@@ -521,6 +527,70 @@ func (x *RegionResponse) GetMetadata() []byte {
 	return nil
 }
 
+func (x *RegionResponse) GetFailures() []*RegionRequestFailure {
+	if x != nil {
+		return x.Failures
+	}
+	return nil
+}
+
+type RegionRequestFailure struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Zero-based index into the request's inserts.requests or deletes.requests.
+	RequestIndex uint32 `protobuf:"varint,1,opt,name=request_index,json=requestIndex,proto3" json:"request_index,omitempty"`
+	// Required and must contain a non-success status code.
+	Status *v1.Status `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (x *RegionRequestFailure) Reset() {
+	*x = RegionRequestFailure{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_greptime_v1_region_server_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RegionRequestFailure) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegionRequestFailure) ProtoMessage() {}
+
+func (x *RegionRequestFailure) ProtoReflect() protoreflect.Message {
+	mi := &file_greptime_v1_region_server_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegionRequestFailure.ProtoReflect.Descriptor instead.
+func (*RegionRequestFailure) Descriptor() ([]byte, []int) {
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RegionRequestFailure) GetRequestIndex() uint32 {
+	if x != nil {
+		return x.RequestIndex
+	}
+	return 0
+}
+
+func (x *RegionRequestFailure) GetStatus() *v1.Status {
+	if x != nil {
+		return x.Status
+	}
+	return nil
+}
+
 type InsertRequests struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -532,7 +602,7 @@ type InsertRequests struct {
 func (x *InsertRequests) Reset() {
 	*x = InsertRequests{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[3]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -545,7 +615,7 @@ func (x *InsertRequests) String() string {
 func (*InsertRequests) ProtoMessage() {}
 
 func (x *InsertRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[3]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -558,7 +628,7 @@ func (x *InsertRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InsertRequests.ProtoReflect.Descriptor instead.
 func (*InsertRequests) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{3}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *InsertRequests) GetRequests() []*InsertRequest {
@@ -579,7 +649,7 @@ type DeleteRequests struct {
 func (x *DeleteRequests) Reset() {
 	*x = DeleteRequests{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[4]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -592,7 +662,7 @@ func (x *DeleteRequests) String() string {
 func (*DeleteRequests) ProtoMessage() {}
 
 func (x *DeleteRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[4]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -605,7 +675,7 @@ func (x *DeleteRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequests.ProtoReflect.Descriptor instead.
 func (*DeleteRequests) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{4}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DeleteRequests) GetRequests() []*DeleteRequest {
@@ -632,7 +702,7 @@ type InsertRequest struct {
 func (x *InsertRequest) Reset() {
 	*x = InsertRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[5]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -645,7 +715,7 @@ func (x *InsertRequest) String() string {
 func (*InsertRequest) ProtoMessage() {}
 
 func (x *InsertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[5]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -658,7 +728,7 @@ func (x *InsertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InsertRequest.ProtoReflect.Descriptor instead.
 func (*InsertRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{5}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *InsertRequest) GetRegionId() uint64 {
@@ -702,7 +772,7 @@ type DeleteRequest struct {
 func (x *DeleteRequest) Reset() {
 	*x = DeleteRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[6]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -715,7 +785,7 @@ func (x *DeleteRequest) String() string {
 func (*DeleteRequest) ProtoMessage() {}
 
 func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[6]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -728,7 +798,7 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{6}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *DeleteRequest) GetRegionId() uint64 {
@@ -766,7 +836,7 @@ type QueryRequest struct {
 func (x *QueryRequest) Reset() {
 	*x = QueryRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[7]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -779,7 +849,7 @@ func (x *QueryRequest) String() string {
 func (*QueryRequest) ProtoMessage() {}
 
 func (x *QueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[7]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -792,7 +862,7 @@ func (x *QueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryRequest.ProtoReflect.Descriptor instead.
 func (*QueryRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{7}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *QueryRequest) GetHeader() *RegionRequestHeader {
@@ -830,7 +900,7 @@ type CreateRequests struct {
 func (x *CreateRequests) Reset() {
 	*x = CreateRequests{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[8]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -843,7 +913,7 @@ func (x *CreateRequests) String() string {
 func (*CreateRequests) ProtoMessage() {}
 
 func (x *CreateRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[8]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -856,7 +926,7 @@ func (x *CreateRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequests.ProtoReflect.Descriptor instead.
 func (*CreateRequests) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{8}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateRequests) GetRequests() []*CreateRequest {
@@ -891,7 +961,7 @@ type CreateRequest struct {
 func (x *CreateRequest) Reset() {
 	*x = CreateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[9]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -904,7 +974,7 @@ func (x *CreateRequest) String() string {
 func (*CreateRequest) ProtoMessage() {}
 
 func (x *CreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[9]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -917,7 +987,7 @@ func (x *CreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateRequest.ProtoReflect.Descriptor instead.
 func (*CreateRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{9}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateRequest) GetRegionId() uint64 {
@@ -988,7 +1058,7 @@ type RegionRequirements struct {
 func (x *RegionRequirements) Reset() {
 	*x = RegionRequirements{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[10]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1001,7 +1071,7 @@ func (x *RegionRequirements) String() string {
 func (*RegionRequirements) ProtoMessage() {}
 
 func (x *RegionRequirements) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[10]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1014,7 +1084,7 @@ func (x *RegionRequirements) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegionRequirements.ProtoReflect.Descriptor instead.
 func (*RegionRequirements) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{10}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *RegionRequirements) GetObjectStorage() bool {
@@ -1036,7 +1106,7 @@ type DropRequests struct {
 func (x *DropRequests) Reset() {
 	*x = DropRequests{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[11]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1049,7 +1119,7 @@ func (x *DropRequests) String() string {
 func (*DropRequests) ProtoMessage() {}
 
 func (x *DropRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[11]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1062,7 +1132,7 @@ func (x *DropRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropRequests.ProtoReflect.Descriptor instead.
 func (*DropRequests) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{11}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DropRequests) GetRequests() []*DropRequest {
@@ -1095,7 +1165,7 @@ type DropRequest struct {
 func (x *DropRequest) Reset() {
 	*x = DropRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[12]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1108,7 +1178,7 @@ func (x *DropRequest) String() string {
 func (*DropRequest) ProtoMessage() {}
 
 func (x *DropRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[12]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1121,7 +1191,7 @@ func (x *DropRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropRequest.ProtoReflect.Descriptor instead.
 func (*DropRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{12}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *DropRequest) GetRegionId() uint64 {
@@ -1176,7 +1246,7 @@ type OpenRequest struct {
 func (x *OpenRequest) Reset() {
 	*x = OpenRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[13]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1189,7 +1259,7 @@ func (x *OpenRequest) String() string {
 func (*OpenRequest) ProtoMessage() {}
 
 func (x *OpenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[13]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1202,7 +1272,7 @@ func (x *OpenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenRequest.ProtoReflect.Descriptor instead.
 func (*OpenRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{13}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *OpenRequest) GetRegionId() uint64 {
@@ -1250,7 +1320,7 @@ type CleanUpRequest struct {
 func (x *CleanUpRequest) Reset() {
 	*x = CleanUpRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[14]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1263,7 +1333,7 @@ func (x *CleanUpRequest) String() string {
 func (*CleanUpRequest) ProtoMessage() {}
 
 func (x *CleanUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[14]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1276,7 +1346,7 @@ func (x *CleanUpRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CleanUpRequest.ProtoReflect.Descriptor instead.
 func (*CleanUpRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{14}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CleanUpRequest) GetRegionId() uint64 {
@@ -1320,7 +1390,7 @@ type CloseRequest struct {
 func (x *CloseRequest) Reset() {
 	*x = CloseRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[15]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1333,7 +1403,7 @@ func (x *CloseRequest) String() string {
 func (*CloseRequest) ProtoMessage() {}
 
 func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[15]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1346,7 +1416,7 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
 func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{15}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CloseRequest) GetRegionId() uint64 {
@@ -1374,7 +1444,7 @@ type AlterRequests struct {
 func (x *AlterRequests) Reset() {
 	*x = AlterRequests{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[16]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1387,7 +1457,7 @@ func (x *AlterRequests) String() string {
 func (*AlterRequests) ProtoMessage() {}
 
 func (x *AlterRequests) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[16]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1400,7 +1470,7 @@ func (x *AlterRequests) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlterRequests.ProtoReflect.Descriptor instead.
 func (*AlterRequests) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{16}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *AlterRequests) GetRequests() []*AlterRequest {
@@ -1439,7 +1509,7 @@ type AlterRequest struct {
 func (x *AlterRequest) Reset() {
 	*x = AlterRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[17]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1452,7 +1522,7 @@ func (x *AlterRequest) String() string {
 func (*AlterRequest) ProtoMessage() {}
 
 func (x *AlterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[17]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1465,7 +1535,7 @@ func (x *AlterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlterRequest.ProtoReflect.Descriptor instead.
 func (*AlterRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{17}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *AlterRequest) GetRegionId() uint64 {
@@ -1675,7 +1745,7 @@ type SyncColumns struct {
 func (x *SyncColumns) Reset() {
 	*x = SyncColumns{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[18]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1688,7 +1758,7 @@ func (x *SyncColumns) String() string {
 func (*SyncColumns) ProtoMessage() {}
 
 func (x *SyncColumns) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[18]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1701,7 +1771,7 @@ func (x *SyncColumns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncColumns.ProtoReflect.Descriptor instead.
 func (*SyncColumns) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{18}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SyncColumns) GetColumnDefs() []*RegionColumnDef {
@@ -1722,7 +1792,7 @@ type AddColumns struct {
 func (x *AddColumns) Reset() {
 	*x = AddColumns{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[19]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1735,7 +1805,7 @@ func (x *AddColumns) String() string {
 func (*AddColumns) ProtoMessage() {}
 
 func (x *AddColumns) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[19]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1748,7 +1818,7 @@ func (x *AddColumns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddColumns.ProtoReflect.Descriptor instead.
 func (*AddColumns) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{19}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *AddColumns) GetAddColumns() []*AddColumn {
@@ -1769,7 +1839,7 @@ type DropColumns struct {
 func (x *DropColumns) Reset() {
 	*x = DropColumns{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[20]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1782,7 +1852,7 @@ func (x *DropColumns) String() string {
 func (*DropColumns) ProtoMessage() {}
 
 func (x *DropColumns) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[20]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1795,7 +1865,7 @@ func (x *DropColumns) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropColumns.ProtoReflect.Descriptor instead.
 func (*DropColumns) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{20}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DropColumns) GetDropColumns() []*DropColumn {
@@ -1817,7 +1887,7 @@ type AddColumn struct {
 func (x *AddColumn) Reset() {
 	*x = AddColumn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[21]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1830,7 +1900,7 @@ func (x *AddColumn) String() string {
 func (*AddColumn) ProtoMessage() {}
 
 func (x *AddColumn) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[21]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1843,7 +1913,7 @@ func (x *AddColumn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddColumn.ProtoReflect.Descriptor instead.
 func (*AddColumn) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{21}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *AddColumn) GetColumnDef() *RegionColumnDef {
@@ -1871,7 +1941,7 @@ type DropColumn struct {
 func (x *DropColumn) Reset() {
 	*x = DropColumn{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[22]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1884,7 +1954,7 @@ func (x *DropColumn) String() string {
 func (*DropColumn) ProtoMessage() {}
 
 func (x *DropColumn) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[22]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1897,7 +1967,7 @@ func (x *DropColumn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropColumn.ProtoReflect.Descriptor instead.
 func (*DropColumn) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{22}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DropColumn) GetName() string {
@@ -1918,7 +1988,7 @@ type FlushRequest struct {
 func (x *FlushRequest) Reset() {
 	*x = FlushRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[23]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1931,7 +2001,7 @@ func (x *FlushRequest) String() string {
 func (*FlushRequest) ProtoMessage() {}
 
 func (x *FlushRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[23]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1944,7 +2014,7 @@ func (x *FlushRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
 func (*FlushRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{23}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *FlushRequest) GetRegionId() uint64 {
@@ -1964,7 +2034,7 @@ type Regular struct {
 func (x *Regular) Reset() {
 	*x = Regular{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[24]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1977,7 +2047,7 @@ func (x *Regular) String() string {
 func (*Regular) ProtoMessage() {}
 
 func (x *Regular) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[24]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1990,7 +2060,7 @@ func (x *Regular) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Regular.ProtoReflect.Descriptor instead.
 func (*Regular) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{24}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{25}
 }
 
 // / Strictly-windowed compaction.
@@ -2005,7 +2075,7 @@ type StrictWindow struct {
 func (x *StrictWindow) Reset() {
 	*x = StrictWindow{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[25]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2018,7 +2088,7 @@ func (x *StrictWindow) String() string {
 func (*StrictWindow) ProtoMessage() {}
 
 func (x *StrictWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[25]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2031,7 +2101,7 @@ func (x *StrictWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StrictWindow.ProtoReflect.Descriptor instead.
 func (*StrictWindow) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{25}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *StrictWindow) GetWindowSeconds() int64 {
@@ -2055,7 +2125,7 @@ type CompactionTimeRange struct {
 func (x *CompactionTimeRange) Reset() {
 	*x = CompactionTimeRange{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[26]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2068,7 +2138,7 @@ func (x *CompactionTimeRange) String() string {
 func (*CompactionTimeRange) ProtoMessage() {}
 
 func (x *CompactionTimeRange) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[26]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2081,7 +2151,7 @@ func (x *CompactionTimeRange) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompactionTimeRange.ProtoReflect.Descriptor instead.
 func (*CompactionTimeRange) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{26}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CompactionTimeRange) GetStart() int64 {
@@ -2123,7 +2193,7 @@ type CompactRequest struct {
 func (x *CompactRequest) Reset() {
 	*x = CompactRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[27]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2136,7 +2206,7 @@ func (x *CompactRequest) String() string {
 func (*CompactRequest) ProtoMessage() {}
 
 func (x *CompactRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[27]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2149,7 +2219,7 @@ func (x *CompactRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompactRequest.ProtoReflect.Descriptor instead.
 func (*CompactRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{27}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CompactRequest) GetRegionId() uint64 {
@@ -2227,7 +2297,7 @@ type TruncateRequest struct {
 func (x *TruncateRequest) Reset() {
 	*x = TruncateRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[28]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2240,7 +2310,7 @@ func (x *TruncateRequest) String() string {
 func (*TruncateRequest) ProtoMessage() {}
 
 func (x *TruncateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[28]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2253,7 +2323,7 @@ func (x *TruncateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TruncateRequest.ProtoReflect.Descriptor instead.
 func (*TruncateRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{28}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *TruncateRequest) GetRegionId() uint64 {
@@ -2323,7 +2393,7 @@ type All struct {
 func (x *All) Reset() {
 	*x = All{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[29]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2336,7 +2406,7 @@ func (x *All) String() string {
 func (*All) ProtoMessage() {}
 
 func (x *All) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[29]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2349,7 +2419,7 @@ func (x *All) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use All.ProtoReflect.Descriptor instead.
 func (*All) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{29}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{30}
 }
 
 // Truncate unflushed data in region
@@ -2362,7 +2432,7 @@ type Unflushed struct {
 func (x *Unflushed) Reset() {
 	*x = Unflushed{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[30]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2375,7 +2445,7 @@ func (x *Unflushed) String() string {
 func (*Unflushed) ProtoMessage() {}
 
 func (x *Unflushed) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[30]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2388,7 +2458,7 @@ func (x *Unflushed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Unflushed.ProtoReflect.Descriptor instead.
 func (*Unflushed) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{30}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{31}
 }
 
 // The column definition of a region. Unlike the message `ColumnDef` in
@@ -2407,7 +2477,7 @@ type RegionColumnDef struct {
 func (x *RegionColumnDef) Reset() {
 	*x = RegionColumnDef{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[31]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2420,7 +2490,7 @@ func (x *RegionColumnDef) String() string {
 func (*RegionColumnDef) ProtoMessage() {}
 
 func (x *RegionColumnDef) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[31]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2433,7 +2503,7 @@ func (x *RegionColumnDef) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegionColumnDef.ProtoReflect.Descriptor instead.
 func (*RegionColumnDef) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{31}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *RegionColumnDef) GetColumnDef() *v1.ColumnDef {
@@ -2470,7 +2540,7 @@ type BulkInsertRequest struct {
 func (x *BulkInsertRequest) Reset() {
 	*x = BulkInsertRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[32]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2483,7 +2553,7 @@ func (x *BulkInsertRequest) String() string {
 func (*BulkInsertRequest) ProtoMessage() {}
 
 func (x *BulkInsertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[32]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2496,7 +2566,7 @@ func (x *BulkInsertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BulkInsertRequest.ProtoReflect.Descriptor instead.
 func (*BulkInsertRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{32}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *BulkInsertRequest) GetRegionId() uint64 {
@@ -2562,7 +2632,7 @@ type AlignedSchemaVersion struct {
 func (x *AlignedSchemaVersion) Reset() {
 	*x = AlignedSchemaVersion{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[33]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2575,7 +2645,7 @@ func (x *AlignedSchemaVersion) String() string {
 func (*AlignedSchemaVersion) ProtoMessage() {}
 
 func (x *AlignedSchemaVersion) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[33]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2588,7 +2658,7 @@ func (x *AlignedSchemaVersion) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlignedSchemaVersion.ProtoReflect.Descriptor instead.
 func (*AlignedSchemaVersion) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{33}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *AlignedSchemaVersion) GetSchemaVersion() uint64 {
@@ -2610,7 +2680,7 @@ type MitoManifestInfo struct {
 func (x *MitoManifestInfo) Reset() {
 	*x = MitoManifestInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[34]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2623,7 +2693,7 @@ func (x *MitoManifestInfo) String() string {
 func (*MitoManifestInfo) ProtoMessage() {}
 
 func (x *MitoManifestInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[34]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2636,7 +2706,7 @@ func (x *MitoManifestInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MitoManifestInfo.ProtoReflect.Descriptor instead.
 func (*MitoManifestInfo) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{34}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *MitoManifestInfo) GetDataManifestVersion() uint64 {
@@ -2659,7 +2729,7 @@ type MetricManifestInfo struct {
 func (x *MetricManifestInfo) Reset() {
 	*x = MetricManifestInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[35]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2672,7 +2742,7 @@ func (x *MetricManifestInfo) String() string {
 func (*MetricManifestInfo) ProtoMessage() {}
 
 func (x *MetricManifestInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[35]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2685,7 +2755,7 @@ func (x *MetricManifestInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetricManifestInfo.ProtoReflect.Descriptor instead.
 func (*MetricManifestInfo) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{35}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *MetricManifestInfo) GetDataManifestVersion() uint64 {
@@ -2719,7 +2789,7 @@ type SyncRequest struct {
 func (x *SyncRequest) Reset() {
 	*x = SyncRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[36]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[37]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2732,7 +2802,7 @@ func (x *SyncRequest) String() string {
 func (*SyncRequest) ProtoMessage() {}
 
 func (x *SyncRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[36]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[37]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2745,7 +2815,7 @@ func (x *SyncRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SyncRequest.ProtoReflect.Descriptor instead.
 func (*SyncRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{36}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *SyncRequest) GetRegionId() uint64 {
@@ -2804,7 +2874,7 @@ type ListMetadataRequest struct {
 func (x *ListMetadataRequest) Reset() {
 	*x = ListMetadataRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[37]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2817,7 +2887,7 @@ func (x *ListMetadataRequest) String() string {
 func (*ListMetadataRequest) ProtoMessage() {}
 
 func (x *ListMetadataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[37]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2830,7 +2900,7 @@ func (x *ListMetadataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListMetadataRequest.ProtoReflect.Descriptor instead.
 func (*ListMetadataRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{37}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *ListMetadataRequest) GetRegionIds() []uint64 {
@@ -2858,7 +2928,7 @@ type BuildIndexRequest struct {
 func (x *BuildIndexRequest) Reset() {
 	*x = BuildIndexRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[38]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[39]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2871,7 +2941,7 @@ func (x *BuildIndexRequest) String() string {
 func (*BuildIndexRequest) ProtoMessage() {}
 
 func (x *BuildIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[38]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[39]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2884,7 +2954,7 @@ func (x *BuildIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildIndexRequest.ProtoReflect.Descriptor instead.
 func (*BuildIndexRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{38}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *BuildIndexRequest) GetRegionId() uint64 {
@@ -2944,7 +3014,7 @@ type FileMetas struct {
 func (x *FileMetas) Reset() {
 	*x = FileMetas{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[39]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[40]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2957,7 +3027,7 @@ func (x *FileMetas) String() string {
 func (*FileMetas) ProtoMessage() {}
 
 func (x *FileMetas) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[39]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[40]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2970,7 +3040,7 @@ func (x *FileMetas) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileMetas.ProtoReflect.Descriptor instead.
 func (*FileMetas) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{39}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *FileMetas) GetData() []byte {
@@ -2999,7 +3069,7 @@ type ApplyStagingManifestRequest struct {
 func (x *ApplyStagingManifestRequest) Reset() {
 	*x = ApplyStagingManifestRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[40]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[41]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3012,7 +3082,7 @@ func (x *ApplyStagingManifestRequest) String() string {
 func (*ApplyStagingManifestRequest) ProtoMessage() {}
 
 func (x *ApplyStagingManifestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[40]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[41]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +3095,7 @@ func (x *ApplyStagingManifestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ApplyStagingManifestRequest.ProtoReflect.Descriptor instead.
 func (*ApplyStagingManifestRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{40}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *ApplyStagingManifestRequest) GetRegionId() uint64 {
@@ -3072,7 +3142,7 @@ type RemoteDynFilterRequest struct {
 func (x *RemoteDynFilterRequest) Reset() {
 	*x = RemoteDynFilterRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[41]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[42]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3085,7 +3155,7 @@ func (x *RemoteDynFilterRequest) String() string {
 func (*RemoteDynFilterRequest) ProtoMessage() {}
 
 func (x *RemoteDynFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[41]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[42]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3098,7 +3168,7 @@ func (x *RemoteDynFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoteDynFilterRequest.ProtoReflect.Descriptor instead.
 func (*RemoteDynFilterRequest) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{41}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *RemoteDynFilterRequest) GetQueryId() string {
@@ -3159,7 +3229,7 @@ type RemoteDynFilterUpdate struct {
 func (x *RemoteDynFilterUpdate) Reset() {
 	*x = RemoteDynFilterUpdate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[42]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[43]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3172,7 +3242,7 @@ func (x *RemoteDynFilterUpdate) String() string {
 func (*RemoteDynFilterUpdate) ProtoMessage() {}
 
 func (x *RemoteDynFilterUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[42]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[43]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3185,7 +3255,7 @@ func (x *RemoteDynFilterUpdate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoteDynFilterUpdate.ProtoReflect.Descriptor instead.
 func (*RemoteDynFilterUpdate) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{42}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *RemoteDynFilterUpdate) GetFilterId() string {
@@ -3227,7 +3297,7 @@ type RemoteDynFilterUnregister struct {
 func (x *RemoteDynFilterUnregister) Reset() {
 	*x = RemoteDynFilterUnregister{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[43]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[44]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3240,7 +3310,7 @@ func (x *RemoteDynFilterUnregister) String() string {
 func (*RemoteDynFilterUnregister) ProtoMessage() {}
 
 func (x *RemoteDynFilterUnregister) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[43]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[44]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3253,7 +3323,7 @@ func (x *RemoteDynFilterUnregister) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RemoteDynFilterUnregister.ProtoReflect.Descriptor instead.
 func (*RemoteDynFilterUnregister) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{43}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *RemoteDynFilterUnregister) GetFilterId() string {
@@ -3272,7 +3342,7 @@ type BuildIndexRequest_SstIndexOptions struct {
 func (x *BuildIndexRequest_SstIndexOptions) Reset() {
 	*x = BuildIndexRequest_SstIndexOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[49]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3285,7 +3355,7 @@ func (x *BuildIndexRequest_SstIndexOptions) String() string {
 func (*BuildIndexRequest_SstIndexOptions) ProtoMessage() {}
 
 func (x *BuildIndexRequest_SstIndexOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[49]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3298,7 +3368,7 @@ func (x *BuildIndexRequest_SstIndexOptions) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use BuildIndexRequest_SstIndexOptions.ProtoReflect.Descriptor instead.
 func (*BuildIndexRequest_SstIndexOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{38, 0}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{39, 0}
 }
 
 // Reconciles eligible series indexes and waits for publication.
@@ -3311,7 +3381,7 @@ type BuildIndexRequest_SeriesIndexOptions struct {
 func (x *BuildIndexRequest_SeriesIndexOptions) Reset() {
 	*x = BuildIndexRequest_SeriesIndexOptions{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_greptime_v1_region_server_proto_msgTypes[50]
+		mi := &file_greptime_v1_region_server_proto_msgTypes[51]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3324,7 +3394,7 @@ func (x *BuildIndexRequest_SeriesIndexOptions) String() string {
 func (*BuildIndexRequest_SeriesIndexOptions) ProtoMessage() {}
 
 func (x *BuildIndexRequest_SeriesIndexOptions) ProtoReflect() protoreflect.Message {
-	mi := &file_greptime_v1_region_server_proto_msgTypes[50]
+	mi := &file_greptime_v1_region_server_proto_msgTypes[51]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3337,7 +3407,7 @@ func (x *BuildIndexRequest_SeriesIndexOptions) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use BuildIndexRequest_SeriesIndexOptions.ProtoReflect.Descriptor instead.
 func (*BuildIndexRequest_SeriesIndexOptions) Descriptor() ([]byte, []int) {
-	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{38, 1}
+	return file_greptime_v1_region_server_proto_rawDescGZIP(), []int{39, 1}
 }
 
 var File_greptime_v1_region_server_proto protoreflect.FileDescriptor
@@ -3459,7 +3529,7 @@ var file_greptime_v1_region_server_proto_rawDesc = []byte{
 	0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x72, 0x65, 0x67, 0x69, 0x6f, 0x6e, 0x2e,
 	0x43, 0x6c, 0x65, 0x61, 0x6e, 0x55, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x48, 0x00,
 	0x52, 0x07, 0x63, 0x6c, 0x65, 0x61, 0x6e, 0x55, 0x70, 0x42, 0x06, 0x0a, 0x04, 0x62, 0x6f, 0x64,
-	0x79, 0x22, 0x99, 0x02, 0x0a, 0x0e, 0x52, 0x65, 0x67, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
+	0x79, 0x22, 0xdf, 0x02, 0x0a, 0x0e, 0x52, 0x65, 0x67, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x33, 0x0a, 0x06, 0x68, 0x65, 0x61, 0x64, 0x65, 0x72, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e,
 	0x76, 0x31, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x48, 0x65, 0x61, 0x64, 0x65,
@@ -3472,11 +3542,22 @@ var file_greptime_v1_region_server_proto_rawDesc = []byte{
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e,
 	0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x0a, 0x65, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
 	0x6e, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x04,
-	0x20, 0x01, 0x28, 0x0c, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x1a, 0x3d,
-	0x0a, 0x0f, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f, 0x6e, 0x73, 0x45, 0x6e, 0x74, 0x72,
-	0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03,
-	0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a, 0x02, 0x38, 0x01, 0x22, 0x4f, 0x0a,
+	0x20, 0x01, 0x28, 0x0c, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x44,
+	0x0a, 0x08, 0x66, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x73, 0x18, 0x05, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x28, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x72,
+	0x65, 0x67, 0x69, 0x6f, 0x6e, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x46, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x52, 0x08, 0x66, 0x61, 0x69, 0x6c,
+	0x75, 0x72, 0x65, 0x73, 0x1a, 0x3d, 0x0a, 0x0f, 0x45, 0x78, 0x74, 0x65, 0x6e, 0x73, 0x69, 0x6f,
+	0x6e, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c,
+	0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0c, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x3a,
+	0x02, 0x38, 0x01, 0x22, 0x68, 0x0a, 0x14, 0x52, 0x65, 0x67, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x46, 0x61, 0x69, 0x6c, 0x75, 0x72, 0x65, 0x12, 0x23, 0x0a, 0x0d, 0x72,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x5f, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0d, 0x52, 0x0c, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x49, 0x6e, 0x64, 0x65, 0x78,
+	0x12, 0x2b, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x13, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x53,
+	0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x4f, 0x0a,
 	0x0e, 0x49, 0x6e, 0x73, 0x65, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x73, 0x12,
 	0x3d, 0x0a, 0x08, 0x72, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28,
 	0x0b, 0x32, 0x21, 0x2e, 0x67, 0x72, 0x65, 0x70, 0x74, 0x69, 0x6d, 0x65, 0x2e, 0x76, 0x31, 0x2e,
@@ -3891,164 +3972,168 @@ func file_greptime_v1_region_server_proto_rawDescGZIP() []byte {
 	return file_greptime_v1_region_server_proto_rawDescData
 }
 
-var file_greptime_v1_region_server_proto_msgTypes = make([]protoimpl.MessageInfo, 51)
+var file_greptime_v1_region_server_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
 var file_greptime_v1_region_server_proto_goTypes = []interface{}{
 	(*RegionRequestHeader)(nil),                  // 0: greptime.v1.region.RegionRequestHeader
 	(*RegionRequest)(nil),                        // 1: greptime.v1.region.RegionRequest
 	(*RegionResponse)(nil),                       // 2: greptime.v1.region.RegionResponse
-	(*InsertRequests)(nil),                       // 3: greptime.v1.region.InsertRequests
-	(*DeleteRequests)(nil),                       // 4: greptime.v1.region.DeleteRequests
-	(*InsertRequest)(nil),                        // 5: greptime.v1.region.InsertRequest
-	(*DeleteRequest)(nil),                        // 6: greptime.v1.region.DeleteRequest
-	(*QueryRequest)(nil),                         // 7: greptime.v1.region.QueryRequest
-	(*CreateRequests)(nil),                       // 8: greptime.v1.region.CreateRequests
-	(*CreateRequest)(nil),                        // 9: greptime.v1.region.CreateRequest
-	(*RegionRequirements)(nil),                   // 10: greptime.v1.region.RegionRequirements
-	(*DropRequests)(nil),                         // 11: greptime.v1.region.DropRequests
-	(*DropRequest)(nil),                          // 12: greptime.v1.region.DropRequest
-	(*OpenRequest)(nil),                          // 13: greptime.v1.region.OpenRequest
-	(*CleanUpRequest)(nil),                       // 14: greptime.v1.region.CleanUpRequest
-	(*CloseRequest)(nil),                         // 15: greptime.v1.region.CloseRequest
-	(*AlterRequests)(nil),                        // 16: greptime.v1.region.AlterRequests
-	(*AlterRequest)(nil),                         // 17: greptime.v1.region.AlterRequest
-	(*SyncColumns)(nil),                          // 18: greptime.v1.region.SyncColumns
-	(*AddColumns)(nil),                           // 19: greptime.v1.region.AddColumns
-	(*DropColumns)(nil),                          // 20: greptime.v1.region.DropColumns
-	(*AddColumn)(nil),                            // 21: greptime.v1.region.AddColumn
-	(*DropColumn)(nil),                           // 22: greptime.v1.region.DropColumn
-	(*FlushRequest)(nil),                         // 23: greptime.v1.region.FlushRequest
-	(*Regular)(nil),                              // 24: greptime.v1.region.Regular
-	(*StrictWindow)(nil),                         // 25: greptime.v1.region.StrictWindow
-	(*CompactionTimeRange)(nil),                  // 26: greptime.v1.region.CompactionTimeRange
-	(*CompactRequest)(nil),                       // 27: greptime.v1.region.CompactRequest
-	(*TruncateRequest)(nil),                      // 28: greptime.v1.region.TruncateRequest
-	(*All)(nil),                                  // 29: greptime.v1.region.All
-	(*Unflushed)(nil),                            // 30: greptime.v1.region.Unflushed
-	(*RegionColumnDef)(nil),                      // 31: greptime.v1.region.RegionColumnDef
-	(*BulkInsertRequest)(nil),                    // 32: greptime.v1.region.BulkInsertRequest
-	(*AlignedSchemaVersion)(nil),                 // 33: greptime.v1.region.AlignedSchemaVersion
-	(*MitoManifestInfo)(nil),                     // 34: greptime.v1.region.MitoManifestInfo
-	(*MetricManifestInfo)(nil),                   // 35: greptime.v1.region.MetricManifestInfo
-	(*SyncRequest)(nil),                          // 36: greptime.v1.region.SyncRequest
-	(*ListMetadataRequest)(nil),                  // 37: greptime.v1.region.ListMetadataRequest
-	(*BuildIndexRequest)(nil),                    // 38: greptime.v1.region.BuildIndexRequest
-	(*FileMetas)(nil),                            // 39: greptime.v1.region.FileMetas
-	(*ApplyStagingManifestRequest)(nil),          // 40: greptime.v1.region.ApplyStagingManifestRequest
-	(*RemoteDynFilterRequest)(nil),               // 41: greptime.v1.region.RemoteDynFilterRequest
-	(*RemoteDynFilterUpdate)(nil),                // 42: greptime.v1.region.RemoteDynFilterUpdate
-	(*RemoteDynFilterUnregister)(nil),            // 43: greptime.v1.region.RemoteDynFilterUnregister
-	nil,                                          // 44: greptime.v1.region.RegionRequestHeader.TracingContextEntry
-	nil,                                          // 45: greptime.v1.region.RegionResponse.ExtensionsEntry
-	nil,                                          // 46: greptime.v1.region.CreateRequest.OptionsEntry
-	nil,                                          // 47: greptime.v1.region.OpenRequest.OptionsEntry
-	nil,                                          // 48: greptime.v1.region.CleanUpRequest.OptionsEntry
-	(*BuildIndexRequest_SstIndexOptions)(nil),    // 49: greptime.v1.region.BuildIndexRequest.SstIndexOptions
-	(*BuildIndexRequest_SeriesIndexOptions)(nil), // 50: greptime.v1.region.BuildIndexRequest.SeriesIndexOptions
-	(*v1.QueryContext)(nil),                      // 51: greptime.v1.QueryContext
-	(*v1.ResponseHeader)(nil),                    // 52: greptime.v1.ResponseHeader
-	(*v1.Rows)(nil),                              // 53: greptime.v1.Rows
-	(*v1.PartitionExprVersion)(nil),              // 54: greptime.v1.PartitionExprVersion
-	(*meta.Partition)(nil),                       // 55: greptime.v1.meta.Partition
-	(*v1.ModifyColumnTypes)(nil),                 // 56: greptime.v1.ModifyColumnTypes
-	(*v1.SetTableOptions)(nil),                   // 57: greptime.v1.SetTableOptions
-	(*v1.UnsetTableOptions)(nil),                 // 58: greptime.v1.UnsetTableOptions
-	(*v1.SetIndex)(nil),                          // 59: greptime.v1.SetIndex
-	(*v1.UnsetIndex)(nil),                        // 60: greptime.v1.UnsetIndex
-	(*v1.DropDefaults)(nil),                      // 61: greptime.v1.DropDefaults
-	(*v1.SetIndexes)(nil),                        // 62: greptime.v1.SetIndexes
-	(*v1.UnsetIndexes)(nil),                      // 63: greptime.v1.UnsetIndexes
-	(*v1.SetDefaults)(nil),                       // 64: greptime.v1.SetDefaults
-	(*v1.SetJsonSettings)(nil),                   // 65: greptime.v1.SetJsonSettings
-	(*v1.AddColumnLocation)(nil),                 // 66: greptime.v1.AddColumnLocation
-	(v1.TimeUnit)(0),                             // 67: greptime.v1.TimeUnit
-	(*v1.TimeRanges)(nil),                        // 68: greptime.v1.TimeRanges
-	(*v1.ColumnDef)(nil),                         // 69: greptime.v1.ColumnDef
-	(*v1.ArrowIpc)(nil),                          // 70: greptime.v1.ArrowIpc
+	(*RegionRequestFailure)(nil),                 // 3: greptime.v1.region.RegionRequestFailure
+	(*InsertRequests)(nil),                       // 4: greptime.v1.region.InsertRequests
+	(*DeleteRequests)(nil),                       // 5: greptime.v1.region.DeleteRequests
+	(*InsertRequest)(nil),                        // 6: greptime.v1.region.InsertRequest
+	(*DeleteRequest)(nil),                        // 7: greptime.v1.region.DeleteRequest
+	(*QueryRequest)(nil),                         // 8: greptime.v1.region.QueryRequest
+	(*CreateRequests)(nil),                       // 9: greptime.v1.region.CreateRequests
+	(*CreateRequest)(nil),                        // 10: greptime.v1.region.CreateRequest
+	(*RegionRequirements)(nil),                   // 11: greptime.v1.region.RegionRequirements
+	(*DropRequests)(nil),                         // 12: greptime.v1.region.DropRequests
+	(*DropRequest)(nil),                          // 13: greptime.v1.region.DropRequest
+	(*OpenRequest)(nil),                          // 14: greptime.v1.region.OpenRequest
+	(*CleanUpRequest)(nil),                       // 15: greptime.v1.region.CleanUpRequest
+	(*CloseRequest)(nil),                         // 16: greptime.v1.region.CloseRequest
+	(*AlterRequests)(nil),                        // 17: greptime.v1.region.AlterRequests
+	(*AlterRequest)(nil),                         // 18: greptime.v1.region.AlterRequest
+	(*SyncColumns)(nil),                          // 19: greptime.v1.region.SyncColumns
+	(*AddColumns)(nil),                           // 20: greptime.v1.region.AddColumns
+	(*DropColumns)(nil),                          // 21: greptime.v1.region.DropColumns
+	(*AddColumn)(nil),                            // 22: greptime.v1.region.AddColumn
+	(*DropColumn)(nil),                           // 23: greptime.v1.region.DropColumn
+	(*FlushRequest)(nil),                         // 24: greptime.v1.region.FlushRequest
+	(*Regular)(nil),                              // 25: greptime.v1.region.Regular
+	(*StrictWindow)(nil),                         // 26: greptime.v1.region.StrictWindow
+	(*CompactionTimeRange)(nil),                  // 27: greptime.v1.region.CompactionTimeRange
+	(*CompactRequest)(nil),                       // 28: greptime.v1.region.CompactRequest
+	(*TruncateRequest)(nil),                      // 29: greptime.v1.region.TruncateRequest
+	(*All)(nil),                                  // 30: greptime.v1.region.All
+	(*Unflushed)(nil),                            // 31: greptime.v1.region.Unflushed
+	(*RegionColumnDef)(nil),                      // 32: greptime.v1.region.RegionColumnDef
+	(*BulkInsertRequest)(nil),                    // 33: greptime.v1.region.BulkInsertRequest
+	(*AlignedSchemaVersion)(nil),                 // 34: greptime.v1.region.AlignedSchemaVersion
+	(*MitoManifestInfo)(nil),                     // 35: greptime.v1.region.MitoManifestInfo
+	(*MetricManifestInfo)(nil),                   // 36: greptime.v1.region.MetricManifestInfo
+	(*SyncRequest)(nil),                          // 37: greptime.v1.region.SyncRequest
+	(*ListMetadataRequest)(nil),                  // 38: greptime.v1.region.ListMetadataRequest
+	(*BuildIndexRequest)(nil),                    // 39: greptime.v1.region.BuildIndexRequest
+	(*FileMetas)(nil),                            // 40: greptime.v1.region.FileMetas
+	(*ApplyStagingManifestRequest)(nil),          // 41: greptime.v1.region.ApplyStagingManifestRequest
+	(*RemoteDynFilterRequest)(nil),               // 42: greptime.v1.region.RemoteDynFilterRequest
+	(*RemoteDynFilterUpdate)(nil),                // 43: greptime.v1.region.RemoteDynFilterUpdate
+	(*RemoteDynFilterUnregister)(nil),            // 44: greptime.v1.region.RemoteDynFilterUnregister
+	nil,                                          // 45: greptime.v1.region.RegionRequestHeader.TracingContextEntry
+	nil,                                          // 46: greptime.v1.region.RegionResponse.ExtensionsEntry
+	nil,                                          // 47: greptime.v1.region.CreateRequest.OptionsEntry
+	nil,                                          // 48: greptime.v1.region.OpenRequest.OptionsEntry
+	nil,                                          // 49: greptime.v1.region.CleanUpRequest.OptionsEntry
+	(*BuildIndexRequest_SstIndexOptions)(nil),    // 50: greptime.v1.region.BuildIndexRequest.SstIndexOptions
+	(*BuildIndexRequest_SeriesIndexOptions)(nil), // 51: greptime.v1.region.BuildIndexRequest.SeriesIndexOptions
+	(*v1.QueryContext)(nil),                      // 52: greptime.v1.QueryContext
+	(*v1.ResponseHeader)(nil),                    // 53: greptime.v1.ResponseHeader
+	(*v1.Status)(nil),                            // 54: greptime.v1.Status
+	(*v1.Rows)(nil),                              // 55: greptime.v1.Rows
+	(*v1.PartitionExprVersion)(nil),              // 56: greptime.v1.PartitionExprVersion
+	(*meta.Partition)(nil),                       // 57: greptime.v1.meta.Partition
+	(*v1.ModifyColumnTypes)(nil),                 // 58: greptime.v1.ModifyColumnTypes
+	(*v1.SetTableOptions)(nil),                   // 59: greptime.v1.SetTableOptions
+	(*v1.UnsetTableOptions)(nil),                 // 60: greptime.v1.UnsetTableOptions
+	(*v1.SetIndex)(nil),                          // 61: greptime.v1.SetIndex
+	(*v1.UnsetIndex)(nil),                        // 62: greptime.v1.UnsetIndex
+	(*v1.DropDefaults)(nil),                      // 63: greptime.v1.DropDefaults
+	(*v1.SetIndexes)(nil),                        // 64: greptime.v1.SetIndexes
+	(*v1.UnsetIndexes)(nil),                      // 65: greptime.v1.UnsetIndexes
+	(*v1.SetDefaults)(nil),                       // 66: greptime.v1.SetDefaults
+	(*v1.SetJsonSettings)(nil),                   // 67: greptime.v1.SetJsonSettings
+	(*v1.AddColumnLocation)(nil),                 // 68: greptime.v1.AddColumnLocation
+	(v1.TimeUnit)(0),                             // 69: greptime.v1.TimeUnit
+	(*v1.TimeRanges)(nil),                        // 70: greptime.v1.TimeRanges
+	(*v1.ColumnDef)(nil),                         // 71: greptime.v1.ColumnDef
+	(*v1.ArrowIpc)(nil),                          // 72: greptime.v1.ArrowIpc
 }
 var file_greptime_v1_region_server_proto_depIdxs = []int32{
-	44, // 0: greptime.v1.region.RegionRequestHeader.tracing_context:type_name -> greptime.v1.region.RegionRequestHeader.TracingContextEntry
-	51, // 1: greptime.v1.region.RegionRequestHeader.query_context:type_name -> greptime.v1.QueryContext
+	45, // 0: greptime.v1.region.RegionRequestHeader.tracing_context:type_name -> greptime.v1.region.RegionRequestHeader.TracingContextEntry
+	52, // 1: greptime.v1.region.RegionRequestHeader.query_context:type_name -> greptime.v1.QueryContext
 	0,  // 2: greptime.v1.region.RegionRequest.header:type_name -> greptime.v1.region.RegionRequestHeader
-	3,  // 3: greptime.v1.region.RegionRequest.inserts:type_name -> greptime.v1.region.InsertRequests
-	4,  // 4: greptime.v1.region.RegionRequest.deletes:type_name -> greptime.v1.region.DeleteRequests
-	9,  // 5: greptime.v1.region.RegionRequest.create:type_name -> greptime.v1.region.CreateRequest
-	12, // 6: greptime.v1.region.RegionRequest.drop:type_name -> greptime.v1.region.DropRequest
-	13, // 7: greptime.v1.region.RegionRequest.open:type_name -> greptime.v1.region.OpenRequest
-	15, // 8: greptime.v1.region.RegionRequest.close:type_name -> greptime.v1.region.CloseRequest
-	17, // 9: greptime.v1.region.RegionRequest.alter:type_name -> greptime.v1.region.AlterRequest
-	23, // 10: greptime.v1.region.RegionRequest.flush:type_name -> greptime.v1.region.FlushRequest
-	27, // 11: greptime.v1.region.RegionRequest.compact:type_name -> greptime.v1.region.CompactRequest
-	28, // 12: greptime.v1.region.RegionRequest.truncate:type_name -> greptime.v1.region.TruncateRequest
-	8,  // 13: greptime.v1.region.RegionRequest.creates:type_name -> greptime.v1.region.CreateRequests
-	11, // 14: greptime.v1.region.RegionRequest.drops:type_name -> greptime.v1.region.DropRequests
-	16, // 15: greptime.v1.region.RegionRequest.alters:type_name -> greptime.v1.region.AlterRequests
-	32, // 16: greptime.v1.region.RegionRequest.bulk_insert:type_name -> greptime.v1.region.BulkInsertRequest
-	36, // 17: greptime.v1.region.RegionRequest.sync:type_name -> greptime.v1.region.SyncRequest
-	37, // 18: greptime.v1.region.RegionRequest.list_metadata:type_name -> greptime.v1.region.ListMetadataRequest
-	38, // 19: greptime.v1.region.RegionRequest.build_index:type_name -> greptime.v1.region.BuildIndexRequest
-	40, // 20: greptime.v1.region.RegionRequest.apply_staging_manifest:type_name -> greptime.v1.region.ApplyStagingManifestRequest
-	41, // 21: greptime.v1.region.RegionRequest.remote_dyn_filter:type_name -> greptime.v1.region.RemoteDynFilterRequest
-	14, // 22: greptime.v1.region.RegionRequest.clean_up:type_name -> greptime.v1.region.CleanUpRequest
-	52, // 23: greptime.v1.region.RegionResponse.header:type_name -> greptime.v1.ResponseHeader
-	45, // 24: greptime.v1.region.RegionResponse.extensions:type_name -> greptime.v1.region.RegionResponse.ExtensionsEntry
-	5,  // 25: greptime.v1.region.InsertRequests.requests:type_name -> greptime.v1.region.InsertRequest
-	6,  // 26: greptime.v1.region.DeleteRequests.requests:type_name -> greptime.v1.region.DeleteRequest
-	53, // 27: greptime.v1.region.InsertRequest.rows:type_name -> greptime.v1.Rows
-	54, // 28: greptime.v1.region.InsertRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
-	53, // 29: greptime.v1.region.DeleteRequest.rows:type_name -> greptime.v1.Rows
-	54, // 30: greptime.v1.region.DeleteRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
-	0,  // 31: greptime.v1.region.QueryRequest.header:type_name -> greptime.v1.region.RegionRequestHeader
-	9,  // 32: greptime.v1.region.CreateRequests.requests:type_name -> greptime.v1.region.CreateRequest
-	31, // 33: greptime.v1.region.CreateRequest.column_defs:type_name -> greptime.v1.region.RegionColumnDef
-	46, // 34: greptime.v1.region.CreateRequest.options:type_name -> greptime.v1.region.CreateRequest.OptionsEntry
-	55, // 35: greptime.v1.region.CreateRequest.partition:type_name -> greptime.v1.meta.Partition
-	10, // 36: greptime.v1.region.CreateRequest.requirements:type_name -> greptime.v1.region.RegionRequirements
-	12, // 37: greptime.v1.region.DropRequests.requests:type_name -> greptime.v1.region.DropRequest
-	47, // 38: greptime.v1.region.OpenRequest.options:type_name -> greptime.v1.region.OpenRequest.OptionsEntry
-	48, // 39: greptime.v1.region.CleanUpRequest.options:type_name -> greptime.v1.region.CleanUpRequest.OptionsEntry
-	17, // 40: greptime.v1.region.AlterRequests.requests:type_name -> greptime.v1.region.AlterRequest
-	19, // 41: greptime.v1.region.AlterRequest.add_columns:type_name -> greptime.v1.region.AddColumns
-	20, // 42: greptime.v1.region.AlterRequest.drop_columns:type_name -> greptime.v1.region.DropColumns
-	56, // 43: greptime.v1.region.AlterRequest.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
-	57, // 44: greptime.v1.region.AlterRequest.set_table_options:type_name -> greptime.v1.SetTableOptions
-	58, // 45: greptime.v1.region.AlterRequest.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
-	59, // 46: greptime.v1.region.AlterRequest.set_index:type_name -> greptime.v1.SetIndex
-	60, // 47: greptime.v1.region.AlterRequest.unset_index:type_name -> greptime.v1.UnsetIndex
-	61, // 48: greptime.v1.region.AlterRequest.drop_defaults:type_name -> greptime.v1.DropDefaults
-	62, // 49: greptime.v1.region.AlterRequest.set_indexes:type_name -> greptime.v1.SetIndexes
-	63, // 50: greptime.v1.region.AlterRequest.unset_indexes:type_name -> greptime.v1.UnsetIndexes
-	64, // 51: greptime.v1.region.AlterRequest.set_defaults:type_name -> greptime.v1.SetDefaults
-	18, // 52: greptime.v1.region.AlterRequest.sync_columns:type_name -> greptime.v1.region.SyncColumns
-	65, // 53: greptime.v1.region.AlterRequest.set_json_settings:type_name -> greptime.v1.SetJsonSettings
-	31, // 54: greptime.v1.region.SyncColumns.column_defs:type_name -> greptime.v1.region.RegionColumnDef
-	21, // 55: greptime.v1.region.AddColumns.add_columns:type_name -> greptime.v1.region.AddColumn
-	22, // 56: greptime.v1.region.DropColumns.drop_columns:type_name -> greptime.v1.region.DropColumn
-	31, // 57: greptime.v1.region.AddColumn.column_def:type_name -> greptime.v1.region.RegionColumnDef
-	66, // 58: greptime.v1.region.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
-	67, // 59: greptime.v1.region.CompactionTimeRange.time_unit:type_name -> greptime.v1.TimeUnit
-	24, // 60: greptime.v1.region.CompactRequest.regular:type_name -> greptime.v1.region.Regular
-	25, // 61: greptime.v1.region.CompactRequest.strict_window:type_name -> greptime.v1.region.StrictWindow
-	26, // 62: greptime.v1.region.CompactRequest.time_range:type_name -> greptime.v1.region.CompactionTimeRange
-	29, // 63: greptime.v1.region.TruncateRequest.all:type_name -> greptime.v1.region.All
-	68, // 64: greptime.v1.region.TruncateRequest.time_ranges:type_name -> greptime.v1.TimeRanges
-	30, // 65: greptime.v1.region.TruncateRequest.unflushed:type_name -> greptime.v1.region.Unflushed
-	69, // 66: greptime.v1.region.RegionColumnDef.column_def:type_name -> greptime.v1.ColumnDef
-	70, // 67: greptime.v1.region.BulkInsertRequest.arrow_ipc:type_name -> greptime.v1.ArrowIpc
-	54, // 68: greptime.v1.region.BulkInsertRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
-	33, // 69: greptime.v1.region.BulkInsertRequest.aligned_schema_version:type_name -> greptime.v1.region.AlignedSchemaVersion
-	34, // 70: greptime.v1.region.SyncRequest.mito_manifest_info:type_name -> greptime.v1.region.MitoManifestInfo
-	35, // 71: greptime.v1.region.SyncRequest.metric_manifest_info:type_name -> greptime.v1.region.MetricManifestInfo
-	49, // 72: greptime.v1.region.BuildIndexRequest.sst_index:type_name -> greptime.v1.region.BuildIndexRequest.SstIndexOptions
-	50, // 73: greptime.v1.region.BuildIndexRequest.series_index:type_name -> greptime.v1.region.BuildIndexRequest.SeriesIndexOptions
-	42, // 74: greptime.v1.region.RemoteDynFilterRequest.update:type_name -> greptime.v1.region.RemoteDynFilterUpdate
-	43, // 75: greptime.v1.region.RemoteDynFilterRequest.unregister:type_name -> greptime.v1.region.RemoteDynFilterUnregister
-	1,  // 76: greptime.v1.region.Region.Handle:input_type -> greptime.v1.region.RegionRequest
-	2,  // 77: greptime.v1.region.Region.Handle:output_type -> greptime.v1.region.RegionResponse
-	77, // [77:78] is the sub-list for method output_type
-	76, // [76:77] is the sub-list for method input_type
-	76, // [76:76] is the sub-list for extension type_name
-	76, // [76:76] is the sub-list for extension extendee
-	0,  // [0:76] is the sub-list for field type_name
+	4,  // 3: greptime.v1.region.RegionRequest.inserts:type_name -> greptime.v1.region.InsertRequests
+	5,  // 4: greptime.v1.region.RegionRequest.deletes:type_name -> greptime.v1.region.DeleteRequests
+	10, // 5: greptime.v1.region.RegionRequest.create:type_name -> greptime.v1.region.CreateRequest
+	13, // 6: greptime.v1.region.RegionRequest.drop:type_name -> greptime.v1.region.DropRequest
+	14, // 7: greptime.v1.region.RegionRequest.open:type_name -> greptime.v1.region.OpenRequest
+	16, // 8: greptime.v1.region.RegionRequest.close:type_name -> greptime.v1.region.CloseRequest
+	18, // 9: greptime.v1.region.RegionRequest.alter:type_name -> greptime.v1.region.AlterRequest
+	24, // 10: greptime.v1.region.RegionRequest.flush:type_name -> greptime.v1.region.FlushRequest
+	28, // 11: greptime.v1.region.RegionRequest.compact:type_name -> greptime.v1.region.CompactRequest
+	29, // 12: greptime.v1.region.RegionRequest.truncate:type_name -> greptime.v1.region.TruncateRequest
+	9,  // 13: greptime.v1.region.RegionRequest.creates:type_name -> greptime.v1.region.CreateRequests
+	12, // 14: greptime.v1.region.RegionRequest.drops:type_name -> greptime.v1.region.DropRequests
+	17, // 15: greptime.v1.region.RegionRequest.alters:type_name -> greptime.v1.region.AlterRequests
+	33, // 16: greptime.v1.region.RegionRequest.bulk_insert:type_name -> greptime.v1.region.BulkInsertRequest
+	37, // 17: greptime.v1.region.RegionRequest.sync:type_name -> greptime.v1.region.SyncRequest
+	38, // 18: greptime.v1.region.RegionRequest.list_metadata:type_name -> greptime.v1.region.ListMetadataRequest
+	39, // 19: greptime.v1.region.RegionRequest.build_index:type_name -> greptime.v1.region.BuildIndexRequest
+	41, // 20: greptime.v1.region.RegionRequest.apply_staging_manifest:type_name -> greptime.v1.region.ApplyStagingManifestRequest
+	42, // 21: greptime.v1.region.RegionRequest.remote_dyn_filter:type_name -> greptime.v1.region.RemoteDynFilterRequest
+	15, // 22: greptime.v1.region.RegionRequest.clean_up:type_name -> greptime.v1.region.CleanUpRequest
+	53, // 23: greptime.v1.region.RegionResponse.header:type_name -> greptime.v1.ResponseHeader
+	46, // 24: greptime.v1.region.RegionResponse.extensions:type_name -> greptime.v1.region.RegionResponse.ExtensionsEntry
+	3,  // 25: greptime.v1.region.RegionResponse.failures:type_name -> greptime.v1.region.RegionRequestFailure
+	54, // 26: greptime.v1.region.RegionRequestFailure.status:type_name -> greptime.v1.Status
+	6,  // 27: greptime.v1.region.InsertRequests.requests:type_name -> greptime.v1.region.InsertRequest
+	7,  // 28: greptime.v1.region.DeleteRequests.requests:type_name -> greptime.v1.region.DeleteRequest
+	55, // 29: greptime.v1.region.InsertRequest.rows:type_name -> greptime.v1.Rows
+	56, // 30: greptime.v1.region.InsertRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
+	55, // 31: greptime.v1.region.DeleteRequest.rows:type_name -> greptime.v1.Rows
+	56, // 32: greptime.v1.region.DeleteRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
+	0,  // 33: greptime.v1.region.QueryRequest.header:type_name -> greptime.v1.region.RegionRequestHeader
+	10, // 34: greptime.v1.region.CreateRequests.requests:type_name -> greptime.v1.region.CreateRequest
+	32, // 35: greptime.v1.region.CreateRequest.column_defs:type_name -> greptime.v1.region.RegionColumnDef
+	47, // 36: greptime.v1.region.CreateRequest.options:type_name -> greptime.v1.region.CreateRequest.OptionsEntry
+	57, // 37: greptime.v1.region.CreateRequest.partition:type_name -> greptime.v1.meta.Partition
+	11, // 38: greptime.v1.region.CreateRequest.requirements:type_name -> greptime.v1.region.RegionRequirements
+	13, // 39: greptime.v1.region.DropRequests.requests:type_name -> greptime.v1.region.DropRequest
+	48, // 40: greptime.v1.region.OpenRequest.options:type_name -> greptime.v1.region.OpenRequest.OptionsEntry
+	49, // 41: greptime.v1.region.CleanUpRequest.options:type_name -> greptime.v1.region.CleanUpRequest.OptionsEntry
+	18, // 42: greptime.v1.region.AlterRequests.requests:type_name -> greptime.v1.region.AlterRequest
+	20, // 43: greptime.v1.region.AlterRequest.add_columns:type_name -> greptime.v1.region.AddColumns
+	21, // 44: greptime.v1.region.AlterRequest.drop_columns:type_name -> greptime.v1.region.DropColumns
+	58, // 45: greptime.v1.region.AlterRequest.modify_column_types:type_name -> greptime.v1.ModifyColumnTypes
+	59, // 46: greptime.v1.region.AlterRequest.set_table_options:type_name -> greptime.v1.SetTableOptions
+	60, // 47: greptime.v1.region.AlterRequest.unset_table_options:type_name -> greptime.v1.UnsetTableOptions
+	61, // 48: greptime.v1.region.AlterRequest.set_index:type_name -> greptime.v1.SetIndex
+	62, // 49: greptime.v1.region.AlterRequest.unset_index:type_name -> greptime.v1.UnsetIndex
+	63, // 50: greptime.v1.region.AlterRequest.drop_defaults:type_name -> greptime.v1.DropDefaults
+	64, // 51: greptime.v1.region.AlterRequest.set_indexes:type_name -> greptime.v1.SetIndexes
+	65, // 52: greptime.v1.region.AlterRequest.unset_indexes:type_name -> greptime.v1.UnsetIndexes
+	66, // 53: greptime.v1.region.AlterRequest.set_defaults:type_name -> greptime.v1.SetDefaults
+	19, // 54: greptime.v1.region.AlterRequest.sync_columns:type_name -> greptime.v1.region.SyncColumns
+	67, // 55: greptime.v1.region.AlterRequest.set_json_settings:type_name -> greptime.v1.SetJsonSettings
+	32, // 56: greptime.v1.region.SyncColumns.column_defs:type_name -> greptime.v1.region.RegionColumnDef
+	22, // 57: greptime.v1.region.AddColumns.add_columns:type_name -> greptime.v1.region.AddColumn
+	23, // 58: greptime.v1.region.DropColumns.drop_columns:type_name -> greptime.v1.region.DropColumn
+	32, // 59: greptime.v1.region.AddColumn.column_def:type_name -> greptime.v1.region.RegionColumnDef
+	68, // 60: greptime.v1.region.AddColumn.location:type_name -> greptime.v1.AddColumnLocation
+	69, // 61: greptime.v1.region.CompactionTimeRange.time_unit:type_name -> greptime.v1.TimeUnit
+	25, // 62: greptime.v1.region.CompactRequest.regular:type_name -> greptime.v1.region.Regular
+	26, // 63: greptime.v1.region.CompactRequest.strict_window:type_name -> greptime.v1.region.StrictWindow
+	27, // 64: greptime.v1.region.CompactRequest.time_range:type_name -> greptime.v1.region.CompactionTimeRange
+	30, // 65: greptime.v1.region.TruncateRequest.all:type_name -> greptime.v1.region.All
+	70, // 66: greptime.v1.region.TruncateRequest.time_ranges:type_name -> greptime.v1.TimeRanges
+	31, // 67: greptime.v1.region.TruncateRequest.unflushed:type_name -> greptime.v1.region.Unflushed
+	71, // 68: greptime.v1.region.RegionColumnDef.column_def:type_name -> greptime.v1.ColumnDef
+	72, // 69: greptime.v1.region.BulkInsertRequest.arrow_ipc:type_name -> greptime.v1.ArrowIpc
+	56, // 70: greptime.v1.region.BulkInsertRequest.partition_expr_version:type_name -> greptime.v1.PartitionExprVersion
+	34, // 71: greptime.v1.region.BulkInsertRequest.aligned_schema_version:type_name -> greptime.v1.region.AlignedSchemaVersion
+	35, // 72: greptime.v1.region.SyncRequest.mito_manifest_info:type_name -> greptime.v1.region.MitoManifestInfo
+	36, // 73: greptime.v1.region.SyncRequest.metric_manifest_info:type_name -> greptime.v1.region.MetricManifestInfo
+	50, // 74: greptime.v1.region.BuildIndexRequest.sst_index:type_name -> greptime.v1.region.BuildIndexRequest.SstIndexOptions
+	51, // 75: greptime.v1.region.BuildIndexRequest.series_index:type_name -> greptime.v1.region.BuildIndexRequest.SeriesIndexOptions
+	43, // 76: greptime.v1.region.RemoteDynFilterRequest.update:type_name -> greptime.v1.region.RemoteDynFilterUpdate
+	44, // 77: greptime.v1.region.RemoteDynFilterRequest.unregister:type_name -> greptime.v1.region.RemoteDynFilterUnregister
+	1,  // 78: greptime.v1.region.Region.Handle:input_type -> greptime.v1.region.RegionRequest
+	2,  // 79: greptime.v1.region.Region.Handle:output_type -> greptime.v1.region.RegionResponse
+	79, // [79:80] is the sub-list for method output_type
+	78, // [78:79] is the sub-list for method input_type
+	78, // [78:78] is the sub-list for extension type_name
+	78, // [78:78] is the sub-list for extension extendee
+	0,  // [0:78] is the sub-list for field type_name
 }
 
 func init() { file_greptime_v1_region_server_proto_init() }
@@ -4094,7 +4179,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*InsertRequests); i {
+			switch v := v.(*RegionRequestFailure); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4106,7 +4191,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteRequests); i {
+			switch v := v.(*InsertRequests); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4118,7 +4203,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*InsertRequest); i {
+			switch v := v.(*DeleteRequests); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4130,7 +4215,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteRequest); i {
+			switch v := v.(*InsertRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4142,7 +4227,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*QueryRequest); i {
+			switch v := v.(*DeleteRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4154,7 +4239,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateRequests); i {
+			switch v := v.(*QueryRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4166,7 +4251,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateRequest); i {
+			switch v := v.(*CreateRequests); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4178,7 +4263,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RegionRequirements); i {
+			switch v := v.(*CreateRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4190,7 +4275,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropRequests); i {
+			switch v := v.(*RegionRequirements); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4202,7 +4287,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropRequest); i {
+			switch v := v.(*DropRequests); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4214,7 +4299,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*OpenRequest); i {
+			switch v := v.(*DropRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4226,7 +4311,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CleanUpRequest); i {
+			switch v := v.(*OpenRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4238,7 +4323,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CloseRequest); i {
+			switch v := v.(*CleanUpRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4250,7 +4335,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AlterRequests); i {
+			switch v := v.(*CloseRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4262,7 +4347,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AlterRequest); i {
+			switch v := v.(*AlterRequests); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4274,7 +4359,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SyncColumns); i {
+			switch v := v.(*AlterRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4286,7 +4371,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddColumns); i {
+			switch v := v.(*SyncColumns); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4298,7 +4383,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropColumns); i {
+			switch v := v.(*AddColumns); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4310,7 +4395,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddColumn); i {
+			switch v := v.(*DropColumns); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4322,7 +4407,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DropColumn); i {
+			switch v := v.(*AddColumn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4334,7 +4419,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FlushRequest); i {
+			switch v := v.(*DropColumn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4346,7 +4431,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Regular); i {
+			switch v := v.(*FlushRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4358,7 +4443,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*StrictWindow); i {
+			switch v := v.(*Regular); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4370,7 +4455,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CompactionTimeRange); i {
+			switch v := v.(*StrictWindow); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4382,7 +4467,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CompactRequest); i {
+			switch v := v.(*CompactionTimeRange); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4394,7 +4479,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TruncateRequest); i {
+			switch v := v.(*CompactRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4406,7 +4491,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*All); i {
+			switch v := v.(*TruncateRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4418,7 +4503,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Unflushed); i {
+			switch v := v.(*All); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4430,7 +4515,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RegionColumnDef); i {
+			switch v := v.(*Unflushed); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4442,7 +4527,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BulkInsertRequest); i {
+			switch v := v.(*RegionColumnDef); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4454,7 +4539,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AlignedSchemaVersion); i {
+			switch v := v.(*BulkInsertRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4466,7 +4551,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MitoManifestInfo); i {
+			switch v := v.(*AlignedSchemaVersion); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4478,7 +4563,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MetricManifestInfo); i {
+			switch v := v.(*MitoManifestInfo); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4490,7 +4575,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*SyncRequest); i {
+			switch v := v.(*MetricManifestInfo); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4502,7 +4587,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListMetadataRequest); i {
+			switch v := v.(*SyncRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4514,7 +4599,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*BuildIndexRequest); i {
+			switch v := v.(*ListMetadataRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4526,7 +4611,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FileMetas); i {
+			switch v := v.(*BuildIndexRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4538,7 +4623,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ApplyStagingManifestRequest); i {
+			switch v := v.(*FileMetas); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4550,7 +4635,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RemoteDynFilterRequest); i {
+			switch v := v.(*ApplyStagingManifestRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4562,7 +4647,7 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RemoteDynFilterUpdate); i {
+			switch v := v.(*RemoteDynFilterRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -4574,6 +4659,18 @@ func file_greptime_v1_region_server_proto_init() {
 			}
 		}
 		file_greptime_v1_region_server_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoteDynFilterUpdate); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_greptime_v1_region_server_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RemoteDynFilterUnregister); i {
 			case 0:
 				return &v.state
@@ -4585,7 +4682,7 @@ func file_greptime_v1_region_server_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_region_server_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_region_server_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BuildIndexRequest_SstIndexOptions); i {
 			case 0:
 				return &v.state
@@ -4597,7 +4694,7 @@ func file_greptime_v1_region_server_proto_init() {
 				return nil
 			}
 		}
-		file_greptime_v1_region_server_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
+		file_greptime_v1_region_server_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*BuildIndexRequest_SeriesIndexOptions); i {
 			case 0:
 				return &v.state
@@ -4632,7 +4729,7 @@ func file_greptime_v1_region_server_proto_init() {
 		(*RegionRequest_RemoteDynFilter)(nil),
 		(*RegionRequest_CleanUp)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[17].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[18].OneofWrappers = []interface{}{
 		(*AlterRequest_AddColumns)(nil),
 		(*AlterRequest_DropColumns)(nil),
 		(*AlterRequest_ModifyColumnTypes)(nil),
@@ -4647,27 +4744,27 @@ func file_greptime_v1_region_server_proto_init() {
 		(*AlterRequest_SyncColumns)(nil),
 		(*AlterRequest_SetJsonSettings)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[27].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[28].OneofWrappers = []interface{}{
 		(*CompactRequest_Regular)(nil),
 		(*CompactRequest_StrictWindow)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[28].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[29].OneofWrappers = []interface{}{
 		(*TruncateRequest_All)(nil),
 		(*TruncateRequest_TimeRanges)(nil),
 		(*TruncateRequest_Unflushed)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[32].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[33].OneofWrappers = []interface{}{
 		(*BulkInsertRequest_ArrowIpc)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[36].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[37].OneofWrappers = []interface{}{
 		(*SyncRequest_MitoManifestInfo)(nil),
 		(*SyncRequest_MetricManifestInfo)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[38].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[39].OneofWrappers = []interface{}{
 		(*BuildIndexRequest_SstIndex)(nil),
 		(*BuildIndexRequest_SeriesIndex)(nil),
 	}
-	file_greptime_v1_region_server_proto_msgTypes[41].OneofWrappers = []interface{}{
+	file_greptime_v1_region_server_proto_msgTypes[42].OneofWrappers = []interface{}{
 		(*RemoteDynFilterRequest_Update)(nil),
 		(*RemoteDynFilterRequest_Unregister)(nil),
 	}
@@ -4677,7 +4774,7 @@ func file_greptime_v1_region_server_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_greptime_v1_region_server_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   51,
+			NumMessages:   52,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
