@@ -146,6 +146,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR Status::Status(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.err_msg_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.retry_hint_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.status_code_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct StatusDefaultTypeInternal {
@@ -603,6 +604,7 @@ const uint32_t TableStruct_greptime_2fv1_2fcommon_2eproto::offsets[] PROTOBUF_SE
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Status, _impl_.status_code_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::Status, _impl_.err_msg_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::Status, _impl_.retry_hint_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::AuthHeader, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -821,31 +823,31 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 68, -1, -1, sizeof(::greptime::v1::RequestHeader)},
   { 80, -1, -1, sizeof(::greptime::v1::ResponseHeader)},
   { 87, -1, -1, sizeof(::greptime::v1::Status)},
-  { 95, -1, -1, sizeof(::greptime::v1::AuthHeader)},
-  { 104, -1, -1, sizeof(::greptime::v1::Basic)},
-  { 112, -1, -1, sizeof(::greptime::v1::Token)},
-  { 119, -1, -1, sizeof(::greptime::v1::TableName)},
-  { 128, -1, -1, sizeof(::greptime::v1::AffectedRows)},
-  { 135, -1, -1, sizeof(::greptime::v1::Metrics)},
-  { 142, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
-  { 149, -1, -1, sizeof(::greptime::v1::EvalInterval)},
-  { 156, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
-  { 164, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
-  { 173, -1, -1, sizeof(::greptime::v1::TimeRange)},
-  { 181, -1, -1, sizeof(::greptime::v1::TimeRanges)},
-  { 189, -1, -1, sizeof(::greptime::v1::Decimal128)},
-  { 197, -1, -1, sizeof(::greptime::v1::StructField)},
-  { 206, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
-  { 220, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
-  { 228, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
-  { 235, -1, -1, sizeof(::greptime::v1::ListTypeExtension)},
-  { 243, -1, -1, sizeof(::greptime::v1::StructTypeExtension)},
-  { 250, -1, -1, sizeof(::greptime::v1::JsonNativeTypeExtension)},
-  { 258, -1, -1, sizeof(::greptime::v1::DictionaryTypeExtension)},
-  { 268, 276, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
-  { 278, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
-  { 285, -1, -1, sizeof(::greptime::v1::ArrowIpc)},
-  { 294, -1, -1, sizeof(::greptime::v1::PartitionExprVersion)},
+  { 96, -1, -1, sizeof(::greptime::v1::AuthHeader)},
+  { 105, -1, -1, sizeof(::greptime::v1::Basic)},
+  { 113, -1, -1, sizeof(::greptime::v1::Token)},
+  { 120, -1, -1, sizeof(::greptime::v1::TableName)},
+  { 129, -1, -1, sizeof(::greptime::v1::AffectedRows)},
+  { 136, -1, -1, sizeof(::greptime::v1::Metrics)},
+  { 143, -1, -1, sizeof(::greptime::v1::ExpireAfter)},
+  { 150, -1, -1, sizeof(::greptime::v1::EvalInterval)},
+  { 157, -1, -1, sizeof(::greptime::v1::FlightMetadata)},
+  { 165, -1, -1, sizeof(::greptime::v1::IntervalMonthDayNano)},
+  { 174, -1, -1, sizeof(::greptime::v1::TimeRange)},
+  { 182, -1, -1, sizeof(::greptime::v1::TimeRanges)},
+  { 190, -1, -1, sizeof(::greptime::v1::Decimal128)},
+  { 198, -1, -1, sizeof(::greptime::v1::StructField)},
+  { 207, -1, -1, sizeof(::greptime::v1::ColumnDataTypeExtension)},
+  { 221, -1, -1, sizeof(::greptime::v1::DecimalTypeExtension)},
+  { 229, -1, -1, sizeof(::greptime::v1::VectorTypeExtension)},
+  { 236, -1, -1, sizeof(::greptime::v1::ListTypeExtension)},
+  { 244, -1, -1, sizeof(::greptime::v1::StructTypeExtension)},
+  { 251, -1, -1, sizeof(::greptime::v1::JsonNativeTypeExtension)},
+  { 259, -1, -1, sizeof(::greptime::v1::DictionaryTypeExtension)},
+  { 269, 277, -1, sizeof(::greptime::v1::ColumnOptions_OptionsEntry_DoNotUse)},
+  { 279, -1, -1, sizeof(::greptime::v1::ColumnOptions)},
+  { 286, -1, -1, sizeof(::greptime::v1::ArrowIpc)},
+  { 295, -1, -1, sizeof(::greptime::v1::PartitionExprVersion)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -911,89 +913,89 @@ const char descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto[] PROTOBUF_S
   "er.TracingContextEntry\022\020\n\010timezone\030\006 \001(\t"
   "\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
   "value\030\002 \001(\t:\0028\001\"5\n\016ResponseHeader\022#\n\006sta"
-  "tus\030\001 \001(\0132\023.greptime.v1.Status\".\n\006Status"
-  "\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\"e"
-  "\n\nAuthHeader\022#\n\005basic\030\001 \001(\0132\022.greptime.v"
-  "1.BasicH\000\022#\n\005token\030\002 \001(\0132\022.greptime.v1.T"
-  "okenH\000B\r\n\013auth_scheme\"+\n\005Basic\022\020\n\010userna"
-  "me\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"\026\n\005Token\022\r\n\005t"
-  "oken\030\001 \001(\t\"J\n\tTableName\022\024\n\014catalog_name\030"
-  "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name"
-  "\030\003 \001(\t\"\035\n\014AffectedRows\022\r\n\005value\030\001 \001(\r\"\032\n"
-  "\007Metrics\022\017\n\007metrics\030\001 \001(\014\"\034\n\013ExpireAfter"
-  "\022\r\n\005value\030\001 \001(\003\"\037\n\014EvalInterval\022\017\n\007secon"
-  "ds\030\001 \001(\003\"i\n\016FlightMetadata\0220\n\raffected_r"
-  "ows\030\001 \001(\0132\031.greptime.v1.AffectedRows\022%\n\007"
-  "metrics\030\002 \001(\0132\024.greptime.v1.Metrics\"I\n\024I"
-  "ntervalMonthDayNano\022\016\n\006months\030\001 \001(\005\022\014\n\004d"
-  "ays\030\002 \001(\005\022\023\n\013nanoseconds\030\003 \001(\003\"\'\n\tTimeRa"
-  "nge\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\"c\n\nTimeR"
-  "anges\022(\n\ttime_unit\030\001 \001(\0162\025.greptime.v1.T"
-  "imeUnit\022+\n\013time_ranges\030\002 \003(\0132\026.greptime."
-  "v1.TimeRange\"$\n\nDecimal128\022\n\n\002hi\030\001 \001(\003\022\n"
-  "\n\002lo\030\002 \001(\003\"\214\001\n\013StructField\022\014\n\004name\030\001 \001(\t"
-  "\022-\n\010datatype\030\002 \001(\0162\033.greptime.v1.ColumnD"
-  "ataType\022@\n\022datatype_extension\030\003 \001(\0132$.gr"
-  "eptime.v1.ColumnDataTypeExtension\"\277\003\n\027Co"
-  "lumnDataTypeExtension\0229\n\014decimal_type\030\001 "
-  "\001(\0132!.greptime.v1.DecimalTypeExtensionH\000"
-  "\0223\n\tjson_type\030\002 \001(\0162\036.greptime.v1.JsonTy"
-  "peExtensionH\000\0227\n\013vector_type\030\003 \001(\0132 .gre"
-  "ptime.v1.VectorTypeExtensionH\000\0223\n\tlist_t"
-  "ype\030\004 \001(\0132\036.greptime.v1.ListTypeExtensio"
-  "nH\000\0227\n\013struct_type\030\005 \001(\0132 .greptime.v1.S"
-  "tructTypeExtensionH\000\022@\n\020json_native_type"
-  "\030\006 \001(\0132$.greptime.v1.JsonNativeTypeExten"
-  "sionH\000\022\?\n\017dictionary_type\030\007 \001(\0132$.grepti"
-  "me.v1.DictionaryTypeExtensionH\000B\n\n\010type_"
-  "ext\"8\n\024DecimalTypeExtension\022\021\n\tprecision"
-  "\030\001 \001(\005\022\r\n\005scale\030\002 \001(\005\"\"\n\023VectorTypeExten"
-  "sion\022\013\n\003dim\030\001 \001(\r\"\204\001\n\021ListTypeExtension\022"
-  "-\n\010datatype\030\001 \001(\0162\033.greptime.v1.ColumnDa"
-  "taType\022@\n\022datatype_extension\030\002 \001(\0132$.gre"
-  "ptime.v1.ColumnDataTypeExtension\"\?\n\023Stru"
-  "ctTypeExtension\022(\n\006fields\030\001 \003(\0132\030.grepti"
-  "me.v1.StructField\"\212\001\n\027JsonNativeTypeExte"
-  "nsion\022-\n\010datatype\030\001 \001(\0162\033.greptime.v1.Co"
-  "lumnDataType\022@\n\022datatype_extension\030\002 \001(\013"
-  "2$.greptime.v1.ColumnDataTypeExtension\"\217"
-  "\002\n\027DictionaryTypeExtension\0221\n\014key_dataty"
-  "pe\030\001 \001(\0162\033.greptime.v1.ColumnDataType\022D\n"
-  "\026key_datatype_extension\030\002 \001(\0132$.greptime"
-  ".v1.ColumnDataTypeExtension\0223\n\016value_dat"
-  "atype\030\003 \001(\0162\033.greptime.v1.ColumnDataType"
-  "\022F\n\030value_datatype_extension\030\004 \001(\0132$.gre"
-  "ptime.v1.ColumnDataTypeExtension\"y\n\rColu"
-  "mnOptions\0228\n\007options\030\001 \003(\0132\'.greptime.v1"
-  ".ColumnOptions.OptionsEntry\032.\n\014OptionsEn"
-  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\010A"
-  "rrowIpc\022\016\n\006schema\030\001 \001(\014\022\023\n\013data_header\030\002"
-  " \001(\014\022\017\n\007payload\030\003 \001(\014\"%\n\024PartitionExprVe"
-  "rsion\022\r\n\005value\030\001 \001(\004*1\n\014SemanticType\022\007\n\003"
-  "TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\tTIMESTAMP\020\002*\222\004\n\016Colu"
-  "mnDataType\022\013\n\007BOOLEAN\020\000\022\010\n\004INT8\020\001\022\t\n\005INT"
-  "16\020\002\022\t\n\005INT32\020\003\022\t\n\005INT64\020\004\022\t\n\005UINT8\020\005\022\n\n"
-  "\006UINT16\020\006\022\n\n\006UINT32\020\007\022\n\n\006UINT64\020\010\022\013\n\007FLO"
-  "AT32\020\t\022\013\n\007FLOAT64\020\n\022\n\n\006BINARY\020\013\022\n\n\006STRIN"
-  "G\020\014\022\010\n\004DATE\020\r\022\014\n\010DATETIME\020\016\022\024\n\020TIMESTAMP"
-  "_SECOND\020\017\022\031\n\025TIMESTAMP_MILLISECOND\020\020\022\031\n\025"
-  "TIMESTAMP_MICROSECOND\020\021\022\030\n\024TIMESTAMP_NAN"
-  "OSECOND\020\022\022\017\n\013TIME_SECOND\020\023\022\024\n\020TIME_MILLI"
-  "SECOND\020\024\022\024\n\020TIME_MICROSECOND\020\025\022\023\n\017TIME_N"
-  "ANOSECOND\020\026\022\027\n\023INTERVAL_YEAR_MONTH\020\027\022\025\n\021"
-  "INTERVAL_DAY_TIME\020\030\022\033\n\027INTERVAL_MONTH_DA"
-  "Y_NANO\020\031\022\016\n\nDECIMAL128\020\036\022\010\n\004JSON\020\037\022\n\n\006VE"
-  "CTOR\020 \022\010\n\004LIST\020(\022\n\n\006STRUCT\020)\022\016\n\nDICTIONA"
-  "RY\020**H\n\010TimeUnit\022\017\n\013MILLISECOND\020\000\022\n\n\006SEC"
-  "OND\020\001\022\017\n\013MICROSECOND\020\002\022\016\n\nNANOSECOND\020\003*$"
-  "\n\021JsonTypeExtension\022\017\n\013JSON_BINARY\020\000BO\n\016"
-  "io.greptime.v1B\006CommonZ5github.com/Grept"
-  "imeTeam/greptime-proto/go/greptime/v1b\006p"
-  "roto3"
+  "tus\030\001 \001(\0132\023.greptime.v1.Status\"B\n\006Status"
+  "\022\023\n\013status_code\030\001 \001(\r\022\017\n\007err_msg\030\002 \001(\t\022\022"
+  "\n\nretry_hint\030\003 \001(\t\"e\n\nAuthHeader\022#\n\005basi"
+  "c\030\001 \001(\0132\022.greptime.v1.BasicH\000\022#\n\005token\030\002"
+  " \001(\0132\022.greptime.v1.TokenH\000B\r\n\013auth_schem"
+  "e\"+\n\005Basic\022\020\n\010username\030\001 \001(\t\022\020\n\010password"
+  "\030\002 \001(\t\"\026\n\005Token\022\r\n\005token\030\001 \001(\t\"J\n\tTableN"
+  "ame\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name"
+  "\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"\035\n\014AffectedRo"
+  "ws\022\r\n\005value\030\001 \001(\r\"\032\n\007Metrics\022\017\n\007metrics\030"
+  "\001 \001(\014\"\034\n\013ExpireAfter\022\r\n\005value\030\001 \001(\003\"\037\n\014E"
+  "valInterval\022\017\n\007seconds\030\001 \001(\003\"i\n\016FlightMe"
+  "tadata\0220\n\raffected_rows\030\001 \001(\0132\031.greptime"
+  ".v1.AffectedRows\022%\n\007metrics\030\002 \001(\0132\024.grep"
+  "time.v1.Metrics\"I\n\024IntervalMonthDayNano\022"
+  "\016\n\006months\030\001 \001(\005\022\014\n\004days\030\002 \001(\005\022\023\n\013nanosec"
+  "onds\030\003 \001(\003\"\'\n\tTimeRange\022\r\n\005start\030\001 \001(\003\022\013"
+  "\n\003end\030\002 \001(\003\"c\n\nTimeRanges\022(\n\ttime_unit\030\001"
+  " \001(\0162\025.greptime.v1.TimeUnit\022+\n\013time_rang"
+  "es\030\002 \003(\0132\026.greptime.v1.TimeRange\"$\n\nDeci"
+  "mal128\022\n\n\002hi\030\001 \001(\003\022\n\n\002lo\030\002 \001(\003\"\214\001\n\013Struc"
+  "tField\022\014\n\004name\030\001 \001(\t\022-\n\010datatype\030\002 \001(\0162\033"
+  ".greptime.v1.ColumnDataType\022@\n\022datatype_"
+  "extension\030\003 \001(\0132$.greptime.v1.ColumnData"
+  "TypeExtension\"\277\003\n\027ColumnDataTypeExtensio"
+  "n\0229\n\014decimal_type\030\001 \001(\0132!.greptime.v1.De"
+  "cimalTypeExtensionH\000\0223\n\tjson_type\030\002 \001(\0162"
+  "\036.greptime.v1.JsonTypeExtensionH\000\0227\n\013vec"
+  "tor_type\030\003 \001(\0132 .greptime.v1.VectorTypeE"
+  "xtensionH\000\0223\n\tlist_type\030\004 \001(\0132\036.greptime"
+  ".v1.ListTypeExtensionH\000\0227\n\013struct_type\030\005"
+  " \001(\0132 .greptime.v1.StructTypeExtensionH\000"
+  "\022@\n\020json_native_type\030\006 \001(\0132$.greptime.v1"
+  ".JsonNativeTypeExtensionH\000\022\?\n\017dictionary"
+  "_type\030\007 \001(\0132$.greptime.v1.DictionaryType"
+  "ExtensionH\000B\n\n\010type_ext\"8\n\024DecimalTypeEx"
+  "tension\022\021\n\tprecision\030\001 \001(\005\022\r\n\005scale\030\002 \001("
+  "\005\"\"\n\023VectorTypeExtension\022\013\n\003dim\030\001 \001(\r\"\204\001"
+  "\n\021ListTypeExtension\022-\n\010datatype\030\001 \001(\0162\033."
+  "greptime.v1.ColumnDataType\022@\n\022datatype_e"
+  "xtension\030\002 \001(\0132$.greptime.v1.ColumnDataT"
+  "ypeExtension\"\?\n\023StructTypeExtension\022(\n\006f"
+  "ields\030\001 \003(\0132\030.greptime.v1.StructField\"\212\001"
+  "\n\027JsonNativeTypeExtension\022-\n\010datatype\030\001 "
+  "\001(\0162\033.greptime.v1.ColumnDataType\022@\n\022data"
+  "type_extension\030\002 \001(\0132$.greptime.v1.Colum"
+  "nDataTypeExtension\"\217\002\n\027DictionaryTypeExt"
+  "ension\0221\n\014key_datatype\030\001 \001(\0162\033.greptime."
+  "v1.ColumnDataType\022D\n\026key_datatype_extens"
+  "ion\030\002 \001(\0132$.greptime.v1.ColumnDataTypeEx"
+  "tension\0223\n\016value_datatype\030\003 \001(\0162\033.grepti"
+  "me.v1.ColumnDataType\022F\n\030value_datatype_e"
+  "xtension\030\004 \001(\0132$.greptime.v1.ColumnDataT"
+  "ypeExtension\"y\n\rColumnOptions\0228\n\007options"
+  "\030\001 \003(\0132\'.greptime.v1.ColumnOptions.Optio"
+  "nsEntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
+  "value\030\002 \001(\t:\0028\001\"@\n\010ArrowIpc\022\016\n\006schema\030\001 "
+  "\001(\014\022\023\n\013data_header\030\002 \001(\014\022\017\n\007payload\030\003 \001("
+  "\014\"%\n\024PartitionExprVersion\022\r\n\005value\030\001 \001(\004"
+  "*1\n\014SemanticType\022\007\n\003TAG\020\000\022\t\n\005FIELD\020\001\022\r\n\t"
+  "TIMESTAMP\020\002*\222\004\n\016ColumnDataType\022\013\n\007BOOLEA"
+  "N\020\000\022\010\n\004INT8\020\001\022\t\n\005INT16\020\002\022\t\n\005INT32\020\003\022\t\n\005I"
+  "NT64\020\004\022\t\n\005UINT8\020\005\022\n\n\006UINT16\020\006\022\n\n\006UINT32\020"
+  "\007\022\n\n\006UINT64\020\010\022\013\n\007FLOAT32\020\t\022\013\n\007FLOAT64\020\n\022"
+  "\n\n\006BINARY\020\013\022\n\n\006STRING\020\014\022\010\n\004DATE\020\r\022\014\n\010DAT"
+  "ETIME\020\016\022\024\n\020TIMESTAMP_SECOND\020\017\022\031\n\025TIMESTA"
+  "MP_MILLISECOND\020\020\022\031\n\025TIMESTAMP_MICROSECON"
+  "D\020\021\022\030\n\024TIMESTAMP_NANOSECOND\020\022\022\017\n\013TIME_SE"
+  "COND\020\023\022\024\n\020TIME_MILLISECOND\020\024\022\024\n\020TIME_MIC"
+  "ROSECOND\020\025\022\023\n\017TIME_NANOSECOND\020\026\022\027\n\023INTER"
+  "VAL_YEAR_MONTH\020\027\022\025\n\021INTERVAL_DAY_TIME\020\030\022"
+  "\033\n\027INTERVAL_MONTH_DAY_NANO\020\031\022\016\n\nDECIMAL1"
+  "28\020\036\022\010\n\004JSON\020\037\022\n\n\006VECTOR\020 \022\010\n\004LIST\020(\022\n\n\006"
+  "STRUCT\020)\022\016\n\nDICTIONARY\020**H\n\010TimeUnit\022\017\n\013"
+  "MILLISECOND\020\000\022\n\n\006SECOND\020\001\022\017\n\013MICROSECOND"
+  "\020\002\022\016\n\nNANOSECOND\020\003*$\n\021JsonTypeExtension\022"
+  "\017\n\013JSON_BINARY\020\000BO\n\016io.greptime.v1B\006Comm"
+  "onZ5github.com/GreptimeTeam/greptime-pro"
+  "to/go/greptime/v1b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fcommon_2eproto = {
-    false, false, 4085, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
+    false, false, 4105, descriptor_table_protodef_greptime_2fv1_2fcommon_2eproto,
     "greptime/v1/common.proto",
     &descriptor_table_greptime_2fv1_2fcommon_2eproto_once, nullptr, 0, 35,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fcommon_2eproto::offsets,
@@ -2743,6 +2745,7 @@ Status::Status(const Status& from)
   Status* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.err_msg_){}
+    , decltype(_impl_.retry_hint_){}
     , decltype(_impl_.status_code_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -2755,6 +2758,14 @@ Status::Status(const Status& from)
     _this->_impl_.err_msg_.Set(from._internal_err_msg(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.retry_hint_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.retry_hint_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_retry_hint().empty()) {
+    _this->_impl_.retry_hint_.Set(from._internal_retry_hint(), 
+      _this->GetArenaForAllocation());
+  }
   _this->_impl_.status_code_ = from._impl_.status_code_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.Status)
 }
@@ -2765,12 +2776,17 @@ inline void Status::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.err_msg_){}
+    , decltype(_impl_.retry_hint_){}
     , decltype(_impl_.status_code_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.err_msg_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.err_msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.retry_hint_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.retry_hint_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -2786,6 +2802,7 @@ Status::~Status() {
 inline void Status::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.err_msg_.Destroy();
+  _impl_.retry_hint_.Destroy();
 }
 
 void Status::SetCachedSize(int size) const {
@@ -2799,6 +2816,7 @@ void Status::Clear() {
   (void) cached_has_bits;
 
   _impl_.err_msg_.ClearToEmpty();
+  _impl_.retry_hint_.ClearToEmpty();
   _impl_.status_code_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2824,6 +2842,16 @@ const char* Status::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.Status.err_msg"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string retry_hint = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_retry_hint();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.Status.retry_hint"));
         } else
           goto handle_unusual;
         continue;
@@ -2872,6 +2900,16 @@ uint8_t* Status::_InternalSerialize(
         2, this->_internal_err_msg(), target);
   }
 
+  // string retry_hint = 3;
+  if (!this->_internal_retry_hint().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_retry_hint().data(), static_cast<int>(this->_internal_retry_hint().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.Status.retry_hint");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_retry_hint(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2893,6 +2931,13 @@ size_t Status::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_err_msg());
+  }
+
+  // string retry_hint = 3;
+  if (!this->_internal_retry_hint().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_retry_hint());
   }
 
   // uint32 status_code = 1;
@@ -2921,6 +2966,9 @@ void Status::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   if (!from._internal_err_msg().empty()) {
     _this->_internal_set_err_msg(from._internal_err_msg());
   }
+  if (!from._internal_retry_hint().empty()) {
+    _this->_internal_set_retry_hint(from._internal_retry_hint());
+  }
   if (from._internal_status_code() != 0) {
     _this->_internal_set_status_code(from._internal_status_code());
   }
@@ -2946,6 +2994,10 @@ void Status::InternalSwap(Status* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.err_msg_, lhs_arena,
       &other->_impl_.err_msg_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.retry_hint_, lhs_arena,
+      &other->_impl_.retry_hint_, rhs_arena
   );
   swap(_impl_.status_code_, other->_impl_.status_code_);
 }

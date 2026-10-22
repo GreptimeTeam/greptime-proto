@@ -160,6 +160,9 @@ extern RegionColumnDefDefaultTypeInternal _RegionColumnDef_default_instance_;
 class RegionRequest;
 struct RegionRequestDefaultTypeInternal;
 extern RegionRequestDefaultTypeInternal _RegionRequest_default_instance_;
+class RegionRequestFailure;
+struct RegionRequestFailureDefaultTypeInternal;
+extern RegionRequestFailureDefaultTypeInternal _RegionRequestFailure_default_instance_;
 class RegionRequestHeader;
 struct RegionRequestHeaderDefaultTypeInternal;
 extern RegionRequestHeaderDefaultTypeInternal _RegionRequestHeader_default_instance_;
@@ -241,6 +244,7 @@ template<> ::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse* Arena::Cre
 template<> ::greptime::v1::region::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::region::QueryRequest>(Arena*);
 template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::greptime::v1::region::RegionColumnDef>(Arena*);
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
+template<> ::greptime::v1::region::RegionRequestFailure* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestFailure>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(Arena*);
 template<> ::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::RegionRequirements* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequirements>(Arena*);
@@ -1252,6 +1256,7 @@ class RegionResponse final :
 
   enum : int {
     kExtensionsFieldNumber = 3,
+    kFailuresFieldNumber = 5,
     kMetadataFieldNumber = 4,
     kHeaderFieldNumber = 1,
     kAffectedRowsFieldNumber = 2,
@@ -1272,6 +1277,24 @@ class RegionResponse final :
       extensions() const;
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
       mutable_extensions();
+
+  // repeated .greptime.v1.region.RegionRequestFailure failures = 5;
+  int failures_size() const;
+  private:
+  int _internal_failures_size() const;
+  public:
+  void clear_failures();
+  ::greptime::v1::region::RegionRequestFailure* mutable_failures(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionRequestFailure >*
+      mutable_failures();
+  private:
+  const ::greptime::v1::region::RegionRequestFailure& _internal_failures(int index) const;
+  ::greptime::v1::region::RegionRequestFailure* _internal_add_failures();
+  public:
+  const ::greptime::v1::region::RegionRequestFailure& failures(int index) const;
+  ::greptime::v1::region::RegionRequestFailure* add_failures();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionRequestFailure >&
+      failures() const;
 
   // bytes metadata = 4;
   void clear_metadata();
@@ -1327,9 +1350,178 @@ class RegionResponse final :
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionRequestFailure > failures_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
     ::greptime::v1::ResponseHeader* header_;
     uint64_t affected_rows_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RegionRequestFailure final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequestFailure) */ {
+ public:
+  inline RegionRequestFailure() : RegionRequestFailure(nullptr) {}
+  ~RegionRequestFailure() override;
+  explicit PROTOBUF_CONSTEXPR RegionRequestFailure(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegionRequestFailure(const RegionRequestFailure& from);
+  RegionRequestFailure(RegionRequestFailure&& from) noexcept
+    : RegionRequestFailure() {
+    *this = ::std::move(from);
+  }
+
+  inline RegionRequestFailure& operator=(const RegionRequestFailure& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegionRequestFailure& operator=(RegionRequestFailure&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegionRequestFailure& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegionRequestFailure* internal_default_instance() {
+    return reinterpret_cast<const RegionRequestFailure*>(
+               &_RegionRequestFailure_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(RegionRequestFailure& a, RegionRequestFailure& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegionRequestFailure* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegionRequestFailure* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegionRequestFailure* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegionRequestFailure>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegionRequestFailure& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegionRequestFailure& from) {
+    RegionRequestFailure::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegionRequestFailure* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.RegionRequestFailure";
+  }
+  protected:
+  explicit RegionRequestFailure(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatusFieldNumber = 2,
+    kRequestIndexFieldNumber = 1,
+  };
+  // .greptime.v1.Status status = 2;
+  bool has_status() const;
+  private:
+  bool _internal_has_status() const;
+  public:
+  void clear_status();
+  const ::greptime::v1::Status& status() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Status* release_status();
+  ::greptime::v1::Status* mutable_status();
+  void set_allocated_status(::greptime::v1::Status* status);
+  private:
+  const ::greptime::v1::Status& _internal_status() const;
+  ::greptime::v1::Status* _internal_mutable_status();
+  public:
+  void unsafe_arena_set_allocated_status(
+      ::greptime::v1::Status* status);
+  ::greptime::v1::Status* unsafe_arena_release_status();
+
+  // uint32 request_index = 1;
+  void clear_request_index();
+  uint32_t request_index() const;
+  void set_request_index(uint32_t value);
+  private:
+  uint32_t _internal_request_index() const;
+  void _internal_set_request_index(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequestFailure)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::Status* status_;
+    uint32_t request_index_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1385,7 +1577,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1542,7 +1734,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1699,7 +1891,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -1898,7 +2090,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -2086,7 +2278,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -2270,7 +2462,7 @@ class CreateRequests final :
                &_CreateRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CreateRequests& a, CreateRequests& b) {
     a.Swap(&b);
@@ -2455,7 +2647,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -2746,7 +2938,7 @@ class RegionRequirements final :
                &_RegionRequirements_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(RegionRequirements& a, RegionRequirements& b) {
     a.Swap(&b);
@@ -2894,7 +3086,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -3051,7 +3243,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -3271,7 +3463,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -3505,7 +3697,7 @@ class CleanUpRequest final :
                &_CleanUpRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CleanUpRequest& a, CleanUpRequest& b) {
     a.Swap(&b);
@@ -3711,7 +3903,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -3870,7 +4062,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -4043,7 +4235,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -4465,7 +4657,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -4622,7 +4814,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -4779,7 +4971,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -4936,7 +5128,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -5113,7 +5305,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -5266,7 +5458,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -5413,7 +5605,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -5532,7 +5724,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -5680,7 +5872,7 @@ class CompactionTimeRange final :
                &_CompactionTimeRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CompactionTimeRange& a, CompactionTimeRange& b) {
     a.Swap(&b);
@@ -5856,7 +6048,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -6095,7 +6287,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -6316,7 +6508,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -6434,7 +6626,7 @@ class Unflushed final :
                &_Unflushed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(Unflushed& a, Unflushed& b) {
     a.Swap(&b);
@@ -6553,7 +6745,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6726,7 +6918,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -6957,7 +7149,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -7105,7 +7297,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -7253,7 +7445,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7418,7 +7610,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -7619,7 +7811,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -7781,7 +7973,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -7929,7 +8121,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -8082,7 +8274,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8279,7 +8471,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -8485,7 +8677,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -8676,7 +8868,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -10727,6 +10919,155 @@ inline void RegionResponse::set_allocated_metadata(std::string* metadata) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionResponse.metadata)
+}
+
+// repeated .greptime.v1.region.RegionRequestFailure failures = 5;
+inline int RegionResponse::_internal_failures_size() const {
+  return _impl_.failures_.size();
+}
+inline int RegionResponse::failures_size() const {
+  return _internal_failures_size();
+}
+inline void RegionResponse::clear_failures() {
+  _impl_.failures_.Clear();
+}
+inline ::greptime::v1::region::RegionRequestFailure* RegionResponse::mutable_failures(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionResponse.failures)
+  return _impl_.failures_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionRequestFailure >*
+RegionResponse::mutable_failures() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.RegionResponse.failures)
+  return &_impl_.failures_;
+}
+inline const ::greptime::v1::region::RegionRequestFailure& RegionResponse::_internal_failures(int index) const {
+  return _impl_.failures_.Get(index);
+}
+inline const ::greptime::v1::region::RegionRequestFailure& RegionResponse::failures(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionResponse.failures)
+  return _internal_failures(index);
+}
+inline ::greptime::v1::region::RegionRequestFailure* RegionResponse::_internal_add_failures() {
+  return _impl_.failures_.Add();
+}
+inline ::greptime::v1::region::RegionRequestFailure* RegionResponse::add_failures() {
+  ::greptime::v1::region::RegionRequestFailure* _add = _internal_add_failures();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.RegionResponse.failures)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::RegionRequestFailure >&
+RegionResponse::failures() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.RegionResponse.failures)
+  return _impl_.failures_;
+}
+
+// -------------------------------------------------------------------
+
+// RegionRequestFailure
+
+// uint32 request_index = 1;
+inline void RegionRequestFailure::clear_request_index() {
+  _impl_.request_index_ = 0u;
+}
+inline uint32_t RegionRequestFailure::_internal_request_index() const {
+  return _impl_.request_index_;
+}
+inline uint32_t RegionRequestFailure::request_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestFailure.request_index)
+  return _internal_request_index();
+}
+inline void RegionRequestFailure::_internal_set_request_index(uint32_t value) {
+  
+  _impl_.request_index_ = value;
+}
+inline void RegionRequestFailure::set_request_index(uint32_t value) {
+  _internal_set_request_index(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.RegionRequestFailure.request_index)
+}
+
+// .greptime.v1.Status status = 2;
+inline bool RegionRequestFailure::_internal_has_status() const {
+  return this != internal_default_instance() && _impl_.status_ != nullptr;
+}
+inline bool RegionRequestFailure::has_status() const {
+  return _internal_has_status();
+}
+inline const ::greptime::v1::Status& RegionRequestFailure::_internal_status() const {
+  const ::greptime::v1::Status* p = _impl_.status_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::Status&>(
+      ::greptime::v1::_Status_default_instance_);
+}
+inline const ::greptime::v1::Status& RegionRequestFailure::status() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequestFailure.status)
+  return _internal_status();
+}
+inline void RegionRequestFailure::unsafe_arena_set_allocated_status(
+    ::greptime::v1::Status* status) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.status_);
+  }
+  _impl_.status_ = status;
+  if (status) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequestFailure.status)
+}
+inline ::greptime::v1::Status* RegionRequestFailure::release_status() {
+  
+  ::greptime::v1::Status* temp = _impl_.status_;
+  _impl_.status_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::Status* RegionRequestFailure::unsafe_arena_release_status() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequestFailure.status)
+  
+  ::greptime::v1::Status* temp = _impl_.status_;
+  _impl_.status_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::Status* RegionRequestFailure::_internal_mutable_status() {
+  
+  if (_impl_.status_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::Status>(GetArenaForAllocation());
+    _impl_.status_ = p;
+  }
+  return _impl_.status_;
+}
+inline ::greptime::v1::Status* RegionRequestFailure::mutable_status() {
+  ::greptime::v1::Status* _msg = _internal_mutable_status();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequestFailure.status)
+  return _msg;
+}
+inline void RegionRequestFailure::set_allocated_status(::greptime::v1::Status* status) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.status_);
+  }
+  if (status) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(status));
+    if (message_arena != submessage_arena) {
+      status = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, status, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.status_ = status;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestFailure.status)
 }
 
 // -------------------------------------------------------------------
@@ -15677,6 +16018,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
