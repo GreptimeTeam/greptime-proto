@@ -88,6 +88,10 @@ pub struct Status {
     pub status_code: u32,
     #[prost(string, tag = "2")]
     pub err_msg: ::prost::alloc::string::String,
+    /// Uses the same values as the x-greptime-err-retry-hint gRPC metadata.
+    /// Empty or unrecognized values do not grant permission to retry.
+    #[prost(string, tag = "3")]
+    pub retry_hint: ::prost::alloc::string::String,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct AuthHeader {
