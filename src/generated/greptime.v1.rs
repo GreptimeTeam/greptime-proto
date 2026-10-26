@@ -1199,6 +1199,18 @@ pub struct JsonTypeHint {
     /// Whether to build an inverted index for this hinted path.
     #[prost(bool, tag = "4")]
     pub inverted_index: bool,
+    /// Optional skipping index configuration for this hinted path.
+    #[prost(message, optional, tag = "5")]
+    pub skipping_index: ::core::option::Option<JsonSkippingIndexOptions>,
+}
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct JsonSkippingIndexOptions {
+    #[prost(uint32, tag = "1")]
+    pub granularity: u32,
+    #[prost(enumeration = "SkippingIndexType", tag = "2")]
+    pub index_type: i32,
+    #[prost(double, tag = "3")]
+    pub false_positive_rate: f64,
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Option {
