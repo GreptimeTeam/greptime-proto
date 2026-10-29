@@ -267,6 +267,14 @@ message JsonTypeHint {
   ColumnDataTypeExtension datatype_extension = 3;
   // Whether to build an inverted index for this hinted path.
   bool inverted_index = 4;
+  // Optional skipping index configuration for this hinted path.
+  JsonSkippingIndexOptions skipping_index = 5;
+}
+
+message JsonSkippingIndexOptions {
+  uint32 granularity = 1;
+  SkippingIndexType index_type = 2;
+  double false_positive_rate = 3;
 }
 
 message Option {

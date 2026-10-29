@@ -38455,6 +38455,33 @@ java.lang.String defaultValue);
      * @return The invertedIndex.
      */
     boolean getInvertedIndex();
+
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     * @return Whether the skippingIndex field is set.
+     */
+    boolean hasSkippingIndex();
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     * @return The skippingIndex.
+     */
+    io.greptime.v1.Ddl.JsonSkippingIndexOptions getSkippingIndex();
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     */
+    io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder getSkippingIndexOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.JsonTypeHint}
@@ -38535,6 +38562,19 @@ java.lang.String defaultValue);
             case 32: {
 
               invertedIndex_ = input.readBool();
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder subBuilder = null;
+              if (skippingIndex_ != null) {
+                subBuilder = skippingIndex_.toBuilder();
+              }
+              skippingIndex_ = input.readMessage(io.greptime.v1.Ddl.JsonSkippingIndexOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(skippingIndex_);
+                skippingIndex_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -38669,6 +38709,44 @@ java.lang.String defaultValue);
       return invertedIndex_;
     }
 
+    public static final int SKIPPING_INDEX_FIELD_NUMBER = 5;
+    private io.greptime.v1.Ddl.JsonSkippingIndexOptions skippingIndex_;
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     * @return Whether the skippingIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasSkippingIndex() {
+      return skippingIndex_ != null;
+    }
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     * @return The skippingIndex.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.JsonSkippingIndexOptions getSkippingIndex() {
+      return skippingIndex_ == null ? io.greptime.v1.Ddl.JsonSkippingIndexOptions.getDefaultInstance() : skippingIndex_;
+    }
+    /**
+     * <pre>
+     * Optional skipping index configuration for this hinted path.
+     * </pre>
+     *
+     * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder getSkippingIndexOrBuilder() {
+      return getSkippingIndex();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -38694,6 +38772,9 @@ java.lang.String defaultValue);
       }
       if (invertedIndex_ != false) {
         output.writeBool(4, invertedIndex_);
+      }
+      if (skippingIndex_ != null) {
+        output.writeMessage(5, getSkippingIndex());
       }
       unknownFields.writeTo(output);
     }
@@ -38724,6 +38805,10 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, invertedIndex_);
       }
+      if (skippingIndex_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSkippingIndex());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -38749,6 +38834,11 @@ java.lang.String defaultValue);
       }
       if (getInvertedIndex()
           != other.getInvertedIndex()) return false;
+      if (hasSkippingIndex() != other.hasSkippingIndex()) return false;
+      if (hasSkippingIndex()) {
+        if (!getSkippingIndex()
+            .equals(other.getSkippingIndex())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -38773,6 +38863,10 @@ java.lang.String defaultValue);
       hash = (37 * hash) + INVERTED_INDEX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getInvertedIndex());
+      if (hasSkippingIndex()) {
+        hash = (37 * hash) + SKIPPING_INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getSkippingIndex().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -38918,6 +39012,12 @@ java.lang.String defaultValue);
         }
         invertedIndex_ = false;
 
+        if (skippingIndexBuilder_ == null) {
+          skippingIndex_ = null;
+        } else {
+          skippingIndex_ = null;
+          skippingIndexBuilder_ = null;
+        }
         return this;
       }
 
@@ -38957,6 +39057,11 @@ java.lang.String defaultValue);
           result.datatypeExtension_ = datatypeExtensionBuilder_.build();
         }
         result.invertedIndex_ = invertedIndex_;
+        if (skippingIndexBuilder_ == null) {
+          result.skippingIndex_ = skippingIndex_;
+        } else {
+          result.skippingIndex_ = skippingIndexBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -39023,6 +39128,9 @@ java.lang.String defaultValue);
         }
         if (other.getInvertedIndex() != false) {
           setInvertedIndex(other.getInvertedIndex());
+        }
+        if (other.hasSkippingIndex()) {
+          mergeSkippingIndex(other.getSkippingIndex());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -39379,6 +39487,161 @@ java.lang.String defaultValue);
         onChanged();
         return this;
       }
+
+      private io.greptime.v1.Ddl.JsonSkippingIndexOptions skippingIndex_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.JsonSkippingIndexOptions, io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder, io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder> skippingIndexBuilder_;
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       * @return Whether the skippingIndex field is set.
+       */
+      public boolean hasSkippingIndex() {
+        return skippingIndexBuilder_ != null || skippingIndex_ != null;
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       * @return The skippingIndex.
+       */
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptions getSkippingIndex() {
+        if (skippingIndexBuilder_ == null) {
+          return skippingIndex_ == null ? io.greptime.v1.Ddl.JsonSkippingIndexOptions.getDefaultInstance() : skippingIndex_;
+        } else {
+          return skippingIndexBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public Builder setSkippingIndex(io.greptime.v1.Ddl.JsonSkippingIndexOptions value) {
+        if (skippingIndexBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          skippingIndex_ = value;
+          onChanged();
+        } else {
+          skippingIndexBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public Builder setSkippingIndex(
+          io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder builderForValue) {
+        if (skippingIndexBuilder_ == null) {
+          skippingIndex_ = builderForValue.build();
+          onChanged();
+        } else {
+          skippingIndexBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public Builder mergeSkippingIndex(io.greptime.v1.Ddl.JsonSkippingIndexOptions value) {
+        if (skippingIndexBuilder_ == null) {
+          if (skippingIndex_ != null) {
+            skippingIndex_ =
+              io.greptime.v1.Ddl.JsonSkippingIndexOptions.newBuilder(skippingIndex_).mergeFrom(value).buildPartial();
+          } else {
+            skippingIndex_ = value;
+          }
+          onChanged();
+        } else {
+          skippingIndexBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public Builder clearSkippingIndex() {
+        if (skippingIndexBuilder_ == null) {
+          skippingIndex_ = null;
+          onChanged();
+        } else {
+          skippingIndex_ = null;
+          skippingIndexBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder getSkippingIndexBuilder() {
+        
+        onChanged();
+        return getSkippingIndexFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder getSkippingIndexOrBuilder() {
+        if (skippingIndexBuilder_ != null) {
+          return skippingIndexBuilder_.getMessageOrBuilder();
+        } else {
+          return skippingIndex_ == null ?
+              io.greptime.v1.Ddl.JsonSkippingIndexOptions.getDefaultInstance() : skippingIndex_;
+        }
+      }
+      /**
+       * <pre>
+       * Optional skipping index configuration for this hinted path.
+       * </pre>
+       *
+       * <code>.greptime.v1.JsonSkippingIndexOptions skipping_index = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.JsonSkippingIndexOptions, io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder, io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder> 
+          getSkippingIndexFieldBuilder() {
+        if (skippingIndexBuilder_ == null) {
+          skippingIndexBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.JsonSkippingIndexOptions, io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder, io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder>(
+                  getSkippingIndex(),
+                  getParentForChildren(),
+                  isClean());
+          skippingIndex_ = null;
+        }
+        return skippingIndexBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -39427,6 +39690,675 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.JsonTypeHint getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface JsonSkippingIndexOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.JsonSkippingIndexOptions)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 granularity = 1;</code>
+     * @return The granularity.
+     */
+    int getGranularity();
+
+    /**
+     * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+     * @return The enum numeric value on the wire for indexType.
+     */
+    int getIndexTypeValue();
+    /**
+     * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+     * @return The indexType.
+     */
+    io.greptime.v1.Ddl.SkippingIndexType getIndexType();
+
+    /**
+     * <code>double false_positive_rate = 3;</code>
+     * @return The falsePositiveRate.
+     */
+    double getFalsePositiveRate();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.JsonSkippingIndexOptions}
+   */
+  public static final class JsonSkippingIndexOptions extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.JsonSkippingIndexOptions)
+      JsonSkippingIndexOptionsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use JsonSkippingIndexOptions.newBuilder() to construct.
+    private JsonSkippingIndexOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private JsonSkippingIndexOptions() {
+      indexType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new JsonSkippingIndexOptions();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private JsonSkippingIndexOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              granularity_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              indexType_ = rawValue;
+              break;
+            }
+            case 25: {
+
+              falsePositiveRate_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.JsonSkippingIndexOptions.class, io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder.class);
+    }
+
+    public static final int GRANULARITY_FIELD_NUMBER = 1;
+    private int granularity_;
+    /**
+     * <code>uint32 granularity = 1;</code>
+     * @return The granularity.
+     */
+    @java.lang.Override
+    public int getGranularity() {
+      return granularity_;
+    }
+
+    public static final int INDEX_TYPE_FIELD_NUMBER = 2;
+    private int indexType_;
+    /**
+     * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+     * @return The enum numeric value on the wire for indexType.
+     */
+    @java.lang.Override public int getIndexTypeValue() {
+      return indexType_;
+    }
+    /**
+     * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+     * @return The indexType.
+     */
+    @java.lang.Override public io.greptime.v1.Ddl.SkippingIndexType getIndexType() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.Ddl.SkippingIndexType result = io.greptime.v1.Ddl.SkippingIndexType.valueOf(indexType_);
+      return result == null ? io.greptime.v1.Ddl.SkippingIndexType.UNRECOGNIZED : result;
+    }
+
+    public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 3;
+    private double falsePositiveRate_;
+    /**
+     * <code>double false_positive_rate = 3;</code>
+     * @return The falsePositiveRate.
+     */
+    @java.lang.Override
+    public double getFalsePositiveRate() {
+      return falsePositiveRate_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (granularity_ != 0) {
+        output.writeUInt32(1, granularity_);
+      }
+      if (indexType_ != io.greptime.v1.Ddl.SkippingIndexType.BLOOM_FILTER.getNumber()) {
+        output.writeEnum(2, indexType_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        output.writeDouble(3, falsePositiveRate_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (granularity_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, granularity_);
+      }
+      if (indexType_ != io.greptime.v1.Ddl.SkippingIndexType.BLOOM_FILTER.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, indexType_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, falsePositiveRate_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.JsonSkippingIndexOptions)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.JsonSkippingIndexOptions other = (io.greptime.v1.Ddl.JsonSkippingIndexOptions) obj;
+
+      if (getGranularity()
+          != other.getGranularity()) return false;
+      if (indexType_ != other.indexType_) return false;
+      if (java.lang.Double.doubleToLongBits(getFalsePositiveRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getFalsePositiveRate())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + GRANULARITY_FIELD_NUMBER;
+      hash = (53 * hash) + getGranularity();
+      hash = (37 * hash) + INDEX_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + indexType_;
+      hash = (37 * hash) + FALSE_POSITIVE_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFalsePositiveRate()));
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.JsonSkippingIndexOptions prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.JsonSkippingIndexOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.JsonSkippingIndexOptions)
+        io.greptime.v1.Ddl.JsonSkippingIndexOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.JsonSkippingIndexOptions.class, io.greptime.v1.Ddl.JsonSkippingIndexOptions.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.JsonSkippingIndexOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        granularity_ = 0;
+
+        indexType_ = 0;
+
+        falsePositiveRate_ = 0D;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptions getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.JsonSkippingIndexOptions.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptions build() {
+        io.greptime.v1.Ddl.JsonSkippingIndexOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.JsonSkippingIndexOptions buildPartial() {
+        io.greptime.v1.Ddl.JsonSkippingIndexOptions result = new io.greptime.v1.Ddl.JsonSkippingIndexOptions(this);
+        result.granularity_ = granularity_;
+        result.indexType_ = indexType_;
+        result.falsePositiveRate_ = falsePositiveRate_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.JsonSkippingIndexOptions) {
+          return mergeFrom((io.greptime.v1.Ddl.JsonSkippingIndexOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.JsonSkippingIndexOptions other) {
+        if (other == io.greptime.v1.Ddl.JsonSkippingIndexOptions.getDefaultInstance()) return this;
+        if (other.getGranularity() != 0) {
+          setGranularity(other.getGranularity());
+        }
+        if (other.indexType_ != 0) {
+          setIndexTypeValue(other.getIndexTypeValue());
+        }
+        if (other.getFalsePositiveRate() != 0D) {
+          setFalsePositiveRate(other.getFalsePositiveRate());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.JsonSkippingIndexOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.JsonSkippingIndexOptions) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int granularity_ ;
+      /**
+       * <code>uint32 granularity = 1;</code>
+       * @return The granularity.
+       */
+      @java.lang.Override
+      public int getGranularity() {
+        return granularity_;
+      }
+      /**
+       * <code>uint32 granularity = 1;</code>
+       * @param value The granularity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setGranularity(int value) {
+        
+        granularity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 granularity = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearGranularity() {
+        
+        granularity_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int indexType_ = 0;
+      /**
+       * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+       * @return The enum numeric value on the wire for indexType.
+       */
+      @java.lang.Override public int getIndexTypeValue() {
+        return indexType_;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+       * @param value The enum numeric value on the wire for indexType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndexTypeValue(int value) {
+        
+        indexType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+       * @return The indexType.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SkippingIndexType getIndexType() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.Ddl.SkippingIndexType result = io.greptime.v1.Ddl.SkippingIndexType.valueOf(indexType_);
+        return result == null ? io.greptime.v1.Ddl.SkippingIndexType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+       * @param value The indexType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIndexType(io.greptime.v1.Ddl.SkippingIndexType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        indexType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SkippingIndexType index_type = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIndexType() {
+        
+        indexType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double falsePositiveRate_ ;
+      /**
+       * <code>double false_positive_rate = 3;</code>
+       * @return The falsePositiveRate.
+       */
+      @java.lang.Override
+      public double getFalsePositiveRate() {
+        return falsePositiveRate_;
+      }
+      /**
+       * <code>double false_positive_rate = 3;</code>
+       * @param value The falsePositiveRate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFalsePositiveRate(double value) {
+        
+        falsePositiveRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double false_positive_rate = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFalsePositiveRate() {
+        
+        falsePositiveRate_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.JsonSkippingIndexOptions)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.JsonSkippingIndexOptions)
+    private static final io.greptime.v1.Ddl.JsonSkippingIndexOptions DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.JsonSkippingIndexOptions();
+    }
+
+    public static io.greptime.v1.Ddl.JsonSkippingIndexOptions getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<JsonSkippingIndexOptions>
+        PARSER = new com.google.protobuf.AbstractParser<JsonSkippingIndexOptions>() {
+      @java.lang.Override
+      public JsonSkippingIndexOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new JsonSkippingIndexOptions(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<JsonSkippingIndexOptions> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<JsonSkippingIndexOptions> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.JsonSkippingIndexOptions getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -60126,6 +61058,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_JsonTypeHint_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_Option_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -60392,83 +61329,88 @@ java.lang.String defaultValue);
       "v1.JsonSettings\"\177\n\014JsonSettings\022-\n\ntype_" +
       "hints\030\001 \003(\0132\031.greptime.v1.JsonTypeHint\022$" +
       "\n\027max_auto_expanded_paths\030\002 \001(\rH\000\210\001\001B\032\n\030" +
-      "_max_auto_expanded_paths\"\246\001\n\014JsonTypeHin" +
+      "_max_auto_expanded_paths\"\345\001\n\014JsonTypeHin" +
       "t\022\014\n\004path\030\001 \003(\t\022.\n\tdata_type\030\002 \001(\0162\033.gre" +
       "ptime.v1.ColumnDataType\022@\n\022datatype_exte" +
       "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
-      "Extension\022\026\n\016inverted_index\030\004 \001(\010\"$\n\006Opt" +
-      "ion\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTa" +
-      "bleOptions\022*\n\rtable_options\030\001 \003(\0132\023.grep" +
-      "time.v1.Option\"!\n\021UnsetTableOptions\022\014\n\004k" +
-      "eys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n" +
-      "\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001" +
-      "(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_t" +
-      "ype\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022\023" +
-      "\n\013is_nullable\030\003 \001(\010\022\032\n\022default_constrain" +
-      "t\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptim" +
-      "e.v1.SemanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022da" +
-      "tatype_extension\030\007 \001(\0132$.greptime.v1.Col" +
-      "umnDataTypeExtension\022+\n\007options\030\010 \001(\0132\032." +
-      "greptime.v1.ColumnOptions\"\230\001\n\021AddColumnL" +
-      "ocation\022B\n\rlocation_type\030\001 \001(\0162+.greptim" +
-      "e.v1.AddColumnLocation.LocationType\022\031\n\021a" +
-      "fter_column_name\030\002 \001(\t\"$\n\014LocationType\022\t" +
-      "\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013" +
-      "column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010ana" +
-      "lyzer\030\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016ca" +
-      "se_sensitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.gr" +
-      "eptime.v1.FulltextBackend\022\023\n\013granularity" +
-      "\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rU" +
-      "nsetFulltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013Set" +
-      "Inverted\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetIn" +
-      "verted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkipp" +
-      "ing\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010" +
-      "\022\023\n\013granularity\030\003 \001(\004\022;\n\023skipping_index_" +
-      "type\030\004 \001(\0162\036.greptime.v1.SkippingIndexTy" +
-      "pe\022\033\n\023false_positive_rate\030\005 \001(\001\"$\n\rUnset" +
-      "Skipping\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterD" +
-      "atabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013sch" +
-      "ema_name\030\002 \001(\t\022?\n\024set_database_options\030\003" +
-      " \001(\0132\037.greptime.v1.SetDatabaseOptionsH\000\022" +
-      "C\n\026unset_database_options\030\004 \001(\0132!.grepti" +
-      "me.v1.UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022" +
-      "SetDatabaseOptions\0221\n\024set_database_optio" +
-      "ns\030\001 \003(\0132\023.greptime.v1.Option\"$\n\024UnsetDa" +
-      "tabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTr" +
-      "iggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigg" +
-      "er_name\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 " +
-      "\001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.gre" +
-      "ptime.v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*" +
-      ".greptime.v1.CreateTriggerExpr.LabelsEnt" +
-      "ry\022D\n\013annotations\030\007 \003(\0132/.greptime.v1.Cr" +
-      "eateTriggerExpr.AnnotationsEntry\022+\n\010inte" +
-      "rval\030\010 \001(\0132\031.google.protobuf.Duration\022\031\n" +
-      "\021raw_interval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031." +
-      "google.protobuf.Duration\022\024\n\014for_raw_expr" +
-      "\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001(\0132\031.google" +
-      ".protobuf.Duration\022 \n\030keep_firing_for_ra" +
-      "w_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotif" +
-      "yChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132" +
-      "\033.greptime.v1.WebhookOptionsH\000B\016\n\014channe" +
-      "l_type\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n" +
-      "\004opts\030\002 \003(\0132%.greptime.v1.WebhookOptions" +
-      ".OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026" +
-      "\n\016drop_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr" +
-      "\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 " +
-      "\001(\t\0223\n\013object_type\030\003 \001(\0162\036.greptime.v1.C" +
-      "ommentObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n" +
-      "\013column_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010A" +
-      "nalyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017Ful" +
-      "ltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021" +
-      "SkippingIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021C" +
-      "ommentObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022" +
-      "\010\n\004FLOW\020\002BL\n\016io.greptime.v1B\003DdlZ5github" +
-      ".com/GreptimeTeam/greptime-proto/go/grep" +
-      "time/v1b\006proto3"
+      "Extension\022\026\n\016inverted_index\030\004 \001(\010\022=\n\016ski" +
+      "pping_index\030\005 \001(\0132%.greptime.v1.JsonSkip" +
+      "pingIndexOptions\"\200\001\n\030JsonSkippingIndexOp" +
+      "tions\022\023\n\013granularity\030\001 \001(\r\0222\n\nindex_type" +
+      "\030\002 \001(\0162\036.greptime.v1.SkippingIndexType\022\033" +
+      "\n\023false_positive_rate\030\003 \001(\001\"$\n\006Option\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTableOpt" +
+      "ions\022*\n\rtable_options\030\001 \003(\0132\023.greptime.v" +
+      "1.Option\"!\n\021UnsetTableOptions\022\014\n\004keys\030\001 " +
+      "\003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Table" +
+      "Id\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n" +
+      "\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 " +
+      "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
+      "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
+      "\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.S" +
+      "emanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype" +
+      "_extension\030\007 \001(\0132$.greptime.v1.ColumnDat" +
+      "aTypeExtension\022+\n\007options\030\010 \001(\0132\032.grepti" +
+      "me.v1.ColumnOptions\"\230\001\n\021AddColumnLocatio" +
+      "n\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1.A" +
+      "ddColumnLocation.LocationType\022\031\n\021after_c" +
+      "olumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRS" +
+      "T\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013column" +
+      "_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030" +
+      "\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016case_sen" +
+      "sitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.greptime" +
+      ".v1.FulltextBackend\022\023\n\013granularity\030\006 \001(\004" +
+      "\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rUnsetFu" +
+      "lltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInvert" +
+      "ed\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverted" +
+      "\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n" +
+      "\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013gr" +
+      "anularity\030\003 \001(\004\022;\n\023skipping_index_type\030\004" +
+      " \001(\0162\036.greptime.v1.SkippingIndexType\022\033\n\023" +
+      "false_positive_rate\030\005 \001(\001\"$\n\rUnsetSkippi" +
+      "ng\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatabas" +
+      "eExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_na" +
+      "me\030\002 \001(\t\022?\n\024set_database_options\030\003 \001(\0132\037" +
+      ".greptime.v1.SetDatabaseOptionsH\000\022C\n\026uns" +
+      "et_database_options\030\004 \001(\0132!.greptime.v1." +
+      "UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetDat" +
+      "abaseOptions\0221\n\024set_database_options\030\001 \003" +
+      "(\0132\023.greptime.v1.Option\"$\n\024UnsetDatabase" +
+      "Options\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTriggerE" +
+      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_nam" +
+      "e\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022\013\n" +
+      "\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.greptime." +
+      "v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*.grept" +
+      "ime.v1.CreateTriggerExpr.LabelsEntry\022D\n\013" +
+      "annotations\030\007 \003(\0132/.greptime.v1.CreateTr" +
+      "iggerExpr.AnnotationsEntry\022+\n\010interval\030\010" +
+      " \001(\0132\031.google.protobuf.Duration\022\031\n\021raw_i" +
+      "nterval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.google" +
+      ".protobuf.Duration\022\024\n\014for_raw_expr\030\013 \001(\t" +
+      "\0222\n\017keep_firing_for\030\014 \001(\0132\031.google.proto" +
+      "buf.Duration\022 \n\030keep_firing_for_raw_expr" +
+      "\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key" +
+      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChann" +
+      "el\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.grep" +
+      "time.v1.WebhookOptionsH\000B\016\n\014channel_type" +
+      "\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030" +
+      "\002 \003(\0132%.greptime.v1.WebhookOptions.OptsE" +
+      "ntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop" +
+      "_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014ca" +
+      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n" +
+      "\013object_type\030\003 \001(\0162\036.greptime.v1.Comment" +
+      "ObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n\013colum" +
+      "n_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010Analyze" +
+      "r\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextB" +
+      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippi" +
+      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021Comment" +
+      "ObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLO" +
+      "W\020\002BL\n\016io.greptime.v1B\003DdlZ5github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -60685,111 +61627,117 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_JsonTypeHint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonTypeHint_descriptor,
-        new java.lang.String[] { "Path", "DataType", "DatatypeExtension", "InvertedIndex", });
-    internal_static_greptime_v1_Option_descriptor =
+        new java.lang.String[] { "Path", "DataType", "DatatypeExtension", "InvertedIndex", "SkippingIndex", });
+    internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor =
       getDescriptor().getMessageTypes().get(32);
+    internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor,
+        new java.lang.String[] { "Granularity", "IndexType", "FalsePositiveRate", });
+    internal_static_greptime_v1_Option_descriptor =
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_Option_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Option_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_SetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_SetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetTableOptions_descriptor,
         new java.lang.String[] { "TableOptions", });
     internal_static_greptime_v1_UnsetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_UnsetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetTableOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_TableId_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_TableId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_FlowId_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_FlowId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlowId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", "Options", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,
         new java.lang.String[] { "LocationType", "AfterColumnName", });
     internal_static_greptime_v1_SetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_greptime_v1_SetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_UnsetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_greptime_v1_UnsetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
     internal_static_greptime_v1_SetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDatabaseOptions_descriptor,
         new java.lang.String[] { "SetDatabaseOptions", });
     internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_CreateTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
@@ -60807,13 +61755,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_NotifyChannel_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_greptime_v1_NotifyChannel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_NotifyChannel_descriptor,
         new java.lang.String[] { "Name", "Webhook", "ChannelType", });
     internal_static_greptime_v1_WebhookOptions_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_greptime_v1_WebhookOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WebhookOptions_descriptor,
@@ -60825,13 +61773,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_greptime_v1_DropTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
     internal_static_greptime_v1_CommentOnExpr_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CommentOnExpr_descriptor,
