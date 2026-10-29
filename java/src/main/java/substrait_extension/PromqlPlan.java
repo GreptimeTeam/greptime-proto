@@ -12511,6 +12511,1093 @@ public final class PromqlPlan {
 
   }
 
+  public interface RawSeriesSourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.RawSeriesSource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    int getVersion();
+
+    /**
+     * <code>string metric_name = 2;</code>
+     * @return The metricName.
+     */
+    java.lang.String getMetricName();
+    /**
+     * <code>string metric_name = 2;</code>
+     * @return The bytes for metricName.
+     */
+    com.google.protobuf.ByteString
+        getMetricNameBytes();
+
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @return A list containing the tags.
+     */
+    java.util.List<java.lang.String>
+        getTagsList();
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @return The count of tags.
+     */
+    int getTagsCount();
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tags at the given index.
+     */
+    java.lang.String getTags(int index);
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tags at the given index.
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes(int index);
+
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @return A list containing the fields.
+     */
+    java.util.List<java.lang.String>
+        getFieldsList();
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @return The count of fields.
+     */
+    int getFieldsCount();
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @param index The index of the element to return.
+     * @return The fields at the given index.
+     */
+    java.lang.String getFields(int index);
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fields at the given index.
+     */
+    com.google.protobuf.ByteString
+        getFieldsBytes(int index);
+  }
+  /**
+   * <pre>
+   * Version 1 raw-series source bindings; tag and field order is significant.
+   * Substrait carries the child plan separately. Bound column types come from the child schema.
+   * </pre>
+   *
+   * Protobuf type {@code substrait_extension.RawSeriesSource}
+   */
+  public static final class RawSeriesSource extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.RawSeriesSource)
+      RawSeriesSourceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RawSeriesSource.newBuilder() to construct.
+    private RawSeriesSource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RawSeriesSource() {
+      metricName_ = "";
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      fields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RawSeriesSource();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RawSeriesSource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              version_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              metricName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tags_.add(s);
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                fields_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              fields_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tags_ = tags_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          fields_ = fields_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_RawSeriesSource_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.PromqlPlan.internal_static_substrait_extension_RawSeriesSource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.PromqlPlan.RawSeriesSource.class, substrait_extension.PromqlPlan.RawSeriesSource.Builder.class);
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private int version_;
+    /**
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int METRIC_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object metricName_;
+    /**
+     * <code>string metric_name = 2;</code>
+     * @return The metricName.
+     */
+    @java.lang.Override
+    public java.lang.String getMetricName() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        metricName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string metric_name = 2;</code>
+     * @return The bytes for metricName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMetricNameBytes() {
+      java.lang.Object ref = metricName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        metricName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList tags_;
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @return A list containing the tags.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @return The count of tags.
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @param index The index of the element to return.
+     * @return The tags at the given index.
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <code>repeated string tags = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tags at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+
+    public static final int FIELDS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList fields_;
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @return A list containing the fields.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFieldsList() {
+      return fields_;
+    }
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @return The count of fields.
+     */
+    public int getFieldsCount() {
+      return fields_.size();
+    }
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @param index The index of the element to return.
+     * @return The fields at the given index.
+     */
+    public java.lang.String getFields(int index) {
+      return fields_.get(index);
+    }
+    /**
+     * <code>repeated string fields = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the fields at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getFieldsBytes(int index) {
+      return fields_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (version_ != 0) {
+        output.writeUInt32(1, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metricName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, metricName_);
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tags_.getRaw(i));
+      }
+      for (int i = 0; i < fields_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fields_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (version_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, version_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(metricName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, metricName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTagsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < fields_.size(); i++) {
+          dataSize += computeStringSizeNoTag(fields_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFieldsList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.PromqlPlan.RawSeriesSource)) {
+        return super.equals(obj);
+      }
+      substrait_extension.PromqlPlan.RawSeriesSource other = (substrait_extension.PromqlPlan.RawSeriesSource) obj;
+
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (!getMetricName()
+          .equals(other.getMetricName())) return false;
+      if (!getTagsList()
+          .equals(other.getTagsList())) return false;
+      if (!getFieldsList()
+          .equals(other.getFieldsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
+      hash = (37 * hash) + METRIC_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getMetricName().hashCode();
+      if (getTagsCount() > 0) {
+        hash = (37 * hash) + TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagsList().hashCode();
+      }
+      if (getFieldsCount() > 0) {
+        hash = (37 * hash) + FIELDS_FIELD_NUMBER;
+        hash = (53 * hash) + getFieldsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.PromqlPlan.RawSeriesSource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.PromqlPlan.RawSeriesSource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Version 1 raw-series source bindings; tag and field order is significant.
+     * Substrait carries the child plan separately. Bound column types come from the child schema.
+     * </pre>
+     *
+     * Protobuf type {@code substrait_extension.RawSeriesSource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.RawSeriesSource)
+        substrait_extension.PromqlPlan.RawSeriesSourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_RawSeriesSource_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_RawSeriesSource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.PromqlPlan.RawSeriesSource.class, substrait_extension.PromqlPlan.RawSeriesSource.Builder.class);
+      }
+
+      // Construct using substrait_extension.PromqlPlan.RawSeriesSource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        version_ = 0;
+
+        metricName_ = "";
+
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.PromqlPlan.internal_static_substrait_extension_RawSeriesSource_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.RawSeriesSource getDefaultInstanceForType() {
+        return substrait_extension.PromqlPlan.RawSeriesSource.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.RawSeriesSource build() {
+        substrait_extension.PromqlPlan.RawSeriesSource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.PromqlPlan.RawSeriesSource buildPartial() {
+        substrait_extension.PromqlPlan.RawSeriesSource result = new substrait_extension.PromqlPlan.RawSeriesSource(this);
+        int from_bitField0_ = bitField0_;
+        result.version_ = version_;
+        result.metricName_ = metricName_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          tags_ = tags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.tags_ = tags_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          fields_ = fields_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.fields_ = fields_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.PromqlPlan.RawSeriesSource) {
+          return mergeFrom((substrait_extension.PromqlPlan.RawSeriesSource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.PromqlPlan.RawSeriesSource other) {
+        if (other == substrait_extension.PromqlPlan.RawSeriesSource.getDefaultInstance()) return this;
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
+        }
+        if (!other.getMetricName().isEmpty()) {
+          metricName_ = other.metricName_;
+          onChanged();
+        }
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+        if (!other.fields_.isEmpty()) {
+          if (fields_.isEmpty()) {
+            fields_ = other.fields_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureFieldsIsMutable();
+            fields_.addAll(other.fields_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.PromqlPlan.RawSeriesSource parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.PromqlPlan.RawSeriesSource) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int version_ ;
+      /**
+       * <code>uint32 version = 1;</code>
+       * @return The version.
+       */
+      @java.lang.Override
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object metricName_ = "";
+      /**
+       * <code>string metric_name = 2;</code>
+       * @return The metricName.
+       */
+      public java.lang.String getMetricName() {
+        java.lang.Object ref = metricName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          metricName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string metric_name = 2;</code>
+       * @return The bytes for metricName.
+       */
+      public com.google.protobuf.ByteString
+          getMetricNameBytes() {
+        java.lang.Object ref = metricName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          metricName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string metric_name = 2;</code>
+       * @param value The metricName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetricName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string metric_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMetricName() {
+        
+        metricName_ = getDefaultInstance().getMetricName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string metric_name = 2;</code>
+       * @param value The bytes for metricName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMetricNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        metricName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @return A list containing the tags.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagsList() {
+        return tags_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @return The count of tags.
+       */
+      public int getTagsCount() {
+        return tags_.size();
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param index The index of the element to return.
+       * @return The tags at the given index.
+       */
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the tags at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param index The index to set the value at.
+       * @param value The tags to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param value The tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param values The tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 3;</code>
+       * @param value The bytes of the tags to add.
+       * @return This builder for chaining.
+       */
+      public Builder addTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList fields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFieldsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          fields_ = new com.google.protobuf.LazyStringArrayList(fields_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @return A list containing the fields.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFieldsList() {
+        return fields_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @return The count of fields.
+       */
+      public int getFieldsCount() {
+        return fields_.size();
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param index The index of the element to return.
+       * @return The fields at the given index.
+       */
+      public java.lang.String getFields(int index) {
+        return fields_.get(index);
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the fields at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getFieldsBytes(int index) {
+        return fields_.getByteString(index);
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The fields to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFields(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFieldsIsMutable();
+        fields_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param value The fields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFields(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFieldsIsMutable();
+        fields_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param values The fields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllFields(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFieldsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, fields_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFields() {
+        fields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fields = 4;</code>
+       * @param value The bytes of the fields to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFieldsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFieldsIsMutable();
+        fields_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.RawSeriesSource)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.RawSeriesSource)
+    private static final substrait_extension.PromqlPlan.RawSeriesSource DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.PromqlPlan.RawSeriesSource();
+    }
+
+    public static substrait_extension.PromqlPlan.RawSeriesSource getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RawSeriesSource>
+        PARSER = new com.google.protobuf.AbstractParser<RawSeriesSource>() {
+      @java.lang.Override
+      public RawSeriesSource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RawSeriesSource(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RawSeriesSource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RawSeriesSource> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.PromqlPlan.RawSeriesSource getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_EmptyMetric_descriptor;
   private static final 
@@ -12561,6 +13648,11 @@ public final class PromqlPlan {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_UnionDistinctOn_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_RawSeriesSource_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_RawSeriesSource_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12605,9 +13697,11 @@ public final class PromqlPlan {
       "\025\n\rle_column_idx\030\001 \001(\004\022\025\n\rts_column_idx\030" +
       "\002 \001(\004\022\030\n\020field_column_idx\030\003 \001(\004\022\020\n\010quant" +
       "ile\030\004 \001(\001\"B\n\017UnionDistinctOn\022\033\n\023compare_" +
-      "key_indices\030\001 \003(\004\022\022\n\nts_col_idx\030\002 \001(\004B?Z" +
-      "=github.com/GreptimeTeam/greptime-proto/" +
-      "go/substrait_extensionb\006proto3"
+      "key_indices\030\001 \003(\004\022\022\n\nts_col_idx\030\002 \001(\004\"U\n" +
+      "\017RawSeriesSource\022\017\n\007version\030\001 \001(\r\022\023\n\013met" +
+      "ric_name\030\002 \001(\t\022\014\n\004tags\030\003 \003(\t\022\016\n\006fields\030\004" +
+      " \003(\tB?Z=github.com/GreptimeTeam/greptime" +
+      "-proto/go/substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -12673,6 +13767,12 @@ public final class PromqlPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_UnionDistinctOn_descriptor,
         new java.lang.String[] { "CompareKeyIndices", "TsColIdx", });
+    internal_static_substrait_extension_RawSeriesSource_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_substrait_extension_RawSeriesSource_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_RawSeriesSource_descriptor,
+        new java.lang.String[] { "Version", "MetricName", "Tags", "Fields", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
