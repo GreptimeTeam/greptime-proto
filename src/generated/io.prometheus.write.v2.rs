@@ -25,7 +25,6 @@
 /// NOTE: gogoproto options might change in future for this file, they
 /// are not part of the spec proto (they only modify the generated Go code, not
 /// the serialized message). See: <https://github.com/prometheus/prometheus/issues/11908>
-#[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Request {
     /// symbols contains a de-duplicated array of string elements used for various
@@ -43,7 +42,6 @@ pub struct Request {
     pub timeseries: ::prost::alloc::vec::Vec<TimeSeries>,
 }
 /// TimeSeries represents a single series.
-#[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct TimeSeries {
     /// labels_refs is a list of label name-value pair references, encoded
@@ -74,7 +72,6 @@ pub struct TimeSeries {
 /// Exemplar is an additional information attached to some series' samples.
 /// It is typically used to attach an example trace or request ID associated with
 /// the metric changes.
-#[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Exemplar {
     /// labels_refs is an optional list of label name-value pair references, encoded
@@ -95,7 +92,6 @@ pub struct Exemplar {
     pub timestamp: i64,
 }
 /// Sample represents series sample.
-#[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct Sample {
     /// value of the sample.
@@ -131,7 +127,6 @@ pub struct Sample {
     pub start_timestamp: i64,
 }
 /// Metadata represents the metadata associated with the given series' samples.
-#[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Metadata {
     #[prost(enumeration = "metadata::MetricType", tag = "1")]
@@ -149,7 +144,6 @@ pub struct Metadata {
 }
 /// Nested message and enum types in `Metadata`.
 pub mod metadata {
-    #[allow(clippy::all)]
     #[derive(
         Clone,
         Copy,
@@ -211,7 +205,6 @@ pub mod metadata {
 /// * float or integer histograms.
 ///
 /// See the full spec: <https://prometheus.io/docs/specs/native_histograms/>
-#[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Histogram {
     /// Sum of observations in the histogram.
@@ -330,7 +323,6 @@ pub struct Histogram {
 }
 /// Nested message and enum types in `Histogram`.
 pub mod histogram {
-    #[allow(clippy::all)]
     #[derive(
         Clone,
         Copy,
@@ -378,7 +370,6 @@ pub mod histogram {
         }
     }
     /// Count of observations in the histogram.
-    #[allow(clippy::all)]
     #[derive(Clone, Copy, PartialEq, ::prost::Oneof)]
     pub enum Count {
         #[prost(uint64, tag = "1")]
@@ -387,7 +378,6 @@ pub mod histogram {
         CountFloat(f64),
     }
     /// Count in zero bucket.
-    #[allow(clippy::all)]
     #[derive(Clone, Copy, PartialEq, ::prost::Oneof)]
     pub enum ZeroCount {
         #[prost(uint64, tag = "6")]
@@ -401,7 +391,6 @@ pub mod histogram {
 /// bucket counts in the Span. However, the protobuf representation is
 /// more compact in the way the data is structured here (with all the
 /// buckets in a single array separate from the Spans).
-#[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct BucketSpan {
     /// Gap to previous span, or starting point for 1st span (which can be negative).
