@@ -269,6 +269,17 @@ message JsonTypeHint {
   bool inverted_index = 4;
   // Optional skipping index configuration for this hinted path.
   JsonSkippingIndexOptions skipping_index = 5;
+  // Optional fulltext index configuration for a string hinted path.
+  JsonFulltextIndexOptions fulltext_index = 6;
+}
+
+message JsonFulltextIndexOptions {
+  bool enable = 1;
+  Analyzer analyzer = 2;
+  bool case_sensitive = 3;
+  FulltextBackend backend = 4;
+  uint32 granularity = 5;
+  double false_positive_rate = 6;
 }
 
 message JsonSkippingIndexOptions {

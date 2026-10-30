@@ -136,6 +136,9 @@ extern DropViewExprDefaultTypeInternal _DropViewExpr_default_instance_;
 class FlowId;
 struct FlowIdDefaultTypeInternal;
 extern FlowIdDefaultTypeInternal _FlowId_default_instance_;
+class JsonFulltextIndexOptions;
+struct JsonFulltextIndexOptionsDefaultTypeInternal;
+extern JsonFulltextIndexOptionsDefaultTypeInternal _JsonFulltextIndexOptions_default_instance_;
 class JsonSettings;
 struct JsonSettingsDefaultTypeInternal;
 extern JsonSettingsDefaultTypeInternal _JsonSettings_default_instance_;
@@ -266,6 +269,7 @@ template<> ::greptime::v1::DropTableExpr* Arena::CreateMaybeMessage<::greptime::
 template<> ::greptime::v1::DropTriggerExpr* Arena::CreateMaybeMessage<::greptime::v1::DropTriggerExpr>(Arena*);
 template<> ::greptime::v1::DropViewExpr* Arena::CreateMaybeMessage<::greptime::v1::DropViewExpr>(Arena*);
 template<> ::greptime::v1::FlowId* Arena::CreateMaybeMessage<::greptime::v1::FlowId>(Arena*);
+template<> ::greptime::v1::JsonFulltextIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::JsonFulltextIndexOptions>(Arena*);
 template<> ::greptime::v1::JsonSettings* Arena::CreateMaybeMessage<::greptime::v1::JsonSettings>(Arena*);
 template<> ::greptime::v1::JsonSkippingIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::JsonSkippingIndexOptions>(Arena*);
 template<> ::greptime::v1::JsonTypeHint* Arena::CreateMaybeMessage<::greptime::v1::JsonTypeHint>(Arena*);
@@ -7244,6 +7248,7 @@ class JsonTypeHint final :
     kPathFieldNumber = 1,
     kDatatypeExtensionFieldNumber = 3,
     kSkippingIndexFieldNumber = 5,
+    kFulltextIndexFieldNumber = 6,
     kDataTypeFieldNumber = 2,
     kInvertedIndexFieldNumber = 4,
   };
@@ -7307,6 +7312,24 @@ class JsonTypeHint final :
       ::greptime::v1::JsonSkippingIndexOptions* skipping_index);
   ::greptime::v1::JsonSkippingIndexOptions* unsafe_arena_release_skipping_index();
 
+  // .greptime.v1.JsonFulltextIndexOptions fulltext_index = 6;
+  bool has_fulltext_index() const;
+  private:
+  bool _internal_has_fulltext_index() const;
+  public:
+  void clear_fulltext_index();
+  const ::greptime::v1::JsonFulltextIndexOptions& fulltext_index() const;
+  PROTOBUF_NODISCARD ::greptime::v1::JsonFulltextIndexOptions* release_fulltext_index();
+  ::greptime::v1::JsonFulltextIndexOptions* mutable_fulltext_index();
+  void set_allocated_fulltext_index(::greptime::v1::JsonFulltextIndexOptions* fulltext_index);
+  private:
+  const ::greptime::v1::JsonFulltextIndexOptions& _internal_fulltext_index() const;
+  ::greptime::v1::JsonFulltextIndexOptions* _internal_mutable_fulltext_index();
+  public:
+  void unsafe_arena_set_allocated_fulltext_index(
+      ::greptime::v1::JsonFulltextIndexOptions* fulltext_index);
+  ::greptime::v1::JsonFulltextIndexOptions* unsafe_arena_release_fulltext_index();
+
   // .greptime.v1.ColumnDataType data_type = 2;
   void clear_data_type();
   ::greptime::v1::ColumnDataType data_type() const;
@@ -7336,8 +7359,212 @@ class JsonTypeHint final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> path_;
     ::greptime::v1::ColumnDataTypeExtension* datatype_extension_;
     ::greptime::v1::JsonSkippingIndexOptions* skipping_index_;
+    ::greptime::v1::JsonFulltextIndexOptions* fulltext_index_;
     int data_type_;
     bool inverted_index_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fddl_2eproto;
+};
+// -------------------------------------------------------------------
+
+class JsonFulltextIndexOptions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.JsonFulltextIndexOptions) */ {
+ public:
+  inline JsonFulltextIndexOptions() : JsonFulltextIndexOptions(nullptr) {}
+  ~JsonFulltextIndexOptions() override;
+  explicit PROTOBUF_CONSTEXPR JsonFulltextIndexOptions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  JsonFulltextIndexOptions(const JsonFulltextIndexOptions& from);
+  JsonFulltextIndexOptions(JsonFulltextIndexOptions&& from) noexcept
+    : JsonFulltextIndexOptions() {
+    *this = ::std::move(from);
+  }
+
+  inline JsonFulltextIndexOptions& operator=(const JsonFulltextIndexOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline JsonFulltextIndexOptions& operator=(JsonFulltextIndexOptions&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const JsonFulltextIndexOptions& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const JsonFulltextIndexOptions* internal_default_instance() {
+    return reinterpret_cast<const JsonFulltextIndexOptions*>(
+               &_JsonFulltextIndexOptions_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    35;
+
+  friend void swap(JsonFulltextIndexOptions& a, JsonFulltextIndexOptions& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(JsonFulltextIndexOptions* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(JsonFulltextIndexOptions* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  JsonFulltextIndexOptions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<JsonFulltextIndexOptions>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const JsonFulltextIndexOptions& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const JsonFulltextIndexOptions& from) {
+    JsonFulltextIndexOptions::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(JsonFulltextIndexOptions* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.JsonFulltextIndexOptions";
+  }
+  protected:
+  explicit JsonFulltextIndexOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAnalyzerFieldNumber = 2,
+    kEnableFieldNumber = 1,
+    kCaseSensitiveFieldNumber = 3,
+    kBackendFieldNumber = 4,
+    kGranularityFieldNumber = 5,
+    kFalsePositiveRateFieldNumber = 6,
+  };
+  // .greptime.v1.Analyzer analyzer = 2;
+  void clear_analyzer();
+  ::greptime::v1::Analyzer analyzer() const;
+  void set_analyzer(::greptime::v1::Analyzer value);
+  private:
+  ::greptime::v1::Analyzer _internal_analyzer() const;
+  void _internal_set_analyzer(::greptime::v1::Analyzer value);
+  public:
+
+  // bool enable = 1;
+  void clear_enable();
+  bool enable() const;
+  void set_enable(bool value);
+  private:
+  bool _internal_enable() const;
+  void _internal_set_enable(bool value);
+  public:
+
+  // bool case_sensitive = 3;
+  void clear_case_sensitive();
+  bool case_sensitive() const;
+  void set_case_sensitive(bool value);
+  private:
+  bool _internal_case_sensitive() const;
+  void _internal_set_case_sensitive(bool value);
+  public:
+
+  // .greptime.v1.FulltextBackend backend = 4;
+  void clear_backend();
+  ::greptime::v1::FulltextBackend backend() const;
+  void set_backend(::greptime::v1::FulltextBackend value);
+  private:
+  ::greptime::v1::FulltextBackend _internal_backend() const;
+  void _internal_set_backend(::greptime::v1::FulltextBackend value);
+  public:
+
+  // uint32 granularity = 5;
+  void clear_granularity();
+  uint32_t granularity() const;
+  void set_granularity(uint32_t value);
+  private:
+  uint32_t _internal_granularity() const;
+  void _internal_set_granularity(uint32_t value);
+  public:
+
+  // double false_positive_rate = 6;
+  void clear_false_positive_rate();
+  double false_positive_rate() const;
+  void set_false_positive_rate(double value);
+  private:
+  double _internal_false_positive_rate() const;
+  void _internal_set_false_positive_rate(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.JsonFulltextIndexOptions)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int analyzer_;
+    bool enable_;
+    bool case_sensitive_;
+    int backend_;
+    uint32_t granularity_;
+    double false_positive_rate_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -7393,7 +7620,7 @@ class JsonSkippingIndexOptions final :
                &_JsonSkippingIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(JsonSkippingIndexOptions& a, JsonSkippingIndexOptions& b) {
     a.Swap(&b);
@@ -7563,7 +7790,7 @@ class Option final :
                &_Option_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(Option& a, Option& b) {
     a.Swap(&b);
@@ -7732,7 +7959,7 @@ class SetTableOptions final :
                &_SetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(SetTableOptions& a, SetTableOptions& b) {
     a.Swap(&b);
@@ -7889,7 +8116,7 @@ class UnsetTableOptions final :
                &_UnsetTableOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(UnsetTableOptions& a, UnsetTableOptions& b) {
     a.Swap(&b);
@@ -8052,7 +8279,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -8205,7 +8432,7 @@ class TableId final :
                &_TableId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(TableId& a, TableId& b) {
     a.Swap(&b);
@@ -8353,7 +8580,7 @@ class FlowId final :
                &_FlowId_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(FlowId& a, FlowId& b) {
     a.Swap(&b);
@@ -8501,7 +8728,7 @@ class ColumnDef final :
                &_ColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(ColumnDef& a, ColumnDef& b) {
     a.Swap(&b);
@@ -8759,7 +8986,7 @@ class AddColumnLocation final :
                &_AddColumnLocation_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(AddColumnLocation& a, AddColumnLocation& b) {
     a.Swap(&b);
@@ -8953,7 +9180,7 @@ class SetFulltext final :
                &_SetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(SetFulltext& a, SetFulltext& b) {
     a.Swap(&b);
@@ -9172,7 +9399,7 @@ class UnsetFulltext final :
                &_UnsetFulltext_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(UnsetFulltext& a, UnsetFulltext& b) {
     a.Swap(&b);
@@ -9325,7 +9552,7 @@ class SetInverted final :
                &_SetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(SetInverted& a, SetInverted& b) {
     a.Swap(&b);
@@ -9478,7 +9705,7 @@ class UnsetInverted final :
                &_UnsetInverted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(UnsetInverted& a, UnsetInverted& b) {
     a.Swap(&b);
@@ -9631,7 +9858,7 @@ class SetSkipping final :
                &_SetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(SetSkipping& a, SetSkipping& b) {
     a.Swap(&b);
@@ -9828,7 +10055,7 @@ class UnsetSkipping final :
                &_UnsetSkipping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(UnsetSkipping& a, UnsetSkipping& b) {
     a.Swap(&b);
@@ -9987,7 +10214,7 @@ class AlterDatabaseExpr final :
                &_AlterDatabaseExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(AlterDatabaseExpr& a, AlterDatabaseExpr& b) {
     a.Swap(&b);
@@ -10209,7 +10436,7 @@ class SetDatabaseOptions final :
                &_SetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(SetDatabaseOptions& a, SetDatabaseOptions& b) {
     a.Swap(&b);
@@ -10366,7 +10593,7 @@ class UnsetDatabaseOptions final :
                &_UnsetDatabaseOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(UnsetDatabaseOptions& a, UnsetDatabaseOptions& b) {
     a.Swap(&b);
@@ -10585,7 +10812,7 @@ class CreateTriggerExpr final :
                &_CreateTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    56;
 
   friend void swap(CreateTriggerExpr& a, CreateTriggerExpr& b) {
     a.Swap(&b);
@@ -10963,7 +11190,7 @@ class NotifyChannel final :
                &_NotifyChannel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    57;
 
   friend void swap(NotifyChannel& a, NotifyChannel& b) {
     a.Swap(&b);
@@ -11176,7 +11403,7 @@ class WebhookOptions final :
                &_WebhookOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    59;
 
   friend void swap(WebhookOptions& a, WebhookOptions& b) {
     a.Swap(&b);
@@ -11355,7 +11582,7 @@ class DropTriggerExpr final :
                &_DropTriggerExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    60;
 
   friend void swap(DropTriggerExpr& a, DropTriggerExpr& b) {
     a.Swap(&b);
@@ -11535,7 +11762,7 @@ class CommentOnExpr final :
                &_CommentOnExpr_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    61;
 
   friend void swap(CommentOnExpr& a, CommentOnExpr& b) {
     a.Swap(&b);
@@ -19205,6 +19432,220 @@ inline void JsonTypeHint::set_allocated_skipping_index(::greptime::v1::JsonSkipp
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonTypeHint.skipping_index)
 }
 
+// .greptime.v1.JsonFulltextIndexOptions fulltext_index = 6;
+inline bool JsonTypeHint::_internal_has_fulltext_index() const {
+  return this != internal_default_instance() && _impl_.fulltext_index_ != nullptr;
+}
+inline bool JsonTypeHint::has_fulltext_index() const {
+  return _internal_has_fulltext_index();
+}
+inline void JsonTypeHint::clear_fulltext_index() {
+  if (GetArenaForAllocation() == nullptr && _impl_.fulltext_index_ != nullptr) {
+    delete _impl_.fulltext_index_;
+  }
+  _impl_.fulltext_index_ = nullptr;
+}
+inline const ::greptime::v1::JsonFulltextIndexOptions& JsonTypeHint::_internal_fulltext_index() const {
+  const ::greptime::v1::JsonFulltextIndexOptions* p = _impl_.fulltext_index_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::JsonFulltextIndexOptions&>(
+      ::greptime::v1::_JsonFulltextIndexOptions_default_instance_);
+}
+inline const ::greptime::v1::JsonFulltextIndexOptions& JsonTypeHint::fulltext_index() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonTypeHint.fulltext_index)
+  return _internal_fulltext_index();
+}
+inline void JsonTypeHint::unsafe_arena_set_allocated_fulltext_index(
+    ::greptime::v1::JsonFulltextIndexOptions* fulltext_index) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.fulltext_index_);
+  }
+  _impl_.fulltext_index_ = fulltext_index;
+  if (fulltext_index) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.JsonTypeHint.fulltext_index)
+}
+inline ::greptime::v1::JsonFulltextIndexOptions* JsonTypeHint::release_fulltext_index() {
+  
+  ::greptime::v1::JsonFulltextIndexOptions* temp = _impl_.fulltext_index_;
+  _impl_.fulltext_index_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::JsonFulltextIndexOptions* JsonTypeHint::unsafe_arena_release_fulltext_index() {
+  // @@protoc_insertion_point(field_release:greptime.v1.JsonTypeHint.fulltext_index)
+  
+  ::greptime::v1::JsonFulltextIndexOptions* temp = _impl_.fulltext_index_;
+  _impl_.fulltext_index_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::JsonFulltextIndexOptions* JsonTypeHint::_internal_mutable_fulltext_index() {
+  
+  if (_impl_.fulltext_index_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::JsonFulltextIndexOptions>(GetArenaForAllocation());
+    _impl_.fulltext_index_ = p;
+  }
+  return _impl_.fulltext_index_;
+}
+inline ::greptime::v1::JsonFulltextIndexOptions* JsonTypeHint::mutable_fulltext_index() {
+  ::greptime::v1::JsonFulltextIndexOptions* _msg = _internal_mutable_fulltext_index();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.JsonTypeHint.fulltext_index)
+  return _msg;
+}
+inline void JsonTypeHint::set_allocated_fulltext_index(::greptime::v1::JsonFulltextIndexOptions* fulltext_index) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.fulltext_index_;
+  }
+  if (fulltext_index) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(fulltext_index);
+    if (message_arena != submessage_arena) {
+      fulltext_index = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fulltext_index, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.fulltext_index_ = fulltext_index;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.JsonTypeHint.fulltext_index)
+}
+
+// -------------------------------------------------------------------
+
+// JsonFulltextIndexOptions
+
+// bool enable = 1;
+inline void JsonFulltextIndexOptions::clear_enable() {
+  _impl_.enable_ = false;
+}
+inline bool JsonFulltextIndexOptions::_internal_enable() const {
+  return _impl_.enable_;
+}
+inline bool JsonFulltextIndexOptions::enable() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.enable)
+  return _internal_enable();
+}
+inline void JsonFulltextIndexOptions::_internal_set_enable(bool value) {
+  
+  _impl_.enable_ = value;
+}
+inline void JsonFulltextIndexOptions::set_enable(bool value) {
+  _internal_set_enable(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.enable)
+}
+
+// .greptime.v1.Analyzer analyzer = 2;
+inline void JsonFulltextIndexOptions::clear_analyzer() {
+  _impl_.analyzer_ = 0;
+}
+inline ::greptime::v1::Analyzer JsonFulltextIndexOptions::_internal_analyzer() const {
+  return static_cast< ::greptime::v1::Analyzer >(_impl_.analyzer_);
+}
+inline ::greptime::v1::Analyzer JsonFulltextIndexOptions::analyzer() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.analyzer)
+  return _internal_analyzer();
+}
+inline void JsonFulltextIndexOptions::_internal_set_analyzer(::greptime::v1::Analyzer value) {
+  
+  _impl_.analyzer_ = value;
+}
+inline void JsonFulltextIndexOptions::set_analyzer(::greptime::v1::Analyzer value) {
+  _internal_set_analyzer(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.analyzer)
+}
+
+// bool case_sensitive = 3;
+inline void JsonFulltextIndexOptions::clear_case_sensitive() {
+  _impl_.case_sensitive_ = false;
+}
+inline bool JsonFulltextIndexOptions::_internal_case_sensitive() const {
+  return _impl_.case_sensitive_;
+}
+inline bool JsonFulltextIndexOptions::case_sensitive() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.case_sensitive)
+  return _internal_case_sensitive();
+}
+inline void JsonFulltextIndexOptions::_internal_set_case_sensitive(bool value) {
+  
+  _impl_.case_sensitive_ = value;
+}
+inline void JsonFulltextIndexOptions::set_case_sensitive(bool value) {
+  _internal_set_case_sensitive(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.case_sensitive)
+}
+
+// .greptime.v1.FulltextBackend backend = 4;
+inline void JsonFulltextIndexOptions::clear_backend() {
+  _impl_.backend_ = 0;
+}
+inline ::greptime::v1::FulltextBackend JsonFulltextIndexOptions::_internal_backend() const {
+  return static_cast< ::greptime::v1::FulltextBackend >(_impl_.backend_);
+}
+inline ::greptime::v1::FulltextBackend JsonFulltextIndexOptions::backend() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.backend)
+  return _internal_backend();
+}
+inline void JsonFulltextIndexOptions::_internal_set_backend(::greptime::v1::FulltextBackend value) {
+  
+  _impl_.backend_ = value;
+}
+inline void JsonFulltextIndexOptions::set_backend(::greptime::v1::FulltextBackend value) {
+  _internal_set_backend(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.backend)
+}
+
+// uint32 granularity = 5;
+inline void JsonFulltextIndexOptions::clear_granularity() {
+  _impl_.granularity_ = 0u;
+}
+inline uint32_t JsonFulltextIndexOptions::_internal_granularity() const {
+  return _impl_.granularity_;
+}
+inline uint32_t JsonFulltextIndexOptions::granularity() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.granularity)
+  return _internal_granularity();
+}
+inline void JsonFulltextIndexOptions::_internal_set_granularity(uint32_t value) {
+  
+  _impl_.granularity_ = value;
+}
+inline void JsonFulltextIndexOptions::set_granularity(uint32_t value) {
+  _internal_set_granularity(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.granularity)
+}
+
+// double false_positive_rate = 6;
+inline void JsonFulltextIndexOptions::clear_false_positive_rate() {
+  _impl_.false_positive_rate_ = 0;
+}
+inline double JsonFulltextIndexOptions::_internal_false_positive_rate() const {
+  return _impl_.false_positive_rate_;
+}
+inline double JsonFulltextIndexOptions::false_positive_rate() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.false_positive_rate)
+  return _internal_false_positive_rate();
+}
+inline void JsonFulltextIndexOptions::_internal_set_false_positive_rate(double value) {
+  
+  _impl_.false_positive_rate_ = value;
+}
+inline void JsonFulltextIndexOptions::set_false_positive_rate(double value) {
+  _internal_set_false_positive_rate(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.false_positive_rate)
+}
+
 // -------------------------------------------------------------------
 
 // JsonSkippingIndexOptions
@@ -22268,6 +22709,8 @@ inline void CommentOnExpr::set_allocated_comment(std::string* comment) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
