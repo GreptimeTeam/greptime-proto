@@ -39963,47 +39963,41 @@ java.lang.String defaultValue);
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool enable = 1;</code>
-     * @return The enable.
-     */
-    boolean getEnable();
-
-    /**
-     * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+     * <code>.greptime.v1.Analyzer analyzer = 1;</code>
      * @return The enum numeric value on the wire for analyzer.
      */
     int getAnalyzerValue();
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+     * <code>.greptime.v1.Analyzer analyzer = 1;</code>
      * @return The analyzer.
      */
     io.greptime.v1.Ddl.Analyzer getAnalyzer();
 
     /**
-     * <code>bool case_sensitive = 3;</code>
+     * <code>bool case_sensitive = 2;</code>
      * @return The caseSensitive.
      */
     boolean getCaseSensitive();
 
     /**
-     * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+     * <code>.greptime.v1.FulltextBackend backend = 3;</code>
      * @return The enum numeric value on the wire for backend.
      */
     int getBackendValue();
     /**
-     * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+     * <code>.greptime.v1.FulltextBackend backend = 3;</code>
      * @return The backend.
      */
     io.greptime.v1.Ddl.FulltextBackend getBackend();
 
     /**
-     * <code>uint32 granularity = 5;</code>
+     * <code>uint32 granularity = 4;</code>
      * @return The granularity.
      */
     int getGranularity();
 
     /**
-     * <code>double false_positive_rate = 6;</code>
+     * <code>double false_positive_rate = 5;</code>
      * @return The falsePositiveRate.
      */
     double getFalsePositiveRate();
@@ -40056,33 +40050,28 @@ java.lang.String defaultValue);
               done = true;
               break;
             case 8: {
-
-              enable_ = input.readBool();
-              break;
-            }
-            case 16: {
               int rawValue = input.readEnum();
 
               analyzer_ = rawValue;
               break;
             }
-            case 24: {
+            case 16: {
 
               caseSensitive_ = input.readBool();
               break;
             }
-            case 32: {
+            case 24: {
               int rawValue = input.readEnum();
 
               backend_ = rawValue;
               break;
             }
-            case 40: {
+            case 32: {
 
               granularity_ = input.readUInt32();
               break;
             }
-            case 49: {
+            case 41: {
 
               falsePositiveRate_ = input.readDouble();
               break;
@@ -40121,28 +40110,17 @@ java.lang.String defaultValue);
               io.greptime.v1.Ddl.JsonFulltextIndexOptions.class, io.greptime.v1.Ddl.JsonFulltextIndexOptions.Builder.class);
     }
 
-    public static final int ENABLE_FIELD_NUMBER = 1;
-    private boolean enable_;
-    /**
-     * <code>bool enable = 1;</code>
-     * @return The enable.
-     */
-    @java.lang.Override
-    public boolean getEnable() {
-      return enable_;
-    }
-
-    public static final int ANALYZER_FIELD_NUMBER = 2;
+    public static final int ANALYZER_FIELD_NUMBER = 1;
     private int analyzer_;
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+     * <code>.greptime.v1.Analyzer analyzer = 1;</code>
      * @return The enum numeric value on the wire for analyzer.
      */
     @java.lang.Override public int getAnalyzerValue() {
       return analyzer_;
     }
     /**
-     * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+     * <code>.greptime.v1.Analyzer analyzer = 1;</code>
      * @return The analyzer.
      */
     @java.lang.Override public io.greptime.v1.Ddl.Analyzer getAnalyzer() {
@@ -40151,10 +40129,10 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.Ddl.Analyzer.UNRECOGNIZED : result;
     }
 
-    public static final int CASE_SENSITIVE_FIELD_NUMBER = 3;
+    public static final int CASE_SENSITIVE_FIELD_NUMBER = 2;
     private boolean caseSensitive_;
     /**
-     * <code>bool case_sensitive = 3;</code>
+     * <code>bool case_sensitive = 2;</code>
      * @return The caseSensitive.
      */
     @java.lang.Override
@@ -40162,17 +40140,17 @@ java.lang.String defaultValue);
       return caseSensitive_;
     }
 
-    public static final int BACKEND_FIELD_NUMBER = 4;
+    public static final int BACKEND_FIELD_NUMBER = 3;
     private int backend_;
     /**
-     * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+     * <code>.greptime.v1.FulltextBackend backend = 3;</code>
      * @return The enum numeric value on the wire for backend.
      */
     @java.lang.Override public int getBackendValue() {
       return backend_;
     }
     /**
-     * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+     * <code>.greptime.v1.FulltextBackend backend = 3;</code>
      * @return The backend.
      */
     @java.lang.Override public io.greptime.v1.Ddl.FulltextBackend getBackend() {
@@ -40181,10 +40159,10 @@ java.lang.String defaultValue);
       return result == null ? io.greptime.v1.Ddl.FulltextBackend.UNRECOGNIZED : result;
     }
 
-    public static final int GRANULARITY_FIELD_NUMBER = 5;
+    public static final int GRANULARITY_FIELD_NUMBER = 4;
     private int granularity_;
     /**
-     * <code>uint32 granularity = 5;</code>
+     * <code>uint32 granularity = 4;</code>
      * @return The granularity.
      */
     @java.lang.Override
@@ -40192,10 +40170,10 @@ java.lang.String defaultValue);
       return granularity_;
     }
 
-    public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 6;
+    public static final int FALSE_POSITIVE_RATE_FIELD_NUMBER = 5;
     private double falsePositiveRate_;
     /**
-     * <code>double false_positive_rate = 6;</code>
+     * <code>double false_positive_rate = 5;</code>
      * @return The falsePositiveRate.
      */
     @java.lang.Override
@@ -40217,23 +40195,20 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (enable_ != false) {
-        output.writeBool(1, enable_);
-      }
       if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
-        output.writeEnum(2, analyzer_);
+        output.writeEnum(1, analyzer_);
       }
       if (caseSensitive_ != false) {
-        output.writeBool(3, caseSensitive_);
+        output.writeBool(2, caseSensitive_);
       }
       if (backend_ != io.greptime.v1.Ddl.FulltextBackend.TANTIVY.getNumber()) {
-        output.writeEnum(4, backend_);
+        output.writeEnum(3, backend_);
       }
       if (granularity_ != 0) {
-        output.writeUInt32(5, granularity_);
+        output.writeUInt32(4, granularity_);
       }
       if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
-        output.writeDouble(6, falsePositiveRate_);
+        output.writeDouble(5, falsePositiveRate_);
       }
       unknownFields.writeTo(output);
     }
@@ -40244,29 +40219,25 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (enable_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, enable_);
-      }
       if (analyzer_ != io.greptime.v1.Ddl.Analyzer.ENGLISH.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, analyzer_);
+          .computeEnumSize(1, analyzer_);
       }
       if (caseSensitive_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, caseSensitive_);
+          .computeBoolSize(2, caseSensitive_);
       }
       if (backend_ != io.greptime.v1.Ddl.FulltextBackend.TANTIVY.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, backend_);
+          .computeEnumSize(3, backend_);
       }
       if (granularity_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(5, granularity_);
+          .computeUInt32Size(4, granularity_);
       }
       if (java.lang.Double.doubleToRawLongBits(falsePositiveRate_) != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(6, falsePositiveRate_);
+          .computeDoubleSize(5, falsePositiveRate_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -40283,8 +40254,6 @@ java.lang.String defaultValue);
       }
       io.greptime.v1.Ddl.JsonFulltextIndexOptions other = (io.greptime.v1.Ddl.JsonFulltextIndexOptions) obj;
 
-      if (getEnable()
-          != other.getEnable()) return false;
       if (analyzer_ != other.analyzer_) return false;
       if (getCaseSensitive()
           != other.getCaseSensitive()) return false;
@@ -40305,9 +40274,6 @@ java.lang.String defaultValue);
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ENABLE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getEnable());
       hash = (37 * hash) + ANALYZER_FIELD_NUMBER;
       hash = (53 * hash) + analyzer_;
       hash = (37 * hash) + CASE_SENSITIVE_FIELD_NUMBER;
@@ -40453,8 +40419,6 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        enable_ = false;
-
         analyzer_ = 0;
 
         caseSensitive_ = false;
@@ -40491,7 +40455,6 @@ java.lang.String defaultValue);
       @java.lang.Override
       public io.greptime.v1.Ddl.JsonFulltextIndexOptions buildPartial() {
         io.greptime.v1.Ddl.JsonFulltextIndexOptions result = new io.greptime.v1.Ddl.JsonFulltextIndexOptions(this);
-        result.enable_ = enable_;
         result.analyzer_ = analyzer_;
         result.caseSensitive_ = caseSensitive_;
         result.backend_ = backend_;
@@ -40545,9 +40508,6 @@ java.lang.String defaultValue);
 
       public Builder mergeFrom(io.greptime.v1.Ddl.JsonFulltextIndexOptions other) {
         if (other == io.greptime.v1.Ddl.JsonFulltextIndexOptions.getDefaultInstance()) return this;
-        if (other.getEnable() != false) {
-          setEnable(other.getEnable());
-        }
         if (other.analyzer_ != 0) {
           setAnalyzerValue(other.getAnalyzerValue());
         }
@@ -40592,47 +40552,16 @@ java.lang.String defaultValue);
         return this;
       }
 
-      private boolean enable_ ;
-      /**
-       * <code>bool enable = 1;</code>
-       * @return The enable.
-       */
-      @java.lang.Override
-      public boolean getEnable() {
-        return enable_;
-      }
-      /**
-       * <code>bool enable = 1;</code>
-       * @param value The enable to set.
-       * @return This builder for chaining.
-       */
-      public Builder setEnable(boolean value) {
-        
-        enable_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool enable = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearEnable() {
-        
-        enable_ = false;
-        onChanged();
-        return this;
-      }
-
       private int analyzer_ = 0;
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 1;</code>
        * @return The enum numeric value on the wire for analyzer.
        */
       @java.lang.Override public int getAnalyzerValue() {
         return analyzer_;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 1;</code>
        * @param value The enum numeric value on the wire for analyzer to set.
        * @return This builder for chaining.
        */
@@ -40643,7 +40572,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 1;</code>
        * @return The analyzer.
        */
       @java.lang.Override
@@ -40653,7 +40582,7 @@ java.lang.String defaultValue);
         return result == null ? io.greptime.v1.Ddl.Analyzer.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 1;</code>
        * @param value The analyzer to set.
        * @return This builder for chaining.
        */
@@ -40667,7 +40596,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.Analyzer analyzer = 2;</code>
+       * <code>.greptime.v1.Analyzer analyzer = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearAnalyzer() {
@@ -40679,7 +40608,7 @@ java.lang.String defaultValue);
 
       private boolean caseSensitive_ ;
       /**
-       * <code>bool case_sensitive = 3;</code>
+       * <code>bool case_sensitive = 2;</code>
        * @return The caseSensitive.
        */
       @java.lang.Override
@@ -40687,7 +40616,7 @@ java.lang.String defaultValue);
         return caseSensitive_;
       }
       /**
-       * <code>bool case_sensitive = 3;</code>
+       * <code>bool case_sensitive = 2;</code>
        * @param value The caseSensitive to set.
        * @return This builder for chaining.
        */
@@ -40698,7 +40627,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>bool case_sensitive = 3;</code>
+       * <code>bool case_sensitive = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearCaseSensitive() {
@@ -40710,14 +40639,14 @@ java.lang.String defaultValue);
 
       private int backend_ = 0;
       /**
-       * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+       * <code>.greptime.v1.FulltextBackend backend = 3;</code>
        * @return The enum numeric value on the wire for backend.
        */
       @java.lang.Override public int getBackendValue() {
         return backend_;
       }
       /**
-       * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+       * <code>.greptime.v1.FulltextBackend backend = 3;</code>
        * @param value The enum numeric value on the wire for backend to set.
        * @return This builder for chaining.
        */
@@ -40728,7 +40657,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+       * <code>.greptime.v1.FulltextBackend backend = 3;</code>
        * @return The backend.
        */
       @java.lang.Override
@@ -40738,7 +40667,7 @@ java.lang.String defaultValue);
         return result == null ? io.greptime.v1.Ddl.FulltextBackend.UNRECOGNIZED : result;
       }
       /**
-       * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+       * <code>.greptime.v1.FulltextBackend backend = 3;</code>
        * @param value The backend to set.
        * @return This builder for chaining.
        */
@@ -40752,7 +40681,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>.greptime.v1.FulltextBackend backend = 4;</code>
+       * <code>.greptime.v1.FulltextBackend backend = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearBackend() {
@@ -40764,7 +40693,7 @@ java.lang.String defaultValue);
 
       private int granularity_ ;
       /**
-       * <code>uint32 granularity = 5;</code>
+       * <code>uint32 granularity = 4;</code>
        * @return The granularity.
        */
       @java.lang.Override
@@ -40772,7 +40701,7 @@ java.lang.String defaultValue);
         return granularity_;
       }
       /**
-       * <code>uint32 granularity = 5;</code>
+       * <code>uint32 granularity = 4;</code>
        * @param value The granularity to set.
        * @return This builder for chaining.
        */
@@ -40783,7 +40712,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>uint32 granularity = 5;</code>
+       * <code>uint32 granularity = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearGranularity() {
@@ -40795,7 +40724,7 @@ java.lang.String defaultValue);
 
       private double falsePositiveRate_ ;
       /**
-       * <code>double false_positive_rate = 6;</code>
+       * <code>double false_positive_rate = 5;</code>
        * @return The falsePositiveRate.
        */
       @java.lang.Override
@@ -40803,7 +40732,7 @@ java.lang.String defaultValue);
         return falsePositiveRate_;
       }
       /**
-       * <code>double false_positive_rate = 6;</code>
+       * <code>double false_positive_rate = 5;</code>
        * @param value The falsePositiveRate to set.
        * @return This builder for chaining.
        */
@@ -40814,7 +40743,7 @@ java.lang.String defaultValue);
         return this;
       }
       /**
-       * <code>double false_positive_rate = 6;</code>
+       * <code>double false_positive_rate = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearFalsePositiveRate() {
@@ -62523,86 +62452,86 @@ java.lang.String defaultValue);
       "pping_index\030\005 \001(\0132%.greptime.v1.JsonSkip" +
       "pingIndexOptions\022=\n\016fulltext_index\030\006 \001(\013" +
       "2%.greptime.v1.JsonFulltextIndexOptions\"" +
-      "\314\001\n\030JsonFulltextIndexOptions\022\016\n\006enable\030\001" +
-      " \001(\010\022\'\n\010analyzer\030\002 \001(\0162\025.greptime.v1.Ana" +
-      "lyzer\022\026\n\016case_sensitive\030\003 \001(\010\022-\n\007backend" +
-      "\030\004 \001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013" +
-      "granularity\030\005 \001(\r\022\033\n\023false_positive_rate" +
-      "\030\006 \001(\001\"\200\001\n\030JsonSkippingIndexOptions\022\023\n\013g" +
-      "ranularity\030\001 \001(\r\0222\n\nindex_type\030\002 \001(\0162\036.g" +
-      "reptime.v1.SkippingIndexType\022\033\n\023false_po" +
-      "sitive_rate\030\003 \001(\001\"$\n\006Option\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t\"=\n\017SetTableOptions\022*\n\rta" +
-      "ble_options\030\001 \003(\0132\023.greptime.v1.Option\"!" +
-      "\n\021UnsetTableOptions\022\014\n\004keys\030\001 \003(\t\"\032\n\nDro" +
-      "pColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001" +
-      " \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef" +
-      "\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 \001(\0162\033.grep" +
-      "time.v1.ColumnDataType\022\023\n\013is_nullable\030\003 " +
-      "\001(\010\022\032\n\022default_constraint\030\004 \001(\014\0220\n\rseman" +
-      "tic_type\030\005 \001(\0162\031.greptime.v1.SemanticTyp" +
-      "e\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype_extension" +
-      "\030\007 \001(\0132$.greptime.v1.ColumnDataTypeExten" +
-      "sion\022+\n\007options\030\010 \001(\0132\032.greptime.v1.Colu" +
-      "mnOptions\"\230\001\n\021AddColumnLocation\022B\n\rlocat" +
-      "ion_type\030\001 \001(\0162+.greptime.v1.AddColumnLo" +
-      "cation.LocationType\022\031\n\021after_column_name" +
-      "\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRST\020\000\022\t\n\005AFT" +
-      "ER\020\001\"\324\001\n\013SetFulltext\022\023\n\013column_name\030\001 \001(" +
-      "\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030\003 \001(\0162\025.gr" +
-      "eptime.v1.Analyzer\022\026\n\016case_sensitive\030\004 \001" +
-      "(\010\022-\n\007backend\030\005 \001(\0162\034.greptime.v1.Fullte" +
-      "xtBackend\022\023\n\013granularity\030\006 \001(\004\022\033\n\023false_" +
-      "positive_rate\030\007 \001(\001\"$\n\rUnsetFulltext\022\023\n\013" +
-      "column_name\030\001 \001(\t\"\"\n\013SetInverted\022\023\n\013colu" +
-      "mn_name\030\001 \001(\t\"$\n\rUnsetInverted\022\023\n\013column" +
-      "_name\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n\013column_na" +
-      "me\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013granularity\030" +
-      "\003 \001(\004\022;\n\023skipping_index_type\030\004 \001(\0162\036.gre" +
-      "ptime.v1.SkippingIndexType\022\033\n\023false_posi" +
-      "tive_rate\030\005 \001(\001\"$\n\rUnsetSkipping\022\023\n\013colu" +
-      "mn_name\030\001 \001(\t\"\314\001\n\021AlterDatabaseExpr\022\024\n\014c" +
-      "atalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022?" +
-      "\n\024set_database_options\030\003 \001(\0132\037.greptime." +
-      "v1.SetDatabaseOptionsH\000\022C\n\026unset_databas" +
-      "e_options\030\004 \001(\0132!.greptime.v1.UnsetDatab" +
-      "aseOptionsH\000B\006\n\004kind\"G\n\022SetDatabaseOptio" +
-      "ns\0221\n\024set_database_options\030\001 \003(\0132\023.grept" +
-      "ime.v1.Option\"$\n\024UnsetDatabaseOptions\022\014\n" +
-      "\004keys\030\001 \003(\t\"\331\004\n\021CreateTriggerExpr\022\024\n\014cat" +
-      "alog_name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\034\n" +
-      "\024create_if_not_exists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t" +
-      "\022,\n\010channels\030\005 \003(\0132\032.greptime.v1.NotifyC" +
-      "hannel\022:\n\006labels\030\006 \003(\0132*.greptime.v1.Cre" +
-      "ateTriggerExpr.LabelsEntry\022D\n\013annotation" +
-      "s\030\007 \003(\0132/.greptime.v1.CreateTriggerExpr." +
-      "AnnotationsEntry\022+\n\010interval\030\010 \001(\0132\031.goo" +
-      "gle.protobuf.Duration\022\031\n\021raw_interval_ex" +
-      "pr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.google.protobuf." +
-      "Duration\022\024\n\014for_raw_expr\030\013 \001(\t\0222\n\017keep_f" +
-      "iring_for\030\014 \001(\0132\031.google.protobuf.Durati" +
-      "on\022 \n\030keep_firing_for_raw_expr\030\r \001(\t\032-\n\013" +
-      "LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"]\n\rNotifyChannel\022\014\n\004name" +
-      "\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.greptime.v1.We" +
-      "bhookOptionsH\000B\016\n\014channel_type\"\177\n\016Webhoo" +
-      "kOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.gr" +
-      "eptime.v1.WebhookOptions.OptsEntry\032+\n\tOp" +
-      "tsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "U\n\017DropTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t" +
-      "\022\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop_if_exists" +
-      "\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n\013object_ty" +
-      "pe\030\003 \001(\0162\036.greptime.v1.CommentObjectType" +
-      "\022\023\n\013object_name\030\004 \001(\t\022\023\n\013column_name\030\005 \001" +
-      "(\t\022\017\n\007comment\030\006 \001(\t*$\n\010Analyzer\022\013\n\007ENGLI" +
-      "SH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextBackend\022\013\n\007" +
-      "TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021SkippingIndexTyp" +
-      "e\022\020\n\014BLOOM_FILTER\020\000*4\n\021CommentObjectType" +
-      "\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io." +
-      "greptime.v1B\003DdlZ5github.com/GreptimeTea" +
-      "m/greptime-proto/go/greptime/v1b\006proto3"
+      "\274\001\n\030JsonFulltextIndexOptions\022\'\n\010analyzer" +
+      "\030\001 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016case_se" +
+      "nsitive\030\002 \001(\010\022-\n\007backend\030\003 \001(\0162\034.greptim" +
+      "e.v1.FulltextBackend\022\023\n\013granularity\030\004 \001(" +
+      "\r\022\033\n\023false_positive_rate\030\005 \001(\001\"\200\001\n\030JsonS" +
+      "kippingIndexOptions\022\023\n\013granularity\030\001 \001(\r" +
+      "\0222\n\nindex_type\030\002 \001(\0162\036.greptime.v1.Skipp" +
+      "ingIndexType\022\033\n\023false_positive_rate\030\003 \001(" +
+      "\001\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"" +
+      "=\n\017SetTableOptions\022*\n\rtable_options\030\001 \003(" +
+      "\0132\023.greptime.v1.Option\"!\n\021UnsetTableOpti" +
+      "ons\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030" +
+      "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n" +
+      "\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022." +
+      "\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnDa" +
+      "taType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_c" +
+      "onstraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031" +
+      ".greptime.v1.SemanticType\022\017\n\007comment\030\006 \001" +
+      "(\t\022@\n\022datatype_extension\030\007 \001(\0132$.greptim" +
+      "e.v1.ColumnDataTypeExtension\022+\n\007options\030" +
+      "\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021Ad" +
+      "dColumnLocation\022B\n\rlocation_type\030\001 \001(\0162+" +
+      ".greptime.v1.AddColumnLocation.LocationT" +
+      "ype\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locati" +
+      "onType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFull" +
+      "text\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(" +
+      "\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyz" +
+      "er\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 " +
+      "\001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013gra" +
+      "nularity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 " +
+      "\001(\001\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001(" +
+      "\t\"\"\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$\n" +
+      "\rUnsetInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013" +
+      "SetSkipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enab" +
+      "le\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skippin" +
+      "g_index_type\030\004 \001(\0162\036.greptime.v1.Skippin" +
+      "gIndexType\022\033\n\023false_positive_rate\030\005 \001(\001\"" +
+      "$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001" +
+      "\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_o" +
+      "ptions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOp" +
+      "tionsH\000\022C\n\026unset_database_options\030\004 \001(\0132" +
+      "!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004" +
+      "kind\"G\n\022SetDatabaseOptions\0221\n\024set_databa" +
+      "se_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n" +
+      "\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021" +
+      "CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
+      "\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_e" +
+      "xists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003" +
+      "(\0132\032.greptime.v1.NotifyChannel\022:\n\006labels" +
+      "\030\006 \003(\0132*.greptime.v1.CreateTriggerExpr.L" +
+      "abelsEntry\022D\n\013annotations\030\007 \003(\0132/.grepti" +
+      "me.v1.CreateTriggerExpr.AnnotationsEntry" +
+      "\022+\n\010interval\030\010 \001(\0132\031.google.protobuf.Dur" +
+      "ation\022\031\n\021raw_interval_expr\030\t \001(\t\022&\n\003for\030" +
+      "\n \001(\0132\031.google.protobuf.Duration\022\024\n\014for_" +
+      "raw_expr\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001(\0132" +
+      "\031.google.protobuf.Duration\022 \n\030keep_firin" +
+      "g_for_raw_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annotatio" +
+      "nsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
+      "]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhoo" +
+      "k\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH\000B\016" +
+      "\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003url\030" +
+      "\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Webhoo" +
+      "kOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name" +
+      "\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"\252\001\n\rComme" +
+      "ntOnExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
+      "_name\030\002 \001(\t\0223\n\013object_type\030\003 \001(\0162\036.grept" +
+      "ime.v1.CommentObjectType\022\023\n\013object_name\030" +
+      "\004 \001(\t\022\023\n\013column_name\030\005 \001(\t\022\017\n\007comment\030\006 " +
+      "\001(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020" +
+      "\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLO" +
+      "OM\020\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FILTE" +
+      "R\020\000*4\n\021CommentObjectType\022\t\n\005TABLE\020\000\022\n\n\006C" +
+      "OLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io.greptime.v1B\003Ddl" +
+      "Z5github.com/GreptimeTeam/greptime-proto" +
+      "/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -62825,7 +62754,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_JsonFulltextIndexOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonFulltextIndexOptions_descriptor,
-        new java.lang.String[] { "Enable", "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
+        new java.lang.String[] { "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
     internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable = new

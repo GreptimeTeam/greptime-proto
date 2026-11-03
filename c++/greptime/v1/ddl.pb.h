@@ -7490,14 +7490,13 @@ class JsonFulltextIndexOptions final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kAnalyzerFieldNumber = 2,
-    kEnableFieldNumber = 1,
-    kCaseSensitiveFieldNumber = 3,
-    kBackendFieldNumber = 4,
-    kGranularityFieldNumber = 5,
-    kFalsePositiveRateFieldNumber = 6,
+    kAnalyzerFieldNumber = 1,
+    kCaseSensitiveFieldNumber = 2,
+    kBackendFieldNumber = 3,
+    kGranularityFieldNumber = 4,
+    kFalsePositiveRateFieldNumber = 5,
   };
-  // .greptime.v1.Analyzer analyzer = 2;
+  // .greptime.v1.Analyzer analyzer = 1;
   void clear_analyzer();
   ::greptime::v1::Analyzer analyzer() const;
   void set_analyzer(::greptime::v1::Analyzer value);
@@ -7506,16 +7505,7 @@ class JsonFulltextIndexOptions final :
   void _internal_set_analyzer(::greptime::v1::Analyzer value);
   public:
 
-  // bool enable = 1;
-  void clear_enable();
-  bool enable() const;
-  void set_enable(bool value);
-  private:
-  bool _internal_enable() const;
-  void _internal_set_enable(bool value);
-  public:
-
-  // bool case_sensitive = 3;
+  // bool case_sensitive = 2;
   void clear_case_sensitive();
   bool case_sensitive() const;
   void set_case_sensitive(bool value);
@@ -7524,7 +7514,7 @@ class JsonFulltextIndexOptions final :
   void _internal_set_case_sensitive(bool value);
   public:
 
-  // .greptime.v1.FulltextBackend backend = 4;
+  // .greptime.v1.FulltextBackend backend = 3;
   void clear_backend();
   ::greptime::v1::FulltextBackend backend() const;
   void set_backend(::greptime::v1::FulltextBackend value);
@@ -7533,7 +7523,7 @@ class JsonFulltextIndexOptions final :
   void _internal_set_backend(::greptime::v1::FulltextBackend value);
   public:
 
-  // uint32 granularity = 5;
+  // uint32 granularity = 4;
   void clear_granularity();
   uint32_t granularity() const;
   void set_granularity(uint32_t value);
@@ -7542,7 +7532,7 @@ class JsonFulltextIndexOptions final :
   void _internal_set_granularity(uint32_t value);
   public:
 
-  // double false_positive_rate = 6;
+  // double false_positive_rate = 5;
   void clear_false_positive_rate();
   double false_positive_rate() const;
   void set_false_positive_rate(double value);
@@ -7560,7 +7550,6 @@ class JsonFulltextIndexOptions final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     int analyzer_;
-    bool enable_;
     bool case_sensitive_;
     int backend_;
     uint32_t granularity_;
@@ -19526,27 +19515,7 @@ inline void JsonTypeHint::set_allocated_fulltext_index(::greptime::v1::JsonFullt
 
 // JsonFulltextIndexOptions
 
-// bool enable = 1;
-inline void JsonFulltextIndexOptions::clear_enable() {
-  _impl_.enable_ = false;
-}
-inline bool JsonFulltextIndexOptions::_internal_enable() const {
-  return _impl_.enable_;
-}
-inline bool JsonFulltextIndexOptions::enable() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.JsonFulltextIndexOptions.enable)
-  return _internal_enable();
-}
-inline void JsonFulltextIndexOptions::_internal_set_enable(bool value) {
-  
-  _impl_.enable_ = value;
-}
-inline void JsonFulltextIndexOptions::set_enable(bool value) {
-  _internal_set_enable(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.enable)
-}
-
-// .greptime.v1.Analyzer analyzer = 2;
+// .greptime.v1.Analyzer analyzer = 1;
 inline void JsonFulltextIndexOptions::clear_analyzer() {
   _impl_.analyzer_ = 0;
 }
@@ -19566,7 +19535,7 @@ inline void JsonFulltextIndexOptions::set_analyzer(::greptime::v1::Analyzer valu
   // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.analyzer)
 }
 
-// bool case_sensitive = 3;
+// bool case_sensitive = 2;
 inline void JsonFulltextIndexOptions::clear_case_sensitive() {
   _impl_.case_sensitive_ = false;
 }
@@ -19586,7 +19555,7 @@ inline void JsonFulltextIndexOptions::set_case_sensitive(bool value) {
   // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.case_sensitive)
 }
 
-// .greptime.v1.FulltextBackend backend = 4;
+// .greptime.v1.FulltextBackend backend = 3;
 inline void JsonFulltextIndexOptions::clear_backend() {
   _impl_.backend_ = 0;
 }
@@ -19606,7 +19575,7 @@ inline void JsonFulltextIndexOptions::set_backend(::greptime::v1::FulltextBacken
   // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.backend)
 }
 
-// uint32 granularity = 5;
+// uint32 granularity = 4;
 inline void JsonFulltextIndexOptions::clear_granularity() {
   _impl_.granularity_ = 0u;
 }
@@ -19626,7 +19595,7 @@ inline void JsonFulltextIndexOptions::set_granularity(uint32_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.JsonFulltextIndexOptions.granularity)
 }
 
-// double false_positive_rate = 6;
+// double false_positive_rate = 5;
 inline void JsonFulltextIndexOptions::clear_false_positive_rate() {
   _impl_.false_positive_rate_ = 0;
 }

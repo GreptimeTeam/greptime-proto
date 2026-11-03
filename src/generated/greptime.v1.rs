@@ -1296,17 +1296,15 @@ pub struct JsonTypeHint {
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct JsonFulltextIndexOptions {
-    #[prost(bool, tag = "1")]
-    pub enable: bool,
-    #[prost(enumeration = "Analyzer", tag = "2")]
+    #[prost(enumeration = "Analyzer", tag = "1")]
     pub analyzer: i32,
-    #[prost(bool, tag = "3")]
+    #[prost(bool, tag = "2")]
     pub case_sensitive: bool,
-    #[prost(enumeration = "FulltextBackend", tag = "4")]
+    #[prost(enumeration = "FulltextBackend", tag = "3")]
     pub backend: i32,
-    #[prost(uint32, tag = "5")]
+    #[prost(uint32, tag = "4")]
     pub granularity: u32,
-    #[prost(double, tag = "6")]
+    #[prost(double, tag = "5")]
     pub false_positive_rate: f64,
 }
 #[allow(clippy::all)]
