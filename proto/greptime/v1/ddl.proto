@@ -125,6 +125,7 @@ message AlterTableExpr {
     SetDefaults set_defaults = 17;
     Repartition repartition = 18;
     SetJsonSettings set_json_settings = 19;
+    SetColumnCompression set_column_compression = 20;
   }
 }
 
@@ -254,6 +255,18 @@ message ModifyColumnType {
 message SetJsonSettings {
   string column_name = 1;
   JsonSettings settings = 2;
+}
+
+// Per-column SST compression options.
+message SetColumnCompression {
+  string column_name = 1;
+  // Merge-on-set delta: only the keys present here override the current options,
+  // e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+  // validated together on the server side.
+  ColumnOptions options = 2;
+  // Clear every compression override on the column. Must not be combined with a
+  // non-empty options field.
+  bool reset = 3;
 }
 
 message JsonSettings {

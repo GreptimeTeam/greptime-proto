@@ -996,7 +996,7 @@ pub struct AlterTableExpr {
     pub table_name: ::prost::alloc::string::String,
     #[prost(
         oneof = "alter_table_expr::Kind",
-        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19"
+        tags = "4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20"
     )]
     pub kind: ::core::option::Option<alter_table_expr::Kind>,
 }
@@ -1035,6 +1035,8 @@ pub mod alter_table_expr {
         Repartition(super::Repartition),
         #[prost(message, tag = "19")]
         SetJsonSettings(super::SetJsonSettings),
+        #[prost(message, tag = "20")]
+        SetColumnCompression(super::SetColumnCompression),
     }
 }
 #[allow(clippy::all)]
@@ -1265,6 +1267,22 @@ pub struct SetJsonSettings {
     pub column_name: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "2")]
     pub settings: ::core::option::Option<JsonSettings>,
+}
+/// Per-column SST compression options.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetColumnCompression {
+    #[prost(string, tag = "1")]
+    pub column_name: ::prost::alloc::string::String,
+    /// Merge-on-set delta: only the keys present here override the current options,
+    /// e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+    /// validated together on the server side.
+    #[prost(message, optional, tag = "2")]
+    pub options: ::core::option::Option<ColumnOptions>,
+    /// Clear every compression override on the column. Must not be combined with a
+    /// non-empty options field.
+    #[prost(bool, tag = "3")]
+    pub reset: bool,
 }
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]

@@ -311,7 +311,7 @@ pub struct AlterRequest {
     pub schema_version: u64,
     #[prost(
         oneof = "alter_request::Kind",
-        tags = "2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17"
+        tags = "2, 3, 5, 6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 7"
     )]
     pub kind: ::core::option::Option<alter_request::Kind>,
 }
@@ -348,6 +348,9 @@ pub mod alter_request {
         SyncColumns(super::SyncColumns),
         #[prost(message, tag = "17")]
         SetJsonSettings(super::super::SetJsonSettings),
+        /// 7 and 8 are the next free numbers in this oneof.
+        #[prost(message, tag = "7")]
+        SetColumnCompression(super::super::SetColumnCompression),
     }
 }
 #[allow(clippy::all)]
