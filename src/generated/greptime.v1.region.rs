@@ -30,6 +30,84 @@ pub struct RegionRequestHeader {
     #[prost(message, optional, tag = "6")]
     pub query_context: ::core::option::Option<super::QueryContext>,
 }
+/// Identifies one task reported by information_schema.compaction_tasks.
+/// A stale task ID must not cancel a replacement task or another pending task.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CancelCompactionRequest {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<RegionRequestHeader>,
+    #[prost(uint64, tag = "2")]
+    pub region_id: u64,
+    #[prost(string, tag = "3")]
+    pub task_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct CancelCompactionResponse {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<super::ResponseHeader>,
+    /// Describes acceptance of the request, not completion of cancellation.
+    #[prost(enumeration = "cancel_compaction_response::Result", tag = "2")]
+    pub result: i32,
+}
+/// Nested message and enum types in `CancelCompactionResponse`.
+pub mod cancel_compaction_response {
+    #[allow(clippy::all)]
+    #[derive(
+        Clone,
+        Copy,
+        Debug,
+        PartialEq,
+        Eq,
+        Hash,
+        PartialOrd,
+        Ord,
+        ::prost::Enumeration
+    )]
+    #[repr(i32)]
+    pub enum Result {
+        Unspecified = 0,
+        /// Cancellation was requested; the task may still be stopping asynchronously.
+        CancelIssued = 1,
+        AlreadyCancelling = 2,
+        /// The task has entered a phase that cannot be cancelled safely.
+        TooLateToCancel = 3,
+        /// No current task matches both the region ID and task ID.
+        NotFound = 4,
+        /// The engine or execution mode does not support cancellation, including
+        /// remote compaction tasks without a cooperative cancellation mechanism.
+        Unsupported = 5,
+    }
+    impl Result {
+        /// String value of the enum field names used in the ProtoBuf definition.
+        ///
+        /// The values are not transformed in any way and thus are considered stable
+        /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+        pub fn as_str_name(&self) -> &'static str {
+            match self {
+                Self::Unspecified => "RESULT_UNSPECIFIED",
+                Self::CancelIssued => "CANCEL_ISSUED",
+                Self::AlreadyCancelling => "ALREADY_CANCELLING",
+                Self::TooLateToCancel => "TOO_LATE_TO_CANCEL",
+                Self::NotFound => "NOT_FOUND",
+                Self::Unsupported => "UNSUPPORTED",
+            }
+        }
+        /// Creates an enum from field names used in the ProtoBuf definition.
+        pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+            match value {
+                "RESULT_UNSPECIFIED" => Some(Self::Unspecified),
+                "CANCEL_ISSUED" => Some(Self::CancelIssued),
+                "ALREADY_CANCELLING" => Some(Self::AlreadyCancelling),
+                "TOO_LATE_TO_CANCEL" => Some(Self::TooLateToCancel),
+                "NOT_FOUND" => Some(Self::NotFound),
+                "UNSUPPORTED" => Some(Self::Unsupported),
+                _ => None,
+            }
+        }
+    }
+}
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RegionRequest {
@@ -750,6 +828,34 @@ pub mod region_client {
                 .insert(GrpcMethod::new("greptime.v1.region.Region", "Handle"));
             self.inner.unary(req, path, codec).await
         }
+        /// Requests cooperative, asynchronous cancellation of one compaction task.
+        /// Cancellation does not roll back work that has already been committed.
+        pub async fn cancel_compaction(
+            &mut self,
+            request: impl tonic::IntoRequest<super::CancelCompactionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::CancelCompactionResponse>,
+            tonic::Status,
+        > {
+            self.inner
+                .ready()
+                .await
+                .map_err(|e| {
+                    tonic::Status::unknown(
+                        format!("Service was not ready: {}", e.into()),
+                    )
+                })?;
+            let codec = tonic_prost::ProstCodec::default();
+            let path = http::uri::PathAndQuery::from_static(
+                "/greptime.v1.region.Region/CancelCompaction",
+            );
+            let mut req = request.into_request();
+            req.extensions_mut()
+                .insert(
+                    GrpcMethod::new("greptime.v1.region.Region", "CancelCompaction"),
+                );
+            self.inner.unary(req, path, codec).await
+        }
     }
 }
 /// Generated server implementations.
@@ -769,6 +875,15 @@ pub mod region_server {
             &self,
             request: tonic::Request<super::RegionRequest>,
         ) -> std::result::Result<tonic::Response<super::RegionResponse>, tonic::Status>;
+        /// Requests cooperative, asynchronous cancellation of one compaction task.
+        /// Cancellation does not roll back work that has already been committed.
+        async fn cancel_compaction(
+            &self,
+            request: tonic::Request<super::CancelCompactionRequest>,
+        ) -> std::result::Result<
+            tonic::Response<super::CancelCompactionResponse>,
+            tonic::Status,
+        >;
     }
     #[derive(Debug)]
     pub struct RegionServer<T> {
@@ -874,6 +989,51 @@ pub mod region_server {
                     let inner = self.inner.clone();
                     let fut = async move {
                         let method = HandleSvc(inner);
+                        let codec = tonic_prost::ProstCodec::default();
+                        let mut grpc = tonic::server::Grpc::new(codec)
+                            .apply_compression_config(
+                                accept_compression_encodings,
+                                send_compression_encodings,
+                            )
+                            .apply_max_message_size_config(
+                                max_decoding_message_size,
+                                max_encoding_message_size,
+                            );
+                        let res = grpc.unary(method, req).await;
+                        Ok(res)
+                    };
+                    Box::pin(fut)
+                }
+                "/greptime.v1.region.Region/CancelCompaction" => {
+                    #[allow(non_camel_case_types)]
+                    struct CancelCompactionSvc<T: Region>(pub Arc<T>);
+                    impl<
+                        T: Region,
+                    > tonic::server::UnaryService<super::CancelCompactionRequest>
+                    for CancelCompactionSvc<T> {
+                        type Response = super::CancelCompactionResponse;
+                        type Future = BoxFuture<
+                            tonic::Response<Self::Response>,
+                            tonic::Status,
+                        >;
+                        fn call(
+                            &mut self,
+                            request: tonic::Request<super::CancelCompactionRequest>,
+                        ) -> Self::Future {
+                            let inner = Arc::clone(&self.0);
+                            let fut = async move {
+                                <T as Region>::cancel_compaction(&inner, request).await
+                            };
+                            Box::pin(fut)
+                        }
+                    }
+                    let accept_compression_encodings = self.accept_compression_encodings;
+                    let send_compression_encodings = self.send_compression_encodings;
+                    let max_decoding_message_size = self.max_decoding_message_size;
+                    let max_encoding_message_size = self.max_encoding_message_size;
+                    let inner = self.inner.clone();
+                    let fut = async move {
+                        let method = CancelCompactionSvc(inner);
                         let codec = tonic_prost::ProstCodec::default();
                         let mut grpc = tonic::server::Grpc::new(codec)
                             .apply_compression_config(

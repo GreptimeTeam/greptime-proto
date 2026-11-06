@@ -33,6 +33,7 @@
 #include <google/protobuf/map.h>  // IWYU pragma: export
 #include <google/protobuf/map_entry.h>
 #include <google/protobuf/map_field_inl.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "greptime/v1/common.pb.h"
 #include "greptime/v1/ddl.pb.h"
@@ -88,6 +89,12 @@ extern BuildIndexRequest_SstIndexOptionsDefaultTypeInternal _BuildIndexRequest_S
 class BulkInsertRequest;
 struct BulkInsertRequestDefaultTypeInternal;
 extern BulkInsertRequestDefaultTypeInternal _BulkInsertRequest_default_instance_;
+class CancelCompactionRequest;
+struct CancelCompactionRequestDefaultTypeInternal;
+extern CancelCompactionRequestDefaultTypeInternal _CancelCompactionRequest_default_instance_;
+class CancelCompactionResponse;
+struct CancelCompactionResponseDefaultTypeInternal;
+extern CancelCompactionResponseDefaultTypeInternal _CancelCompactionResponse_default_instance_;
 class CleanUpRequest;
 struct CleanUpRequestDefaultTypeInternal;
 extern CleanUpRequestDefaultTypeInternal _CleanUpRequest_default_instance_;
@@ -226,6 +233,8 @@ template<> ::greptime::v1::region::BuildIndexRequest* Arena::CreateMaybeMessage<
 template<> ::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest_SeriesIndexOptions>(Arena*);
 template<> ::greptime::v1::region::BuildIndexRequest_SstIndexOptions* Arena::CreateMaybeMessage<::greptime::v1::region::BuildIndexRequest_SstIndexOptions>(Arena*);
 template<> ::greptime::v1::region::BulkInsertRequest* Arena::CreateMaybeMessage<::greptime::v1::region::BulkInsertRequest>(Arena*);
+template<> ::greptime::v1::region::CancelCompactionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CancelCompactionRequest>(Arena*);
+template<> ::greptime::v1::region::CancelCompactionResponse* Arena::CreateMaybeMessage<::greptime::v1::region::CancelCompactionResponse>(Arena*);
 template<> ::greptime::v1::region::CleanUpRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest>(Arena*);
 template<> ::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::CleanUpRequest_OptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::region::CloseRequest* Arena::CreateMaybeMessage<::greptime::v1::region::CloseRequest>(Arena*);
@@ -272,6 +281,35 @@ namespace greptime {
 namespace v1 {
 namespace region {
 
+enum CancelCompactionResponse_Result : int {
+  CancelCompactionResponse_Result_RESULT_UNSPECIFIED = 0,
+  CancelCompactionResponse_Result_CANCEL_ISSUED = 1,
+  CancelCompactionResponse_Result_ALREADY_CANCELLING = 2,
+  CancelCompactionResponse_Result_TOO_LATE_TO_CANCEL = 3,
+  CancelCompactionResponse_Result_NOT_FOUND = 4,
+  CancelCompactionResponse_Result_UNSUPPORTED = 5,
+  CancelCompactionResponse_Result_CancelCompactionResponse_Result_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  CancelCompactionResponse_Result_CancelCompactionResponse_Result_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool CancelCompactionResponse_Result_IsValid(int value);
+constexpr CancelCompactionResponse_Result CancelCompactionResponse_Result_Result_MIN = CancelCompactionResponse_Result_RESULT_UNSPECIFIED;
+constexpr CancelCompactionResponse_Result CancelCompactionResponse_Result_Result_MAX = CancelCompactionResponse_Result_UNSUPPORTED;
+constexpr int CancelCompactionResponse_Result_Result_ARRAYSIZE = CancelCompactionResponse_Result_Result_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CancelCompactionResponse_Result_descriptor();
+template<typename T>
+inline const std::string& CancelCompactionResponse_Result_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CancelCompactionResponse_Result>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CancelCompactionResponse_Result_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CancelCompactionResponse_Result_descriptor(), enum_t_value);
+}
+inline bool CancelCompactionResponse_Result_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CancelCompactionResponse_Result* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CancelCompactionResponse_Result>(
+    CancelCompactionResponse_Result_descriptor(), name, value);
+}
 // ===================================================================
 
 class RegionRequestHeader_TracingContextEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<RegionRequestHeader_TracingContextEntry_DoNotUse, 
@@ -501,6 +539,396 @@ class RegionRequestHeader final :
 };
 // -------------------------------------------------------------------
 
+class CancelCompactionRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CancelCompactionRequest) */ {
+ public:
+  inline CancelCompactionRequest() : CancelCompactionRequest(nullptr) {}
+  ~CancelCompactionRequest() override;
+  explicit PROTOBUF_CONSTEXPR CancelCompactionRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CancelCompactionRequest(const CancelCompactionRequest& from);
+  CancelCompactionRequest(CancelCompactionRequest&& from) noexcept
+    : CancelCompactionRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline CancelCompactionRequest& operator=(const CancelCompactionRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CancelCompactionRequest& operator=(CancelCompactionRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CancelCompactionRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CancelCompactionRequest* internal_default_instance() {
+    return reinterpret_cast<const CancelCompactionRequest*>(
+               &_CancelCompactionRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(CancelCompactionRequest& a, CancelCompactionRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CancelCompactionRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CancelCompactionRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CancelCompactionRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CancelCompactionRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CancelCompactionRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CancelCompactionRequest& from) {
+    CancelCompactionRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CancelCompactionRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.CancelCompactionRequest";
+  }
+  protected:
+  explicit CancelCompactionRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTaskIdFieldNumber = 3,
+    kHeaderFieldNumber = 1,
+    kRegionIdFieldNumber = 2,
+  };
+  // string task_id = 3;
+  void clear_task_id();
+  const std::string& task_id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_task_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_task_id();
+  PROTOBUF_NODISCARD std::string* release_task_id();
+  void set_allocated_task_id(std::string* task_id);
+  private:
+  const std::string& _internal_task_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_task_id(const std::string& value);
+  std::string* _internal_mutable_task_id();
+  public:
+
+  // .greptime.v1.region.RegionRequestHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::region::RegionRequestHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::RegionRequestHeader* release_header();
+  ::greptime::v1::region::RegionRequestHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::region::RegionRequestHeader* header);
+  private:
+  const ::greptime::v1::region::RegionRequestHeader& _internal_header() const;
+  ::greptime::v1::region::RegionRequestHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::region::RegionRequestHeader* header);
+  ::greptime::v1::region::RegionRequestHeader* unsafe_arena_release_header();
+
+  // uint64 region_id = 2;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.CancelCompactionRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr task_id_;
+    ::greptime::v1::region::RegionRequestHeader* header_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CancelCompactionResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.CancelCompactionResponse) */ {
+ public:
+  inline CancelCompactionResponse() : CancelCompactionResponse(nullptr) {}
+  ~CancelCompactionResponse() override;
+  explicit PROTOBUF_CONSTEXPR CancelCompactionResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CancelCompactionResponse(const CancelCompactionResponse& from);
+  CancelCompactionResponse(CancelCompactionResponse&& from) noexcept
+    : CancelCompactionResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CancelCompactionResponse& operator=(const CancelCompactionResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CancelCompactionResponse& operator=(CancelCompactionResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CancelCompactionResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CancelCompactionResponse* internal_default_instance() {
+    return reinterpret_cast<const CancelCompactionResponse*>(
+               &_CancelCompactionResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(CancelCompactionResponse& a, CancelCompactionResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CancelCompactionResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CancelCompactionResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CancelCompactionResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CancelCompactionResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CancelCompactionResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CancelCompactionResponse& from) {
+    CancelCompactionResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CancelCompactionResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.CancelCompactionResponse";
+  }
+  protected:
+  explicit CancelCompactionResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CancelCompactionResponse_Result Result;
+  static constexpr Result RESULT_UNSPECIFIED =
+    CancelCompactionResponse_Result_RESULT_UNSPECIFIED;
+  static constexpr Result CANCEL_ISSUED =
+    CancelCompactionResponse_Result_CANCEL_ISSUED;
+  static constexpr Result ALREADY_CANCELLING =
+    CancelCompactionResponse_Result_ALREADY_CANCELLING;
+  static constexpr Result TOO_LATE_TO_CANCEL =
+    CancelCompactionResponse_Result_TOO_LATE_TO_CANCEL;
+  static constexpr Result NOT_FOUND =
+    CancelCompactionResponse_Result_NOT_FOUND;
+  static constexpr Result UNSUPPORTED =
+    CancelCompactionResponse_Result_UNSUPPORTED;
+  static inline bool Result_IsValid(int value) {
+    return CancelCompactionResponse_Result_IsValid(value);
+  }
+  static constexpr Result Result_MIN =
+    CancelCompactionResponse_Result_Result_MIN;
+  static constexpr Result Result_MAX =
+    CancelCompactionResponse_Result_Result_MAX;
+  static constexpr int Result_ARRAYSIZE =
+    CancelCompactionResponse_Result_Result_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  Result_descriptor() {
+    return CancelCompactionResponse_Result_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& Result_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, Result>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function Result_Name.");
+    return CancelCompactionResponse_Result_Name(enum_t_value);
+  }
+  static inline bool Result_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      Result* value) {
+    return CancelCompactionResponse_Result_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHeaderFieldNumber = 1,
+    kResultFieldNumber = 2,
+  };
+  // .greptime.v1.ResponseHeader header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::greptime::v1::ResponseHeader& header() const;
+  PROTOBUF_NODISCARD ::greptime::v1::ResponseHeader* release_header();
+  ::greptime::v1::ResponseHeader* mutable_header();
+  void set_allocated_header(::greptime::v1::ResponseHeader* header);
+  private:
+  const ::greptime::v1::ResponseHeader& _internal_header() const;
+  ::greptime::v1::ResponseHeader* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::greptime::v1::ResponseHeader* header);
+  ::greptime::v1::ResponseHeader* unsafe_arena_release_header();
+
+  // .greptime.v1.region.CancelCompactionResponse.Result result = 2;
+  void clear_result();
+  ::greptime::v1::region::CancelCompactionResponse_Result result() const;
+  void set_result(::greptime::v1::region::CancelCompactionResponse_Result value);
+  private:
+  ::greptime::v1::region::CancelCompactionResponse_Result _internal_result() const;
+  void _internal_set_result(::greptime::v1::region::CancelCompactionResponse_Result value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.CancelCompactionResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::greptime::v1::ResponseHeader* header_;
+    int result_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequest) */ {
  public:
@@ -573,7 +1001,7 @@ class RegionRequest final :
                &_RegionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(RegionRequest& a, RegionRequest& b) {
     a.Swap(&b);
@@ -1187,7 +1615,7 @@ class RegionResponse final :
                &_RegionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(RegionResponse& a, RegionResponse& b) {
     a.Swap(&b);
@@ -1417,7 +1845,7 @@ class RegionRequestFailure final :
                &_RegionRequestFailure_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(RegionRequestFailure& a, RegionRequestFailure& b) {
     a.Swap(&b);
@@ -1585,7 +2013,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1742,7 +2170,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -1899,7 +2327,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -2098,7 +2526,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -2286,7 +2714,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -2470,7 +2898,7 @@ class CreateRequests final :
                &_CreateRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(CreateRequests& a, CreateRequests& b) {
     a.Swap(&b);
@@ -2655,7 +3083,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -2946,7 +3374,7 @@ class RegionRequirements final :
                &_RegionRequirements_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(RegionRequirements& a, RegionRequirements& b) {
     a.Swap(&b);
@@ -3094,7 +3522,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -3251,7 +3679,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -3471,7 +3899,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -3705,7 +4133,7 @@ class CleanUpRequest final :
                &_CleanUpRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    22;
 
   friend void swap(CleanUpRequest& a, CleanUpRequest& b) {
     a.Swap(&b);
@@ -3911,7 +4339,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    23;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -4070,7 +4498,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    24;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -4244,7 +4672,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    25;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -4687,7 +5115,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    26;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -4844,7 +5272,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    27;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -5001,7 +5429,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    28;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -5158,7 +5586,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    29;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -5335,7 +5763,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    30;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -5488,7 +5916,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    31;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -5635,7 +6063,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    32;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -5754,7 +6182,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    33;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -5902,7 +6330,7 @@ class CompactionTimeRange final :
                &_CompactionTimeRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    34;
 
   friend void swap(CompactionTimeRange& a, CompactionTimeRange& b) {
     a.Swap(&b);
@@ -6078,7 +6506,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    35;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -6317,7 +6745,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    36;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -6538,7 +6966,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    37;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -6656,7 +7084,7 @@ class Unflushed final :
                &_Unflushed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(Unflushed& a, Unflushed& b) {
     a.Swap(&b);
@@ -6775,7 +7203,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -6948,7 +7376,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -7179,7 +7607,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -7327,7 +7755,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -7475,7 +7903,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7640,7 +8068,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -7841,7 +8269,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -8002,7 +8430,7 @@ class BuildIndexRequest_SstIndexOptions final :
                &_BuildIndexRequest_SstIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(BuildIndexRequest_SstIndexOptions& a, BuildIndexRequest_SstIndexOptions& b) {
     a.Swap(&b);
@@ -8120,7 +8548,7 @@ class BuildIndexRequest_SeriesIndexOptions final :
                &_BuildIndexRequest_SeriesIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(BuildIndexRequest_SeriesIndexOptions& a, BuildIndexRequest_SeriesIndexOptions& b) {
     a.Swap(&b);
@@ -8245,7 +8673,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -8449,7 +8877,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    49;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -8602,7 +9030,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8799,7 +9227,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    51;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -9005,7 +9433,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    52;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -9196,7 +9624,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    53;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -9474,6 +9902,279 @@ inline void RegionRequestHeader::set_allocated_query_context(::greptime::v1::Que
   }
   _impl_.query_context_ = query_context;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionRequestHeader.query_context)
+}
+
+// -------------------------------------------------------------------
+
+// CancelCompactionRequest
+
+// .greptime.v1.region.RegionRequestHeader header = 1;
+inline bool CancelCompactionRequest::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool CancelCompactionRequest::has_header() const {
+  return _internal_has_header();
+}
+inline void CancelCompactionRequest::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+inline const ::greptime::v1::region::RegionRequestHeader& CancelCompactionRequest::_internal_header() const {
+  const ::greptime::v1::region::RegionRequestHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::RegionRequestHeader&>(
+      ::greptime::v1::region::_RegionRequestHeader_default_instance_);
+}
+inline const ::greptime::v1::region::RegionRequestHeader& CancelCompactionRequest::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CancelCompactionRequest.header)
+  return _internal_header();
+}
+inline void CancelCompactionRequest::unsafe_arena_set_allocated_header(
+    ::greptime::v1::region::RegionRequestHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CancelCompactionRequest.header)
+}
+inline ::greptime::v1::region::RegionRequestHeader* CancelCompactionRequest::release_header() {
+  
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequestHeader* CancelCompactionRequest::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CancelCompactionRequest.header)
+  
+  ::greptime::v1::region::RegionRequestHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::RegionRequestHeader* CancelCompactionRequest::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::RegionRequestHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::region::RegionRequestHeader* CancelCompactionRequest::mutable_header() {
+  ::greptime::v1::region::RegionRequestHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CancelCompactionRequest.header)
+  return _msg;
+}
+inline void CancelCompactionRequest::set_allocated_header(::greptime::v1::region::RegionRequestHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CancelCompactionRequest.header)
+}
+
+// uint64 region_id = 2;
+inline void CancelCompactionRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t CancelCompactionRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t CancelCompactionRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CancelCompactionRequest.region_id)
+  return _internal_region_id();
+}
+inline void CancelCompactionRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void CancelCompactionRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CancelCompactionRequest.region_id)
+}
+
+// string task_id = 3;
+inline void CancelCompactionRequest::clear_task_id() {
+  _impl_.task_id_.ClearToEmpty();
+}
+inline const std::string& CancelCompactionRequest::task_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CancelCompactionRequest.task_id)
+  return _internal_task_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CancelCompactionRequest::set_task_id(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.task_id_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CancelCompactionRequest.task_id)
+}
+inline std::string* CancelCompactionRequest::mutable_task_id() {
+  std::string* _s = _internal_mutable_task_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CancelCompactionRequest.task_id)
+  return _s;
+}
+inline const std::string& CancelCompactionRequest::_internal_task_id() const {
+  return _impl_.task_id_.Get();
+}
+inline void CancelCompactionRequest::_internal_set_task_id(const std::string& value) {
+  
+  _impl_.task_id_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CancelCompactionRequest::_internal_mutable_task_id() {
+  
+  return _impl_.task_id_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CancelCompactionRequest::release_task_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CancelCompactionRequest.task_id)
+  return _impl_.task_id_.Release();
+}
+inline void CancelCompactionRequest::set_allocated_task_id(std::string* task_id) {
+  if (task_id != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.task_id_.SetAllocated(task_id, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.task_id_.IsDefault()) {
+    _impl_.task_id_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CancelCompactionRequest.task_id)
+}
+
+// -------------------------------------------------------------------
+
+// CancelCompactionResponse
+
+// .greptime.v1.ResponseHeader header = 1;
+inline bool CancelCompactionResponse::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool CancelCompactionResponse::has_header() const {
+  return _internal_has_header();
+}
+inline const ::greptime::v1::ResponseHeader& CancelCompactionResponse::_internal_header() const {
+  const ::greptime::v1::ResponseHeader* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::ResponseHeader&>(
+      ::greptime::v1::_ResponseHeader_default_instance_);
+}
+inline const ::greptime::v1::ResponseHeader& CancelCompactionResponse::header() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CancelCompactionResponse.header)
+  return _internal_header();
+}
+inline void CancelCompactionResponse::unsafe_arena_set_allocated_header(
+    ::greptime::v1::ResponseHeader* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.CancelCompactionResponse.header)
+}
+inline ::greptime::v1::ResponseHeader* CancelCompactionResponse::release_header() {
+  
+  ::greptime::v1::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::ResponseHeader* CancelCompactionResponse::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.CancelCompactionResponse.header)
+  
+  ::greptime::v1::ResponseHeader* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::ResponseHeader* CancelCompactionResponse::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::ResponseHeader>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::greptime::v1::ResponseHeader* CancelCompactionResponse::mutable_header() {
+  ::greptime::v1::ResponseHeader* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.CancelCompactionResponse.header)
+  return _msg;
+}
+inline void CancelCompactionResponse::set_allocated_header(::greptime::v1::ResponseHeader* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(header));
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CancelCompactionResponse.header)
+}
+
+// .greptime.v1.region.CancelCompactionResponse.Result result = 2;
+inline void CancelCompactionResponse::clear_result() {
+  _impl_.result_ = 0;
+}
+inline ::greptime::v1::region::CancelCompactionResponse_Result CancelCompactionResponse::_internal_result() const {
+  return static_cast< ::greptime::v1::region::CancelCompactionResponse_Result >(_impl_.result_);
+}
+inline ::greptime::v1::region::CancelCompactionResponse_Result CancelCompactionResponse::result() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.CancelCompactionResponse.result)
+  return _internal_result();
+}
+inline void CancelCompactionResponse::_internal_set_result(::greptime::v1::region::CancelCompactionResponse_Result value) {
+  
+  _impl_.result_ = value;
+}
+inline void CancelCompactionResponse::set_result(::greptime::v1::region::CancelCompactionResponse_Result value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.CancelCompactionResponse.result)
 }
 
 // -------------------------------------------------------------------
@@ -16679,12 +17380,26 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace region
 }  // namespace v1
 }  // namespace greptime
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::greptime::v1::region::CancelCompactionResponse_Result> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::region::CancelCompactionResponse_Result>() {
+  return ::greptime::v1::region::CancelCompactionResponse_Result_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
