@@ -1289,6 +1289,23 @@ pub struct JsonTypeHint {
     /// Optional skipping index configuration for this hinted path.
     #[prost(message, optional, tag = "5")]
     pub skipping_index: ::core::option::Option<JsonSkippingIndexOptions>,
+    /// Optional fulltext index configuration for a string hinted path.
+    #[prost(message, optional, tag = "6")]
+    pub fulltext_index: ::core::option::Option<JsonFulltextIndexOptions>,
+}
+#[allow(clippy::all)]
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct JsonFulltextIndexOptions {
+    #[prost(enumeration = "Analyzer", tag = "1")]
+    pub analyzer: i32,
+    #[prost(bool, tag = "2")]
+    pub case_sensitive: bool,
+    #[prost(enumeration = "FulltextBackend", tag = "3")]
+    pub backend: i32,
+    #[prost(uint32, tag = "4")]
+    pub granularity: u32,
+    #[prost(double, tag = "5")]
+    pub false_positive_rate: f64,
 }
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
