@@ -27,6 +27,9 @@ option java_package = "io.greptime.v1.region";
 
 service Region {
   rpc Handle(RegionRequest) returns (RegionResponse);
+  // Requests cooperative, asynchronous cancellation of one compaction task.
+  // Cancellation does not roll back work that has already been committed.
+  rpc CancelCompaction(CancelCompactionRequest) returns (CancelCompactionResponse);
 }
 
 message RegionRequestHeader {
@@ -37,6 +40,34 @@ message RegionRequestHeader {
   string dbname = 3;
   // The contextual information of the query
   QueryContext query_context = 6;
+}
+
+// Identifies one task reported by information_schema.compaction_tasks.
+// A stale task ID must not cancel a replacement task or another pending task.
+message CancelCompactionRequest {
+  RegionRequestHeader header = 1;
+  uint64 region_id = 2;
+  string task_id = 3;
+}
+
+message CancelCompactionResponse {
+  ResponseHeader header = 1;
+  // Describes acceptance of the request, not completion of cancellation.
+  Result result = 2;
+
+  enum Result {
+    RESULT_UNSPECIFIED = 0;
+    // Cancellation was requested; the task may still be stopping asynchronously.
+    CANCEL_ISSUED = 1;
+    ALREADY_CANCELLING = 2;
+    // The task has entered a phase that cannot be cancelled safely.
+    TOO_LATE_TO_CANCEL = 3;
+    // No current task matches both the region ID and task ID.
+    NOT_FOUND = 4;
+    // The engine or execution mode does not support cancellation, including
+    // remote compaction tasks without a cooperative cancellation mechanism.
+    UNSUPPORTED = 5;
+  }
 }
 
 message RegionRequest {

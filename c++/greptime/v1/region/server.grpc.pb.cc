@@ -25,6 +25,7 @@ namespace region {
 
 static const char* Region_method_names[] = {
   "/greptime.v1.region.Region/Handle",
+  "/greptime.v1.region.Region/CancelCompaction",
 };
 
 std::unique_ptr< Region::Stub> Region::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,6 +36,7 @@ std::unique_ptr< Region::Stub> Region::NewStub(const std::shared_ptr< ::grpc::Ch
 
 Region::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_Handle_(Region_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CancelCompaction_(Region_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Region::Stub::Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::greptime::v1::region::RegionResponse* response) {
@@ -60,6 +62,29 @@ void Region::Stub::async::Handle(::grpc::ClientContext* context, const ::greptim
   return result;
 }
 
+::grpc::Status Region::Stub::CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::greptime::v1::region::CancelCompactionResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CancelCompaction_, context, request, response);
+}
+
+void Region::Stub::async::CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelCompaction_, context, request, response, std::move(f));
+}
+
+void Region::Stub::async::CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CancelCompaction_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>* Region::Stub::PrepareAsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::greptime::v1::region::CancelCompactionResponse, ::greptime::v1::region::CancelCompactionRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CancelCompaction_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>* Region::Stub::AsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncCancelCompactionRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Region::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Region_method_names[0],
@@ -71,12 +96,29 @@ Region::Service::Service() {
              ::greptime::v1::region::RegionResponse* resp) {
                return service->Handle(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Region_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Region::Service, ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Region::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::greptime::v1::region::CancelCompactionRequest* req,
+             ::greptime::v1::region::CancelCompactionResponse* resp) {
+               return service->CancelCompaction(ctx, req, resp);
+             }, this)));
 }
 
 Region::Service::~Service() {
 }
 
 ::grpc::Status Region::Service::Handle(::grpc::ServerContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Region::Service::CancelCompaction(::grpc::ServerContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -59,11 +59,24 @@ class Region final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>> PrepareAsyncHandle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>>(PrepareAsyncHandleRaw(context, request, cq));
     }
+    // Requests cooperative, asynchronous cancellation of one compaction task.
+    // Cancellation does not roll back work that has already been committed.
+    virtual ::grpc::Status CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::greptime::v1::region::CancelCompactionResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>> AsyncCancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>>(AsyncCancelCompactionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>> PrepareAsyncCancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>>(PrepareAsyncCancelCompactionRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
       virtual void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Requests cooperative, asynchronous cancellation of one compaction task.
+      // Cancellation does not roll back work that has already been committed.
+      virtual void CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -71,6 +84,8 @@ class Region final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>* AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::RegionResponse>* PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>* AsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::greptime::v1::region::CancelCompactionResponse>* PrepareAsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -82,11 +97,20 @@ class Region final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>> PrepareAsyncHandle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>>(PrepareAsyncHandleRaw(context, request, cq));
     }
+    ::grpc::Status CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::greptime::v1::region::CancelCompactionResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>> AsyncCancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>>(AsyncCancelCompactionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>> PrepareAsyncCancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>>(PrepareAsyncCancelCompactionRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
       void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, std::function<void(::grpc::Status)>) override;
       void Handle(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, std::function<void(::grpc::Status)>) override;
+      void CancelCompaction(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -100,7 +124,10 @@ class Region final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* AsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::RegionResponse>* PrepareAsyncHandleRaw(::grpc::ClientContext* context, const ::greptime::v1::region::RegionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>* AsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::greptime::v1::region::CancelCompactionResponse>* PrepareAsyncCancelCompactionRaw(::grpc::ClientContext* context, const ::greptime::v1::region::CancelCompactionRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Handle_;
+    const ::grpc::internal::RpcMethod rpcmethod_CancelCompaction_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -109,6 +136,9 @@ class Region final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status Handle(::grpc::ServerContext* context, const ::greptime::v1::region::RegionRequest* request, ::greptime::v1::region::RegionResponse* response);
+    // Requests cooperative, asynchronous cancellation of one compaction task.
+    // Cancellation does not roll back work that has already been committed.
+    virtual ::grpc::Status CancelCompaction(::grpc::ServerContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Handle : public BaseClass {
@@ -130,7 +160,27 @@ class Region final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_Handle<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCancelCompaction(::grpc::ServerContext* context, ::greptime::v1::region::CancelCompactionRequest* request, ::grpc::ServerAsyncResponseWriter< ::greptime::v1::region::CancelCompactionResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_Handle<WithAsyncMethod_CancelCompaction<Service > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_Handle : public BaseClass {
    private:
@@ -158,7 +208,34 @@ class Region final {
     virtual ::grpc::ServerUnaryReactor* Handle(
       ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::region::RegionRequest* /*request*/, ::greptime::v1::region::RegionResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_Handle<Service > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::greptime::v1::region::CancelCompactionRequest* request, ::greptime::v1::region::CancelCompactionResponse* response) { return this->CancelCompaction(context, request, response); }));}
+    void SetMessageAllocatorFor_CancelCompaction(
+        ::grpc::MessageAllocator< ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CancelCompaction(
+      ::grpc::CallbackServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_Handle<WithCallbackMethod_CancelCompaction<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_Handle : public BaseClass {
@@ -173,6 +250,23 @@ class Region final {
     }
     // disable synchronous version of this method
     ::grpc::Status Handle(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::RegionRequest* /*request*/, ::greptime::v1::region::RegionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -198,6 +292,26 @@ class Region final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCancelCompaction(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_Handle : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -217,6 +331,28 @@ class Region final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* Handle(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CancelCompaction(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CancelCompaction(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -246,9 +382,36 @@ class Region final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedHandle(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::region::RegionRequest,::greptime::v1::region::RegionResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_Handle<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CancelCompaction : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_CancelCompaction() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::greptime::v1::region::CancelCompactionRequest, ::greptime::v1::region::CancelCompactionResponse>* streamer) {
+                       return this->StreamedCancelCompaction(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_CancelCompaction() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CancelCompaction(::grpc::ServerContext* /*context*/, const ::greptime::v1::region::CancelCompactionRequest* /*request*/, ::greptime::v1::region::CancelCompactionResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCancelCompaction(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::greptime::v1::region::CancelCompactionRequest,::greptime::v1::region::CancelCompactionResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_Handle<WithStreamedUnaryMethod_CancelCompaction<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_Handle<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_Handle<WithStreamedUnaryMethod_CancelCompaction<Service > > StreamedService;
 };
 
 }  // namespace region

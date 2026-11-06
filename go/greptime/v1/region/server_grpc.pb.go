@@ -23,6 +23,9 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RegionClient interface {
 	Handle(ctx context.Context, in *RegionRequest, opts ...grpc.CallOption) (*RegionResponse, error)
+	// Requests cooperative, asynchronous cancellation of one compaction task.
+	// Cancellation does not roll back work that has already been committed.
+	CancelCompaction(ctx context.Context, in *CancelCompactionRequest, opts ...grpc.CallOption) (*CancelCompactionResponse, error)
 }
 
 type regionClient struct {
@@ -42,11 +45,23 @@ func (c *regionClient) Handle(ctx context.Context, in *RegionRequest, opts ...gr
 	return out, nil
 }
 
+func (c *regionClient) CancelCompaction(ctx context.Context, in *CancelCompactionRequest, opts ...grpc.CallOption) (*CancelCompactionResponse, error) {
+	out := new(CancelCompactionResponse)
+	err := c.cc.Invoke(ctx, "/greptime.v1.region.Region/CancelCompaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RegionServer is the server API for Region service.
 // All implementations must embed UnimplementedRegionServer
 // for forward compatibility
 type RegionServer interface {
 	Handle(context.Context, *RegionRequest) (*RegionResponse, error)
+	// Requests cooperative, asynchronous cancellation of one compaction task.
+	// Cancellation does not roll back work that has already been committed.
+	CancelCompaction(context.Context, *CancelCompactionRequest) (*CancelCompactionResponse, error)
 	mustEmbedUnimplementedRegionServer()
 }
 
@@ -56,6 +71,9 @@ type UnimplementedRegionServer struct {
 
 func (UnimplementedRegionServer) Handle(context.Context, *RegionRequest) (*RegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Handle not implemented")
+}
+func (UnimplementedRegionServer) CancelCompaction(context.Context, *CancelCompactionRequest) (*CancelCompactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelCompaction not implemented")
 }
 func (UnimplementedRegionServer) mustEmbedUnimplementedRegionServer() {}
 
@@ -88,6 +106,24 @@ func _Region_Handle_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Region_CancelCompaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelCompactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RegionServer).CancelCompaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/greptime.v1.region.Region/CancelCompaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RegionServer).CancelCompaction(ctx, req.(*CancelCompactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Region_ServiceDesc is the grpc.ServiceDesc for Region service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +134,10 @@ var Region_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Handle",
 			Handler:    _Region_Handle_Handler,
+		},
+		{
+			MethodName: "CancelCompaction",
+			Handler:    _Region_CancelCompaction_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
