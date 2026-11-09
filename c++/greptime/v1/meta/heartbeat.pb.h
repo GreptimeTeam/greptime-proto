@@ -109,6 +109,9 @@ extern MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _Mai
 class NodeInfo;
 struct NodeInfoDefaultTypeInternal;
 extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
+class OperatingRegion;
+struct OperatingRegionDefaultTypeInternal;
+extern OperatingRegionDefaultTypeInternal _OperatingRegion_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
@@ -144,6 +147,7 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::MailboxMessageHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
+template<> ::greptime::v1::meta::OperatingRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::OperatingRegion>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
@@ -179,6 +183,32 @@ inline bool RegionRole_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, RegionRole* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RegionRole>(
     RegionRole_descriptor(), name, value);
+}
+enum OperatingRegionState : int {
+  Unknown = 0,
+  Queued = 1,
+  Opening = 2,
+  OperatingRegionState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  OperatingRegionState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool OperatingRegionState_IsValid(int value);
+constexpr OperatingRegionState OperatingRegionState_MIN = Unknown;
+constexpr OperatingRegionState OperatingRegionState_MAX = Opening;
+constexpr int OperatingRegionState_ARRAYSIZE = OperatingRegionState_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OperatingRegionState_descriptor();
+template<typename T>
+inline const std::string& OperatingRegionState_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, OperatingRegionState>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function OperatingRegionState_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    OperatingRegionState_descriptor(), enum_t_value);
+}
+inline bool OperatingRegionState_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, OperatingRegionState* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OperatingRegionState>(
+    OperatingRegionState_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -341,6 +371,7 @@ class HeartbeatRequest final :
   enum : int {
     kRegionStatsFieldNumber = 4,
     kTopicStatsFieldNumber = 13,
+    kOperatingRegionsFieldNumber = 14,
     kExtensionsFieldNumber = 99,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
@@ -389,6 +420,24 @@ class HeartbeatRequest final :
   ::greptime::v1::meta::TopicStat* add_topic_stats();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
       topic_stats() const;
+
+  // repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;
+  int operating_regions_size() const;
+  private:
+  int _internal_operating_regions_size() const;
+  public:
+  void clear_operating_regions();
+  ::greptime::v1::meta::OperatingRegion* mutable_operating_regions(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OperatingRegion >*
+      mutable_operating_regions();
+  private:
+  const ::greptime::v1::meta::OperatingRegion& _internal_operating_regions(int index) const;
+  ::greptime::v1::meta::OperatingRegion* _internal_add_operating_regions();
+  public:
+  const ::greptime::v1::meta::OperatingRegion& operating_regions(int index) const;
+  ::greptime::v1::meta::OperatingRegion* add_operating_regions();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OperatingRegion >&
+      operating_regions() const;
 
   // map<string, bytes> extensions = 99;
   int extensions_size() const;
@@ -605,6 +654,7 @@ class HeartbeatRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat > region_stats_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat > topic_stats_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OperatingRegion > operating_regions_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         HeartbeatRequest_ExtensionsEntry_DoNotUse,
         std::string, std::string,
@@ -1642,6 +1692,176 @@ class RegionStat final :
 };
 // -------------------------------------------------------------------
 
+class OperatingRegion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.OperatingRegion) */ {
+ public:
+  inline OperatingRegion() : OperatingRegion(nullptr) {}
+  ~OperatingRegion() override;
+  explicit PROTOBUF_CONSTEXPR OperatingRegion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  OperatingRegion(const OperatingRegion& from);
+  OperatingRegion(OperatingRegion&& from) noexcept
+    : OperatingRegion() {
+    *this = ::std::move(from);
+  }
+
+  inline OperatingRegion& operator=(const OperatingRegion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OperatingRegion& operator=(OperatingRegion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OperatingRegion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OperatingRegion* internal_default_instance() {
+    return reinterpret_cast<const OperatingRegion*>(
+               &_OperatingRegion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(OperatingRegion& a, OperatingRegion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OperatingRegion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OperatingRegion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OperatingRegion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OperatingRegion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const OperatingRegion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const OperatingRegion& from) {
+    OperatingRegion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(OperatingRegion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.OperatingRegion";
+  }
+  protected:
+  explicit OperatingRegion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+    kStartedAtMillisFieldNumber = 3,
+    kStateFieldNumber = 2,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // int64 started_at_millis = 3;
+  void clear_started_at_millis();
+  int64_t started_at_millis() const;
+  void set_started_at_millis(int64_t value);
+  private:
+  int64_t _internal_started_at_millis() const;
+  void _internal_set_started_at_millis(int64_t value);
+  public:
+
+  // .greptime.v1.meta.OperatingRegionState state = 2;
+  void clear_state();
+  ::greptime::v1::meta::OperatingRegionState state() const;
+  void set_state(::greptime::v1::meta::OperatingRegionState value);
+  private:
+  ::greptime::v1::meta::OperatingRegionState _internal_state() const;
+  void _internal_set_state(::greptime::v1::meta::OperatingRegionState value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.OperatingRegion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    int64_t started_at_millis_;
+    int state_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TopicStat final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TopicStat) */ {
  public:
@@ -1690,7 +1910,7 @@ class TopicStat final :
                &_TopicStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(TopicStat& a, TopicStat& b) {
     a.Swap(&b);
@@ -1924,7 +2144,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -2136,7 +2356,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -2379,7 +2599,7 @@ class HeartbeatConfig final :
                &_HeartbeatConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(HeartbeatConfig& a, HeartbeatConfig& b) {
     a.Swap(&b);
@@ -2575,7 +2795,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -2760,7 +2980,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -2964,7 +3184,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -3121,7 +3341,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -3326,7 +3546,7 @@ class MailboxMessageHeader final :
                &_MailboxMessageHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(MailboxMessageHeader& a, MailboxMessageHeader& b) {
     a.Swap(&b);
@@ -3494,7 +3714,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -4583,6 +4803,46 @@ HeartbeatRequest::topic_stats() const {
   return _impl_.topic_stats_;
 }
 
+// repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;
+inline int HeartbeatRequest::_internal_operating_regions_size() const {
+  return _impl_.operating_regions_.size();
+}
+inline int HeartbeatRequest::operating_regions_size() const {
+  return _internal_operating_regions_size();
+}
+inline void HeartbeatRequest::clear_operating_regions() {
+  _impl_.operating_regions_.Clear();
+}
+inline ::greptime::v1::meta::OperatingRegion* HeartbeatRequest::mutable_operating_regions(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.operating_regions)
+  return _impl_.operating_regions_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OperatingRegion >*
+HeartbeatRequest::mutable_operating_regions() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.HeartbeatRequest.operating_regions)
+  return &_impl_.operating_regions_;
+}
+inline const ::greptime::v1::meta::OperatingRegion& HeartbeatRequest::_internal_operating_regions(int index) const {
+  return _impl_.operating_regions_.Get(index);
+}
+inline const ::greptime::v1::meta::OperatingRegion& HeartbeatRequest::operating_regions(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.operating_regions)
+  return _internal_operating_regions(index);
+}
+inline ::greptime::v1::meta::OperatingRegion* HeartbeatRequest::_internal_add_operating_regions() {
+  return _impl_.operating_regions_.Add();
+}
+inline ::greptime::v1::meta::OperatingRegion* HeartbeatRequest::add_operating_regions() {
+  ::greptime::v1::meta::OperatingRegion* _add = _internal_add_operating_regions();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.HeartbeatRequest.operating_regions)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OperatingRegion >&
+HeartbeatRequest::operating_regions() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatRequest.operating_regions)
+  return _impl_.operating_regions_;
+}
+
 // map<string, bytes> extensions = 99;
 inline int HeartbeatRequest::_internal_extensions_size() const {
   return _impl_.extensions_.size();
@@ -5251,6 +5511,70 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 RegionStat::mutable_extensions() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extensions)
   return _internal_mutable_extensions();
+}
+
+// -------------------------------------------------------------------
+
+// OperatingRegion
+
+// uint64 region_id = 1;
+inline void OperatingRegion::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t OperatingRegion::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t OperatingRegion::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.OperatingRegion.region_id)
+  return _internal_region_id();
+}
+inline void OperatingRegion::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void OperatingRegion::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.OperatingRegion.region_id)
+}
+
+// .greptime.v1.meta.OperatingRegionState state = 2;
+inline void OperatingRegion::clear_state() {
+  _impl_.state_ = 0;
+}
+inline ::greptime::v1::meta::OperatingRegionState OperatingRegion::_internal_state() const {
+  return static_cast< ::greptime::v1::meta::OperatingRegionState >(_impl_.state_);
+}
+inline ::greptime::v1::meta::OperatingRegionState OperatingRegion::state() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.OperatingRegion.state)
+  return _internal_state();
+}
+inline void OperatingRegion::_internal_set_state(::greptime::v1::meta::OperatingRegionState value) {
+  
+  _impl_.state_ = value;
+}
+inline void OperatingRegion::set_state(::greptime::v1::meta::OperatingRegionState value) {
+  _internal_set_state(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.OperatingRegion.state)
+}
+
+// int64 started_at_millis = 3;
+inline void OperatingRegion::clear_started_at_millis() {
+  _impl_.started_at_millis_ = int64_t{0};
+}
+inline int64_t OperatingRegion::_internal_started_at_millis() const {
+  return _impl_.started_at_millis_;
+}
+inline int64_t OperatingRegion::started_at_millis() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.OperatingRegion.started_at_millis)
+  return _internal_started_at_millis();
+}
+inline void OperatingRegion::_internal_set_started_at_millis(int64_t value) {
+  
+  _impl_.started_at_millis_ = value;
+}
+inline void OperatingRegion::set_started_at_millis(int64_t value) {
+  _internal_set_started_at_millis(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.OperatingRegion.started_at_millis)
 }
 
 // -------------------------------------------------------------------
@@ -6808,6 +7132,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -6821,6 +7147,11 @@ template <> struct is_proto_enum< ::greptime::v1::meta::RegionRole> : ::std::tru
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::RegionRole>() {
   return ::greptime::v1::meta::RegionRole_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::meta::OperatingRegionState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::OperatingRegionState>() {
+  return ::greptime::v1::meta::OperatingRegionState_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

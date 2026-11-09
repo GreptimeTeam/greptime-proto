@@ -55,6 +55,8 @@ message HeartbeatRequest {
   }
   // The topic stats of the datanode.
   repeated TopicStat topic_stats = 13;
+  // The regions the datanode is bringing online but does not serve yet.
+  repeated OperatingRegion operating_regions = 14;
   map<string, bytes> extensions = 99;
 }
 
@@ -124,6 +126,25 @@ message RegionStat {
   // Region role
   RegionRole role = 7;
   map<string, bytes> extensions = 99;
+}
+
+/// The lifecycle state of a region the datanode is bringing online.
+enum OperatingRegionState {
+  // The state is unknown, e.g. reported by a datanode that predates this field.
+  Unknown = 0;
+  // The region is scheduled for open, but the open has not started yet.
+  Queued = 1;
+  // The open of the region is in progress.
+  Opening = 2;
+}
+
+/// A region that the datanode is bringing online and cannot serve yet.
+message OperatingRegion {
+  uint64 region_id = 1;
+  OperatingRegionState state = 2;
+  // The wall-clock time (milliseconds since epoch) when the region was queued or
+  // started opening.
+  int64 started_at_millis = 3;
 }
 
 message TopicStat {
