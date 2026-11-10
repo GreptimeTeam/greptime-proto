@@ -287,10 +287,8 @@ pub struct RegionStat {
 pub struct OperatingRegion {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
-    #[prost(enumeration = "OperatingRegionState", tag = "2")]
-    pub state: i32,
-    /// The wall-clock time (milliseconds since epoch) when the region was queued or
-    /// started opening.
+    /// The wall-clock time (milliseconds since epoch) when the datanode queued the
+    /// region for open or started the current open attempt.
     #[prost(int64, tag = "3")]
     pub started_at_millis: i64,
 }
@@ -473,40 +471,6 @@ impl RegionRole {
             "Follower" => Some(Self::Follower),
             "DowngradingLeader" => Some(Self::DowngradingLeader),
             "StagingLeader" => Some(Self::StagingLeader),
-            _ => None,
-        }
-    }
-}
-/// / The lifecycle state of a region the datanode is bringing online.
-#[allow(clippy::all)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
-#[repr(i32)]
-pub enum OperatingRegionState {
-    /// The state is unknown, e.g. reported by a datanode that predates this field.
-    Unknown = 0,
-    /// The region is scheduled for open, but the open has not started yet.
-    Queued = 1,
-    /// The open of the region is in progress.
-    Opening = 2,
-}
-impl OperatingRegionState {
-    /// String value of the enum field names used in the ProtoBuf definition.
-    ///
-    /// The values are not transformed in any way and thus are considered stable
-    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    pub fn as_str_name(&self) -> &'static str {
-        match self {
-            Self::Unknown => "Unknown",
-            Self::Queued => "Queued",
-            Self::Opening => "Opening",
-        }
-    }
-    /// Creates an enum from field names used in the ProtoBuf definition.
-    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
-        match value {
-            "Unknown" => Some(Self::Unknown),
-            "Queued" => Some(Self::Queued),
-            "Opening" => Some(Self::Opening),
             _ => None,
         }
     }

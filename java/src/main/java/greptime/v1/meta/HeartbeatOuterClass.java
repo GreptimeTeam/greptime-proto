@@ -178,151 +178,6 @@ public final class HeartbeatOuterClass {
     // @@protoc_insertion_point(enum_scope:greptime.v1.meta.RegionRole)
   }
 
-  /**
-   * <pre>
-   *&#47; The lifecycle state of a region the datanode is bringing online.
-   * </pre>
-   *
-   * Protobuf enum {@code greptime.v1.meta.OperatingRegionState}
-   */
-  public enum OperatingRegionState
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     * The state is unknown, e.g. reported by a datanode that predates this field.
-     * </pre>
-     *
-     * <code>Unknown = 0;</code>
-     */
-    Unknown(0),
-    /**
-     * <pre>
-     * The region is scheduled for open, but the open has not started yet.
-     * </pre>
-     *
-     * <code>Queued = 1;</code>
-     */
-    Queued(1),
-    /**
-     * <pre>
-     * The open of the region is in progress.
-     * </pre>
-     *
-     * <code>Opening = 2;</code>
-     */
-    Opening(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <pre>
-     * The state is unknown, e.g. reported by a datanode that predates this field.
-     * </pre>
-     *
-     * <code>Unknown = 0;</code>
-     */
-    public static final int Unknown_VALUE = 0;
-    /**
-     * <pre>
-     * The region is scheduled for open, but the open has not started yet.
-     * </pre>
-     *
-     * <code>Queued = 1;</code>
-     */
-    public static final int Queued_VALUE = 1;
-    /**
-     * <pre>
-     * The open of the region is in progress.
-     * </pre>
-     *
-     * <code>Opening = 2;</code>
-     */
-    public static final int Opening_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static OperatingRegionState valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static OperatingRegionState forNumber(int value) {
-      switch (value) {
-        case 0: return Unknown;
-        case 1: return Queued;
-        case 2: return Opening;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<OperatingRegionState>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        OperatingRegionState> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<OperatingRegionState>() {
-            public OperatingRegionState findValueByNumber(int number) {
-              return OperatingRegionState.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.getDescriptor().getEnumTypes().get(1);
-    }
-
-    private static final OperatingRegionState[] VALUES = values();
-
-    public static OperatingRegionState valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private OperatingRegionState(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:greptime.v1.meta.OperatingRegionState)
-  }
-
   public interface HeartbeatRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.meta.HeartbeatRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -9799,20 +9654,9 @@ com.google.protobuf.ByteString defaultValue);
     long getRegionId();
 
     /**
-     * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-     * @return The enum numeric value on the wire for state.
-     */
-    int getStateValue();
-    /**
-     * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-     * @return The state.
-     */
-    greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState getState();
-
-    /**
      * <pre>
-     * The wall-clock time (milliseconds since epoch) when the region was queued or
-     * started opening.
+     * The wall-clock time (milliseconds since epoch) when the datanode queued the
+     * region for open or started the current open attempt.
      * </pre>
      *
      * <code>int64 started_at_millis = 3;</code>
@@ -9837,7 +9681,6 @@ com.google.protobuf.ByteString defaultValue);
       super(builder);
     }
     private OperatingRegion() {
-      state_ = 0;
     }
 
     @java.lang.Override
@@ -9873,12 +9716,6 @@ com.google.protobuf.ByteString defaultValue);
             case 8: {
 
               regionId_ = input.readUInt64();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
               break;
             }
             case 24: {
@@ -9931,31 +9768,12 @@ com.google.protobuf.ByteString defaultValue);
       return regionId_;
     }
 
-    public static final int STATE_FIELD_NUMBER = 2;
-    private int state_;
-    /**
-     * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-     * @return The enum numeric value on the wire for state.
-     */
-    @java.lang.Override public int getStateValue() {
-      return state_;
-    }
-    /**
-     * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-     * @return The state.
-     */
-    @java.lang.Override public greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState getState() {
-      @SuppressWarnings("deprecation")
-      greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState result = greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.valueOf(state_);
-      return result == null ? greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.UNRECOGNIZED : result;
-    }
-
     public static final int STARTED_AT_MILLIS_FIELD_NUMBER = 3;
     private long startedAtMillis_;
     /**
      * <pre>
-     * The wall-clock time (milliseconds since epoch) when the region was queued or
-     * started opening.
+     * The wall-clock time (milliseconds since epoch) when the datanode queued the
+     * region for open or started the current open attempt.
      * </pre>
      *
      * <code>int64 started_at_millis = 3;</code>
@@ -9983,9 +9801,6 @@ com.google.protobuf.ByteString defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
-      if (state_ != greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.Unknown.getNumber()) {
-        output.writeEnum(2, state_);
-      }
       if (startedAtMillis_ != 0L) {
         output.writeInt64(3, startedAtMillis_);
       }
@@ -10001,10 +9816,6 @@ com.google.protobuf.ByteString defaultValue);
       if (regionId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
-      }
-      if (state_ != greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.Unknown.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, state_);
       }
       if (startedAtMillis_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -10027,7 +9838,6 @@ com.google.protobuf.ByteString defaultValue);
 
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (state_ != other.state_) return false;
       if (getStartedAtMillis()
           != other.getStartedAtMillis()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -10044,8 +9854,6 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      hash = (37 * hash) + STATE_FIELD_NUMBER;
-      hash = (53 * hash) + state_;
       hash = (37 * hash) + STARTED_AT_MILLIS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStartedAtMillis());
@@ -10188,8 +9996,6 @@ com.google.protobuf.ByteString defaultValue);
         super.clear();
         regionId_ = 0L;
 
-        state_ = 0;
-
         startedAtMillis_ = 0L;
 
         return this;
@@ -10219,7 +10025,6 @@ com.google.protobuf.ByteString defaultValue);
       public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.OperatingRegion result = new greptime.v1.meta.HeartbeatOuterClass.OperatingRegion(this);
         result.regionId_ = regionId_;
-        result.state_ = state_;
         result.startedAtMillis_ = startedAtMillis_;
         onBuilt();
         return result;
@@ -10271,9 +10076,6 @@ com.google.protobuf.ByteString defaultValue);
         if (other == greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.getDefaultInstance()) return this;
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
-        }
-        if (other.state_ != 0) {
-          setStateValue(other.getStateValue());
         }
         if (other.getStartedAtMillis() != 0L) {
           setStartedAtMillis(other.getStartedAtMillis());
@@ -10338,65 +10140,11 @@ com.google.protobuf.ByteString defaultValue);
         return this;
       }
 
-      private int state_ = 0;
-      /**
-       * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-       * @return The enum numeric value on the wire for state.
-       */
-      @java.lang.Override public int getStateValue() {
-        return state_;
-      }
-      /**
-       * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-       * @param value The enum numeric value on the wire for state to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStateValue(int value) {
-        
-        state_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-       * @return The state.
-       */
-      @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState getState() {
-        @SuppressWarnings("deprecation")
-        greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState result = greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.valueOf(state_);
-        return result == null ? greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-       * @param value The state to set.
-       * @return This builder for chaining.
-       */
-      public Builder setState(greptime.v1.meta.HeartbeatOuterClass.OperatingRegionState value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        state_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.meta.OperatingRegionState state = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearState() {
-        
-        state_ = 0;
-        onChanged();
-        return this;
-      }
-
       private long startedAtMillis_ ;
       /**
        * <pre>
-       * The wall-clock time (milliseconds since epoch) when the region was queued or
-       * started opening.
+       * The wall-clock time (milliseconds since epoch) when the datanode queued the
+       * region for open or started the current open attempt.
        * </pre>
        *
        * <code>int64 started_at_millis = 3;</code>
@@ -10408,8 +10156,8 @@ com.google.protobuf.ByteString defaultValue);
       }
       /**
        * <pre>
-       * The wall-clock time (milliseconds since epoch) when the region was queued or
-       * started opening.
+       * The wall-clock time (milliseconds since epoch) when the datanode queued the
+       * region for open or started the current open attempt.
        * </pre>
        *
        * <code>int64 started_at_millis = 3;</code>
@@ -10424,8 +10172,8 @@ com.google.protobuf.ByteString defaultValue);
       }
       /**
        * <pre>
-       * The wall-clock time (milliseconds since epoch) when the region was queued or
-       * started opening.
+       * The wall-clock time (milliseconds since epoch) when the datanode queued the
+       * region for open or started the current open attempt.
        * </pre>
        *
        * <code>int64 started_at_millis = 3;</code>
@@ -20910,63 +20658,61 @@ java.lang.String defaultValue);
       "2\034.greptime.v1.meta.RegionRole\022@\n\nextens" +
       "ions\030c \003(\0132,.greptime.v1.meta.RegionStat" +
       ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"v\n\017Operating" +
-      "Region\022\021\n\tregion_id\030\001 \001(\004\0225\n\005state\030\002 \001(\016" +
-      "2&.greptime.v1.meta.OperatingRegionState" +
-      "\022\031\n\021started_at_millis\030\003 \001(\003\"a\n\tTopicStat" +
-      "\022\022\n\ntopic_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(" +
-      "\004\022\022\n\nrecord_num\030\003 \001(\004\022\027\n\017latest_entry_id" +
-      "\030\004 \001(\004\"\227\002\n\010FlowStat\022D\n\016flow_stat_size\030\001 " +
-      "\003(\0132,.greptime.v1.meta.FlowStat.FlowStat" +
-      "SizeEntry\022T\n\027flow_last_exec_time_map\030\002 \003" +
-      "(\01323.greptime.v1.meta.FlowStat.FlowLastE" +
-      "xecTimeMapEntry\0323\n\021FlowStatSizeEntry\022\013\n\003" +
-      "key\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLast" +
-      "ExecTimeMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002" +
-      " \001(\003:\0028\001\"\356\002\n\021HeartbeatResponse\0220\n\006header" +
-      "\030\001 \001(\0132 .greptime.v1.meta.ResponseHeader" +
-      "\0229\n\017mailbox_message\030\002 \001(\0132 .greptime.v1." +
-      "meta.MailboxMessage\0223\n\014region_lease\030\003 \001(" +
-      "\0132\035.greptime.v1.meta.RegionLease\022;\n\020hear" +
-      "tbeat_config\030\004 \001(\0132!.greptime.v1.meta.He" +
-      "artbeatConfig\022G\n\nextensions\030c \003(\01323.grep" +
-      "time.v1.meta.HeartbeatResponse.Extension" +
-      "sEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r" +
-      "\n\005value\030\002 \001(\014:\0028\001\"_\n\017HeartbeatConfig\022\035\n\025" +
-      "heartbeat_interval_ms\030\001 \001(\004\022\031\n\021retry_int" +
-      "erval_ms\030\002 \001(\004\022\022\n\ngc_enabled\030\003 \001(\010\"\306\001\n\rG" +
-      "rantedRegion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030" +
-      "\002 \001(\0162\034.greptime.v1.meta.RegionRole\022C\n\ne" +
-      "xtensions\030c \003(\0132/.greptime.v1.meta.Grant" +
-      "edRegion.ExtensionsEntry\0321\n\017ExtensionsEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013" +
-      "RegionLease\0220\n\007regions\030\001 \003(\0132\037.greptime." +
-      "v1.meta.GrantedRegion\022\034\n\024duration_since_" +
-      "epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024cl" +
-      "oseable_region_ids\030\004 \003(\004\"C\n\020AskLeaderReq" +
-      "uest\022/\n\006header\030\001 \001(\0132\037.greptime.v1.meta." +
-      "RequestHeader\"m\n\021AskLeaderResponse\0220\n\006he" +
-      "ader\030\001 \001(\0132 .greptime.v1.meta.ResponseHe" +
-      "ader\022&\n\006leader\030\002 \001(\0132\026.greptime.v1.meta." +
-      "Peer\"\242\001\n\024MailboxMessageHeader\022S\n\017tracing" +
-      "_context\030\001 \003(\0132:.greptime.v1.meta.Mailbo" +
-      "xMessageHeader.TracingContextEntry\0325\n\023Tr" +
-      "acingContextEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"\264\001\n\016MailboxMessage\0226\n\006header\030@" +
-      " \001(\0132&.greptime.v1.meta.MailboxMessageHe" +
-      "ader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004fro" +
-      "m\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030" +
-      "\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegi" +
-      "onRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021Down" +
-      "gradingLeader\020\002\022\021\n\rStagingLeader\020\003*<\n\024Op" +
-      "eratingRegionState\022\013\n\007Unknown\020\000\022\n\n\006Queue" +
-      "d\020\001\022\013\n\007Opening\020\0022\277\001\n\tHeartbeat\022Z\n\tHeartb" +
-      "eat\022\".greptime.v1.meta.HeartbeatRequest\032" +
-      "#.greptime.v1.meta.HeartbeatResponse\"\000(\001" +
-      "0\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskLe" +
-      "aderRequest\032#.greptime.v1.meta.AskLeader" +
-      "Response\"\000B<Z:github.com/GreptimeTeam/gr" +
-      "eptime-proto/go/greptime/v1/metab\006proto3"
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\017Operating" +
+      "Region\022\021\n\tregion_id\030\001 \001(\004\022\031\n\021started_at_" +
+      "millis\030\003 \001(\003J\004\010\002\020\003\"a\n\tTopicStat\022\022\n\ntopic" +
+      "_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\nreco" +
+      "rd_num\030\003 \001(\004\022\027\n\017latest_entry_id\030\004 \001(\004\"\227\002" +
+      "\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.gre" +
+      "ptime.v1.meta.FlowStat.FlowStatSizeEntry" +
+      "\022T\n\027flow_last_exec_time_map\030\002 \003(\01323.grep" +
+      "time.v1.meta.FlowStat.FlowLastExecTimeMa" +
+      "pEntry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r" +
+      "\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeM" +
+      "apEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"" +
+      "\356\002\n\021HeartbeatResponse\0220\n\006header\030\001 \001(\0132 ." +
+      "greptime.v1.meta.ResponseHeader\0229\n\017mailb" +
+      "ox_message\030\002 \001(\0132 .greptime.v1.meta.Mail" +
+      "boxMessage\0223\n\014region_lease\030\003 \001(\0132\035.grept" +
+      "ime.v1.meta.RegionLease\022;\n\020heartbeat_con" +
+      "fig\030\004 \001(\0132!.greptime.v1.meta.HeartbeatCo" +
+      "nfig\022G\n\nextensions\030c \003(\01323.greptime.v1.m" +
+      "eta.HeartbeatResponse.ExtensionsEntry\0321\n" +
+      "\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\014:\0028\001\"_\n\017HeartbeatConfig\022\035\n\025heartbeat" +
+      "_interval_ms\030\001 \001(\004\022\031\n\021retry_interval_ms\030" +
+      "\002 \001(\004\022\022\n\ngc_enabled\030\003 \001(\010\"\306\001\n\rGrantedReg" +
+      "ion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.g" +
+      "reptime.v1.meta.RegionRole\022C\n\nextensions" +
+      "\030c \003(\0132/.greptime.v1.meta.GrantedRegion." +
+      "ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLea" +
+      "se\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.G" +
+      "rantedRegion\022\034\n\024duration_since_epoch\030\002 \001" +
+      "(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_r" +
+      "egion_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006h" +
+      "eader\030\001 \001(\0132\037.greptime.v1.meta.RequestHe" +
+      "ader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(" +
+      "\0132 .greptime.v1.meta.ResponseHeader\022&\n\006l" +
+      "eader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242\001\n\024" +
+      "MailboxMessageHeader\022S\n\017tracing_context\030" +
+      "\001 \003(\0132:.greptime.v1.meta.MailboxMessageH" +
+      "eader.TracingContextEntry\0325\n\023TracingCont" +
+      "extEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
+      "\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&.gr" +
+      "eptime.v1.meta.MailboxMessageHeader\022\n\n\002i" +
+      "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n" +
+      "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004" +
+      "json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole\022\n\n" +
+      "\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLe" +
+      "ader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbeat\022" +
+      "Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbea" +
+      "tRequest\032#.greptime.v1.meta.HeartbeatRes" +
+      "ponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.m" +
+      "eta.AskLeaderRequest\032#.greptime.v1.meta." +
+      "AskLeaderResponse\"\000B<Z:github.com/Grepti" +
+      "meTeam/greptime-proto/go/greptime/v1/met" +
+      "ab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21026,7 +20772,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_OperatingRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_OperatingRegion_descriptor,
-        new java.lang.String[] { "RegionId", "State", "StartedAtMillis", });
+        new java.lang.String[] { "RegionId", "StartedAtMillis", });
     internal_static_greptime_v1_meta_TopicStat_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable = new

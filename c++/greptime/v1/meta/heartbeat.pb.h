@@ -184,32 +184,6 @@ inline bool RegionRole_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<RegionRole>(
     RegionRole_descriptor(), name, value);
 }
-enum OperatingRegionState : int {
-  Unknown = 0,
-  Queued = 1,
-  Opening = 2,
-  OperatingRegionState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  OperatingRegionState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
-};
-bool OperatingRegionState_IsValid(int value);
-constexpr OperatingRegionState OperatingRegionState_MIN = Unknown;
-constexpr OperatingRegionState OperatingRegionState_MAX = Opening;
-constexpr int OperatingRegionState_ARRAYSIZE = OperatingRegionState_MAX + 1;
-
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OperatingRegionState_descriptor();
-template<typename T>
-inline const std::string& OperatingRegionState_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, OperatingRegionState>::value ||
-    ::std::is_integral<T>::value,
-    "Incorrect type passed to function OperatingRegionState_Name.");
-  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    OperatingRegionState_descriptor(), enum_t_value);
-}
-inline bool OperatingRegionState_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, OperatingRegionState* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<OperatingRegionState>(
-    OperatingRegionState_descriptor(), name, value);
-}
 // ===================================================================
 
 class HeartbeatRequest_ExtensionsEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<HeartbeatRequest_ExtensionsEntry_DoNotUse, 
@@ -1815,7 +1789,6 @@ class OperatingRegion final :
   enum : int {
     kRegionIdFieldNumber = 1,
     kStartedAtMillisFieldNumber = 3,
-    kStateFieldNumber = 2,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -1835,15 +1808,6 @@ class OperatingRegion final :
   void _internal_set_started_at_millis(int64_t value);
   public:
 
-  // .greptime.v1.meta.OperatingRegionState state = 2;
-  void clear_state();
-  ::greptime::v1::meta::OperatingRegionState state() const;
-  void set_state(::greptime::v1::meta::OperatingRegionState value);
-  private:
-  ::greptime::v1::meta::OperatingRegionState _internal_state() const;
-  void _internal_set_state(::greptime::v1::meta::OperatingRegionState value);
-  public:
-
   // @@protoc_insertion_point(class_scope:greptime.v1.meta.OperatingRegion)
  private:
   class _Internal;
@@ -1854,7 +1818,6 @@ class OperatingRegion final :
   struct Impl_ {
     uint64_t region_id_;
     int64_t started_at_millis_;
-    int state_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5537,26 +5500,6 @@ inline void OperatingRegion::set_region_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:greptime.v1.meta.OperatingRegion.region_id)
 }
 
-// .greptime.v1.meta.OperatingRegionState state = 2;
-inline void OperatingRegion::clear_state() {
-  _impl_.state_ = 0;
-}
-inline ::greptime::v1::meta::OperatingRegionState OperatingRegion::_internal_state() const {
-  return static_cast< ::greptime::v1::meta::OperatingRegionState >(_impl_.state_);
-}
-inline ::greptime::v1::meta::OperatingRegionState OperatingRegion::state() const {
-  // @@protoc_insertion_point(field_get:greptime.v1.meta.OperatingRegion.state)
-  return _internal_state();
-}
-inline void OperatingRegion::_internal_set_state(::greptime::v1::meta::OperatingRegionState value) {
-  
-  _impl_.state_ = value;
-}
-inline void OperatingRegion::set_state(::greptime::v1::meta::OperatingRegionState value) {
-  _internal_set_state(value);
-  // @@protoc_insertion_point(field_set:greptime.v1.meta.OperatingRegion.state)
-}
-
 // int64 started_at_millis = 3;
 inline void OperatingRegion::clear_started_at_millis() {
   _impl_.started_at_millis_ = int64_t{0};
@@ -7147,11 +7090,6 @@ template <> struct is_proto_enum< ::greptime::v1::meta::RegionRole> : ::std::tru
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::RegionRole>() {
   return ::greptime::v1::meta::RegionRole_descriptor();
-}
-template <> struct is_proto_enum< ::greptime::v1::meta::OperatingRegionState> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::meta::OperatingRegionState>() {
-  return ::greptime::v1::meta::OperatingRegionState_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
