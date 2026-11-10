@@ -39,6 +39,13 @@ message RegionRequestHeader {
   QueryContext query_context = 6;
 }
 
+// Cancels one task reported by information_schema.compaction_tasks.
+// A stale task ID must not cancel a replacement task or another pending task.
+message CancelCompactionRequest {
+  uint64 region_id = 1;
+  string task_id = 2;
+}
+
 message RegionRequest {
   RegionRequestHeader header = 1;
   // query request is handled in flight services.
@@ -63,6 +70,7 @@ message RegionRequest {
     ApplyStagingManifestRequest apply_staging_manifest = 20;
     RemoteDynFilterRequest remote_dyn_filter = 21;
     CleanUpRequest clean_up = 22;
+    CancelCompactionRequest cancel_compaction = 23;
   }
 }
 

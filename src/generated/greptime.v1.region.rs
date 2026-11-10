@@ -30,6 +30,16 @@ pub struct RegionRequestHeader {
     #[prost(message, optional, tag = "6")]
     pub query_context: ::core::option::Option<super::QueryContext>,
 }
+/// Cancels one task reported by information_schema.compaction_tasks.
+/// A stale task ID must not cancel a replacement task or another pending task.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct CancelCompactionRequest {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    #[prost(string, tag = "2")]
+    pub task_id: ::prost::alloc::string::String,
+}
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct RegionRequest {
@@ -38,7 +48,7 @@ pub struct RegionRequest {
     /// query request is handled in flight services.
     #[prost(
         oneof = "region_request::Body",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22"
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23"
     )]
     pub body: ::core::option::Option<region_request::Body>,
 }
@@ -89,6 +99,8 @@ pub mod region_request {
         RemoteDynFilter(super::RemoteDynFilterRequest),
         #[prost(message, tag = "22")]
         CleanUp(super::CleanUpRequest),
+        #[prost(message, tag = "23")]
+        CancelCompaction(super::CancelCompactionRequest),
     }
 }
 #[allow(clippy::all)]
