@@ -20,6 +20,7 @@ import "greptime/v1/common.proto";
 import "greptime/v1/ddl.proto";
 import "greptime/v1/meta/route.proto";
 import "greptime/v1/row.proto";
+import "greptime/v1/region/sketch.proto";
 
 option go_package = "github.com/GreptimeTeam/greptime-proto/go/greptime/v1/region";
 option java_outer_classname = "Server";
@@ -71,6 +72,8 @@ message RegionRequest {
     RemoteDynFilterRequest remote_dyn_filter = 21;
     CleanUpRequest clean_up = 22;
     CancelCompactionRequest cancel_compaction = 23;
+    SketchRequest sketch_stat = 24;
+    SketchRequest sketch_query = 25;
   }
 }
 
@@ -89,6 +92,8 @@ message RegionResponse {
   // extensions then describe successful entries only. Clients must not retry
   // the entire request based on the header status.
   repeated RegionRequestFailure failures = 5;
+  // Coverage or estimates for a sketch request.
+  SketchResponse sketch = 6;
 }
 
 message RegionRequestFailure {
