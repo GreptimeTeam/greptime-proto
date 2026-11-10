@@ -4236,6 +4236,7 @@ class AlterRequest final :
     kSetDefaults = 15,
     kSyncColumns = 16,
     kSetJsonSettings = 17,
+    kSetColumnCompression = 7,
     KIND_NOT_SET = 0,
   };
 
@@ -4332,6 +4333,7 @@ class AlterRequest final :
     kSetDefaultsFieldNumber = 15,
     kSyncColumnsFieldNumber = 16,
     kSetJsonSettingsFieldNumber = 17,
+    kSetColumnCompressionFieldNumber = 7,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -4585,6 +4587,24 @@ class AlterRequest final :
       ::greptime::v1::SetJsonSettings* set_json_settings);
   ::greptime::v1::SetJsonSettings* unsafe_arena_release_set_json_settings();
 
+  // .greptime.v1.SetColumnCompression set_column_compression = 7;
+  bool has_set_column_compression() const;
+  private:
+  bool _internal_has_set_column_compression() const;
+  public:
+  void clear_set_column_compression();
+  const ::greptime::v1::SetColumnCompression& set_column_compression() const;
+  PROTOBUF_NODISCARD ::greptime::v1::SetColumnCompression* release_set_column_compression();
+  ::greptime::v1::SetColumnCompression* mutable_set_column_compression();
+  void set_allocated_set_column_compression(::greptime::v1::SetColumnCompression* set_column_compression);
+  private:
+  const ::greptime::v1::SetColumnCompression& _internal_set_column_compression() const;
+  ::greptime::v1::SetColumnCompression* _internal_mutable_set_column_compression();
+  public:
+  void unsafe_arena_set_allocated_set_column_compression(
+      ::greptime::v1::SetColumnCompression* set_column_compression);
+  ::greptime::v1::SetColumnCompression* unsafe_arena_release_set_column_compression();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.AlterRequest)
@@ -4603,6 +4623,7 @@ class AlterRequest final :
   void set_has_set_defaults();
   void set_has_sync_columns();
   void set_has_set_json_settings();
+  void set_has_set_column_compression();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -4629,6 +4650,7 @@ class AlterRequest final :
       ::greptime::v1::SetDefaults* set_defaults_;
       ::greptime::v1::region::SyncColumns* sync_columns_;
       ::greptime::v1::SetJsonSettings* set_json_settings_;
+      ::greptime::v1::SetColumnCompression* set_column_compression_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -13992,6 +14014,72 @@ inline ::greptime::v1::SetJsonSettings* AlterRequest::_internal_mutable_set_json
 inline ::greptime::v1::SetJsonSettings* AlterRequest::mutable_set_json_settings() {
   ::greptime::v1::SetJsonSettings* _msg = _internal_mutable_set_json_settings();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.set_json_settings)
+  return _msg;
+}
+
+// .greptime.v1.SetColumnCompression set_column_compression = 7;
+inline bool AlterRequest::_internal_has_set_column_compression() const {
+  return kind_case() == kSetColumnCompression;
+}
+inline bool AlterRequest::has_set_column_compression() const {
+  return _internal_has_set_column_compression();
+}
+inline void AlterRequest::set_has_set_column_compression() {
+  _impl_._oneof_case_[0] = kSetColumnCompression;
+}
+inline ::greptime::v1::SetColumnCompression* AlterRequest::release_set_column_compression() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.AlterRequest.set_column_compression)
+  if (_internal_has_set_column_compression()) {
+    clear_has_kind();
+    ::greptime::v1::SetColumnCompression* temp = _impl_.kind_.set_column_compression_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.set_column_compression_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::SetColumnCompression& AlterRequest::_internal_set_column_compression() const {
+  return _internal_has_set_column_compression()
+      ? *_impl_.kind_.set_column_compression_
+      : reinterpret_cast< ::greptime::v1::SetColumnCompression&>(::greptime::v1::_SetColumnCompression_default_instance_);
+}
+inline const ::greptime::v1::SetColumnCompression& AlterRequest::set_column_compression() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.AlterRequest.set_column_compression)
+  return _internal_set_column_compression();
+}
+inline ::greptime::v1::SetColumnCompression* AlterRequest::unsafe_arena_release_set_column_compression() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.AlterRequest.set_column_compression)
+  if (_internal_has_set_column_compression()) {
+    clear_has_kind();
+    ::greptime::v1::SetColumnCompression* temp = _impl_.kind_.set_column_compression_;
+    _impl_.kind_.set_column_compression_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void AlterRequest::unsafe_arena_set_allocated_set_column_compression(::greptime::v1::SetColumnCompression* set_column_compression) {
+  clear_kind();
+  if (set_column_compression) {
+    set_has_set_column_compression();
+    _impl_.kind_.set_column_compression_ = set_column_compression;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.AlterRequest.set_column_compression)
+}
+inline ::greptime::v1::SetColumnCompression* AlterRequest::_internal_mutable_set_column_compression() {
+  if (!_internal_has_set_column_compression()) {
+    clear_kind();
+    set_has_set_column_compression();
+    _impl_.kind_.set_column_compression_ = CreateMaybeMessage< ::greptime::v1::SetColumnCompression >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.set_column_compression_;
+}
+inline ::greptime::v1::SetColumnCompression* AlterRequest::mutable_set_column_compression() {
+  ::greptime::v1::SetColumnCompression* _msg = _internal_mutable_set_column_compression();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.AlterRequest.set_column_compression)
   return _msg;
 }
 

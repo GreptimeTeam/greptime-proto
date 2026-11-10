@@ -13010,6 +13010,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.Ddl.SetJsonSettingsOrBuilder getSetJsonSettingsOrBuilder();
 
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     * @return Whether the setColumnCompression field is set.
+     */
+    boolean hasSetColumnCompression();
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     * @return The setColumnCompression.
+     */
+    io.greptime.v1.Ddl.SetColumnCompression getSetColumnCompression();
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     */
+    io.greptime.v1.Ddl.SetColumnCompressionOrBuilder getSetColumnCompressionOrBuilder();
+
     public io.greptime.v1.Ddl.AlterTableExpr.KindCase getKindCase();
   }
   /**
@@ -13274,6 +13289,20 @@ java.lang.String defaultValue);
               kindCase_ = 19;
               break;
             }
+            case 162: {
+              io.greptime.v1.Ddl.SetColumnCompression.Builder subBuilder = null;
+              if (kindCase_ == 20) {
+                subBuilder = ((io.greptime.v1.Ddl.SetColumnCompression) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.Ddl.SetColumnCompression.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.Ddl.SetColumnCompression) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 20;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -13327,6 +13356,7 @@ java.lang.String defaultValue);
       SET_DEFAULTS(17),
       REPARTITION(18),
       SET_JSON_SETTINGS(19),
+      SET_COLUMN_COMPRESSION(20),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -13358,6 +13388,7 @@ java.lang.String defaultValue);
           case 17: return SET_DEFAULTS;
           case 18: return REPARTITION;
           case 19: return SET_JSON_SETTINGS;
+          case 20: return SET_COLUMN_COMPRESSION;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -13945,6 +13976,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.Ddl.SetJsonSettings.getDefaultInstance();
     }
 
+    public static final int SET_COLUMN_COMPRESSION_FIELD_NUMBER = 20;
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     * @return Whether the setColumnCompression field is set.
+     */
+    @java.lang.Override
+    public boolean hasSetColumnCompression() {
+      return kindCase_ == 20;
+    }
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     * @return The setColumnCompression.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetColumnCompression getSetColumnCompression() {
+      if (kindCase_ == 20) {
+         return (io.greptime.v1.Ddl.SetColumnCompression) kind_;
+      }
+      return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetColumnCompressionOrBuilder getSetColumnCompressionOrBuilder() {
+      if (kindCase_ == 20) {
+         return (io.greptime.v1.Ddl.SetColumnCompression) kind_;
+      }
+      return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -14009,6 +14071,9 @@ java.lang.String defaultValue);
       }
       if (kindCase_ == 19) {
         output.writeMessage(19, (io.greptime.v1.Ddl.SetJsonSettings) kind_);
+      }
+      if (kindCase_ == 20) {
+        output.writeMessage(20, (io.greptime.v1.Ddl.SetColumnCompression) kind_);
       }
       unknownFields.writeTo(output);
     }
@@ -14083,6 +14148,10 @@ java.lang.String defaultValue);
       if (kindCase_ == 19) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(19, (io.greptime.v1.Ddl.SetJsonSettings) kind_);
+      }
+      if (kindCase_ == 20) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, (io.greptime.v1.Ddl.SetColumnCompression) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14163,6 +14232,10 @@ java.lang.String defaultValue);
           if (!getSetJsonSettings()
               .equals(other.getSetJsonSettings())) return false;
           break;
+        case 20:
+          if (!getSetColumnCompression()
+              .equals(other.getSetColumnCompression())) return false;
+          break;
         case 0:
         default:
       }
@@ -14239,6 +14312,10 @@ java.lang.String defaultValue);
         case 19:
           hash = (37 * hash) + SET_JSON_SETTINGS_FIELD_NUMBER;
           hash = (53 * hash) + getSetJsonSettings().hashCode();
+          break;
+        case 20:
+          hash = (37 * hash) + SET_COLUMN_COMPRESSION_FIELD_NUMBER;
+          hash = (53 * hash) + getSetColumnCompression().hashCode();
           break;
         case 0:
         default:
@@ -14511,6 +14588,13 @@ java.lang.String defaultValue);
             result.kind_ = setJsonSettingsBuilder_.build();
           }
         }
+        if (kindCase_ == 20) {
+          if (setColumnCompressionBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = setColumnCompressionBuilder_.build();
+          }
+        }
         result.kindCase_ = kindCase_;
         onBuilt();
         return result;
@@ -14627,6 +14711,10 @@ java.lang.String defaultValue);
           }
           case SET_JSON_SETTINGS: {
             mergeSetJsonSettings(other.getSetJsonSettings());
+            break;
+          }
+          case SET_COLUMN_COMPRESSION: {
+            mergeSetColumnCompression(other.getSetColumnCompression());
             break;
           }
           case KIND_NOT_SET: {
@@ -16963,6 +17051,148 @@ java.lang.String defaultValue);
         kindCase_ = 19;
         onChanged();;
         return setJsonSettingsBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetColumnCompression, io.greptime.v1.Ddl.SetColumnCompression.Builder, io.greptime.v1.Ddl.SetColumnCompressionOrBuilder> setColumnCompressionBuilder_;
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       * @return Whether the setColumnCompression field is set.
+       */
+      @java.lang.Override
+      public boolean hasSetColumnCompression() {
+        return kindCase_ == 20;
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       * @return The setColumnCompression.
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetColumnCompression getSetColumnCompression() {
+        if (setColumnCompressionBuilder_ == null) {
+          if (kindCase_ == 20) {
+            return (io.greptime.v1.Ddl.SetColumnCompression) kind_;
+          }
+          return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+        } else {
+          if (kindCase_ == 20) {
+            return setColumnCompressionBuilder_.getMessage();
+          }
+          return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      public Builder setSetColumnCompression(io.greptime.v1.Ddl.SetColumnCompression value) {
+        if (setColumnCompressionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          setColumnCompressionBuilder_.setMessage(value);
+        }
+        kindCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      public Builder setSetColumnCompression(
+          io.greptime.v1.Ddl.SetColumnCompression.Builder builderForValue) {
+        if (setColumnCompressionBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          setColumnCompressionBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      public Builder mergeSetColumnCompression(io.greptime.v1.Ddl.SetColumnCompression value) {
+        if (setColumnCompressionBuilder_ == null) {
+          if (kindCase_ == 20 &&
+              kind_ != io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance()) {
+            kind_ = io.greptime.v1.Ddl.SetColumnCompression.newBuilder((io.greptime.v1.Ddl.SetColumnCompression) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 20) {
+            setColumnCompressionBuilder_.mergeFrom(value);
+          } else {
+            setColumnCompressionBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 20;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      public Builder clearSetColumnCompression() {
+        if (setColumnCompressionBuilder_ == null) {
+          if (kindCase_ == 20) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 20) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          setColumnCompressionBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      public io.greptime.v1.Ddl.SetColumnCompression.Builder getSetColumnCompressionBuilder() {
+        return getSetColumnCompressionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetColumnCompressionOrBuilder getSetColumnCompressionOrBuilder() {
+        if ((kindCase_ == 20) && (setColumnCompressionBuilder_ != null)) {
+          return setColumnCompressionBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 20) {
+            return (io.greptime.v1.Ddl.SetColumnCompression) kind_;
+          }
+          return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.SetColumnCompression set_column_compression = 20;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.SetColumnCompression, io.greptime.v1.Ddl.SetColumnCompression.Builder, io.greptime.v1.Ddl.SetColumnCompressionOrBuilder> 
+          getSetColumnCompressionFieldBuilder() {
+        if (setColumnCompressionBuilder_ == null) {
+          if (!(kindCase_ == 20)) {
+            kind_ = io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+          }
+          setColumnCompressionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.SetColumnCompression, io.greptime.v1.Ddl.SetColumnCompression.Builder, io.greptime.v1.Ddl.SetColumnCompressionOrBuilder>(
+                  (io.greptime.v1.Ddl.SetColumnCompression) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 20;
+        onChanged();;
+        return setColumnCompressionBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -22214,7 +22444,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @return A list containing the fromPartitionExprs.
      */
     @java.lang.Deprecated java.util.List<java.lang.String>
@@ -22226,7 +22456,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @return The count of fromPartitionExprs.
      */
     @java.lang.Deprecated int getFromPartitionExprsCount();
@@ -22237,7 +22467,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @param index The index of the element to return.
      * @return The fromPartitionExprs at the given index.
      */
@@ -22249,7 +22479,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @param index The index of the value to return.
      * @return The bytes of the fromPartitionExprs at the given index.
      */
@@ -22497,7 +22727,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @return A list containing the fromPartitionExprs.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -22511,7 +22741,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @return The count of fromPartitionExprs.
      */
     @java.lang.Deprecated public int getFromPartitionExprsCount() {
@@ -22524,7 +22754,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @param index The index of the element to return.
      * @return The fromPartitionExprs at the given index.
      */
@@ -22538,7 +22768,7 @@ java.lang.String defaultValue);
      *
      * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
      * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-     *     See greptime/v1/ddl.proto;l=166
+     *     See greptime/v1/ddl.proto;l=167
      * @param index The index of the value to return.
      * @return The bytes of the fromPartitionExprs at the given index.
      */
@@ -23097,7 +23327,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @return A list containing the fromPartitionExprs.
        */
       @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -23111,7 +23341,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @return The count of fromPartitionExprs.
        */
       @java.lang.Deprecated public int getFromPartitionExprsCount() {
@@ -23124,7 +23354,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param index The index of the element to return.
        * @return The fromPartitionExprs at the given index.
        */
@@ -23138,7 +23368,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param index The index of the value to return.
        * @return The bytes of the fromPartitionExprs at the given index.
        */
@@ -23153,7 +23383,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param index The index to set the value at.
        * @param value The fromPartitionExprs to set.
        * @return This builder for chaining.
@@ -23175,7 +23405,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param value The fromPartitionExprs to add.
        * @return This builder for chaining.
        */
@@ -23196,7 +23426,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param values The fromPartitionExprs to add.
        * @return This builder for chaining.
        */
@@ -23215,7 +23445,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearFromPartitionExprs() {
@@ -23231,7 +23461,7 @@ java.lang.String defaultValue);
        *
        * <code>repeated string from_partition_exprs = 1 [deprecated = true];</code>
        * @deprecated greptime.v1.Repartition.from_partition_exprs is deprecated.
-       *     See greptime/v1/ddl.proto;l=166
+       *     See greptime/v1/ddl.proto;l=167
        * @param value The bytes of the fromPartitionExprs to add.
        * @return This builder for chaining.
        */
@@ -37489,6 +37719,973 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.Ddl.SetJsonSettings getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SetColumnCompressionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.SetColumnCompression)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    java.lang.String getColumnName();
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    com.google.protobuf.ByteString
+        getColumnNameBytes();
+
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     * @return Whether the options field is set.
+     */
+    boolean hasOptions();
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     * @return The options.
+     */
+    io.greptime.v1.Common.ColumnOptions getOptions();
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     */
+    io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder();
+
+    /**
+     * <pre>
+     * Clear every compression override on the column. Must not be combined with a
+     * non-empty options field.
+     * </pre>
+     *
+     * <code>bool reset = 3;</code>
+     * @return The reset.
+     */
+    boolean getReset();
+  }
+  /**
+   * <pre>
+   * Per-column SST compression options.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.SetColumnCompression}
+   */
+  public static final class SetColumnCompression extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.SetColumnCompression)
+      SetColumnCompressionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SetColumnCompression.newBuilder() to construct.
+    private SetColumnCompression(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SetColumnCompression() {
+      columnName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SetColumnCompression();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SetColumnCompression(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              columnName_ = s;
+              break;
+            }
+            case 18: {
+              io.greptime.v1.Common.ColumnOptions.Builder subBuilder = null;
+              if (options_ != null) {
+                subBuilder = options_.toBuilder();
+              }
+              options_ = input.readMessage(io.greptime.v1.Common.ColumnOptions.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(options_);
+                options_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              reset_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetColumnCompression_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.Ddl.internal_static_greptime_v1_SetColumnCompression_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.Ddl.SetColumnCompression.class, io.greptime.v1.Ddl.SetColumnCompression.Builder.class);
+    }
+
+    public static final int COLUMN_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object columnName_;
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The columnName.
+     */
+    @java.lang.Override
+    public java.lang.String getColumnName() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        columnName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string column_name = 1;</code>
+     * @return The bytes for columnName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColumnNameBytes() {
+      java.lang.Object ref = columnName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        columnName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OPTIONS_FIELD_NUMBER = 2;
+    private io.greptime.v1.Common.ColumnOptions options_;
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     * @return Whether the options field is set.
+     */
+    @java.lang.Override
+    public boolean hasOptions() {
+      return options_ != null;
+    }
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     * @return The options.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnOptions getOptions() {
+      return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+    }
+    /**
+     * <pre>
+     * Merge-on-set delta: only the keys present here override the current options,
+     * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+     * validated together on the server side.
+     * </pre>
+     *
+     * <code>.greptime.v1.ColumnOptions options = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+      return getOptions();
+    }
+
+    public static final int RESET_FIELD_NUMBER = 3;
+    private boolean reset_;
+    /**
+     * <pre>
+     * Clear every compression override on the column. Must not be combined with a
+     * non-empty options field.
+     * </pre>
+     *
+     * <code>bool reset = 3;</code>
+     * @return The reset.
+     */
+    @java.lang.Override
+    public boolean getReset() {
+      return reset_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, columnName_);
+      }
+      if (options_ != null) {
+        output.writeMessage(2, getOptions());
+      }
+      if (reset_ != false) {
+        output.writeBool(3, reset_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(columnName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, columnName_);
+      }
+      if (options_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getOptions());
+      }
+      if (reset_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, reset_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.Ddl.SetColumnCompression)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.Ddl.SetColumnCompression other = (io.greptime.v1.Ddl.SetColumnCompression) obj;
+
+      if (!getColumnName()
+          .equals(other.getColumnName())) return false;
+      if (hasOptions() != other.hasOptions()) return false;
+      if (hasOptions()) {
+        if (!getOptions()
+            .equals(other.getOptions())) return false;
+      }
+      if (getReset()
+          != other.getReset()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COLUMN_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getColumnName().hashCode();
+      if (hasOptions()) {
+        hash = (37 * hash) + OPTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOptions().hashCode();
+      }
+      hash = (37 * hash) + RESET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getReset());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.Ddl.SetColumnCompression parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.Ddl.SetColumnCompression prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Per-column SST compression options.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.SetColumnCompression}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.SetColumnCompression)
+        io.greptime.v1.Ddl.SetColumnCompressionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetColumnCompression_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetColumnCompression_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.Ddl.SetColumnCompression.class, io.greptime.v1.Ddl.SetColumnCompression.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.Ddl.SetColumnCompression.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        columnName_ = "";
+
+        if (optionsBuilder_ == null) {
+          options_ = null;
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+        reset_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.Ddl.internal_static_greptime_v1_SetColumnCompression_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetColumnCompression getDefaultInstanceForType() {
+        return io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetColumnCompression build() {
+        io.greptime.v1.Ddl.SetColumnCompression result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.Ddl.SetColumnCompression buildPartial() {
+        io.greptime.v1.Ddl.SetColumnCompression result = new io.greptime.v1.Ddl.SetColumnCompression(this);
+        result.columnName_ = columnName_;
+        if (optionsBuilder_ == null) {
+          result.options_ = options_;
+        } else {
+          result.options_ = optionsBuilder_.build();
+        }
+        result.reset_ = reset_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.Ddl.SetColumnCompression) {
+          return mergeFrom((io.greptime.v1.Ddl.SetColumnCompression)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.Ddl.SetColumnCompression other) {
+        if (other == io.greptime.v1.Ddl.SetColumnCompression.getDefaultInstance()) return this;
+        if (!other.getColumnName().isEmpty()) {
+          columnName_ = other.columnName_;
+          onChanged();
+        }
+        if (other.hasOptions()) {
+          mergeOptions(other.getOptions());
+        }
+        if (other.getReset() != false) {
+          setReset(other.getReset());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.Ddl.SetColumnCompression parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.Ddl.SetColumnCompression) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object columnName_ = "";
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The columnName.
+       */
+      public java.lang.String getColumnName() {
+        java.lang.Object ref = columnName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          columnName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return The bytes for columnName.
+       */
+      public com.google.protobuf.ByteString
+          getColumnNameBytes() {
+        java.lang.Object ref = columnName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          columnName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumnName() {
+        
+        columnName_ = getDefaultInstance().getColumnName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column_name = 1;</code>
+       * @param value The bytes for columnName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        columnName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.Common.ColumnOptions options_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> optionsBuilder_;
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       * @return Whether the options field is set.
+       */
+      public boolean hasOptions() {
+        return optionsBuilder_ != null || options_ != null;
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       * @return The options.
+       */
+      public io.greptime.v1.Common.ColumnOptions getOptions() {
+        if (optionsBuilder_ == null) {
+          return options_ == null ? io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        } else {
+          return optionsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public Builder setOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          options_ = value;
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public Builder setOptions(
+          io.greptime.v1.Common.ColumnOptions.Builder builderForValue) {
+        if (optionsBuilder_ == null) {
+          options_ = builderForValue.build();
+          onChanged();
+        } else {
+          optionsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public Builder mergeOptions(io.greptime.v1.Common.ColumnOptions value) {
+        if (optionsBuilder_ == null) {
+          if (options_ != null) {
+            options_ =
+              io.greptime.v1.Common.ColumnOptions.newBuilder(options_).mergeFrom(value).buildPartial();
+          } else {
+            options_ = value;
+          }
+          onChanged();
+        } else {
+          optionsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public Builder clearOptions() {
+        if (optionsBuilder_ == null) {
+          options_ = null;
+          onChanged();
+        } else {
+          options_ = null;
+          optionsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public io.greptime.v1.Common.ColumnOptions.Builder getOptionsBuilder() {
+        
+        onChanged();
+        return getOptionsFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      public io.greptime.v1.Common.ColumnOptionsOrBuilder getOptionsOrBuilder() {
+        if (optionsBuilder_ != null) {
+          return optionsBuilder_.getMessageOrBuilder();
+        } else {
+          return options_ == null ?
+              io.greptime.v1.Common.ColumnOptions.getDefaultInstance() : options_;
+        }
+      }
+      /**
+       * <pre>
+       * Merge-on-set delta: only the keys present here override the current options,
+       * e.g. {"level": "22"} keeps an existing page_size. Retained and new keys are
+       * validated together on the server side.
+       * </pre>
+       *
+       * <code>.greptime.v1.ColumnOptions options = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder> 
+          getOptionsFieldBuilder() {
+        if (optionsBuilder_ == null) {
+          optionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Common.ColumnOptions, io.greptime.v1.Common.ColumnOptions.Builder, io.greptime.v1.Common.ColumnOptionsOrBuilder>(
+                  getOptions(),
+                  getParentForChildren(),
+                  isClean());
+          options_ = null;
+        }
+        return optionsBuilder_;
+      }
+
+      private boolean reset_ ;
+      /**
+       * <pre>
+       * Clear every compression override on the column. Must not be combined with a
+       * non-empty options field.
+       * </pre>
+       *
+       * <code>bool reset = 3;</code>
+       * @return The reset.
+       */
+      @java.lang.Override
+      public boolean getReset() {
+        return reset_;
+      }
+      /**
+       * <pre>
+       * Clear every compression override on the column. Must not be combined with a
+       * non-empty options field.
+       * </pre>
+       *
+       * <code>bool reset = 3;</code>
+       * @param value The reset to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReset(boolean value) {
+        
+        reset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Clear every compression override on the column. Must not be combined with a
+       * non-empty options field.
+       * </pre>
+       *
+       * <code>bool reset = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReset() {
+        
+        reset_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.SetColumnCompression)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.SetColumnCompression)
+    private static final io.greptime.v1.Ddl.SetColumnCompression DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.Ddl.SetColumnCompression();
+    }
+
+    public static io.greptime.v1.Ddl.SetColumnCompression getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SetColumnCompression>
+        PARSER = new com.google.protobuf.AbstractParser<SetColumnCompression>() {
+      @java.lang.Override
+      public SetColumnCompression parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SetColumnCompression(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SetColumnCompression> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SetColumnCompression> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.Ddl.SetColumnCompression getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -61048,6 +62245,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_SetJsonSettings_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_SetColumnCompression_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_SetColumnCompression_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_JsonSettings_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -61247,7 +62449,7 @@ java.lang.String defaultValue);
       "time.v1.CreateTableExpr.TableOptionsEntr" +
       "y\022&\n\010table_id\030\n \001(\0132\024.greptime.v1.TableI" +
       "d\022\016\n\006engine\030\014 \001(\t\0323\n\021TableOptionsEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\266\006\n\016Alter" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\373\006\n\016Alter" +
       "TableExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schem" +
       "a_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\022.\n\013add_" +
       "columns\030\004 \001(\0132\027.greptime.v1.AddColumnsH\000" +
@@ -61268,149 +62470,153 @@ java.lang.String defaultValue);
       "me.v1.SetDefaultsH\000\022/\n\013repartition\030\022 \001(\013" +
       "2\030.greptime.v1.RepartitionH\000\0229\n\021set_json" +
       "_settings\030\023 \001(\0132\034.greptime.v1.SetJsonSet" +
-      "tingsH\000B\006\n\004kind\"\"\n\013DropDefault\022\023\n\013column" +
-      "_name\030\001 \001(\t\"8\n\nSetIndexes\022*\n\013set_indexes" +
-      "\030\001 \003(\0132\025.greptime.v1.SetIndex\">\n\014UnsetIn" +
-      "dexes\022.\n\runset_indexes\030\001 \003(\0132\027.greptime." +
-      "v1.UnsetIndex\"=\n\nSetDefault\022\023\n\013column_na" +
-      "me\030\001 \001(\t\022\032\n\022default_constraint\030\002 \001(\014\"\237\001\n" +
-      "\010SetIndex\022,\n\010fulltext\030\001 \001(\0132\030.greptime.v" +
-      "1.SetFulltextH\000\022,\n\010inverted\030\002 \001(\0132\030.grep" +
-      "time.v1.SetInvertedH\000\022,\n\010skipping\030\003 \001(\0132" +
-      "\030.greptime.v1.SetSkippingH\000B\t\n\007options\"\247" +
-      "\001\n\nUnsetIndex\022.\n\010fulltext\030\001 \001(\0132\032.grepti" +
-      "me.v1.UnsetFulltextH\000\022.\n\010inverted\030\002 \001(\0132" +
-      "\032.greptime.v1.UnsetInvertedH\000\022.\n\010skippin" +
-      "g\030\003 \001(\0132\032.greptime.v1.UnsetSkippingH\000B\t\n" +
-      "\007options\"\315\001\n\013Repartition\022 \n\024from_partiti" +
-      "on_exprs\030\001 \003(\tB\002\030\001\022\034\n\024into_partition_exp" +
-      "rs\030\002 \003(\t\0229\n\017partition_exprs\030\003 \001(\0132\036.grep" +
-      "time.v1.PartitionedSourceH\000\0229\n\runpartiti" +
-      "oned\030\004 \001(\0132 .greptime.v1.UnpartitionedSo" +
-      "urceH\000B\010\n\006source\")\n\026TargetPartitionColum" +
-      "ns\022\017\n\007columns\030\001 \003(\t\"i\n\021PartitionedSource" +
-      "\022\r\n\005exprs\030\001 \003(\t\022E\n\030target_partition_colu" +
-      "mns\030\002 \001(\0132#.greptime.v1.TargetPartitionC" +
-      "olumns\"0\n\023UnpartitionedSource\022\031\n\021partiti" +
-      "on_columns\030\001 \003(\t\"\216\001\n\rDropTableExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n" +
-      "\ntable_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.gr" +
-      "eptime.v1.TableId\022\026\n\016drop_if_exists\030\005 \001(" +
-      "\010\"\314\001\n\022CreateDatabaseExpr\022\024\n\014catalog_name" +
-      "\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\034\n\024create_if" +
-      "_not_exists\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.gre" +
-      "ptime.v1.CreateDatabaseExpr.OptionsEntry" +
-      "\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\t:\0028\001\"\250\001\n\021TruncateTableExpr\022\024\n\014catalo" +
-      "g_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntab" +
-      "le_name\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.grepti" +
-      "me.v1.TableId\022,\n\013time_ranges\030\005 \001(\0132\027.gre" +
-      "ptime.v1.TimeRanges\"U\n\020DropDatabaseExpr\022" +
-      "\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001" +
-      "(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"9\n\nAddColumns" +
-      "\022+\n\013add_columns\030\001 \003(\0132\026.greptime.v1.AddC" +
-      "olumn\"?\n\014DropDefaults\022/\n\rdrop_defaults\030\001" +
-      " \003(\0132\030.greptime.v1.DropDefault\"<\n\013SetDef" +
-      "aults\022-\n\014set_defaults\030\001 \003(\0132\027.greptime.v" +
-      "1.SetDefault\"<\n\013DropColumns\022-\n\014drop_colu" +
-      "mns\030\001 \003(\0132\027.greptime.v1.DropColumn\"O\n\021Mo" +
-      "difyColumnTypes\022:\n\023modify_column_types\030\001" +
-      " \003(\0132\035.greptime.v1.ModifyColumnType\"%\n\013R" +
-      "enameTable\022\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tA" +
-      "ddColumn\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime." +
-      "v1.ColumnDef\0220\n\010location\030\003 \001(\0132\036.greptim" +
-      "e.v1.AddColumnLocation\022\031\n\021add_if_not_exi" +
-      "sts\030\004 \001(\010\"\236\001\n\020ModifyColumnType\022\023\n\013column" +
-      "_name\030\001 \001(\t\0220\n\013target_type\030\002 \001(\0162\033.grept" +
-      "ime.v1.ColumnDataType\022C\n\025target_type_ext" +
-      "ension\030\003 \001(\0132$.greptime.v1.ColumnDataTyp" +
-      "eExtension\"S\n\017SetJsonSettings\022\023\n\013column_" +
-      "name\030\001 \001(\t\022+\n\010settings\030\002 \001(\0132\031.greptime." +
-      "v1.JsonSettings\"\177\n\014JsonSettings\022-\n\ntype_" +
-      "hints\030\001 \003(\0132\031.greptime.v1.JsonTypeHint\022$" +
-      "\n\027max_auto_expanded_paths\030\002 \001(\rH\000\210\001\001B\032\n\030" +
-      "_max_auto_expanded_paths\"\345\001\n\014JsonTypeHin" +
-      "t\022\014\n\004path\030\001 \003(\t\022.\n\tdata_type\030\002 \001(\0162\033.gre" +
-      "ptime.v1.ColumnDataType\022@\n\022datatype_exte" +
-      "nsion\030\003 \001(\0132$.greptime.v1.ColumnDataType" +
-      "Extension\022\026\n\016inverted_index\030\004 \001(\010\022=\n\016ski" +
-      "pping_index\030\005 \001(\0132%.greptime.v1.JsonSkip" +
-      "pingIndexOptions\"\200\001\n\030JsonSkippingIndexOp" +
-      "tions\022\023\n\013granularity\030\001 \001(\r\0222\n\nindex_type" +
-      "\030\002 \001(\0162\036.greptime.v1.SkippingIndexType\022\033" +
-      "\n\023false_positive_rate\030\003 \001(\001\"$\n\006Option\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"=\n\017SetTableOpt" +
-      "ions\022*\n\rtable_options\030\001 \003(\0132\023.greptime.v" +
-      "1.Option\"!\n\021UnsetTableOptions\022\014\n\004keys\030\001 " +
-      "\003(\t\"\032\n\nDropColumn\022\014\n\004name\030\001 \001(\t\"\025\n\007Table" +
-      "Id\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n\n\002id\030\001 \001(\r\"\254\002\n" +
-      "\tColumnDef\022\014\n\004name\030\001 \001(\t\022.\n\tdata_type\030\002 " +
-      "\001(\0162\033.greptime.v1.ColumnDataType\022\023\n\013is_n" +
-      "ullable\030\003 \001(\010\022\032\n\022default_constraint\030\004 \001(" +
-      "\014\0220\n\rsemantic_type\030\005 \001(\0162\031.greptime.v1.S" +
-      "emanticType\022\017\n\007comment\030\006 \001(\t\022@\n\022datatype" +
-      "_extension\030\007 \001(\0132$.greptime.v1.ColumnDat" +
-      "aTypeExtension\022+\n\007options\030\010 \001(\0132\032.grepti" +
-      "me.v1.ColumnOptions\"\230\001\n\021AddColumnLocatio" +
-      "n\022B\n\rlocation_type\030\001 \001(\0162+.greptime.v1.A" +
-      "ddColumnLocation.LocationType\022\031\n\021after_c" +
-      "olumn_name\030\002 \001(\t\"$\n\014LocationType\022\t\n\005FIRS" +
-      "T\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFulltext\022\023\n\013column" +
-      "_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\'\n\010analyzer\030" +
-      "\003 \001(\0162\025.greptime.v1.Analyzer\022\026\n\016case_sen" +
-      "sitive\030\004 \001(\010\022-\n\007backend\030\005 \001(\0162\034.greptime" +
-      ".v1.FulltextBackend\022\023\n\013granularity\030\006 \001(\004" +
-      "\022\033\n\023false_positive_rate\030\007 \001(\001\"$\n\rUnsetFu" +
-      "lltext\022\023\n\013column_name\030\001 \001(\t\"\"\n\013SetInvert" +
-      "ed\022\023\n\013column_name\030\001 \001(\t\"$\n\rUnsetInverted" +
-      "\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013SetSkipping\022\023\n" +
-      "\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(\010\022\023\n\013gr" +
-      "anularity\030\003 \001(\004\022;\n\023skipping_index_type\030\004" +
-      " \001(\0162\036.greptime.v1.SkippingIndexType\022\033\n\023" +
-      "false_positive_rate\030\005 \001(\001\"$\n\rUnsetSkippi" +
-      "ng\022\023\n\013column_name\030\001 \001(\t\"\314\001\n\021AlterDatabas" +
-      "eExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema_na" +
-      "me\030\002 \001(\t\022?\n\024set_database_options\030\003 \001(\0132\037" +
-      ".greptime.v1.SetDatabaseOptionsH\000\022C\n\026uns" +
-      "et_database_options\030\004 \001(\0132!.greptime.v1." +
-      "UnsetDatabaseOptionsH\000B\006\n\004kind\"G\n\022SetDat" +
-      "abaseOptions\0221\n\024set_database_options\030\001 \003" +
-      "(\0132\023.greptime.v1.Option\"$\n\024UnsetDatabase" +
-      "Options\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021CreateTriggerE" +
-      "xpr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_nam" +
-      "e\030\002 \001(\t\022\034\n\024create_if_not_exists\030\003 \001(\010\022\013\n" +
-      "\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003(\0132\032.greptime." +
-      "v1.NotifyChannel\022:\n\006labels\030\006 \003(\0132*.grept" +
-      "ime.v1.CreateTriggerExpr.LabelsEntry\022D\n\013" +
-      "annotations\030\007 \003(\0132/.greptime.v1.CreateTr" +
-      "iggerExpr.AnnotationsEntry\022+\n\010interval\030\010" +
-      " \001(\0132\031.google.protobuf.Duration\022\031\n\021raw_i" +
-      "nterval_expr\030\t \001(\t\022&\n\003for\030\n \001(\0132\031.google" +
-      ".protobuf.Duration\022\024\n\014for_raw_expr\030\013 \001(\t" +
-      "\0222\n\017keep_firing_for\030\014 \001(\0132\031.google.proto" +
-      "buf.Duration\022 \n\030keep_firing_for_raw_expr" +
-      "\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\0322\n\020AnnotationsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"]\n\rNotifyChann" +
-      "el\022\014\n\004name\030\001 \001(\t\022.\n\007webhook\030\002 \001(\0132\033.grep" +
-      "time.v1.WebhookOptionsH\000B\016\n\014channel_type" +
-      "\"\177\n\016WebhookOptions\022\013\n\003url\030\001 \001(\t\0223\n\004opts\030" +
-      "\002 \003(\0132%.greptime.v1.WebhookOptions.OptsE" +
-      "ntry\032+\n\tOptsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\"U\n\017DropTriggerExpr\022\024\n\014catalog_" +
-      "name\030\001 \001(\t\022\024\n\014trigger_name\030\002 \001(\t\022\026\n\016drop" +
-      "_if_exists\030\003 \001(\010\"\252\001\n\rCommentOnExpr\022\024\n\014ca" +
-      "talog_name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\0223\n" +
-      "\013object_type\030\003 \001(\0162\036.greptime.v1.Comment" +
-      "ObjectType\022\023\n\013object_name\030\004 \001(\t\022\023\n\013colum" +
-      "n_name\030\005 \001(\t\022\017\n\007comment\030\006 \001(\t*$\n\010Analyze" +
-      "r\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020\001*)\n\017FulltextB" +
-      "ackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLOOM\020\001*%\n\021Skippi" +
-      "ngIndexType\022\020\n\014BLOOM_FILTER\020\000*4\n\021Comment" +
-      "ObjectType\022\t\n\005TABLE\020\000\022\n\n\006COLUMN\020\001\022\010\n\004FLO" +
-      "W\020\002BL\n\016io.greptime.v1B\003DdlZ5github.com/G" +
-      "reptimeTeam/greptime-proto/go/greptime/v" +
-      "1b\006proto3"
+      "tingsH\000\022C\n\026set_column_compression\030\024 \001(\0132" +
+      "!.greptime.v1.SetColumnCompressionH\000B\006\n\004" +
+      "kind\"\"\n\013DropDefault\022\023\n\013column_name\030\001 \001(\t" +
+      "\"8\n\nSetIndexes\022*\n\013set_indexes\030\001 \003(\0132\025.gr" +
+      "eptime.v1.SetIndex\">\n\014UnsetIndexes\022.\n\run" +
+      "set_indexes\030\001 \003(\0132\027.greptime.v1.UnsetInd" +
+      "ex\"=\n\nSetDefault\022\023\n\013column_name\030\001 \001(\t\022\032\n" +
+      "\022default_constraint\030\002 \001(\014\"\237\001\n\010SetIndex\022," +
+      "\n\010fulltext\030\001 \001(\0132\030.greptime.v1.SetFullte" +
+      "xtH\000\022,\n\010inverted\030\002 \001(\0132\030.greptime.v1.Set" +
+      "InvertedH\000\022,\n\010skipping\030\003 \001(\0132\030.greptime." +
+      "v1.SetSkippingH\000B\t\n\007options\"\247\001\n\nUnsetInd" +
+      "ex\022.\n\010fulltext\030\001 \001(\0132\032.greptime.v1.Unset" +
+      "FulltextH\000\022.\n\010inverted\030\002 \001(\0132\032.greptime." +
+      "v1.UnsetInvertedH\000\022.\n\010skipping\030\003 \001(\0132\032.g" +
+      "reptime.v1.UnsetSkippingH\000B\t\n\007options\"\315\001" +
+      "\n\013Repartition\022 \n\024from_partition_exprs\030\001 " +
+      "\003(\tB\002\030\001\022\034\n\024into_partition_exprs\030\002 \003(\t\0229\n" +
+      "\017partition_exprs\030\003 \001(\0132\036.greptime.v1.Par" +
+      "titionedSourceH\000\0229\n\runpartitioned\030\004 \001(\0132" +
+      " .greptime.v1.UnpartitionedSourceH\000B\010\n\006s" +
+      "ource\")\n\026TargetPartitionColumns\022\017\n\007colum" +
+      "ns\030\001 \003(\t\"i\n\021PartitionedSource\022\r\n\005exprs\030\001" +
+      " \003(\t\022E\n\030target_partition_columns\030\002 \001(\0132#" +
+      ".greptime.v1.TargetPartitionColumns\"0\n\023U" +
+      "npartitionedSource\022\031\n\021partition_columns\030" +
+      "\001 \003(\t\"\216\001\n\rDropTableExpr\022\024\n\014catalog_name\030" +
+      "\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name" +
+      "\030\003 \001(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.T" +
+      "ableId\022\026\n\016drop_if_exists\030\005 \001(\010\"\314\001\n\022Creat" +
+      "eDatabaseExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013s" +
+      "chema_name\030\002 \001(\t\022\034\n\024create_if_not_exists" +
+      "\030\003 \001(\010\022=\n\007options\030\004 \003(\0132,.greptime.v1.Cr" +
+      "eateDatabaseExpr.OptionsEntry\032.\n\014Options" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\250\001" +
+      "\n\021TruncateTableExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001" +
+      "(\t\022&\n\010table_id\030\004 \001(\0132\024.greptime.v1.Table" +
+      "Id\022,\n\013time_ranges\030\005 \001(\0132\027.greptime.v1.Ti" +
+      "meRanges\"U\n\020DropDatabaseExpr\022\024\n\014catalog_" +
+      "name\030\001 \001(\t\022\023\n\013schema_name\030\002 \001(\t\022\026\n\016drop_" +
+      "if_exists\030\003 \001(\010\"9\n\nAddColumns\022+\n\013add_col" +
+      "umns\030\001 \003(\0132\026.greptime.v1.AddColumn\"?\n\014Dr" +
+      "opDefaults\022/\n\rdrop_defaults\030\001 \003(\0132\030.grep" +
+      "time.v1.DropDefault\"<\n\013SetDefaults\022-\n\014se" +
+      "t_defaults\030\001 \003(\0132\027.greptime.v1.SetDefaul" +
+      "t\"<\n\013DropColumns\022-\n\014drop_columns\030\001 \003(\0132\027" +
+      ".greptime.v1.DropColumn\"O\n\021ModifyColumnT" +
+      "ypes\022:\n\023modify_column_types\030\001 \003(\0132\035.grep" +
+      "time.v1.ModifyColumnType\"%\n\013RenameTable\022" +
+      "\026\n\016new_table_name\030\001 \001(\t\"\204\001\n\tAddColumn\022*\n" +
+      "\ncolumn_def\030\001 \001(\0132\026.greptime.v1.ColumnDe" +
+      "f\0220\n\010location\030\003 \001(\0132\036.greptime.v1.AddCol" +
+      "umnLocation\022\031\n\021add_if_not_exists\030\004 \001(\010\"\236" +
+      "\001\n\020ModifyColumnType\022\023\n\013column_name\030\001 \001(\t" +
+      "\0220\n\013target_type\030\002 \001(\0162\033.greptime.v1.Colu" +
+      "mnDataType\022C\n\025target_type_extension\030\003 \001(" +
+      "\0132$.greptime.v1.ColumnDataTypeExtension\"" +
+      "S\n\017SetJsonSettings\022\023\n\013column_name\030\001 \001(\t\022" +
+      "+\n\010settings\030\002 \001(\0132\031.greptime.v1.JsonSett" +
+      "ings\"g\n\024SetColumnCompression\022\023\n\013column_n" +
+      "ame\030\001 \001(\t\022+\n\007options\030\002 \001(\0132\032.greptime.v1" +
+      ".ColumnOptions\022\r\n\005reset\030\003 \001(\010\"\177\n\014JsonSet" +
+      "tings\022-\n\ntype_hints\030\001 \003(\0132\031.greptime.v1." +
+      "JsonTypeHint\022$\n\027max_auto_expanded_paths\030" +
+      "\002 \001(\rH\000\210\001\001B\032\n\030_max_auto_expanded_paths\"\345" +
+      "\001\n\014JsonTypeHint\022\014\n\004path\030\001 \003(\t\022.\n\tdata_ty" +
+      "pe\030\002 \001(\0162\033.greptime.v1.ColumnDataType\022@\n" +
+      "\022datatype_extension\030\003 \001(\0132$.greptime.v1." +
+      "ColumnDataTypeExtension\022\026\n\016inverted_inde" +
+      "x\030\004 \001(\010\022=\n\016skipping_index\030\005 \001(\0132%.grepti" +
+      "me.v1.JsonSkippingIndexOptions\"\200\001\n\030JsonS" +
+      "kippingIndexOptions\022\023\n\013granularity\030\001 \001(\r" +
+      "\0222\n\nindex_type\030\002 \001(\0162\036.greptime.v1.Skipp" +
+      "ingIndexType\022\033\n\023false_positive_rate\030\003 \001(" +
+      "\001\"$\n\006Option\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"" +
+      "=\n\017SetTableOptions\022*\n\rtable_options\030\001 \003(" +
+      "\0132\023.greptime.v1.Option\"!\n\021UnsetTableOpti" +
+      "ons\022\014\n\004keys\030\001 \003(\t\"\032\n\nDropColumn\022\014\n\004name\030" +
+      "\001 \001(\t\"\025\n\007TableId\022\n\n\002id\030\001 \001(\r\"\024\n\006FlowId\022\n" +
+      "\n\002id\030\001 \001(\r\"\254\002\n\tColumnDef\022\014\n\004name\030\001 \001(\t\022." +
+      "\n\tdata_type\030\002 \001(\0162\033.greptime.v1.ColumnDa" +
+      "taType\022\023\n\013is_nullable\030\003 \001(\010\022\032\n\022default_c" +
+      "onstraint\030\004 \001(\014\0220\n\rsemantic_type\030\005 \001(\0162\031" +
+      ".greptime.v1.SemanticType\022\017\n\007comment\030\006 \001" +
+      "(\t\022@\n\022datatype_extension\030\007 \001(\0132$.greptim" +
+      "e.v1.ColumnDataTypeExtension\022+\n\007options\030" +
+      "\010 \001(\0132\032.greptime.v1.ColumnOptions\"\230\001\n\021Ad" +
+      "dColumnLocation\022B\n\rlocation_type\030\001 \001(\0162+" +
+      ".greptime.v1.AddColumnLocation.LocationT" +
+      "ype\022\031\n\021after_column_name\030\002 \001(\t\"$\n\014Locati" +
+      "onType\022\t\n\005FIRST\020\000\022\t\n\005AFTER\020\001\"\324\001\n\013SetFull" +
+      "text\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enable\030\002 \001(" +
+      "\010\022\'\n\010analyzer\030\003 \001(\0162\025.greptime.v1.Analyz" +
+      "er\022\026\n\016case_sensitive\030\004 \001(\010\022-\n\007backend\030\005 " +
+      "\001(\0162\034.greptime.v1.FulltextBackend\022\023\n\013gra" +
+      "nularity\030\006 \001(\004\022\033\n\023false_positive_rate\030\007 " +
+      "\001(\001\"$\n\rUnsetFulltext\022\023\n\013column_name\030\001 \001(" +
+      "\t\"\"\n\013SetInverted\022\023\n\013column_name\030\001 \001(\t\"$\n" +
+      "\rUnsetInverted\022\023\n\013column_name\030\001 \001(\t\"\241\001\n\013" +
+      "SetSkipping\022\023\n\013column_name\030\001 \001(\t\022\016\n\006enab" +
+      "le\030\002 \001(\010\022\023\n\013granularity\030\003 \001(\004\022;\n\023skippin" +
+      "g_index_type\030\004 \001(\0162\036.greptime.v1.Skippin" +
+      "gIndexType\022\033\n\023false_positive_rate\030\005 \001(\001\"" +
+      "$\n\rUnsetSkipping\022\023\n\013column_name\030\001 \001(\t\"\314\001" +
+      "\n\021AlterDatabaseExpr\022\024\n\014catalog_name\030\001 \001(" +
+      "\t\022\023\n\013schema_name\030\002 \001(\t\022?\n\024set_database_o" +
+      "ptions\030\003 \001(\0132\037.greptime.v1.SetDatabaseOp" +
+      "tionsH\000\022C\n\026unset_database_options\030\004 \001(\0132" +
+      "!.greptime.v1.UnsetDatabaseOptionsH\000B\006\n\004" +
+      "kind\"G\n\022SetDatabaseOptions\0221\n\024set_databa" +
+      "se_options\030\001 \003(\0132\023.greptime.v1.Option\"$\n" +
+      "\024UnsetDatabaseOptions\022\014\n\004keys\030\001 \003(\t\"\331\004\n\021" +
+      "CreateTriggerExpr\022\024\n\014catalog_name\030\001 \001(\t\022" +
+      "\024\n\014trigger_name\030\002 \001(\t\022\034\n\024create_if_not_e" +
+      "xists\030\003 \001(\010\022\013\n\003sql\030\004 \001(\t\022,\n\010channels\030\005 \003" +
+      "(\0132\032.greptime.v1.NotifyChannel\022:\n\006labels" +
+      "\030\006 \003(\0132*.greptime.v1.CreateTriggerExpr.L" +
+      "abelsEntry\022D\n\013annotations\030\007 \003(\0132/.grepti" +
+      "me.v1.CreateTriggerExpr.AnnotationsEntry" +
+      "\022+\n\010interval\030\010 \001(\0132\031.google.protobuf.Dur" +
+      "ation\022\031\n\021raw_interval_expr\030\t \001(\t\022&\n\003for\030" +
+      "\n \001(\0132\031.google.protobuf.Duration\022\024\n\014for_" +
+      "raw_expr\030\013 \001(\t\0222\n\017keep_firing_for\030\014 \001(\0132" +
+      "\031.google.protobuf.Duration\022 \n\030keep_firin" +
+      "g_for_raw_expr\030\r \001(\t\032-\n\013LabelsEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0322\n\020Annotatio" +
+      "nsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
+      "]\n\rNotifyChannel\022\014\n\004name\030\001 \001(\t\022.\n\007webhoo" +
+      "k\030\002 \001(\0132\033.greptime.v1.WebhookOptionsH\000B\016" +
+      "\n\014channel_type\"\177\n\016WebhookOptions\022\013\n\003url\030" +
+      "\001 \001(\t\0223\n\004opts\030\002 \003(\0132%.greptime.v1.Webhoo" +
+      "kOptions.OptsEntry\032+\n\tOptsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\017DropTriggerEx" +
+      "pr\022\024\n\014catalog_name\030\001 \001(\t\022\024\n\014trigger_name" +
+      "\030\002 \001(\t\022\026\n\016drop_if_exists\030\003 \001(\010\"\252\001\n\rComme" +
+      "ntOnExpr\022\024\n\014catalog_name\030\001 \001(\t\022\023\n\013schema" +
+      "_name\030\002 \001(\t\0223\n\013object_type\030\003 \001(\0162\036.grept" +
+      "ime.v1.CommentObjectType\022\023\n\013object_name\030" +
+      "\004 \001(\t\022\023\n\013column_name\030\005 \001(\t\022\017\n\007comment\030\006 " +
+      "\001(\t*$\n\010Analyzer\022\013\n\007ENGLISH\020\000\022\013\n\007CHINESE\020" +
+      "\001*)\n\017FulltextBackend\022\013\n\007TANTIVY\020\000\022\t\n\005BLO" +
+      "OM\020\001*%\n\021SkippingIndexType\022\020\n\014BLOOM_FILTE" +
+      "R\020\000*4\n\021CommentObjectType\022\t\n\005TABLE\020\000\022\n\n\006C" +
+      "OLUMN\020\001\022\010\n\004FLOW\020\002BL\n\016io.greptime.v1B\003Ddl" +
+      "Z5github.com/GreptimeTeam/greptime-proto" +
+      "/go/greptime/v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -61471,7 +62677,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_AlterTableExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterTableExpr_descriptor,
-        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "Repartition", "SetJsonSettings", "Kind", });
+        new java.lang.String[] { "CatalogName", "SchemaName", "TableName", "AddColumns", "DropColumns", "RenameTable", "ModifyColumnTypes", "SetTableOptions", "UnsetTableOptions", "SetIndex", "UnsetIndex", "DropDefaults", "SetIndexes", "UnsetIndexes", "SetDefaults", "Repartition", "SetJsonSettings", "SetColumnCompression", "Kind", });
     internal_static_greptime_v1_DropDefault_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_DropDefault_fieldAccessorTable = new
@@ -61616,128 +62822,134 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetJsonSettings_descriptor,
         new java.lang.String[] { "ColumnName", "Settings", });
-    internal_static_greptime_v1_JsonSettings_descriptor =
+    internal_static_greptime_v1_SetColumnCompression_descriptor =
       getDescriptor().getMessageTypes().get(30);
+    internal_static_greptime_v1_SetColumnCompression_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_SetColumnCompression_descriptor,
+        new java.lang.String[] { "ColumnName", "Options", "Reset", });
+    internal_static_greptime_v1_JsonSettings_descriptor =
+      getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_JsonSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonSettings_descriptor,
         new java.lang.String[] { "TypeHints", "MaxAutoExpandedPaths", "MaxAutoExpandedPaths", });
     internal_static_greptime_v1_JsonTypeHint_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_greptime_v1_JsonTypeHint_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonTypeHint_descriptor,
         new java.lang.String[] { "Path", "DataType", "DatatypeExtension", "InvertedIndex", "SkippingIndex", });
     internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_greptime_v1_JsonSkippingIndexOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_JsonSkippingIndexOptions_descriptor,
         new java.lang.String[] { "Granularity", "IndexType", "FalsePositiveRate", });
     internal_static_greptime_v1_Option_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_Option_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_Option_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_SetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_SetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetTableOptions_descriptor,
         new java.lang.String[] { "TableOptions", });
     internal_static_greptime_v1_UnsetTableOptions_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_UnsetTableOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetTableOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_DropColumn_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_DropColumn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropColumn_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_greptime_v1_TableId_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_TableId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_TableId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_FlowId_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_FlowId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_FlowId_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_greptime_v1_ColumnDef_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_ColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_ColumnDef_descriptor,
         new java.lang.String[] { "Name", "DataType", "IsNullable", "DefaultConstraint", "SemanticType", "Comment", "DatatypeExtension", "Options", });
     internal_static_greptime_v1_AddColumnLocation_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_AddColumnLocation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AddColumnLocation_descriptor,
         new java.lang.String[] { "LocationType", "AfterColumnName", });
     internal_static_greptime_v1_SetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_greptime_v1_SetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Analyzer", "CaseSensitive", "Backend", "Granularity", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetFulltext_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_greptime_v1_UnsetFulltext_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetFulltext_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_greptime_v1_SetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_UnsetInverted_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_greptime_v1_UnsetInverted_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetInverted_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_SetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_greptime_v1_SetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", "Enable", "Granularity", "SkippingIndexType", "FalsePositiveRate", });
     internal_static_greptime_v1_UnsetSkipping_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_greptime_v1_UnsetSkipping_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetSkipping_descriptor,
         new java.lang.String[] { "ColumnName", });
     internal_static_greptime_v1_AlterDatabaseExpr_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_greptime_v1_AlterDatabaseExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_AlterDatabaseExpr_descriptor,
         new java.lang.String[] { "CatalogName", "SchemaName", "SetDatabaseOptions", "UnsetDatabaseOptions", "Kind", });
     internal_static_greptime_v1_SetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_greptime_v1_SetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_SetDatabaseOptions_descriptor,
         new java.lang.String[] { "SetDatabaseOptions", });
     internal_static_greptime_v1_UnsetDatabaseOptions_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_greptime_v1_UnsetDatabaseOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_UnsetDatabaseOptions_descriptor,
         new java.lang.String[] { "Keys", });
     internal_static_greptime_v1_CreateTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_greptime_v1_CreateTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CreateTriggerExpr_descriptor,
@@ -61755,13 +62967,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_CreateTriggerExpr_AnnotationsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_NotifyChannel_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_greptime_v1_NotifyChannel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_NotifyChannel_descriptor,
         new java.lang.String[] { "Name", "Webhook", "ChannelType", });
     internal_static_greptime_v1_WebhookOptions_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_greptime_v1_WebhookOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_WebhookOptions_descriptor,
@@ -61773,13 +62985,13 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_WebhookOptions_OptsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_greptime_v1_DropTriggerExpr_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_greptime_v1_DropTriggerExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_DropTriggerExpr_descriptor,
         new java.lang.String[] { "CatalogName", "TriggerName", "DropIfExists", });
     internal_static_greptime_v1_CommentOnExpr_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_greptime_v1_CommentOnExpr_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_CommentOnExpr_descriptor,
