@@ -463,46 +463,46 @@ public final class HeartbeatOuterClass {
 
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
-    java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> 
-        getOperatingRegionsList();
+    java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> 
+        getOpeningRegionsList();
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
-    greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getOperatingRegions(int index);
+    greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getOpeningRegions(int index);
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
-    int getOperatingRegionsCount();
+    int getOpeningRegionsCount();
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
-    java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder> 
-        getOperatingRegionsOrBuilderList();
+    java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder> 
+        getOpeningRegionsOrBuilderList();
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
-    greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder getOperatingRegionsOrBuilder(
+    greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder getOpeningRegionsOrBuilder(
         int index);
 
     /**
@@ -558,7 +558,7 @@ com.google.protobuf.ByteString defaultValue);
     private HeartbeatRequest() {
       regionStats_ = java.util.Collections.emptyList();
       topicStats_ = java.util.Collections.emptyList();
-      operatingRegions_ = java.util.Collections.emptyList();
+      openingRegions_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -742,11 +742,11 @@ com.google.protobuf.ByteString defaultValue);
             }
             case 114: {
               if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                operatingRegions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion>();
+                openingRegions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              operatingRegions_.add(
-                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.parser(), extensionRegistry));
+              openingRegions_.add(
+                  input.readMessage(greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.parser(), extensionRegistry));
               break;
             }
             case 794: {
@@ -786,7 +786,7 @@ com.google.protobuf.ByteString defaultValue);
           topicStats_ = java.util.Collections.unmodifiableList(topicStats_);
         }
         if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          operatingRegions_ = java.util.Collections.unmodifiableList(operatingRegions_);
+          openingRegions_ = java.util.Collections.unmodifiableList(openingRegions_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1295,64 +1295,64 @@ com.google.protobuf.ByteString defaultValue);
       return topicStats_.get(index);
     }
 
-    public static final int OPERATING_REGIONS_FIELD_NUMBER = 14;
-    private java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> operatingRegions_;
+    public static final int OPENING_REGIONS_FIELD_NUMBER = 14;
+    private java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> openingRegions_;
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
     @java.lang.Override
-    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> getOperatingRegionsList() {
-      return operatingRegions_;
+    public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> getOpeningRegionsList() {
+      return openingRegions_;
     }
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder> 
-        getOperatingRegionsOrBuilderList() {
-      return operatingRegions_;
+    public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder> 
+        getOpeningRegionsOrBuilderList() {
+      return openingRegions_;
     }
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
     @java.lang.Override
-    public int getOperatingRegionsCount() {
-      return operatingRegions_.size();
+    public int getOpeningRegionsCount() {
+      return openingRegions_.size();
     }
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getOperatingRegions(int index) {
-      return operatingRegions_.get(index);
+    public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getOpeningRegions(int index) {
+      return openingRegions_.get(index);
     }
     /**
      * <pre>
-     * The regions the datanode is bringing online but does not serve yet.
+     * Regions queued for opening or currently being opened.
      * </pre>
      *
-     * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+     * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
      */
     @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder getOperatingRegionsOrBuilder(
+    public greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder getOpeningRegionsOrBuilder(
         int index) {
-      return operatingRegions_.get(index);
+      return openingRegions_.get(index);
     }
 
     public static final int EXTENSIONS_FIELD_NUMBER = 99;
@@ -1489,8 +1489,8 @@ com.google.protobuf.ByteString defaultValue);
       for (int i = 0; i < topicStats_.size(); i++) {
         output.writeMessage(13, topicStats_.get(i));
       }
-      for (int i = 0; i < operatingRegions_.size(); i++) {
-        output.writeMessage(14, operatingRegions_.get(i));
+      for (int i = 0; i < openingRegions_.size(); i++) {
+        output.writeMessage(14, openingRegions_.get(i));
       }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
@@ -1559,9 +1559,9 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(13, topicStats_.get(i));
       }
-      for (int i = 0; i < operatingRegions_.size(); i++) {
+      for (int i = 0; i < openingRegions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(14, operatingRegions_.get(i));
+          .computeMessageSize(14, openingRegions_.get(i));
       }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
            : internalGetExtensions().getMap().entrySet()) {
@@ -1626,8 +1626,8 @@ com.google.protobuf.ByteString defaultValue);
       }
       if (!getTopicStatsList()
           .equals(other.getTopicStatsList())) return false;
-      if (!getOperatingRegionsList()
-          .equals(other.getOperatingRegionsList())) return false;
+      if (!getOpeningRegionsList()
+          .equals(other.getOpeningRegionsList())) return false;
       if (!internalGetExtensions().equals(
           other.internalGetExtensions())) return false;
       if (!getNodeWorkloadsCase().equals(other.getNodeWorkloadsCase())) return false;
@@ -1696,9 +1696,9 @@ com.google.protobuf.ByteString defaultValue);
         hash = (37 * hash) + TOPIC_STATS_FIELD_NUMBER;
         hash = (53 * hash) + getTopicStatsList().hashCode();
       }
-      if (getOperatingRegionsCount() > 0) {
-        hash = (37 * hash) + OPERATING_REGIONS_FIELD_NUMBER;
-        hash = (53 * hash) + getOperatingRegionsList().hashCode();
+      if (getOpeningRegionsCount() > 0) {
+        hash = (37 * hash) + OPENING_REGIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getOpeningRegionsList().hashCode();
       }
       if (!internalGetExtensions().getMap().isEmpty()) {
         hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
@@ -1872,7 +1872,7 @@ com.google.protobuf.ByteString defaultValue);
                 .alwaysUseFieldBuilders) {
           getRegionStatsFieldBuilder();
           getTopicStatsFieldBuilder();
-          getOperatingRegionsFieldBuilder();
+          getOpeningRegionsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -1930,11 +1930,11 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           topicStatsBuilder_.clear();
         }
-        if (operatingRegionsBuilder_ == null) {
-          operatingRegions_ = java.util.Collections.emptyList();
+        if (openingRegionsBuilder_ == null) {
+          openingRegions_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          operatingRegionsBuilder_.clear();
+          openingRegionsBuilder_.clear();
         }
         internalGetMutableExtensions().clear();
         nodeWorkloadsCase_ = 0;
@@ -2037,14 +2037,14 @@ com.google.protobuf.ByteString defaultValue);
         } else {
           result.topicStats_ = topicStatsBuilder_.build();
         }
-        if (operatingRegionsBuilder_ == null) {
+        if (openingRegionsBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0)) {
-            operatingRegions_ = java.util.Collections.unmodifiableList(operatingRegions_);
+            openingRegions_ = java.util.Collections.unmodifiableList(openingRegions_);
             bitField0_ = (bitField0_ & ~0x00000004);
           }
-          result.operatingRegions_ = operatingRegions_;
+          result.openingRegions_ = openingRegions_;
         } else {
-          result.operatingRegions_ = operatingRegionsBuilder_.build();
+          result.openingRegions_ = openingRegionsBuilder_.build();
         }
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
@@ -2173,29 +2173,29 @@ com.google.protobuf.ByteString defaultValue);
             }
           }
         }
-        if (operatingRegionsBuilder_ == null) {
-          if (!other.operatingRegions_.isEmpty()) {
-            if (operatingRegions_.isEmpty()) {
-              operatingRegions_ = other.operatingRegions_;
+        if (openingRegionsBuilder_ == null) {
+          if (!other.openingRegions_.isEmpty()) {
+            if (openingRegions_.isEmpty()) {
+              openingRegions_ = other.openingRegions_;
               bitField0_ = (bitField0_ & ~0x00000004);
             } else {
-              ensureOperatingRegionsIsMutable();
-              operatingRegions_.addAll(other.operatingRegions_);
+              ensureOpeningRegionsIsMutable();
+              openingRegions_.addAll(other.openingRegions_);
             }
             onChanged();
           }
         } else {
-          if (!other.operatingRegions_.isEmpty()) {
-            if (operatingRegionsBuilder_.isEmpty()) {
-              operatingRegionsBuilder_.dispose();
-              operatingRegionsBuilder_ = null;
-              operatingRegions_ = other.operatingRegions_;
+          if (!other.openingRegions_.isEmpty()) {
+            if (openingRegionsBuilder_.isEmpty()) {
+              openingRegionsBuilder_.dispose();
+              openingRegionsBuilder_ = null;
+              openingRegions_ = other.openingRegions_;
               bitField0_ = (bitField0_ & ~0x00000004);
-              operatingRegionsBuilder_ = 
+              openingRegionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getOperatingRegionsFieldBuilder() : null;
+                   getOpeningRegionsFieldBuilder() : null;
             } else {
-              operatingRegionsBuilder_.addAllMessages(other.operatingRegions_);
+              openingRegionsBuilder_.addAllMessages(other.openingRegions_);
             }
           }
         }
@@ -4221,316 +4221,316 @@ com.google.protobuf.ByteString defaultValue);
         return topicStatsBuilder_;
       }
 
-      private java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> operatingRegions_ =
+      private java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> openingRegions_ =
         java.util.Collections.emptyList();
-      private void ensureOperatingRegionsIsMutable() {
+      private void ensureOpeningRegionsIsMutable() {
         if (!((bitField0_ & 0x00000004) != 0)) {
-          operatingRegions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion>(operatingRegions_);
+          openingRegions_ = new java.util.ArrayList<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion>(openingRegions_);
           bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.OperatingRegion, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder> operatingRegionsBuilder_;
+          greptime.v1.meta.HeartbeatOuterClass.OpeningRegion, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder> openingRegionsBuilder_;
 
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> getOperatingRegionsList() {
-        if (operatingRegionsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(operatingRegions_);
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> getOpeningRegionsList() {
+        if (openingRegionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(openingRegions_);
         } else {
-          return operatingRegionsBuilder_.getMessageList();
+          return openingRegionsBuilder_.getMessageList();
         }
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public int getOperatingRegionsCount() {
-        if (operatingRegionsBuilder_ == null) {
-          return operatingRegions_.size();
+      public int getOpeningRegionsCount() {
+        if (openingRegionsBuilder_ == null) {
+          return openingRegions_.size();
         } else {
-          return operatingRegionsBuilder_.getCount();
+          return openingRegionsBuilder_.getCount();
         }
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getOperatingRegions(int index) {
-        if (operatingRegionsBuilder_ == null) {
-          return operatingRegions_.get(index);
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getOpeningRegions(int index) {
+        if (openingRegionsBuilder_ == null) {
+          return openingRegions_.get(index);
         } else {
-          return operatingRegionsBuilder_.getMessage(index);
+          return openingRegionsBuilder_.getMessage(index);
         }
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder setOperatingRegions(
-          int index, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion value) {
-        if (operatingRegionsBuilder_ == null) {
+      public Builder setOpeningRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion value) {
+        if (openingRegionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.set(index, value);
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.set(index, value);
           onChanged();
         } else {
-          operatingRegionsBuilder_.setMessage(index, value);
+          openingRegionsBuilder_.setMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder setOperatingRegions(
-          int index, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder builderForValue) {
-        if (operatingRegionsBuilder_ == null) {
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.set(index, builderForValue.build());
+      public Builder setOpeningRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder builderForValue) {
+        if (openingRegionsBuilder_ == null) {
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.set(index, builderForValue.build());
           onChanged();
         } else {
-          operatingRegionsBuilder_.setMessage(index, builderForValue.build());
+          openingRegionsBuilder_.setMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder addOperatingRegions(greptime.v1.meta.HeartbeatOuterClass.OperatingRegion value) {
-        if (operatingRegionsBuilder_ == null) {
+      public Builder addOpeningRegions(greptime.v1.meta.HeartbeatOuterClass.OpeningRegion value) {
+        if (openingRegionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.add(value);
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.add(value);
           onChanged();
         } else {
-          operatingRegionsBuilder_.addMessage(value);
+          openingRegionsBuilder_.addMessage(value);
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder addOperatingRegions(
-          int index, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion value) {
-        if (operatingRegionsBuilder_ == null) {
+      public Builder addOpeningRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion value) {
+        if (openingRegionsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.add(index, value);
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.add(index, value);
           onChanged();
         } else {
-          operatingRegionsBuilder_.addMessage(index, value);
+          openingRegionsBuilder_.addMessage(index, value);
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder addOperatingRegions(
-          greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder builderForValue) {
-        if (operatingRegionsBuilder_ == null) {
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.add(builderForValue.build());
+      public Builder addOpeningRegions(
+          greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder builderForValue) {
+        if (openingRegionsBuilder_ == null) {
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.add(builderForValue.build());
           onChanged();
         } else {
-          operatingRegionsBuilder_.addMessage(builderForValue.build());
+          openingRegionsBuilder_.addMessage(builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder addOperatingRegions(
-          int index, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder builderForValue) {
-        if (operatingRegionsBuilder_ == null) {
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.add(index, builderForValue.build());
+      public Builder addOpeningRegions(
+          int index, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder builderForValue) {
+        if (openingRegionsBuilder_ == null) {
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.add(index, builderForValue.build());
           onChanged();
         } else {
-          operatingRegionsBuilder_.addMessage(index, builderForValue.build());
+          openingRegionsBuilder_.addMessage(index, builderForValue.build());
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder addAllOperatingRegions(
-          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.OperatingRegion> values) {
-        if (operatingRegionsBuilder_ == null) {
-          ensureOperatingRegionsIsMutable();
+      public Builder addAllOpeningRegions(
+          java.lang.Iterable<? extends greptime.v1.meta.HeartbeatOuterClass.OpeningRegion> values) {
+        if (openingRegionsBuilder_ == null) {
+          ensureOpeningRegionsIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, operatingRegions_);
+              values, openingRegions_);
           onChanged();
         } else {
-          operatingRegionsBuilder_.addAllMessages(values);
+          openingRegionsBuilder_.addAllMessages(values);
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder clearOperatingRegions() {
-        if (operatingRegionsBuilder_ == null) {
-          operatingRegions_ = java.util.Collections.emptyList();
+      public Builder clearOpeningRegions() {
+        if (openingRegionsBuilder_ == null) {
+          openingRegions_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
-          operatingRegionsBuilder_.clear();
+          openingRegionsBuilder_.clear();
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public Builder removeOperatingRegions(int index) {
-        if (operatingRegionsBuilder_ == null) {
-          ensureOperatingRegionsIsMutable();
-          operatingRegions_.remove(index);
+      public Builder removeOpeningRegions(int index) {
+        if (openingRegionsBuilder_ == null) {
+          ensureOpeningRegionsIsMutable();
+          openingRegions_.remove(index);
           onChanged();
         } else {
-          operatingRegionsBuilder_.remove(index);
+          openingRegionsBuilder_.remove(index);
         }
         return this;
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder getOperatingRegionsBuilder(
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder getOpeningRegionsBuilder(
           int index) {
-        return getOperatingRegionsFieldBuilder().getBuilder(index);
+        return getOpeningRegionsFieldBuilder().getBuilder(index);
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder getOperatingRegionsOrBuilder(
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder getOpeningRegionsOrBuilder(
           int index) {
-        if (operatingRegionsBuilder_ == null) {
-          return operatingRegions_.get(index);  } else {
-          return operatingRegionsBuilder_.getMessageOrBuilder(index);
+        if (openingRegionsBuilder_ == null) {
+          return openingRegions_.get(index);  } else {
+          return openingRegionsBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder> 
-           getOperatingRegionsOrBuilderList() {
-        if (operatingRegionsBuilder_ != null) {
-          return operatingRegionsBuilder_.getMessageOrBuilderList();
+      public java.util.List<? extends greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder> 
+           getOpeningRegionsOrBuilderList() {
+        if (openingRegionsBuilder_ != null) {
+          return openingRegionsBuilder_.getMessageOrBuilderList();
         } else {
-          return java.util.Collections.unmodifiableList(operatingRegions_);
+          return java.util.Collections.unmodifiableList(openingRegions_);
         }
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder addOperatingRegionsBuilder() {
-        return getOperatingRegionsFieldBuilder().addBuilder(
-            greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.getDefaultInstance());
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder addOpeningRegionsBuilder() {
+        return getOpeningRegionsFieldBuilder().addBuilder(
+            greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.getDefaultInstance());
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder addOperatingRegionsBuilder(
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder addOpeningRegionsBuilder(
           int index) {
-        return getOperatingRegionsFieldBuilder().addBuilder(
-            index, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.getDefaultInstance());
+        return getOpeningRegionsFieldBuilder().addBuilder(
+            index, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.getDefaultInstance());
       }
       /**
        * <pre>
-       * The regions the datanode is bringing online but does not serve yet.
+       * Regions queued for opening or currently being opened.
        * </pre>
        *
-       * <code>repeated .greptime.v1.meta.OperatingRegion operating_regions = 14;</code>
+       * <code>repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;</code>
        */
-      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder> 
-           getOperatingRegionsBuilderList() {
-        return getOperatingRegionsFieldBuilder().getBuilderList();
+      public java.util.List<greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder> 
+           getOpeningRegionsBuilderList() {
+        return getOpeningRegionsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          greptime.v1.meta.HeartbeatOuterClass.OperatingRegion, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder> 
-          getOperatingRegionsFieldBuilder() {
-        if (operatingRegionsBuilder_ == null) {
-          operatingRegionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              greptime.v1.meta.HeartbeatOuterClass.OperatingRegion, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder>(
-                  operatingRegions_,
+          greptime.v1.meta.HeartbeatOuterClass.OpeningRegion, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder> 
+          getOpeningRegionsFieldBuilder() {
+        if (openingRegionsBuilder_ == null) {
+          openingRegionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              greptime.v1.meta.HeartbeatOuterClass.OpeningRegion, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder, greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder>(
+                  openingRegions_,
                   ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
-          operatingRegions_ = null;
+          openingRegions_ = null;
         }
-        return operatingRegionsBuilder_;
+        return openingRegionsBuilder_;
       }
 
       private com.google.protobuf.MapField<
@@ -9643,8 +9643,8 @@ com.google.protobuf.ByteString defaultValue);
 
   }
 
-  public interface OperatingRegionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.OperatingRegion)
+  public interface OpeningRegionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.meta.OpeningRegion)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -9652,42 +9652,31 @@ com.google.protobuf.ByteString defaultValue);
      * @return The regionId.
      */
     long getRegionId();
-
-    /**
-     * <pre>
-     * The wall-clock time (milliseconds since epoch) when the datanode queued the
-     * region for open or started the current open attempt.
-     * </pre>
-     *
-     * <code>int64 started_at_millis = 3;</code>
-     * @return The startedAtMillis.
-     */
-    long getStartedAtMillis();
   }
   /**
    * <pre>
-   *&#47; A region that the datanode is bringing online and cannot serve yet.
+   * A region queued for opening or currently being opened.
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.meta.OperatingRegion}
+   * Protobuf type {@code greptime.v1.meta.OpeningRegion}
    */
-  public static final class OperatingRegion extends
+  public static final class OpeningRegion extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.meta.OperatingRegion)
-      OperatingRegionOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.meta.OpeningRegion)
+      OpeningRegionOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use OperatingRegion.newBuilder() to construct.
-    private OperatingRegion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use OpeningRegion.newBuilder() to construct.
+    private OpeningRegion(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private OperatingRegion() {
+    private OpeningRegion() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new OperatingRegion();
+      return new OpeningRegion();
     }
 
     @java.lang.Override
@@ -9695,7 +9684,7 @@ com.google.protobuf.ByteString defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private OperatingRegion(
+    private OpeningRegion(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9716,11 +9705,6 @@ com.google.protobuf.ByteString defaultValue);
             case 8: {
 
               regionId_ = input.readUInt64();
-              break;
-            }
-            case 24: {
-
-              startedAtMillis_ = input.readInt64();
               break;
             }
             default: {
@@ -9746,15 +9730,15 @@ com.google.protobuf.ByteString defaultValue);
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OperatingRegion_descriptor;
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OpeningRegion_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OperatingRegion_fieldAccessorTable
+      return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OpeningRegion_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.class, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder.class);
+              greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.class, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder.class);
     }
 
     public static final int REGION_ID_FIELD_NUMBER = 1;
@@ -9766,22 +9750,6 @@ com.google.protobuf.ByteString defaultValue);
     @java.lang.Override
     public long getRegionId() {
       return regionId_;
-    }
-
-    public static final int STARTED_AT_MILLIS_FIELD_NUMBER = 3;
-    private long startedAtMillis_;
-    /**
-     * <pre>
-     * The wall-clock time (milliseconds since epoch) when the datanode queued the
-     * region for open or started the current open attempt.
-     * </pre>
-     *
-     * <code>int64 started_at_millis = 3;</code>
-     * @return The startedAtMillis.
-     */
-    @java.lang.Override
-    public long getStartedAtMillis() {
-      return startedAtMillis_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9801,9 +9769,6 @@ com.google.protobuf.ByteString defaultValue);
       if (regionId_ != 0L) {
         output.writeUInt64(1, regionId_);
       }
-      if (startedAtMillis_ != 0L) {
-        output.writeInt64(3, startedAtMillis_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -9817,10 +9782,6 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, regionId_);
       }
-      if (startedAtMillis_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, startedAtMillis_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -9831,15 +9792,13 @@ com.google.protobuf.ByteString defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.OperatingRegion)) {
+      if (!(obj instanceof greptime.v1.meta.HeartbeatOuterClass.OpeningRegion)) {
         return super.equals(obj);
       }
-      greptime.v1.meta.HeartbeatOuterClass.OperatingRegion other = (greptime.v1.meta.HeartbeatOuterClass.OperatingRegion) obj;
+      greptime.v1.meta.HeartbeatOuterClass.OpeningRegion other = (greptime.v1.meta.HeartbeatOuterClass.OpeningRegion) obj;
 
       if (getRegionId()
           != other.getRegionId()) return false;
-      if (getStartedAtMillis()
-          != other.getStartedAtMillis()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9854,77 +9813,74 @@ com.google.protobuf.ByteString defaultValue);
       hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRegionId());
-      hash = (37 * hash) + STARTED_AT_MILLIS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStartedAtMillis());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(byte[] data)
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseDelimitedFrom(java.io.InputStream input)
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseDelimitedFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parseFrom(
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9937,7 +9893,7 @@ com.google.protobuf.ByteString defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.OperatingRegion prototype) {
+    public static Builder newBuilder(greptime.v1.meta.HeartbeatOuterClass.OpeningRegion prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -9954,29 +9910,29 @@ com.google.protobuf.ByteString defaultValue);
     }
     /**
      * <pre>
-     *&#47; A region that the datanode is bringing online and cannot serve yet.
+     * A region queued for opening or currently being opened.
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.meta.OperatingRegion}
+     * Protobuf type {@code greptime.v1.meta.OpeningRegion}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.OperatingRegion)
-        greptime.v1.meta.HeartbeatOuterClass.OperatingRegionOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.meta.OpeningRegion)
+        greptime.v1.meta.HeartbeatOuterClass.OpeningRegionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OperatingRegion_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OpeningRegion_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OperatingRegion_fieldAccessorTable
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OpeningRegion_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.class, greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.Builder.class);
+                greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.class, greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.Builder.class);
       }
 
-      // Construct using greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.newBuilder()
+      // Construct using greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -9996,25 +9952,23 @@ com.google.protobuf.ByteString defaultValue);
         super.clear();
         regionId_ = 0L;
 
-        startedAtMillis_ = 0L;
-
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OperatingRegion_descriptor;
+        return greptime.v1.meta.HeartbeatOuterClass.internal_static_greptime_v1_meta_OpeningRegion_descriptor;
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getDefaultInstanceForType() {
-        return greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.getDefaultInstance();
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getDefaultInstanceForType() {
+        return greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.getDefaultInstance();
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion build() {
-        greptime.v1.meta.HeartbeatOuterClass.OperatingRegion result = buildPartial();
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion build() {
+        greptime.v1.meta.HeartbeatOuterClass.OpeningRegion result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -10022,10 +9976,9 @@ com.google.protobuf.ByteString defaultValue);
       }
 
       @java.lang.Override
-      public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion buildPartial() {
-        greptime.v1.meta.HeartbeatOuterClass.OperatingRegion result = new greptime.v1.meta.HeartbeatOuterClass.OperatingRegion(this);
+      public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion buildPartial() {
+        greptime.v1.meta.HeartbeatOuterClass.OpeningRegion result = new greptime.v1.meta.HeartbeatOuterClass.OpeningRegion(this);
         result.regionId_ = regionId_;
-        result.startedAtMillis_ = startedAtMillis_;
         onBuilt();
         return result;
       }
@@ -10064,21 +10017,18 @@ com.google.protobuf.ByteString defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.OperatingRegion) {
-          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.OperatingRegion)other);
+        if (other instanceof greptime.v1.meta.HeartbeatOuterClass.OpeningRegion) {
+          return mergeFrom((greptime.v1.meta.HeartbeatOuterClass.OpeningRegion)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.OperatingRegion other) {
-        if (other == greptime.v1.meta.HeartbeatOuterClass.OperatingRegion.getDefaultInstance()) return this;
+      public Builder mergeFrom(greptime.v1.meta.HeartbeatOuterClass.OpeningRegion other) {
+        if (other == greptime.v1.meta.HeartbeatOuterClass.OpeningRegion.getDefaultInstance()) return this;
         if (other.getRegionId() != 0L) {
           setRegionId(other.getRegionId());
-        }
-        if (other.getStartedAtMillis() != 0L) {
-          setStartedAtMillis(other.getStartedAtMillis());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10095,11 +10045,11 @@ com.google.protobuf.ByteString defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        greptime.v1.meta.HeartbeatOuterClass.OperatingRegion parsedMessage = null;
+        greptime.v1.meta.HeartbeatOuterClass.OpeningRegion parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.OperatingRegion) e.getUnfinishedMessage();
+          parsedMessage = (greptime.v1.meta.HeartbeatOuterClass.OpeningRegion) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -10139,52 +10089,6 @@ com.google.protobuf.ByteString defaultValue);
         onChanged();
         return this;
       }
-
-      private long startedAtMillis_ ;
-      /**
-       * <pre>
-       * The wall-clock time (milliseconds since epoch) when the datanode queued the
-       * region for open or started the current open attempt.
-       * </pre>
-       *
-       * <code>int64 started_at_millis = 3;</code>
-       * @return The startedAtMillis.
-       */
-      @java.lang.Override
-      public long getStartedAtMillis() {
-        return startedAtMillis_;
-      }
-      /**
-       * <pre>
-       * The wall-clock time (milliseconds since epoch) when the datanode queued the
-       * region for open or started the current open attempt.
-       * </pre>
-       *
-       * <code>int64 started_at_millis = 3;</code>
-       * @param value The startedAtMillis to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStartedAtMillis(long value) {
-        
-        startedAtMillis_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * The wall-clock time (milliseconds since epoch) when the datanode queued the
-       * region for open or started the current open attempt.
-       * </pre>
-       *
-       * <code>int64 started_at_millis = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStartedAtMillis() {
-        
-        startedAtMillis_ = 0L;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10198,41 +10102,41 @@ com.google.protobuf.ByteString defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.OperatingRegion)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.meta.OpeningRegion)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.meta.OperatingRegion)
-    private static final greptime.v1.meta.HeartbeatOuterClass.OperatingRegion DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.meta.OpeningRegion)
+    private static final greptime.v1.meta.HeartbeatOuterClass.OpeningRegion DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.OperatingRegion();
+      DEFAULT_INSTANCE = new greptime.v1.meta.HeartbeatOuterClass.OpeningRegion();
     }
 
-    public static greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getDefaultInstance() {
+    public static greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<OperatingRegion>
-        PARSER = new com.google.protobuf.AbstractParser<OperatingRegion>() {
+    private static final com.google.protobuf.Parser<OpeningRegion>
+        PARSER = new com.google.protobuf.AbstractParser<OpeningRegion>() {
       @java.lang.Override
-      public OperatingRegion parsePartialFrom(
+      public OpeningRegion parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OperatingRegion(input, extensionRegistry);
+        return new OpeningRegion(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<OperatingRegion> parser() {
+    public static com.google.protobuf.Parser<OpeningRegion> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<OperatingRegion> getParserForType() {
+    public com.google.protobuf.Parser<OpeningRegion> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public greptime.v1.meta.HeartbeatOuterClass.OperatingRegion getDefaultInstanceForType() {
+    public greptime.v1.meta.HeartbeatOuterClass.OpeningRegion getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20532,10 +20436,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_meta_OperatingRegion_descriptor;
+    internal_static_greptime_v1_meta_OpeningRegion_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_meta_OperatingRegion_fieldAccessorTable;
+      internal_static_greptime_v1_meta_OpeningRegion_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_meta_TopicStat_descriptor;
   private static final 
@@ -20622,7 +20526,7 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n greptime/v1/meta/heartbeat.proto\022\020grep" +
       "time.v1.meta\032\035greptime/v1/meta/common.pr" +
-      "oto\"\304\006\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
+      "oto\"\300\006\n\020HeartbeatRequest\022/\n\006header\030\001 \001(\013" +
       "2\037.greptime.v1.meta.RequestHeader\022$\n\004pee" +
       "r\030\002 \001(\0132\026.greptime.v1.meta.Peer\0227\n\017repor" +
       "t_interval\030\003 \001(\0132\036.greptime.v1.meta.Time" +
@@ -20638,81 +20542,81 @@ java.lang.String defaultValue);
       "dWorkloadsH\000\0227\n\010flownode\030\014 \001(\0132#.greptim" +
       "e.v1.meta.FlownodeWorkloadsH\000\0220\n\013topic_s" +
       "tats\030\r \003(\0132\033.greptime.v1.meta.TopicStat\022" +
-      "<\n\021operating_regions\030\016 \003(\0132!.greptime.v1" +
-      ".meta.OperatingRegion\022F\n\nextensions\030c \003(" +
-      "\01322.greptime.v1.meta.HeartbeatRequest.Ex" +
-      "tensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001B\020\n\016node_workloa" +
-      "ds\"\"\n\021DatanodeWorkloads\022\r\n\005types\030\001 \003(\005\"\"" +
-      "\n\021FrontendWorkloads\022\r\n\005types\030\001 \003(\005\"\"\n\021Fl" +
-      "ownodeWorkloads\022\r\n\005types\030\001 \003(\005\"\370\001\n\010NodeI" +
-      "nfo\022\017\n\007version\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t" +
-      "\022\025\n\rstart_time_ms\030\003 \001(\004\022\020\n\004cpus\030\004 \001(\rB\002\030" +
-      "\001\022\030\n\014memory_bytes\030\005 \001(\004B\002\030\001\022\020\n\010hostname\030" +
-      "\006 \001(\t\022\034\n\024total_cpu_millicores\030\007 \001(\003\022\032\n\022t" +
-      "otal_memory_bytes\030\010 \001(\003\022\034\n\024cpu_usage_mil" +
-      "licores\030\t \001(\003\022\032\n\022memory_usage_bytes\030\n \001(" +
-      "\003\"\207\002\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004r" +
-      "cus\030\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_b" +
-      "ytes\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\016" +
-      "2\034.greptime.v1.meta.RegionRole\022@\n\nextens" +
-      "ions\030c \003(\0132,.greptime.v1.meta.RegionStat" +
-      ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"E\n\017Operating" +
-      "Region\022\021\n\tregion_id\030\001 \001(\004\022\031\n\021started_at_" +
-      "millis\030\003 \001(\003J\004\010\002\020\003\"a\n\tTopicStat\022\022\n\ntopic" +
-      "_name\030\001 \001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\nreco" +
-      "rd_num\030\003 \001(\004\022\027\n\017latest_entry_id\030\004 \001(\004\"\227\002" +
-      "\n\010FlowStat\022D\n\016flow_stat_size\030\001 \003(\0132,.gre" +
-      "ptime.v1.meta.FlowStat.FlowStatSizeEntry" +
-      "\022T\n\027flow_last_exec_time_map\030\002 \003(\01323.grep" +
-      "time.v1.meta.FlowStat.FlowLastExecTimeMa" +
-      "pEntry\0323\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r" +
-      "\022\r\n\005value\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeM" +
-      "apEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"" +
-      "\356\002\n\021HeartbeatResponse\0220\n\006header\030\001 \001(\0132 ." +
-      "greptime.v1.meta.ResponseHeader\0229\n\017mailb" +
-      "ox_message\030\002 \001(\0132 .greptime.v1.meta.Mail" +
-      "boxMessage\0223\n\014region_lease\030\003 \001(\0132\035.grept" +
-      "ime.v1.meta.RegionLease\022;\n\020heartbeat_con" +
-      "fig\030\004 \001(\0132!.greptime.v1.meta.HeartbeatCo" +
-      "nfig\022G\n\nextensions\030c \003(\01323.greptime.v1.m" +
-      "eta.HeartbeatResponse.ExtensionsEntry\0321\n" +
-      "\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
-      " \001(\014:\0028\001\"_\n\017HeartbeatConfig\022\035\n\025heartbeat" +
-      "_interval_ms\030\001 \001(\004\022\031\n\021retry_interval_ms\030" +
-      "\002 \001(\004\022\022\n\ngc_enabled\030\003 \001(\010\"\306\001\n\rGrantedReg" +
-      "ion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.g" +
-      "reptime.v1.meta.RegionRole\022C\n\nextensions" +
-      "\030c \003(\0132/.greptime.v1.meta.GrantedRegion." +
-      "ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLea" +
-      "se\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta.G" +
-      "rantedRegion\022\034\n\024duration_since_epoch\030\002 \001" +
-      "(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_r" +
-      "egion_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006h" +
-      "eader\030\001 \001(\0132\037.greptime.v1.meta.RequestHe" +
-      "ader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001(" +
-      "\0132 .greptime.v1.meta.ResponseHeader\022&\n\006l" +
-      "eader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242\001\n\024" +
-      "MailboxMessageHeader\022S\n\017tracing_context\030" +
-      "\001 \003(\0132:.greptime.v1.meta.MailboxMessageH" +
-      "eader.TracingContextEntry\0325\n\023TracingCont" +
-      "extEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&.gr" +
-      "eptime.v1.meta.MailboxMessageHeader\022\n\n\002i" +
-      "d\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n" +
-      "\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004" +
-      "json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole\022\n\n" +
-      "\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLe" +
-      "ader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbeat\022" +
-      "Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbea" +
-      "tRequest\032#.greptime.v1.meta.HeartbeatRes" +
-      "ponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1.m" +
-      "eta.AskLeaderRequest\032#.greptime.v1.meta." +
-      "AskLeaderResponse\"\000B<Z:github.com/Grepti" +
-      "meTeam/greptime-proto/go/greptime/v1/met" +
-      "ab\006proto3"
+      "8\n\017opening_regions\030\016 \003(\0132\037.greptime.v1.m" +
+      "eta.OpeningRegion\022F\n\nextensions\030c \003(\01322." +
+      "greptime.v1.meta.HeartbeatRequest.Extens" +
+      "ionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\014:\0028\001B\020\n\016node_workloads\"\"" +
+      "\n\021DatanodeWorkloads\022\r\n\005types\030\001 \003(\005\"\"\n\021Fr" +
+      "ontendWorkloads\022\r\n\005types\030\001 \003(\005\"\"\n\021Flowno" +
+      "deWorkloads\022\r\n\005types\030\001 \003(\005\"\370\001\n\010NodeInfo\022" +
+      "\017\n\007version\030\001 \001(\t\022\022\n\ngit_commit\030\002 \001(\t\022\025\n\r" +
+      "start_time_ms\030\003 \001(\004\022\020\n\004cpus\030\004 \001(\rB\002\030\001\022\030\n" +
+      "\014memory_bytes\030\005 \001(\004B\002\030\001\022\020\n\010hostname\030\006 \001(" +
+      "\t\022\034\n\024total_cpu_millicores\030\007 \001(\003\022\032\n\022total" +
+      "_memory_bytes\030\010 \001(\003\022\034\n\024cpu_usage_millico" +
+      "res\030\t \001(\003\022\032\n\022memory_usage_bytes\030\n \001(\003\"\207\002" +
+      "\n\nRegionStat\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004rcus\030" +
+      "\002 \001(\003\022\014\n\004wcus\030\003 \001(\003\022\031\n\021approximate_bytes" +
+      "\030\004 \001(\003\022\016\n\006engine\030\006 \001(\t\022*\n\004role\030\007 \001(\0162\034.g" +
+      "reptime.v1.meta.RegionRole\022@\n\nextensions" +
+      "\030c \003(\0132,.greptime.v1.meta.RegionStat.Ext" +
+      "ensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"A\n\rOpeningRegion" +
+      "\022\021\n\tregion_id\030\001 \001(\004J\004\010\002\020\003J\004\010\003\020\004R\021started" +
+      "_at_millis\"a\n\tTopicStat\022\022\n\ntopic_name\030\001 " +
+      "\001(\t\022\023\n\013record_size\030\002 \001(\004\022\022\n\nrecord_num\030\003" +
+      " \001(\004\022\027\n\017latest_entry_id\030\004 \001(\004\"\227\002\n\010FlowSt" +
+      "at\022D\n\016flow_stat_size\030\001 \003(\0132,.greptime.v1" +
+      ".meta.FlowStat.FlowStatSizeEntry\022T\n\027flow" +
+      "_last_exec_time_map\030\002 \003(\01323.greptime.v1." +
+      "meta.FlowStat.FlowLastExecTimeMapEntry\0323" +
+      "\n\021FlowStatSizeEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005valu" +
+      "e\030\002 \001(\004:\0028\001\032:\n\030FlowLastExecTimeMapEntry\022" +
+      "\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002 \001(\003:\0028\001\"\356\002\n\021Hear" +
+      "tbeatResponse\0220\n\006header\030\001 \001(\0132 .greptime" +
+      ".v1.meta.ResponseHeader\0229\n\017mailbox_messa" +
+      "ge\030\002 \001(\0132 .greptime.v1.meta.MailboxMessa" +
+      "ge\0223\n\014region_lease\030\003 \001(\0132\035.greptime.v1.m" +
+      "eta.RegionLease\022;\n\020heartbeat_config\030\004 \001(" +
+      "\0132!.greptime.v1.meta.HeartbeatConfig\022G\n\n" +
+      "extensions\030c \003(\01323.greptime.v1.meta.Hear" +
+      "tbeatResponse.ExtensionsEntry\0321\n\017Extensi" +
+      "onsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001" +
+      "\"_\n\017HeartbeatConfig\022\035\n\025heartbeat_interva" +
+      "l_ms\030\001 \001(\004\022\031\n\021retry_interval_ms\030\002 \001(\004\022\022\n" +
+      "\ngc_enabled\030\003 \001(\010\"\306\001\n\rGrantedRegion\022\021\n\tr" +
+      "egion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034.greptime." +
+      "v1.meta.RegionRole\022C\n\nextensions\030c \003(\0132/" +
+      ".greptime.v1.meta.GrantedRegion.Extensio" +
+      "nsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLease\0220\n\007re" +
+      "gions\030\001 \003(\0132\037.greptime.v1.meta.GrantedRe" +
+      "gion\022\034\n\024duration_since_epoch\030\002 \001(\004\022\025\n\rle" +
+      "ase_seconds\030\003 \001(\004\022\034\n\024closeable_region_id" +
+      "s\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006header\030\001 " +
+      "\001(\0132\037.greptime.v1.meta.RequestHeader\"m\n\021" +
+      "AskLeaderResponse\0220\n\006header\030\001 \001(\0132 .grep" +
+      "time.v1.meta.ResponseHeader\022&\n\006leader\030\002 " +
+      "\001(\0132\026.greptime.v1.meta.Peer\"\242\001\n\024MailboxM" +
+      "essageHeader\022S\n\017tracing_context\030\001 \003(\0132:." +
+      "greptime.v1.meta.MailboxMessageHeader.Tr" +
+      "acingContextEntry\0325\n\023TracingContextEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\264\001\n\016Mai" +
+      "lboxMessage\0226\n\006header\030@ \001(\0132&.greptime.v" +
+      "1.meta.MailboxMessageHeader\022\n\n\002id\030\001 \001(\004\022" +
+      "\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001" +
+      "(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n\004json\030\006 \001" +
+      "(\tH\000B\t\n\007payload*P\n\nRegionRole\022\n\n\006Leader\020" +
+      "\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingLeader\020\002\022\021" +
+      "\n\rStagingLeader\020\0032\277\001\n\tHeartbeat\022Z\n\tHeart" +
+      "beat\022\".greptime.v1.meta.HeartbeatRequest" +
+      "\032#.greptime.v1.meta.HeartbeatResponse\"\000(" +
+      "\0010\001\022V\n\tAskLeader\022\".greptime.v1.meta.AskL" +
+      "eaderRequest\032#.greptime.v1.meta.AskLeade" +
+      "rResponse\"\000B<Z:github.com/GreptimeTeam/g" +
+      "reptime-proto/go/greptime/v1/metab\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20724,7 +20628,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_HeartbeatRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_HeartbeatRequest_descriptor,
-        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", "FlowStat", "Datanode", "Frontend", "Flownode", "TopicStats", "OperatingRegions", "Extensions", "NodeWorkloads", });
+        new java.lang.String[] { "Header", "Peer", "ReportInterval", "RegionStats", "MailboxMessage", "DurationSinceEpoch", "NodeEpoch", "Info", "FlowStat", "Datanode", "Frontend", "Flownode", "TopicStats", "OpeningRegions", "Extensions", "NodeWorkloads", });
     internal_static_greptime_v1_meta_HeartbeatRequest_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_meta_HeartbeatRequest_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_HeartbeatRequest_ExtensionsEntry_fieldAccessorTable = new
@@ -20767,12 +20671,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_RegionStat_ExtensionsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_greptime_v1_meta_OperatingRegion_descriptor =
+    internal_static_greptime_v1_meta_OpeningRegion_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_greptime_v1_meta_OperatingRegion_fieldAccessorTable = new
+    internal_static_greptime_v1_meta_OpeningRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_meta_OperatingRegion_descriptor,
-        new java.lang.String[] { "RegionId", "StartedAtMillis", });
+        internal_static_greptime_v1_meta_OpeningRegion_descriptor,
+        new java.lang.String[] { "RegionId", });
     internal_static_greptime_v1_meta_TopicStat_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_meta_TopicStat_fieldAccessorTable = new

@@ -55,8 +55,8 @@ message HeartbeatRequest {
   }
   // The topic stats of the datanode.
   repeated TopicStat topic_stats = 13;
-  // The regions the datanode is bringing online but does not serve yet.
-  repeated OperatingRegion operating_regions = 14;
+  // Regions queued for opening or currently being opened.
+  repeated OpeningRegion opening_regions = 14;
   map<string, bytes> extensions = 99;
 }
 
@@ -128,13 +128,11 @@ message RegionStat {
   map<string, bytes> extensions = 99;
 }
 
-/// A region that the datanode is bringing online and cannot serve yet.
-message OperatingRegion {
-  reserved 2;
+// A region queued for opening or currently being opened.
+message OpeningRegion {
+  reserved 2, 3;
+  reserved "started_at_millis";
   uint64 region_id = 1;
-  // The wall-clock time (milliseconds since epoch) when the datanode queued the
-  // region for open or started the current open attempt.
-  int64 started_at_millis = 3;
 }
 
 message TopicStat {

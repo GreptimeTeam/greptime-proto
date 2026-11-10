@@ -168,9 +168,9 @@ pub struct HeartbeatRequest {
     /// The topic stats of the datanode.
     #[prost(message, repeated, tag = "13")]
     pub topic_stats: ::prost::alloc::vec::Vec<TopicStat>,
-    /// The regions the datanode is bringing online but does not serve yet.
+    /// Regions queued for opening or currently being opened.
     #[prost(message, repeated, tag = "14")]
-    pub operating_regions: ::prost::alloc::vec::Vec<OperatingRegion>,
+    pub opening_regions: ::prost::alloc::vec::Vec<OpeningRegion>,
     #[prost(map = "string, bytes", tag = "99")]
     pub extensions: ::std::collections::HashMap<
         ::prost::alloc::string::String,
@@ -281,16 +281,12 @@ pub struct RegionStat {
         ::prost::alloc::vec::Vec<u8>,
     >,
 }
-/// / A region that the datanode is bringing online and cannot serve yet.
+/// A region queued for opening or currently being opened.
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
-pub struct OperatingRegion {
+pub struct OpeningRegion {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
-    /// The wall-clock time (milliseconds since epoch) when the datanode queued the
-    /// region for open or started the current open attempt.
-    #[prost(int64, tag = "3")]
-    pub started_at_millis: i64,
 }
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
