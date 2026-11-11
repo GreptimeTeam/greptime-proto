@@ -908,6 +908,33 @@ public final class Sketch {
      */
     io.greptime.v1.region.Sketch.SketchQueryOrBuilder getQueriesOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * @return Whether the sampling field is set.
+     */
+    boolean hasSampling();
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * @return The sampling.
+     */
+    io.greptime.v1.region.Sketch.SketchSampling getSampling();
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder();
   }
   /**
    * <pre>
@@ -995,6 +1022,19 @@ public final class Sketch {
               }
               queries_.add(
                   input.readMessage(io.greptime.v1.region.Sketch.SketchQuery.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+              io.greptime.v1.region.Sketch.SketchSampling.Builder subBuilder = null;
+              if (sampling_ != null) {
+                subBuilder = sampling_.toBuilder();
+              }
+              sampling_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSampling.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sampling_);
+                sampling_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -1149,6 +1189,44 @@ public final class Sketch {
       return queries_.get(index);
     }
 
+    public static final int SAMPLING_FIELD_NUMBER = 5;
+    private io.greptime.v1.region.Sketch.SketchSampling sampling_;
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * @return Whether the sampling field is set.
+     */
+    @java.lang.Override
+    public boolean hasSampling() {
+      return sampling_ != null;
+    }
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * @return The sampling.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSampling getSampling() {
+      return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+    }
+    /**
+     * <pre>
+     * Absent means all candidate files are read.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder() {
+      return getSampling();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1174,6 +1252,9 @@ public final class Sketch {
       }
       for (int i = 0; i < queries_.size(); i++) {
         output.writeMessage(4, queries_.get(i));
+      }
+      if (sampling_ != null) {
+        output.writeMessage(5, getSampling());
       }
       unknownFields.writeTo(output);
     }
@@ -1204,6 +1285,10 @@ public final class Sketch {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, queries_.get(i));
       }
+      if (sampling_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSampling());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1230,6 +1315,11 @@ public final class Sketch {
           .equals(other.getColumnsList())) return false;
       if (!getQueriesList()
           .equals(other.getQueriesList())) return false;
+      if (hasSampling() != other.hasSampling()) return false;
+      if (hasSampling()) {
+        if (!getSampling()
+            .equals(other.getSampling())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1255,6 +1345,10 @@ public final class Sketch {
       if (getQueriesCount() > 0) {
         hash = (37 * hash) + QUERIES_FIELD_NUMBER;
         hash = (53 * hash) + getQueriesList().hashCode();
+      }
+      if (hasSampling()) {
+        hash = (37 * hash) + SAMPLING_FIELD_NUMBER;
+        hash = (53 * hash) + getSampling().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1410,6 +1504,12 @@ public final class Sketch {
         } else {
           queriesBuilder_.clear();
         }
+        if (samplingBuilder_ == null) {
+          sampling_ = null;
+        } else {
+          sampling_ = null;
+          samplingBuilder_ = null;
+        }
         return this;
       }
 
@@ -1456,6 +1556,11 @@ public final class Sketch {
           result.queries_ = queries_;
         } else {
           result.queries_ = queriesBuilder_.build();
+        }
+        if (samplingBuilder_ == null) {
+          result.sampling_ = sampling_;
+        } else {
+          result.sampling_ = samplingBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1546,6 +1651,9 @@ public final class Sketch {
               queriesBuilder_.addAllMessages(other.queries_);
             }
           }
+        }
+        if (other.hasSampling()) {
+          mergeSampling(other.getSampling());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2076,6 +2184,161 @@ public final class Sketch {
         }
         return queriesBuilder_;
       }
+
+      private io.greptime.v1.region.Sketch.SketchSampling sampling_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder> samplingBuilder_;
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * @return Whether the sampling field is set.
+       */
+      public boolean hasSampling() {
+        return samplingBuilder_ != null || sampling_ != null;
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * @return The sampling.
+       */
+      public io.greptime.v1.region.Sketch.SketchSampling getSampling() {
+        if (samplingBuilder_ == null) {
+          return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+        } else {
+          return samplingBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public Builder setSampling(io.greptime.v1.region.Sketch.SketchSampling value) {
+        if (samplingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sampling_ = value;
+          onChanged();
+        } else {
+          samplingBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public Builder setSampling(
+          io.greptime.v1.region.Sketch.SketchSampling.Builder builderForValue) {
+        if (samplingBuilder_ == null) {
+          sampling_ = builderForValue.build();
+          onChanged();
+        } else {
+          samplingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public Builder mergeSampling(io.greptime.v1.region.Sketch.SketchSampling value) {
+        if (samplingBuilder_ == null) {
+          if (sampling_ != null) {
+            sampling_ =
+              io.greptime.v1.region.Sketch.SketchSampling.newBuilder(sampling_).mergeFrom(value).buildPartial();
+          } else {
+            sampling_ = value;
+          }
+          onChanged();
+        } else {
+          samplingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public Builder clearSampling() {
+        if (samplingBuilder_ == null) {
+          sampling_ = null;
+          onChanged();
+        } else {
+          sampling_ = null;
+          samplingBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSampling.Builder getSamplingBuilder() {
+        
+        onChanged();
+        return getSamplingFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder() {
+        if (samplingBuilder_ != null) {
+          return samplingBuilder_.getMessageOrBuilder();
+        } else {
+          return sampling_ == null ?
+              io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+        }
+      }
+      /**
+       * <pre>
+       * Absent means all candidate files are read.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder> 
+          getSamplingFieldBuilder() {
+        if (samplingBuilder_ == null) {
+          samplingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder>(
+                  getSampling(),
+                  getParentForChildren(),
+                  isClean());
+          sampling_ = null;
+        }
+        return samplingBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2124,6 +2387,1399 @@ public final class Sketch {
 
     @java.lang.Override
     public io.greptime.v1.region.Sketch.SketchRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SketchSamplingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSampling)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint32 max_files = 1;</code>
+     * @return The maxFiles.
+     */
+    int getMaxFiles();
+
+    /**
+     * <code>uint64 seed = 2;</code>
+     * @return The seed.
+     */
+    long getSeed();
+  }
+  /**
+   * <pre>
+   * Uniform file sampling without replacement, before reading index payloads.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.SketchSampling}
+   */
+  public static final class SketchSampling extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSampling)
+      SketchSamplingOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SketchSampling.newBuilder() to construct.
+    private SketchSampling(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SketchSampling() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SketchSampling();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SketchSampling(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              maxFiles_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              seed_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Sketch.SketchSampling.class, io.greptime.v1.region.Sketch.SketchSampling.Builder.class);
+    }
+
+    public static final int MAX_FILES_FIELD_NUMBER = 1;
+    private int maxFiles_;
+    /**
+     * <code>uint32 max_files = 1;</code>
+     * @return The maxFiles.
+     */
+    @java.lang.Override
+    public int getMaxFiles() {
+      return maxFiles_;
+    }
+
+    public static final int SEED_FIELD_NUMBER = 2;
+    private long seed_;
+    /**
+     * <code>uint64 seed = 2;</code>
+     * @return The seed.
+     */
+    @java.lang.Override
+    public long getSeed() {
+      return seed_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (maxFiles_ != 0) {
+        output.writeUInt32(1, maxFiles_);
+      }
+      if (seed_ != 0L) {
+        output.writeUInt64(2, seed_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (maxFiles_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, maxFiles_);
+      }
+      if (seed_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, seed_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSampling)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Sketch.SketchSampling other = (io.greptime.v1.region.Sketch.SketchSampling) obj;
+
+      if (getMaxFiles()
+          != other.getMaxFiles()) return false;
+      if (getSeed()
+          != other.getSeed()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MAX_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + getMaxFiles();
+      hash = (37 * hash) + SEED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSeed());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSampling prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Uniform file sampling without replacement, before reading index payloads.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.SketchSampling}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSampling)
+        io.greptime.v1.region.Sketch.SketchSamplingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Sketch.SketchSampling.class, io.greptime.v1.region.Sketch.SketchSampling.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Sketch.SketchSampling.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        maxFiles_ = 0;
+
+        seed_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSampling getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSampling build() {
+        io.greptime.v1.region.Sketch.SketchSampling result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSampling buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSampling result = new io.greptime.v1.region.Sketch.SketchSampling(this);
+        result.maxFiles_ = maxFiles_;
+        result.seed_ = seed_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSampling) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSampling)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSampling other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance()) return this;
+        if (other.getMaxFiles() != 0) {
+          setMaxFiles(other.getMaxFiles());
+        }
+        if (other.getSeed() != 0L) {
+          setSeed(other.getSeed());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Sketch.SketchSampling parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSampling) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int maxFiles_ ;
+      /**
+       * <code>uint32 max_files = 1;</code>
+       * @return The maxFiles.
+       */
+      @java.lang.Override
+      public int getMaxFiles() {
+        return maxFiles_;
+      }
+      /**
+       * <code>uint32 max_files = 1;</code>
+       * @param value The maxFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxFiles(int value) {
+        
+        maxFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 max_files = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxFiles() {
+        
+        maxFiles_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long seed_ ;
+      /**
+       * <code>uint64 seed = 2;</code>
+       * @return The seed.
+       */
+      @java.lang.Override
+      public long getSeed() {
+        return seed_;
+      }
+      /**
+       * <code>uint64 seed = 2;</code>
+       * @param value The seed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeed(long value) {
+        
+        seed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 seed = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSeed() {
+        
+        seed_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSampling)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSampling)
+    private static final io.greptime.v1.region.Sketch.SketchSampling DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSampling();
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSampling getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SketchSampling>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSampling>() {
+      @java.lang.Override
+      public SketchSampling parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SketchSampling(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SketchSampling> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SketchSampling> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSampling getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SketchSampleOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSample)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 candidate_files = 1;</code>
+     * @return The candidateFiles.
+     */
+    long getCandidateFiles();
+
+    /**
+     * <code>uint64 sampled_files = 2;</code>
+     * @return The sampledFiles.
+     */
+    long getSampledFiles();
+
+    /**
+     * <pre>
+     * Stable membership signature; changes invalidate comparisons across requests.
+     * </pre>
+     *
+     * <code>uint64 fingerprint = 3;</code>
+     * @return The fingerprint.
+     */
+    long getFingerprint();
+
+    /**
+     * <pre>
+     * Sum of squared per-file represented rows in the requested interval.
+     * </pre>
+     *
+     * <code>double rows_squared_sum = 4;</code>
+     * @return The rowsSquaredSum.
+     */
+    double getRowsSquaredSum();
+
+    /**
+     * <code>uint64 max_file_rows = 5;</code>
+     * @return The maxFileRows.
+     */
+    long getMaxFileRows();
+  }
+  /**
+   * <pre>
+   * Sampling diagnostics for this request interval. Rows remain sample counts.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.SketchSample}
+   */
+  public static final class SketchSample extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSample)
+      SketchSampleOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SketchSample.newBuilder() to construct.
+    private SketchSample(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SketchSample() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SketchSample();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SketchSample(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              candidateFiles_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              sampledFiles_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              fingerprint_ = input.readUInt64();
+              break;
+            }
+            case 33: {
+
+              rowsSquaredSum_ = input.readDouble();
+              break;
+            }
+            case 40: {
+
+              maxFileRows_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Sketch.SketchSample.class, io.greptime.v1.region.Sketch.SketchSample.Builder.class);
+    }
+
+    public static final int CANDIDATE_FILES_FIELD_NUMBER = 1;
+    private long candidateFiles_;
+    /**
+     * <code>uint64 candidate_files = 1;</code>
+     * @return The candidateFiles.
+     */
+    @java.lang.Override
+    public long getCandidateFiles() {
+      return candidateFiles_;
+    }
+
+    public static final int SAMPLED_FILES_FIELD_NUMBER = 2;
+    private long sampledFiles_;
+    /**
+     * <code>uint64 sampled_files = 2;</code>
+     * @return The sampledFiles.
+     */
+    @java.lang.Override
+    public long getSampledFiles() {
+      return sampledFiles_;
+    }
+
+    public static final int FINGERPRINT_FIELD_NUMBER = 3;
+    private long fingerprint_;
+    /**
+     * <pre>
+     * Stable membership signature; changes invalidate comparisons across requests.
+     * </pre>
+     *
+     * <code>uint64 fingerprint = 3;</code>
+     * @return The fingerprint.
+     */
+    @java.lang.Override
+    public long getFingerprint() {
+      return fingerprint_;
+    }
+
+    public static final int ROWS_SQUARED_SUM_FIELD_NUMBER = 4;
+    private double rowsSquaredSum_;
+    /**
+     * <pre>
+     * Sum of squared per-file represented rows in the requested interval.
+     * </pre>
+     *
+     * <code>double rows_squared_sum = 4;</code>
+     * @return The rowsSquaredSum.
+     */
+    @java.lang.Override
+    public double getRowsSquaredSum() {
+      return rowsSquaredSum_;
+    }
+
+    public static final int MAX_FILE_ROWS_FIELD_NUMBER = 5;
+    private long maxFileRows_;
+    /**
+     * <code>uint64 max_file_rows = 5;</code>
+     * @return The maxFileRows.
+     */
+    @java.lang.Override
+    public long getMaxFileRows() {
+      return maxFileRows_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (candidateFiles_ != 0L) {
+        output.writeUInt64(1, candidateFiles_);
+      }
+      if (sampledFiles_ != 0L) {
+        output.writeUInt64(2, sampledFiles_);
+      }
+      if (fingerprint_ != 0L) {
+        output.writeUInt64(3, fingerprint_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(rowsSquaredSum_) != 0) {
+        output.writeDouble(4, rowsSquaredSum_);
+      }
+      if (maxFileRows_ != 0L) {
+        output.writeUInt64(5, maxFileRows_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (candidateFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, candidateFiles_);
+      }
+      if (sampledFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, sampledFiles_);
+      }
+      if (fingerprint_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, fingerprint_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(rowsSquaredSum_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, rowsSquaredSum_);
+      }
+      if (maxFileRows_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, maxFileRows_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSample)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Sketch.SketchSample other = (io.greptime.v1.region.Sketch.SketchSample) obj;
+
+      if (getCandidateFiles()
+          != other.getCandidateFiles()) return false;
+      if (getSampledFiles()
+          != other.getSampledFiles()) return false;
+      if (getFingerprint()
+          != other.getFingerprint()) return false;
+      if (java.lang.Double.doubleToLongBits(getRowsSquaredSum())
+          != java.lang.Double.doubleToLongBits(
+              other.getRowsSquaredSum())) return false;
+      if (getMaxFileRows()
+          != other.getMaxFileRows()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CANDIDATE_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCandidateFiles());
+      hash = (37 * hash) + SAMPLED_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSampledFiles());
+      hash = (37 * hash) + FINGERPRINT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getFingerprint());
+      hash = (37 * hash) + ROWS_SQUARED_SUM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getRowsSquaredSum()));
+      hash = (37 * hash) + MAX_FILE_ROWS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getMaxFileRows());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSample prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Sampling diagnostics for this request interval. Rows remain sample counts.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.SketchSample}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSample)
+        io.greptime.v1.region.Sketch.SketchSampleOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Sketch.SketchSample.class, io.greptime.v1.region.Sketch.SketchSample.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Sketch.SketchSample.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        candidateFiles_ = 0L;
+
+        sampledFiles_ = 0L;
+
+        fingerprint_ = 0L;
+
+        rowsSquaredSum_ = 0D;
+
+        maxFileRows_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSample getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSample build() {
+        io.greptime.v1.region.Sketch.SketchSample result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSample buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSample result = new io.greptime.v1.region.Sketch.SketchSample(this);
+        result.candidateFiles_ = candidateFiles_;
+        result.sampledFiles_ = sampledFiles_;
+        result.fingerprint_ = fingerprint_;
+        result.rowsSquaredSum_ = rowsSquaredSum_;
+        result.maxFileRows_ = maxFileRows_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSample) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSample)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSample other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance()) return this;
+        if (other.getCandidateFiles() != 0L) {
+          setCandidateFiles(other.getCandidateFiles());
+        }
+        if (other.getSampledFiles() != 0L) {
+          setSampledFiles(other.getSampledFiles());
+        }
+        if (other.getFingerprint() != 0L) {
+          setFingerprint(other.getFingerprint());
+        }
+        if (other.getRowsSquaredSum() != 0D) {
+          setRowsSquaredSum(other.getRowsSquaredSum());
+        }
+        if (other.getMaxFileRows() != 0L) {
+          setMaxFileRows(other.getMaxFileRows());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Sketch.SketchSample parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSample) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long candidateFiles_ ;
+      /**
+       * <code>uint64 candidate_files = 1;</code>
+       * @return The candidateFiles.
+       */
+      @java.lang.Override
+      public long getCandidateFiles() {
+        return candidateFiles_;
+      }
+      /**
+       * <code>uint64 candidate_files = 1;</code>
+       * @param value The candidateFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCandidateFiles(long value) {
+        
+        candidateFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 candidate_files = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCandidateFiles() {
+        
+        candidateFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long sampledFiles_ ;
+      /**
+       * <code>uint64 sampled_files = 2;</code>
+       * @return The sampledFiles.
+       */
+      @java.lang.Override
+      public long getSampledFiles() {
+        return sampledFiles_;
+      }
+      /**
+       * <code>uint64 sampled_files = 2;</code>
+       * @param value The sampledFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSampledFiles(long value) {
+        
+        sampledFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 sampled_files = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSampledFiles() {
+        
+        sampledFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long fingerprint_ ;
+      /**
+       * <pre>
+       * Stable membership signature; changes invalidate comparisons across requests.
+       * </pre>
+       *
+       * <code>uint64 fingerprint = 3;</code>
+       * @return The fingerprint.
+       */
+      @java.lang.Override
+      public long getFingerprint() {
+        return fingerprint_;
+      }
+      /**
+       * <pre>
+       * Stable membership signature; changes invalidate comparisons across requests.
+       * </pre>
+       *
+       * <code>uint64 fingerprint = 3;</code>
+       * @param value The fingerprint to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFingerprint(long value) {
+        
+        fingerprint_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Stable membership signature; changes invalidate comparisons across requests.
+       * </pre>
+       *
+       * <code>uint64 fingerprint = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFingerprint() {
+        
+        fingerprint_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double rowsSquaredSum_ ;
+      /**
+       * <pre>
+       * Sum of squared per-file represented rows in the requested interval.
+       * </pre>
+       *
+       * <code>double rows_squared_sum = 4;</code>
+       * @return The rowsSquaredSum.
+       */
+      @java.lang.Override
+      public double getRowsSquaredSum() {
+        return rowsSquaredSum_;
+      }
+      /**
+       * <pre>
+       * Sum of squared per-file represented rows in the requested interval.
+       * </pre>
+       *
+       * <code>double rows_squared_sum = 4;</code>
+       * @param value The rowsSquaredSum to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRowsSquaredSum(double value) {
+        
+        rowsSquaredSum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Sum of squared per-file represented rows in the requested interval.
+       * </pre>
+       *
+       * <code>double rows_squared_sum = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRowsSquaredSum() {
+        
+        rowsSquaredSum_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private long maxFileRows_ ;
+      /**
+       * <code>uint64 max_file_rows = 5;</code>
+       * @return The maxFileRows.
+       */
+      @java.lang.Override
+      public long getMaxFileRows() {
+        return maxFileRows_;
+      }
+      /**
+       * <code>uint64 max_file_rows = 5;</code>
+       * @param value The maxFileRows to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxFileRows(long value) {
+        
+        maxFileRows_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 max_file_rows = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxFileRows() {
+        
+        maxFileRows_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSample)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSample)
+    private static final io.greptime.v1.region.Sketch.SketchSample DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSample();
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSample getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SketchSample>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSample>() {
+      @java.lang.Override
+      public SketchSample parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SketchSample(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SketchSample> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SketchSample> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSample getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12949,6 +14605,33 @@ public final class Sketch {
      */
     io.greptime.v1.region.Sketch.ColumnSketchResultOrBuilder getResultsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * @return Whether the sample field is set.
+     */
+    boolean hasSample();
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * @return The sample.
+     */
+    io.greptime.v1.region.Sketch.SketchSample getSample();
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder();
   }
   /**
    * <pre>
@@ -13009,6 +14692,19 @@ public final class Sketch {
               }
               results_.add(
                   input.readMessage(io.greptime.v1.region.Sketch.ColumnSketchResult.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              io.greptime.v1.region.Sketch.SketchSample.Builder subBuilder = null;
+              if (sample_ != null) {
+                subBuilder = sample_.toBuilder();
+              }
+              sample_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSample.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sample_);
+                sample_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -13088,6 +14784,44 @@ public final class Sketch {
       return results_.get(index);
     }
 
+    public static final int SAMPLE_FIELD_NUMBER = 2;
+    private io.greptime.v1.region.Sketch.SketchSample sample_;
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * @return Whether the sample field is set.
+     */
+    @java.lang.Override
+    public boolean hasSample() {
+      return sample_ != null;
+    }
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * @return The sample.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSample getSample() {
+      return sample_ == null ? io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+    }
+    /**
+     * <pre>
+     * Present only when file sampling was requested.
+     * </pre>
+     *
+     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder() {
+      return getSample();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -13105,6 +14839,9 @@ public final class Sketch {
       for (int i = 0; i < results_.size(); i++) {
         output.writeMessage(1, results_.get(i));
       }
+      if (sample_ != null) {
+        output.writeMessage(2, getSample());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -13117,6 +14854,10 @@ public final class Sketch {
       for (int i = 0; i < results_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, results_.get(i));
+      }
+      if (sample_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSample());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -13135,6 +14876,11 @@ public final class Sketch {
 
       if (!getResultsList()
           .equals(other.getResultsList())) return false;
+      if (hasSample() != other.hasSample()) return false;
+      if (hasSample()) {
+        if (!getSample()
+            .equals(other.getSample())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -13149,6 +14895,10 @@ public final class Sketch {
       if (getResultsCount() > 0) {
         hash = (37 * hash) + RESULTS_FIELD_NUMBER;
         hash = (53 * hash) + getResultsList().hashCode();
+      }
+      if (hasSample()) {
+        hash = (37 * hash) + SAMPLE_FIELD_NUMBER;
+        hash = (53 * hash) + getSample().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -13295,6 +15045,12 @@ public final class Sketch {
         } else {
           resultsBuilder_.clear();
         }
+        if (sampleBuilder_ == null) {
+          sample_ = null;
+        } else {
+          sample_ = null;
+          sampleBuilder_ = null;
+        }
         return this;
       }
 
@@ -13330,6 +15086,11 @@ public final class Sketch {
           result.results_ = results_;
         } else {
           result.results_ = resultsBuilder_.build();
+        }
+        if (sampleBuilder_ == null) {
+          result.sample_ = sample_;
+        } else {
+          result.sample_ = sampleBuilder_.build();
         }
         onBuilt();
         return result;
@@ -13404,6 +15165,9 @@ public final class Sketch {
               resultsBuilder_.addAllMessages(other.results_);
             }
           }
+        }
+        if (other.hasSample()) {
+          mergeSample(other.getSample());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13674,6 +15438,161 @@ public final class Sketch {
         }
         return resultsBuilder_;
       }
+
+      private io.greptime.v1.region.Sketch.SketchSample sample_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder> sampleBuilder_;
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * @return Whether the sample field is set.
+       */
+      public boolean hasSample() {
+        return sampleBuilder_ != null || sample_ != null;
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * @return The sample.
+       */
+      public io.greptime.v1.region.Sketch.SketchSample getSample() {
+        if (sampleBuilder_ == null) {
+          return sample_ == null ? io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+        } else {
+          return sampleBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public Builder setSample(io.greptime.v1.region.Sketch.SketchSample value) {
+        if (sampleBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sample_ = value;
+          onChanged();
+        } else {
+          sampleBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public Builder setSample(
+          io.greptime.v1.region.Sketch.SketchSample.Builder builderForValue) {
+        if (sampleBuilder_ == null) {
+          sample_ = builderForValue.build();
+          onChanged();
+        } else {
+          sampleBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public Builder mergeSample(io.greptime.v1.region.Sketch.SketchSample value) {
+        if (sampleBuilder_ == null) {
+          if (sample_ != null) {
+            sample_ =
+              io.greptime.v1.region.Sketch.SketchSample.newBuilder(sample_).mergeFrom(value).buildPartial();
+          } else {
+            sample_ = value;
+          }
+          onChanged();
+        } else {
+          sampleBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public Builder clearSample() {
+        if (sampleBuilder_ == null) {
+          sample_ = null;
+          onChanged();
+        } else {
+          sample_ = null;
+          sampleBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSample.Builder getSampleBuilder() {
+        
+        onChanged();
+        return getSampleFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder() {
+        if (sampleBuilder_ != null) {
+          return sampleBuilder_.getMessageOrBuilder();
+        } else {
+          return sample_ == null ?
+              io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+        }
+      }
+      /**
+       * <pre>
+       * Present only when file sampling was requested.
+       * </pre>
+       *
+       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder> 
+          getSampleFieldBuilder() {
+        if (sampleBuilder_ == null) {
+          sampleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder>(
+                  getSample(),
+                  getParentForChildren(),
+                  isClean());
+          sample_ = null;
+        }
+        return sampleBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -13737,6 +15656,16 @@ public final class Sketch {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_SketchRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SketchSampling_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SketchSample_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SketchSample_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor;
   private static final 
@@ -13820,11 +15749,17 @@ public final class Sketch {
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
       "\025greptime/v1/row.proto\"W\n\017SketchTimeRang" +
       "e\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_un" +
-      "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\236\001\n\rSket" +
+      "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\324\001\n\rSket" +
       "chRequest\022\021\n\tregion_id\030\001 \001(\004\0227\n\ntime_ran" +
       "ge\030\002 \001(\0132#.greptime.v1.region.SketchTime" +
       "Range\022\017\n\007columns\030\003 \003(\t\0220\n\007queries\030\004 \003(\0132" +
-      "\037.greptime.v1.region.SketchQuery\"\032\n\030Sket" +
+      "\037.greptime.v1.region.SketchQuery\0224\n\010samp" +
+      "ling\030\005 \001(\0132\".greptime.v1.region.SketchSa" +
+      "mpling\"1\n\016SketchSampling\022\021\n\tmax_files\030\001 " +
+      "\001(\r\022\014\n\004seed\030\002 \001(\004\"\204\001\n\014SketchSample\022\027\n\017ca" +
+      "ndidate_files\030\001 \001(\004\022\025\n\rsampled_files\030\002 \001" +
+      "(\004\022\023\n\013fingerprint\030\003 \001(\004\022\030\n\020rows_squared_" +
+      "sum\030\004 \001(\001\022\025\n\rmax_file_rows\030\005 \001(\004\"\032\n\030Sket" +
       "chDistinctCountQuery\"\'\n\023SketchQuantileQu" +
       "ery\022\020\n\010fraction\030\001 \001(\001\"9\n\024SketchFrequency" +
       "Query\022!\n\005value\030\001 \001(\0132\022.greptime.v1.Value" +
@@ -13861,17 +15796,18 @@ public final class Sketch {
       "greptime.v1.region.SketchBucket\022+\n\004gaps\030" +
       "\005 \003(\0132\035.greptime.v1.region.SketchGap\022.\n\005" +
       "value\030\006 \001(\0132\037.greptime.v1.region.SketchV" +
-      "alue\"I\n\016SketchResponse\0227\n\007results\030\001 \003(\0132" +
-      "&.greptime.v1.region.ColumnSketchResult*" +
-      "\356\001\n\017SketchGapReason\022!\n\035SKETCH_GAP_REASON" +
-      "_UNSPECIFIED\020\000\022$\n SKETCH_GAP_REASON_NOT_" +
-      "CONFIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MISSIN" +
-      "G_INDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGACY_FO" +
-      "RMAT\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MISMAT" +
-      "CH\020\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIBLE\020\005" +
-      "B]\n\025io.greptime.v1.regionB\006SketchZ<githu" +
-      "b.com/GreptimeTeam/greptime-proto/go/gre" +
-      "ptime/v1/regionb\006proto3"
+      "alue\"{\n\016SketchResponse\0227\n\007results\030\001 \003(\0132" +
+      "&.greptime.v1.region.ColumnSketchResult\022" +
+      "0\n\006sample\030\002 \001(\0132 .greptime.v1.region.Ske" +
+      "tchSample*\356\001\n\017SketchGapReason\022!\n\035SKETCH_" +
+      "GAP_REASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_R" +
+      "EASON_NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REA" +
+      "SON_MISSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON" +
+      "_LEGACY_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SC" +
+      "OPE_MISMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCO" +
+      "MPATIBLE\020\005B]\n\025io.greptime.v1.regionB\006Ske" +
+      "tchZ<github.com/GreptimeTeam/greptime-pr" +
+      "oto/go/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13890,91 +15826,103 @@ public final class Sketch {
     internal_static_greptime_v1_region_SketchRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchRequest_descriptor,
-        new java.lang.String[] { "RegionId", "TimeRange", "Columns", "Queries", });
-    internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor =
+        new java.lang.String[] { "RegionId", "TimeRange", "Columns", "Queries", "Sampling", });
+    internal_static_greptime_v1_region_SketchSampling_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SketchSampling_descriptor,
+        new java.lang.String[] { "MaxFiles", "Seed", });
+    internal_static_greptime_v1_region_SketchSample_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_greptime_v1_region_SketchSample_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SketchSample_descriptor,
+        new java.lang.String[] { "CandidateFiles", "SampledFiles", "Fingerprint", "RowsSquaredSum", "MaxFileRows", });
+    internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_region_SketchDistinctCountQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor,
         new java.lang.String[] { });
     internal_static_greptime_v1_region_SketchQuantileQuery_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_greptime_v1_region_SketchQuantileQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchQuantileQuery_descriptor,
         new java.lang.String[] { "Fraction", });
     internal_static_greptime_v1_region_SketchFrequencyQuery_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_greptime_v1_region_SketchFrequencyQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchFrequencyQuery_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_region_SketchRankQuery_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_region_SketchRankQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchRankQuery_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_region_SketchQuery_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_greptime_v1_region_SketchQuery_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchQuery_descriptor,
         new java.lang.String[] { "DistinctCount", "Quantile", "Frequency", "Rank", "Query", });
     internal_static_greptime_v1_region_SketchBucket_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_greptime_v1_region_SketchBucket_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchBucket_descriptor,
         new java.lang.String[] { "TimeRange", "CoveredFiles", "MissingFiles", "RepresentedRows", });
     internal_static_greptime_v1_region_SketchGap_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_greptime_v1_region_SketchGap_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchGap_descriptor,
         new java.lang.String[] { "SourceRegionId", "FileId", "IndexVersion", "Reason", });
     internal_static_greptime_v1_region_SketchDistinctCount_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_greptime_v1_region_SketchDistinctCount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchDistinctCount_descriptor,
         new java.lang.String[] { "Estimate", "RelativeStandardError", });
     internal_static_greptime_v1_region_SketchQuantile_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_greptime_v1_region_SketchQuantile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchQuantile_descriptor,
         new java.lang.String[] { "Value", });
     internal_static_greptime_v1_region_SketchFrequency_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_greptime_v1_region_SketchFrequency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchFrequency_descriptor,
         new java.lang.String[] { "Lower", "Upper", });
     internal_static_greptime_v1_region_SketchRank_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_greptime_v1_region_SketchRank_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchRank_descriptor,
         new java.lang.String[] { "Fraction", });
     internal_static_greptime_v1_region_SketchValue_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_greptime_v1_region_SketchValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchValue_descriptor,
         new java.lang.String[] { "DistinctCount", "Quantile", "Frequency", "Rank", "Value", });
     internal_static_greptime_v1_region_ColumnSketchResult_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_greptime_v1_region_ColumnSketchResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ColumnSketchResult_descriptor,
         new java.lang.String[] { "ColumnName", "ColumnId", "Query", "Buckets", "Gaps", "Value", });
     internal_static_greptime_v1_region_SketchResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_greptime_v1_region_SketchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchResponse_descriptor,
-        new java.lang.String[] { "Results", });
+        new java.lang.String[] { "Results", "Sample", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
   }

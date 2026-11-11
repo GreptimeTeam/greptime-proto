@@ -36,6 +36,35 @@ pub struct SketchRequest {
     pub columns: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
     #[prost(message, repeated, tag = "4")]
     pub queries: ::prost::alloc::vec::Vec<SketchQuery>,
+    /// Absent means all candidate files are read.
+    #[prost(message, optional, tag = "5")]
+    pub sampling: ::core::option::Option<SketchSampling>,
+}
+/// Uniform file sampling without replacement, before reading index payloads.
+#[allow(clippy::all)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct SketchSampling {
+    #[prost(uint32, tag = "1")]
+    pub max_files: u32,
+    #[prost(uint64, tag = "2")]
+    pub seed: u64,
+}
+/// Sampling diagnostics for this request interval. Rows remain sample counts.
+#[allow(clippy::all)]
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct SketchSample {
+    #[prost(uint64, tag = "1")]
+    pub candidate_files: u64,
+    #[prost(uint64, tag = "2")]
+    pub sampled_files: u64,
+    /// Stable membership signature; changes invalidate comparisons across requests.
+    #[prost(uint64, tag = "3")]
+    pub fingerprint: u64,
+    /// Sum of squared per-file represented rows in the requested interval.
+    #[prost(double, tag = "4")]
+    pub rows_squared_sum: f64,
+    #[prost(uint64, tag = "5")]
+    pub max_file_rows: u64,
 }
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
@@ -181,6 +210,9 @@ pub struct ColumnSketchResult {
 pub struct SketchResponse {
     #[prost(message, repeated, tag = "1")]
     pub results: ::prost::alloc::vec::Vec<ColumnSketchResult>,
+    /// Present only when file sampling was requested.
+    #[prost(message, optional, tag = "2")]
+    pub sample: ::core::option::Option<SketchSample>,
 }
 #[allow(clippy::all)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

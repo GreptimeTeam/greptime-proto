@@ -93,6 +93,12 @@ extern SketchRequestDefaultTypeInternal _SketchRequest_default_instance_;
 class SketchResponse;
 struct SketchResponseDefaultTypeInternal;
 extern SketchResponseDefaultTypeInternal _SketchResponse_default_instance_;
+class SketchSample;
+struct SketchSampleDefaultTypeInternal;
+extern SketchSampleDefaultTypeInternal _SketchSample_default_instance_;
+class SketchSampling;
+struct SketchSamplingDefaultTypeInternal;
+extern SketchSamplingDefaultTypeInternal _SketchSampling_default_instance_;
 class SketchTimeRange;
 struct SketchTimeRangeDefaultTypeInternal;
 extern SketchTimeRangeDefaultTypeInternal _SketchTimeRange_default_instance_;
@@ -117,6 +123,8 @@ template<> ::greptime::v1::region::SketchRank* Arena::CreateMaybeMessage<::grept
 template<> ::greptime::v1::region::SketchRankQuery* Arena::CreateMaybeMessage<::greptime::v1::region::SketchRankQuery>(Arena*);
 template<> ::greptime::v1::region::SketchRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SketchRequest>(Arena*);
 template<> ::greptime::v1::region::SketchResponse* Arena::CreateMaybeMessage<::greptime::v1::region::SketchResponse>(Arena*);
+template<> ::greptime::v1::region::SketchSample* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSample>(Arena*);
+template<> ::greptime::v1::region::SketchSampling* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSampling>(Arena*);
 template<> ::greptime::v1::region::SketchTimeRange* Arena::CreateMaybeMessage<::greptime::v1::region::SketchTimeRange>(Arena*);
 template<> ::greptime::v1::region::SketchValue* Arena::CreateMaybeMessage<::greptime::v1::region::SketchValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -449,6 +457,7 @@ class SketchRequest final :
     kColumnsFieldNumber = 3,
     kQueriesFieldNumber = 4,
     kTimeRangeFieldNumber = 2,
+    kSamplingFieldNumber = 5,
     kRegionIdFieldNumber = 1,
   };
   // repeated string columns = 3;
@@ -511,6 +520,24 @@ class SketchRequest final :
       ::greptime::v1::region::SketchTimeRange* time_range);
   ::greptime::v1::region::SketchTimeRange* unsafe_arena_release_time_range();
 
+  // .greptime.v1.region.SketchSampling sampling = 5;
+  bool has_sampling() const;
+  private:
+  bool _internal_has_sampling() const;
+  public:
+  void clear_sampling();
+  const ::greptime::v1::region::SketchSampling& sampling() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SketchSampling* release_sampling();
+  ::greptime::v1::region::SketchSampling* mutable_sampling();
+  void set_allocated_sampling(::greptime::v1::region::SketchSampling* sampling);
+  private:
+  const ::greptime::v1::region::SketchSampling& _internal_sampling() const;
+  ::greptime::v1::region::SketchSampling* _internal_mutable_sampling();
+  public:
+  void unsafe_arena_set_allocated_sampling(
+      ::greptime::v1::region::SketchSampling* sampling);
+  ::greptime::v1::region::SketchSampling* unsafe_arena_release_sampling();
+
   // uint64 region_id = 1;
   void clear_region_id();
   uint64_t region_id() const;
@@ -531,7 +558,359 @@ class SketchRequest final :
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> columns_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchQuery > queries_;
     ::greptime::v1::region::SketchTimeRange* time_range_;
+    ::greptime::v1::region::SketchSampling* sampling_;
     uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SketchSampling final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SketchSampling) */ {
+ public:
+  inline SketchSampling() : SketchSampling(nullptr) {}
+  ~SketchSampling() override;
+  explicit PROTOBUF_CONSTEXPR SketchSampling(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SketchSampling(const SketchSampling& from);
+  SketchSampling(SketchSampling&& from) noexcept
+    : SketchSampling() {
+    *this = ::std::move(from);
+  }
+
+  inline SketchSampling& operator=(const SketchSampling& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SketchSampling& operator=(SketchSampling&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SketchSampling& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SketchSampling* internal_default_instance() {
+    return reinterpret_cast<const SketchSampling*>(
+               &_SketchSampling_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(SketchSampling& a, SketchSampling& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SketchSampling* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SketchSampling* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SketchSampling* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SketchSampling>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SketchSampling& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SketchSampling& from) {
+    SketchSampling::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SketchSampling* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SketchSampling";
+  }
+  protected:
+  explicit SketchSampling(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSeedFieldNumber = 2,
+    kMaxFilesFieldNumber = 1,
+  };
+  // uint64 seed = 2;
+  void clear_seed();
+  uint64_t seed() const;
+  void set_seed(uint64_t value);
+  private:
+  uint64_t _internal_seed() const;
+  void _internal_set_seed(uint64_t value);
+  public:
+
+  // uint32 max_files = 1;
+  void clear_max_files();
+  uint32_t max_files() const;
+  void set_max_files(uint32_t value);
+  private:
+  uint32_t _internal_max_files() const;
+  void _internal_set_max_files(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSampling)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t seed_;
+    uint32_t max_files_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SketchSample final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SketchSample) */ {
+ public:
+  inline SketchSample() : SketchSample(nullptr) {}
+  ~SketchSample() override;
+  explicit PROTOBUF_CONSTEXPR SketchSample(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SketchSample(const SketchSample& from);
+  SketchSample(SketchSample&& from) noexcept
+    : SketchSample() {
+    *this = ::std::move(from);
+  }
+
+  inline SketchSample& operator=(const SketchSample& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SketchSample& operator=(SketchSample&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SketchSample& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SketchSample* internal_default_instance() {
+    return reinterpret_cast<const SketchSample*>(
+               &_SketchSample_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(SketchSample& a, SketchSample& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SketchSample* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SketchSample* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SketchSample* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SketchSample>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SketchSample& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SketchSample& from) {
+    SketchSample::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SketchSample* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SketchSample";
+  }
+  protected:
+  explicit SketchSample(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCandidateFilesFieldNumber = 1,
+    kSampledFilesFieldNumber = 2,
+    kFingerprintFieldNumber = 3,
+    kRowsSquaredSumFieldNumber = 4,
+    kMaxFileRowsFieldNumber = 5,
+  };
+  // uint64 candidate_files = 1;
+  void clear_candidate_files();
+  uint64_t candidate_files() const;
+  void set_candidate_files(uint64_t value);
+  private:
+  uint64_t _internal_candidate_files() const;
+  void _internal_set_candidate_files(uint64_t value);
+  public:
+
+  // uint64 sampled_files = 2;
+  void clear_sampled_files();
+  uint64_t sampled_files() const;
+  void set_sampled_files(uint64_t value);
+  private:
+  uint64_t _internal_sampled_files() const;
+  void _internal_set_sampled_files(uint64_t value);
+  public:
+
+  // uint64 fingerprint = 3;
+  void clear_fingerprint();
+  uint64_t fingerprint() const;
+  void set_fingerprint(uint64_t value);
+  private:
+  uint64_t _internal_fingerprint() const;
+  void _internal_set_fingerprint(uint64_t value);
+  public:
+
+  // double rows_squared_sum = 4;
+  void clear_rows_squared_sum();
+  double rows_squared_sum() const;
+  void set_rows_squared_sum(double value);
+  private:
+  double _internal_rows_squared_sum() const;
+  void _internal_set_rows_squared_sum(double value);
+  public:
+
+  // uint64 max_file_rows = 5;
+  void clear_max_file_rows();
+  uint64_t max_file_rows() const;
+  void set_max_file_rows(uint64_t value);
+  private:
+  uint64_t _internal_max_file_rows() const;
+  void _internal_set_max_file_rows(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSample)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t candidate_files_;
+    uint64_t sampled_files_;
+    uint64_t fingerprint_;
+    double rows_squared_sum_;
+    uint64_t max_file_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -586,7 +965,7 @@ class SketchDistinctCountQuery final :
                &_SketchDistinctCountQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(SketchDistinctCountQuery& a, SketchDistinctCountQuery& b) {
     a.Swap(&b);
@@ -705,7 +1084,7 @@ class SketchQuantileQuery final :
                &_SketchQuantileQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(SketchQuantileQuery& a, SketchQuantileQuery& b) {
     a.Swap(&b);
@@ -853,7 +1232,7 @@ class SketchFrequencyQuery final :
                &_SketchFrequencyQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(SketchFrequencyQuery& a, SketchFrequencyQuery& b) {
     a.Swap(&b);
@@ -1010,7 +1389,7 @@ class SketchRankQuery final :
                &_SketchRankQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(SketchRankQuery& a, SketchRankQuery& b) {
     a.Swap(&b);
@@ -1175,7 +1554,7 @@ class SketchQuery final :
                &_SketchQuery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(SketchQuery& a, SketchQuery& b) {
     a.Swap(&b);
@@ -1407,7 +1786,7 @@ class SketchBucket final :
                &_SketchBucket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(SketchBucket& a, SketchBucket& b) {
     a.Swap(&b);
@@ -1597,7 +1976,7 @@ class SketchGap final :
                &_SketchGap_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(SketchGap& a, SketchGap& b) {
     a.Swap(&b);
@@ -1783,7 +2162,7 @@ class SketchDistinctCount final :
                &_SketchDistinctCount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(SketchDistinctCount& a, SketchDistinctCount& b) {
     a.Swap(&b);
@@ -1942,7 +2321,7 @@ class SketchQuantile final :
                &_SketchQuantile_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(SketchQuantile& a, SketchQuantile& b) {
     a.Swap(&b);
@@ -2099,7 +2478,7 @@ class SketchFrequency final :
                &_SketchFrequency_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(SketchFrequency& a, SketchFrequency& b) {
     a.Swap(&b);
@@ -2258,7 +2637,7 @@ class SketchRank final :
                &_SketchRank_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   friend void swap(SketchRank& a, SketchRank& b) {
     a.Swap(&b);
@@ -2414,7 +2793,7 @@ class SketchValue final :
                &_SketchValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   friend void swap(SketchValue& a, SketchValue& b) {
     a.Swap(&b);
@@ -2646,7 +3025,7 @@ class ColumnSketchResult final :
                &_ColumnSketchResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   friend void swap(ColumnSketchResult& a, ColumnSketchResult& b) {
     a.Swap(&b);
@@ -2890,7 +3269,7 @@ class SketchResponse final :
                &_SketchResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   friend void swap(SketchResponse& a, SketchResponse& b) {
     a.Swap(&b);
@@ -2964,6 +3343,7 @@ class SketchResponse final :
 
   enum : int {
     kResultsFieldNumber = 1,
+    kSampleFieldNumber = 2,
   };
   // repeated .greptime.v1.region.ColumnSketchResult results = 1;
   int results_size() const;
@@ -2983,6 +3363,24 @@ class SketchResponse final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::ColumnSketchResult >&
       results() const;
 
+  // .greptime.v1.region.SketchSample sample = 2;
+  bool has_sample() const;
+  private:
+  bool _internal_has_sample() const;
+  public:
+  void clear_sample();
+  const ::greptime::v1::region::SketchSample& sample() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SketchSample* release_sample();
+  ::greptime::v1::region::SketchSample* mutable_sample();
+  void set_allocated_sample(::greptime::v1::region::SketchSample* sample);
+  private:
+  const ::greptime::v1::region::SketchSample& _internal_sample() const;
+  ::greptime::v1::region::SketchSample* _internal_mutable_sample();
+  public:
+  void unsafe_arena_set_allocated_sample(
+      ::greptime::v1::region::SketchSample* sample);
+  ::greptime::v1::region::SketchSample* unsafe_arena_release_sample();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchResponse)
  private:
   class _Internal;
@@ -2992,6 +3390,7 @@ class SketchResponse final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::ColumnSketchResult > results_;
+    ::greptime::v1::region::SketchSample* sample_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -3295,6 +3694,244 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::
 SketchRequest::queries() const {
   // @@protoc_insertion_point(field_list:greptime.v1.region.SketchRequest.queries)
   return _impl_.queries_;
+}
+
+// .greptime.v1.region.SketchSampling sampling = 5;
+inline bool SketchRequest::_internal_has_sampling() const {
+  return this != internal_default_instance() && _impl_.sampling_ != nullptr;
+}
+inline bool SketchRequest::has_sampling() const {
+  return _internal_has_sampling();
+}
+inline void SketchRequest::clear_sampling() {
+  if (GetArenaForAllocation() == nullptr && _impl_.sampling_ != nullptr) {
+    delete _impl_.sampling_;
+  }
+  _impl_.sampling_ = nullptr;
+}
+inline const ::greptime::v1::region::SketchSampling& SketchRequest::_internal_sampling() const {
+  const ::greptime::v1::region::SketchSampling* p = _impl_.sampling_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::SketchSampling&>(
+      ::greptime::v1::region::_SketchSampling_default_instance_);
+}
+inline const ::greptime::v1::region::SketchSampling& SketchRequest::sampling() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchRequest.sampling)
+  return _internal_sampling();
+}
+inline void SketchRequest::unsafe_arena_set_allocated_sampling(
+    ::greptime::v1::region::SketchSampling* sampling) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sampling_);
+  }
+  _impl_.sampling_ = sampling;
+  if (sampling) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.SketchRequest.sampling)
+}
+inline ::greptime::v1::region::SketchSampling* SketchRequest::release_sampling() {
+  
+  ::greptime::v1::region::SketchSampling* temp = _impl_.sampling_;
+  _impl_.sampling_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::SketchSampling* SketchRequest::unsafe_arena_release_sampling() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.SketchRequest.sampling)
+  
+  ::greptime::v1::region::SketchSampling* temp = _impl_.sampling_;
+  _impl_.sampling_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::SketchSampling* SketchRequest::_internal_mutable_sampling() {
+  
+  if (_impl_.sampling_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::SketchSampling>(GetArenaForAllocation());
+    _impl_.sampling_ = p;
+  }
+  return _impl_.sampling_;
+}
+inline ::greptime::v1::region::SketchSampling* SketchRequest::mutable_sampling() {
+  ::greptime::v1::region::SketchSampling* _msg = _internal_mutable_sampling();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchRequest.sampling)
+  return _msg;
+}
+inline void SketchRequest::set_allocated_sampling(::greptime::v1::region::SketchSampling* sampling) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.sampling_;
+  }
+  if (sampling) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(sampling);
+    if (message_arena != submessage_arena) {
+      sampling = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sampling, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.sampling_ = sampling;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchRequest.sampling)
+}
+
+// -------------------------------------------------------------------
+
+// SketchSampling
+
+// uint32 max_files = 1;
+inline void SketchSampling::clear_max_files() {
+  _impl_.max_files_ = 0u;
+}
+inline uint32_t SketchSampling::_internal_max_files() const {
+  return _impl_.max_files_;
+}
+inline uint32_t SketchSampling::max_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSampling.max_files)
+  return _internal_max_files();
+}
+inline void SketchSampling::_internal_set_max_files(uint32_t value) {
+  
+  _impl_.max_files_ = value;
+}
+inline void SketchSampling::set_max_files(uint32_t value) {
+  _internal_set_max_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSampling.max_files)
+}
+
+// uint64 seed = 2;
+inline void SketchSampling::clear_seed() {
+  _impl_.seed_ = uint64_t{0u};
+}
+inline uint64_t SketchSampling::_internal_seed() const {
+  return _impl_.seed_;
+}
+inline uint64_t SketchSampling::seed() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSampling.seed)
+  return _internal_seed();
+}
+inline void SketchSampling::_internal_set_seed(uint64_t value) {
+  
+  _impl_.seed_ = value;
+}
+inline void SketchSampling::set_seed(uint64_t value) {
+  _internal_set_seed(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSampling.seed)
+}
+
+// -------------------------------------------------------------------
+
+// SketchSample
+
+// uint64 candidate_files = 1;
+inline void SketchSample::clear_candidate_files() {
+  _impl_.candidate_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSample::_internal_candidate_files() const {
+  return _impl_.candidate_files_;
+}
+inline uint64_t SketchSample::candidate_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSample.candidate_files)
+  return _internal_candidate_files();
+}
+inline void SketchSample::_internal_set_candidate_files(uint64_t value) {
+  
+  _impl_.candidate_files_ = value;
+}
+inline void SketchSample::set_candidate_files(uint64_t value) {
+  _internal_set_candidate_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSample.candidate_files)
+}
+
+// uint64 sampled_files = 2;
+inline void SketchSample::clear_sampled_files() {
+  _impl_.sampled_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSample::_internal_sampled_files() const {
+  return _impl_.sampled_files_;
+}
+inline uint64_t SketchSample::sampled_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSample.sampled_files)
+  return _internal_sampled_files();
+}
+inline void SketchSample::_internal_set_sampled_files(uint64_t value) {
+  
+  _impl_.sampled_files_ = value;
+}
+inline void SketchSample::set_sampled_files(uint64_t value) {
+  _internal_set_sampled_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSample.sampled_files)
+}
+
+// uint64 fingerprint = 3;
+inline void SketchSample::clear_fingerprint() {
+  _impl_.fingerprint_ = uint64_t{0u};
+}
+inline uint64_t SketchSample::_internal_fingerprint() const {
+  return _impl_.fingerprint_;
+}
+inline uint64_t SketchSample::fingerprint() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSample.fingerprint)
+  return _internal_fingerprint();
+}
+inline void SketchSample::_internal_set_fingerprint(uint64_t value) {
+  
+  _impl_.fingerprint_ = value;
+}
+inline void SketchSample::set_fingerprint(uint64_t value) {
+  _internal_set_fingerprint(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSample.fingerprint)
+}
+
+// double rows_squared_sum = 4;
+inline void SketchSample::clear_rows_squared_sum() {
+  _impl_.rows_squared_sum_ = 0;
+}
+inline double SketchSample::_internal_rows_squared_sum() const {
+  return _impl_.rows_squared_sum_;
+}
+inline double SketchSample::rows_squared_sum() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSample.rows_squared_sum)
+  return _internal_rows_squared_sum();
+}
+inline void SketchSample::_internal_set_rows_squared_sum(double value) {
+  
+  _impl_.rows_squared_sum_ = value;
+}
+inline void SketchSample::set_rows_squared_sum(double value) {
+  _internal_set_rows_squared_sum(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSample.rows_squared_sum)
+}
+
+// uint64 max_file_rows = 5;
+inline void SketchSample::clear_max_file_rows() {
+  _impl_.max_file_rows_ = uint64_t{0u};
+}
+inline uint64_t SketchSample::_internal_max_file_rows() const {
+  return _impl_.max_file_rows_;
+}
+inline uint64_t SketchSample::max_file_rows() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSample.max_file_rows)
+  return _internal_max_file_rows();
+}
+inline void SketchSample::_internal_set_max_file_rows(uint64_t value) {
+  
+  _impl_.max_file_rows_ = value;
+}
+inline void SketchSample::set_max_file_rows(uint64_t value) {
+  _internal_set_max_file_rows(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSample.max_file_rows)
 }
 
 // -------------------------------------------------------------------
@@ -4968,9 +5605,103 @@ SketchResponse::results() const {
   return _impl_.results_;
 }
 
+// .greptime.v1.region.SketchSample sample = 2;
+inline bool SketchResponse::_internal_has_sample() const {
+  return this != internal_default_instance() && _impl_.sample_ != nullptr;
+}
+inline bool SketchResponse::has_sample() const {
+  return _internal_has_sample();
+}
+inline void SketchResponse::clear_sample() {
+  if (GetArenaForAllocation() == nullptr && _impl_.sample_ != nullptr) {
+    delete _impl_.sample_;
+  }
+  _impl_.sample_ = nullptr;
+}
+inline const ::greptime::v1::region::SketchSample& SketchResponse::_internal_sample() const {
+  const ::greptime::v1::region::SketchSample* p = _impl_.sample_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::SketchSample&>(
+      ::greptime::v1::region::_SketchSample_default_instance_);
+}
+inline const ::greptime::v1::region::SketchSample& SketchResponse::sample() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchResponse.sample)
+  return _internal_sample();
+}
+inline void SketchResponse::unsafe_arena_set_allocated_sample(
+    ::greptime::v1::region::SketchSample* sample) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sample_);
+  }
+  _impl_.sample_ = sample;
+  if (sample) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.SketchResponse.sample)
+}
+inline ::greptime::v1::region::SketchSample* SketchResponse::release_sample() {
+  
+  ::greptime::v1::region::SketchSample* temp = _impl_.sample_;
+  _impl_.sample_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::SketchSample* SketchResponse::unsafe_arena_release_sample() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.SketchResponse.sample)
+  
+  ::greptime::v1::region::SketchSample* temp = _impl_.sample_;
+  _impl_.sample_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::SketchSample* SketchResponse::_internal_mutable_sample() {
+  
+  if (_impl_.sample_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::SketchSample>(GetArenaForAllocation());
+    _impl_.sample_ = p;
+  }
+  return _impl_.sample_;
+}
+inline ::greptime::v1::region::SketchSample* SketchResponse::mutable_sample() {
+  ::greptime::v1::region::SketchSample* _msg = _internal_mutable_sample();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchResponse.sample)
+  return _msg;
+}
+inline void SketchResponse::set_allocated_sample(::greptime::v1::region::SketchSample* sample) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.sample_;
+  }
+  if (sample) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(sample);
+    if (message_arena != submessage_arena) {
+      sample = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sample, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.sample_ = sample;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchResponse.sample)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
