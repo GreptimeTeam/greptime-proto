@@ -36,6 +36,25 @@ message SketchRequest {
   SketchTimeRange time_range = 2;
   repeated string columns = 3;
   repeated SketchQuery queries = 4;
+  // Absent means all candidate files are read.
+  SketchSampling sampling = 5;
+}
+
+// Uniform file sampling without replacement, before reading index payloads.
+message SketchSampling {
+  uint32 max_files = 1;
+  uint64 seed = 2;
+}
+
+// Sampling diagnostics for this request interval. Rows remain sample counts.
+message SketchSample {
+  uint64 candidate_files = 1;
+  uint64 sampled_files = 2;
+  // Stable membership signature; changes invalidate comparisons across requests.
+  uint64 fingerprint = 3;
+  // Sum of squared per-file represented rows in the requested interval.
+  double rows_squared_sum = 4;
+  uint64 max_file_rows = 5;
 }
 
 message SketchDistinctCountQuery {}
@@ -119,4 +138,6 @@ message ColumnSketchResult {
 // Statistics cover persisted physical rows, not the current logical distribution.
 message SketchResponse {
   repeated ColumnSketchResult results = 1;
+  // Present only when file sampling was requested.
+  SketchSample sample = 2;
 }
