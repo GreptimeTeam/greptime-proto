@@ -109,6 +109,9 @@ extern MailboxMessageHeader_TracingContextEntry_DoNotUseDefaultTypeInternal _Mai
 class NodeInfo;
 struct NodeInfoDefaultTypeInternal;
 extern NodeInfoDefaultTypeInternal _NodeInfo_default_instance_;
+class OpeningRegion;
+struct OpeningRegionDefaultTypeInternal;
+extern OpeningRegionDefaultTypeInternal _OpeningRegion_default_instance_;
 class RegionLease;
 struct RegionLeaseDefaultTypeInternal;
 extern RegionLeaseDefaultTypeInternal _RegionLease_default_instance_;
@@ -144,6 +147,7 @@ template<> ::greptime::v1::meta::MailboxMessage* Arena::CreateMaybeMessage<::gre
 template<> ::greptime::v1::meta::MailboxMessageHeader* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader>(Arena*);
 template<> ::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::MailboxMessageHeader_TracingContextEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::meta::NodeInfo* Arena::CreateMaybeMessage<::greptime::v1::meta::NodeInfo>(Arena*);
+template<> ::greptime::v1::meta::OpeningRegion* Arena::CreateMaybeMessage<::greptime::v1::meta::OpeningRegion>(Arena*);
 template<> ::greptime::v1::meta::RegionLease* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionLease>(Arena*);
 template<> ::greptime::v1::meta::RegionStat* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat>(Arena*);
 template<> ::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::meta::RegionStat_ExtensionsEntry_DoNotUse>(Arena*);
@@ -341,6 +345,7 @@ class HeartbeatRequest final :
   enum : int {
     kRegionStatsFieldNumber = 4,
     kTopicStatsFieldNumber = 13,
+    kOpeningRegionsFieldNumber = 14,
     kExtensionsFieldNumber = 99,
     kHeaderFieldNumber = 1,
     kPeerFieldNumber = 2,
@@ -389,6 +394,24 @@ class HeartbeatRequest final :
   ::greptime::v1::meta::TopicStat* add_topic_stats();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat >&
       topic_stats() const;
+
+  // repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;
+  int opening_regions_size() const;
+  private:
+  int _internal_opening_regions_size() const;
+  public:
+  void clear_opening_regions();
+  ::greptime::v1::meta::OpeningRegion* mutable_opening_regions(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OpeningRegion >*
+      mutable_opening_regions();
+  private:
+  const ::greptime::v1::meta::OpeningRegion& _internal_opening_regions(int index) const;
+  ::greptime::v1::meta::OpeningRegion* _internal_add_opening_regions();
+  public:
+  const ::greptime::v1::meta::OpeningRegion& opening_regions(int index) const;
+  ::greptime::v1::meta::OpeningRegion* add_opening_regions();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OpeningRegion >&
+      opening_regions() const;
 
   // map<string, bytes> extensions = 99;
   int extensions_size() const;
@@ -605,6 +628,7 @@ class HeartbeatRequest final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::RegionStat > region_stats_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::TopicStat > topic_stats_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OpeningRegion > opening_regions_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         HeartbeatRequest_ExtensionsEntry_DoNotUse,
         std::string, std::string,
@@ -1642,6 +1666,154 @@ class RegionStat final :
 };
 // -------------------------------------------------------------------
 
+class OpeningRegion final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.OpeningRegion) */ {
+ public:
+  inline OpeningRegion() : OpeningRegion(nullptr) {}
+  ~OpeningRegion() override;
+  explicit PROTOBUF_CONSTEXPR OpeningRegion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  OpeningRegion(const OpeningRegion& from);
+  OpeningRegion(OpeningRegion&& from) noexcept
+    : OpeningRegion() {
+    *this = ::std::move(from);
+  }
+
+  inline OpeningRegion& operator=(const OpeningRegion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline OpeningRegion& operator=(OpeningRegion&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const OpeningRegion& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const OpeningRegion* internal_default_instance() {
+    return reinterpret_cast<const OpeningRegion*>(
+               &_OpeningRegion_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(OpeningRegion& a, OpeningRegion& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(OpeningRegion* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(OpeningRegion* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  OpeningRegion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<OpeningRegion>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const OpeningRegion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const OpeningRegion& from) {
+    OpeningRegion::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(OpeningRegion* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.meta.OpeningRegion";
+  }
+  protected:
+  explicit OpeningRegion(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.meta.OpeningRegion)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
+};
+// -------------------------------------------------------------------
+
 class TopicStat final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.meta.TopicStat) */ {
  public:
@@ -1690,7 +1862,7 @@ class TopicStat final :
                &_TopicStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(TopicStat& a, TopicStat& b) {
     a.Swap(&b);
@@ -1924,7 +2096,7 @@ class FlowStat final :
                &_FlowStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(FlowStat& a, FlowStat& b) {
     a.Swap(&b);
@@ -2136,7 +2308,7 @@ class HeartbeatResponse final :
                &_HeartbeatResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(HeartbeatResponse& a, HeartbeatResponse& b) {
     a.Swap(&b);
@@ -2379,7 +2551,7 @@ class HeartbeatConfig final :
                &_HeartbeatConfig_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(HeartbeatConfig& a, HeartbeatConfig& b) {
     a.Swap(&b);
@@ -2575,7 +2747,7 @@ class GrantedRegion final :
                &_GrantedRegion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(GrantedRegion& a, GrantedRegion& b) {
     a.Swap(&b);
@@ -2760,7 +2932,7 @@ class RegionLease final :
                &_RegionLease_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(RegionLease& a, RegionLease& b) {
     a.Swap(&b);
@@ -2964,7 +3136,7 @@ class AskLeaderRequest final :
                &_AskLeaderRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(AskLeaderRequest& a, AskLeaderRequest& b) {
     a.Swap(&b);
@@ -3121,7 +3293,7 @@ class AskLeaderResponse final :
                &_AskLeaderResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(AskLeaderResponse& a, AskLeaderResponse& b) {
     a.Swap(&b);
@@ -3326,7 +3498,7 @@ class MailboxMessageHeader final :
                &_MailboxMessageHeader_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(MailboxMessageHeader& a, MailboxMessageHeader& b) {
     a.Swap(&b);
@@ -3494,7 +3666,7 @@ class MailboxMessage final :
                &_MailboxMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(MailboxMessage& a, MailboxMessage& b) {
     a.Swap(&b);
@@ -4583,6 +4755,46 @@ HeartbeatRequest::topic_stats() const {
   return _impl_.topic_stats_;
 }
 
+// repeated .greptime.v1.meta.OpeningRegion opening_regions = 14;
+inline int HeartbeatRequest::_internal_opening_regions_size() const {
+  return _impl_.opening_regions_.size();
+}
+inline int HeartbeatRequest::opening_regions_size() const {
+  return _internal_opening_regions_size();
+}
+inline void HeartbeatRequest::clear_opening_regions() {
+  _impl_.opening_regions_.Clear();
+}
+inline ::greptime::v1::meta::OpeningRegion* HeartbeatRequest::mutable_opening_regions(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.meta.HeartbeatRequest.opening_regions)
+  return _impl_.opening_regions_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OpeningRegion >*
+HeartbeatRequest::mutable_opening_regions() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.meta.HeartbeatRequest.opening_regions)
+  return &_impl_.opening_regions_;
+}
+inline const ::greptime::v1::meta::OpeningRegion& HeartbeatRequest::_internal_opening_regions(int index) const {
+  return _impl_.opening_regions_.Get(index);
+}
+inline const ::greptime::v1::meta::OpeningRegion& HeartbeatRequest::opening_regions(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.HeartbeatRequest.opening_regions)
+  return _internal_opening_regions(index);
+}
+inline ::greptime::v1::meta::OpeningRegion* HeartbeatRequest::_internal_add_opening_regions() {
+  return _impl_.opening_regions_.Add();
+}
+inline ::greptime::v1::meta::OpeningRegion* HeartbeatRequest::add_opening_regions() {
+  ::greptime::v1::meta::OpeningRegion* _add = _internal_add_opening_regions();
+  // @@protoc_insertion_point(field_add:greptime.v1.meta.HeartbeatRequest.opening_regions)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::meta::OpeningRegion >&
+HeartbeatRequest::opening_regions() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.meta.HeartbeatRequest.opening_regions)
+  return _impl_.opening_regions_;
+}
+
 // map<string, bytes> extensions = 99;
 inline int HeartbeatRequest::_internal_extensions_size() const {
   return _impl_.extensions_.size();
@@ -5251,6 +5463,30 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
 RegionStat::mutable_extensions() {
   // @@protoc_insertion_point(field_mutable_map:greptime.v1.meta.RegionStat.extensions)
   return _internal_mutable_extensions();
+}
+
+// -------------------------------------------------------------------
+
+// OpeningRegion
+
+// uint64 region_id = 1;
+inline void OpeningRegion::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t OpeningRegion::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t OpeningRegion::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.OpeningRegion.region_id)
+  return _internal_region_id();
+}
+inline void OpeningRegion::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void OpeningRegion::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.OpeningRegion.region_id)
 }
 
 // -------------------------------------------------------------------
@@ -6764,6 +7000,8 @@ inline MailboxMessage::PayloadCase MailboxMessage::payload_case() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

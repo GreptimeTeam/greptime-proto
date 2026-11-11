@@ -168,6 +168,9 @@ pub struct HeartbeatRequest {
     /// The topic stats of the datanode.
     #[prost(message, repeated, tag = "13")]
     pub topic_stats: ::prost::alloc::vec::Vec<TopicStat>,
+    /// Regions queued for opening or currently being opened.
+    #[prost(message, repeated, tag = "14")]
+    pub opening_regions: ::prost::alloc::vec::Vec<OpeningRegion>,
     #[prost(map = "string, bytes", tag = "99")]
     pub extensions: ::std::collections::HashMap<
         ::prost::alloc::string::String,
@@ -277,6 +280,13 @@ pub struct RegionStat {
         ::prost::alloc::string::String,
         ::prost::alloc::vec::Vec<u8>,
     >,
+}
+/// A region queued for opening or currently being opened.
+#[allow(clippy::all)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct OpeningRegion {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
 }
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]

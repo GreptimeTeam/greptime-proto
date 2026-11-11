@@ -55,6 +55,8 @@ message HeartbeatRequest {
   }
   // The topic stats of the datanode.
   repeated TopicStat topic_stats = 13;
+  // Regions queued for opening or currently being opened.
+  repeated OpeningRegion opening_regions = 14;
   map<string, bytes> extensions = 99;
 }
 
@@ -124,6 +126,11 @@ message RegionStat {
   // Region role
   RegionRole role = 7;
   map<string, bytes> extensions = 99;
+}
+
+// A region queued for opening or currently being opened.
+message OpeningRegion {
+  uint64 region_id = 1;
 }
 
 message TopicStat {
