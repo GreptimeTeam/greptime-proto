@@ -1,0 +1,23 @@
+java/src/main/java/greptime/v1/meta/HeartbeatOuterClass.java
+  s_99bcc3815ddbc2::t_644e6836c48038 20565-20618
+c++/greptime/v1/meta/heartbeat.pb.cc
+  s_99bcc3815ddbc2::t_63d581f7acb865 723-776,783
+go/greptime/v1/meta/heartbeat.pb.go
+  s_99bcc3815ddbc2::t_d5f3096204906e 1537,1539-1572,1574-1624,1626-1648,1650-1697
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8e6e9f2c9b7a8abf694ad98371ad59b6125ae10a",
+  "prompts": {},
+  "sessions": {
+    "s_99bcc3815ddbc2": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1c43c-f005-78b3-b4ad-42b2a432c17b",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "WenyXu <wenymedia@gmail.com>"
+    }
+  }
+}
