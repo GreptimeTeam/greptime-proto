@@ -130,8 +130,6 @@ message RegionStat {
 
 // A region queued for opening or currently being opened.
 message OpeningRegion {
-  reserved 2, 3;
-  reserved "started_at_millis";
   uint64 region_id = 1;
 }
 
