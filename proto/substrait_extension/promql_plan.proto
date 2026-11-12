@@ -166,3 +166,12 @@ message UnionDistinctOn {
   // Column index of the timestamp column
   uint64 ts_col_idx = 2;
 }
+
+// Version 1 raw-series source bindings; tag and field order is significant.
+// Substrait carries the child plan separately. Bound column types come from the child schema.
+message RawSeriesSource {
+  uint32 version = 1;
+  string metric_name = 2;
+  repeated string tags = 3;
+  repeated string fields = 4;
+}
