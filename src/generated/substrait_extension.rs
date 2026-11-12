@@ -263,3 +263,31 @@ pub struct MergeScan {
     #[prost(bool, tag = "2")]
     pub is_placeholder: bool,
 }
+/// Metadata of one grouped region read root.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct GroupRead {
+    /// Version of the grouped-read envelope model.
+    #[prost(uint32, tag = "1")]
+    pub version: u32,
+    /// Regions whose regional plans are carried by the leaf nodes, exactly once each.
+    #[prost(uint64, repeated, tag = "2")]
+    pub region_ids: ::prost::alloc::vec::Vec<u64>,
+    /// Logical table id shared by every region.
+    #[prost(uint32, tag = "3")]
+    pub table_id: u32,
+    /// Logical table name shared by every region.
+    #[prost(string, tag = "4")]
+    pub table_name: ::prost::alloc::string::String,
+}
+/// One region-scoped plan inside a grouped region read.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RegionPlan {
+    /// Region this plan is bound to.
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    /// Substrait-encoded regional logical plan.
+    #[prost(bytes = "vec", tag = "2")]
+    pub plan: ::prost::alloc::vec::Vec<u8>,
+}
