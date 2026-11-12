@@ -24,3 +24,23 @@ message MergeScan {
   // whether this plan is a placeholder
   bool is_placeholder = 2;
 }
+
+// Metadata of one grouped region read root.
+message GroupRead {
+  // Version of the grouped-read envelope model.
+  uint32 version = 1;
+  // Regions whose regional plans are carried by the leaf nodes, exactly once each.
+  repeated uint64 region_ids = 2;
+  // Logical table id shared by every region.
+  uint32 table_id = 3;
+  // Logical table name shared by every region.
+  string table_name = 4;
+}
+
+// One region-scoped plan inside a grouped region read.
+message RegionPlan {
+  // Region this plan is bound to.
+  uint64 region_id = 1;
+  // Substrait-encoded regional logical plan.
+  bytes plan = 2;
+}

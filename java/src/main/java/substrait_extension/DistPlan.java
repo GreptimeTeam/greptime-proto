@@ -619,11 +619,1677 @@ public final class DistPlan {
 
   }
 
+  public interface GroupReadOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.GroupRead)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Version of the grouped-read envelope model.
+     * </pre>
+     *
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    int getVersion();
+
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @return A list containing the regionIds.
+     */
+    java.util.List<java.lang.Long> getRegionIdsList();
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @return The count of regionIds.
+     */
+    int getRegionIdsCount();
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    long getRegionIds(int index);
+
+    /**
+     * <pre>
+     * Logical table id shared by every region.
+     * </pre>
+     *
+     * <code>uint32 table_id = 3;</code>
+     * @return The tableId.
+     */
+    int getTableId();
+
+    /**
+     * <pre>
+     * Logical table name shared by every region.
+     * </pre>
+     *
+     * <code>string table_name = 4;</code>
+     * @return The tableName.
+     */
+    java.lang.String getTableName();
+    /**
+     * <pre>
+     * Logical table name shared by every region.
+     * </pre>
+     *
+     * <code>string table_name = 4;</code>
+     * @return The bytes for tableName.
+     */
+    com.google.protobuf.ByteString
+        getTableNameBytes();
+  }
+  /**
+   * <pre>
+   * Metadata of one grouped region read root.
+   * </pre>
+   *
+   * Protobuf type {@code substrait_extension.GroupRead}
+   */
+  public static final class GroupRead extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.GroupRead)
+      GroupReadOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GroupRead.newBuilder() to construct.
+    private GroupRead(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GroupRead() {
+      regionIds_ = emptyLongList();
+      tableName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GroupRead();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GroupRead(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              version_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              regionIds_.addLong(input.readUInt64());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                regionIds_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                regionIds_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 24: {
+
+              tableId_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tableName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_GroupRead_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_GroupRead_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.DistPlan.GroupRead.class, substrait_extension.DistPlan.GroupRead.Builder.class);
+    }
+
+    public static final int VERSION_FIELD_NUMBER = 1;
+    private int version_;
+    /**
+     * <pre>
+     * Version of the grouped-read envelope model.
+     * </pre>
+     *
+     * <code>uint32 version = 1;</code>
+     * @return The version.
+     */
+    @java.lang.Override
+    public int getVersion() {
+      return version_;
+    }
+
+    public static final int REGION_IDS_FIELD_NUMBER = 2;
+    private com.google.protobuf.Internal.LongList regionIds_;
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @return A list containing the regionIds.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getRegionIdsList() {
+      return regionIds_;
+    }
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @return The count of regionIds.
+     */
+    public int getRegionIdsCount() {
+      return regionIds_.size();
+    }
+    /**
+     * <pre>
+     * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+     * </pre>
+     *
+     * <code>repeated uint64 region_ids = 2;</code>
+     * @param index The index of the element to return.
+     * @return The regionIds at the given index.
+     */
+    public long getRegionIds(int index) {
+      return regionIds_.getLong(index);
+    }
+    private int regionIdsMemoizedSerializedSize = -1;
+
+    public static final int TABLE_ID_FIELD_NUMBER = 3;
+    private int tableId_;
+    /**
+     * <pre>
+     * Logical table id shared by every region.
+     * </pre>
+     *
+     * <code>uint32 table_id = 3;</code>
+     * @return The tableId.
+     */
+    @java.lang.Override
+    public int getTableId() {
+      return tableId_;
+    }
+
+    public static final int TABLE_NAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object tableName_;
+    /**
+     * <pre>
+     * Logical table name shared by every region.
+     * </pre>
+     *
+     * <code>string table_name = 4;</code>
+     * @return The tableName.
+     */
+    @java.lang.Override
+    public java.lang.String getTableName() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tableName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Logical table name shared by every region.
+     * </pre>
+     *
+     * <code>string table_name = 4;</code>
+     * @return The bytes for tableName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTableNameBytes() {
+      java.lang.Object ref = tableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (version_ != 0) {
+        output.writeUInt32(1, version_);
+      }
+      if (getRegionIdsList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(regionIdsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < regionIds_.size(); i++) {
+        output.writeUInt64NoTag(regionIds_.getLong(i));
+      }
+      if (tableId_ != 0) {
+        output.writeUInt32(3, tableId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, tableName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (version_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, version_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < regionIds_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt64SizeNoTag(regionIds_.getLong(i));
+        }
+        size += dataSize;
+        if (!getRegionIdsList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        regionIdsMemoizedSerializedSize = dataSize;
+      }
+      if (tableId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, tableId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tableName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, tableName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.DistPlan.GroupRead)) {
+        return super.equals(obj);
+      }
+      substrait_extension.DistPlan.GroupRead other = (substrait_extension.DistPlan.GroupRead) obj;
+
+      if (getVersion()
+          != other.getVersion()) return false;
+      if (!getRegionIdsList()
+          .equals(other.getRegionIdsList())) return false;
+      if (getTableId()
+          != other.getTableId()) return false;
+      if (!getTableName()
+          .equals(other.getTableName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getVersion();
+      if (getRegionIdsCount() > 0) {
+        hash = (37 * hash) + REGION_IDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegionIdsList().hashCode();
+      }
+      hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTableId();
+      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getTableName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.GroupRead parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.DistPlan.GroupRead prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Metadata of one grouped region read root.
+     * </pre>
+     *
+     * Protobuf type {@code substrait_extension.GroupRead}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.GroupRead)
+        substrait_extension.DistPlan.GroupReadOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_GroupRead_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_GroupRead_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.DistPlan.GroupRead.class, substrait_extension.DistPlan.GroupRead.Builder.class);
+      }
+
+      // Construct using substrait_extension.DistPlan.GroupRead.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        version_ = 0;
+
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tableId_ = 0;
+
+        tableName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_GroupRead_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.GroupRead getDefaultInstanceForType() {
+        return substrait_extension.DistPlan.GroupRead.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.GroupRead build() {
+        substrait_extension.DistPlan.GroupRead result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.GroupRead buildPartial() {
+        substrait_extension.DistPlan.GroupRead result = new substrait_extension.DistPlan.GroupRead(this);
+        int from_bitField0_ = bitField0_;
+        result.version_ = version_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          regionIds_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.regionIds_ = regionIds_;
+        result.tableId_ = tableId_;
+        result.tableName_ = tableName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.DistPlan.GroupRead) {
+          return mergeFrom((substrait_extension.DistPlan.GroupRead)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.DistPlan.GroupRead other) {
+        if (other == substrait_extension.DistPlan.GroupRead.getDefaultInstance()) return this;
+        if (other.getVersion() != 0) {
+          setVersion(other.getVersion());
+        }
+        if (!other.regionIds_.isEmpty()) {
+          if (regionIds_.isEmpty()) {
+            regionIds_ = other.regionIds_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureRegionIdsIsMutable();
+            regionIds_.addAll(other.regionIds_);
+          }
+          onChanged();
+        }
+        if (other.getTableId() != 0) {
+          setTableId(other.getTableId());
+        }
+        if (!other.getTableName().isEmpty()) {
+          tableName_ = other.tableName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.DistPlan.GroupRead parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.DistPlan.GroupRead) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int version_ ;
+      /**
+       * <pre>
+       * Version of the grouped-read envelope model.
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       * @return The version.
+       */
+      @java.lang.Override
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <pre>
+       * Version of the grouped-read envelope model.
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVersion(int value) {
+        
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Version of the grouped-read envelope model.
+       * </pre>
+       *
+       * <code>uint32 version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVersion() {
+        
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Internal.LongList regionIds_ = emptyLongList();
+      private void ensureRegionIdsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          regionIds_ = mutableCopy(regionIds_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @return A list containing the regionIds.
+       */
+      public java.util.List<java.lang.Long>
+          getRegionIdsList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(regionIds_) : regionIds_;
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @return The count of regionIds.
+       */
+      public int getRegionIdsCount() {
+        return regionIds_.size();
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @param index The index of the element to return.
+       * @return The regionIds at the given index.
+       */
+      public long getRegionIds(int index) {
+        return regionIds_.getLong(index);
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @param index The index to set the value at.
+       * @param value The regionIds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionIds(
+          int index, long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.setLong(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @param value The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addRegionIds(long value) {
+        ensureRegionIdsIsMutable();
+        regionIds_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @param values The regionIds to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllRegionIds(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureRegionIdsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, regionIds_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Regions whose regional plans are carried by the leaf nodes, exactly once each.
+       * </pre>
+       *
+       * <code>repeated uint64 region_ids = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionIds() {
+        regionIds_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private int tableId_ ;
+      /**
+       * <pre>
+       * Logical table id shared by every region.
+       * </pre>
+       *
+       * <code>uint32 table_id = 3;</code>
+       * @return The tableId.
+       */
+      @java.lang.Override
+      public int getTableId() {
+        return tableId_;
+      }
+      /**
+       * <pre>
+       * Logical table id shared by every region.
+       * </pre>
+       *
+       * <code>uint32 table_id = 3;</code>
+       * @param value The tableId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableId(int value) {
+        
+        tableId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Logical table id shared by every region.
+       * </pre>
+       *
+       * <code>uint32 table_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableId() {
+        
+        tableId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object tableName_ = "";
+      /**
+       * <pre>
+       * Logical table name shared by every region.
+       * </pre>
+       *
+       * <code>string table_name = 4;</code>
+       * @return The tableName.
+       */
+      public java.lang.String getTableName() {
+        java.lang.Object ref = tableName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tableName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Logical table name shared by every region.
+       * </pre>
+       *
+       * <code>string table_name = 4;</code>
+       * @return The bytes for tableName.
+       */
+      public com.google.protobuf.ByteString
+          getTableNameBytes() {
+        java.lang.Object ref = tableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tableName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Logical table name shared by every region.
+       * </pre>
+       *
+       * <code>string table_name = 4;</code>
+       * @param value The tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Logical table name shared by every region.
+       * </pre>
+       *
+       * <code>string table_name = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTableName() {
+        
+        tableName_ = getDefaultInstance().getTableName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Logical table name shared by every region.
+       * </pre>
+       *
+       * <code>string table_name = 4;</code>
+       * @param value The bytes for tableName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tableName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.GroupRead)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.GroupRead)
+    private static final substrait_extension.DistPlan.GroupRead DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.DistPlan.GroupRead();
+    }
+
+    public static substrait_extension.DistPlan.GroupRead getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GroupRead>
+        PARSER = new com.google.protobuf.AbstractParser<GroupRead>() {
+      @java.lang.Override
+      public GroupRead parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GroupRead(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GroupRead> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GroupRead> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.DistPlan.GroupRead getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RegionPlanOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:substrait_extension.RegionPlan)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Region this plan is bound to.
+     * </pre>
+     *
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+
+    /**
+     * <pre>
+     * Substrait-encoded regional logical plan.
+     * </pre>
+     *
+     * <code>bytes plan = 2;</code>
+     * @return The plan.
+     */
+    com.google.protobuf.ByteString getPlan();
+  }
+  /**
+   * <pre>
+   * One region-scoped plan inside a grouped region read.
+   * </pre>
+   *
+   * Protobuf type {@code substrait_extension.RegionPlan}
+   */
+  public static final class RegionPlan extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:substrait_extension.RegionPlan)
+      RegionPlanOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RegionPlan.newBuilder() to construct.
+    private RegionPlan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RegionPlan() {
+      plan_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new RegionPlan();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegionPlan(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+
+              plan_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RegionPlan_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return substrait_extension.DistPlan.internal_static_substrait_extension_RegionPlan_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              substrait_extension.DistPlan.RegionPlan.class, substrait_extension.DistPlan.RegionPlan.Builder.class);
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
+    /**
+     * <pre>
+     * Region this plan is bound to.
+     * </pre>
+     *
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    public static final int PLAN_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString plan_;
+    /**
+     * <pre>
+     * Substrait-encoded regional logical plan.
+     * </pre>
+     *
+     * <code>bytes plan = 2;</code>
+     * @return The plan.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPlan() {
+      return plan_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      if (!plan_.isEmpty()) {
+        output.writeBytes(2, plan_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (regionId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, regionId_);
+      }
+      if (!plan_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, plan_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof substrait_extension.DistPlan.RegionPlan)) {
+        return super.equals(obj);
+      }
+      substrait_extension.DistPlan.RegionPlan other = (substrait_extension.DistPlan.RegionPlan) obj;
+
+      if (getRegionId()
+          != other.getRegionId()) return false;
+      if (!getPlan()
+          .equals(other.getPlan())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
+      hash = (37 * hash) + PLAN_FIELD_NUMBER;
+      hash = (53 * hash) + getPlan().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static substrait_extension.DistPlan.RegionPlan parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(substrait_extension.DistPlan.RegionPlan prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * One region-scoped plan inside a grouped region read.
+     * </pre>
+     *
+     * Protobuf type {@code substrait_extension.RegionPlan}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:substrait_extension.RegionPlan)
+        substrait_extension.DistPlan.RegionPlanOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RegionPlan_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RegionPlan_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                substrait_extension.DistPlan.RegionPlan.class, substrait_extension.DistPlan.RegionPlan.Builder.class);
+      }
+
+      // Construct using substrait_extension.DistPlan.RegionPlan.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionId_ = 0L;
+
+        plan_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return substrait_extension.DistPlan.internal_static_substrait_extension_RegionPlan_descriptor;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RegionPlan getDefaultInstanceForType() {
+        return substrait_extension.DistPlan.RegionPlan.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RegionPlan build() {
+        substrait_extension.DistPlan.RegionPlan result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public substrait_extension.DistPlan.RegionPlan buildPartial() {
+        substrait_extension.DistPlan.RegionPlan result = new substrait_extension.DistPlan.RegionPlan(this);
+        result.regionId_ = regionId_;
+        result.plan_ = plan_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof substrait_extension.DistPlan.RegionPlan) {
+          return mergeFrom((substrait_extension.DistPlan.RegionPlan)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(substrait_extension.DistPlan.RegionPlan other) {
+        if (other == substrait_extension.DistPlan.RegionPlan.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
+        if (other.getPlan() != com.google.protobuf.ByteString.EMPTY) {
+          setPlan(other.getPlan());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        substrait_extension.DistPlan.RegionPlan parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (substrait_extension.DistPlan.RegionPlan) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long regionId_ ;
+      /**
+       * <pre>
+       * Region this plan is bound to.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <pre>
+       * Region this plan is bound to.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Region this plan is bound to.
+       * </pre>
+       *
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString plan_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Substrait-encoded regional logical plan.
+       * </pre>
+       *
+       * <code>bytes plan = 2;</code>
+       * @return The plan.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPlan() {
+        return plan_;
+      }
+      /**
+       * <pre>
+       * Substrait-encoded regional logical plan.
+       * </pre>
+       *
+       * <code>bytes plan = 2;</code>
+       * @param value The plan to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlan(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        plan_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Substrait-encoded regional logical plan.
+       * </pre>
+       *
+       * <code>bytes plan = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlan() {
+        
+        plan_ = getDefaultInstance().getPlan();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:substrait_extension.RegionPlan)
+    }
+
+    // @@protoc_insertion_point(class_scope:substrait_extension.RegionPlan)
+    private static final substrait_extension.DistPlan.RegionPlan DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new substrait_extension.DistPlan.RegionPlan();
+    }
+
+    public static substrait_extension.DistPlan.RegionPlan getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RegionPlan>
+        PARSER = new com.google.protobuf.AbstractParser<RegionPlan>() {
+      @java.lang.Override
+      public RegionPlan parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegionPlan(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RegionPlan> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegionPlan> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public substrait_extension.DistPlan.RegionPlan getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_substrait_extension_MergeScan_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_substrait_extension_MergeScan_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_GroupRead_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_GroupRead_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_substrait_extension_RegionPlan_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_substrait_extension_RegionPlan_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -635,9 +2301,12 @@ public final class DistPlan {
     java.lang.String[] descriptorData = {
       "\n#substrait_extension/dist_plan.proto\022\023s" +
       "ubstrait_extension\"2\n\tMergeScan\022\r\n\005input" +
-      "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010B?Z=github" +
-      ".com/GreptimeTeam/greptime-proto/go/subs" +
-      "trait_extensionb\006proto3"
+      "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010\"V\n\tGroupR" +
+      "ead\022\017\n\007version\030\001 \001(\r\022\022\n\nregion_ids\030\002 \003(\004" +
+      "\022\020\n\010table_id\030\003 \001(\r\022\022\n\ntable_name\030\004 \001(\t\"-" +
+      "\n\nRegionPlan\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004plan\030" +
+      "\002 \001(\014B?Z=github.com/GreptimeTeam/greptim" +
+      "e-proto/go/substrait_extensionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -649,6 +2318,18 @@ public final class DistPlan {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_substrait_extension_MergeScan_descriptor,
         new java.lang.String[] { "Input", "IsPlaceholder", });
+    internal_static_substrait_extension_GroupRead_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_substrait_extension_GroupRead_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_GroupRead_descriptor,
+        new java.lang.String[] { "Version", "RegionIds", "TableId", "TableName", });
+    internal_static_substrait_extension_RegionPlan_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_substrait_extension_RegionPlan_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_substrait_extension_RegionPlan_descriptor,
+        new java.lang.String[] { "RegionId", "Plan", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

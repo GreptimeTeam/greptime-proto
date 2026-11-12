@@ -45,12 +45,20 @@ struct TableStruct_substrait_5fextension_2fdist_5fplan_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto;
 namespace substrait_extension {
+class GroupRead;
+struct GroupReadDefaultTypeInternal;
+extern GroupReadDefaultTypeInternal _GroupRead_default_instance_;
 class MergeScan;
 struct MergeScanDefaultTypeInternal;
 extern MergeScanDefaultTypeInternal _MergeScan_default_instance_;
+class RegionPlan;
+struct RegionPlanDefaultTypeInternal;
+extern RegionPlanDefaultTypeInternal _RegionPlan_default_instance_;
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
+template<> ::substrait_extension::GroupRead* Arena::CreateMaybeMessage<::substrait_extension::GroupRead>(Arena*);
 template<> ::substrait_extension::MergeScan* Arena::CreateMaybeMessage<::substrait_extension::MergeScan>(Arena*);
+template<> ::substrait_extension::RegionPlan* Arena::CreateMaybeMessage<::substrait_extension::RegionPlan>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace substrait_extension {
 
@@ -218,6 +226,370 @@ class MergeScan final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class GroupRead final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.GroupRead) */ {
+ public:
+  inline GroupRead() : GroupRead(nullptr) {}
+  ~GroupRead() override;
+  explicit PROTOBUF_CONSTEXPR GroupRead(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GroupRead(const GroupRead& from);
+  GroupRead(GroupRead&& from) noexcept
+    : GroupRead() {
+    *this = ::std::move(from);
+  }
+
+  inline GroupRead& operator=(const GroupRead& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GroupRead& operator=(GroupRead&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GroupRead& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GroupRead* internal_default_instance() {
+    return reinterpret_cast<const GroupRead*>(
+               &_GroupRead_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GroupRead& a, GroupRead& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GroupRead* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GroupRead* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GroupRead* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GroupRead>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GroupRead& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GroupRead& from) {
+    GroupRead::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GroupRead* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.GroupRead";
+  }
+  protected:
+  explicit GroupRead(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdsFieldNumber = 2,
+    kTableNameFieldNumber = 4,
+    kVersionFieldNumber = 1,
+    kTableIdFieldNumber = 3,
+  };
+  // repeated uint64 region_ids = 2;
+  int region_ids_size() const;
+  private:
+  int _internal_region_ids_size() const;
+  public:
+  void clear_region_ids();
+  private:
+  uint64_t _internal_region_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      _internal_region_ids() const;
+  void _internal_add_region_ids(uint64_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      _internal_mutable_region_ids();
+  public:
+  uint64_t region_ids(int index) const;
+  void set_region_ids(int index, uint64_t value);
+  void add_region_ids(uint64_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+      region_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+      mutable_region_ids();
+
+  // string table_name = 4;
+  void clear_table_name();
+  const std::string& table_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_table_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_table_name();
+  PROTOBUF_NODISCARD std::string* release_table_name();
+  void set_allocated_table_name(std::string* table_name);
+  private:
+  const std::string& _internal_table_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_name(const std::string& value);
+  std::string* _internal_mutable_table_name();
+  public:
+
+  // uint32 version = 1;
+  void clear_version();
+  uint32_t version() const;
+  void set_version(uint32_t value);
+  private:
+  uint32_t _internal_version() const;
+  void _internal_set_version(uint32_t value);
+  public:
+
+  // uint32 table_id = 3;
+  void clear_table_id();
+  uint32_t table_id() const;
+  void set_table_id(uint32_t value);
+  private:
+  uint32_t _internal_table_id() const;
+  void _internal_set_table_id(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.GroupRead)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > region_ids_;
+    mutable std::atomic<int> _region_ids_cached_byte_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_name_;
+    uint32_t version_;
+    uint32_t table_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RegionPlan final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.RegionPlan) */ {
+ public:
+  inline RegionPlan() : RegionPlan(nullptr) {}
+  ~RegionPlan() override;
+  explicit PROTOBUF_CONSTEXPR RegionPlan(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RegionPlan(const RegionPlan& from);
+  RegionPlan(RegionPlan&& from) noexcept
+    : RegionPlan() {
+    *this = ::std::move(from);
+  }
+
+  inline RegionPlan& operator=(const RegionPlan& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RegionPlan& operator=(RegionPlan&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RegionPlan& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RegionPlan* internal_default_instance() {
+    return reinterpret_cast<const RegionPlan*>(
+               &_RegionPlan_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(RegionPlan& a, RegionPlan& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RegionPlan* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RegionPlan* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RegionPlan* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RegionPlan>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RegionPlan& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RegionPlan& from) {
+    RegionPlan::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RegionPlan* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.RegionPlan";
+  }
+  protected:
+  explicit RegionPlan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlanFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+  };
+  // bytes plan = 2;
+  void clear_plan();
+  const std::string& plan() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_plan(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_plan();
+  PROTOBUF_NODISCARD std::string* release_plan();
+  void set_allocated_plan(std::string* plan);
+  private:
+  const std::string& _internal_plan() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_plan(const std::string& value);
+  std::string* _internal_mutable_plan();
+  public:
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.RegionPlan)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr plan_;
+    uint64_t region_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fdist_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -299,9 +671,228 @@ inline void MergeScan::set_is_placeholder(bool value) {
   // @@protoc_insertion_point(field_set:substrait_extension.MergeScan.is_placeholder)
 }
 
+// -------------------------------------------------------------------
+
+// GroupRead
+
+// uint32 version = 1;
+inline void GroupRead::clear_version() {
+  _impl_.version_ = 0u;
+}
+inline uint32_t GroupRead::_internal_version() const {
+  return _impl_.version_;
+}
+inline uint32_t GroupRead::version() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.GroupRead.version)
+  return _internal_version();
+}
+inline void GroupRead::_internal_set_version(uint32_t value) {
+  
+  _impl_.version_ = value;
+}
+inline void GroupRead::set_version(uint32_t value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.GroupRead.version)
+}
+
+// repeated uint64 region_ids = 2;
+inline int GroupRead::_internal_region_ids_size() const {
+  return _impl_.region_ids_.size();
+}
+inline int GroupRead::region_ids_size() const {
+  return _internal_region_ids_size();
+}
+inline void GroupRead::clear_region_ids() {
+  _impl_.region_ids_.Clear();
+}
+inline uint64_t GroupRead::_internal_region_ids(int index) const {
+  return _impl_.region_ids_.Get(index);
+}
+inline uint64_t GroupRead::region_ids(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.GroupRead.region_ids)
+  return _internal_region_ids(index);
+}
+inline void GroupRead::set_region_ids(int index, uint64_t value) {
+  _impl_.region_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:substrait_extension.GroupRead.region_ids)
+}
+inline void GroupRead::_internal_add_region_ids(uint64_t value) {
+  _impl_.region_ids_.Add(value);
+}
+inline void GroupRead::add_region_ids(uint64_t value) {
+  _internal_add_region_ids(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.GroupRead.region_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+GroupRead::_internal_region_ids() const {
+  return _impl_.region_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >&
+GroupRead::region_ids() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.GroupRead.region_ids)
+  return _internal_region_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+GroupRead::_internal_mutable_region_ids() {
+  return &_impl_.region_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t >*
+GroupRead::mutable_region_ids() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.GroupRead.region_ids)
+  return _internal_mutable_region_ids();
+}
+
+// uint32 table_id = 3;
+inline void GroupRead::clear_table_id() {
+  _impl_.table_id_ = 0u;
+}
+inline uint32_t GroupRead::_internal_table_id() const {
+  return _impl_.table_id_;
+}
+inline uint32_t GroupRead::table_id() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.GroupRead.table_id)
+  return _internal_table_id();
+}
+inline void GroupRead::_internal_set_table_id(uint32_t value) {
+  
+  _impl_.table_id_ = value;
+}
+inline void GroupRead::set_table_id(uint32_t value) {
+  _internal_set_table_id(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.GroupRead.table_id)
+}
+
+// string table_name = 4;
+inline void GroupRead::clear_table_name() {
+  _impl_.table_name_.ClearToEmpty();
+}
+inline const std::string& GroupRead::table_name() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.GroupRead.table_name)
+  return _internal_table_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GroupRead::set_table_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.table_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.GroupRead.table_name)
+}
+inline std::string* GroupRead::mutable_table_name() {
+  std::string* _s = _internal_mutable_table_name();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.GroupRead.table_name)
+  return _s;
+}
+inline const std::string& GroupRead::_internal_table_name() const {
+  return _impl_.table_name_.Get();
+}
+inline void GroupRead::_internal_set_table_name(const std::string& value) {
+  
+  _impl_.table_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GroupRead::_internal_mutable_table_name() {
+  
+  return _impl_.table_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GroupRead::release_table_name() {
+  // @@protoc_insertion_point(field_release:substrait_extension.GroupRead.table_name)
+  return _impl_.table_name_.Release();
+}
+inline void GroupRead::set_allocated_table_name(std::string* table_name) {
+  if (table_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.table_name_.SetAllocated(table_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.table_name_.IsDefault()) {
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.GroupRead.table_name)
+}
+
+// -------------------------------------------------------------------
+
+// RegionPlan
+
+// uint64 region_id = 1;
+inline void RegionPlan::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t RegionPlan::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t RegionPlan::region_id() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RegionPlan.region_id)
+  return _internal_region_id();
+}
+inline void RegionPlan::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void RegionPlan::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RegionPlan.region_id)
+}
+
+// bytes plan = 2;
+inline void RegionPlan::clear_plan() {
+  _impl_.plan_.ClearToEmpty();
+}
+inline const std::string& RegionPlan::plan() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RegionPlan.plan)
+  return _internal_plan();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RegionPlan::set_plan(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.plan_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.RegionPlan.plan)
+}
+inline std::string* RegionPlan::mutable_plan() {
+  std::string* _s = _internal_mutable_plan();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RegionPlan.plan)
+  return _s;
+}
+inline const std::string& RegionPlan::_internal_plan() const {
+  return _impl_.plan_.Get();
+}
+inline void RegionPlan::_internal_set_plan(const std::string& value) {
+  
+  _impl_.plan_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RegionPlan::_internal_mutable_plan() {
+  
+  return _impl_.plan_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RegionPlan::release_plan() {
+  // @@protoc_insertion_point(field_release:substrait_extension.RegionPlan.plan)
+  return _impl_.plan_.Release();
+}
+inline void RegionPlan::set_allocated_plan(std::string* plan) {
+  if (plan != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.plan_.SetAllocated(plan, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.plan_.IsDefault()) {
+    _impl_.plan_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.RegionPlan.plan)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

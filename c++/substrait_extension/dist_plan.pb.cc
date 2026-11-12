@@ -35,8 +35,39 @@ struct MergeScanDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MergeScanDefaultTypeInternal _MergeScan_default_instance_;
+PROTOBUF_CONSTEXPR GroupRead::GroupRead(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.region_ids_)*/{}
+  , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
+  , /*decltype(_impl_.table_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.version_)*/0u
+  , /*decltype(_impl_.table_id_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GroupReadDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GroupReadDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GroupReadDefaultTypeInternal() {}
+  union {
+    GroupRead _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GroupReadDefaultTypeInternal _GroupRead_default_instance_;
+PROTOBUF_CONSTEXPR RegionPlan::RegionPlan(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.plan_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.region_id_)*/uint64_t{0u}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct RegionPlanDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR RegionPlanDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~RegionPlanDefaultTypeInternal() {}
+  union {
+    RegionPlan _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RegionPlanDefaultTypeInternal _RegionPlan_default_instance_;
 }  // namespace substrait_extension
-static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto[1];
+static ::_pb::Metadata file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto[3];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_substrait_5fextension_2fdist_5fplan_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_substrait_5fextension_2fdist_5fplan_2eproto = nullptr;
 
@@ -49,27 +80,52 @@ const uint32_t TableStruct_substrait_5fextension_2fdist_5fplan_2eproto::offsets[
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::substrait_extension::MergeScan, _impl_.input_),
   PROTOBUF_FIELD_OFFSET(::substrait_extension::MergeScan, _impl_.is_placeholder_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::GroupRead, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::GroupRead, _impl_.version_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::GroupRead, _impl_.region_ids_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::GroupRead, _impl_.table_id_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::GroupRead, _impl_.table_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RegionPlan, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RegionPlan, _impl_.region_id_),
+  PROTOBUF_FIELD_OFFSET(::substrait_extension::RegionPlan, _impl_.plan_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::substrait_extension::MergeScan)},
+  { 8, -1, -1, sizeof(::substrait_extension::GroupRead)},
+  { 18, -1, -1, sizeof(::substrait_extension::RegionPlan)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::substrait_extension::_MergeScan_default_instance_._instance,
+  &::substrait_extension::_GroupRead_default_instance_._instance,
+  &::substrait_extension::_RegionPlan_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_substrait_5fextension_2fdist_5fplan_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n#substrait_extension/dist_plan.proto\022\023s"
   "ubstrait_extension\"2\n\tMergeScan\022\r\n\005input"
-  "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010B\?Z=github"
-  ".com/GreptimeTeam/greptime-proto/go/subs"
-  "trait_extensionb\006proto3"
+  "\030\001 \001(\014\022\026\n\016is_placeholder\030\002 \001(\010\"V\n\tGroupR"
+  "ead\022\017\n\007version\030\001 \001(\r\022\022\n\nregion_ids\030\002 \003(\004"
+  "\022\020\n\010table_id\030\003 \001(\r\022\022\n\ntable_name\030\004 \001(\t\"-"
+  "\n\nRegionPlan\022\021\n\tregion_id\030\001 \001(\004\022\014\n\004plan\030"
+  "\002 \001(\014B\?Z=github.com/GreptimeTeam/greptim"
+  "e-proto/go/substrait_extensionb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto = {
-    false, false, 183, descriptor_table_protodef_substrait_5fextension_2fdist_5fplan_2eproto,
+    false, false, 318, descriptor_table_protodef_substrait_5fextension_2fdist_5fplan_2eproto,
     "substrait_extension/dist_plan.proto",
-    &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_once, nullptr, 0, 1,
+    &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_once, nullptr, 0, 3,
     schemas, file_default_instances, TableStruct_substrait_5fextension_2fdist_5fplan_2eproto::offsets,
     file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto, file_level_enum_descriptors_substrait_5fextension_2fdist_5fplan_2eproto,
     file_level_service_descriptors_substrait_5fextension_2fdist_5fplan_2eproto,
@@ -307,12 +363,550 @@ void MergeScan::InternalSwap(MergeScan* other) {
       file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto[0]);
 }
 
+// ===================================================================
+
+class GroupRead::_Internal {
+ public:
+};
+
+GroupRead::GroupRead(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:substrait_extension.GroupRead)
+}
+GroupRead::GroupRead(const GroupRead& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GroupRead* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.region_ids_){from._impl_.region_ids_}
+    , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
+    , decltype(_impl_.table_name_){}
+    , decltype(_impl_.version_){}
+    , decltype(_impl_.table_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_table_name().empty()) {
+    _this->_impl_.table_name_.Set(from._internal_table_name(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.version_, &from._impl_.version_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.table_id_) -
+    reinterpret_cast<char*>(&_impl_.version_)) + sizeof(_impl_.table_id_));
+  // @@protoc_insertion_point(copy_constructor:substrait_extension.GroupRead)
+}
+
+inline void GroupRead::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.region_ids_){arena}
+    , /*decltype(_impl_._region_ids_cached_byte_size_)*/{0}
+    , decltype(_impl_.table_name_){}
+    , decltype(_impl_.version_){0u}
+    , decltype(_impl_.table_id_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.table_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.table_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GroupRead::~GroupRead() {
+  // @@protoc_insertion_point(destructor:substrait_extension.GroupRead)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GroupRead::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.region_ids_.~RepeatedField();
+  _impl_.table_name_.Destroy();
+}
+
+void GroupRead::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GroupRead::Clear() {
+// @@protoc_insertion_point(message_clear_start:substrait_extension.GroupRead)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.region_ids_.Clear();
+  _impl_.table_name_.ClearToEmpty();
+  ::memset(&_impl_.version_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.table_id_) -
+      reinterpret_cast<char*>(&_impl_.version_)) + sizeof(_impl_.table_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GroupRead::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 version = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated uint64 region_ids = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_region_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          _internal_add_region_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 table_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.table_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string table_name = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_table_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "substrait_extension.GroupRead.table_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GroupRead::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:substrait_extension.GroupRead)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 version = 1;
+  if (this->_internal_version() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_version(), target);
+  }
+
+  // repeated uint64 region_ids = 2;
+  {
+    int byte_size = _impl_._region_ids_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt64Packed(
+          2, _internal_region_ids(), byte_size, target);
+    }
+  }
+
+  // uint32 table_id = 3;
+  if (this->_internal_table_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_table_id(), target);
+  }
+
+  // string table_name = 4;
+  if (!this->_internal_table_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_table_name().data(), static_cast<int>(this->_internal_table_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "substrait_extension.GroupRead.table_name");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_table_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:substrait_extension.GroupRead)
+  return target;
+}
+
+size_t GroupRead::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:substrait_extension.GroupRead)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint64 region_ids = 2;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt64Size(this->_impl_.region_ids_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::Int32Size(static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::_pbi::ToCachedSize(data_size);
+    _impl_._region_ids_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string table_name = 4;
+  if (!this->_internal_table_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_table_name());
+  }
+
+  // uint32 version = 1;
+  if (this->_internal_version() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_version());
+  }
+
+  // uint32 table_id = 3;
+  if (this->_internal_table_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_table_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GroupRead::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GroupRead::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GroupRead::GetClassData() const { return &_class_data_; }
+
+
+void GroupRead::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GroupRead*>(&to_msg);
+  auto& from = static_cast<const GroupRead&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:substrait_extension.GroupRead)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.region_ids_.MergeFrom(from._impl_.region_ids_);
+  if (!from._internal_table_name().empty()) {
+    _this->_internal_set_table_name(from._internal_table_name());
+  }
+  if (from._internal_version() != 0) {
+    _this->_internal_set_version(from._internal_version());
+  }
+  if (from._internal_table_id() != 0) {
+    _this->_internal_set_table_id(from._internal_table_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GroupRead::CopyFrom(const GroupRead& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:substrait_extension.GroupRead)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GroupRead::IsInitialized() const {
+  return true;
+}
+
+void GroupRead::InternalSwap(GroupRead* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.region_ids_.InternalSwap(&other->_impl_.region_ids_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.table_name_, lhs_arena,
+      &other->_impl_.table_name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(GroupRead, _impl_.table_id_)
+      + sizeof(GroupRead::_impl_.table_id_)
+      - PROTOBUF_FIELD_OFFSET(GroupRead, _impl_.version_)>(
+          reinterpret_cast<char*>(&_impl_.version_),
+          reinterpret_cast<char*>(&other->_impl_.version_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GroupRead::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_getter, &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_once,
+      file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto[1]);
+}
+
+// ===================================================================
+
+class RegionPlan::_Internal {
+ public:
+};
+
+RegionPlan::RegionPlan(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:substrait_extension.RegionPlan)
+}
+RegionPlan::RegionPlan(const RegionPlan& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RegionPlan* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.plan_){}
+    , decltype(_impl_.region_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.plan_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.plan_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_plan().empty()) {
+    _this->_impl_.plan_.Set(from._internal_plan(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.region_id_ = from._impl_.region_id_;
+  // @@protoc_insertion_point(copy_constructor:substrait_extension.RegionPlan)
+}
+
+inline void RegionPlan::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.plan_){}
+    , decltype(_impl_.region_id_){uint64_t{0u}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.plan_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.plan_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+RegionPlan::~RegionPlan() {
+  // @@protoc_insertion_point(destructor:substrait_extension.RegionPlan)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void RegionPlan::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.plan_.Destroy();
+}
+
+void RegionPlan::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void RegionPlan::Clear() {
+// @@protoc_insertion_point(message_clear_start:substrait_extension.RegionPlan)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.plan_.ClearToEmpty();
+  _impl_.region_id_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RegionPlan::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint64 region_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.region_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes plan = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_plan();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* RegionPlan::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:substrait_extension.RegionPlan)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 region_id = 1;
+  if (this->_internal_region_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_region_id(), target);
+  }
+
+  // bytes plan = 2;
+  if (!this->_internal_plan().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_plan(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:substrait_extension.RegionPlan)
+  return target;
+}
+
+size_t RegionPlan::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:substrait_extension.RegionPlan)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes plan = 2;
+  if (!this->_internal_plan().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_plan());
+  }
+
+  // uint64 region_id = 1;
+  if (this->_internal_region_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_region_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RegionPlan::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    RegionPlan::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RegionPlan::GetClassData() const { return &_class_data_; }
+
+
+void RegionPlan::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RegionPlan*>(&to_msg);
+  auto& from = static_cast<const RegionPlan&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:substrait_extension.RegionPlan)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_plan().empty()) {
+    _this->_internal_set_plan(from._internal_plan());
+  }
+  if (from._internal_region_id() != 0) {
+    _this->_internal_set_region_id(from._internal_region_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void RegionPlan::CopyFrom(const RegionPlan& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:substrait_extension.RegionPlan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RegionPlan::IsInitialized() const {
+  return true;
+}
+
+void RegionPlan::InternalSwap(RegionPlan* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.plan_, lhs_arena,
+      &other->_impl_.plan_, rhs_arena
+  );
+  swap(_impl_.region_id_, other->_impl_.region_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RegionPlan::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_getter, &descriptor_table_substrait_5fextension_2fdist_5fplan_2eproto_once,
+      file_level_metadata_substrait_5fextension_2fdist_5fplan_2eproto[2]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace substrait_extension
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::substrait_extension::MergeScan*
 Arena::CreateMaybeMessage< ::substrait_extension::MergeScan >(Arena* arena) {
   return Arena::CreateMessageInternal< ::substrait_extension::MergeScan >(arena);
+}
+template<> PROTOBUF_NOINLINE ::substrait_extension::GroupRead*
+Arena::CreateMaybeMessage< ::substrait_extension::GroupRead >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::substrait_extension::GroupRead >(arena);
+}
+template<> PROTOBUF_NOINLINE ::substrait_extension::RegionPlan*
+Arena::CreateMaybeMessage< ::substrait_extension::RegionPlan >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::substrait_extension::RegionPlan >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
