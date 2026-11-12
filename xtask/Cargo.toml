@@ -6,4 +6,7 @@ publish = false
 
 [dependencies]
 prost-build = "=0.14.1"
-tonic-prost-build = "0.14"
+# Pinned to the version the checked-in bindings were generated with. Newer 0.14.x releases
+# rewrite unrelated generated types (0.14.8 added a blanket Clippy allowance to every message),
+# which would make CI's `make all` + `git diff` check fail on files a PR never touched.
+tonic-prost-build = "=0.14.9"

@@ -239,6 +239,20 @@ pub struct UnionDistinctOn {
     #[prost(uint64, tag = "2")]
     pub ts_col_idx: u64,
 }
+/// Version 1 raw-series source bindings; tag and field order is significant.
+/// Substrait carries the child plan separately. Bound column types come from the child schema.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct RawSeriesSource {
+    #[prost(uint32, tag = "1")]
+    pub version: u32,
+    #[prost(string, tag = "2")]
+    pub metric_name: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "3")]
+    pub tags: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    #[prost(string, repeated, tag = "4")]
+    pub fields: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct MergeScan {

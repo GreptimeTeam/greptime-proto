@@ -63,6 +63,9 @@ extern LabelPairDefaultTypeInternal _LabelPair_default_instance_;
 class RangeManipulate;
 struct RangeManipulateDefaultTypeInternal;
 extern RangeManipulateDefaultTypeInternal _RangeManipulate_default_instance_;
+class RawSeriesSource;
+struct RawSeriesSourceDefaultTypeInternal;
+extern RawSeriesSourceDefaultTypeInternal _RawSeriesSource_default_instance_;
 class ScalarCalculate;
 struct ScalarCalculateDefaultTypeInternal;
 extern ScalarCalculateDefaultTypeInternal _ScalarCalculate_default_instance_;
@@ -83,6 +86,7 @@ template<> ::substrait_extension::HistogramFold* Arena::CreateMaybeMessage<::sub
 template<> ::substrait_extension::InstantManipulate* Arena::CreateMaybeMessage<::substrait_extension::InstantManipulate>(Arena*);
 template<> ::substrait_extension::LabelPair* Arena::CreateMaybeMessage<::substrait_extension::LabelPair>(Arena*);
 template<> ::substrait_extension::RangeManipulate* Arena::CreateMaybeMessage<::substrait_extension::RangeManipulate>(Arena*);
+template<> ::substrait_extension::RawSeriesSource* Arena::CreateMaybeMessage<::substrait_extension::RawSeriesSource>(Arena*);
 template<> ::substrait_extension::ScalarCalculate* Arena::CreateMaybeMessage<::substrait_extension::ScalarCalculate>(Arena*);
 template<> ::substrait_extension::SeriesDivide* Arena::CreateMaybeMessage<::substrait_extension::SeriesDivide>(Arena*);
 template<> ::substrait_extension::SeriesNormalize* Arena::CreateMaybeMessage<::substrait_extension::SeriesNormalize>(Arena*);
@@ -2248,6 +2252,222 @@ class UnionDistinctOn final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
 };
+// -------------------------------------------------------------------
+
+class RawSeriesSource final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:substrait_extension.RawSeriesSource) */ {
+ public:
+  inline RawSeriesSource() : RawSeriesSource(nullptr) {}
+  ~RawSeriesSource() override;
+  explicit PROTOBUF_CONSTEXPR RawSeriesSource(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RawSeriesSource(const RawSeriesSource& from);
+  RawSeriesSource(RawSeriesSource&& from) noexcept
+    : RawSeriesSource() {
+    *this = ::std::move(from);
+  }
+
+  inline RawSeriesSource& operator=(const RawSeriesSource& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RawSeriesSource& operator=(RawSeriesSource&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RawSeriesSource& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RawSeriesSource* internal_default_instance() {
+    return reinterpret_cast<const RawSeriesSource*>(
+               &_RawSeriesSource_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    10;
+
+  friend void swap(RawSeriesSource& a, RawSeriesSource& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RawSeriesSource* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RawSeriesSource* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  RawSeriesSource* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<RawSeriesSource>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const RawSeriesSource& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const RawSeriesSource& from) {
+    RawSeriesSource::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RawSeriesSource* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "substrait_extension.RawSeriesSource";
+  }
+  protected:
+  explicit RawSeriesSource(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTagsFieldNumber = 3,
+    kFieldsFieldNumber = 4,
+    kMetricNameFieldNumber = 2,
+    kVersionFieldNumber = 1,
+  };
+  // repeated string tags = 3;
+  int tags_size() const;
+  private:
+  int _internal_tags_size() const;
+  public:
+  void clear_tags();
+  const std::string& tags(int index) const;
+  std::string* mutable_tags(int index);
+  void set_tags(int index, const std::string& value);
+  void set_tags(int index, std::string&& value);
+  void set_tags(int index, const char* value);
+  void set_tags(int index, const char* value, size_t size);
+  std::string* add_tags();
+  void add_tags(const std::string& value);
+  void add_tags(std::string&& value);
+  void add_tags(const char* value);
+  void add_tags(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& tags() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_tags();
+  private:
+  const std::string& _internal_tags(int index) const;
+  std::string* _internal_add_tags();
+  public:
+
+  // repeated string fields = 4;
+  int fields_size() const;
+  private:
+  int _internal_fields_size() const;
+  public:
+  void clear_fields();
+  const std::string& fields(int index) const;
+  std::string* mutable_fields(int index);
+  void set_fields(int index, const std::string& value);
+  void set_fields(int index, std::string&& value);
+  void set_fields(int index, const char* value);
+  void set_fields(int index, const char* value, size_t size);
+  std::string* add_fields();
+  void add_fields(const std::string& value);
+  void add_fields(std::string&& value);
+  void add_fields(const char* value);
+  void add_fields(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& fields() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_fields();
+  private:
+  const std::string& _internal_fields(int index) const;
+  std::string* _internal_add_fields();
+  public:
+
+  // string metric_name = 2;
+  void clear_metric_name();
+  const std::string& metric_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_metric_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_metric_name();
+  PROTOBUF_NODISCARD std::string* release_metric_name();
+  void set_allocated_metric_name(std::string* metric_name);
+  private:
+  const std::string& _internal_metric_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_metric_name(const std::string& value);
+  std::string* _internal_mutable_metric_name();
+  public:
+
+  // uint32 version = 1;
+  void clear_version();
+  uint32_t version() const;
+  void set_version(uint32_t value);
+  private:
+  uint32_t _internal_version() const;
+  void _internal_set_version(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:substrait_extension.RawSeriesSource)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> tags_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> fields_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metric_name_;
+    uint32_t version_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_substrait_5fextension_2fpromql_5fplan_2eproto;
+};
 // ===================================================================
 
 
@@ -4080,9 +4300,235 @@ inline void UnionDistinctOn::set_ts_col_idx(uint64_t value) {
   // @@protoc_insertion_point(field_set:substrait_extension.UnionDistinctOn.ts_col_idx)
 }
 
+// -------------------------------------------------------------------
+
+// RawSeriesSource
+
+// uint32 version = 1;
+inline void RawSeriesSource::clear_version() {
+  _impl_.version_ = 0u;
+}
+inline uint32_t RawSeriesSource::_internal_version() const {
+  return _impl_.version_;
+}
+inline uint32_t RawSeriesSource::version() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RawSeriesSource.version)
+  return _internal_version();
+}
+inline void RawSeriesSource::_internal_set_version(uint32_t value) {
+  
+  _impl_.version_ = value;
+}
+inline void RawSeriesSource::set_version(uint32_t value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.version)
+}
+
+// string metric_name = 2;
+inline void RawSeriesSource::clear_metric_name() {
+  _impl_.metric_name_.ClearToEmpty();
+}
+inline const std::string& RawSeriesSource::metric_name() const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RawSeriesSource.metric_name)
+  return _internal_metric_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RawSeriesSource::set_metric_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.metric_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.metric_name)
+}
+inline std::string* RawSeriesSource::mutable_metric_name() {
+  std::string* _s = _internal_mutable_metric_name();
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RawSeriesSource.metric_name)
+  return _s;
+}
+inline const std::string& RawSeriesSource::_internal_metric_name() const {
+  return _impl_.metric_name_.Get();
+}
+inline void RawSeriesSource::_internal_set_metric_name(const std::string& value) {
+  
+  _impl_.metric_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* RawSeriesSource::_internal_mutable_metric_name() {
+  
+  return _impl_.metric_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* RawSeriesSource::release_metric_name() {
+  // @@protoc_insertion_point(field_release:substrait_extension.RawSeriesSource.metric_name)
+  return _impl_.metric_name_.Release();
+}
+inline void RawSeriesSource::set_allocated_metric_name(std::string* metric_name) {
+  if (metric_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.metric_name_.SetAllocated(metric_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.metric_name_.IsDefault()) {
+    _impl_.metric_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:substrait_extension.RawSeriesSource.metric_name)
+}
+
+// repeated string tags = 3;
+inline int RawSeriesSource::_internal_tags_size() const {
+  return _impl_.tags_.size();
+}
+inline int RawSeriesSource::tags_size() const {
+  return _internal_tags_size();
+}
+inline void RawSeriesSource::clear_tags() {
+  _impl_.tags_.Clear();
+}
+inline std::string* RawSeriesSource::add_tags() {
+  std::string* _s = _internal_add_tags();
+  // @@protoc_insertion_point(field_add_mutable:substrait_extension.RawSeriesSource.tags)
+  return _s;
+}
+inline const std::string& RawSeriesSource::_internal_tags(int index) const {
+  return _impl_.tags_.Get(index);
+}
+inline const std::string& RawSeriesSource::tags(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RawSeriesSource.tags)
+  return _internal_tags(index);
+}
+inline std::string* RawSeriesSource::mutable_tags(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RawSeriesSource.tags)
+  return _impl_.tags_.Mutable(index);
+}
+inline void RawSeriesSource::set_tags(int index, const std::string& value) {
+  _impl_.tags_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::set_tags(int index, std::string&& value) {
+  _impl_.tags_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::set_tags(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tags_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::set_tags(int index, const char* value, size_t size) {
+  _impl_.tags_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:substrait_extension.RawSeriesSource.tags)
+}
+inline std::string* RawSeriesSource::_internal_add_tags() {
+  return _impl_.tags_.Add();
+}
+inline void RawSeriesSource::add_tags(const std::string& value) {
+  _impl_.tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::add_tags(std::string&& value) {
+  _impl_.tags_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::add_tags(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.tags_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:substrait_extension.RawSeriesSource.tags)
+}
+inline void RawSeriesSource::add_tags(const char* value, size_t size) {
+  _impl_.tags_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:substrait_extension.RawSeriesSource.tags)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+RawSeriesSource::tags() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.RawSeriesSource.tags)
+  return _impl_.tags_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+RawSeriesSource::mutable_tags() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.RawSeriesSource.tags)
+  return &_impl_.tags_;
+}
+
+// repeated string fields = 4;
+inline int RawSeriesSource::_internal_fields_size() const {
+  return _impl_.fields_.size();
+}
+inline int RawSeriesSource::fields_size() const {
+  return _internal_fields_size();
+}
+inline void RawSeriesSource::clear_fields() {
+  _impl_.fields_.Clear();
+}
+inline std::string* RawSeriesSource::add_fields() {
+  std::string* _s = _internal_add_fields();
+  // @@protoc_insertion_point(field_add_mutable:substrait_extension.RawSeriesSource.fields)
+  return _s;
+}
+inline const std::string& RawSeriesSource::_internal_fields(int index) const {
+  return _impl_.fields_.Get(index);
+}
+inline const std::string& RawSeriesSource::fields(int index) const {
+  // @@protoc_insertion_point(field_get:substrait_extension.RawSeriesSource.fields)
+  return _internal_fields(index);
+}
+inline std::string* RawSeriesSource::mutable_fields(int index) {
+  // @@protoc_insertion_point(field_mutable:substrait_extension.RawSeriesSource.fields)
+  return _impl_.fields_.Mutable(index);
+}
+inline void RawSeriesSource::set_fields(int index, const std::string& value) {
+  _impl_.fields_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::set_fields(int index, std::string&& value) {
+  _impl_.fields_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::set_fields(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.fields_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::set_fields(int index, const char* value, size_t size) {
+  _impl_.fields_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:substrait_extension.RawSeriesSource.fields)
+}
+inline std::string* RawSeriesSource::_internal_add_fields() {
+  return _impl_.fields_.Add();
+}
+inline void RawSeriesSource::add_fields(const std::string& value) {
+  _impl_.fields_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::add_fields(std::string&& value) {
+  _impl_.fields_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::add_fields(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.fields_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:substrait_extension.RawSeriesSource.fields)
+}
+inline void RawSeriesSource::add_fields(const char* value, size_t size) {
+  _impl_.fields_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:substrait_extension.RawSeriesSource.fields)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+RawSeriesSource::fields() const {
+  // @@protoc_insertion_point(field_list:substrait_extension.RawSeriesSource.fields)
+  return _impl_.fields_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+RawSeriesSource::mutable_fields() {
+  // @@protoc_insertion_point(field_mutable_list:substrait_extension.RawSeriesSource.fields)
+  return &_impl_.fields_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
