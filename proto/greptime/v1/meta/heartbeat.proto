@@ -173,6 +173,10 @@ message HeartbeatConfig {
 message GrantedRegion {
   uint64 region_id = 1;
   RegionRole role = 2;
+  // Only set on a lease granted because a region migration registered this
+  // region as its target, not from the region route. Each registration uses a
+  // new non-zero value; 0 means the field is not set.
+  uint64 candidate_lease_id = 3;
   map<string, bytes> extensions = 99;
 }
 
