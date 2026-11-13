@@ -353,6 +353,11 @@ pub struct GrantedRegion {
     pub region_id: u64,
     #[prost(enumeration = "RegionRole", tag = "2")]
     pub role: i32,
+    /// Only set on a lease granted because a region migration registered this
+    /// region as its target, not from the region route. Each registration uses a
+    /// new value.
+    #[prost(uint64, optional, tag = "3")]
+    pub candidate_lease_id: ::core::option::Option<u64>,
     #[prost(map = "string, bytes", tag = "99")]
     pub extensions: ::std::collections::HashMap<
         ::prost::alloc::string::String,

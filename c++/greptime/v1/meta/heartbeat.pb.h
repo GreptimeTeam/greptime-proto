@@ -2825,6 +2825,7 @@ class GrantedRegion final :
   enum : int {
     kExtensionsFieldNumber = 99,
     kRegionIdFieldNumber = 1,
+    kCandidateLeaseIdFieldNumber = 3,
     kRoleFieldNumber = 2,
   };
   // map<string, bytes> extensions = 99;
@@ -2853,6 +2854,19 @@ class GrantedRegion final :
   void _internal_set_region_id(uint64_t value);
   public:
 
+  // optional uint64 candidate_lease_id = 3;
+  bool has_candidate_lease_id() const;
+  private:
+  bool _internal_has_candidate_lease_id() const;
+  public:
+  void clear_candidate_lease_id();
+  uint64_t candidate_lease_id() const;
+  void set_candidate_lease_id(uint64_t value);
+  private:
+  uint64_t _internal_candidate_lease_id() const;
+  void _internal_set_candidate_lease_id(uint64_t value);
+  public:
+
   // .greptime.v1.meta.RegionRole role = 2;
   void clear_role();
   ::greptime::v1::meta::RegionRole role() const;
@@ -2870,14 +2884,16 @@ class GrantedRegion final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::internal::MapField<
         GrantedRegion_ExtensionsEntry_DoNotUse,
         std::string, std::string,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_BYTES> extensions_;
     uint64_t region_id_;
+    uint64_t candidate_lease_id_;
     int role_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fmeta_2fheartbeat_2eproto;
@@ -6167,6 +6183,34 @@ inline void GrantedRegion::_internal_set_role(::greptime::v1::meta::RegionRole v
 inline void GrantedRegion::set_role(::greptime::v1::meta::RegionRole value) {
   _internal_set_role(value);
   // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.role)
+}
+
+// optional uint64 candidate_lease_id = 3;
+inline bool GrantedRegion::_internal_has_candidate_lease_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool GrantedRegion::has_candidate_lease_id() const {
+  return _internal_has_candidate_lease_id();
+}
+inline void GrantedRegion::clear_candidate_lease_id() {
+  _impl_.candidate_lease_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t GrantedRegion::_internal_candidate_lease_id() const {
+  return _impl_.candidate_lease_id_;
+}
+inline uint64_t GrantedRegion::candidate_lease_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.meta.GrantedRegion.candidate_lease_id)
+  return _internal_candidate_lease_id();
+}
+inline void GrantedRegion::_internal_set_candidate_lease_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.candidate_lease_id_ = value;
+}
+inline void GrantedRegion::set_candidate_lease_id(uint64_t value) {
+  _internal_set_candidate_lease_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.meta.GrantedRegion.candidate_lease_id)
 }
 
 // map<string, bytes> extensions = 99;

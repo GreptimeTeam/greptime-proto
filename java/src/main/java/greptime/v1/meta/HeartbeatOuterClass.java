@@ -14453,6 +14453,29 @@ com.google.protobuf.ByteString defaultValue);
     greptime.v1.meta.HeartbeatOuterClass.RegionRole getRole();
 
     /**
+     * <pre>
+     * Only set on a lease granted because a region migration registered this
+     * region as its target, not from the region route. Each registration uses a
+     * new value.
+     * </pre>
+     *
+     * <code>optional uint64 candidate_lease_id = 3;</code>
+     * @return Whether the candidateLeaseId field is set.
+     */
+    boolean hasCandidateLeaseId();
+    /**
+     * <pre>
+     * Only set on a lease granted because a region migration registered this
+     * region as its target, not from the region route. Each registration uses a
+     * new value.
+     * </pre>
+     *
+     * <code>optional uint64 candidate_lease_id = 3;</code>
+     * @return The candidateLeaseId.
+     */
+    long getCandidateLeaseId();
+
+    /**
      * <code>map&lt;string, bytes&gt; extensions = 99;</code>
      */
     int getExtensionsCount();
@@ -14550,11 +14573,16 @@ com.google.protobuf.ByteString defaultValue);
               role_ = rawValue;
               break;
             }
+            case 24: {
+              bitField0_ |= 0x00000001;
+              candidateLeaseId_ = input.readUInt64();
+              break;
+            }
             case 794: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 extensions_ = com.google.protobuf.MapField.newMapField(
                     ExtensionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
               extensions__ = input.readMessage(
@@ -14609,6 +14637,7 @@ com.google.protobuf.ByteString defaultValue);
               greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.class, greptime.v1.meta.HeartbeatOuterClass.GrantedRegion.Builder.class);
     }
 
+    private int bitField0_;
     public static final int REGION_ID_FIELD_NUMBER = 1;
     private long regionId_;
     /**
@@ -14637,6 +14666,37 @@ com.google.protobuf.ByteString defaultValue);
       @SuppressWarnings("deprecation")
       greptime.v1.meta.HeartbeatOuterClass.RegionRole result = greptime.v1.meta.HeartbeatOuterClass.RegionRole.valueOf(role_);
       return result == null ? greptime.v1.meta.HeartbeatOuterClass.RegionRole.UNRECOGNIZED : result;
+    }
+
+    public static final int CANDIDATE_LEASE_ID_FIELD_NUMBER = 3;
+    private long candidateLeaseId_;
+    /**
+     * <pre>
+     * Only set on a lease granted because a region migration registered this
+     * region as its target, not from the region route. Each registration uses a
+     * new value.
+     * </pre>
+     *
+     * <code>optional uint64 candidate_lease_id = 3;</code>
+     * @return Whether the candidateLeaseId field is set.
+     */
+    @java.lang.Override
+    public boolean hasCandidateLeaseId() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Only set on a lease granted because a region migration registered this
+     * region as its target, not from the region route. Each registration uses a
+     * new value.
+     * </pre>
+     *
+     * <code>optional uint64 candidate_lease_id = 3;</code>
+     * @return The candidateLeaseId.
+     */
+    @java.lang.Override
+    public long getCandidateLeaseId() {
+      return candidateLeaseId_;
     }
 
     public static final int EXTENSIONS_FIELD_NUMBER = 99;
@@ -14740,6 +14800,9 @@ com.google.protobuf.ByteString defaultValue);
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         output.writeEnum(2, role_);
       }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(3, candidateLeaseId_);
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
@@ -14762,6 +14825,10 @@ com.google.protobuf.ByteString defaultValue);
       if (role_ != greptime.v1.meta.HeartbeatOuterClass.RegionRole.Leader.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, role_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, candidateLeaseId_);
       }
       for (java.util.Map.Entry<java.lang.String, com.google.protobuf.ByteString> entry
            : internalGetExtensions().getMap().entrySet()) {
@@ -14791,6 +14858,11 @@ com.google.protobuf.ByteString defaultValue);
       if (getRegionId()
           != other.getRegionId()) return false;
       if (role_ != other.role_) return false;
+      if (hasCandidateLeaseId() != other.hasCandidateLeaseId()) return false;
+      if (hasCandidateLeaseId()) {
+        if (getCandidateLeaseId()
+            != other.getCandidateLeaseId()) return false;
+      }
       if (!internalGetExtensions().equals(
           other.internalGetExtensions())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -14809,6 +14881,11 @@ com.google.protobuf.ByteString defaultValue);
           getRegionId());
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + role_;
+      if (hasCandidateLeaseId()) {
+        hash = (37 * hash) + CANDIDATE_LEASE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCandidateLeaseId());
+      }
       if (!internalGetExtensions().getMap().isEmpty()) {
         hash = (37 * hash) + EXTENSIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtensions().hashCode();
@@ -14976,6 +15053,8 @@ com.google.protobuf.ByteString defaultValue);
 
         role_ = 0;
 
+        candidateLeaseId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableExtensions().clear();
         return this;
       }
@@ -15004,10 +15083,16 @@ com.google.protobuf.ByteString defaultValue);
       public greptime.v1.meta.HeartbeatOuterClass.GrantedRegion buildPartial() {
         greptime.v1.meta.HeartbeatOuterClass.GrantedRegion result = new greptime.v1.meta.HeartbeatOuterClass.GrantedRegion(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.regionId_ = regionId_;
         result.role_ = role_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.candidateLeaseId_ = candidateLeaseId_;
+          to_bitField0_ |= 0x00000001;
+        }
         result.extensions_ = internalGetExtensions();
         result.extensions_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -15061,6 +15146,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.role_ != 0) {
           setRoleValue(other.getRoleValue());
+        }
+        if (other.hasCandidateLeaseId()) {
+          setCandidateLeaseId(other.getCandidateLeaseId());
         }
         internalGetMutableExtensions().mergeFrom(
             other.internalGetExtensions());
@@ -15175,6 +15263,69 @@ com.google.protobuf.ByteString defaultValue);
       public Builder clearRole() {
         
         role_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long candidateLeaseId_ ;
+      /**
+       * <pre>
+       * Only set on a lease granted because a region migration registered this
+       * region as its target, not from the region route. Each registration uses a
+       * new value.
+       * </pre>
+       *
+       * <code>optional uint64 candidate_lease_id = 3;</code>
+       * @return Whether the candidateLeaseId field is set.
+       */
+      @java.lang.Override
+      public boolean hasCandidateLeaseId() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Only set on a lease granted because a region migration registered this
+       * region as its target, not from the region route. Each registration uses a
+       * new value.
+       * </pre>
+       *
+       * <code>optional uint64 candidate_lease_id = 3;</code>
+       * @return The candidateLeaseId.
+       */
+      @java.lang.Override
+      public long getCandidateLeaseId() {
+        return candidateLeaseId_;
+      }
+      /**
+       * <pre>
+       * Only set on a lease granted because a region migration registered this
+       * region as its target, not from the region route. Each registration uses a
+       * new value.
+       * </pre>
+       *
+       * <code>optional uint64 candidate_lease_id = 3;</code>
+       * @param value The candidateLeaseId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCandidateLeaseId(long value) {
+        bitField0_ |= 0x00000001;
+        candidateLeaseId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Only set on a lease granted because a region migration registered this
+       * region as its target, not from the region route. Each registration uses a
+       * new value.
+       * </pre>
+       *
+       * <code>optional uint64 candidate_lease_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCandidateLeaseId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        candidateLeaseId_ = 0L;
         onChanged();
         return this;
       }
@@ -20584,38 +20735,39 @@ java.lang.String defaultValue);
       "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
       "\002 \001(\014:\0028\001\"_\n\017HeartbeatConfig\022\035\n\025heartbea" +
       "t_interval_ms\030\001 \001(\004\022\031\n\021retry_interval_ms" +
-      "\030\002 \001(\004\022\022\n\ngc_enabled\030\003 \001(\010\"\306\001\n\rGrantedRe" +
+      "\030\002 \001(\004\022\022\n\ngc_enabled\030\003 \001(\010\"\376\001\n\rGrantedRe" +
       "gion\022\021\n\tregion_id\030\001 \001(\004\022*\n\004role\030\002 \001(\0162\034." +
-      "greptime.v1.meta.RegionRole\022C\n\nextension" +
-      "s\030c \003(\0132/.greptime.v1.meta.GrantedRegion" +
-      ".ExtensionsEntry\0321\n\017ExtensionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\222\001\n\013RegionLe" +
-      "ase\0220\n\007regions\030\001 \003(\0132\037.greptime.v1.meta." +
-      "GrantedRegion\022\034\n\024duration_since_epoch\030\002 " +
-      "\001(\004\022\025\n\rlease_seconds\030\003 \001(\004\022\034\n\024closeable_" +
-      "region_ids\030\004 \003(\004\"C\n\020AskLeaderRequest\022/\n\006" +
-      "header\030\001 \001(\0132\037.greptime.v1.meta.RequestH" +
-      "eader\"m\n\021AskLeaderResponse\0220\n\006header\030\001 \001" +
-      "(\0132 .greptime.v1.meta.ResponseHeader\022&\n\006" +
-      "leader\030\002 \001(\0132\026.greptime.v1.meta.Peer\"\242\001\n" +
-      "\024MailboxMessageHeader\022S\n\017tracing_context" +
-      "\030\001 \003(\0132:.greptime.v1.meta.MailboxMessage" +
-      "Header.TracingContextEntry\0325\n\023TracingCon" +
-      "textEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"\264\001\n\016MailboxMessage\0226\n\006header\030@ \001(\0132&.g" +
-      "reptime.v1.meta.MailboxMessageHeader\022\n\n\002" +
-      "id\030\001 \001(\004\022\017\n\007subject\030\002 \001(\t\022\014\n\004from\030\003 \001(\t\022" +
-      "\n\n\002to\030\004 \001(\t\022\030\n\020timestamp_millis\030\005 \001(\003\022\016\n" +
-      "\004json\030\006 \001(\tH\000B\t\n\007payload*P\n\nRegionRole\022\n" +
-      "\n\006Leader\020\000\022\014\n\010Follower\020\001\022\025\n\021DowngradingL" +
-      "eader\020\002\022\021\n\rStagingLeader\020\0032\277\001\n\tHeartbeat" +
-      "\022Z\n\tHeartbeat\022\".greptime.v1.meta.Heartbe" +
-      "atRequest\032#.greptime.v1.meta.HeartbeatRe" +
-      "sponse\"\000(\0010\001\022V\n\tAskLeader\022\".greptime.v1." +
-      "meta.AskLeaderRequest\032#.greptime.v1.meta" +
-      ".AskLeaderResponse\"\000B<Z:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/me" +
-      "tab\006proto3"
+      "greptime.v1.meta.RegionRole\022\037\n\022candidate" +
+      "_lease_id\030\003 \001(\004H\000\210\001\001\022C\n\nextensions\030c \003(\013" +
+      "2/.greptime.v1.meta.GrantedRegion.Extens" +
+      "ionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\014:\0028\001B\025\n\023_candidate_lease" +
+      "_id\"\222\001\n\013RegionLease\0220\n\007regions\030\001 \003(\0132\037.g" +
+      "reptime.v1.meta.GrantedRegion\022\034\n\024duratio" +
+      "n_since_epoch\030\002 \001(\004\022\025\n\rlease_seconds\030\003 \001" +
+      "(\004\022\034\n\024closeable_region_ids\030\004 \003(\004\"C\n\020AskL" +
+      "eaderRequest\022/\n\006header\030\001 \001(\0132\037.greptime." +
+      "v1.meta.RequestHeader\"m\n\021AskLeaderRespon" +
+      "se\0220\n\006header\030\001 \001(\0132 .greptime.v1.meta.Re" +
+      "sponseHeader\022&\n\006leader\030\002 \001(\0132\026.greptime." +
+      "v1.meta.Peer\"\242\001\n\024MailboxMessageHeader\022S\n" +
+      "\017tracing_context\030\001 \003(\0132:.greptime.v1.met" +
+      "a.MailboxMessageHeader.TracingContextEnt" +
+      "ry\0325\n\023TracingContextEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"\264\001\n\016MailboxMessage\0226\n\006" +
+      "header\030@ \001(\0132&.greptime.v1.meta.MailboxM" +
+      "essageHeader\022\n\n\002id\030\001 \001(\004\022\017\n\007subject\030\002 \001(" +
+      "\t\022\014\n\004from\030\003 \001(\t\022\n\n\002to\030\004 \001(\t\022\030\n\020timestamp" +
+      "_millis\030\005 \001(\003\022\016\n\004json\030\006 \001(\tH\000B\t\n\007payload" +
+      "*P\n\nRegionRole\022\n\n\006Leader\020\000\022\014\n\010Follower\020\001" +
+      "\022\025\n\021DowngradingLeader\020\002\022\021\n\rStagingLeader" +
+      "\020\0032\277\001\n\tHeartbeat\022Z\n\tHeartbeat\022\".greptime" +
+      ".v1.meta.HeartbeatRequest\032#.greptime.v1." +
+      "meta.HeartbeatResponse\"\000(\0010\001\022V\n\tAskLeade" +
+      "r\022\".greptime.v1.meta.AskLeaderRequest\032#." +
+      "greptime.v1.meta.AskLeaderResponse\"\000B<Z:" +
+      "github.com/GreptimeTeam/greptime-proto/g" +
+      "o/greptime/v1/metab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20723,7 +20875,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_meta_GrantedRegion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_meta_GrantedRegion_descriptor,
-        new java.lang.String[] { "RegionId", "Role", "Extensions", });
+        new java.lang.String[] { "RegionId", "Role", "CandidateLeaseId", "Extensions", "CandidateLeaseId", });
     internal_static_greptime_v1_meta_GrantedRegion_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_meta_GrantedRegion_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_meta_GrantedRegion_ExtensionsEntry_fieldAccessorTable = new
