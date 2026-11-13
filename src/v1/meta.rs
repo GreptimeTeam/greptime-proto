@@ -207,6 +207,16 @@ mod tests {
         heartbeat_config: Option<HeartbeatConfig>,
     }
 
+    #[derive(Clone, PartialEq, Message)]
+    struct LegacyGrantedRegion {
+        #[prost(uint64, tag = "1")]
+        region_id: u64,
+        #[prost(enumeration = "RegionRole", tag = "2")]
+        role: i32,
+        #[prost(map = "string, bytes", tag = "99")]
+        extensions: HashMap<String, Vec<u8>>,
+    }
+
     #[test]
     fn test_heartbeat_response_extensions_round_trip() {
         let response = HeartbeatResponse {
@@ -335,6 +345,38 @@ mod tests {
             new_decoded.heartbeat_config
         );
         assert!(new_decoded.extensions.is_empty());
+    }
+
+    #[test]
+    fn test_granted_region_candidate_lease_id_wire_compatibility() {
+        let legacy_region = LegacyGrantedRegion {
+            region_id: 42,
+            role: RegionRole::Follower as i32,
+            extensions: HashMap::from([("test.extension".to_string(), vec![1, 2, 3])]),
+        };
+        let unset_region = GrantedRegion {
+            region_id: legacy_region.region_id,
+            role: legacy_region.role,
+            candidate_lease_id: None,
+            extensions: legacy_region.extensions.clone(),
+        };
+        assert_eq!(legacy_region.encode_to_vec(), unset_region.encode_to_vec());
+
+        for candidate_lease_id in [0, 7] {
+            let new_region = GrantedRegion {
+                candidate_lease_id: Some(candidate_lease_id),
+                ..unset_region.clone()
+            };
+            let encoded = new_region.encode_to_vec();
+            assert_eq!(
+                new_region,
+                GrantedRegion::decode(encoded.as_slice()).unwrap()
+            );
+            assert_eq!(
+                legacy_region,
+                LegacyGrantedRegion::decode(encoded.as_slice()).unwrap()
+            );
+        }
     }
 
     #[test]
