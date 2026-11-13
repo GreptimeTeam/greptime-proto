@@ -357,26 +357,33 @@ mod tests {
         let unset_region = GrantedRegion {
             region_id: legacy_region.region_id,
             role: legacy_region.role,
-            candidate_lease_id: None,
+            candidate_lease_id: 0,
             extensions: legacy_region.extensions.clone(),
         };
-        assert_eq!(legacy_region.encode_to_vec(), unset_region.encode_to_vec());
+        let legacy_encoded = legacy_region.encode_to_vec();
+        assert_eq!(legacy_encoded, unset_region.encode_to_vec());
+        assert_eq!(
+            unset_region,
+            GrantedRegion::decode(legacy_encoded.as_slice()).unwrap()
+        );
 
-        for candidate_lease_id in [0, 7] {
-            let new_region = GrantedRegion {
-                candidate_lease_id: Some(candidate_lease_id),
-                ..unset_region.clone()
-            };
-            let encoded = new_region.encode_to_vec();
-            assert_eq!(
-                new_region,
-                GrantedRegion::decode(encoded.as_slice()).unwrap()
-            );
-            assert_eq!(
-                legacy_region,
-                LegacyGrantedRegion::decode(encoded.as_slice()).unwrap()
-            );
-        }
+        let set_region = GrantedRegion {
+            candidate_lease_id: 7,
+            ..unset_region.clone()
+        };
+        let encoded = set_region.encode_to_vec();
+        // Tag 3, varint 7, between role and extensions.
+        let mut expected = legacy_encoded.clone();
+        expected.splice(4..4, [0x18, 0x07]);
+        assert_eq!(expected, encoded);
+        assert_eq!(
+            set_region,
+            GrantedRegion::decode(encoded.as_slice()).unwrap()
+        );
+        assert_eq!(
+            legacy_region,
+            LegacyGrantedRegion::decode(encoded.as_slice()).unwrap()
+        );
     }
 
     #[test]
