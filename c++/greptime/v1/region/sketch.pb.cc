@@ -55,21 +55,21 @@ struct SketchRequestDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SketchRequestDefaultTypeInternal _SketchRequest_default_instance_;
-PROTOBUF_CONSTEXPR SketchSampling::SketchSampling(
+PROTOBUF_CONSTEXPR SketchSamplingOptions::SketchSamplingOptions(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.seed_)*/uint64_t{0u}
   , /*decltype(_impl_.max_files_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct SketchSamplingDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR SketchSamplingDefaultTypeInternal()
+struct SketchSamplingOptionsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SketchSamplingOptionsDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~SketchSamplingDefaultTypeInternal() {}
+  ~SketchSamplingOptionsDefaultTypeInternal() {}
   union {
-    SketchSampling _instance;
+    SketchSamplingOptions _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SketchSamplingDefaultTypeInternal _SketchSampling_default_instance_;
-PROTOBUF_CONSTEXPR SketchSample::SketchSample(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SketchSamplingOptionsDefaultTypeInternal _SketchSamplingOptions_default_instance_;
+PROTOBUF_CONSTEXPR SketchSamplingInfo::SketchSamplingInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.candidate_files_)*/uint64_t{0u}
   , /*decltype(_impl_.sampled_files_)*/uint64_t{0u}
@@ -77,15 +77,15 @@ PROTOBUF_CONSTEXPR SketchSample::SketchSample(
   , /*decltype(_impl_.rows_squared_sum_)*/0
   , /*decltype(_impl_.max_file_rows_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
-struct SketchSampleDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR SketchSampleDefaultTypeInternal()
+struct SketchSamplingInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR SketchSamplingInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~SketchSampleDefaultTypeInternal() {}
+  ~SketchSamplingInfoDefaultTypeInternal() {}
   union {
-    SketchSample _instance;
+    SketchSamplingInfo _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SketchSampleDefaultTypeInternal _SketchSample_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SketchSamplingInfoDefaultTypeInternal _SketchSamplingInfo_default_instance_;
 PROTOBUF_CONSTEXPR SketchDistinctCountQuery::SketchDistinctCountQuery(
     ::_pbi::ConstantInitialized) {}
 struct SketchDistinctCountQueryDefaultTypeInternal {
@@ -271,7 +271,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR SketchResponse::SketchResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.results_)*/{}
-  , /*decltype(_impl_.sample_)*/nullptr
+  , /*decltype(_impl_.sampling_info_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SketchResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR SketchResponseDefaultTypeInternal()
@@ -311,24 +311,24 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchRequest, _impl_.queries_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchRequest, _impl_.sampling_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSampling, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingOptions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSampling, _impl_.max_files_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSampling, _impl_.seed_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingOptions, _impl_.max_files_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingOptions, _impl_.seed_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _impl_.candidate_files_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _impl_.sampled_files_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _impl_.fingerprint_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _impl_.rows_squared_sum_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSample, _impl_.max_file_rows_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _impl_.candidate_files_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _impl_.sampled_files_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _impl_.fingerprint_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _impl_.rows_squared_sum_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSamplingInfo, _impl_.max_file_rows_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchDistinctCountQuery, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -447,13 +447,13 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto::offsets[] PR
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchResponse, _impl_.results_),
-  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchResponse, _impl_.sample_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchResponse, _impl_.sampling_info_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::region::SketchTimeRange)},
   { 9, -1, -1, sizeof(::greptime::v1::region::SketchRequest)},
-  { 20, -1, -1, sizeof(::greptime::v1::region::SketchSampling)},
-  { 28, -1, -1, sizeof(::greptime::v1::region::SketchSample)},
+  { 20, -1, -1, sizeof(::greptime::v1::region::SketchSamplingOptions)},
+  { 28, -1, -1, sizeof(::greptime::v1::region::SketchSamplingInfo)},
   { 39, -1, -1, sizeof(::greptime::v1::region::SketchDistinctCountQuery)},
   { 45, -1, -1, sizeof(::greptime::v1::region::SketchQuantileQuery)},
   { 52, -1, -1, sizeof(::greptime::v1::region::SketchFrequencyQuery)},
@@ -473,8 +473,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
 static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::region::_SketchTimeRange_default_instance_._instance,
   &::greptime::v1::region::_SketchRequest_default_instance_._instance,
-  &::greptime::v1::region::_SketchSampling_default_instance_._instance,
-  &::greptime::v1::region::_SketchSample_default_instance_._instance,
+  &::greptime::v1::region::_SketchSamplingOptions_default_instance_._instance,
+  &::greptime::v1::region::_SketchSamplingInfo_default_instance_._instance,
   &::greptime::v1::region::_SketchDistinctCountQuery_default_instance_._instance,
   &::greptime::v1::region::_SketchQuantileQuery_default_instance_._instance,
   &::greptime::v1::region::_SketchFrequencyQuery_default_instance_._instance,
@@ -496,65 +496,66 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto[] P
   "ime.v1.region\032\030greptime/v1/common.proto\032"
   "\025greptime/v1/row.proto\"W\n\017SketchTimeRang"
   "e\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_un"
-  "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\324\001\n\rSket"
+  "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\333\001\n\rSket"
   "chRequest\022\021\n\tregion_id\030\001 \001(\004\0227\n\ntime_ran"
   "ge\030\002 \001(\0132#.greptime.v1.region.SketchTime"
   "Range\022\017\n\007columns\030\003 \003(\t\0220\n\007queries\030\004 \003(\0132"
-  "\037.greptime.v1.region.SketchQuery\0224\n\010samp"
-  "ling\030\005 \001(\0132\".greptime.v1.region.SketchSa"
-  "mpling\"1\n\016SketchSampling\022\021\n\tmax_files\030\001 "
-  "\001(\r\022\014\n\004seed\030\002 \001(\004\"\204\001\n\014SketchSample\022\027\n\017ca"
-  "ndidate_files\030\001 \001(\004\022\025\n\rsampled_files\030\002 \001"
-  "(\004\022\023\n\013fingerprint\030\003 \001(\004\022\030\n\020rows_squared_"
-  "sum\030\004 \001(\001\022\025\n\rmax_file_rows\030\005 \001(\004\"\032\n\030Sket"
-  "chDistinctCountQuery\"\'\n\023SketchQuantileQu"
-  "ery\022\020\n\010fraction\030\001 \001(\001\"9\n\024SketchFrequency"
-  "Query\022!\n\005value\030\001 \001(\0132\022.greptime.v1.Value"
-  "\"4\n\017SketchRankQuery\022!\n\005value\030\001 \001(\0132\022.gre"
-  "ptime.v1.Value\"\217\002\n\013SketchQuery\022F\n\016distin"
-  "ct_count\030\001 \001(\0132,.greptime.v1.region.Sket"
-  "chDistinctCountQueryH\000\022;\n\010quantile\030\002 \001(\013"
-  "2\'.greptime.v1.region.SketchQuantileQuer"
-  "yH\000\022=\n\tfrequency\030\003 \001(\0132(.greptime.v1.reg"
-  "ion.SketchFrequencyQueryH\000\0223\n\004rank\030\004 \001(\013"
-  "2#.greptime.v1.region.SketchRankQueryH\000B"
-  "\007\n\005query\"\217\001\n\014SketchBucket\0227\n\ntime_range\030"
-  "\001 \001(\0132#.greptime.v1.region.SketchTimeRan"
-  "ge\022\025\n\rcovered_files\030\002 \001(\004\022\025\n\rmissing_fil"
-  "es\030\003 \001(\004\022\030\n\020represented_rows\030\004 \001(\004\"\202\001\n\tS"
-  "ketchGap\022\030\n\020source_region_id\030\001 \001(\004\022\017\n\007fi"
-  "le_id\030\002 \001(\014\022\025\n\rindex_version\030\003 \001(\004\0223\n\006re"
-  "ason\030\004 \001(\0162#.greptime.v1.region.SketchGa"
-  "pReason\"H\n\023SketchDistinctCount\022\020\n\010estima"
-  "te\030\001 \001(\001\022\037\n\027relative_standard_error\030\002 \001("
-  "\001\"3\n\016SketchQuantile\022!\n\005value\030\001 \001(\0132\022.gre"
-  "ptime.v1.Value\"/\n\017SketchFrequency\022\r\n\005low"
-  "er\030\001 \001(\004\022\r\n\005upper\030\002 \001(\004\"\036\n\nSketchRank\022\020\n"
-  "\010fraction\030\001 \001(\001\"\373\001\n\013SketchValue\022A\n\016disti"
-  "nct_count\030\001 \001(\0132\'.greptime.v1.region.Ske"
-  "tchDistinctCountH\000\0226\n\010quantile\030\002 \001(\0132\".g"
-  "reptime.v1.region.SketchQuantileH\000\0228\n\tfr"
-  "equency\030\003 \001(\0132#.greptime.v1.region.Sketc"
-  "hFrequencyH\000\022.\n\004rank\030\004 \001(\0132\036.greptime.v1"
-  ".region.SketchRankH\000B\007\n\005value\"\374\001\n\022Column"
-  "SketchResult\022\023\n\013column_name\030\001 \001(\t\022\021\n\tcol"
-  "umn_id\030\002 \001(\r\022.\n\005query\030\003 \001(\0132\037.greptime.v"
-  "1.region.SketchQuery\0221\n\007buckets\030\004 \003(\0132 ."
-  "greptime.v1.region.SketchBucket\022+\n\004gaps\030"
-  "\005 \003(\0132\035.greptime.v1.region.SketchGap\022.\n\005"
-  "value\030\006 \001(\0132\037.greptime.v1.region.SketchV"
-  "alue\"{\n\016SketchResponse\0227\n\007results\030\001 \003(\0132"
-  "&.greptime.v1.region.ColumnSketchResult\022"
-  "0\n\006sample\030\002 \001(\0132 .greptime.v1.region.Ske"
-  "tchSample*\356\001\n\017SketchGapReason\022!\n\035SKETCH_"
-  "GAP_REASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_R"
-  "EASON_NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REA"
-  "SON_MISSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON"
-  "_LEGACY_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SC"
-  "OPE_MISMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCO"
-  "MPATIBLE\020\005B]\n\025io.greptime.v1.regionB\006Ske"
-  "tchZ<github.com/GreptimeTeam/greptime-pr"
-  "oto/go/greptime/v1/regionb\006proto3"
+  "\037.greptime.v1.region.SketchQuery\022;\n\010samp"
+  "ling\030\005 \001(\0132).greptime.v1.region.SketchSa"
+  "mplingOptions\"8\n\025SketchSamplingOptions\022\021"
+  "\n\tmax_files\030\001 \001(\r\022\014\n\004seed\030\002 \001(\004\"\212\001\n\022Sket"
+  "chSamplingInfo\022\027\n\017candidate_files\030\001 \001(\004\022"
+  "\025\n\rsampled_files\030\002 \001(\004\022\023\n\013fingerprint\030\003 "
+  "\001(\004\022\030\n\020rows_squared_sum\030\004 \001(\001\022\025\n\rmax_fil"
+  "e_rows\030\005 \001(\004\"\032\n\030SketchDistinctCountQuery"
+  "\"\'\n\023SketchQuantileQuery\022\020\n\010fraction\030\001 \001("
+  "\001\"9\n\024SketchFrequencyQuery\022!\n\005value\030\001 \001(\013"
+  "2\022.greptime.v1.Value\"4\n\017SketchRankQuery\022"
+  "!\n\005value\030\001 \001(\0132\022.greptime.v1.Value\"\217\002\n\013S"
+  "ketchQuery\022F\n\016distinct_count\030\001 \001(\0132,.gre"
+  "ptime.v1.region.SketchDistinctCountQuery"
+  "H\000\022;\n\010quantile\030\002 \001(\0132\'.greptime.v1.regio"
+  "n.SketchQuantileQueryH\000\022=\n\tfrequency\030\003 \001"
+  "(\0132(.greptime.v1.region.SketchFrequencyQ"
+  "ueryH\000\0223\n\004rank\030\004 \001(\0132#.greptime.v1.regio"
+  "n.SketchRankQueryH\000B\007\n\005query\"\217\001\n\014SketchB"
+  "ucket\0227\n\ntime_range\030\001 \001(\0132#.greptime.v1."
+  "region.SketchTimeRange\022\025\n\rcovered_files\030"
+  "\002 \001(\004\022\025\n\rmissing_files\030\003 \001(\004\022\030\n\020represen"
+  "ted_rows\030\004 \001(\004\"\202\001\n\tSketchGap\022\030\n\020source_r"
+  "egion_id\030\001 \001(\004\022\017\n\007file_id\030\002 \001(\014\022\025\n\rindex"
+  "_version\030\003 \001(\004\0223\n\006reason\030\004 \001(\0162#.greptim"
+  "e.v1.region.SketchGapReason\"H\n\023SketchDis"
+  "tinctCount\022\020\n\010estimate\030\001 \001(\001\022\037\n\027relative"
+  "_standard_error\030\002 \001(\001\"3\n\016SketchQuantile\022"
+  "!\n\005value\030\001 \001(\0132\022.greptime.v1.Value\"/\n\017Sk"
+  "etchFrequency\022\r\n\005lower\030\001 \001(\004\022\r\n\005upper\030\002 "
+  "\001(\004\"\036\n\nSketchRank\022\020\n\010fraction\030\001 \001(\001\"\373\001\n\013"
+  "SketchValue\022A\n\016distinct_count\030\001 \001(\0132\'.gr"
+  "eptime.v1.region.SketchDistinctCountH\000\0226"
+  "\n\010quantile\030\002 \001(\0132\".greptime.v1.region.Sk"
+  "etchQuantileH\000\0228\n\tfrequency\030\003 \001(\0132#.grep"
+  "time.v1.region.SketchFrequencyH\000\022.\n\004rank"
+  "\030\004 \001(\0132\036.greptime.v1.region.SketchRankH\000"
+  "B\007\n\005value\"\374\001\n\022ColumnSketchResult\022\023\n\013colu"
+  "mn_name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022.\n\005quer"
+  "y\030\003 \001(\0132\037.greptime.v1.region.SketchQuery"
+  "\0221\n\007buckets\030\004 \003(\0132 .greptime.v1.region.S"
+  "ketchBucket\022+\n\004gaps\030\005 \003(\0132\035.greptime.v1."
+  "region.SketchGap\022.\n\005value\030\006 \001(\0132\037.grepti"
+  "me.v1.region.SketchValue\"\210\001\n\016SketchRespo"
+  "nse\0227\n\007results\030\001 \003(\0132&.greptime.v1.regio"
+  "n.ColumnSketchResult\022=\n\rsampling_info\030\002 "
+  "\001(\0132&.greptime.v1.region.SketchSamplingI"
+  "nfo*\356\001\n\017SketchGapReason\022!\n\035SKETCH_GAP_RE"
+  "ASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_REASON_"
+  "NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MI"
+  "SSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGAC"
+  "Y_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MI"
+  "SMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIB"
+  "LE\020\005B]\n\025io.greptime.v1.regionB\006SketchZ<g"
+  "ithub.com/GreptimeTeam/greptime-proto/go"
+  "/greptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -562,7 +563,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto = {
-    false, false, 2513, descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto,
+    false, false, 2547, descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto,
     "greptime/v1/region/sketch.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_deps, 2, 18,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto::offsets,
@@ -840,14 +841,14 @@ void SketchTimeRange::InternalSwap(SketchTimeRange* other) {
 class SketchRequest::_Internal {
  public:
   static const ::greptime::v1::region::SketchTimeRange& time_range(const SketchRequest* msg);
-  static const ::greptime::v1::region::SketchSampling& sampling(const SketchRequest* msg);
+  static const ::greptime::v1::region::SketchSamplingOptions& sampling(const SketchRequest* msg);
 };
 
 const ::greptime::v1::region::SketchTimeRange&
 SketchRequest::_Internal::time_range(const SketchRequest* msg) {
   return *msg->_impl_.time_range_;
 }
-const ::greptime::v1::region::SketchSampling&
+const ::greptime::v1::region::SketchSamplingOptions&
 SketchRequest::_Internal::sampling(const SketchRequest* msg) {
   return *msg->_impl_.sampling_;
 }
@@ -873,7 +874,7 @@ SketchRequest::SketchRequest(const SketchRequest& from)
     _this->_impl_.time_range_ = new ::greptime::v1::region::SketchTimeRange(*from._impl_.time_range_);
   }
   if (from._internal_has_sampling()) {
-    _this->_impl_.sampling_ = new ::greptime::v1::region::SketchSampling(*from._impl_.sampling_);
+    _this->_impl_.sampling_ = new ::greptime::v1::region::SketchSamplingOptions(*from._impl_.sampling_);
   }
   _this->_impl_.region_id_ = from._impl_.region_id_;
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchRequest)
@@ -984,7 +985,7 @@ const char* SketchRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.region.SketchSampling sampling = 5;
+      // .greptime.v1.region.SketchSamplingOptions sampling = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           ptr = ctx->ParseMessage(_internal_mutable_sampling(), ptr);
@@ -1052,7 +1053,7 @@ uint8_t* SketchRequest::_InternalSerialize(
         InternalWriteMessage(4, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.region.SketchSampling sampling = 5;
+  // .greptime.v1.region.SketchSamplingOptions sampling = 5;
   if (this->_internal_has_sampling()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(5, _Internal::sampling(this),
@@ -1097,7 +1098,7 @@ size_t SketchRequest::ByteSizeLong() const {
         *_impl_.time_range_);
   }
 
-  // .greptime.v1.region.SketchSampling sampling = 5;
+  // .greptime.v1.region.SketchSamplingOptions sampling = 5;
   if (this->_internal_has_sampling()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1134,7 +1135,7 @@ void SketchRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
         from._internal_time_range());
   }
   if (from._internal_has_sampling()) {
-    _this->_internal_mutable_sampling()->::greptime::v1::region::SketchSampling::MergeFrom(
+    _this->_internal_mutable_sampling()->::greptime::v1::region::SketchSamplingOptions::MergeFrom(
         from._internal_sampling());
   }
   if (from._internal_region_id() != 0) {
@@ -1175,19 +1176,19 @@ void SketchRequest::InternalSwap(SketchRequest* other) {
 
 // ===================================================================
 
-class SketchSampling::_Internal {
+class SketchSamplingOptions::_Internal {
  public:
 };
 
-SketchSampling::SketchSampling(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SketchSamplingOptions::SketchSamplingOptions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.region.SketchSampling)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.region.SketchSamplingOptions)
 }
-SketchSampling::SketchSampling(const SketchSampling& from)
+SketchSamplingOptions::SketchSamplingOptions(const SketchSamplingOptions& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  SketchSampling* const _this = this; (void)_this;
+  SketchSamplingOptions* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.seed_){}
     , decltype(_impl_.max_files_){}
@@ -1197,10 +1198,10 @@ SketchSampling::SketchSampling(const SketchSampling& from)
   ::memcpy(&_impl_.seed_, &from._impl_.seed_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.max_files_) -
     reinterpret_cast<char*>(&_impl_.seed_)) + sizeof(_impl_.max_files_));
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchSampling)
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchSamplingOptions)
 }
 
-inline void SketchSampling::SharedCtor(
+inline void SketchSamplingOptions::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -1211,8 +1212,8 @@ inline void SketchSampling::SharedCtor(
   };
 }
 
-SketchSampling::~SketchSampling() {
-  // @@protoc_insertion_point(destructor:greptime.v1.region.SketchSampling)
+SketchSamplingOptions::~SketchSamplingOptions() {
+  // @@protoc_insertion_point(destructor:greptime.v1.region.SketchSamplingOptions)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1220,16 +1221,16 @@ SketchSampling::~SketchSampling() {
   SharedDtor();
 }
 
-inline void SketchSampling::SharedDtor() {
+inline void SketchSamplingOptions::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void SketchSampling::SetCachedSize(int size) const {
+void SketchSamplingOptions::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void SketchSampling::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.region.SketchSampling)
+void SketchSamplingOptions::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.region.SketchSamplingOptions)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1240,7 +1241,7 @@ void SketchSampling::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SketchSampling::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* SketchSamplingOptions::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -1285,9 +1286,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SketchSampling::_InternalSerialize(
+uint8_t* SketchSamplingOptions::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.region.SketchSampling)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.region.SketchSamplingOptions)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1307,12 +1308,12 @@ uint8_t* SketchSampling::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.region.SketchSampling)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.region.SketchSamplingOptions)
   return target;
 }
 
-size_t SketchSampling::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.region.SketchSampling)
+size_t SketchSamplingOptions::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.region.SketchSamplingOptions)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1332,17 +1333,17 @@ size_t SketchSampling::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SketchSampling::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SketchSamplingOptions::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    SketchSampling::MergeImpl
+    SketchSamplingOptions::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SketchSampling::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SketchSamplingOptions::GetClassData() const { return &_class_data_; }
 
 
-void SketchSampling::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<SketchSampling*>(&to_msg);
-  auto& from = static_cast<const SketchSampling&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.region.SketchSampling)
+void SketchSamplingOptions::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<SketchSamplingOptions*>(&to_msg);
+  auto& from = static_cast<const SketchSamplingOptions&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.region.SketchSamplingOptions)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1356,29 +1357,29 @@ void SketchSampling::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SketchSampling::CopyFrom(const SketchSampling& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.region.SketchSampling)
+void SketchSamplingOptions::CopyFrom(const SketchSamplingOptions& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.region.SketchSamplingOptions)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SketchSampling::IsInitialized() const {
+bool SketchSamplingOptions::IsInitialized() const {
   return true;
 }
 
-void SketchSampling::InternalSwap(SketchSampling* other) {
+void SketchSamplingOptions::InternalSwap(SketchSamplingOptions* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SketchSampling, _impl_.max_files_)
-      + sizeof(SketchSampling::_impl_.max_files_)
-      - PROTOBUF_FIELD_OFFSET(SketchSampling, _impl_.seed_)>(
+      PROTOBUF_FIELD_OFFSET(SketchSamplingOptions, _impl_.max_files_)
+      + sizeof(SketchSamplingOptions::_impl_.max_files_)
+      - PROTOBUF_FIELD_OFFSET(SketchSamplingOptions, _impl_.seed_)>(
           reinterpret_cast<char*>(&_impl_.seed_),
           reinterpret_cast<char*>(&other->_impl_.seed_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SketchSampling::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SketchSamplingOptions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once,
       file_level_metadata_greptime_2fv1_2fregion_2fsketch_2eproto[2]);
@@ -1386,19 +1387,19 @@ void SketchSampling::InternalSwap(SketchSampling* other) {
 
 // ===================================================================
 
-class SketchSample::_Internal {
+class SketchSamplingInfo::_Internal {
  public:
 };
 
-SketchSample::SketchSample(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+SketchSamplingInfo::SketchSamplingInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:greptime.v1.region.SketchSample)
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.region.SketchSamplingInfo)
 }
-SketchSample::SketchSample(const SketchSample& from)
+SketchSamplingInfo::SketchSamplingInfo(const SketchSamplingInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  SketchSample* const _this = this; (void)_this;
+  SketchSamplingInfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.candidate_files_){}
     , decltype(_impl_.sampled_files_){}
@@ -1411,10 +1412,10 @@ SketchSample::SketchSample(const SketchSample& from)
   ::memcpy(&_impl_.candidate_files_, &from._impl_.candidate_files_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.max_file_rows_) -
     reinterpret_cast<char*>(&_impl_.candidate_files_)) + sizeof(_impl_.max_file_rows_));
-  // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchSample)
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchSamplingInfo)
 }
 
-inline void SketchSample::SharedCtor(
+inline void SketchSamplingInfo::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -1428,8 +1429,8 @@ inline void SketchSample::SharedCtor(
   };
 }
 
-SketchSample::~SketchSample() {
-  // @@protoc_insertion_point(destructor:greptime.v1.region.SketchSample)
+SketchSamplingInfo::~SketchSamplingInfo() {
+  // @@protoc_insertion_point(destructor:greptime.v1.region.SketchSamplingInfo)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1437,16 +1438,16 @@ SketchSample::~SketchSample() {
   SharedDtor();
 }
 
-inline void SketchSample::SharedDtor() {
+inline void SketchSamplingInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void SketchSample::SetCachedSize(int size) const {
+void SketchSamplingInfo::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void SketchSample::Clear() {
-// @@protoc_insertion_point(message_clear_start:greptime.v1.region.SketchSample)
+void SketchSamplingInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.region.SketchSamplingInfo)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1457,7 +1458,7 @@ void SketchSample::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* SketchSample::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* SketchSamplingInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
@@ -1526,9 +1527,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* SketchSample::_InternalSerialize(
+uint8_t* SketchSamplingInfo::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.region.SketchSample)
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.region.SketchSamplingInfo)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1570,12 +1571,12 @@ uint8_t* SketchSample::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.region.SketchSample)
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.region.SketchSamplingInfo)
   return target;
 }
 
-size_t SketchSample::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:greptime.v1.region.SketchSample)
+size_t SketchSamplingInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.region.SketchSamplingInfo)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1614,17 +1615,17 @@ size_t SketchSample::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SketchSample::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData SketchSamplingInfo::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    SketchSample::MergeImpl
+    SketchSamplingInfo::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SketchSample::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*SketchSamplingInfo::GetClassData() const { return &_class_data_; }
 
 
-void SketchSample::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<SketchSample*>(&to_msg);
-  auto& from = static_cast<const SketchSample&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.region.SketchSample)
+void SketchSamplingInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<SketchSamplingInfo*>(&to_msg);
+  auto& from = static_cast<const SketchSamplingInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.region.SketchSamplingInfo)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1651,29 +1652,29 @@ void SketchSample::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void SketchSample::CopyFrom(const SketchSample& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.region.SketchSample)
+void SketchSamplingInfo::CopyFrom(const SketchSamplingInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.region.SketchSamplingInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool SketchSample::IsInitialized() const {
+bool SketchSamplingInfo::IsInitialized() const {
   return true;
 }
 
-void SketchSample::InternalSwap(SketchSample* other) {
+void SketchSamplingInfo::InternalSwap(SketchSamplingInfo* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SketchSample, _impl_.max_file_rows_)
-      + sizeof(SketchSample::_impl_.max_file_rows_)
-      - PROTOBUF_FIELD_OFFSET(SketchSample, _impl_.candidate_files_)>(
+      PROTOBUF_FIELD_OFFSET(SketchSamplingInfo, _impl_.max_file_rows_)
+      + sizeof(SketchSamplingInfo::_impl_.max_file_rows_)
+      - PROTOBUF_FIELD_OFFSET(SketchSamplingInfo, _impl_.candidate_files_)>(
           reinterpret_cast<char*>(&_impl_.candidate_files_),
           reinterpret_cast<char*>(&other->_impl_.candidate_files_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata SketchSample::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SketchSamplingInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_getter, &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once,
       file_level_metadata_greptime_2fv1_2fregion_2fsketch_2eproto[3]);
@@ -4934,12 +4935,12 @@ void ColumnSketchResult::InternalSwap(ColumnSketchResult* other) {
 
 class SketchResponse::_Internal {
  public:
-  static const ::greptime::v1::region::SketchSample& sample(const SketchResponse* msg);
+  static const ::greptime::v1::region::SketchSamplingInfo& sampling_info(const SketchResponse* msg);
 };
 
-const ::greptime::v1::region::SketchSample&
-SketchResponse::_Internal::sample(const SketchResponse* msg) {
-  return *msg->_impl_.sample_;
+const ::greptime::v1::region::SketchSamplingInfo&
+SketchResponse::_Internal::sampling_info(const SketchResponse* msg) {
+  return *msg->_impl_.sampling_info_;
 }
 SketchResponse::SketchResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4952,12 +4953,12 @@ SketchResponse::SketchResponse(const SketchResponse& from)
   SketchResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.results_){from._impl_.results_}
-    , decltype(_impl_.sample_){nullptr}
+    , decltype(_impl_.sampling_info_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_sample()) {
-    _this->_impl_.sample_ = new ::greptime::v1::region::SketchSample(*from._impl_.sample_);
+  if (from._internal_has_sampling_info()) {
+    _this->_impl_.sampling_info_ = new ::greptime::v1::region::SketchSamplingInfo(*from._impl_.sampling_info_);
   }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchResponse)
 }
@@ -4968,7 +4969,7 @@ inline void SketchResponse::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.results_){arena}
-    , decltype(_impl_.sample_){nullptr}
+    , decltype(_impl_.sampling_info_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4985,7 +4986,7 @@ SketchResponse::~SketchResponse() {
 inline void SketchResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.results_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.sample_;
+  if (this != internal_default_instance()) delete _impl_.sampling_info_;
 }
 
 void SketchResponse::SetCachedSize(int size) const {
@@ -4999,10 +5000,10 @@ void SketchResponse::Clear() {
   (void) cached_has_bits;
 
   _impl_.results_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.sample_ != nullptr) {
-    delete _impl_.sample_;
+  if (GetArenaForAllocation() == nullptr && _impl_.sampling_info_ != nullptr) {
+    delete _impl_.sampling_info_;
   }
-  _impl_.sample_ = nullptr;
+  _impl_.sampling_info_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -5025,10 +5026,10 @@ const char* SketchResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext
         } else
           goto handle_unusual;
         continue;
-      // .greptime.v1.region.SketchSample sample = 2;
+      // .greptime.v1.region.SketchSamplingInfo sampling_info = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_sample(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_sampling_info(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5070,11 +5071,11 @@ uint8_t* SketchResponse::_InternalSerialize(
         InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
-  // .greptime.v1.region.SketchSample sample = 2;
-  if (this->_internal_has_sample()) {
+  // .greptime.v1.region.SketchSamplingInfo sampling_info = 2;
+  if (this->_internal_has_sampling_info()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::sample(this),
-        _Internal::sample(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(2, _Internal::sampling_info(this),
+        _Internal::sampling_info(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5100,11 +5101,11 @@ size_t SketchResponse::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .greptime.v1.region.SketchSample sample = 2;
-  if (this->_internal_has_sample()) {
+  // .greptime.v1.region.SketchSamplingInfo sampling_info = 2;
+  if (this->_internal_has_sampling_info()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.sample_);
+        *_impl_.sampling_info_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -5126,9 +5127,9 @@ void SketchResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   (void) cached_has_bits;
 
   _this->_impl_.results_.MergeFrom(from._impl_.results_);
-  if (from._internal_has_sample()) {
-    _this->_internal_mutable_sample()->::greptime::v1::region::SketchSample::MergeFrom(
-        from._internal_sample());
+  if (from._internal_has_sampling_info()) {
+    _this->_internal_mutable_sampling_info()->::greptime::v1::region::SketchSamplingInfo::MergeFrom(
+        from._internal_sampling_info());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -5148,7 +5149,7 @@ void SketchResponse::InternalSwap(SketchResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.results_.InternalSwap(&other->_impl_.results_);
-  swap(_impl_.sample_, other->_impl_.sample_);
+  swap(_impl_.sampling_info_, other->_impl_.sampling_info_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata SketchResponse::GetMetadata() const {
@@ -5170,13 +5171,13 @@ template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchRequest*
 Arena::CreateMaybeMessage< ::greptime::v1::region::SketchRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::region::SketchRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchSampling*
-Arena::CreateMaybeMessage< ::greptime::v1::region::SketchSampling >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::region::SketchSampling >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchSamplingOptions*
+Arena::CreateMaybeMessage< ::greptime::v1::region::SketchSamplingOptions >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::region::SketchSamplingOptions >(arena);
 }
-template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchSample*
-Arena::CreateMaybeMessage< ::greptime::v1::region::SketchSample >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::greptime::v1::region::SketchSample >(arena);
+template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchSamplingInfo*
+Arena::CreateMaybeMessage< ::greptime::v1::region::SketchSamplingInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::region::SketchSamplingInfo >(arena);
 }
 template<> PROTOBUF_NOINLINE ::greptime::v1::region::SketchDistinctCountQuery*
 Arena::CreateMaybeMessage< ::greptime::v1::region::SketchDistinctCountQuery >(Arena* arena) {

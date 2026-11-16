@@ -38,12 +38,13 @@ pub struct SketchRequest {
     pub queries: ::prost::alloc::vec::Vec<SketchQuery>,
     /// Absent means all candidate files are read.
     #[prost(message, optional, tag = "5")]
-    pub sampling: ::core::option::Option<SketchSampling>,
+    pub sampling: ::core::option::Option<SketchSamplingOptions>,
 }
 /// Uniform file sampling without replacement, before reading index payloads.
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
-pub struct SketchSampling {
+pub struct SketchSamplingOptions {
+    /// Must be positive. Fewer candidates means all candidates are selected.
     #[prost(uint32, tag = "1")]
     pub max_files: u32,
     #[prost(uint64, tag = "2")]
@@ -52,12 +53,12 @@ pub struct SketchSampling {
 /// Sampling diagnostics for this request interval. Rows remain sample counts.
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
-pub struct SketchSample {
+pub struct SketchSamplingInfo {
     #[prost(uint64, tag = "1")]
     pub candidate_files: u64,
     #[prost(uint64, tag = "2")]
     pub sampled_files: u64,
-    /// Stable membership signature; changes invalidate comparisons across requests.
+    /// Identifies selected files and index generations, not a retained snapshot.
     #[prost(uint64, tag = "3")]
     pub fingerprint: u64,
     /// Sum of squared per-file represented rows in the requested interval.
@@ -212,7 +213,7 @@ pub struct SketchResponse {
     pub results: ::prost::alloc::vec::Vec<ColumnSketchResult>,
     /// Present only when file sampling was requested.
     #[prost(message, optional, tag = "2")]
-    pub sample: ::core::option::Option<SketchSample>,
+    pub sampling_info: ::core::option::Option<SketchSamplingInfo>,
 }
 #[allow(clippy::all)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]

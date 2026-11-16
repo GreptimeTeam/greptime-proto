@@ -914,7 +914,7 @@ public final class Sketch {
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      * @return Whether the sampling field is set.
      */
     boolean hasSampling();
@@ -923,18 +923,18 @@ public final class Sketch {
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      * @return The sampling.
      */
-    io.greptime.v1.region.Sketch.SketchSampling getSampling();
+    io.greptime.v1.region.Sketch.SketchSamplingOptions getSampling();
     /**
      * <pre>
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      */
-    io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder();
+    io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder getSamplingOrBuilder();
   }
   /**
    * <pre>
@@ -1025,11 +1025,11 @@ public final class Sketch {
               break;
             }
             case 42: {
-              io.greptime.v1.region.Sketch.SketchSampling.Builder subBuilder = null;
+              io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder subBuilder = null;
               if (sampling_ != null) {
                 subBuilder = sampling_.toBuilder();
               }
-              sampling_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSampling.parser(), extensionRegistry);
+              sampling_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSamplingOptions.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(sampling_);
                 sampling_ = subBuilder.buildPartial();
@@ -1190,13 +1190,13 @@ public final class Sketch {
     }
 
     public static final int SAMPLING_FIELD_NUMBER = 5;
-    private io.greptime.v1.region.Sketch.SketchSampling sampling_;
+    private io.greptime.v1.region.Sketch.SketchSamplingOptions sampling_;
     /**
      * <pre>
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      * @return Whether the sampling field is set.
      */
     @java.lang.Override
@@ -1208,22 +1208,22 @@ public final class Sketch {
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      * @return The sampling.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSampling getSampling() {
-      return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+    public io.greptime.v1.region.Sketch.SketchSamplingOptions getSampling() {
+      return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSamplingOptions.getDefaultInstance() : sampling_;
     }
     /**
      * <pre>
      * Absent means all candidate files are read.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+     * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder() {
+    public io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder getSamplingOrBuilder() {
       return getSampling();
     }
 
@@ -2185,15 +2185,15 @@ public final class Sketch {
         return queriesBuilder_;
       }
 
-      private io.greptime.v1.region.Sketch.SketchSampling sampling_;
+      private io.greptime.v1.region.Sketch.SketchSamplingOptions sampling_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder> samplingBuilder_;
+          io.greptime.v1.region.Sketch.SketchSamplingOptions, io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder, io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder> samplingBuilder_;
       /**
        * <pre>
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        * @return Whether the sampling field is set.
        */
       public boolean hasSampling() {
@@ -2204,12 +2204,12 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        * @return The sampling.
        */
-      public io.greptime.v1.region.Sketch.SketchSampling getSampling() {
+      public io.greptime.v1.region.Sketch.SketchSamplingOptions getSampling() {
         if (samplingBuilder_ == null) {
-          return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+          return sampling_ == null ? io.greptime.v1.region.Sketch.SketchSamplingOptions.getDefaultInstance() : sampling_;
         } else {
           return samplingBuilder_.getMessage();
         }
@@ -2219,9 +2219,9 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
-      public Builder setSampling(io.greptime.v1.region.Sketch.SketchSampling value) {
+      public Builder setSampling(io.greptime.v1.region.Sketch.SketchSamplingOptions value) {
         if (samplingBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2239,10 +2239,10 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
       public Builder setSampling(
-          io.greptime.v1.region.Sketch.SketchSampling.Builder builderForValue) {
+          io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder builderForValue) {
         if (samplingBuilder_ == null) {
           sampling_ = builderForValue.build();
           onChanged();
@@ -2257,13 +2257,13 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
-      public Builder mergeSampling(io.greptime.v1.region.Sketch.SketchSampling value) {
+      public Builder mergeSampling(io.greptime.v1.region.Sketch.SketchSamplingOptions value) {
         if (samplingBuilder_ == null) {
           if (sampling_ != null) {
             sampling_ =
-              io.greptime.v1.region.Sketch.SketchSampling.newBuilder(sampling_).mergeFrom(value).buildPartial();
+              io.greptime.v1.region.Sketch.SketchSamplingOptions.newBuilder(sampling_).mergeFrom(value).buildPartial();
           } else {
             sampling_ = value;
           }
@@ -2279,7 +2279,7 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
       public Builder clearSampling() {
         if (samplingBuilder_ == null) {
@@ -2297,9 +2297,9 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
-      public io.greptime.v1.region.Sketch.SketchSampling.Builder getSamplingBuilder() {
+      public io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder getSamplingBuilder() {
         
         onChanged();
         return getSamplingFieldBuilder().getBuilder();
@@ -2309,14 +2309,14 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
-      public io.greptime.v1.region.Sketch.SketchSamplingOrBuilder getSamplingOrBuilder() {
+      public io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder getSamplingOrBuilder() {
         if (samplingBuilder_ != null) {
           return samplingBuilder_.getMessageOrBuilder();
         } else {
           return sampling_ == null ?
-              io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance() : sampling_;
+              io.greptime.v1.region.Sketch.SketchSamplingOptions.getDefaultInstance() : sampling_;
         }
       }
       /**
@@ -2324,14 +2324,14 @@ public final class Sketch {
        * Absent means all candidate files are read.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSampling sampling = 5;</code>
+       * <code>.greptime.v1.region.SketchSamplingOptions sampling = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder> 
+          io.greptime.v1.region.Sketch.SketchSamplingOptions, io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder, io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder> 
           getSamplingFieldBuilder() {
         if (samplingBuilder_ == null) {
           samplingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Sketch.SketchSampling, io.greptime.v1.region.Sketch.SketchSampling.Builder, io.greptime.v1.region.Sketch.SketchSamplingOrBuilder>(
+              io.greptime.v1.region.Sketch.SketchSamplingOptions, io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder, io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder>(
                   getSampling(),
                   getParentForChildren(),
                   isClean());
@@ -2392,11 +2392,15 @@ public final class Sketch {
 
   }
 
-  public interface SketchSamplingOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSampling)
+  public interface SketchSamplingOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSamplingOptions)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * Must be positive. Fewer candidates means all candidates are selected.
+     * </pre>
+     *
      * <code>uint32 max_files = 1;</code>
      * @return The maxFiles.
      */
@@ -2413,25 +2417,25 @@ public final class Sketch {
    * Uniform file sampling without replacement, before reading index payloads.
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.region.SketchSampling}
+   * Protobuf type {@code greptime.v1.region.SketchSamplingOptions}
    */
-  public static final class SketchSampling extends
+  public static final class SketchSamplingOptions extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSampling)
-      SketchSamplingOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSamplingOptions)
+      SketchSamplingOptionsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SketchSampling.newBuilder() to construct.
-    private SketchSampling(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SketchSamplingOptions.newBuilder() to construct.
+    private SketchSamplingOptions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SketchSampling() {
+    private SketchSamplingOptions() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new SketchSampling();
+      return new SketchSamplingOptions();
     }
 
     @java.lang.Override
@@ -2439,7 +2443,7 @@ public final class Sketch {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SketchSampling(
+    private SketchSamplingOptions(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2490,20 +2494,24 @@ public final class Sketch {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingOptions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.region.Sketch.SketchSampling.class, io.greptime.v1.region.Sketch.SketchSampling.Builder.class);
+              io.greptime.v1.region.Sketch.SketchSamplingOptions.class, io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder.class);
     }
 
     public static final int MAX_FILES_FIELD_NUMBER = 1;
     private int maxFiles_;
     /**
+     * <pre>
+     * Must be positive. Fewer candidates means all candidates are selected.
+     * </pre>
+     *
      * <code>uint32 max_files = 1;</code>
      * @return The maxFiles.
      */
@@ -2570,10 +2578,10 @@ public final class Sketch {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSampling)) {
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSamplingOptions)) {
         return super.equals(obj);
       }
-      io.greptime.v1.region.Sketch.SketchSampling other = (io.greptime.v1.region.Sketch.SketchSampling) obj;
+      io.greptime.v1.region.Sketch.SketchSamplingOptions other = (io.greptime.v1.region.Sketch.SketchSamplingOptions) obj;
 
       if (getMaxFiles()
           != other.getMaxFiles()) return false;
@@ -2600,69 +2608,69 @@ public final class Sketch {
       return hash;
     }
 
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(byte[] data)
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseDelimitedFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSampling parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2675,7 +2683,7 @@ public final class Sketch {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSampling prototype) {
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSamplingOptions prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2695,26 +2703,26 @@ public final class Sketch {
      * Uniform file sampling without replacement, before reading index payloads.
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.region.SketchSampling}
+     * Protobuf type {@code greptime.v1.region.SketchSamplingOptions}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSampling)
-        io.greptime.v1.region.Sketch.SketchSamplingOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSamplingOptions)
+        io.greptime.v1.region.Sketch.SketchSamplingOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingOptions_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Sketch.SketchSampling.class, io.greptime.v1.region.Sketch.SketchSampling.Builder.class);
+                io.greptime.v1.region.Sketch.SketchSamplingOptions.class, io.greptime.v1.region.Sketch.SketchSamplingOptions.Builder.class);
       }
 
-      // Construct using io.greptime.v1.region.Sketch.SketchSampling.newBuilder()
+      // Construct using io.greptime.v1.region.Sketch.SketchSamplingOptions.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2742,17 +2750,17 @@ public final class Sketch {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSampling_descriptor;
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingOptions_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSampling getDefaultInstanceForType() {
-        return io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance();
+      public io.greptime.v1.region.Sketch.SketchSamplingOptions getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSamplingOptions.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSampling build() {
-        io.greptime.v1.region.Sketch.SketchSampling result = buildPartial();
+      public io.greptime.v1.region.Sketch.SketchSamplingOptions build() {
+        io.greptime.v1.region.Sketch.SketchSamplingOptions result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2760,8 +2768,8 @@ public final class Sketch {
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSampling buildPartial() {
-        io.greptime.v1.region.Sketch.SketchSampling result = new io.greptime.v1.region.Sketch.SketchSampling(this);
+      public io.greptime.v1.region.Sketch.SketchSamplingOptions buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSamplingOptions result = new io.greptime.v1.region.Sketch.SketchSamplingOptions(this);
         result.maxFiles_ = maxFiles_;
         result.seed_ = seed_;
         onBuilt();
@@ -2802,16 +2810,16 @@ public final class Sketch {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.region.Sketch.SketchSampling) {
-          return mergeFrom((io.greptime.v1.region.Sketch.SketchSampling)other);
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSamplingOptions) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSamplingOptions)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSampling other) {
-        if (other == io.greptime.v1.region.Sketch.SketchSampling.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSamplingOptions other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSamplingOptions.getDefaultInstance()) return this;
         if (other.getMaxFiles() != 0) {
           setMaxFiles(other.getMaxFiles());
         }
@@ -2833,11 +2841,11 @@ public final class Sketch {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.region.Sketch.SketchSampling parsedMessage = null;
+        io.greptime.v1.region.Sketch.SketchSamplingOptions parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.region.Sketch.SketchSampling) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSamplingOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2849,6 +2857,10 @@ public final class Sketch {
 
       private int maxFiles_ ;
       /**
+       * <pre>
+       * Must be positive. Fewer candidates means all candidates are selected.
+       * </pre>
+       *
        * <code>uint32 max_files = 1;</code>
        * @return The maxFiles.
        */
@@ -2857,6 +2869,10 @@ public final class Sketch {
         return maxFiles_;
       }
       /**
+       * <pre>
+       * Must be positive. Fewer candidates means all candidates are selected.
+       * </pre>
+       *
        * <code>uint32 max_files = 1;</code>
        * @param value The maxFiles to set.
        * @return This builder for chaining.
@@ -2868,6 +2884,10 @@ public final class Sketch {
         return this;
       }
       /**
+       * <pre>
+       * Must be positive. Fewer candidates means all candidates are selected.
+       * </pre>
+       *
        * <code>uint32 max_files = 1;</code>
        * @return This builder for chaining.
        */
@@ -2921,48 +2941,48 @@ public final class Sketch {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSampling)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSamplingOptions)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSampling)
-    private static final io.greptime.v1.region.Sketch.SketchSampling DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSamplingOptions)
+    private static final io.greptime.v1.region.Sketch.SketchSamplingOptions DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSampling();
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSamplingOptions();
     }
 
-    public static io.greptime.v1.region.Sketch.SketchSampling getDefaultInstance() {
+    public static io.greptime.v1.region.Sketch.SketchSamplingOptions getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SketchSampling>
-        PARSER = new com.google.protobuf.AbstractParser<SketchSampling>() {
+    private static final com.google.protobuf.Parser<SketchSamplingOptions>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSamplingOptions>() {
       @java.lang.Override
-      public SketchSampling parsePartialFrom(
+      public SketchSamplingOptions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SketchSampling(input, extensionRegistry);
+        return new SketchSamplingOptions(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SketchSampling> parser() {
+    public static com.google.protobuf.Parser<SketchSamplingOptions> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SketchSampling> getParserForType() {
+    public com.google.protobuf.Parser<SketchSamplingOptions> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSampling getDefaultInstanceForType() {
+    public io.greptime.v1.region.Sketch.SketchSamplingOptions getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface SketchSampleOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSample)
+  public interface SketchSamplingInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSamplingInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2979,7 +2999,7 @@ public final class Sketch {
 
     /**
      * <pre>
-     * Stable membership signature; changes invalidate comparisons across requests.
+     * Identifies selected files and index generations, not a retained snapshot.
      * </pre>
      *
      * <code>uint64 fingerprint = 3;</code>
@@ -3008,25 +3028,25 @@ public final class Sketch {
    * Sampling diagnostics for this request interval. Rows remain sample counts.
    * </pre>
    *
-   * Protobuf type {@code greptime.v1.region.SketchSample}
+   * Protobuf type {@code greptime.v1.region.SketchSamplingInfo}
    */
-  public static final class SketchSample extends
+  public static final class SketchSamplingInfo extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSample)
-      SketchSampleOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSamplingInfo)
+      SketchSamplingInfoOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SketchSample.newBuilder() to construct.
-    private SketchSample(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SketchSamplingInfo.newBuilder() to construct.
+    private SketchSamplingInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SketchSample() {
+    private SketchSamplingInfo() {
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new SketchSample();
+      return new SketchSamplingInfo();
     }
 
     @java.lang.Override
@@ -3034,7 +3054,7 @@ public final class Sketch {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SketchSample(
+    private SketchSamplingInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3100,15 +3120,15 @@ public final class Sketch {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_fieldAccessorTable
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.region.Sketch.SketchSample.class, io.greptime.v1.region.Sketch.SketchSample.Builder.class);
+              io.greptime.v1.region.Sketch.SketchSamplingInfo.class, io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder.class);
     }
 
     public static final int CANDIDATE_FILES_FIELD_NUMBER = 1;
@@ -3137,7 +3157,7 @@ public final class Sketch {
     private long fingerprint_;
     /**
      * <pre>
-     * Stable membership signature; changes invalidate comparisons across requests.
+     * Identifies selected files and index generations, not a retained snapshot.
      * </pre>
      *
      * <code>uint64 fingerprint = 3;</code>
@@ -3242,10 +3262,10 @@ public final class Sketch {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSample)) {
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSamplingInfo)) {
         return super.equals(obj);
       }
-      io.greptime.v1.region.Sketch.SketchSample other = (io.greptime.v1.region.Sketch.SketchSample) obj;
+      io.greptime.v1.region.Sketch.SketchSamplingInfo other = (io.greptime.v1.region.Sketch.SketchSamplingInfo) obj;
 
       if (getCandidateFiles()
           != other.getCandidateFiles()) return false;
@@ -3289,69 +3309,69 @@ public final class Sketch {
       return hash;
     }
 
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(byte[] data)
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseDelimitedFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.region.Sketch.SketchSample parseFrom(
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3364,7 +3384,7 @@ public final class Sketch {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSample prototype) {
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSamplingInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3384,26 +3404,26 @@ public final class Sketch {
      * Sampling diagnostics for this request interval. Rows remain sample counts.
      * </pre>
      *
-     * Protobuf type {@code greptime.v1.region.SketchSample}
+     * Protobuf type {@code greptime.v1.region.SketchSamplingInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSample)
-        io.greptime.v1.region.Sketch.SketchSampleOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSamplingInfo)
+        io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingInfo_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_fieldAccessorTable
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.region.Sketch.SketchSample.class, io.greptime.v1.region.Sketch.SketchSample.Builder.class);
+                io.greptime.v1.region.Sketch.SketchSamplingInfo.class, io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder.class);
       }
 
-      // Construct using io.greptime.v1.region.Sketch.SketchSample.newBuilder()
+      // Construct using io.greptime.v1.region.Sketch.SketchSamplingInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3437,17 +3457,17 @@ public final class Sketch {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSample_descriptor;
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSamplingInfo_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSample getDefaultInstanceForType() {
-        return io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance();
+      public io.greptime.v1.region.Sketch.SketchSamplingInfo getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSamplingInfo.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSample build() {
-        io.greptime.v1.region.Sketch.SketchSample result = buildPartial();
+      public io.greptime.v1.region.Sketch.SketchSamplingInfo build() {
+        io.greptime.v1.region.Sketch.SketchSamplingInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3455,8 +3475,8 @@ public final class Sketch {
       }
 
       @java.lang.Override
-      public io.greptime.v1.region.Sketch.SketchSample buildPartial() {
-        io.greptime.v1.region.Sketch.SketchSample result = new io.greptime.v1.region.Sketch.SketchSample(this);
+      public io.greptime.v1.region.Sketch.SketchSamplingInfo buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSamplingInfo result = new io.greptime.v1.region.Sketch.SketchSamplingInfo(this);
         result.candidateFiles_ = candidateFiles_;
         result.sampledFiles_ = sampledFiles_;
         result.fingerprint_ = fingerprint_;
@@ -3500,16 +3520,16 @@ public final class Sketch {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.region.Sketch.SketchSample) {
-          return mergeFrom((io.greptime.v1.region.Sketch.SketchSample)other);
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSamplingInfo) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSamplingInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSample other) {
-        if (other == io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSamplingInfo other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSamplingInfo.getDefaultInstance()) return this;
         if (other.getCandidateFiles() != 0L) {
           setCandidateFiles(other.getCandidateFiles());
         }
@@ -3540,11 +3560,11 @@ public final class Sketch {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.region.Sketch.SketchSample parsedMessage = null;
+        io.greptime.v1.region.Sketch.SketchSamplingInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.region.Sketch.SketchSample) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSamplingInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3619,7 +3639,7 @@ public final class Sketch {
       private long fingerprint_ ;
       /**
        * <pre>
-       * Stable membership signature; changes invalidate comparisons across requests.
+       * Identifies selected files and index generations, not a retained snapshot.
        * </pre>
        *
        * <code>uint64 fingerprint = 3;</code>
@@ -3631,7 +3651,7 @@ public final class Sketch {
       }
       /**
        * <pre>
-       * Stable membership signature; changes invalidate comparisons across requests.
+       * Identifies selected files and index generations, not a retained snapshot.
        * </pre>
        *
        * <code>uint64 fingerprint = 3;</code>
@@ -3646,7 +3666,7 @@ public final class Sketch {
       }
       /**
        * <pre>
-       * Stable membership signature; changes invalidate comparisons across requests.
+       * Identifies selected files and index generations, not a retained snapshot.
        * </pre>
        *
        * <code>uint64 fingerprint = 3;</code>
@@ -3745,41 +3765,41 @@ public final class Sketch {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSample)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSamplingInfo)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSample)
-    private static final io.greptime.v1.region.Sketch.SketchSample DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSamplingInfo)
+    private static final io.greptime.v1.region.Sketch.SketchSamplingInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSample();
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSamplingInfo();
     }
 
-    public static io.greptime.v1.region.Sketch.SketchSample getDefaultInstance() {
+    public static io.greptime.v1.region.Sketch.SketchSamplingInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<SketchSample>
-        PARSER = new com.google.protobuf.AbstractParser<SketchSample>() {
+    private static final com.google.protobuf.Parser<SketchSamplingInfo>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSamplingInfo>() {
       @java.lang.Override
-      public SketchSample parsePartialFrom(
+      public SketchSamplingInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SketchSample(input, extensionRegistry);
+        return new SketchSamplingInfo(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SketchSample> parser() {
+    public static com.google.protobuf.Parser<SketchSamplingInfo> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SketchSample> getParserForType() {
+    public com.google.protobuf.Parser<SketchSamplingInfo> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSample getDefaultInstanceForType() {
+    public io.greptime.v1.region.Sketch.SketchSamplingInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14611,27 +14631,27 @@ public final class Sketch {
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-     * @return Whether the sample field is set.
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+     * @return Whether the samplingInfo field is set.
      */
-    boolean hasSample();
+    boolean hasSamplingInfo();
     /**
      * <pre>
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-     * @return The sample.
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+     * @return The samplingInfo.
      */
-    io.greptime.v1.region.Sketch.SketchSample getSample();
+    io.greptime.v1.region.Sketch.SketchSamplingInfo getSamplingInfo();
     /**
      * <pre>
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
      */
-    io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder();
+    io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder getSamplingInfoOrBuilder();
   }
   /**
    * <pre>
@@ -14695,14 +14715,14 @@ public final class Sketch {
               break;
             }
             case 18: {
-              io.greptime.v1.region.Sketch.SketchSample.Builder subBuilder = null;
-              if (sample_ != null) {
-                subBuilder = sample_.toBuilder();
+              io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder subBuilder = null;
+              if (samplingInfo_ != null) {
+                subBuilder = samplingInfo_.toBuilder();
               }
-              sample_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSample.parser(), extensionRegistry);
+              samplingInfo_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSamplingInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(sample_);
-                sample_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(samplingInfo_);
+                samplingInfo_ = subBuilder.buildPartial();
               }
 
               break;
@@ -14784,42 +14804,42 @@ public final class Sketch {
       return results_.get(index);
     }
 
-    public static final int SAMPLE_FIELD_NUMBER = 2;
-    private io.greptime.v1.region.Sketch.SketchSample sample_;
+    public static final int SAMPLING_INFO_FIELD_NUMBER = 2;
+    private io.greptime.v1.region.Sketch.SketchSamplingInfo samplingInfo_;
     /**
      * <pre>
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-     * @return Whether the sample field is set.
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+     * @return Whether the samplingInfo field is set.
      */
     @java.lang.Override
-    public boolean hasSample() {
-      return sample_ != null;
+    public boolean hasSamplingInfo() {
+      return samplingInfo_ != null;
     }
     /**
      * <pre>
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-     * @return The sample.
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+     * @return The samplingInfo.
      */
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSample getSample() {
-      return sample_ == null ? io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+    public io.greptime.v1.region.Sketch.SketchSamplingInfo getSamplingInfo() {
+      return samplingInfo_ == null ? io.greptime.v1.region.Sketch.SketchSamplingInfo.getDefaultInstance() : samplingInfo_;
     }
     /**
      * <pre>
      * Present only when file sampling was requested.
      * </pre>
      *
-     * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+     * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder() {
-      return getSample();
+    public io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder getSamplingInfoOrBuilder() {
+      return getSamplingInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14839,8 +14859,8 @@ public final class Sketch {
       for (int i = 0; i < results_.size(); i++) {
         output.writeMessage(1, results_.get(i));
       }
-      if (sample_ != null) {
-        output.writeMessage(2, getSample());
+      if (samplingInfo_ != null) {
+        output.writeMessage(2, getSamplingInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -14855,9 +14875,9 @@ public final class Sketch {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, results_.get(i));
       }
-      if (sample_ != null) {
+      if (samplingInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getSample());
+          .computeMessageSize(2, getSamplingInfo());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14876,10 +14896,10 @@ public final class Sketch {
 
       if (!getResultsList()
           .equals(other.getResultsList())) return false;
-      if (hasSample() != other.hasSample()) return false;
-      if (hasSample()) {
-        if (!getSample()
-            .equals(other.getSample())) return false;
+      if (hasSamplingInfo() != other.hasSamplingInfo()) return false;
+      if (hasSamplingInfo()) {
+        if (!getSamplingInfo()
+            .equals(other.getSamplingInfo())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -14896,9 +14916,9 @@ public final class Sketch {
         hash = (37 * hash) + RESULTS_FIELD_NUMBER;
         hash = (53 * hash) + getResultsList().hashCode();
       }
-      if (hasSample()) {
-        hash = (37 * hash) + SAMPLE_FIELD_NUMBER;
-        hash = (53 * hash) + getSample().hashCode();
+      if (hasSamplingInfo()) {
+        hash = (37 * hash) + SAMPLING_INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getSamplingInfo().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -15045,11 +15065,11 @@ public final class Sketch {
         } else {
           resultsBuilder_.clear();
         }
-        if (sampleBuilder_ == null) {
-          sample_ = null;
+        if (samplingInfoBuilder_ == null) {
+          samplingInfo_ = null;
         } else {
-          sample_ = null;
-          sampleBuilder_ = null;
+          samplingInfo_ = null;
+          samplingInfoBuilder_ = null;
         }
         return this;
       }
@@ -15087,10 +15107,10 @@ public final class Sketch {
         } else {
           result.results_ = resultsBuilder_.build();
         }
-        if (sampleBuilder_ == null) {
-          result.sample_ = sample_;
+        if (samplingInfoBuilder_ == null) {
+          result.samplingInfo_ = samplingInfo_;
         } else {
-          result.sample_ = sampleBuilder_.build();
+          result.samplingInfo_ = samplingInfoBuilder_.build();
         }
         onBuilt();
         return result;
@@ -15166,8 +15186,8 @@ public final class Sketch {
             }
           }
         }
-        if (other.hasSample()) {
-          mergeSample(other.getSample());
+        if (other.hasSamplingInfo()) {
+          mergeSamplingInfo(other.getSamplingInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -15439,33 +15459,33 @@ public final class Sketch {
         return resultsBuilder_;
       }
 
-      private io.greptime.v1.region.Sketch.SketchSample sample_;
+      private io.greptime.v1.region.Sketch.SketchSamplingInfo samplingInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder> sampleBuilder_;
+          io.greptime.v1.region.Sketch.SketchSamplingInfo, io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder, io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder> samplingInfoBuilder_;
       /**
        * <pre>
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-       * @return Whether the sample field is set.
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+       * @return Whether the samplingInfo field is set.
        */
-      public boolean hasSample() {
-        return sampleBuilder_ != null || sample_ != null;
+      public boolean hasSamplingInfo() {
+        return samplingInfoBuilder_ != null || samplingInfo_ != null;
       }
       /**
        * <pre>
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
-       * @return The sample.
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
+       * @return The samplingInfo.
        */
-      public io.greptime.v1.region.Sketch.SketchSample getSample() {
-        if (sampleBuilder_ == null) {
-          return sample_ == null ? io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+      public io.greptime.v1.region.Sketch.SketchSamplingInfo getSamplingInfo() {
+        if (samplingInfoBuilder_ == null) {
+          return samplingInfo_ == null ? io.greptime.v1.region.Sketch.SketchSamplingInfo.getDefaultInstance() : samplingInfo_;
         } else {
-          return sampleBuilder_.getMessage();
+          return samplingInfoBuilder_.getMessage();
         }
       }
       /**
@@ -15473,17 +15493,17 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public Builder setSample(io.greptime.v1.region.Sketch.SketchSample value) {
-        if (sampleBuilder_ == null) {
+      public Builder setSamplingInfo(io.greptime.v1.region.Sketch.SketchSamplingInfo value) {
+        if (samplingInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          sample_ = value;
+          samplingInfo_ = value;
           onChanged();
         } else {
-          sampleBuilder_.setMessage(value);
+          samplingInfoBuilder_.setMessage(value);
         }
 
         return this;
@@ -15493,15 +15513,15 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public Builder setSample(
-          io.greptime.v1.region.Sketch.SketchSample.Builder builderForValue) {
-        if (sampleBuilder_ == null) {
-          sample_ = builderForValue.build();
+      public Builder setSamplingInfo(
+          io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder builderForValue) {
+        if (samplingInfoBuilder_ == null) {
+          samplingInfo_ = builderForValue.build();
           onChanged();
         } else {
-          sampleBuilder_.setMessage(builderForValue.build());
+          samplingInfoBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
@@ -15511,19 +15531,19 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public Builder mergeSample(io.greptime.v1.region.Sketch.SketchSample value) {
-        if (sampleBuilder_ == null) {
-          if (sample_ != null) {
-            sample_ =
-              io.greptime.v1.region.Sketch.SketchSample.newBuilder(sample_).mergeFrom(value).buildPartial();
+      public Builder mergeSamplingInfo(io.greptime.v1.region.Sketch.SketchSamplingInfo value) {
+        if (samplingInfoBuilder_ == null) {
+          if (samplingInfo_ != null) {
+            samplingInfo_ =
+              io.greptime.v1.region.Sketch.SketchSamplingInfo.newBuilder(samplingInfo_).mergeFrom(value).buildPartial();
           } else {
-            sample_ = value;
+            samplingInfo_ = value;
           }
           onChanged();
         } else {
-          sampleBuilder_.mergeFrom(value);
+          samplingInfoBuilder_.mergeFrom(value);
         }
 
         return this;
@@ -15533,15 +15553,15 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public Builder clearSample() {
-        if (sampleBuilder_ == null) {
-          sample_ = null;
+      public Builder clearSamplingInfo() {
+        if (samplingInfoBuilder_ == null) {
+          samplingInfo_ = null;
           onChanged();
         } else {
-          sample_ = null;
-          sampleBuilder_ = null;
+          samplingInfo_ = null;
+          samplingInfoBuilder_ = null;
         }
 
         return this;
@@ -15551,26 +15571,26 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public io.greptime.v1.region.Sketch.SketchSample.Builder getSampleBuilder() {
+      public io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder getSamplingInfoBuilder() {
         
         onChanged();
-        return getSampleFieldBuilder().getBuilder();
+        return getSamplingInfoFieldBuilder().getBuilder();
       }
       /**
        * <pre>
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
-      public io.greptime.v1.region.Sketch.SketchSampleOrBuilder getSampleOrBuilder() {
-        if (sampleBuilder_ != null) {
-          return sampleBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder getSamplingInfoOrBuilder() {
+        if (samplingInfoBuilder_ != null) {
+          return samplingInfoBuilder_.getMessageOrBuilder();
         } else {
-          return sample_ == null ?
-              io.greptime.v1.region.Sketch.SketchSample.getDefaultInstance() : sample_;
+          return samplingInfo_ == null ?
+              io.greptime.v1.region.Sketch.SketchSamplingInfo.getDefaultInstance() : samplingInfo_;
         }
       }
       /**
@@ -15578,20 +15598,20 @@ public final class Sketch {
        * Present only when file sampling was requested.
        * </pre>
        *
-       * <code>.greptime.v1.region.SketchSample sample = 2;</code>
+       * <code>.greptime.v1.region.SketchSamplingInfo sampling_info = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder> 
-          getSampleFieldBuilder() {
-        if (sampleBuilder_ == null) {
-          sampleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.region.Sketch.SketchSample, io.greptime.v1.region.Sketch.SketchSample.Builder, io.greptime.v1.region.Sketch.SketchSampleOrBuilder>(
-                  getSample(),
+          io.greptime.v1.region.Sketch.SketchSamplingInfo, io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder, io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder> 
+          getSamplingInfoFieldBuilder() {
+        if (samplingInfoBuilder_ == null) {
+          samplingInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSamplingInfo, io.greptime.v1.region.Sketch.SketchSamplingInfo.Builder, io.greptime.v1.region.Sketch.SketchSamplingInfoOrBuilder>(
+                  getSamplingInfo(),
                   getParentForChildren(),
                   isClean());
-          sample_ = null;
+          samplingInfo_ = null;
         }
-        return sampleBuilder_;
+        return samplingInfoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -15657,15 +15677,15 @@ public final class Sketch {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_SketchRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_SketchSampling_descriptor;
+    internal_static_greptime_v1_region_SketchSamplingOptions_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable;
+      internal_static_greptime_v1_region_SketchSamplingOptions_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_region_SketchSample_descriptor;
+    internal_static_greptime_v1_region_SketchSamplingInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_region_SketchSample_fieldAccessorTable;
+      internal_static_greptime_v1_region_SketchSamplingInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor;
   private static final 
@@ -15749,65 +15769,66 @@ public final class Sketch {
       "ime.v1.region\032\030greptime/v1/common.proto\032" +
       "\025greptime/v1/row.proto\"W\n\017SketchTimeRang" +
       "e\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_un" +
-      "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\324\001\n\rSket" +
+      "it\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\333\001\n\rSket" +
       "chRequest\022\021\n\tregion_id\030\001 \001(\004\0227\n\ntime_ran" +
       "ge\030\002 \001(\0132#.greptime.v1.region.SketchTime" +
       "Range\022\017\n\007columns\030\003 \003(\t\0220\n\007queries\030\004 \003(\0132" +
-      "\037.greptime.v1.region.SketchQuery\0224\n\010samp" +
-      "ling\030\005 \001(\0132\".greptime.v1.region.SketchSa" +
-      "mpling\"1\n\016SketchSampling\022\021\n\tmax_files\030\001 " +
-      "\001(\r\022\014\n\004seed\030\002 \001(\004\"\204\001\n\014SketchSample\022\027\n\017ca" +
-      "ndidate_files\030\001 \001(\004\022\025\n\rsampled_files\030\002 \001" +
-      "(\004\022\023\n\013fingerprint\030\003 \001(\004\022\030\n\020rows_squared_" +
-      "sum\030\004 \001(\001\022\025\n\rmax_file_rows\030\005 \001(\004\"\032\n\030Sket" +
-      "chDistinctCountQuery\"\'\n\023SketchQuantileQu" +
-      "ery\022\020\n\010fraction\030\001 \001(\001\"9\n\024SketchFrequency" +
-      "Query\022!\n\005value\030\001 \001(\0132\022.greptime.v1.Value" +
-      "\"4\n\017SketchRankQuery\022!\n\005value\030\001 \001(\0132\022.gre" +
-      "ptime.v1.Value\"\217\002\n\013SketchQuery\022F\n\016distin" +
-      "ct_count\030\001 \001(\0132,.greptime.v1.region.Sket" +
-      "chDistinctCountQueryH\000\022;\n\010quantile\030\002 \001(\013" +
-      "2\'.greptime.v1.region.SketchQuantileQuer" +
-      "yH\000\022=\n\tfrequency\030\003 \001(\0132(.greptime.v1.reg" +
-      "ion.SketchFrequencyQueryH\000\0223\n\004rank\030\004 \001(\013" +
-      "2#.greptime.v1.region.SketchRankQueryH\000B" +
-      "\007\n\005query\"\217\001\n\014SketchBucket\0227\n\ntime_range\030" +
-      "\001 \001(\0132#.greptime.v1.region.SketchTimeRan" +
-      "ge\022\025\n\rcovered_files\030\002 \001(\004\022\025\n\rmissing_fil" +
-      "es\030\003 \001(\004\022\030\n\020represented_rows\030\004 \001(\004\"\202\001\n\tS" +
-      "ketchGap\022\030\n\020source_region_id\030\001 \001(\004\022\017\n\007fi" +
-      "le_id\030\002 \001(\014\022\025\n\rindex_version\030\003 \001(\004\0223\n\006re" +
-      "ason\030\004 \001(\0162#.greptime.v1.region.SketchGa" +
-      "pReason\"H\n\023SketchDistinctCount\022\020\n\010estima" +
-      "te\030\001 \001(\001\022\037\n\027relative_standard_error\030\002 \001(" +
-      "\001\"3\n\016SketchQuantile\022!\n\005value\030\001 \001(\0132\022.gre" +
-      "ptime.v1.Value\"/\n\017SketchFrequency\022\r\n\005low" +
-      "er\030\001 \001(\004\022\r\n\005upper\030\002 \001(\004\"\036\n\nSketchRank\022\020\n" +
-      "\010fraction\030\001 \001(\001\"\373\001\n\013SketchValue\022A\n\016disti" +
-      "nct_count\030\001 \001(\0132\'.greptime.v1.region.Ske" +
-      "tchDistinctCountH\000\0226\n\010quantile\030\002 \001(\0132\".g" +
-      "reptime.v1.region.SketchQuantileH\000\0228\n\tfr" +
-      "equency\030\003 \001(\0132#.greptime.v1.region.Sketc" +
-      "hFrequencyH\000\022.\n\004rank\030\004 \001(\0132\036.greptime.v1" +
-      ".region.SketchRankH\000B\007\n\005value\"\374\001\n\022Column" +
-      "SketchResult\022\023\n\013column_name\030\001 \001(\t\022\021\n\tcol" +
-      "umn_id\030\002 \001(\r\022.\n\005query\030\003 \001(\0132\037.greptime.v" +
-      "1.region.SketchQuery\0221\n\007buckets\030\004 \003(\0132 ." +
-      "greptime.v1.region.SketchBucket\022+\n\004gaps\030" +
-      "\005 \003(\0132\035.greptime.v1.region.SketchGap\022.\n\005" +
-      "value\030\006 \001(\0132\037.greptime.v1.region.SketchV" +
-      "alue\"{\n\016SketchResponse\0227\n\007results\030\001 \003(\0132" +
-      "&.greptime.v1.region.ColumnSketchResult\022" +
-      "0\n\006sample\030\002 \001(\0132 .greptime.v1.region.Ske" +
-      "tchSample*\356\001\n\017SketchGapReason\022!\n\035SKETCH_" +
-      "GAP_REASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_R" +
-      "EASON_NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REA" +
-      "SON_MISSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON" +
-      "_LEGACY_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SC" +
-      "OPE_MISMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCO" +
-      "MPATIBLE\020\005B]\n\025io.greptime.v1.regionB\006Ske" +
-      "tchZ<github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/regionb\006proto3"
+      "\037.greptime.v1.region.SketchQuery\022;\n\010samp" +
+      "ling\030\005 \001(\0132).greptime.v1.region.SketchSa" +
+      "mplingOptions\"8\n\025SketchSamplingOptions\022\021" +
+      "\n\tmax_files\030\001 \001(\r\022\014\n\004seed\030\002 \001(\004\"\212\001\n\022Sket" +
+      "chSamplingInfo\022\027\n\017candidate_files\030\001 \001(\004\022" +
+      "\025\n\rsampled_files\030\002 \001(\004\022\023\n\013fingerprint\030\003 " +
+      "\001(\004\022\030\n\020rows_squared_sum\030\004 \001(\001\022\025\n\rmax_fil" +
+      "e_rows\030\005 \001(\004\"\032\n\030SketchDistinctCountQuery" +
+      "\"\'\n\023SketchQuantileQuery\022\020\n\010fraction\030\001 \001(" +
+      "\001\"9\n\024SketchFrequencyQuery\022!\n\005value\030\001 \001(\013" +
+      "2\022.greptime.v1.Value\"4\n\017SketchRankQuery\022" +
+      "!\n\005value\030\001 \001(\0132\022.greptime.v1.Value\"\217\002\n\013S" +
+      "ketchQuery\022F\n\016distinct_count\030\001 \001(\0132,.gre" +
+      "ptime.v1.region.SketchDistinctCountQuery" +
+      "H\000\022;\n\010quantile\030\002 \001(\0132\'.greptime.v1.regio" +
+      "n.SketchQuantileQueryH\000\022=\n\tfrequency\030\003 \001" +
+      "(\0132(.greptime.v1.region.SketchFrequencyQ" +
+      "ueryH\000\0223\n\004rank\030\004 \001(\0132#.greptime.v1.regio" +
+      "n.SketchRankQueryH\000B\007\n\005query\"\217\001\n\014SketchB" +
+      "ucket\0227\n\ntime_range\030\001 \001(\0132#.greptime.v1." +
+      "region.SketchTimeRange\022\025\n\rcovered_files\030" +
+      "\002 \001(\004\022\025\n\rmissing_files\030\003 \001(\004\022\030\n\020represen" +
+      "ted_rows\030\004 \001(\004\"\202\001\n\tSketchGap\022\030\n\020source_r" +
+      "egion_id\030\001 \001(\004\022\017\n\007file_id\030\002 \001(\014\022\025\n\rindex" +
+      "_version\030\003 \001(\004\0223\n\006reason\030\004 \001(\0162#.greptim" +
+      "e.v1.region.SketchGapReason\"H\n\023SketchDis" +
+      "tinctCount\022\020\n\010estimate\030\001 \001(\001\022\037\n\027relative" +
+      "_standard_error\030\002 \001(\001\"3\n\016SketchQuantile\022" +
+      "!\n\005value\030\001 \001(\0132\022.greptime.v1.Value\"/\n\017Sk" +
+      "etchFrequency\022\r\n\005lower\030\001 \001(\004\022\r\n\005upper\030\002 " +
+      "\001(\004\"\036\n\nSketchRank\022\020\n\010fraction\030\001 \001(\001\"\373\001\n\013" +
+      "SketchValue\022A\n\016distinct_count\030\001 \001(\0132\'.gr" +
+      "eptime.v1.region.SketchDistinctCountH\000\0226" +
+      "\n\010quantile\030\002 \001(\0132\".greptime.v1.region.Sk" +
+      "etchQuantileH\000\0228\n\tfrequency\030\003 \001(\0132#.grep" +
+      "time.v1.region.SketchFrequencyH\000\022.\n\004rank" +
+      "\030\004 \001(\0132\036.greptime.v1.region.SketchRankH\000" +
+      "B\007\n\005value\"\374\001\n\022ColumnSketchResult\022\023\n\013colu" +
+      "mn_name\030\001 \001(\t\022\021\n\tcolumn_id\030\002 \001(\r\022.\n\005quer" +
+      "y\030\003 \001(\0132\037.greptime.v1.region.SketchQuery" +
+      "\0221\n\007buckets\030\004 \003(\0132 .greptime.v1.region.S" +
+      "ketchBucket\022+\n\004gaps\030\005 \003(\0132\035.greptime.v1." +
+      "region.SketchGap\022.\n\005value\030\006 \001(\0132\037.grepti" +
+      "me.v1.region.SketchValue\"\210\001\n\016SketchRespo" +
+      "nse\0227\n\007results\030\001 \003(\0132&.greptime.v1.regio" +
+      "n.ColumnSketchResult\022=\n\rsampling_info\030\002 " +
+      "\001(\0132&.greptime.v1.region.SketchSamplingI" +
+      "nfo*\356\001\n\017SketchGapReason\022!\n\035SKETCH_GAP_RE" +
+      "ASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_REASON_" +
+      "NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MI" +
+      "SSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGAC" +
+      "Y_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MI" +
+      "SMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIB" +
+      "LE\020\005B]\n\025io.greptime.v1.regionB\006SketchZ<g" +
+      "ithub.com/GreptimeTeam/greptime-proto/go" +
+      "/greptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15827,17 +15848,17 @@ public final class Sketch {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchRequest_descriptor,
         new java.lang.String[] { "RegionId", "TimeRange", "Columns", "Queries", "Sampling", });
-    internal_static_greptime_v1_region_SketchSampling_descriptor =
+    internal_static_greptime_v1_region_SketchSamplingOptions_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_greptime_v1_region_SketchSampling_fieldAccessorTable = new
+    internal_static_greptime_v1_region_SketchSamplingOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_SketchSampling_descriptor,
+        internal_static_greptime_v1_region_SketchSamplingOptions_descriptor,
         new java.lang.String[] { "MaxFiles", "Seed", });
-    internal_static_greptime_v1_region_SketchSample_descriptor =
+    internal_static_greptime_v1_region_SketchSamplingInfo_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_greptime_v1_region_SketchSample_fieldAccessorTable = new
+    internal_static_greptime_v1_region_SketchSamplingInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_region_SketchSample_descriptor,
+        internal_static_greptime_v1_region_SketchSamplingInfo_descriptor,
         new java.lang.String[] { "CandidateFiles", "SampledFiles", "Fingerprint", "RowsSquaredSum", "MaxFileRows", });
     internal_static_greptime_v1_region_SketchDistinctCountQuery_descriptor =
       getDescriptor().getMessageTypes().get(4);
@@ -15922,7 +15943,7 @@ public final class Sketch {
     internal_static_greptime_v1_region_SketchResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchResponse_descriptor,
-        new java.lang.String[] { "Results", "Sample", });
+        new java.lang.String[] { "Results", "SamplingInfo", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
   }
