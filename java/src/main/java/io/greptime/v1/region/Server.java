@@ -34607,6 +34607,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Server.UnflushedOrBuilder getUnflushedOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     * @return Whether the pendingTails field is set.
+     */
+    boolean hasPendingTails();
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     * @return The pendingTails.
+     */
+    io.greptime.v1.region.Server.PendingTails getPendingTails();
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     */
+    io.greptime.v1.region.Server.PendingTailsOrBuilder getPendingTailsOrBuilder();
+
     public io.greptime.v1.region.Server.TruncateRequest.KindCase getKindCase();
   }
   /**
@@ -34701,6 +34716,20 @@ java.lang.String defaultValue);
               kindCase_ = 4;
               break;
             }
+            case 42: {
+              io.greptime.v1.region.Server.PendingTails.Builder subBuilder = null;
+              if (kindCase_ == 5) {
+                subBuilder = ((io.greptime.v1.region.Server.PendingTails) kind_).toBuilder();
+              }
+              kind_ =
+                  input.readMessage(io.greptime.v1.region.Server.PendingTails.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Server.PendingTails) kind_);
+                kind_ = subBuilder.buildPartial();
+              }
+              kindCase_ = 5;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -34743,6 +34772,7 @@ java.lang.String defaultValue);
       ALL(2),
       TIME_RANGES(3),
       UNFLUSHED(4),
+      PENDING_TAILS(5),
       KIND_NOT_SET(0);
       private final int value;
       private KindCase(int value) {
@@ -34763,6 +34793,7 @@ java.lang.String defaultValue);
           case 2: return ALL;
           case 3: return TIME_RANGES;
           case 4: return UNFLUSHED;
+          case 5: return PENDING_TAILS;
           case 0: return KIND_NOT_SET;
           default: return null;
         }
@@ -34882,6 +34913,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Server.Unflushed.getDefaultInstance();
     }
 
+    public static final int PENDING_TAILS_FIELD_NUMBER = 5;
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     * @return Whether the pendingTails field is set.
+     */
+    @java.lang.Override
+    public boolean hasPendingTails() {
+      return kindCase_ == 5;
+    }
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     * @return The pendingTails.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.PendingTails getPendingTails() {
+      if (kindCase_ == 5) {
+         return (io.greptime.v1.region.Server.PendingTails) kind_;
+      }
+      return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Server.PendingTailsOrBuilder getPendingTailsOrBuilder() {
+      if (kindCase_ == 5) {
+         return (io.greptime.v1.region.Server.PendingTails) kind_;
+      }
+      return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -34908,6 +34970,9 @@ java.lang.String defaultValue);
       if (kindCase_ == 4) {
         output.writeMessage(4, (io.greptime.v1.region.Server.Unflushed) kind_);
       }
+      if (kindCase_ == 5) {
+        output.writeMessage(5, (io.greptime.v1.region.Server.PendingTails) kind_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -34932,6 +34997,10 @@ java.lang.String defaultValue);
       if (kindCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, (io.greptime.v1.region.Server.Unflushed) kind_);
+      }
+      if (kindCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (io.greptime.v1.region.Server.PendingTails) kind_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -34964,6 +35033,10 @@ java.lang.String defaultValue);
           if (!getUnflushed()
               .equals(other.getUnflushed())) return false;
           break;
+        case 5:
+          if (!getPendingTails()
+              .equals(other.getPendingTails())) return false;
+          break;
         case 0:
         default:
       }
@@ -34993,6 +35066,10 @@ java.lang.String defaultValue);
         case 4:
           hash = (37 * hash) + UNFLUSHED_FIELD_NUMBER;
           hash = (53 * hash) + getUnflushed().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + PENDING_TAILS_FIELD_NUMBER;
+          hash = (53 * hash) + getPendingTails().hashCode();
           break;
         case 0:
         default:
@@ -35182,6 +35259,13 @@ java.lang.String defaultValue);
             result.kind_ = unflushedBuilder_.build();
           }
         }
+        if (kindCase_ == 5) {
+          if (pendingTailsBuilder_ == null) {
+            result.kind_ = kind_;
+          } else {
+            result.kind_ = pendingTailsBuilder_.build();
+          }
+        }
         result.kindCase_ = kindCase_;
         onBuilt();
         return result;
@@ -35245,6 +35329,10 @@ java.lang.String defaultValue);
           }
           case UNFLUSHED: {
             mergeUnflushed(other.getUnflushed());
+            break;
+          }
+          case PENDING_TAILS: {
+            mergePendingTails(other.getPendingTails());
             break;
           }
           case KIND_NOT_SET: {
@@ -35750,6 +35838,148 @@ java.lang.String defaultValue);
         kindCase_ = 4;
         onChanged();;
         return unflushedBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.PendingTails, io.greptime.v1.region.Server.PendingTails.Builder, io.greptime.v1.region.Server.PendingTailsOrBuilder> pendingTailsBuilder_;
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       * @return Whether the pendingTails field is set.
+       */
+      @java.lang.Override
+      public boolean hasPendingTails() {
+        return kindCase_ == 5;
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       * @return The pendingTails.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.PendingTails getPendingTails() {
+        if (pendingTailsBuilder_ == null) {
+          if (kindCase_ == 5) {
+            return (io.greptime.v1.region.Server.PendingTails) kind_;
+          }
+          return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+        } else {
+          if (kindCase_ == 5) {
+            return pendingTailsBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      public Builder setPendingTails(io.greptime.v1.region.Server.PendingTails value) {
+        if (pendingTailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          kind_ = value;
+          onChanged();
+        } else {
+          pendingTailsBuilder_.setMessage(value);
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      public Builder setPendingTails(
+          io.greptime.v1.region.Server.PendingTails.Builder builderForValue) {
+        if (pendingTailsBuilder_ == null) {
+          kind_ = builderForValue.build();
+          onChanged();
+        } else {
+          pendingTailsBuilder_.setMessage(builderForValue.build());
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      public Builder mergePendingTails(io.greptime.v1.region.Server.PendingTails value) {
+        if (pendingTailsBuilder_ == null) {
+          if (kindCase_ == 5 &&
+              kind_ != io.greptime.v1.region.Server.PendingTails.getDefaultInstance()) {
+            kind_ = io.greptime.v1.region.Server.PendingTails.newBuilder((io.greptime.v1.region.Server.PendingTails) kind_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            kind_ = value;
+          }
+          onChanged();
+        } else {
+          if (kindCase_ == 5) {
+            pendingTailsBuilder_.mergeFrom(value);
+          } else {
+            pendingTailsBuilder_.setMessage(value);
+          }
+        }
+        kindCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      public Builder clearPendingTails() {
+        if (pendingTailsBuilder_ == null) {
+          if (kindCase_ == 5) {
+            kindCase_ = 0;
+            kind_ = null;
+            onChanged();
+          }
+        } else {
+          if (kindCase_ == 5) {
+            kindCase_ = 0;
+            kind_ = null;
+          }
+          pendingTailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      public io.greptime.v1.region.Server.PendingTails.Builder getPendingTailsBuilder() {
+        return getPendingTailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Server.PendingTailsOrBuilder getPendingTailsOrBuilder() {
+        if ((kindCase_ == 5) && (pendingTailsBuilder_ != null)) {
+          return pendingTailsBuilder_.getMessageOrBuilder();
+        } else {
+          if (kindCase_ == 5) {
+            return (io.greptime.v1.region.Server.PendingTails) kind_;
+          }
+          return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.PendingTails pending_tails = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Server.PendingTails, io.greptime.v1.region.Server.PendingTails.Builder, io.greptime.v1.region.Server.PendingTailsOrBuilder> 
+          getPendingTailsFieldBuilder() {
+        if (pendingTailsBuilder_ == null) {
+          if (!(kindCase_ == 5)) {
+            kind_ = io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+          }
+          pendingTailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Server.PendingTails, io.greptime.v1.region.Server.PendingTails.Builder, io.greptime.v1.region.Server.PendingTailsOrBuilder>(
+                  (io.greptime.v1.region.Server.PendingTails) kind_,
+                  getParentForChildren(),
+                  isClean());
+          kind_ = null;
+        }
+        kindCase_ = 5;
+        onChanged();;
+        return pendingTailsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -36655,6 +36885,525 @@ java.lang.String defaultValue);
 
     @java.lang.Override
     public io.greptime.v1.region.Server.Unflushed getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PendingTailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.PendingTails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The datanode that wrote the tails.
+     * </pre>
+     *
+     * <code>uint64 node_id = 1;</code>
+     * @return The nodeId.
+     */
+    long getNodeId();
+  }
+  /**
+   * <pre>
+   * Truncate the pending WAL tails that one datanode wrote in region
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.PendingTails}
+   */
+  public static final class PendingTails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.PendingTails)
+      PendingTailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PendingTails.newBuilder() to construct.
+    private PendingTails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PendingTails() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PendingTails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PendingTails(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              nodeId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_PendingTails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Server.internal_static_greptime_v1_region_PendingTails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Server.PendingTails.class, io.greptime.v1.region.Server.PendingTails.Builder.class);
+    }
+
+    public static final int NODE_ID_FIELD_NUMBER = 1;
+    private long nodeId_;
+    /**
+     * <pre>
+     * The datanode that wrote the tails.
+     * </pre>
+     *
+     * <code>uint64 node_id = 1;</code>
+     * @return The nodeId.
+     */
+    @java.lang.Override
+    public long getNodeId() {
+      return nodeId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (nodeId_ != 0L) {
+        output.writeUInt64(1, nodeId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (nodeId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, nodeId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Server.PendingTails)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Server.PendingTails other = (io.greptime.v1.region.Server.PendingTails) obj;
+
+      if (getNodeId()
+          != other.getNodeId()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NODE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNodeId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Server.PendingTails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Server.PendingTails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Truncate the pending WAL tails that one datanode wrote in region
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.PendingTails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.PendingTails)
+        io.greptime.v1.region.Server.PendingTailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_PendingTails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_PendingTails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Server.PendingTails.class, io.greptime.v1.region.Server.PendingTails.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Server.PendingTails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        nodeId_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Server.internal_static_greptime_v1_region_PendingTails_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.PendingTails getDefaultInstanceForType() {
+        return io.greptime.v1.region.Server.PendingTails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.PendingTails build() {
+        io.greptime.v1.region.Server.PendingTails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Server.PendingTails buildPartial() {
+        io.greptime.v1.region.Server.PendingTails result = new io.greptime.v1.region.Server.PendingTails(this);
+        result.nodeId_ = nodeId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Server.PendingTails) {
+          return mergeFrom((io.greptime.v1.region.Server.PendingTails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Server.PendingTails other) {
+        if (other == io.greptime.v1.region.Server.PendingTails.getDefaultInstance()) return this;
+        if (other.getNodeId() != 0L) {
+          setNodeId(other.getNodeId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Server.PendingTails parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Server.PendingTails) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long nodeId_ ;
+      /**
+       * <pre>
+       * The datanode that wrote the tails.
+       * </pre>
+       *
+       * <code>uint64 node_id = 1;</code>
+       * @return The nodeId.
+       */
+      @java.lang.Override
+      public long getNodeId() {
+        return nodeId_;
+      }
+      /**
+       * <pre>
+       * The datanode that wrote the tails.
+       * </pre>
+       *
+       * <code>uint64 node_id = 1;</code>
+       * @param value The nodeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNodeId(long value) {
+        
+        nodeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The datanode that wrote the tails.
+       * </pre>
+       *
+       * <code>uint64 node_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNodeId() {
+        
+        nodeId_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.PendingTails)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.PendingTails)
+    private static final io.greptime.v1.region.Server.PendingTails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Server.PendingTails();
+    }
+
+    public static io.greptime.v1.region.Server.PendingTails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PendingTails>
+        PARSER = new com.google.protobuf.AbstractParser<PendingTails>() {
+      @java.lang.Override
+      public PendingTails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PendingTails(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PendingTails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PendingTails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Server.PendingTails getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -47883,6 +48632,11 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_Unflushed_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_PendingTails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_PendingTails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_RegionColumnDef_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48099,55 +48853,57 @@ java.lang.String defaultValue);
       "\n\rstrict_window\030\003 \001(\0132 .greptime.v1.regi" +
       "on.StrictWindowH\000\022\023\n\013parallelism\030\004 \001(\r\022;" +
       "\n\ntime_range\030\005 \001(\0132\'.greptime.v1.region." +
-      "CompactionTimeRangeB\t\n\007options\"\270\001\n\017Trunc" +
+      "CompactionTimeRangeB\t\n\007options\"\363\001\n\017Trunc" +
       "ateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001" +
       "(\0132\027.greptime.v1.region.AllH\000\022.\n\013time_ra" +
       "nges\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000\0222\n" +
       "\tunflushed\030\004 \001(\0132\035.greptime.v1.region.Un" +
-      "flushedH\000B\006\n\004kind\"\005\n\003All\"\013\n\tUnflushed\"P\n" +
-      "\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
-      "reptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"" +
-      "\371\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001(\004" +
-      "\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowI" +
-      "pcH\000\022A\n\026partition_expr_version\030\003 \001(\0132!.g" +
-      "reptime.v1.PartitionExprVersion\022H\n\026align" +
-      "ed_schema_version\030\004 \001(\0132(.greptime.v1.re" +
-      "gion.AlignedSchemaVersion\022\020\n\010skip_wal\030\005 " +
-      "\001(\010B\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016s" +
-      "chema_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022" +
-      "\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metric" +
-      "ManifestInfo\022\035\n\025data_manifest_version\030\001 " +
-      "\001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004\"\275" +
-      "\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mit" +
-      "o_manifest_info\030\002 \001(\0132$.greptime.v1.regi" +
-      "on.MitoManifestInfoH\000\022F\n\024metric_manifest" +
-      "_info\030\003 \001(\0132&.greptime.v1.region.MetricM" +
-      "anifestInfoH\000B\017\n\rmanifest_info\")\n\023ListMe" +
-      "tadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"\370\001\n\021Bu" +
-      "ildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\022J\n\tss" +
-      "t_index\030\002 \001(\01325.greptime.v1.region.Build" +
-      "IndexRequest.SstIndexOptionsH\000\022P\n\014series" +
-      "_index\030\003 \001(\01328.greptime.v1.region.BuildI" +
-      "ndexRequest.SeriesIndexOptionsH\000\032\021\n\017SstI" +
-      "ndexOptions\032\024\n\022SeriesIndexOptionsB\t\n\007opt" +
-      "ions\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033Apply" +
-      "StagingManifestRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_reg" +
-      "ion_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026" +
-      "RemoteDynFilterRequest\022\020\n\010query_id\030\001 \001(\t" +
-      "\022;\n\006update\030\002 \001(\0132).greptime.v1.region.Re" +
-      "moteDynFilterUpdateH\000\022C\n\nunregister\030\003 \001(" +
-      "\0132-.greptime.v1.region.RemoteDynFilterUn" +
-      "registerH\000B\010\n\006action\"d\n\025RemoteDynFilterU" +
-      "pdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(" +
-      "\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001" +
-      "(\010\".\n\031RemoteDynFilterUnregister\022\021\n\tfilte" +
-      "r_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptim" +
-      "e.v1.region.RegionRequest\032\".greptime.v1." +
-      "region.RegionResponseB]\n\025io.greptime.v1." +
-      "regionB\006ServerZ<github.com/GreptimeTeam/" +
-      "greptime-proto/go/greptime/v1/regionb\006pr" +
-      "oto3"
+      "flushedH\000\0229\n\rpending_tails\030\005 \001(\0132 .grept" +
+      "ime.v1.region.PendingTailsH\000B\006\n\004kind\"\005\n\003" +
+      "All\"\013\n\tUnflushed\"\037\n\014PendingTails\022\017\n\007node" +
+      "_id\030\001 \001(\004\"P\n\017RegionColumnDef\022*\n\ncolumn_d" +
+      "ef\030\001 \001(\0132\026.greptime.v1.ColumnDef\022\021\n\tcolu" +
+      "mn_id\030\002 \001(\r\"\371\001\n\021BulkInsertRequest\022\021\n\treg" +
+      "ion_id\030\001 \001(\004\022*\n\tarrow_ipc\030\002 \001(\0132\025.grepti" +
+      "me.v1.ArrowIpcH\000\022A\n\026partition_expr_versi" +
+      "on\030\003 \001(\0132!.greptime.v1.PartitionExprVers" +
+      "ion\022H\n\026aligned_schema_version\030\004 \001(\0132(.gr" +
+      "eptime.v1.region.AlignedSchemaVersion\022\020\n" +
+      "\010skip_wal\030\005 \001(\010B\006\n\004body\".\n\024AlignedSchema" +
+      "Version\022\026\n\016schema_version\030\001 \001(\004\"1\n\020MitoM" +
+      "anifestInfo\022\035\n\025data_manifest_version\030\001 \001" +
+      "(\004\"V\n\022MetricManifestInfo\022\035\n\025data_manifes" +
+      "t_version\030\001 \001(\004\022!\n\031metadata_manifest_ver" +
+      "sion\030\002 \001(\004\"\275\001\n\013SyncRequest\022\021\n\tregion_id\030" +
+      "\001 \001(\004\022B\n\022mito_manifest_info\030\002 \001(\0132$.grep" +
+      "time.v1.region.MitoManifestInfoH\000\022F\n\024met" +
+      "ric_manifest_info\030\003 \001(\0132&.greptime.v1.re" +
+      "gion.MetricManifestInfoH\000B\017\n\rmanifest_in" +
+      "fo\")\n\023ListMetadataRequest\022\022\n\nregion_ids\030" +
+      "\001 \003(\004\"\370\001\n\021BuildIndexRequest\022\021\n\tregion_id" +
+      "\030\001 \001(\004\022J\n\tsst_index\030\002 \001(\01325.greptime.v1." +
+      "region.BuildIndexRequest.SstIndexOptions" +
+      "H\000\022P\n\014series_index\030\003 \001(\01328.greptime.v1.r" +
+      "egion.BuildIndexRequest.SeriesIndexOptio" +
+      "nsH\000\032\021\n\017SstIndexOptions\032\024\n\022SeriesIndexOp" +
+      "tionsB\t\n\007options\"\031\n\tFileMetas\022\014\n\004data\030\001 " +
+      "\001(\014\"z\n\033ApplyStagingManifestRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n" +
+      "\021central_region_id\030\003 \001(\004\022\025\n\rmanifest_pat" +
+      "h\030\004 \001(\t\"\266\001\n\026RemoteDynFilterRequest\022\020\n\010qu" +
+      "ery_id\030\001 \001(\t\022;\n\006update\030\002 \001(\0132).greptime." +
+      "v1.region.RemoteDynFilterUpdateH\000\022C\n\nunr" +
+      "egister\030\003 \001(\0132-.greptime.v1.region.Remot" +
+      "eDynFilterUnregisterH\000B\010\n\006action\"d\n\025Remo" +
+      "teDynFilterUpdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007" +
+      "payload\030\002 \001(\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_" +
+      "complete\030\004 \001(\010\".\n\031RemoteDynFilterUnregis" +
+      "ter\022\021\n\tfilter_id\030\001 \001(\t2Y\n\006Region\022O\n\006Hand" +
+      "le\022!.greptime.v1.region.RegionRequest\032\"." +
+      "greptime.v1.region.RegionResponseB]\n\025io." +
+      "greptime.v1.regionB\006ServerZ<github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -48372,7 +49128,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_TruncateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_TruncateRequest_descriptor,
-        new java.lang.String[] { "RegionId", "All", "TimeRanges", "Unflushed", "Kind", });
+        new java.lang.String[] { "RegionId", "All", "TimeRanges", "Unflushed", "PendingTails", "Kind", });
     internal_static_greptime_v1_region_All_descriptor =
       getDescriptor().getMessageTypes().get(31);
     internal_static_greptime_v1_region_All_fieldAccessorTable = new
@@ -48385,50 +49141,56 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_Unflushed_descriptor,
         new java.lang.String[] { });
-    internal_static_greptime_v1_region_RegionColumnDef_descriptor =
+    internal_static_greptime_v1_region_PendingTails_descriptor =
       getDescriptor().getMessageTypes().get(33);
+    internal_static_greptime_v1_region_PendingTails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_PendingTails_descriptor,
+        new java.lang.String[] { "NodeId", });
+    internal_static_greptime_v1_region_RegionColumnDef_descriptor =
+      getDescriptor().getMessageTypes().get(34);
     internal_static_greptime_v1_region_RegionColumnDef_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionColumnDef_descriptor,
         new java.lang.String[] { "ColumnDef", "ColumnId", });
     internal_static_greptime_v1_region_BulkInsertRequest_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_greptime_v1_region_BulkInsertRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BulkInsertRequest_descriptor,
         new java.lang.String[] { "RegionId", "ArrowIpc", "PartitionExprVersion", "AlignedSchemaVersion", "SkipWal", "Body", });
     internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_greptime_v1_region_AlignedSchemaVersion_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_AlignedSchemaVersion_descriptor,
         new java.lang.String[] { "SchemaVersion", });
     internal_static_greptime_v1_region_MitoManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_greptime_v1_region_MitoManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MitoManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", });
     internal_static_greptime_v1_region_MetricManifestInfo_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_greptime_v1_region_MetricManifestInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_MetricManifestInfo_descriptor,
         new java.lang.String[] { "DataManifestVersion", "MetadataManifestVersion", });
     internal_static_greptime_v1_region_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_greptime_v1_region_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SyncRequest_descriptor,
         new java.lang.String[] { "RegionId", "MitoManifestInfo", "MetricManifestInfo", "ManifestInfo", });
     internal_static_greptime_v1_region_ListMetadataRequest_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_greptime_v1_region_ListMetadataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ListMetadataRequest_descriptor,
         new java.lang.String[] { "RegionIds", });
     internal_static_greptime_v1_region_BuildIndexRequest_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_greptime_v1_region_BuildIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_BuildIndexRequest_descriptor,
@@ -48446,31 +49208,31 @@ java.lang.String defaultValue);
         internal_static_greptime_v1_region_BuildIndexRequest_SeriesIndexOptions_descriptor,
         new java.lang.String[] { });
     internal_static_greptime_v1_region_FileMetas_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_greptime_v1_region_FileMetas_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_FileMetas_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_greptime_v1_region_ApplyStagingManifestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_ApplyStagingManifestRequest_descriptor,
         new java.lang.String[] { "RegionId", "PartitionExpr", "CentralRegionId", "ManifestPath", });
     internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_greptime_v1_region_RemoteDynFilterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterRequest_descriptor,
         new java.lang.String[] { "QueryId", "Update", "Unregister", "Action", });
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_greptime_v1_region_RemoteDynFilterUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUpdate_descriptor,
         new java.lang.String[] { "FilterId", "Payload", "Generation", "IsComplete", });
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_greptime_v1_region_RemoteDynFilterUnregister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RemoteDynFilterUnregister_descriptor,

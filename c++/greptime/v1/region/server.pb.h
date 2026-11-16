@@ -160,6 +160,9 @@ extern OpenRequestDefaultTypeInternal _OpenRequest_default_instance_;
 class OpenRequest_OptionsEntry_DoNotUse;
 struct OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal;
 extern OpenRequest_OptionsEntry_DoNotUseDefaultTypeInternal _OpenRequest_OptionsEntry_DoNotUse_default_instance_;
+class PendingTails;
+struct PendingTailsDefaultTypeInternal;
+extern PendingTailsDefaultTypeInternal _PendingTails_default_instance_;
 class QueryRequest;
 struct QueryRequestDefaultTypeInternal;
 extern QueryRequestDefaultTypeInternal _QueryRequest_default_instance_;
@@ -253,6 +256,7 @@ template<> ::greptime::v1::region::MetricManifestInfo* Arena::CreateMaybeMessage
 template<> ::greptime::v1::region::MitoManifestInfo* Arena::CreateMaybeMessage<::greptime::v1::region::MitoManifestInfo>(Arena*);
 template<> ::greptime::v1::region::OpenRequest* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest>(Arena*);
 template<> ::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::region::OpenRequest_OptionsEntry_DoNotUse>(Arena*);
+template<> ::greptime::v1::region::PendingTails* Arena::CreateMaybeMessage<::greptime::v1::region::PendingTails>(Arena*);
 template<> ::greptime::v1::region::QueryRequest* Arena::CreateMaybeMessage<::greptime::v1::region::QueryRequest>(Arena*);
 template<> ::greptime::v1::region::RegionColumnDef* Arena::CreateMaybeMessage<::greptime::v1::region::RegionColumnDef>(Arena*);
 template<> ::greptime::v1::region::RegionRequest* Arena::CreateMaybeMessage<::greptime::v1::region::RegionRequest>(Arena*);
@@ -6499,6 +6503,7 @@ class TruncateRequest final :
     kAll = 2,
     kTimeRanges = 3,
     kUnflushed = 4,
+    kPendingTails = 5,
     KIND_NOT_SET = 0,
   };
 
@@ -6584,6 +6589,7 @@ class TruncateRequest final :
     kAllFieldNumber = 2,
     kTimeRangesFieldNumber = 3,
     kUnflushedFieldNumber = 4,
+    kPendingTailsFieldNumber = 5,
   };
   // uint64 region_id = 1;
   void clear_region_id();
@@ -6648,6 +6654,24 @@ class TruncateRequest final :
       ::greptime::v1::region::Unflushed* unflushed);
   ::greptime::v1::region::Unflushed* unsafe_arena_release_unflushed();
 
+  // .greptime.v1.region.PendingTails pending_tails = 5;
+  bool has_pending_tails() const;
+  private:
+  bool _internal_has_pending_tails() const;
+  public:
+  void clear_pending_tails();
+  const ::greptime::v1::region::PendingTails& pending_tails() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::PendingTails* release_pending_tails();
+  ::greptime::v1::region::PendingTails* mutable_pending_tails();
+  void set_allocated_pending_tails(::greptime::v1::region::PendingTails* pending_tails);
+  private:
+  const ::greptime::v1::region::PendingTails& _internal_pending_tails() const;
+  ::greptime::v1::region::PendingTails* _internal_mutable_pending_tails();
+  public:
+  void unsafe_arena_set_allocated_pending_tails(
+      ::greptime::v1::region::PendingTails* pending_tails);
+  ::greptime::v1::region::PendingTails* unsafe_arena_release_pending_tails();
+
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.TruncateRequest)
@@ -6656,6 +6680,7 @@ class TruncateRequest final :
   void set_has_all();
   void set_has_time_ranges();
   void set_has_unflushed();
+  void set_has_pending_tails();
 
   inline bool has_kind() const;
   inline void clear_has_kind();
@@ -6671,6 +6696,7 @@ class TruncateRequest final :
       ::greptime::v1::region::All* all_;
       ::greptime::v1::TimeRanges* time_ranges_;
       ::greptime::v1::region::Unflushed* unflushed_;
+      ::greptime::v1::region::PendingTails* pending_tails_;
     } kind_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -6917,6 +6943,154 @@ class Unflushed final :
 };
 // -------------------------------------------------------------------
 
+class PendingTails final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.PendingTails) */ {
+ public:
+  inline PendingTails() : PendingTails(nullptr) {}
+  ~PendingTails() override;
+  explicit PROTOBUF_CONSTEXPR PendingTails(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PendingTails(const PendingTails& from);
+  PendingTails(PendingTails&& from) noexcept
+    : PendingTails() {
+    *this = ::std::move(from);
+  }
+
+  inline PendingTails& operator=(const PendingTails& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PendingTails& operator=(PendingTails&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PendingTails& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PendingTails* internal_default_instance() {
+    return reinterpret_cast<const PendingTails*>(
+               &_PendingTails_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    38;
+
+  friend void swap(PendingTails& a, PendingTails& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PendingTails* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PendingTails* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PendingTails* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PendingTails>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PendingTails& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PendingTails& from) {
+    PendingTails::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PendingTails* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.PendingTails";
+  }
+  protected:
+  explicit PendingTails(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNodeIdFieldNumber = 1,
+  };
+  // uint64 node_id = 1;
+  void clear_node_id();
+  uint64_t node_id() const;
+  void set_node_id(uint64_t value);
+  private:
+  uint64_t _internal_node_id() const;
+  void _internal_set_node_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.PendingTails)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t node_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionColumnDef final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionColumnDef) */ {
  public:
@@ -6965,7 +7139,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -7138,7 +7312,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -7369,7 +7543,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -7517,7 +7691,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -7665,7 +7839,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7830,7 +8004,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -8031,7 +8205,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -8192,7 +8366,7 @@ class BuildIndexRequest_SstIndexOptions final :
                &_BuildIndexRequest_SstIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(BuildIndexRequest_SstIndexOptions& a, BuildIndexRequest_SstIndexOptions& b) {
     a.Swap(&b);
@@ -8310,7 +8484,7 @@ class BuildIndexRequest_SeriesIndexOptions final :
                &_BuildIndexRequest_SeriesIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(BuildIndexRequest_SeriesIndexOptions& a, BuildIndexRequest_SeriesIndexOptions& b) {
     a.Swap(&b);
@@ -8435,7 +8609,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -8639,7 +8813,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -8792,7 +8966,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8989,7 +9163,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -9195,7 +9369,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -9386,7 +9560,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -15372,6 +15546,80 @@ inline ::greptime::v1::region::Unflushed* TruncateRequest::mutable_unflushed() {
   return _msg;
 }
 
+// .greptime.v1.region.PendingTails pending_tails = 5;
+inline bool TruncateRequest::_internal_has_pending_tails() const {
+  return kind_case() == kPendingTails;
+}
+inline bool TruncateRequest::has_pending_tails() const {
+  return _internal_has_pending_tails();
+}
+inline void TruncateRequest::set_has_pending_tails() {
+  _impl_._oneof_case_[0] = kPendingTails;
+}
+inline void TruncateRequest::clear_pending_tails() {
+  if (_internal_has_pending_tails()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.kind_.pending_tails_;
+    }
+    clear_has_kind();
+  }
+}
+inline ::greptime::v1::region::PendingTails* TruncateRequest::release_pending_tails() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.TruncateRequest.pending_tails)
+  if (_internal_has_pending_tails()) {
+    clear_has_kind();
+    ::greptime::v1::region::PendingTails* temp = _impl_.kind_.pending_tails_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.pending_tails_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::PendingTails& TruncateRequest::_internal_pending_tails() const {
+  return _internal_has_pending_tails()
+      ? *_impl_.kind_.pending_tails_
+      : reinterpret_cast< ::greptime::v1::region::PendingTails&>(::greptime::v1::region::_PendingTails_default_instance_);
+}
+inline const ::greptime::v1::region::PendingTails& TruncateRequest::pending_tails() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.TruncateRequest.pending_tails)
+  return _internal_pending_tails();
+}
+inline ::greptime::v1::region::PendingTails* TruncateRequest::unsafe_arena_release_pending_tails() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.TruncateRequest.pending_tails)
+  if (_internal_has_pending_tails()) {
+    clear_has_kind();
+    ::greptime::v1::region::PendingTails* temp = _impl_.kind_.pending_tails_;
+    _impl_.kind_.pending_tails_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void TruncateRequest::unsafe_arena_set_allocated_pending_tails(::greptime::v1::region::PendingTails* pending_tails) {
+  clear_kind();
+  if (pending_tails) {
+    set_has_pending_tails();
+    _impl_.kind_.pending_tails_ = pending_tails;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.TruncateRequest.pending_tails)
+}
+inline ::greptime::v1::region::PendingTails* TruncateRequest::_internal_mutable_pending_tails() {
+  if (!_internal_has_pending_tails()) {
+    clear_kind();
+    set_has_pending_tails();
+    _impl_.kind_.pending_tails_ = CreateMaybeMessage< ::greptime::v1::region::PendingTails >(GetArenaForAllocation());
+  }
+  return _impl_.kind_.pending_tails_;
+}
+inline ::greptime::v1::region::PendingTails* TruncateRequest::mutable_pending_tails() {
+  ::greptime::v1::region::PendingTails* _msg = _internal_mutable_pending_tails();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.TruncateRequest.pending_tails)
+  return _msg;
+}
+
 inline bool TruncateRequest::has_kind() const {
   return kind_case() != KIND_NOT_SET;
 }
@@ -15388,6 +15636,30 @@ inline TruncateRequest::KindCase TruncateRequest::kind_case() const {
 // -------------------------------------------------------------------
 
 // Unflushed
+
+// -------------------------------------------------------------------
+
+// PendingTails
+
+// uint64 node_id = 1;
+inline void PendingTails::clear_node_id() {
+  _impl_.node_id_ = uint64_t{0u};
+}
+inline uint64_t PendingTails::_internal_node_id() const {
+  return _impl_.node_id_;
+}
+inline uint64_t PendingTails::node_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.PendingTails.node_id)
+  return _internal_node_id();
+}
+inline void PendingTails::_internal_set_node_id(uint64_t value) {
+  
+  _impl_.node_id_ = value;
+}
+inline void PendingTails::set_node_id(uint64_t value) {
+  _internal_set_node_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.PendingTails.node_id)
+}
 
 // -------------------------------------------------------------------
 
@@ -16915,6 +17187,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

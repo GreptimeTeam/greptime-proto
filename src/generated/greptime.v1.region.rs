@@ -450,7 +450,7 @@ pub mod compact_request {
 pub struct TruncateRequest {
     #[prost(uint64, tag = "1")]
     pub region_id: u64,
-    #[prost(oneof = "truncate_request::Kind", tags = "2, 3, 4")]
+    #[prost(oneof = "truncate_request::Kind", tags = "2, 3, 4, 5")]
     pub kind: ::core::option::Option<truncate_request::Kind>,
 }
 /// Nested message and enum types in `TruncateRequest`.
@@ -464,6 +464,8 @@ pub mod truncate_request {
         TimeRanges(super::super::TimeRanges),
         #[prost(message, tag = "4")]
         Unflushed(super::Unflushed),
+        #[prost(message, tag = "5")]
+        PendingTails(super::PendingTails),
     }
 }
 /// Truncate all data in region
@@ -474,6 +476,14 @@ pub struct All {}
 #[allow(clippy::all)]
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct Unflushed {}
+/// Truncate the pending WAL tails that one datanode wrote in region
+#[allow(clippy::all)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct PendingTails {
+    /// The datanode that wrote the tails.
+    #[prost(uint64, tag = "1")]
+    pub node_id: u64,
+}
 /// The column definition of a region. Unlike the message `ColumnDef` in
 /// `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
 /// is for region requests use only. So it carries an extra field `column_id`
