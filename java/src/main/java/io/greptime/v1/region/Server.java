@@ -2915,6 +2915,21 @@ java.lang.String defaultValue);
      */
     io.greptime.v1.region.Sketch.SketchRequestOrBuilder getSketchQueryOrBuilder();
 
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     * @return Whether the sketchSplit field is set.
+     */
+    boolean hasSketchSplit();
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     * @return The sketchSplit.
+     */
+    io.greptime.v1.region.Sketch.SketchSplitRequest getSketchSplit();
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder getSketchSplitOrBuilder();
+
     public io.greptime.v1.region.Server.RegionRequest.BodyCase getBodyCase();
   }
   /**
@@ -3297,6 +3312,20 @@ java.lang.String defaultValue);
               bodyCase_ = 25;
               break;
             }
+            case 210: {
+              io.greptime.v1.region.Sketch.SketchSplitRequest.Builder subBuilder = null;
+              if (bodyCase_ == 26) {
+                subBuilder = ((io.greptime.v1.region.Sketch.SketchSplitRequest) body_).toBuilder();
+              }
+              body_ =
+                  input.readMessage(io.greptime.v1.region.Sketch.SketchSplitRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((io.greptime.v1.region.Sketch.SketchSplitRequest) body_);
+                body_ = subBuilder.buildPartial();
+              }
+              bodyCase_ = 26;
+              break;
+            }
             case 218: {
               io.greptime.v1.region.Sketch.SketchRequest.Builder subBuilder = null;
               if (bodyCase_ == 27) {
@@ -3374,6 +3403,7 @@ java.lang.String defaultValue);
       DISCARD_PENDING_TAILS(24),
       SKETCH_STAT(27),
       SKETCH_QUERY(25),
+      SKETCH_SPLIT(26),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -3415,6 +3445,7 @@ java.lang.String defaultValue);
           case 24: return DISCARD_PENDING_TAILS;
           case 27: return SKETCH_STAT;
           case 25: return SKETCH_QUERY;
+          case 26: return SKETCH_SPLIT;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -4200,6 +4231,37 @@ java.lang.String defaultValue);
       return io.greptime.v1.region.Sketch.SketchRequest.getDefaultInstance();
     }
 
+    public static final int SKETCH_SPLIT_FIELD_NUMBER = 26;
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     * @return Whether the sketchSplit field is set.
+     */
+    @java.lang.Override
+    public boolean hasSketchSplit() {
+      return bodyCase_ == 26;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     * @return The sketchSplit.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitRequest getSketchSplit() {
+      if (bodyCase_ == 26) {
+         return (io.greptime.v1.region.Sketch.SketchSplitRequest) body_;
+      }
+      return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder getSketchSplitOrBuilder() {
+      if (bodyCase_ == 26) {
+         return (io.greptime.v1.region.Sketch.SketchSplitRequest) body_;
+      }
+      return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4285,6 +4347,9 @@ java.lang.String defaultValue);
       }
       if (bodyCase_ == 25) {
         output.writeMessage(25, (io.greptime.v1.region.Sketch.SketchRequest) body_);
+      }
+      if (bodyCase_ == 26) {
+        output.writeMessage(26, (io.greptime.v1.region.Sketch.SketchSplitRequest) body_);
       }
       if (bodyCase_ == 27) {
         output.writeMessage(27, (io.greptime.v1.region.Sketch.SketchRequest) body_);
@@ -4393,6 +4458,10 @@ java.lang.String defaultValue);
       if (bodyCase_ == 25) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(25, (io.greptime.v1.region.Sketch.SketchRequest) body_);
+      }
+      if (bodyCase_ == 26) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(26, (io.greptime.v1.region.Sketch.SketchSplitRequest) body_);
       }
       if (bodyCase_ == 27) {
         size += com.google.protobuf.CodedOutputStream
@@ -4516,6 +4585,10 @@ java.lang.String defaultValue);
           if (!getSketchQuery()
               .equals(other.getSketchQuery())) return false;
           break;
+        case 26:
+          if (!getSketchSplit()
+              .equals(other.getSketchSplit())) return false;
+          break;
         case 0:
         default:
       }
@@ -4630,6 +4703,10 @@ java.lang.String defaultValue);
         case 25:
           hash = (37 * hash) + SKETCH_QUERY_FIELD_NUMBER;
           hash = (53 * hash) + getSketchQuery().hashCode();
+          break;
+        case 26:
+          hash = (37 * hash) + SKETCH_SPLIT_FIELD_NUMBER;
+          hash = (53 * hash) + getSketchSplit().hashCode();
           break;
         case 0:
         default:
@@ -4974,6 +5051,13 @@ java.lang.String defaultValue);
             result.body_ = sketchQueryBuilder_.build();
           }
         }
+        if (bodyCase_ == 26) {
+          if (sketchSplitBuilder_ == null) {
+            result.body_ = body_;
+          } else {
+            result.body_ = sketchSplitBuilder_.build();
+          }
+        }
         result.bodyCase_ = bodyCase_;
         onBuilt();
         return result;
@@ -5121,6 +5205,10 @@ java.lang.String defaultValue);
           }
           case SKETCH_QUERY: {
             mergeSketchQuery(other.getSketchQuery());
+            break;
+          }
+          case SKETCH_SPLIT: {
+            mergeSketchSplit(other.getSketchSplit());
             break;
           }
           case BODY_NOT_SET: {
@@ -8697,6 +8785,148 @@ java.lang.String defaultValue);
         onChanged();;
         return sketchQueryBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitRequest, io.greptime.v1.region.Sketch.SketchSplitRequest.Builder, io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder> sketchSplitBuilder_;
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       * @return Whether the sketchSplit field is set.
+       */
+      @java.lang.Override
+      public boolean hasSketchSplit() {
+        return bodyCase_ == 26;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       * @return The sketchSplit.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitRequest getSketchSplit() {
+        if (sketchSplitBuilder_ == null) {
+          if (bodyCase_ == 26) {
+            return (io.greptime.v1.region.Sketch.SketchSplitRequest) body_;
+          }
+          return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+        } else {
+          if (bodyCase_ == 26) {
+            return sketchSplitBuilder_.getMessage();
+          }
+          return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      public Builder setSketchSplit(io.greptime.v1.region.Sketch.SketchSplitRequest value) {
+        if (sketchSplitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          body_ = value;
+          onChanged();
+        } else {
+          sketchSplitBuilder_.setMessage(value);
+        }
+        bodyCase_ = 26;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      public Builder setSketchSplit(
+          io.greptime.v1.region.Sketch.SketchSplitRequest.Builder builderForValue) {
+        if (sketchSplitBuilder_ == null) {
+          body_ = builderForValue.build();
+          onChanged();
+        } else {
+          sketchSplitBuilder_.setMessage(builderForValue.build());
+        }
+        bodyCase_ = 26;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      public Builder mergeSketchSplit(io.greptime.v1.region.Sketch.SketchSplitRequest value) {
+        if (sketchSplitBuilder_ == null) {
+          if (bodyCase_ == 26 &&
+              body_ != io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance()) {
+            body_ = io.greptime.v1.region.Sketch.SketchSplitRequest.newBuilder((io.greptime.v1.region.Sketch.SketchSplitRequest) body_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            body_ = value;
+          }
+          onChanged();
+        } else {
+          if (bodyCase_ == 26) {
+            sketchSplitBuilder_.mergeFrom(value);
+          } else {
+            sketchSplitBuilder_.setMessage(value);
+          }
+        }
+        bodyCase_ = 26;
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      public Builder clearSketchSplit() {
+        if (sketchSplitBuilder_ == null) {
+          if (bodyCase_ == 26) {
+            bodyCase_ = 0;
+            body_ = null;
+            onChanged();
+          }
+        } else {
+          if (bodyCase_ == 26) {
+            bodyCase_ = 0;
+            body_ = null;
+          }
+          sketchSplitBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitRequest.Builder getSketchSplitBuilder() {
+        return getSketchSplitFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder getSketchSplitOrBuilder() {
+        if ((bodyCase_ == 26) && (sketchSplitBuilder_ != null)) {
+          return sketchSplitBuilder_.getMessageOrBuilder();
+        } else {
+          if (bodyCase_ == 26) {
+            return (io.greptime.v1.region.Sketch.SketchSplitRequest) body_;
+          }
+          return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitRequest sketch_split = 26;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitRequest, io.greptime.v1.region.Sketch.SketchSplitRequest.Builder, io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder> 
+          getSketchSplitFieldBuilder() {
+        if (sketchSplitBuilder_ == null) {
+          if (!(bodyCase_ == 26)) {
+            body_ = io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+          }
+          sketchSplitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSplitRequest, io.greptime.v1.region.Sketch.SketchSplitRequest.Builder, io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder>(
+                  (io.greptime.v1.region.Sketch.SketchSplitRequest) body_,
+                  getParentForChildren(),
+                  isClean());
+          body_ = null;
+        }
+        bodyCase_ = 26;
+        onChanged();;
+        return sketchSplitBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8914,6 +9144,21 @@ com.google.protobuf.ByteString defaultValue);
      * <code>.greptime.v1.region.SketchResponse sketch = 6;</code>
      */
     io.greptime.v1.region.Sketch.SketchResponseOrBuilder getSketchOrBuilder();
+
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     * @return Whether the sketchSplit field is set.
+     */
+    boolean hasSketchSplit();
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     * @return The sketchSplit.
+     */
+    io.greptime.v1.region.Sketch.SketchSplitResponse getSketchSplit();
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder getSketchSplitOrBuilder();
   }
   /**
    * Protobuf type {@code greptime.v1.region.RegionResponse}
@@ -9017,6 +9262,19 @@ com.google.protobuf.ByteString defaultValue);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(sketch_);
                 sketch_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              io.greptime.v1.region.Sketch.SketchSplitResponse.Builder subBuilder = null;
+              if (sketchSplit_ != null) {
+                subBuilder = sketchSplit_.toBuilder();
+              }
+              sketchSplit_ = input.readMessage(io.greptime.v1.region.Sketch.SketchSplitResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sketchSplit_);
+                sketchSplit_ = subBuilder.buildPartial();
               }
 
               break;
@@ -9324,6 +9582,32 @@ com.google.protobuf.ByteString defaultValue);
       return getSketch();
     }
 
+    public static final int SKETCH_SPLIT_FIELD_NUMBER = 7;
+    private io.greptime.v1.region.Sketch.SketchSplitResponse sketchSplit_;
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     * @return Whether the sketchSplit field is set.
+     */
+    @java.lang.Override
+    public boolean hasSketchSplit() {
+      return sketchSplit_ != null;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     * @return The sketchSplit.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitResponse getSketchSplit() {
+      return sketchSplit_ == null ? io.greptime.v1.region.Sketch.SketchSplitResponse.getDefaultInstance() : sketchSplit_;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder getSketchSplitOrBuilder() {
+      return getSketchSplit();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9358,6 +9642,9 @@ com.google.protobuf.ByteString defaultValue);
       }
       if (sketch_ != null) {
         output.writeMessage(6, getSketch());
+      }
+      if (sketchSplit_ != null) {
+        output.writeMessage(7, getSketchSplit());
       }
       unknownFields.writeTo(output);
     }
@@ -9398,6 +9685,10 @@ com.google.protobuf.ByteString defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getSketch());
       }
+      if (sketchSplit_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getSketchSplit());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -9431,6 +9722,11 @@ com.google.protobuf.ByteString defaultValue);
         if (!getSketch()
             .equals(other.getSketch())) return false;
       }
+      if (hasSketchSplit() != other.hasSketchSplit()) return false;
+      if (hasSketchSplit()) {
+        if (!getSketchSplit()
+            .equals(other.getSketchSplit())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9462,6 +9758,10 @@ com.google.protobuf.ByteString defaultValue);
       if (hasSketch()) {
         hash = (37 * hash) + SKETCH_FIELD_NUMBER;
         hash = (53 * hash) + getSketch().hashCode();
+      }
+      if (hasSketchSplit()) {
+        hash = (37 * hash) + SKETCH_SPLIT_FIELD_NUMBER;
+        hash = (53 * hash) + getSketchSplit().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9642,6 +9942,12 @@ com.google.protobuf.ByteString defaultValue);
           sketch_ = null;
           sketchBuilder_ = null;
         }
+        if (sketchSplitBuilder_ == null) {
+          sketchSplit_ = null;
+        } else {
+          sketchSplit_ = null;
+          sketchSplitBuilder_ = null;
+        }
         return this;
       }
 
@@ -9691,6 +9997,11 @@ com.google.protobuf.ByteString defaultValue);
           result.sketch_ = sketch_;
         } else {
           result.sketch_ = sketchBuilder_.build();
+        }
+        if (sketchSplitBuilder_ == null) {
+          result.sketchSplit_ = sketchSplit_;
+        } else {
+          result.sketchSplit_ = sketchSplitBuilder_.build();
         }
         onBuilt();
         return result;
@@ -9779,6 +10090,9 @@ com.google.protobuf.ByteString defaultValue);
         }
         if (other.hasSketch()) {
           mergeSketch(other.getSketch());
+        }
+        if (other.hasSketchSplit()) {
+          mergeSketchSplit(other.getSketchSplit());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10683,6 +10997,125 @@ com.google.protobuf.ByteString defaultValue);
           sketch_ = null;
         }
         return sketchBuilder_;
+      }
+
+      private io.greptime.v1.region.Sketch.SketchSplitResponse sketchSplit_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitResponse, io.greptime.v1.region.Sketch.SketchSplitResponse.Builder, io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder> sketchSplitBuilder_;
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       * @return Whether the sketchSplit field is set.
+       */
+      public boolean hasSketchSplit() {
+        return sketchSplitBuilder_ != null || sketchSplit_ != null;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       * @return The sketchSplit.
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitResponse getSketchSplit() {
+        if (sketchSplitBuilder_ == null) {
+          return sketchSplit_ == null ? io.greptime.v1.region.Sketch.SketchSplitResponse.getDefaultInstance() : sketchSplit_;
+        } else {
+          return sketchSplitBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public Builder setSketchSplit(io.greptime.v1.region.Sketch.SketchSplitResponse value) {
+        if (sketchSplitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          sketchSplit_ = value;
+          onChanged();
+        } else {
+          sketchSplitBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public Builder setSketchSplit(
+          io.greptime.v1.region.Sketch.SketchSplitResponse.Builder builderForValue) {
+        if (sketchSplitBuilder_ == null) {
+          sketchSplit_ = builderForValue.build();
+          onChanged();
+        } else {
+          sketchSplitBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public Builder mergeSketchSplit(io.greptime.v1.region.Sketch.SketchSplitResponse value) {
+        if (sketchSplitBuilder_ == null) {
+          if (sketchSplit_ != null) {
+            sketchSplit_ =
+              io.greptime.v1.region.Sketch.SketchSplitResponse.newBuilder(sketchSplit_).mergeFrom(value).buildPartial();
+          } else {
+            sketchSplit_ = value;
+          }
+          onChanged();
+        } else {
+          sketchSplitBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public Builder clearSketchSplit() {
+        if (sketchSplitBuilder_ == null) {
+          sketchSplit_ = null;
+          onChanged();
+        } else {
+          sketchSplit_ = null;
+          sketchSplitBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitResponse.Builder getSketchSplitBuilder() {
+        
+        onChanged();
+        return getSketchSplitFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder getSketchSplitOrBuilder() {
+        if (sketchSplitBuilder_ != null) {
+          return sketchSplitBuilder_.getMessageOrBuilder();
+        } else {
+          return sketchSplit_ == null ?
+              io.greptime.v1.region.Sketch.SketchSplitResponse.getDefaultInstance() : sketchSplit_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitResponse sketch_split = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitResponse, io.greptime.v1.region.Sketch.SketchSplitResponse.Builder, io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder> 
+          getSketchSplitFieldBuilder() {
+        if (sketchSplitBuilder_ == null) {
+          sketchSplitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSplitResponse, io.greptime.v1.region.Sketch.SketchSplitResponse.Builder, io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder>(
+                  getSketchSplit(),
+                  getParentForChildren(),
+                  isClean());
+          sketchSplit_ = null;
+        }
+        return sketchSplitBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -49534,7 +49967,7 @@ java.lang.String defaultValue);
       "\022\r\n\005value\030\002 \001(\t:\0028\001\"=\n\027CancelCompactionR" +
       "equest\022\021\n\tregion_id\030\001 \001(\004\022\017\n\007task_id\030\002 \001" +
       "(\t\"D\n\032DiscardPendingTailsRequest\022\021\n\tregi" +
-      "on_id\030\001 \001(\004\022\023\n\013datanode_id\030\002 \001(\004\"\320\013\n\rReg" +
+      "on_id\030\001 \001(\004\022\023\n\013datanode_id\030\002 \001(\004\"\220\014\n\rReg" +
       "ionRequest\0227\n\006header\030\001 \001(\0132\'.greptime.v1" +
       ".region.RegionRequestHeader\0225\n\007inserts\030\003" +
       " \001(\0132\".greptime.v1.region.InsertRequests" +
@@ -49571,146 +50004,150 @@ java.lang.String defaultValue);
       "v1.region.DiscardPendingTailsRequestH\000\0228" +
       "\n\013sketch_stat\030\033 \001(\0132!.greptime.v1.region" +
       ".SketchRequestH\000\0229\n\014sketch_query\030\031 \001(\0132!" +
-      ".greptime.v1.region.SketchRequestH\000B\006\n\004b" +
-      "ody\"\321\002\n\016RegionResponse\022+\n\006header\030\001 \001(\0132\033" +
-      ".greptime.v1.ResponseHeader\022\025\n\raffected_" +
-      "rows\030\002 \001(\004\022F\n\nextensions\030\003 \003(\01322.greptim" +
-      "e.v1.region.RegionResponse.ExtensionsEnt" +
-      "ry\022\020\n\010metadata\030\004 \001(\014\022:\n\010failures\030\005 \003(\0132(" +
-      ".greptime.v1.region.RegionRequestFailure" +
-      "\0222\n\006sketch\030\006 \001(\0132\".greptime.v1.region.Sk" +
-      "etchResponse\0321\n\017ExtensionsEntry\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"R\n\024RegionRequest" +
-      "Failure\022\025\n\rrequest_index\030\001 \001(\r\022#\n\006status" +
-      "\030\002 \001(\0132\023.greptime.v1.Status\"E\n\016InsertReq" +
-      "uests\0223\n\010requests\030\001 \003(\0132!.greptime.v1.re" +
-      "gion.InsertRequest\"E\n\016DeleteRequests\0223\n\010" +
-      "requests\030\001 \003(\0132!.greptime.v1.region.Dele" +
-      "teRequest\"\230\001\n\rInsertRequest\022\021\n\tregion_id" +
-      "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022" +
-      "A\n\026partition_expr_version\030\003 \001(\0132!.grepti" +
-      "me.v1.PartitionExprVersion\022\020\n\010skip_wal\030\004" +
-      " \001(\010\"\206\001\n\rDeleteRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022A\n\026pa" +
-      "rtition_expr_version\030\003 \001(\0132!.greptime.v1" +
-      ".PartitionExprVersion\"h\n\014QueryRequest\0227\n" +
-      "\006header\030\001 \001(\0132\'.greptime.v1.region.Regio" +
-      "nRequestHeader\022\021\n\tregion_id\030\002 \001(\004\022\014\n\004pla" +
-      "n\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requests\030\001 " +
-      "\003(\0132!.greptime.v1.region.CreateRequest\"\356" +
-      "\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006e" +
-      "ngine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132#.grept" +
-      "ime.v1.region.RegionColumnDef\022\023\n\013primary" +
-      "_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007options\030\006 \003(" +
-      "\0132..greptime.v1.region.CreateRequest.Opt" +
-      "ionsEntry\022.\n\tpartition\030\007 \001(\0132\033.greptime." +
-      "v1.meta.Partition\022<\n\014requirements\030\010 \001(\0132" +
-      "&.greptime.v1.region.RegionRequirements\032" +
-      ".\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\",\n\022RegionRequirements\022\026\n\016object_" +
-      "storage\030\001 \001(\010\"A\n\014DropRequests\0221\n\010request" +
-      "s\030\001 \003(\0132\037.greptime.v1.region.DropRequest" +
-      "\"k\n\013DropRequest\022\021\n\tregion_id\030\001 \001(\004\022\021\n\tfa" +
-      "st_path\030\002 \001(\010\022\r\n\005force\030\003 \001(\010\022\024\n\014partial_" +
-      "drop\030\004 \001(\010\022\021\n\tsoft_drop\030\005 \001(\010\"\255\001\n\013OpenRe" +
-      "quest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t" +
-      "\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132,.grepti" +
-      "me.v1.region.OpenRequest.OptionsEntry\032.\n" +
-      "\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t:\0028\001\"\263\001\n\016CleanUpRequest\022\021\n\tregion_id\030\001 " +
-      "\001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022@\n\007opt" +
-      "ions\030\004 \003(\0132/.greptime.v1.region.CleanUpR" +
-      "equest.OptionsEntry\032.\n\014OptionsEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"9\n\014CloseRequ" +
-      "est\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016flush_on_close" +
-      "\030\002 \001(\010\"C\n\rAlterRequests\0222\n\010requests\030\001 \003(" +
-      "\0132 .greptime.v1.region.AlterRequest\"\204\006\n\014" +
-      "AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225\n\013add_c" +
-      "olumns\030\002 \001(\0132\036.greptime.v1.region.AddCol" +
-      "umnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.greptime." +
-      "v1.region.DropColumnsH\000\022=\n\023modify_column" +
-      "_types\030\005 \001(\0132\036.greptime.v1.ModifyColumnT" +
-      "ypesH\000\0229\n\021set_table_options\030\006 \001(\0132\034.grep" +
-      "time.v1.SetTableOptionsH\000\022=\n\023unset_table" +
-      "_options\030\t \001(\0132\036.greptime.v1.UnsetTableO" +
-      "ptionsH\000\022*\n\tset_index\030\n \001(\0132\025.greptime.v" +
-      "1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\0132\027.grep" +
-      "time.v1.UnsetIndexH\000\0222\n\rdrop_defaults\030\014 " +
-      "\001(\0132\031.greptime.v1.DropDefaultsH\000\022.\n\013set_" +
-      "indexes\030\r \001(\0132\027.greptime.v1.SetIndexesH\000" +
-      "\0222\n\runset_indexes\030\016 \001(\0132\031.greptime.v1.Un" +
-      "setIndexesH\000\0220\n\014set_defaults\030\017 \001(\0132\030.gre" +
-      "ptime.v1.SetDefaultsH\000\0227\n\014sync_columns\030\020" +
-      " \001(\0132\037.greptime.v1.region.SyncColumnsH\000\022" +
-      "9\n\021set_json_settings\030\021 \001(\0132\034.greptime.v1" +
-      ".SetJsonSettingsH\000\022\026\n\016schema_version\030\004 \001" +
-      "(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013column_defs" +
-      "\030\001 \003(\0132#.greptime.v1.region.RegionColumn" +
-      "Def\"@\n\nAddColumns\0222\n\013add_columns\030\001 \003(\0132\035" +
-      ".greptime.v1.region.AddColumn\"C\n\013DropCol" +
-      "umns\0224\n\014drop_columns\030\001 \003(\0132\036.greptime.v1" +
-      ".region.DropColumn\"v\n\tAddColumn\0227\n\ncolum" +
-      "n_def\030\001 \001(\0132#.greptime.v1.region.RegionC" +
-      "olumnDef\0220\n\010location\030\003 \001(\0132\036.greptime.v1" +
-      ".AddColumnLocation\"\032\n\nDropColumn\022\014\n\004name" +
-      "\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_id\030\001 \001(" +
-      "\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016window_s" +
-      "econds\030\001 \001(\003\"[\n\023CompactionTimeRange\022\r\n\005s" +
-      "tart\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_unit\030\003 \001" +
-      "(\0162\025.greptime.v1.TimeUnit\"\353\001\n\016CompactReq" +
-      "uest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regular\030\002 \001(\013" +
-      "2\033.greptime.v1.region.RegularH\000\0229\n\rstric" +
-      "t_window\030\003 \001(\0132 .greptime.v1.region.Stri" +
-      "ctWindowH\000\022\023\n\013parallelism\030\004 \001(\r\022;\n\ntime_" +
-      "range\030\005 \001(\0132\'.greptime.v1.region.Compact" +
-      "ionTimeRangeB\t\n\007options\"\270\001\n\017TruncateRequ" +
-      "est\022\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001(\0132\027.gr" +
-      "eptime.v1.region.AllH\000\022.\n\013time_ranges\030\003 " +
-      "\001(\0132\027.greptime.v1.TimeRangesH\000\0222\n\tunflus" +
-      "hed\030\004 \001(\0132\035.greptime.v1.region.Unflushed" +
-      "H\000B\006\n\004kind\"\005\n\003All\"\013\n\tUnflushed\"P\n\017Region" +
-      "ColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.greptime" +
-      ".v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"\371\001\n\021Bul" +
-      "kInsertRequest\022\021\n\tregion_id\030\001 \001(\004\022*\n\tarr" +
-      "ow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowIpcH\000\022A\n" +
-      "\026partition_expr_version\030\003 \001(\0132!.greptime" +
-      ".v1.PartitionExprVersion\022H\n\026aligned_sche" +
-      "ma_version\030\004 \001(\0132(.greptime.v1.region.Al" +
-      "ignedSchemaVersion\022\020\n\010skip_wal\030\005 \001(\010B\006\n\004" +
-      "body\".\n\024AlignedSchemaVersion\022\026\n\016schema_v" +
-      "ersion\030\001 \001(\004\"1\n\020MitoManifestInfo\022\035\n\025data" +
-      "_manifest_version\030\001 \001(\004\"V\n\022MetricManifes" +
-      "tInfo\022\035\n\025data_manifest_version\030\001 \001(\004\022!\n\031" +
-      "metadata_manifest_version\030\002 \001(\004\"\275\001\n\013Sync" +
-      "Request\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mito_manif" +
-      "est_info\030\002 \001(\0132$.greptime.v1.region.Mito" +
-      "ManifestInfoH\000\022F\n\024metric_manifest_info\030\003" +
-      " \001(\0132&.greptime.v1.region.MetricManifest" +
-      "InfoH\000B\017\n\rmanifest_info\")\n\023ListMetadataR" +
-      "equest\022\022\n\nregion_ids\030\001 \003(\004\"\370\001\n\021BuildInde" +
-      "xRequest\022\021\n\tregion_id\030\001 \001(\004\022J\n\tsst_index" +
-      "\030\002 \001(\01325.greptime.v1.region.BuildIndexRe" +
-      "quest.SstIndexOptionsH\000\022P\n\014series_index\030" +
-      "\003 \001(\01328.greptime.v1.region.BuildIndexReq" +
-      "uest.SeriesIndexOptionsH\000\032\021\n\017SstIndexOpt" +
-      "ions\032\024\n\022SeriesIndexOptionsB\t\n\007options\"\031\n" +
-      "\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033ApplyStaging" +
-      "ManifestRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016pa" +
-      "rtition_expr\030\002 \001(\t\022\031\n\021central_region_id\030" +
-      "\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026RemoteD" +
-      "ynFilterRequest\022\020\n\010query_id\030\001 \001(\t\022;\n\006upd" +
-      "ate\030\002 \001(\0132).greptime.v1.region.RemoteDyn" +
-      "FilterUpdateH\000\022C\n\nunregister\030\003 \001(\0132-.gre" +
-      "ptime.v1.region.RemoteDynFilterUnregiste" +
-      "rH\000B\010\n\006action\"d\n\025RemoteDynFilterUpdate\022\021" +
-      "\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(\014\022\022\n\nge" +
-      "neration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001(\010\".\n\031R" +
-      "emoteDynFilterUnregister\022\021\n\tfilter_id\030\001 " +
-      "\001(\t2Y\n\006Region\022O\n\006Handle\022!.greptime.v1.re" +
-      "gion.RegionRequest\032\".greptime.v1.region." +
-      "RegionResponseB]\n\025io.greptime.v1.regionB" +
-      "\006ServerZ<github.com/GreptimeTeam/greptim" +
-      "e-proto/go/greptime/v1/regionb\006proto3"
+      ".greptime.v1.region.SketchRequestH\000\022>\n\014s" +
+      "ketch_split\030\032 \001(\0132&.greptime.v1.region.S" +
+      "ketchSplitRequestH\000B\006\n\004body\"\220\003\n\016RegionRe" +
+      "sponse\022+\n\006header\030\001 \001(\0132\033.greptime.v1.Res" +
+      "ponseHeader\022\025\n\raffected_rows\030\002 \001(\004\022F\n\nex" +
+      "tensions\030\003 \003(\01322.greptime.v1.region.Regi" +
+      "onResponse.ExtensionsEntry\022\020\n\010metadata\030\004" +
+      " \001(\014\022:\n\010failures\030\005 \003(\0132(.greptime.v1.reg" +
+      "ion.RegionRequestFailure\0222\n\006sketch\030\006 \001(\013" +
+      "2\".greptime.v1.region.SketchResponse\022=\n\014" +
+      "sketch_split\030\007 \001(\0132\'.greptime.v1.region." +
+      "SketchSplitResponse\0321\n\017ExtensionsEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"R\n\024Region" +
+      "RequestFailure\022\025\n\rrequest_index\030\001 \001(\r\022#\n" +
+      "\006status\030\002 \001(\0132\023.greptime.v1.Status\"E\n\016In" +
+      "sertRequests\0223\n\010requests\030\001 \003(\0132!.greptim" +
+      "e.v1.region.InsertRequest\"E\n\016DeleteReque" +
+      "sts\0223\n\010requests\030\001 \003(\0132!.greptime.v1.regi" +
+      "on.DeleteRequest\"\230\001\n\rInsertRequest\022\021\n\tre" +
+      "gion_id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v" +
+      "1.Rows\022A\n\026partition_expr_version\030\003 \001(\0132!" +
+      ".greptime.v1.PartitionExprVersion\022\020\n\010ski" +
+      "p_wal\030\004 \001(\010\"\206\001\n\rDeleteRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Row" +
+      "s\022A\n\026partition_expr_version\030\003 \001(\0132!.grep" +
+      "time.v1.PartitionExprVersion\"h\n\014QueryReq" +
+      "uest\0227\n\006header\030\001 \001(\0132\'.greptime.v1.regio" +
+      "n.RegionRequestHeader\022\021\n\tregion_id\030\002 \001(\004" +
+      "\022\014\n\004plan\030\003 \001(\014\"E\n\016CreateRequests\0223\n\010requ" +
+      "ests\030\001 \003(\0132!.greptime.v1.region.CreateRe" +
+      "quest\"\356\002\n\rCreateRequest\022\021\n\tregion_id\030\001 \001" +
+      "(\004\022\016\n\006engine\030\002 \001(\t\0228\n\013column_defs\030\003 \003(\0132" +
+      "#.greptime.v1.region.RegionColumnDef\022\023\n\013" +
+      "primary_key\030\004 \003(\r\022\014\n\004path\030\005 \001(\t\022?\n\007optio" +
+      "ns\030\006 \003(\0132..greptime.v1.region.CreateRequ" +
+      "est.OptionsEntry\022.\n\tpartition\030\007 \001(\0132\033.gr" +
+      "eptime.v1.meta.Partition\022<\n\014requirements" +
+      "\030\010 \001(\0132&.greptime.v1.region.RegionRequir" +
+      "ements\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\",\n\022RegionRequirements\022\026\n\016" +
+      "object_storage\030\001 \001(\010\"A\n\014DropRequests\0221\n\010" +
+      "requests\030\001 \003(\0132\037.greptime.v1.region.Drop" +
+      "Request\"k\n\013DropRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\022\021\n\tfast_path\030\002 \001(\010\022\r\n\005force\030\003 \001(\010\022\024\n\014p" +
+      "artial_drop\030\004 \001(\010\022\021\n\tsoft_drop\030\005 \001(\010\"\255\001\n" +
+      "\013OpenRequest\022\021\n\tregion_id\030\001 \001(\004\022\016\n\006engin" +
+      "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022=\n\007options\030\004 \003(\0132," +
+      ".greptime.v1.region.OpenRequest.OptionsE" +
+      "ntry\032.\n\014OptionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\263\001\n\016CleanUpRequest\022\021\n\tregio" +
+      "n_id\030\001 \001(\004\022\016\n\006engine\030\002 \001(\t\022\014\n\004path\030\003 \001(\t" +
+      "\022@\n\007options\030\004 \003(\0132/.greptime.v1.region.C" +
+      "leanUpRequest.OptionsEntry\032.\n\014OptionsEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"9\n\014Cl" +
+      "oseRequest\022\021\n\tregion_id\030\001 \001(\004\022\026\n\016flush_o" +
+      "n_close\030\002 \001(\010\"C\n\rAlterRequests\0222\n\010reques" +
+      "ts\030\001 \003(\0132 .greptime.v1.region.AlterReque" +
+      "st\"\204\006\n\014AlterRequest\022\021\n\tregion_id\030\001 \001(\004\0225" +
+      "\n\013add_columns\030\002 \001(\0132\036.greptime.v1.region" +
+      ".AddColumnsH\000\0227\n\014drop_columns\030\003 \001(\0132\037.gr" +
+      "eptime.v1.region.DropColumnsH\000\022=\n\023modify" +
+      "_column_types\030\005 \001(\0132\036.greptime.v1.Modify" +
+      "ColumnTypesH\000\0229\n\021set_table_options\030\006 \001(\013" +
+      "2\034.greptime.v1.SetTableOptionsH\000\022=\n\023unse" +
+      "t_table_options\030\t \001(\0132\036.greptime.v1.Unse" +
+      "tTableOptionsH\000\022*\n\tset_index\030\n \001(\0132\025.gre" +
+      "ptime.v1.SetIndexH\000\022.\n\013unset_index\030\013 \001(\013" +
+      "2\027.greptime.v1.UnsetIndexH\000\0222\n\rdrop_defa" +
+      "ults\030\014 \001(\0132\031.greptime.v1.DropDefaultsH\000\022" +
+      ".\n\013set_indexes\030\r \001(\0132\027.greptime.v1.SetIn" +
+      "dexesH\000\0222\n\runset_indexes\030\016 \001(\0132\031.greptim" +
+      "e.v1.UnsetIndexesH\000\0220\n\014set_defaults\030\017 \001(" +
+      "\0132\030.greptime.v1.SetDefaultsH\000\0227\n\014sync_co" +
+      "lumns\030\020 \001(\0132\037.greptime.v1.region.SyncCol" +
+      "umnsH\000\0229\n\021set_json_settings\030\021 \001(\0132\034.grep" +
+      "time.v1.SetJsonSettingsH\000\022\026\n\016schema_vers" +
+      "ion\030\004 \001(\004B\006\n\004kind\"G\n\013SyncColumns\0228\n\013colu" +
+      "mn_defs\030\001 \003(\0132#.greptime.v1.region.Regio" +
+      "nColumnDef\"@\n\nAddColumns\0222\n\013add_columns\030" +
+      "\001 \003(\0132\035.greptime.v1.region.AddColumn\"C\n\013" +
+      "DropColumns\0224\n\014drop_columns\030\001 \003(\0132\036.grep" +
+      "time.v1.region.DropColumn\"v\n\tAddColumn\0227" +
+      "\n\ncolumn_def\030\001 \001(\0132#.greptime.v1.region." +
+      "RegionColumnDef\0220\n\010location\030\003 \001(\0132\036.grep" +
+      "time.v1.AddColumnLocation\"\032\n\nDropColumn\022" +
+      "\014\n\004name\030\001 \001(\t\"!\n\014FlushRequest\022\021\n\tregion_" +
+      "id\030\001 \001(\004\"\t\n\007Regular\"&\n\014StrictWindow\022\026\n\016w" +
+      "indow_seconds\030\001 \001(\003\"[\n\023CompactionTimeRan" +
+      "ge\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022(\n\ttime_u" +
+      "nit\030\003 \001(\0162\025.greptime.v1.TimeUnit\"\353\001\n\016Com" +
+      "pactRequest\022\021\n\tregion_id\030\001 \001(\004\022.\n\007regula" +
+      "r\030\002 \001(\0132\033.greptime.v1.region.RegularH\000\0229" +
+      "\n\rstrict_window\030\003 \001(\0132 .greptime.v1.regi" +
+      "on.StrictWindowH\000\022\023\n\013parallelism\030\004 \001(\r\022;" +
+      "\n\ntime_range\030\005 \001(\0132\'.greptime.v1.region." +
+      "CompactionTimeRangeB\t\n\007options\"\270\001\n\017Trunc" +
+      "ateRequest\022\021\n\tregion_id\030\001 \001(\004\022&\n\003all\030\002 \001" +
+      "(\0132\027.greptime.v1.region.AllH\000\022.\n\013time_ra" +
+      "nges\030\003 \001(\0132\027.greptime.v1.TimeRangesH\000\0222\n" +
+      "\tunflushed\030\004 \001(\0132\035.greptime.v1.region.Un" +
+      "flushedH\000B\006\n\004kind\"\005\n\003All\"\013\n\tUnflushed\"P\n" +
+      "\017RegionColumnDef\022*\n\ncolumn_def\030\001 \001(\0132\026.g" +
+      "reptime.v1.ColumnDef\022\021\n\tcolumn_id\030\002 \001(\r\"" +
+      "\371\001\n\021BulkInsertRequest\022\021\n\tregion_id\030\001 \001(\004" +
+      "\022*\n\tarrow_ipc\030\002 \001(\0132\025.greptime.v1.ArrowI" +
+      "pcH\000\022A\n\026partition_expr_version\030\003 \001(\0132!.g" +
+      "reptime.v1.PartitionExprVersion\022H\n\026align" +
+      "ed_schema_version\030\004 \001(\0132(.greptime.v1.re" +
+      "gion.AlignedSchemaVersion\022\020\n\010skip_wal\030\005 " +
+      "\001(\010B\006\n\004body\".\n\024AlignedSchemaVersion\022\026\n\016s" +
+      "chema_version\030\001 \001(\004\"1\n\020MitoManifestInfo\022" +
+      "\035\n\025data_manifest_version\030\001 \001(\004\"V\n\022Metric" +
+      "ManifestInfo\022\035\n\025data_manifest_version\030\001 " +
+      "\001(\004\022!\n\031metadata_manifest_version\030\002 \001(\004\"\275" +
+      "\001\n\013SyncRequest\022\021\n\tregion_id\030\001 \001(\004\022B\n\022mit" +
+      "o_manifest_info\030\002 \001(\0132$.greptime.v1.regi" +
+      "on.MitoManifestInfoH\000\022F\n\024metric_manifest" +
+      "_info\030\003 \001(\0132&.greptime.v1.region.MetricM" +
+      "anifestInfoH\000B\017\n\rmanifest_info\")\n\023ListMe" +
+      "tadataRequest\022\022\n\nregion_ids\030\001 \003(\004\"\370\001\n\021Bu" +
+      "ildIndexRequest\022\021\n\tregion_id\030\001 \001(\004\022J\n\tss" +
+      "t_index\030\002 \001(\01325.greptime.v1.region.Build" +
+      "IndexRequest.SstIndexOptionsH\000\022P\n\014series" +
+      "_index\030\003 \001(\01328.greptime.v1.region.BuildI" +
+      "ndexRequest.SeriesIndexOptionsH\000\032\021\n\017SstI" +
+      "ndexOptions\032\024\n\022SeriesIndexOptionsB\t\n\007opt" +
+      "ions\"\031\n\tFileMetas\022\014\n\004data\030\001 \001(\014\"z\n\033Apply" +
+      "StagingManifestRequest\022\021\n\tregion_id\030\001 \001(" +
+      "\004\022\026\n\016partition_expr\030\002 \001(\t\022\031\n\021central_reg" +
+      "ion_id\030\003 \001(\004\022\025\n\rmanifest_path\030\004 \001(\t\"\266\001\n\026" +
+      "RemoteDynFilterRequest\022\020\n\010query_id\030\001 \001(\t" +
+      "\022;\n\006update\030\002 \001(\0132).greptime.v1.region.Re" +
+      "moteDynFilterUpdateH\000\022C\n\nunregister\030\003 \001(" +
+      "\0132-.greptime.v1.region.RemoteDynFilterUn" +
+      "registerH\000B\010\n\006action\"d\n\025RemoteDynFilterU" +
+      "pdate\022\021\n\tfilter_id\030\001 \001(\t\022\017\n\007payload\030\002 \001(" +
+      "\014\022\022\n\ngeneration\030\003 \001(\004\022\023\n\013is_complete\030\004 \001" +
+      "(\010\".\n\031RemoteDynFilterUnregister\022\021\n\tfilte" +
+      "r_id\030\001 \001(\t2Y\n\006Region\022O\n\006Handle\022!.greptim" +
+      "e.v1.region.RegionRequest\032\".greptime.v1." +
+      "region.RegionResponseB]\n\025io.greptime.v1." +
+      "regionB\006ServerZ<github.com/GreptimeTeam/" +
+      "greptime-proto/go/greptime/v1/regionb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -49750,13 +50187,13 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_region_RegionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionRequest_descriptor,
-        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "ApplyStagingManifest", "RemoteDynFilter", "CleanUp", "CancelCompaction", "DiscardPendingTails", "SketchStat", "SketchQuery", "Body", });
+        new java.lang.String[] { "Header", "Inserts", "Deletes", "Create", "Drop", "Open", "Close", "Alter", "Flush", "Compact", "Truncate", "Creates", "Drops", "Alters", "BulkInsert", "Sync", "ListMetadata", "BuildIndex", "ApplyStagingManifest", "RemoteDynFilter", "CleanUp", "CancelCompaction", "DiscardPendingTails", "SketchStat", "SketchQuery", "SketchSplit", "Body", });
     internal_static_greptime_v1_region_RegionResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_greptime_v1_region_RegionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_RegionResponse_descriptor,
-        new java.lang.String[] { "Header", "AffectedRows", "Extensions", "Metadata", "Failures", "Sketch", });
+        new java.lang.String[] { "Header", "AffectedRows", "Extensions", "Metadata", "Failures", "Sketch", "SketchSplit", });
     internal_static_greptime_v1_region_RegionResponse_ExtensionsEntry_descriptor =
       internal_static_greptime_v1_region_RegionResponse_descriptor.getNestedTypes().get(0);
     internal_static_greptime_v1_region_RegionResponse_ExtensionsEntry_fieldAccessorTable = new

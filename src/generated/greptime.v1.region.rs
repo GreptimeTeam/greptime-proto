@@ -214,6 +214,69 @@ pub struct SketchResponse {
     #[prost(message, optional, tag = "2")]
     pub sample: ::core::option::Option<SketchSample>,
 }
+/// Generates split points and validates their estimated partition masses in one
+/// pinned SST snapshot. This is an engineering stability check, not a confidence
+/// guarantee. Limits count unique files across proposal and validation together.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SketchSplitRequest {
+    #[prost(uint64, tag = "1")]
+    pub region_id: u64,
+    #[prost(message, optional, tag = "2")]
+    pub time_range: ::core::option::Option<SketchTimeRange>,
+    #[prost(string, tag = "3")]
+    pub column: ::prost::alloc::string::String,
+    #[prost(uint32, tag = "4")]
+    pub parts: u32,
+    #[prost(uint32, tag = "5")]
+    pub initial_files: u32,
+    #[prost(uint32, tag = "6")]
+    pub min_files: u32,
+    #[prost(uint32, tag = "7")]
+    pub max_files: u32,
+    #[prost(uint64, tag = "8")]
+    pub seed: u64,
+    /// Maximum absolute difference between proposal and validation partition mass.
+    #[prost(double, tag = "9")]
+    pub max_cdf_delta: f64,
+    /// Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+    #[prost(double, tag = "10")]
+    pub min_partition_ratio: f64,
+    #[prost(double, tag = "11")]
+    pub max_partition_ratio: f64,
+}
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SketchSplitPoint {
+    #[prost(message, optional, tag = "1")]
+    pub value: ::core::option::Option<super::Value>,
+    #[prost(double, tag = "2")]
+    pub candidate_rank: f64,
+    /// Absent for a census: all eligible files were read without a holdout.
+    #[prost(double, optional, tag = "3")]
+    pub validation_rank: ::core::option::Option<f64>,
+}
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SketchSplitResponse {
+    #[prost(enumeration = "SketchSplitStatus", tag = "1")]
+    pub status: i32,
+    /// Empty on refusal. Values are increasing and ranks are strictly increasing.
+    #[prost(message, repeated, tag = "2")]
+    pub points: ::prost::alloc::vec::Vec<SketchSplitPoint>,
+    #[prost(uint64, tag = "3")]
+    pub candidate_files: u64,
+    #[prost(uint64, tag = "4")]
+    pub sampled_files: u64,
+    #[prost(uint64, tag = "5")]
+    pub proposal_files: u64,
+    #[prost(uint64, tag = "6")]
+    pub validation_files: u64,
+    #[prost(uint32, tag = "7")]
+    pub rounds: u32,
+    #[prost(message, repeated, tag = "8")]
+    pub gaps: ::prost::alloc::vec::Vec<SketchGap>,
+}
 #[allow(clippy::all)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -249,6 +312,48 @@ impl SketchGapReason {
             "SKETCH_GAP_REASON_LEGACY_FORMAT" => Some(Self::LegacyFormat),
             "SKETCH_GAP_REASON_SCOPE_MISMATCH" => Some(Self::ScopeMismatch),
             "SKETCH_GAP_REASON_INCOMPATIBLE" => Some(Self::Incompatible),
+            _ => None,
+        }
+    }
+}
+#[allow(clippy::all)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum SketchSplitStatus {
+    Unspecified = 0,
+    Validated = 1,
+    Census = 2,
+    Unstable = 3,
+    Infeasible = 4,
+    MissingCoverage = 5,
+    EmptyWindow = 6,
+}
+impl SketchSplitStatus {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::Unspecified => "SKETCH_SPLIT_STATUS_UNSPECIFIED",
+            Self::Validated => "SKETCH_SPLIT_STATUS_VALIDATED",
+            Self::Census => "SKETCH_SPLIT_STATUS_CENSUS",
+            Self::Unstable => "SKETCH_SPLIT_STATUS_UNSTABLE",
+            Self::Infeasible => "SKETCH_SPLIT_STATUS_INFEASIBLE",
+            Self::MissingCoverage => "SKETCH_SPLIT_STATUS_MISSING_COVERAGE",
+            Self::EmptyWindow => "SKETCH_SPLIT_STATUS_EMPTY_WINDOW",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SKETCH_SPLIT_STATUS_UNSPECIFIED" => Some(Self::Unspecified),
+            "SKETCH_SPLIT_STATUS_VALIDATED" => Some(Self::Validated),
+            "SKETCH_SPLIT_STATUS_CENSUS" => Some(Self::Census),
+            "SKETCH_SPLIT_STATUS_UNSTABLE" => Some(Self::Unstable),
+            "SKETCH_SPLIT_STATUS_INFEASIBLE" => Some(Self::Infeasible),
+            "SKETCH_SPLIT_STATUS_MISSING_COVERAGE" => Some(Self::MissingCoverage),
+            "SKETCH_SPLIT_STATUS_EMPTY_WINDOW" => Some(Self::EmptyWindow),
             _ => None,
         }
     }
@@ -300,7 +405,7 @@ pub struct RegionRequest {
     /// query request is handled in flight services.
     #[prost(
         oneof = "region_request::Body",
-        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 27, 25"
+        tags = "3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 27, 25, 26"
     )]
     pub body: ::core::option::Option<region_request::Body>,
 }
@@ -359,6 +464,8 @@ pub mod region_request {
         SketchStat(super::SketchRequest),
         #[prost(message, tag = "25")]
         SketchQuery(super::SketchRequest),
+        #[prost(message, tag = "26")]
+        SketchSplit(super::SketchSplitRequest),
     }
 }
 #[allow(clippy::all)]
@@ -389,6 +496,8 @@ pub struct RegionResponse {
     /// Coverage or estimates for a sketch request.
     #[prost(message, optional, tag = "6")]
     pub sketch: ::core::option::Option<SketchResponse>,
+    #[prost(message, optional, tag = "7")]
+    pub sketch_split: ::core::option::Option<SketchSplitResponse>,
 }
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]

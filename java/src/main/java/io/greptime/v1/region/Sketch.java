@@ -158,6 +158,159 @@ public final class Sketch {
     // @@protoc_insertion_point(enum_scope:greptime.v1.region.SketchGapReason)
   }
 
+  /**
+   * Protobuf enum {@code greptime.v1.region.SketchSplitStatus}
+   */
+  public enum SketchSplitStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SKETCH_SPLIT_STATUS_UNSPECIFIED = 0;</code>
+     */
+    SKETCH_SPLIT_STATUS_UNSPECIFIED(0),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_VALIDATED = 1;</code>
+     */
+    SKETCH_SPLIT_STATUS_VALIDATED(1),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_CENSUS = 2;</code>
+     */
+    SKETCH_SPLIT_STATUS_CENSUS(2),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_UNSTABLE = 3;</code>
+     */
+    SKETCH_SPLIT_STATUS_UNSTABLE(3),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_INFEASIBLE = 4;</code>
+     */
+    SKETCH_SPLIT_STATUS_INFEASIBLE(4),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_MISSING_COVERAGE = 5;</code>
+     */
+    SKETCH_SPLIT_STATUS_MISSING_COVERAGE(5),
+    /**
+     * <code>SKETCH_SPLIT_STATUS_EMPTY_WINDOW = 6;</code>
+     */
+    SKETCH_SPLIT_STATUS_EMPTY_WINDOW(6),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SKETCH_SPLIT_STATUS_UNSPECIFIED = 0;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_VALIDATED = 1;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_VALIDATED_VALUE = 1;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_CENSUS = 2;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_CENSUS_VALUE = 2;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_UNSTABLE = 3;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_UNSTABLE_VALUE = 3;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_INFEASIBLE = 4;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_INFEASIBLE_VALUE = 4;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_MISSING_COVERAGE = 5;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_MISSING_COVERAGE_VALUE = 5;
+    /**
+     * <code>SKETCH_SPLIT_STATUS_EMPTY_WINDOW = 6;</code>
+     */
+    public static final int SKETCH_SPLIT_STATUS_EMPTY_WINDOW_VALUE = 6;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SketchSplitStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SketchSplitStatus forNumber(int value) {
+      switch (value) {
+        case 0: return SKETCH_SPLIT_STATUS_UNSPECIFIED;
+        case 1: return SKETCH_SPLIT_STATUS_VALIDATED;
+        case 2: return SKETCH_SPLIT_STATUS_CENSUS;
+        case 3: return SKETCH_SPLIT_STATUS_UNSTABLE;
+        case 4: return SKETCH_SPLIT_STATUS_INFEASIBLE;
+        case 5: return SKETCH_SPLIT_STATUS_MISSING_COVERAGE;
+        case 6: return SKETCH_SPLIT_STATUS_EMPTY_WINDOW;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SketchSplitStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SketchSplitStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SketchSplitStatus>() {
+            public SketchSplitStatus findValueByNumber(int number) {
+              return SketchSplitStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final SketchSplitStatus[] VALUES = values();
+
+    public static SketchSplitStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SketchSplitStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:greptime.v1.region.SketchSplitStatus)
+  }
+
   public interface SketchTimeRangeOrBuilder extends
       // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchTimeRange)
       com.google.protobuf.MessageOrBuilder {
@@ -15646,6 +15799,4043 @@ public final class Sketch {
 
   }
 
+  public interface SketchSplitRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSplitRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    long getRegionId();
+
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     * @return Whether the timeRange field is set.
+     */
+    boolean hasTimeRange();
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     * @return The timeRange.
+     */
+    io.greptime.v1.region.Sketch.SketchTimeRange getTimeRange();
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder getTimeRangeOrBuilder();
+
+    /**
+     * <code>string column = 3;</code>
+     * @return The column.
+     */
+    java.lang.String getColumn();
+    /**
+     * <code>string column = 3;</code>
+     * @return The bytes for column.
+     */
+    com.google.protobuf.ByteString
+        getColumnBytes();
+
+    /**
+     * <code>uint32 parts = 4;</code>
+     * @return The parts.
+     */
+    int getParts();
+
+    /**
+     * <code>uint32 initial_files = 5;</code>
+     * @return The initialFiles.
+     */
+    int getInitialFiles();
+
+    /**
+     * <code>uint32 min_files = 6;</code>
+     * @return The minFiles.
+     */
+    int getMinFiles();
+
+    /**
+     * <code>uint32 max_files = 7;</code>
+     * @return The maxFiles.
+     */
+    int getMaxFiles();
+
+    /**
+     * <code>uint64 seed = 8;</code>
+     * @return The seed.
+     */
+    long getSeed();
+
+    /**
+     * <pre>
+     * Maximum absolute difference between proposal and validation partition mass.
+     * </pre>
+     *
+     * <code>double max_cdf_delta = 9;</code>
+     * @return The maxCdfDelta.
+     */
+    double getMaxCdfDelta();
+
+    /**
+     * <pre>
+     * Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+     * </pre>
+     *
+     * <code>double min_partition_ratio = 10;</code>
+     * @return The minPartitionRatio.
+     */
+    double getMinPartitionRatio();
+
+    /**
+     * <code>double max_partition_ratio = 11;</code>
+     * @return The maxPartitionRatio.
+     */
+    double getMaxPartitionRatio();
+  }
+  /**
+   * <pre>
+   * Generates split points and validates their estimated partition masses in one
+   * pinned SST snapshot. This is an engineering stability check, not a confidence
+   * guarantee. Limits count unique files across proposal and validation together.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.region.SketchSplitRequest}
+   */
+  public static final class SketchSplitRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSplitRequest)
+      SketchSplitRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SketchSplitRequest.newBuilder() to construct.
+    private SketchSplitRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SketchSplitRequest() {
+      column_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SketchSplitRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SketchSplitRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              regionId_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              io.greptime.v1.region.Sketch.SketchTimeRange.Builder subBuilder = null;
+              if (timeRange_ != null) {
+                subBuilder = timeRange_.toBuilder();
+              }
+              timeRange_ = input.readMessage(io.greptime.v1.region.Sketch.SketchTimeRange.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeRange_);
+                timeRange_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              column_ = s;
+              break;
+            }
+            case 32: {
+
+              parts_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+
+              initialFiles_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+
+              minFiles_ = input.readUInt32();
+              break;
+            }
+            case 56: {
+
+              maxFiles_ = input.readUInt32();
+              break;
+            }
+            case 64: {
+
+              seed_ = input.readUInt64();
+              break;
+            }
+            case 73: {
+
+              maxCdfDelta_ = input.readDouble();
+              break;
+            }
+            case 81: {
+
+              minPartitionRatio_ = input.readDouble();
+              break;
+            }
+            case 89: {
+
+              maxPartitionRatio_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Sketch.SketchSplitRequest.class, io.greptime.v1.region.Sketch.SketchSplitRequest.Builder.class);
+    }
+
+    public static final int REGION_ID_FIELD_NUMBER = 1;
+    private long regionId_;
+    /**
+     * <code>uint64 region_id = 1;</code>
+     * @return The regionId.
+     */
+    @java.lang.Override
+    public long getRegionId() {
+      return regionId_;
+    }
+
+    public static final int TIME_RANGE_FIELD_NUMBER = 2;
+    private io.greptime.v1.region.Sketch.SketchTimeRange timeRange_;
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     * @return Whether the timeRange field is set.
+     */
+    @java.lang.Override
+    public boolean hasTimeRange() {
+      return timeRange_ != null;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     * @return The timeRange.
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchTimeRange getTimeRange() {
+      return timeRange_ == null ? io.greptime.v1.region.Sketch.SketchTimeRange.getDefaultInstance() : timeRange_;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder getTimeRangeOrBuilder() {
+      return getTimeRange();
+    }
+
+    public static final int COLUMN_FIELD_NUMBER = 3;
+    private volatile java.lang.Object column_;
+    /**
+     * <code>string column = 3;</code>
+     * @return The column.
+     */
+    @java.lang.Override
+    public java.lang.String getColumn() {
+      java.lang.Object ref = column_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        column_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string column = 3;</code>
+     * @return The bytes for column.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getColumnBytes() {
+      java.lang.Object ref = column_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        column_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARTS_FIELD_NUMBER = 4;
+    private int parts_;
+    /**
+     * <code>uint32 parts = 4;</code>
+     * @return The parts.
+     */
+    @java.lang.Override
+    public int getParts() {
+      return parts_;
+    }
+
+    public static final int INITIAL_FILES_FIELD_NUMBER = 5;
+    private int initialFiles_;
+    /**
+     * <code>uint32 initial_files = 5;</code>
+     * @return The initialFiles.
+     */
+    @java.lang.Override
+    public int getInitialFiles() {
+      return initialFiles_;
+    }
+
+    public static final int MIN_FILES_FIELD_NUMBER = 6;
+    private int minFiles_;
+    /**
+     * <code>uint32 min_files = 6;</code>
+     * @return The minFiles.
+     */
+    @java.lang.Override
+    public int getMinFiles() {
+      return minFiles_;
+    }
+
+    public static final int MAX_FILES_FIELD_NUMBER = 7;
+    private int maxFiles_;
+    /**
+     * <code>uint32 max_files = 7;</code>
+     * @return The maxFiles.
+     */
+    @java.lang.Override
+    public int getMaxFiles() {
+      return maxFiles_;
+    }
+
+    public static final int SEED_FIELD_NUMBER = 8;
+    private long seed_;
+    /**
+     * <code>uint64 seed = 8;</code>
+     * @return The seed.
+     */
+    @java.lang.Override
+    public long getSeed() {
+      return seed_;
+    }
+
+    public static final int MAX_CDF_DELTA_FIELD_NUMBER = 9;
+    private double maxCdfDelta_;
+    /**
+     * <pre>
+     * Maximum absolute difference between proposal and validation partition mass.
+     * </pre>
+     *
+     * <code>double max_cdf_delta = 9;</code>
+     * @return The maxCdfDelta.
+     */
+    @java.lang.Override
+    public double getMaxCdfDelta() {
+      return maxCdfDelta_;
+    }
+
+    public static final int MIN_PARTITION_RATIO_FIELD_NUMBER = 10;
+    private double minPartitionRatio_;
+    /**
+     * <pre>
+     * Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+     * </pre>
+     *
+     * <code>double min_partition_ratio = 10;</code>
+     * @return The minPartitionRatio.
+     */
+    @java.lang.Override
+    public double getMinPartitionRatio() {
+      return minPartitionRatio_;
+    }
+
+    public static final int MAX_PARTITION_RATIO_FIELD_NUMBER = 11;
+    private double maxPartitionRatio_;
+    /**
+     * <code>double max_partition_ratio = 11;</code>
+     * @return The maxPartitionRatio.
+     */
+    @java.lang.Override
+    public double getMaxPartitionRatio() {
+      return maxPartitionRatio_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (regionId_ != 0L) {
+        output.writeUInt64(1, regionId_);
+      }
+      if (timeRange_ != null) {
+        output.writeMessage(2, getTimeRange());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(column_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, column_);
+      }
+      if (parts_ != 0) {
+        output.writeUInt32(4, parts_);
+      }
+      if (initialFiles_ != 0) {
+        output.writeUInt32(5, initialFiles_);
+      }
+      if (minFiles_ != 0) {
+        output.writeUInt32(6, minFiles_);
+      }
+      if (maxFiles_ != 0) {
+        output.writeUInt32(7, maxFiles_);
+      }
+      if (seed_ != 0L) {
+        output.writeUInt64(8, seed_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(maxCdfDelta_) != 0) {
+        output.writeDouble(9, maxCdfDelta_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(minPartitionRatio_) != 0) {
+        output.writeDouble(10, minPartitionRatio_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(maxPartitionRatio_) != 0) {
+        output.writeDouble(11, maxPartitionRatio_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (regionId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, regionId_);
+      }
+      if (timeRange_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getTimeRange());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(column_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, column_);
+      }
+      if (parts_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, parts_);
+      }
+      if (initialFiles_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, initialFiles_);
+      }
+      if (minFiles_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, minFiles_);
+      }
+      if (maxFiles_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, maxFiles_);
+      }
+      if (seed_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, seed_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(maxCdfDelta_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(9, maxCdfDelta_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(minPartitionRatio_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(10, minPartitionRatio_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(maxPartitionRatio_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(11, maxPartitionRatio_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSplitRequest)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Sketch.SketchSplitRequest other = (io.greptime.v1.region.Sketch.SketchSplitRequest) obj;
+
+      if (getRegionId()
+          != other.getRegionId()) return false;
+      if (hasTimeRange() != other.hasTimeRange()) return false;
+      if (hasTimeRange()) {
+        if (!getTimeRange()
+            .equals(other.getTimeRange())) return false;
+      }
+      if (!getColumn()
+          .equals(other.getColumn())) return false;
+      if (getParts()
+          != other.getParts()) return false;
+      if (getInitialFiles()
+          != other.getInitialFiles()) return false;
+      if (getMinFiles()
+          != other.getMinFiles()) return false;
+      if (getMaxFiles()
+          != other.getMaxFiles()) return false;
+      if (getSeed()
+          != other.getSeed()) return false;
+      if (java.lang.Double.doubleToLongBits(getMaxCdfDelta())
+          != java.lang.Double.doubleToLongBits(
+              other.getMaxCdfDelta())) return false;
+      if (java.lang.Double.doubleToLongBits(getMinPartitionRatio())
+          != java.lang.Double.doubleToLongBits(
+              other.getMinPartitionRatio())) return false;
+      if (java.lang.Double.doubleToLongBits(getMaxPartitionRatio())
+          != java.lang.Double.doubleToLongBits(
+              other.getMaxPartitionRatio())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REGION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRegionId());
+      if (hasTimeRange()) {
+        hash = (37 * hash) + TIME_RANGE_FIELD_NUMBER;
+        hash = (53 * hash) + getTimeRange().hashCode();
+      }
+      hash = (37 * hash) + COLUMN_FIELD_NUMBER;
+      hash = (53 * hash) + getColumn().hashCode();
+      hash = (37 * hash) + PARTS_FIELD_NUMBER;
+      hash = (53 * hash) + getParts();
+      hash = (37 * hash) + INITIAL_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + getInitialFiles();
+      hash = (37 * hash) + MIN_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + getMinFiles();
+      hash = (37 * hash) + MAX_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + getMaxFiles();
+      hash = (37 * hash) + SEED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSeed());
+      hash = (37 * hash) + MAX_CDF_DELTA_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getMaxCdfDelta()));
+      hash = (37 * hash) + MIN_PARTITION_RATIO_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getMinPartitionRatio()));
+      hash = (37 * hash) + MAX_PARTITION_RATIO_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getMaxPartitionRatio()));
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSplitRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Generates split points and validates their estimated partition masses in one
+     * pinned SST snapshot. This is an engineering stability check, not a confidence
+     * guarantee. Limits count unique files across proposal and validation together.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.region.SketchSplitRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSplitRequest)
+        io.greptime.v1.region.Sketch.SketchSplitRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Sketch.SketchSplitRequest.class, io.greptime.v1.region.Sketch.SketchSplitRequest.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Sketch.SketchSplitRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        regionId_ = 0L;
+
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = null;
+        } else {
+          timeRange_ = null;
+          timeRangeBuilder_ = null;
+        }
+        column_ = "";
+
+        parts_ = 0;
+
+        initialFiles_ = 0;
+
+        minFiles_ = 0;
+
+        maxFiles_ = 0;
+
+        seed_ = 0L;
+
+        maxCdfDelta_ = 0D;
+
+        minPartitionRatio_ = 0D;
+
+        maxPartitionRatio_ = 0D;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitRequest getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitRequest build() {
+        io.greptime.v1.region.Sketch.SketchSplitRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitRequest buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSplitRequest result = new io.greptime.v1.region.Sketch.SketchSplitRequest(this);
+        result.regionId_ = regionId_;
+        if (timeRangeBuilder_ == null) {
+          result.timeRange_ = timeRange_;
+        } else {
+          result.timeRange_ = timeRangeBuilder_.build();
+        }
+        result.column_ = column_;
+        result.parts_ = parts_;
+        result.initialFiles_ = initialFiles_;
+        result.minFiles_ = minFiles_;
+        result.maxFiles_ = maxFiles_;
+        result.seed_ = seed_;
+        result.maxCdfDelta_ = maxCdfDelta_;
+        result.minPartitionRatio_ = minPartitionRatio_;
+        result.maxPartitionRatio_ = maxPartitionRatio_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSplitRequest) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSplitRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSplitRequest other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSplitRequest.getDefaultInstance()) return this;
+        if (other.getRegionId() != 0L) {
+          setRegionId(other.getRegionId());
+        }
+        if (other.hasTimeRange()) {
+          mergeTimeRange(other.getTimeRange());
+        }
+        if (!other.getColumn().isEmpty()) {
+          column_ = other.column_;
+          onChanged();
+        }
+        if (other.getParts() != 0) {
+          setParts(other.getParts());
+        }
+        if (other.getInitialFiles() != 0) {
+          setInitialFiles(other.getInitialFiles());
+        }
+        if (other.getMinFiles() != 0) {
+          setMinFiles(other.getMinFiles());
+        }
+        if (other.getMaxFiles() != 0) {
+          setMaxFiles(other.getMaxFiles());
+        }
+        if (other.getSeed() != 0L) {
+          setSeed(other.getSeed());
+        }
+        if (other.getMaxCdfDelta() != 0D) {
+          setMaxCdfDelta(other.getMaxCdfDelta());
+        }
+        if (other.getMinPartitionRatio() != 0D) {
+          setMinPartitionRatio(other.getMinPartitionRatio());
+        }
+        if (other.getMaxPartitionRatio() != 0D) {
+          setMaxPartitionRatio(other.getMaxPartitionRatio());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Sketch.SketchSplitRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSplitRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long regionId_ ;
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return The regionId.
+       */
+      @java.lang.Override
+      public long getRegionId() {
+        return regionId_;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @param value The regionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRegionId(long value) {
+        
+        regionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 region_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRegionId() {
+        
+        regionId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private io.greptime.v1.region.Sketch.SketchTimeRange timeRange_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchTimeRange, io.greptime.v1.region.Sketch.SketchTimeRange.Builder, io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder> timeRangeBuilder_;
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       * @return Whether the timeRange field is set.
+       */
+      public boolean hasTimeRange() {
+        return timeRangeBuilder_ != null || timeRange_ != null;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       * @return The timeRange.
+       */
+      public io.greptime.v1.region.Sketch.SketchTimeRange getTimeRange() {
+        if (timeRangeBuilder_ == null) {
+          return timeRange_ == null ? io.greptime.v1.region.Sketch.SketchTimeRange.getDefaultInstance() : timeRange_;
+        } else {
+          return timeRangeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public Builder setTimeRange(io.greptime.v1.region.Sketch.SketchTimeRange value) {
+        if (timeRangeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          timeRange_ = value;
+          onChanged();
+        } else {
+          timeRangeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public Builder setTimeRange(
+          io.greptime.v1.region.Sketch.SketchTimeRange.Builder builderForValue) {
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeRangeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public Builder mergeTimeRange(io.greptime.v1.region.Sketch.SketchTimeRange value) {
+        if (timeRangeBuilder_ == null) {
+          if (timeRange_ != null) {
+            timeRange_ =
+              io.greptime.v1.region.Sketch.SketchTimeRange.newBuilder(timeRange_).mergeFrom(value).buildPartial();
+          } else {
+            timeRange_ = value;
+          }
+          onChanged();
+        } else {
+          timeRangeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public Builder clearTimeRange() {
+        if (timeRangeBuilder_ == null) {
+          timeRange_ = null;
+          onChanged();
+        } else {
+          timeRange_ = null;
+          timeRangeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchTimeRange.Builder getTimeRangeBuilder() {
+        
+        onChanged();
+        return getTimeRangeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder getTimeRangeOrBuilder() {
+        if (timeRangeBuilder_ != null) {
+          return timeRangeBuilder_.getMessageOrBuilder();
+        } else {
+          return timeRange_ == null ?
+              io.greptime.v1.region.Sketch.SketchTimeRange.getDefaultInstance() : timeRange_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.region.SketchTimeRange time_range = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchTimeRange, io.greptime.v1.region.Sketch.SketchTimeRange.Builder, io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder> 
+          getTimeRangeFieldBuilder() {
+        if (timeRangeBuilder_ == null) {
+          timeRangeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchTimeRange, io.greptime.v1.region.Sketch.SketchTimeRange.Builder, io.greptime.v1.region.Sketch.SketchTimeRangeOrBuilder>(
+                  getTimeRange(),
+                  getParentForChildren(),
+                  isClean());
+          timeRange_ = null;
+        }
+        return timeRangeBuilder_;
+      }
+
+      private java.lang.Object column_ = "";
+      /**
+       * <code>string column = 3;</code>
+       * @return The column.
+       */
+      public java.lang.String getColumn() {
+        java.lang.Object ref = column_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          column_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string column = 3;</code>
+       * @return The bytes for column.
+       */
+      public com.google.protobuf.ByteString
+          getColumnBytes() {
+        java.lang.Object ref = column_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          column_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string column = 3;</code>
+       * @param value The column to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumn(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        column_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearColumn() {
+        
+        column_ = getDefaultInstance().getColumn();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string column = 3;</code>
+       * @param value The bytes for column to set.
+       * @return This builder for chaining.
+       */
+      public Builder setColumnBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        column_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int parts_ ;
+      /**
+       * <code>uint32 parts = 4;</code>
+       * @return The parts.
+       */
+      @java.lang.Override
+      public int getParts() {
+        return parts_;
+      }
+      /**
+       * <code>uint32 parts = 4;</code>
+       * @param value The parts to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParts(int value) {
+        
+        parts_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 parts = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParts() {
+        
+        parts_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int initialFiles_ ;
+      /**
+       * <code>uint32 initial_files = 5;</code>
+       * @return The initialFiles.
+       */
+      @java.lang.Override
+      public int getInitialFiles() {
+        return initialFiles_;
+      }
+      /**
+       * <code>uint32 initial_files = 5;</code>
+       * @param value The initialFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInitialFiles(int value) {
+        
+        initialFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 initial_files = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInitialFiles() {
+        
+        initialFiles_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int minFiles_ ;
+      /**
+       * <code>uint32 min_files = 6;</code>
+       * @return The minFiles.
+       */
+      @java.lang.Override
+      public int getMinFiles() {
+        return minFiles_;
+      }
+      /**
+       * <code>uint32 min_files = 6;</code>
+       * @param value The minFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMinFiles(int value) {
+        
+        minFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 min_files = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMinFiles() {
+        
+        minFiles_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int maxFiles_ ;
+      /**
+       * <code>uint32 max_files = 7;</code>
+       * @return The maxFiles.
+       */
+      @java.lang.Override
+      public int getMaxFiles() {
+        return maxFiles_;
+      }
+      /**
+       * <code>uint32 max_files = 7;</code>
+       * @param value The maxFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxFiles(int value) {
+        
+        maxFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 max_files = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxFiles() {
+        
+        maxFiles_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long seed_ ;
+      /**
+       * <code>uint64 seed = 8;</code>
+       * @return The seed.
+       */
+      @java.lang.Override
+      public long getSeed() {
+        return seed_;
+      }
+      /**
+       * <code>uint64 seed = 8;</code>
+       * @param value The seed to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSeed(long value) {
+        
+        seed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 seed = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSeed() {
+        
+        seed_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private double maxCdfDelta_ ;
+      /**
+       * <pre>
+       * Maximum absolute difference between proposal and validation partition mass.
+       * </pre>
+       *
+       * <code>double max_cdf_delta = 9;</code>
+       * @return The maxCdfDelta.
+       */
+      @java.lang.Override
+      public double getMaxCdfDelta() {
+        return maxCdfDelta_;
+      }
+      /**
+       * <pre>
+       * Maximum absolute difference between proposal and validation partition mass.
+       * </pre>
+       *
+       * <code>double max_cdf_delta = 9;</code>
+       * @param value The maxCdfDelta to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxCdfDelta(double value) {
+        
+        maxCdfDelta_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Maximum absolute difference between proposal and validation partition mass.
+       * </pre>
+       *
+       * <code>double max_cdf_delta = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxCdfDelta() {
+        
+        maxCdfDelta_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double minPartitionRatio_ ;
+      /**
+       * <pre>
+       * Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+       * </pre>
+       *
+       * <code>double min_partition_ratio = 10;</code>
+       * @return The minPartitionRatio.
+       */
+      @java.lang.Override
+      public double getMinPartitionRatio() {
+        return minPartitionRatio_;
+      }
+      /**
+       * <pre>
+       * Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+       * </pre>
+       *
+       * <code>double min_partition_ratio = 10;</code>
+       * @param value The minPartitionRatio to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMinPartitionRatio(double value) {
+        
+        minPartitionRatio_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+       * </pre>
+       *
+       * <code>double min_partition_ratio = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMinPartitionRatio() {
+        
+        minPartitionRatio_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double maxPartitionRatio_ ;
+      /**
+       * <code>double max_partition_ratio = 11;</code>
+       * @return The maxPartitionRatio.
+       */
+      @java.lang.Override
+      public double getMaxPartitionRatio() {
+        return maxPartitionRatio_;
+      }
+      /**
+       * <code>double max_partition_ratio = 11;</code>
+       * @param value The maxPartitionRatio to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMaxPartitionRatio(double value) {
+        
+        maxPartitionRatio_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double max_partition_ratio = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMaxPartitionRatio() {
+        
+        maxPartitionRatio_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSplitRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitRequest)
+    private static final io.greptime.v1.region.Sketch.SketchSplitRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSplitRequest();
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SketchSplitRequest>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSplitRequest>() {
+      @java.lang.Override
+      public SketchSplitRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SketchSplitRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SketchSplitRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SketchSplitRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SketchSplitPointOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSplitPoint)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     * @return Whether the value field is set.
+     */
+    boolean hasValue();
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     * @return The value.
+     */
+    io.greptime.v1.RowData.Value getValue();
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     */
+    io.greptime.v1.RowData.ValueOrBuilder getValueOrBuilder();
+
+    /**
+     * <code>double candidate_rank = 2;</code>
+     * @return The candidateRank.
+     */
+    double getCandidateRank();
+
+    /**
+     * <pre>
+     * Absent for a census: all eligible files were read without a holdout.
+     * </pre>
+     *
+     * <code>optional double validation_rank = 3;</code>
+     * @return Whether the validationRank field is set.
+     */
+    boolean hasValidationRank();
+    /**
+     * <pre>
+     * Absent for a census: all eligible files were read without a holdout.
+     * </pre>
+     *
+     * <code>optional double validation_rank = 3;</code>
+     * @return The validationRank.
+     */
+    double getValidationRank();
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.SketchSplitPoint}
+   */
+  public static final class SketchSplitPoint extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSplitPoint)
+      SketchSplitPointOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SketchSplitPoint.newBuilder() to construct.
+    private SketchSplitPoint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SketchSplitPoint() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SketchSplitPoint();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SketchSplitPoint(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.greptime.v1.RowData.Value.Builder subBuilder = null;
+              if (value_ != null) {
+                subBuilder = value_.toBuilder();
+              }
+              value_ = input.readMessage(io.greptime.v1.RowData.Value.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(value_);
+                value_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 17: {
+
+              candidateRank_ = input.readDouble();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000001;
+              validationRank_ = input.readDouble();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitPoint_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitPoint_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Sketch.SketchSplitPoint.class, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private io.greptime.v1.RowData.Value value_;
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     * @return Whether the value field is set.
+     */
+    @java.lang.Override
+    public boolean hasValue() {
+      return value_ != null;
+    }
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.Value getValue() {
+      return value_ == null ? io.greptime.v1.RowData.Value.getDefaultInstance() : value_;
+    }
+    /**
+     * <code>.greptime.v1.Value value = 1;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.RowData.ValueOrBuilder getValueOrBuilder() {
+      return getValue();
+    }
+
+    public static final int CANDIDATE_RANK_FIELD_NUMBER = 2;
+    private double candidateRank_;
+    /**
+     * <code>double candidate_rank = 2;</code>
+     * @return The candidateRank.
+     */
+    @java.lang.Override
+    public double getCandidateRank() {
+      return candidateRank_;
+    }
+
+    public static final int VALIDATION_RANK_FIELD_NUMBER = 3;
+    private double validationRank_;
+    /**
+     * <pre>
+     * Absent for a census: all eligible files were read without a holdout.
+     * </pre>
+     *
+     * <code>optional double validation_rank = 3;</code>
+     * @return Whether the validationRank field is set.
+     */
+    @java.lang.Override
+    public boolean hasValidationRank() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Absent for a census: all eligible files were read without a holdout.
+     * </pre>
+     *
+     * <code>optional double validation_rank = 3;</code>
+     * @return The validationRank.
+     */
+    @java.lang.Override
+    public double getValidationRank() {
+      return validationRank_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (value_ != null) {
+        output.writeMessage(1, getValue());
+      }
+      if (java.lang.Double.doubleToRawLongBits(candidateRank_) != 0) {
+        output.writeDouble(2, candidateRank_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeDouble(3, validationRank_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (value_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getValue());
+      }
+      if (java.lang.Double.doubleToRawLongBits(candidateRank_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, candidateRank_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, validationRank_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSplitPoint)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Sketch.SketchSplitPoint other = (io.greptime.v1.region.Sketch.SketchSplitPoint) obj;
+
+      if (hasValue() != other.hasValue()) return false;
+      if (hasValue()) {
+        if (!getValue()
+            .equals(other.getValue())) return false;
+      }
+      if (java.lang.Double.doubleToLongBits(getCandidateRank())
+          != java.lang.Double.doubleToLongBits(
+              other.getCandidateRank())) return false;
+      if (hasValidationRank() != other.hasValidationRank()) return false;
+      if (hasValidationRank()) {
+        if (java.lang.Double.doubleToLongBits(getValidationRank())
+            != java.lang.Double.doubleToLongBits(
+                other.getValidationRank())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasValue()) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValue().hashCode();
+      }
+      hash = (37 * hash) + CANDIDATE_RANK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getCandidateRank()));
+      if (hasValidationRank()) {
+        hash = (37 * hash) + VALIDATION_RANK_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getValidationRank()));
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSplitPoint prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.SketchSplitPoint}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSplitPoint)
+        io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitPoint_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitPoint_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Sketch.SketchSplitPoint.class, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Sketch.SketchSplitPoint.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (valueBuilder_ == null) {
+          value_ = null;
+        } else {
+          value_ = null;
+          valueBuilder_ = null;
+        }
+        candidateRank_ = 0D;
+
+        validationRank_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitPoint_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitPoint getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSplitPoint.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitPoint build() {
+        io.greptime.v1.region.Sketch.SketchSplitPoint result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitPoint buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSplitPoint result = new io.greptime.v1.region.Sketch.SketchSplitPoint(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (valueBuilder_ == null) {
+          result.value_ = value_;
+        } else {
+          result.value_ = valueBuilder_.build();
+        }
+        result.candidateRank_ = candidateRank_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.validationRank_ = validationRank_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSplitPoint) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSplitPoint)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSplitPoint other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSplitPoint.getDefaultInstance()) return this;
+        if (other.hasValue()) {
+          mergeValue(other.getValue());
+        }
+        if (other.getCandidateRank() != 0D) {
+          setCandidateRank(other.getCandidateRank());
+        }
+        if (other.hasValidationRank()) {
+          setValidationRank(other.getValidationRank());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Sketch.SketchSplitPoint parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSplitPoint) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private io.greptime.v1.RowData.Value value_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> valueBuilder_;
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       * @return Whether the value field is set.
+       */
+      public boolean hasValue() {
+        return valueBuilder_ != null || value_ != null;
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       * @return The value.
+       */
+      public io.greptime.v1.RowData.Value getValue() {
+        if (valueBuilder_ == null) {
+          return value_ == null ? io.greptime.v1.RowData.Value.getDefaultInstance() : value_;
+        } else {
+          return valueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public Builder setValue(io.greptime.v1.RowData.Value value) {
+        if (valueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          value_ = value;
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public Builder setValue(
+          io.greptime.v1.RowData.Value.Builder builderForValue) {
+        if (valueBuilder_ == null) {
+          value_ = builderForValue.build();
+          onChanged();
+        } else {
+          valueBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public Builder mergeValue(io.greptime.v1.RowData.Value value) {
+        if (valueBuilder_ == null) {
+          if (value_ != null) {
+            value_ =
+              io.greptime.v1.RowData.Value.newBuilder(value_).mergeFrom(value).buildPartial();
+          } else {
+            value_ = value;
+          }
+          onChanged();
+        } else {
+          valueBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public Builder clearValue() {
+        if (valueBuilder_ == null) {
+          value_ = null;
+          onChanged();
+        } else {
+          value_ = null;
+          valueBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public io.greptime.v1.RowData.Value.Builder getValueBuilder() {
+        
+        onChanged();
+        return getValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      public io.greptime.v1.RowData.ValueOrBuilder getValueOrBuilder() {
+        if (valueBuilder_ != null) {
+          return valueBuilder_.getMessageOrBuilder();
+        } else {
+          return value_ == null ?
+              io.greptime.v1.RowData.Value.getDefaultInstance() : value_;
+        }
+      }
+      /**
+       * <code>.greptime.v1.Value value = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder> 
+          getValueFieldBuilder() {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.RowData.Value, io.greptime.v1.RowData.Value.Builder, io.greptime.v1.RowData.ValueOrBuilder>(
+                  getValue(),
+                  getParentForChildren(),
+                  isClean());
+          value_ = null;
+        }
+        return valueBuilder_;
+      }
+
+      private double candidateRank_ ;
+      /**
+       * <code>double candidate_rank = 2;</code>
+       * @return The candidateRank.
+       */
+      @java.lang.Override
+      public double getCandidateRank() {
+        return candidateRank_;
+      }
+      /**
+       * <code>double candidate_rank = 2;</code>
+       * @param value The candidateRank to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCandidateRank(double value) {
+        
+        candidateRank_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double candidate_rank = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCandidateRank() {
+        
+        candidateRank_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double validationRank_ ;
+      /**
+       * <pre>
+       * Absent for a census: all eligible files were read without a holdout.
+       * </pre>
+       *
+       * <code>optional double validation_rank = 3;</code>
+       * @return Whether the validationRank field is set.
+       */
+      @java.lang.Override
+      public boolean hasValidationRank() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Absent for a census: all eligible files were read without a holdout.
+       * </pre>
+       *
+       * <code>optional double validation_rank = 3;</code>
+       * @return The validationRank.
+       */
+      @java.lang.Override
+      public double getValidationRank() {
+        return validationRank_;
+      }
+      /**
+       * <pre>
+       * Absent for a census: all eligible files were read without a holdout.
+       * </pre>
+       *
+       * <code>optional double validation_rank = 3;</code>
+       * @param value The validationRank to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValidationRank(double value) {
+        bitField0_ |= 0x00000001;
+        validationRank_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Absent for a census: all eligible files were read without a holdout.
+       * </pre>
+       *
+       * <code>optional double validation_rank = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValidationRank() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        validationRank_ = 0D;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSplitPoint)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitPoint)
+    private static final io.greptime.v1.region.Sketch.SketchSplitPoint DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSplitPoint();
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitPoint getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SketchSplitPoint>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSplitPoint>() {
+      @java.lang.Override
+      public SketchSplitPoint parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SketchSplitPoint(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SketchSplitPoint> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SketchSplitPoint> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitPoint getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SketchSplitResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.region.SketchSplitResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    int getStatusValue();
+    /**
+     * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+     * @return The status.
+     */
+    io.greptime.v1.region.Sketch.SketchSplitStatus getStatus();
+
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint> 
+        getPointsList();
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSplitPoint getPoints(int index);
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    int getPointsCount();
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    java.util.List<? extends io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder> 
+        getPointsOrBuilderList();
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder getPointsOrBuilder(
+        int index);
+
+    /**
+     * <code>uint64 candidate_files = 3;</code>
+     * @return The candidateFiles.
+     */
+    long getCandidateFiles();
+
+    /**
+     * <code>uint64 sampled_files = 4;</code>
+     * @return The sampledFiles.
+     */
+    long getSampledFiles();
+
+    /**
+     * <code>uint64 proposal_files = 5;</code>
+     * @return The proposalFiles.
+     */
+    long getProposalFiles();
+
+    /**
+     * <code>uint64 validation_files = 6;</code>
+     * @return The validationFiles.
+     */
+    long getValidationFiles();
+
+    /**
+     * <code>uint32 rounds = 7;</code>
+     * @return The rounds.
+     */
+    int getRounds();
+
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    java.util.List<io.greptime.v1.region.Sketch.SketchGap> 
+        getGapsList();
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchGap getGaps(int index);
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    int getGapsCount();
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    java.util.List<? extends io.greptime.v1.region.Sketch.SketchGapOrBuilder> 
+        getGapsOrBuilderList();
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    io.greptime.v1.region.Sketch.SketchGapOrBuilder getGapsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code greptime.v1.region.SketchSplitResponse}
+   */
+  public static final class SketchSplitResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:greptime.v1.region.SketchSplitResponse)
+      SketchSplitResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SketchSplitResponse.newBuilder() to construct.
+    private SketchSplitResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SketchSplitResponse() {
+      status_ = 0;
+      points_ = java.util.Collections.emptyList();
+      gaps_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SketchSplitResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SketchSplitResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              status_ = rawValue;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                points_ = new java.util.ArrayList<io.greptime.v1.region.Sketch.SketchSplitPoint>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              points_.add(
+                  input.readMessage(io.greptime.v1.region.Sketch.SketchSplitPoint.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+
+              candidateFiles_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              sampledFiles_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+
+              proposalFiles_ = input.readUInt64();
+              break;
+            }
+            case 48: {
+
+              validationFiles_ = input.readUInt64();
+              break;
+            }
+            case 56: {
+
+              rounds_ = input.readUInt32();
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                gaps_ = new java.util.ArrayList<io.greptime.v1.region.Sketch.SketchGap>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              gaps_.add(
+                  input.readMessage(io.greptime.v1.region.Sketch.SketchGap.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          points_ = java.util.Collections.unmodifiableList(points_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          gaps_ = java.util.Collections.unmodifiableList(gaps_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.greptime.v1.region.Sketch.SketchSplitResponse.class, io.greptime.v1.region.Sketch.SketchSplitResponse.Builder.class);
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 1;
+    private int status_;
+    /**
+     * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    @java.lang.Override public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+     * @return The status.
+     */
+    @java.lang.Override public io.greptime.v1.region.Sketch.SketchSplitStatus getStatus() {
+      @SuppressWarnings("deprecation")
+      io.greptime.v1.region.Sketch.SketchSplitStatus result = io.greptime.v1.region.Sketch.SketchSplitStatus.valueOf(status_);
+      return result == null ? io.greptime.v1.region.Sketch.SketchSplitStatus.UNRECOGNIZED : result;
+    }
+
+    public static final int POINTS_FIELD_NUMBER = 2;
+    private java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint> points_;
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint> getPointsList() {
+      return points_;
+    }
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder> 
+        getPointsOrBuilderList() {
+      return points_;
+    }
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    @java.lang.Override
+    public int getPointsCount() {
+      return points_.size();
+    }
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitPoint getPoints(int index) {
+      return points_.get(index);
+    }
+    /**
+     * <pre>
+     * Empty on refusal. Values are increasing and ranks are strictly increasing.
+     * </pre>
+     *
+     * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder getPointsOrBuilder(
+        int index) {
+      return points_.get(index);
+    }
+
+    public static final int CANDIDATE_FILES_FIELD_NUMBER = 3;
+    private long candidateFiles_;
+    /**
+     * <code>uint64 candidate_files = 3;</code>
+     * @return The candidateFiles.
+     */
+    @java.lang.Override
+    public long getCandidateFiles() {
+      return candidateFiles_;
+    }
+
+    public static final int SAMPLED_FILES_FIELD_NUMBER = 4;
+    private long sampledFiles_;
+    /**
+     * <code>uint64 sampled_files = 4;</code>
+     * @return The sampledFiles.
+     */
+    @java.lang.Override
+    public long getSampledFiles() {
+      return sampledFiles_;
+    }
+
+    public static final int PROPOSAL_FILES_FIELD_NUMBER = 5;
+    private long proposalFiles_;
+    /**
+     * <code>uint64 proposal_files = 5;</code>
+     * @return The proposalFiles.
+     */
+    @java.lang.Override
+    public long getProposalFiles() {
+      return proposalFiles_;
+    }
+
+    public static final int VALIDATION_FILES_FIELD_NUMBER = 6;
+    private long validationFiles_;
+    /**
+     * <code>uint64 validation_files = 6;</code>
+     * @return The validationFiles.
+     */
+    @java.lang.Override
+    public long getValidationFiles() {
+      return validationFiles_;
+    }
+
+    public static final int ROUNDS_FIELD_NUMBER = 7;
+    private int rounds_;
+    /**
+     * <code>uint32 rounds = 7;</code>
+     * @return The rounds.
+     */
+    @java.lang.Override
+    public int getRounds() {
+      return rounds_;
+    }
+
+    public static final int GAPS_FIELD_NUMBER = 8;
+    private java.util.List<io.greptime.v1.region.Sketch.SketchGap> gaps_;
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<io.greptime.v1.region.Sketch.SketchGap> getGapsList() {
+      return gaps_;
+    }
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends io.greptime.v1.region.Sketch.SketchGapOrBuilder> 
+        getGapsOrBuilderList() {
+      return gaps_;
+    }
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    @java.lang.Override
+    public int getGapsCount() {
+      return gaps_.size();
+    }
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchGap getGaps(int index) {
+      return gaps_.get(index);
+    }
+    /**
+     * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchGapOrBuilder getGapsOrBuilder(
+        int index) {
+      return gaps_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (status_ != io.greptime.v1.region.Sketch.SketchSplitStatus.SKETCH_SPLIT_STATUS_UNSPECIFIED.getNumber()) {
+        output.writeEnum(1, status_);
+      }
+      for (int i = 0; i < points_.size(); i++) {
+        output.writeMessage(2, points_.get(i));
+      }
+      if (candidateFiles_ != 0L) {
+        output.writeUInt64(3, candidateFiles_);
+      }
+      if (sampledFiles_ != 0L) {
+        output.writeUInt64(4, sampledFiles_);
+      }
+      if (proposalFiles_ != 0L) {
+        output.writeUInt64(5, proposalFiles_);
+      }
+      if (validationFiles_ != 0L) {
+        output.writeUInt64(6, validationFiles_);
+      }
+      if (rounds_ != 0) {
+        output.writeUInt32(7, rounds_);
+      }
+      for (int i = 0; i < gaps_.size(); i++) {
+        output.writeMessage(8, gaps_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (status_ != io.greptime.v1.region.Sketch.SketchSplitStatus.SKETCH_SPLIT_STATUS_UNSPECIFIED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, status_);
+      }
+      for (int i = 0; i < points_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, points_.get(i));
+      }
+      if (candidateFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, candidateFiles_);
+      }
+      if (sampledFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, sampledFiles_);
+      }
+      if (proposalFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, proposalFiles_);
+      }
+      if (validationFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, validationFiles_);
+      }
+      if (rounds_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(7, rounds_);
+      }
+      for (int i = 0; i < gaps_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, gaps_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof io.greptime.v1.region.Sketch.SketchSplitResponse)) {
+        return super.equals(obj);
+      }
+      io.greptime.v1.region.Sketch.SketchSplitResponse other = (io.greptime.v1.region.Sketch.SketchSplitResponse) obj;
+
+      if (status_ != other.status_) return false;
+      if (!getPointsList()
+          .equals(other.getPointsList())) return false;
+      if (getCandidateFiles()
+          != other.getCandidateFiles()) return false;
+      if (getSampledFiles()
+          != other.getSampledFiles()) return false;
+      if (getProposalFiles()
+          != other.getProposalFiles()) return false;
+      if (getValidationFiles()
+          != other.getValidationFiles()) return false;
+      if (getRounds()
+          != other.getRounds()) return false;
+      if (!getGapsList()
+          .equals(other.getGapsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
+      if (getPointsCount() > 0) {
+        hash = (37 * hash) + POINTS_FIELD_NUMBER;
+        hash = (53 * hash) + getPointsList().hashCode();
+      }
+      hash = (37 * hash) + CANDIDATE_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getCandidateFiles());
+      hash = (37 * hash) + SAMPLED_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSampledFiles());
+      hash = (37 * hash) + PROPOSAL_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getProposalFiles());
+      hash = (37 * hash) + VALIDATION_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getValidationFiles());
+      hash = (37 * hash) + ROUNDS_FIELD_NUMBER;
+      hash = (53 * hash) + getRounds();
+      if (getGapsCount() > 0) {
+        hash = (37 * hash) + GAPS_FIELD_NUMBER;
+        hash = (53 * hash) + getGapsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(io.greptime.v1.region.Sketch.SketchSplitResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code greptime.v1.region.SketchSplitResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:greptime.v1.region.SketchSplitResponse)
+        io.greptime.v1.region.Sketch.SketchSplitResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                io.greptime.v1.region.Sketch.SketchSplitResponse.class, io.greptime.v1.region.Sketch.SketchSplitResponse.Builder.class);
+      }
+
+      // Construct using io.greptime.v1.region.Sketch.SketchSplitResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPointsFieldBuilder();
+          getGapsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        status_ = 0;
+
+        if (pointsBuilder_ == null) {
+          points_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          pointsBuilder_.clear();
+        }
+        candidateFiles_ = 0L;
+
+        sampledFiles_ = 0L;
+
+        proposalFiles_ = 0L;
+
+        validationFiles_ = 0L;
+
+        rounds_ = 0;
+
+        if (gapsBuilder_ == null) {
+          gaps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          gapsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return io.greptime.v1.region.Sketch.internal_static_greptime_v1_region_SketchSplitResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitResponse getDefaultInstanceForType() {
+        return io.greptime.v1.region.Sketch.SketchSplitResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitResponse build() {
+        io.greptime.v1.region.Sketch.SketchSplitResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitResponse buildPartial() {
+        io.greptime.v1.region.Sketch.SketchSplitResponse result = new io.greptime.v1.region.Sketch.SketchSplitResponse(this);
+        int from_bitField0_ = bitField0_;
+        result.status_ = status_;
+        if (pointsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            points_ = java.util.Collections.unmodifiableList(points_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.points_ = points_;
+        } else {
+          result.points_ = pointsBuilder_.build();
+        }
+        result.candidateFiles_ = candidateFiles_;
+        result.sampledFiles_ = sampledFiles_;
+        result.proposalFiles_ = proposalFiles_;
+        result.validationFiles_ = validationFiles_;
+        result.rounds_ = rounds_;
+        if (gapsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            gaps_ = java.util.Collections.unmodifiableList(gaps_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.gaps_ = gaps_;
+        } else {
+          result.gaps_ = gapsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof io.greptime.v1.region.Sketch.SketchSplitResponse) {
+          return mergeFrom((io.greptime.v1.region.Sketch.SketchSplitResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(io.greptime.v1.region.Sketch.SketchSplitResponse other) {
+        if (other == io.greptime.v1.region.Sketch.SketchSplitResponse.getDefaultInstance()) return this;
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
+        }
+        if (pointsBuilder_ == null) {
+          if (!other.points_.isEmpty()) {
+            if (points_.isEmpty()) {
+              points_ = other.points_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePointsIsMutable();
+              points_.addAll(other.points_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.points_.isEmpty()) {
+            if (pointsBuilder_.isEmpty()) {
+              pointsBuilder_.dispose();
+              pointsBuilder_ = null;
+              points_ = other.points_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              pointsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPointsFieldBuilder() : null;
+            } else {
+              pointsBuilder_.addAllMessages(other.points_);
+            }
+          }
+        }
+        if (other.getCandidateFiles() != 0L) {
+          setCandidateFiles(other.getCandidateFiles());
+        }
+        if (other.getSampledFiles() != 0L) {
+          setSampledFiles(other.getSampledFiles());
+        }
+        if (other.getProposalFiles() != 0L) {
+          setProposalFiles(other.getProposalFiles());
+        }
+        if (other.getValidationFiles() != 0L) {
+          setValidationFiles(other.getValidationFiles());
+        }
+        if (other.getRounds() != 0) {
+          setRounds(other.getRounds());
+        }
+        if (gapsBuilder_ == null) {
+          if (!other.gaps_.isEmpty()) {
+            if (gaps_.isEmpty()) {
+              gaps_ = other.gaps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureGapsIsMutable();
+              gaps_.addAll(other.gaps_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.gaps_.isEmpty()) {
+            if (gapsBuilder_.isEmpty()) {
+              gapsBuilder_.dispose();
+              gapsBuilder_ = null;
+              gaps_ = other.gaps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              gapsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getGapsFieldBuilder() : null;
+            } else {
+              gapsBuilder_.addAllMessages(other.gaps_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        io.greptime.v1.region.Sketch.SketchSplitResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (io.greptime.v1.region.Sketch.SketchSplitResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int status_ = 0;
+      /**
+       * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+       * @return The enum numeric value on the wire for status.
+       */
+      @java.lang.Override public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+       * @param value The enum numeric value on the wire for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusValue(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public io.greptime.v1.region.Sketch.SketchSplitStatus getStatus() {
+        @SuppressWarnings("deprecation")
+        io.greptime.v1.region.Sketch.SketchSplitStatus result = io.greptime.v1.region.Sketch.SketchSplitStatus.valueOf(status_);
+        return result == null ? io.greptime.v1.region.Sketch.SketchSplitStatus.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(io.greptime.v1.region.Sketch.SketchSplitStatus value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        status_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.greptime.v1.region.SketchSplitStatus status = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint> points_ =
+        java.util.Collections.emptyList();
+      private void ensurePointsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          points_ = new java.util.ArrayList<io.greptime.v1.region.Sketch.SketchSplitPoint>(points_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitPoint, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder, io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder> pointsBuilder_;
+
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint> getPointsList() {
+        if (pointsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(points_);
+        } else {
+          return pointsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public int getPointsCount() {
+        if (pointsBuilder_ == null) {
+          return points_.size();
+        } else {
+          return pointsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitPoint getPoints(int index) {
+        if (pointsBuilder_ == null) {
+          return points_.get(index);
+        } else {
+          return pointsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder setPoints(
+          int index, io.greptime.v1.region.Sketch.SketchSplitPoint value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.set(index, value);
+          onChanged();
+        } else {
+          pointsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder setPoints(
+          int index, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder addPoints(io.greptime.v1.region.Sketch.SketchSplitPoint value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.add(value);
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder addPoints(
+          int index, io.greptime.v1.region.Sketch.SketchSplitPoint value) {
+        if (pointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePointsIsMutable();
+          points_.add(index, value);
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder addPoints(
+          io.greptime.v1.region.Sketch.SketchSplitPoint.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder addPoints(
+          int index, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder builderForValue) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pointsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder addAllPoints(
+          java.lang.Iterable<? extends io.greptime.v1.region.Sketch.SketchSplitPoint> values) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, points_);
+          onChanged();
+        } else {
+          pointsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder clearPoints() {
+        if (pointsBuilder_ == null) {
+          points_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          pointsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public Builder removePoints(int index) {
+        if (pointsBuilder_ == null) {
+          ensurePointsIsMutable();
+          points_.remove(index);
+          onChanged();
+        } else {
+          pointsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitPoint.Builder getPointsBuilder(
+          int index) {
+        return getPointsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder getPointsOrBuilder(
+          int index) {
+        if (pointsBuilder_ == null) {
+          return points_.get(index);  } else {
+          return pointsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder> 
+           getPointsOrBuilderList() {
+        if (pointsBuilder_ != null) {
+          return pointsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(points_);
+        }
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitPoint.Builder addPointsBuilder() {
+        return getPointsFieldBuilder().addBuilder(
+            io.greptime.v1.region.Sketch.SketchSplitPoint.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchSplitPoint.Builder addPointsBuilder(
+          int index) {
+        return getPointsFieldBuilder().addBuilder(
+            index, io.greptime.v1.region.Sketch.SketchSplitPoint.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Empty on refusal. Values are increasing and ranks are strictly increasing.
+       * </pre>
+       *
+       * <code>repeated .greptime.v1.region.SketchSplitPoint points = 2;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Sketch.SketchSplitPoint.Builder> 
+           getPointsBuilderList() {
+        return getPointsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchSplitPoint, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder, io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder> 
+          getPointsFieldBuilder() {
+        if (pointsBuilder_ == null) {
+          pointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchSplitPoint, io.greptime.v1.region.Sketch.SketchSplitPoint.Builder, io.greptime.v1.region.Sketch.SketchSplitPointOrBuilder>(
+                  points_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          points_ = null;
+        }
+        return pointsBuilder_;
+      }
+
+      private long candidateFiles_ ;
+      /**
+       * <code>uint64 candidate_files = 3;</code>
+       * @return The candidateFiles.
+       */
+      @java.lang.Override
+      public long getCandidateFiles() {
+        return candidateFiles_;
+      }
+      /**
+       * <code>uint64 candidate_files = 3;</code>
+       * @param value The candidateFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCandidateFiles(long value) {
+        
+        candidateFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 candidate_files = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCandidateFiles() {
+        
+        candidateFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long sampledFiles_ ;
+      /**
+       * <code>uint64 sampled_files = 4;</code>
+       * @return The sampledFiles.
+       */
+      @java.lang.Override
+      public long getSampledFiles() {
+        return sampledFiles_;
+      }
+      /**
+       * <code>uint64 sampled_files = 4;</code>
+       * @param value The sampledFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSampledFiles(long value) {
+        
+        sampledFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 sampled_files = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSampledFiles() {
+        
+        sampledFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long proposalFiles_ ;
+      /**
+       * <code>uint64 proposal_files = 5;</code>
+       * @return The proposalFiles.
+       */
+      @java.lang.Override
+      public long getProposalFiles() {
+        return proposalFiles_;
+      }
+      /**
+       * <code>uint64 proposal_files = 5;</code>
+       * @param value The proposalFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProposalFiles(long value) {
+        
+        proposalFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 proposal_files = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProposalFiles() {
+        
+        proposalFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long validationFiles_ ;
+      /**
+       * <code>uint64 validation_files = 6;</code>
+       * @return The validationFiles.
+       */
+      @java.lang.Override
+      public long getValidationFiles() {
+        return validationFiles_;
+      }
+      /**
+       * <code>uint64 validation_files = 6;</code>
+       * @param value The validationFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValidationFiles(long value) {
+        
+        validationFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 validation_files = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValidationFiles() {
+        
+        validationFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int rounds_ ;
+      /**
+       * <code>uint32 rounds = 7;</code>
+       * @return The rounds.
+       */
+      @java.lang.Override
+      public int getRounds() {
+        return rounds_;
+      }
+      /**
+       * <code>uint32 rounds = 7;</code>
+       * @param value The rounds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRounds(int value) {
+        
+        rounds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 rounds = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRounds() {
+        
+        rounds_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<io.greptime.v1.region.Sketch.SketchGap> gaps_ =
+        java.util.Collections.emptyList();
+      private void ensureGapsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          gaps_ = new java.util.ArrayList<io.greptime.v1.region.Sketch.SketchGap>(gaps_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchGap, io.greptime.v1.region.Sketch.SketchGap.Builder, io.greptime.v1.region.Sketch.SketchGapOrBuilder> gapsBuilder_;
+
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Sketch.SketchGap> getGapsList() {
+        if (gapsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(gaps_);
+        } else {
+          return gapsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public int getGapsCount() {
+        if (gapsBuilder_ == null) {
+          return gaps_.size();
+        } else {
+          return gapsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchGap getGaps(int index) {
+        if (gapsBuilder_ == null) {
+          return gaps_.get(index);
+        } else {
+          return gapsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder setGaps(
+          int index, io.greptime.v1.region.Sketch.SketchGap value) {
+        if (gapsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGapsIsMutable();
+          gaps_.set(index, value);
+          onChanged();
+        } else {
+          gapsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder setGaps(
+          int index, io.greptime.v1.region.Sketch.SketchGap.Builder builderForValue) {
+        if (gapsBuilder_ == null) {
+          ensureGapsIsMutable();
+          gaps_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          gapsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder addGaps(io.greptime.v1.region.Sketch.SketchGap value) {
+        if (gapsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGapsIsMutable();
+          gaps_.add(value);
+          onChanged();
+        } else {
+          gapsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder addGaps(
+          int index, io.greptime.v1.region.Sketch.SketchGap value) {
+        if (gapsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureGapsIsMutable();
+          gaps_.add(index, value);
+          onChanged();
+        } else {
+          gapsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder addGaps(
+          io.greptime.v1.region.Sketch.SketchGap.Builder builderForValue) {
+        if (gapsBuilder_ == null) {
+          ensureGapsIsMutable();
+          gaps_.add(builderForValue.build());
+          onChanged();
+        } else {
+          gapsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder addGaps(
+          int index, io.greptime.v1.region.Sketch.SketchGap.Builder builderForValue) {
+        if (gapsBuilder_ == null) {
+          ensureGapsIsMutable();
+          gaps_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          gapsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder addAllGaps(
+          java.lang.Iterable<? extends io.greptime.v1.region.Sketch.SketchGap> values) {
+        if (gapsBuilder_ == null) {
+          ensureGapsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, gaps_);
+          onChanged();
+        } else {
+          gapsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder clearGaps() {
+        if (gapsBuilder_ == null) {
+          gaps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          gapsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public Builder removeGaps(int index) {
+        if (gapsBuilder_ == null) {
+          ensureGapsIsMutable();
+          gaps_.remove(index);
+          onChanged();
+        } else {
+          gapsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchGap.Builder getGapsBuilder(
+          int index) {
+        return getGapsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchGapOrBuilder getGapsOrBuilder(
+          int index) {
+        if (gapsBuilder_ == null) {
+          return gaps_.get(index);  } else {
+          return gapsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public java.util.List<? extends io.greptime.v1.region.Sketch.SketchGapOrBuilder> 
+           getGapsOrBuilderList() {
+        if (gapsBuilder_ != null) {
+          return gapsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(gaps_);
+        }
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchGap.Builder addGapsBuilder() {
+        return getGapsFieldBuilder().addBuilder(
+            io.greptime.v1.region.Sketch.SketchGap.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public io.greptime.v1.region.Sketch.SketchGap.Builder addGapsBuilder(
+          int index) {
+        return getGapsFieldBuilder().addBuilder(
+            index, io.greptime.v1.region.Sketch.SketchGap.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .greptime.v1.region.SketchGap gaps = 8;</code>
+       */
+      public java.util.List<io.greptime.v1.region.Sketch.SketchGap.Builder> 
+           getGapsBuilderList() {
+        return getGapsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          io.greptime.v1.region.Sketch.SketchGap, io.greptime.v1.region.Sketch.SketchGap.Builder, io.greptime.v1.region.Sketch.SketchGapOrBuilder> 
+          getGapsFieldBuilder() {
+        if (gapsBuilder_ == null) {
+          gapsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              io.greptime.v1.region.Sketch.SketchGap, io.greptime.v1.region.Sketch.SketchGap.Builder, io.greptime.v1.region.Sketch.SketchGapOrBuilder>(
+                  gaps_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          gaps_ = null;
+        }
+        return gapsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:greptime.v1.region.SketchSplitResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitResponse)
+    private static final io.greptime.v1.region.Sketch.SketchSplitResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new io.greptime.v1.region.Sketch.SketchSplitResponse();
+    }
+
+    public static io.greptime.v1.region.Sketch.SketchSplitResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SketchSplitResponse>
+        PARSER = new com.google.protobuf.AbstractParser<SketchSplitResponse>() {
+      @java.lang.Override
+      public SketchSplitResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SketchSplitResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SketchSplitResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SketchSplitResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public io.greptime.v1.region.Sketch.SketchSplitResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_greptime_v1_region_SketchTimeRange_descriptor;
   private static final 
@@ -15736,6 +19926,21 @@ public final class Sketch {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_region_SketchResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SketchSplitRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SketchSplitRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SketchSplitPoint_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SketchSplitPoint_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_greptime_v1_region_SketchSplitResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_greptime_v1_region_SketchSplitResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -15799,15 +20004,40 @@ public final class Sketch {
       "alue\"{\n\016SketchResponse\0227\n\007results\030\001 \003(\0132" +
       "&.greptime.v1.region.ColumnSketchResult\022" +
       "0\n\006sample\030\002 \001(\0132 .greptime.v1.region.Ske" +
-      "tchSample*\356\001\n\017SketchGapReason\022!\n\035SKETCH_" +
-      "GAP_REASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_R" +
-      "EASON_NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REA" +
-      "SON_MISSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON" +
-      "_LEGACY_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SC" +
-      "OPE_MISMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCO" +
-      "MPATIBLE\020\005B]\n\025io.greptime.v1.regionB\006Ske" +
-      "tchZ<github.com/GreptimeTeam/greptime-pr" +
-      "oto/go/greptime/v1/regionb\006proto3"
+      "tchSample\"\233\002\n\022SketchSplitRequest\022\021\n\tregi" +
+      "on_id\030\001 \001(\004\0227\n\ntime_range\030\002 \001(\0132#.grepti" +
+      "me.v1.region.SketchTimeRange\022\016\n\006column\030\003" +
+      " \001(\t\022\r\n\005parts\030\004 \001(\r\022\025\n\rinitial_files\030\005 \001" +
+      "(\r\022\021\n\tmin_files\030\006 \001(\r\022\021\n\tmax_files\030\007 \001(\r" +
+      "\022\014\n\004seed\030\010 \001(\004\022\025\n\rmax_cdf_delta\030\t \001(\001\022\033\n" +
+      "\023min_partition_ratio\030\n \001(\001\022\033\n\023max_partit" +
+      "ion_ratio\030\013 \001(\001\"\177\n\020SketchSplitPoint\022!\n\005v" +
+      "alue\030\001 \001(\0132\022.greptime.v1.Value\022\026\n\016candid" +
+      "ate_rank\030\002 \001(\001\022\034\n\017validation_rank\030\003 \001(\001H" +
+      "\000\210\001\001B\022\n\020_validation_rank\"\241\002\n\023SketchSplit" +
+      "Response\0225\n\006status\030\001 \001(\0162%.greptime.v1.r" +
+      "egion.SketchSplitStatus\0224\n\006points\030\002 \003(\0132" +
+      "$.greptime.v1.region.SketchSplitPoint\022\027\n" +
+      "\017candidate_files\030\003 \001(\004\022\025\n\rsampled_files\030" +
+      "\004 \001(\004\022\026\n\016proposal_files\030\005 \001(\004\022\030\n\020validat" +
+      "ion_files\030\006 \001(\004\022\016\n\006rounds\030\007 \001(\r\022+\n\004gaps\030" +
+      "\010 \003(\0132\035.greptime.v1.region.SketchGap*\356\001\n" +
+      "\017SketchGapReason\022!\n\035SKETCH_GAP_REASON_UN" +
+      "SPECIFIED\020\000\022$\n SKETCH_GAP_REASON_NOT_CON" +
+      "FIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MISSING_I" +
+      "NDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGACY_FORMA" +
+      "T\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MISMATCH\020" +
+      "\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIBLE\020\005*\221\002" +
+      "\n\021SketchSplitStatus\022#\n\037SKETCH_SPLIT_STAT" +
+      "US_UNSPECIFIED\020\000\022!\n\035SKETCH_SPLIT_STATUS_" +
+      "VALIDATED\020\001\022\036\n\032SKETCH_SPLIT_STATUS_CENSU" +
+      "S\020\002\022 \n\034SKETCH_SPLIT_STATUS_UNSTABLE\020\003\022\"\n" +
+      "\036SKETCH_SPLIT_STATUS_INFEASIBLE\020\004\022(\n$SKE" +
+      "TCH_SPLIT_STATUS_MISSING_COVERAGE\020\005\022$\n S" +
+      "KETCH_SPLIT_STATUS_EMPTY_WINDOW\020\006B]\n\025io." +
+      "greptime.v1.regionB\006SketchZ<github.com/G" +
+      "reptimeTeam/greptime-proto/go/greptime/v" +
+      "1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15923,6 +20153,24 @@ public final class Sketch {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchResponse_descriptor,
         new java.lang.String[] { "Results", "Sample", });
+    internal_static_greptime_v1_region_SketchSplitRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_greptime_v1_region_SketchSplitRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SketchSplitRequest_descriptor,
+        new java.lang.String[] { "RegionId", "TimeRange", "Column", "Parts", "InitialFiles", "MinFiles", "MaxFiles", "Seed", "MaxCdfDelta", "MinPartitionRatio", "MaxPartitionRatio", });
+    internal_static_greptime_v1_region_SketchSplitPoint_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_greptime_v1_region_SketchSplitPoint_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SketchSplitPoint_descriptor,
+        new java.lang.String[] { "Value", "CandidateRank", "ValidationRank", "ValidationRank", });
+    internal_static_greptime_v1_region_SketchSplitResponse_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_greptime_v1_region_SketchSplitResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_greptime_v1_region_SketchSplitResponse_descriptor,
+        new java.lang.String[] { "Status", "Points", "CandidateFiles", "SampledFiles", "ProposalFiles", "ValidationFiles", "Rounds", "Gaps", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
   }

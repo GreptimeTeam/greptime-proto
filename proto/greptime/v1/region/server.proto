@@ -84,6 +84,7 @@ message RegionRequest {
     DiscardPendingTailsRequest discard_pending_tails = 24;
     SketchRequest sketch_stat = 27;
     SketchRequest sketch_query = 25;
+    SketchSplitRequest sketch_split = 26;
   }
 }
 
@@ -104,6 +105,7 @@ message RegionResponse {
   repeated RegionRequestFailure failures = 5;
   // Coverage or estimates for a sketch request.
   SketchResponse sketch = 6;
+  SketchSplitResponse sketch_split = 7;
 }
 
 message RegionRequestFailure {

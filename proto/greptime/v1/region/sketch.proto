@@ -141,3 +141,51 @@ message SketchResponse {
   // Present only when file sampling was requested.
   SketchSample sample = 2;
 }
+
+// Generates split points and validates their estimated partition masses in one
+// pinned SST snapshot. This is an engineering stability check, not a confidence
+// guarantee. Limits count unique files across proposal and validation together.
+message SketchSplitRequest {
+  uint64 region_id = 1;
+  SketchTimeRange time_range = 2;
+  string column = 3;
+  uint32 parts = 4;
+  uint32 initial_files = 5;
+  uint32 min_files = 6;
+  uint32 max_files = 7;
+  uint64 seed = 8;
+  // Maximum absolute difference between proposal and validation partition mass.
+  double max_cdf_delta = 9;
+  // Bounds relative to 1 / actual_partition_count after duplicate cuts collapse.
+  double min_partition_ratio = 10;
+  double max_partition_ratio = 11;
+}
+
+message SketchSplitPoint {
+  Value value = 1;
+  double candidate_rank = 2;
+  // Absent for a census: all eligible files were read without a holdout.
+  optional double validation_rank = 3;
+}
+
+enum SketchSplitStatus {
+  SKETCH_SPLIT_STATUS_UNSPECIFIED = 0;
+  SKETCH_SPLIT_STATUS_VALIDATED = 1;
+  SKETCH_SPLIT_STATUS_CENSUS = 2;
+  SKETCH_SPLIT_STATUS_UNSTABLE = 3;
+  SKETCH_SPLIT_STATUS_INFEASIBLE = 4;
+  SKETCH_SPLIT_STATUS_MISSING_COVERAGE = 5;
+  SKETCH_SPLIT_STATUS_EMPTY_WINDOW = 6;
+}
+
+message SketchSplitResponse {
+  SketchSplitStatus status = 1;
+  // Empty on refusal. Values are increasing and ranks are strictly increasing.
+  repeated SketchSplitPoint points = 2;
+  uint64 candidate_files = 3;
+  uint64 sampled_files = 4;
+  uint64 proposal_files = 5;
+  uint64 validation_files = 6;
+  uint32 rounds = 7;
+  repeated SketchGap gaps = 8;
+}

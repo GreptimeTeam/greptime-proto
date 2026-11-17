@@ -901,6 +901,7 @@ class RegionRequest final :
     kDiscardPendingTails = 24,
     kSketchStat = 27,
     kSketchQuery = 25,
+    kSketchSplit = 26,
     BODY_NOT_SET = 0,
   };
 
@@ -1007,6 +1008,7 @@ class RegionRequest final :
     kDiscardPendingTailsFieldNumber = 24,
     kSketchStatFieldNumber = 27,
     kSketchQueryFieldNumber = 25,
+    kSketchSplitFieldNumber = 26,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -1458,6 +1460,24 @@ class RegionRequest final :
       ::greptime::v1::region::SketchRequest* sketch_query);
   ::greptime::v1::region::SketchRequest* unsafe_arena_release_sketch_query();
 
+  // .greptime.v1.region.SketchSplitRequest sketch_split = 26;
+  bool has_sketch_split() const;
+  private:
+  bool _internal_has_sketch_split() const;
+  public:
+  void clear_sketch_split();
+  const ::greptime::v1::region::SketchSplitRequest& sketch_split() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SketchSplitRequest* release_sketch_split();
+  ::greptime::v1::region::SketchSplitRequest* mutable_sketch_split();
+  void set_allocated_sketch_split(::greptime::v1::region::SketchSplitRequest* sketch_split);
+  private:
+  const ::greptime::v1::region::SketchSplitRequest& _internal_sketch_split() const;
+  ::greptime::v1::region::SketchSplitRequest* _internal_mutable_sketch_split();
+  public:
+  void unsafe_arena_set_allocated_sketch_split(
+      ::greptime::v1::region::SketchSplitRequest* sketch_split);
+  ::greptime::v1::region::SketchSplitRequest* unsafe_arena_release_sketch_split();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -1487,6 +1507,7 @@ class RegionRequest final :
   void set_has_discard_pending_tails();
   void set_has_sketch_stat();
   void set_has_sketch_query();
+  void set_has_sketch_split();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -1523,6 +1544,7 @@ class RegionRequest final :
       ::greptime::v1::region::DiscardPendingTailsRequest* discard_pending_tails_;
       ::greptime::v1::region::SketchRequest* sketch_stat_;
       ::greptime::v1::region::SketchRequest* sketch_query_;
+      ::greptime::v1::region::SketchSplitRequest* sketch_split_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1688,6 +1710,7 @@ class RegionResponse final :
     kMetadataFieldNumber = 4,
     kHeaderFieldNumber = 1,
     kSketchFieldNumber = 6,
+    kSketchSplitFieldNumber = 7,
     kAffectedRowsFieldNumber = 2,
   };
   // map<string, bytes> extensions = 3;
@@ -1775,6 +1798,24 @@ class RegionResponse final :
       ::greptime::v1::region::SketchResponse* sketch);
   ::greptime::v1::region::SketchResponse* unsafe_arena_release_sketch();
 
+  // .greptime.v1.region.SketchSplitResponse sketch_split = 7;
+  bool has_sketch_split() const;
+  private:
+  bool _internal_has_sketch_split() const;
+  public:
+  void clear_sketch_split();
+  const ::greptime::v1::region::SketchSplitResponse& sketch_split() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SketchSplitResponse* release_sketch_split();
+  ::greptime::v1::region::SketchSplitResponse* mutable_sketch_split();
+  void set_allocated_sketch_split(::greptime::v1::region::SketchSplitResponse* sketch_split);
+  private:
+  const ::greptime::v1::region::SketchSplitResponse& _internal_sketch_split() const;
+  ::greptime::v1::region::SketchSplitResponse* _internal_mutable_sketch_split();
+  public:
+  void unsafe_arena_set_allocated_sketch_split(
+      ::greptime::v1::region::SketchSplitResponse* sketch_split);
+  ::greptime::v1::region::SketchSplitResponse* unsafe_arena_release_sketch_split();
+
   // uint64 affected_rows = 2;
   void clear_affected_rows();
   uint64_t affected_rows() const;
@@ -1801,6 +1842,7 @@ class RegionResponse final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr metadata_;
     ::greptime::v1::ResponseHeader* header_;
     ::greptime::v1::region::SketchResponse* sketch_;
+    ::greptime::v1::region::SketchSplitResponse* sketch_split_;
     uint64_t affected_rows_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -11888,6 +11930,72 @@ inline ::greptime::v1::region::SketchRequest* RegionRequest::mutable_sketch_quer
   return _msg;
 }
 
+// .greptime.v1.region.SketchSplitRequest sketch_split = 26;
+inline bool RegionRequest::_internal_has_sketch_split() const {
+  return body_case() == kSketchSplit;
+}
+inline bool RegionRequest::has_sketch_split() const {
+  return _internal_has_sketch_split();
+}
+inline void RegionRequest::set_has_sketch_split() {
+  _impl_._oneof_case_[0] = kSketchSplit;
+}
+inline ::greptime::v1::region::SketchSplitRequest* RegionRequest::release_sketch_split() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.sketch_split)
+  if (_internal_has_sketch_split()) {
+    clear_has_body();
+    ::greptime::v1::region::SketchSplitRequest* temp = _impl_.body_.sketch_split_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.sketch_split_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::SketchSplitRequest& RegionRequest::_internal_sketch_split() const {
+  return _internal_has_sketch_split()
+      ? *_impl_.body_.sketch_split_
+      : reinterpret_cast< ::greptime::v1::region::SketchSplitRequest&>(::greptime::v1::region::_SketchSplitRequest_default_instance_);
+}
+inline const ::greptime::v1::region::SketchSplitRequest& RegionRequest::sketch_split() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.sketch_split)
+  return _internal_sketch_split();
+}
+inline ::greptime::v1::region::SketchSplitRequest* RegionRequest::unsafe_arena_release_sketch_split() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.sketch_split)
+  if (_internal_has_sketch_split()) {
+    clear_has_body();
+    ::greptime::v1::region::SketchSplitRequest* temp = _impl_.body_.sketch_split_;
+    _impl_.body_.sketch_split_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_sketch_split(::greptime::v1::region::SketchSplitRequest* sketch_split) {
+  clear_body();
+  if (sketch_split) {
+    set_has_sketch_split();
+    _impl_.body_.sketch_split_ = sketch_split;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.sketch_split)
+}
+inline ::greptime::v1::region::SketchSplitRequest* RegionRequest::_internal_mutable_sketch_split() {
+  if (!_internal_has_sketch_split()) {
+    clear_body();
+    set_has_sketch_split();
+    _impl_.body_.sketch_split_ = CreateMaybeMessage< ::greptime::v1::region::SketchSplitRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.sketch_split_;
+}
+inline ::greptime::v1::region::SketchSplitRequest* RegionRequest::mutable_sketch_split() {
+  ::greptime::v1::region::SketchSplitRequest* _msg = _internal_mutable_sketch_split();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.sketch_split)
+  return _msg;
+}
+
 inline bool RegionRequest::has_body() const {
   return body_case() != BODY_NOT_SET;
 }
@@ -12210,6 +12318,91 @@ inline void RegionResponse::set_allocated_sketch(::greptime::v1::region::SketchR
   }
   _impl_.sketch_ = sketch;
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionResponse.sketch)
+}
+
+// .greptime.v1.region.SketchSplitResponse sketch_split = 7;
+inline bool RegionResponse::_internal_has_sketch_split() const {
+  return this != internal_default_instance() && _impl_.sketch_split_ != nullptr;
+}
+inline bool RegionResponse::has_sketch_split() const {
+  return _internal_has_sketch_split();
+}
+inline const ::greptime::v1::region::SketchSplitResponse& RegionResponse::_internal_sketch_split() const {
+  const ::greptime::v1::region::SketchSplitResponse* p = _impl_.sketch_split_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::SketchSplitResponse&>(
+      ::greptime::v1::region::_SketchSplitResponse_default_instance_);
+}
+inline const ::greptime::v1::region::SketchSplitResponse& RegionResponse::sketch_split() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionResponse.sketch_split)
+  return _internal_sketch_split();
+}
+inline void RegionResponse::unsafe_arena_set_allocated_sketch_split(
+    ::greptime::v1::region::SketchSplitResponse* sketch_split) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sketch_split_);
+  }
+  _impl_.sketch_split_ = sketch_split;
+  if (sketch_split) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionResponse.sketch_split)
+}
+inline ::greptime::v1::region::SketchSplitResponse* RegionResponse::release_sketch_split() {
+  
+  ::greptime::v1::region::SketchSplitResponse* temp = _impl_.sketch_split_;
+  _impl_.sketch_split_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::SketchSplitResponse* RegionResponse::unsafe_arena_release_sketch_split() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionResponse.sketch_split)
+  
+  ::greptime::v1::region::SketchSplitResponse* temp = _impl_.sketch_split_;
+  _impl_.sketch_split_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::SketchSplitResponse* RegionResponse::_internal_mutable_sketch_split() {
+  
+  if (_impl_.sketch_split_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::SketchSplitResponse>(GetArenaForAllocation());
+    _impl_.sketch_split_ = p;
+  }
+  return _impl_.sketch_split_;
+}
+inline ::greptime::v1::region::SketchSplitResponse* RegionResponse::mutable_sketch_split() {
+  ::greptime::v1::region::SketchSplitResponse* _msg = _internal_mutable_sketch_split();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionResponse.sketch_split)
+  return _msg;
+}
+inline void RegionResponse::set_allocated_sketch_split(::greptime::v1::region::SketchSplitResponse* sketch_split) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.sketch_split_);
+  }
+  if (sketch_split) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(sketch_split));
+    if (message_arena != submessage_arena) {
+      sketch_split = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, sketch_split, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.sketch_split_ = sketch_split;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.RegionResponse.sketch_split)
 }
 
 // -------------------------------------------------------------------

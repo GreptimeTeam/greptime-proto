@@ -99,6 +99,15 @@ extern SketchSampleDefaultTypeInternal _SketchSample_default_instance_;
 class SketchSampling;
 struct SketchSamplingDefaultTypeInternal;
 extern SketchSamplingDefaultTypeInternal _SketchSampling_default_instance_;
+class SketchSplitPoint;
+struct SketchSplitPointDefaultTypeInternal;
+extern SketchSplitPointDefaultTypeInternal _SketchSplitPoint_default_instance_;
+class SketchSplitRequest;
+struct SketchSplitRequestDefaultTypeInternal;
+extern SketchSplitRequestDefaultTypeInternal _SketchSplitRequest_default_instance_;
+class SketchSplitResponse;
+struct SketchSplitResponseDefaultTypeInternal;
+extern SketchSplitResponseDefaultTypeInternal _SketchSplitResponse_default_instance_;
 class SketchTimeRange;
 struct SketchTimeRangeDefaultTypeInternal;
 extern SketchTimeRangeDefaultTypeInternal _SketchTimeRange_default_instance_;
@@ -125,6 +134,9 @@ template<> ::greptime::v1::region::SketchRequest* Arena::CreateMaybeMessage<::gr
 template<> ::greptime::v1::region::SketchResponse* Arena::CreateMaybeMessage<::greptime::v1::region::SketchResponse>(Arena*);
 template<> ::greptime::v1::region::SketchSample* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSample>(Arena*);
 template<> ::greptime::v1::region::SketchSampling* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSampling>(Arena*);
+template<> ::greptime::v1::region::SketchSplitPoint* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSplitPoint>(Arena*);
+template<> ::greptime::v1::region::SketchSplitRequest* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSplitRequest>(Arena*);
+template<> ::greptime::v1::region::SketchSplitResponse* Arena::CreateMaybeMessage<::greptime::v1::region::SketchSplitResponse>(Arena*);
 template<> ::greptime::v1::region::SketchTimeRange* Arena::CreateMaybeMessage<::greptime::v1::region::SketchTimeRange>(Arena*);
 template<> ::greptime::v1::region::SketchValue* Arena::CreateMaybeMessage<::greptime::v1::region::SketchValue>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -160,6 +172,36 @@ inline bool SketchGapReason_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SketchGapReason* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SketchGapReason>(
     SketchGapReason_descriptor(), name, value);
+}
+enum SketchSplitStatus : int {
+  SKETCH_SPLIT_STATUS_UNSPECIFIED = 0,
+  SKETCH_SPLIT_STATUS_VALIDATED = 1,
+  SKETCH_SPLIT_STATUS_CENSUS = 2,
+  SKETCH_SPLIT_STATUS_UNSTABLE = 3,
+  SKETCH_SPLIT_STATUS_INFEASIBLE = 4,
+  SKETCH_SPLIT_STATUS_MISSING_COVERAGE = 5,
+  SKETCH_SPLIT_STATUS_EMPTY_WINDOW = 6,
+  SketchSplitStatus_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  SketchSplitStatus_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool SketchSplitStatus_IsValid(int value);
+constexpr SketchSplitStatus SketchSplitStatus_MIN = SKETCH_SPLIT_STATUS_UNSPECIFIED;
+constexpr SketchSplitStatus SketchSplitStatus_MAX = SKETCH_SPLIT_STATUS_EMPTY_WINDOW;
+constexpr int SketchSplitStatus_ARRAYSIZE = SketchSplitStatus_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SketchSplitStatus_descriptor();
+template<typename T>
+inline const std::string& SketchSplitStatus_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, SketchSplitStatus>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function SketchSplitStatus_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    SketchSplitStatus_descriptor(), enum_t_value);
+}
+inline bool SketchSplitStatus_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, SketchSplitStatus* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<SketchSplitStatus>(
+    SketchSplitStatus_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -3396,6 +3438,705 @@ class SketchResponse final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
 };
+// -------------------------------------------------------------------
+
+class SketchSplitRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SketchSplitRequest) */ {
+ public:
+  inline SketchSplitRequest() : SketchSplitRequest(nullptr) {}
+  ~SketchSplitRequest() override;
+  explicit PROTOBUF_CONSTEXPR SketchSplitRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SketchSplitRequest(const SketchSplitRequest& from);
+  SketchSplitRequest(SketchSplitRequest&& from) noexcept
+    : SketchSplitRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline SketchSplitRequest& operator=(const SketchSplitRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SketchSplitRequest& operator=(SketchSplitRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SketchSplitRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SketchSplitRequest* internal_default_instance() {
+    return reinterpret_cast<const SketchSplitRequest*>(
+               &_SketchSplitRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(SketchSplitRequest& a, SketchSplitRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SketchSplitRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SketchSplitRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SketchSplitRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SketchSplitRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SketchSplitRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SketchSplitRequest& from) {
+    SketchSplitRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SketchSplitRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SketchSplitRequest";
+  }
+  protected:
+  explicit SketchSplitRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnFieldNumber = 3,
+    kTimeRangeFieldNumber = 2,
+    kRegionIdFieldNumber = 1,
+    kPartsFieldNumber = 4,
+    kInitialFilesFieldNumber = 5,
+    kMinFilesFieldNumber = 6,
+    kMaxFilesFieldNumber = 7,
+    kSeedFieldNumber = 8,
+    kMaxCdfDeltaFieldNumber = 9,
+    kMinPartitionRatioFieldNumber = 10,
+    kMaxPartitionRatioFieldNumber = 11,
+  };
+  // string column = 3;
+  void clear_column();
+  const std::string& column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column();
+  PROTOBUF_NODISCARD std::string* release_column();
+  void set_allocated_column(std::string* column);
+  private:
+  const std::string& _internal_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column(const std::string& value);
+  std::string* _internal_mutable_column();
+  public:
+
+  // .greptime.v1.region.SketchTimeRange time_range = 2;
+  bool has_time_range() const;
+  private:
+  bool _internal_has_time_range() const;
+  public:
+  void clear_time_range();
+  const ::greptime::v1::region::SketchTimeRange& time_range() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::SketchTimeRange* release_time_range();
+  ::greptime::v1::region::SketchTimeRange* mutable_time_range();
+  void set_allocated_time_range(::greptime::v1::region::SketchTimeRange* time_range);
+  private:
+  const ::greptime::v1::region::SketchTimeRange& _internal_time_range() const;
+  ::greptime::v1::region::SketchTimeRange* _internal_mutable_time_range();
+  public:
+  void unsafe_arena_set_allocated_time_range(
+      ::greptime::v1::region::SketchTimeRange* time_range);
+  ::greptime::v1::region::SketchTimeRange* unsafe_arena_release_time_range();
+
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint32 parts = 4;
+  void clear_parts();
+  uint32_t parts() const;
+  void set_parts(uint32_t value);
+  private:
+  uint32_t _internal_parts() const;
+  void _internal_set_parts(uint32_t value);
+  public:
+
+  // uint32 initial_files = 5;
+  void clear_initial_files();
+  uint32_t initial_files() const;
+  void set_initial_files(uint32_t value);
+  private:
+  uint32_t _internal_initial_files() const;
+  void _internal_set_initial_files(uint32_t value);
+  public:
+
+  // uint32 min_files = 6;
+  void clear_min_files();
+  uint32_t min_files() const;
+  void set_min_files(uint32_t value);
+  private:
+  uint32_t _internal_min_files() const;
+  void _internal_set_min_files(uint32_t value);
+  public:
+
+  // uint32 max_files = 7;
+  void clear_max_files();
+  uint32_t max_files() const;
+  void set_max_files(uint32_t value);
+  private:
+  uint32_t _internal_max_files() const;
+  void _internal_set_max_files(uint32_t value);
+  public:
+
+  // uint64 seed = 8;
+  void clear_seed();
+  uint64_t seed() const;
+  void set_seed(uint64_t value);
+  private:
+  uint64_t _internal_seed() const;
+  void _internal_set_seed(uint64_t value);
+  public:
+
+  // double max_cdf_delta = 9;
+  void clear_max_cdf_delta();
+  double max_cdf_delta() const;
+  void set_max_cdf_delta(double value);
+  private:
+  double _internal_max_cdf_delta() const;
+  void _internal_set_max_cdf_delta(double value);
+  public:
+
+  // double min_partition_ratio = 10;
+  void clear_min_partition_ratio();
+  double min_partition_ratio() const;
+  void set_min_partition_ratio(double value);
+  private:
+  double _internal_min_partition_ratio() const;
+  void _internal_set_min_partition_ratio(double value);
+  public:
+
+  // double max_partition_ratio = 11;
+  void clear_max_partition_ratio();
+  double max_partition_ratio() const;
+  void set_max_partition_ratio(double value);
+  private:
+  double _internal_max_partition_ratio() const;
+  void _internal_set_max_partition_ratio(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_;
+    ::greptime::v1::region::SketchTimeRange* time_range_;
+    uint64_t region_id_;
+    uint32_t parts_;
+    uint32_t initial_files_;
+    uint32_t min_files_;
+    uint32_t max_files_;
+    uint64_t seed_;
+    double max_cdf_delta_;
+    double min_partition_ratio_;
+    double max_partition_ratio_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SketchSplitPoint final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SketchSplitPoint) */ {
+ public:
+  inline SketchSplitPoint() : SketchSplitPoint(nullptr) {}
+  ~SketchSplitPoint() override;
+  explicit PROTOBUF_CONSTEXPR SketchSplitPoint(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SketchSplitPoint(const SketchSplitPoint& from);
+  SketchSplitPoint(SketchSplitPoint&& from) noexcept
+    : SketchSplitPoint() {
+    *this = ::std::move(from);
+  }
+
+  inline SketchSplitPoint& operator=(const SketchSplitPoint& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SketchSplitPoint& operator=(SketchSplitPoint&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SketchSplitPoint& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SketchSplitPoint* internal_default_instance() {
+    return reinterpret_cast<const SketchSplitPoint*>(
+               &_SketchSplitPoint_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(SketchSplitPoint& a, SketchSplitPoint& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SketchSplitPoint* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SketchSplitPoint* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SketchSplitPoint* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SketchSplitPoint>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SketchSplitPoint& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SketchSplitPoint& from) {
+    SketchSplitPoint::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SketchSplitPoint* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SketchSplitPoint";
+  }
+  protected:
+  explicit SketchSplitPoint(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 1,
+    kCandidateRankFieldNumber = 2,
+    kValidationRankFieldNumber = 3,
+  };
+  // .greptime.v1.Value value = 1;
+  bool has_value() const;
+  private:
+  bool _internal_has_value() const;
+  public:
+  void clear_value();
+  const ::greptime::v1::Value& value() const;
+  PROTOBUF_NODISCARD ::greptime::v1::Value* release_value();
+  ::greptime::v1::Value* mutable_value();
+  void set_allocated_value(::greptime::v1::Value* value);
+  private:
+  const ::greptime::v1::Value& _internal_value() const;
+  ::greptime::v1::Value* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::greptime::v1::Value* value);
+  ::greptime::v1::Value* unsafe_arena_release_value();
+
+  // double candidate_rank = 2;
+  void clear_candidate_rank();
+  double candidate_rank() const;
+  void set_candidate_rank(double value);
+  private:
+  double _internal_candidate_rank() const;
+  void _internal_set_candidate_rank(double value);
+  public:
+
+  // optional double validation_rank = 3;
+  bool has_validation_rank() const;
+  private:
+  bool _internal_has_validation_rank() const;
+  public:
+  void clear_validation_rank();
+  double validation_rank() const;
+  void set_validation_rank(double value);
+  private:
+  double _internal_validation_rank() const;
+  void _internal_set_validation_rank(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitPoint)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::greptime::v1::Value* value_;
+    double candidate_rank_;
+    double validation_rank_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
+};
+// -------------------------------------------------------------------
+
+class SketchSplitResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.SketchSplitResponse) */ {
+ public:
+  inline SketchSplitResponse() : SketchSplitResponse(nullptr) {}
+  ~SketchSplitResponse() override;
+  explicit PROTOBUF_CONSTEXPR SketchSplitResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  SketchSplitResponse(const SketchSplitResponse& from);
+  SketchSplitResponse(SketchSplitResponse&& from) noexcept
+    : SketchSplitResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline SketchSplitResponse& operator=(const SketchSplitResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline SketchSplitResponse& operator=(SketchSplitResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const SketchSplitResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const SketchSplitResponse* internal_default_instance() {
+    return reinterpret_cast<const SketchSplitResponse*>(
+               &_SketchSplitResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(SketchSplitResponse& a, SketchSplitResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(SketchSplitResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(SketchSplitResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  SketchSplitResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<SketchSplitResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const SketchSplitResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const SketchSplitResponse& from) {
+    SketchSplitResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(SketchSplitResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.SketchSplitResponse";
+  }
+  protected:
+  explicit SketchSplitResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPointsFieldNumber = 2,
+    kGapsFieldNumber = 8,
+    kCandidateFilesFieldNumber = 3,
+    kSampledFilesFieldNumber = 4,
+    kStatusFieldNumber = 1,
+    kRoundsFieldNumber = 7,
+    kProposalFilesFieldNumber = 5,
+    kValidationFilesFieldNumber = 6,
+  };
+  // repeated .greptime.v1.region.SketchSplitPoint points = 2;
+  int points_size() const;
+  private:
+  int _internal_points_size() const;
+  public:
+  void clear_points();
+  ::greptime::v1::region::SketchSplitPoint* mutable_points(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchSplitPoint >*
+      mutable_points();
+  private:
+  const ::greptime::v1::region::SketchSplitPoint& _internal_points(int index) const;
+  ::greptime::v1::region::SketchSplitPoint* _internal_add_points();
+  public:
+  const ::greptime::v1::region::SketchSplitPoint& points(int index) const;
+  ::greptime::v1::region::SketchSplitPoint* add_points();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchSplitPoint >&
+      points() const;
+
+  // repeated .greptime.v1.region.SketchGap gaps = 8;
+  int gaps_size() const;
+  private:
+  int _internal_gaps_size() const;
+  public:
+  void clear_gaps();
+  ::greptime::v1::region::SketchGap* mutable_gaps(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchGap >*
+      mutable_gaps();
+  private:
+  const ::greptime::v1::region::SketchGap& _internal_gaps(int index) const;
+  ::greptime::v1::region::SketchGap* _internal_add_gaps();
+  public:
+  const ::greptime::v1::region::SketchGap& gaps(int index) const;
+  ::greptime::v1::region::SketchGap* add_gaps();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchGap >&
+      gaps() const;
+
+  // uint64 candidate_files = 3;
+  void clear_candidate_files();
+  uint64_t candidate_files() const;
+  void set_candidate_files(uint64_t value);
+  private:
+  uint64_t _internal_candidate_files() const;
+  void _internal_set_candidate_files(uint64_t value);
+  public:
+
+  // uint64 sampled_files = 4;
+  void clear_sampled_files();
+  uint64_t sampled_files() const;
+  void set_sampled_files(uint64_t value);
+  private:
+  uint64_t _internal_sampled_files() const;
+  void _internal_set_sampled_files(uint64_t value);
+  public:
+
+  // .greptime.v1.region.SketchSplitStatus status = 1;
+  void clear_status();
+  ::greptime::v1::region::SketchSplitStatus status() const;
+  void set_status(::greptime::v1::region::SketchSplitStatus value);
+  private:
+  ::greptime::v1::region::SketchSplitStatus _internal_status() const;
+  void _internal_set_status(::greptime::v1::region::SketchSplitStatus value);
+  public:
+
+  // uint32 rounds = 7;
+  void clear_rounds();
+  uint32_t rounds() const;
+  void set_rounds(uint32_t value);
+  private:
+  uint32_t _internal_rounds() const;
+  void _internal_set_rounds(uint32_t value);
+  public:
+
+  // uint64 proposal_files = 5;
+  void clear_proposal_files();
+  uint64_t proposal_files() const;
+  void set_proposal_files(uint64_t value);
+  private:
+  uint64_t _internal_proposal_files() const;
+  void _internal_set_proposal_files(uint64_t value);
+  public:
+
+  // uint64 validation_files = 6;
+  void clear_validation_files();
+  uint64_t validation_files() const;
+  void set_validation_files(uint64_t value);
+  private:
+  uint64_t _internal_validation_files() const;
+  void _internal_set_validation_files(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchSplitPoint > points_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchGap > gaps_;
+    uint64_t candidate_files_;
+    uint64_t sampled_files_;
+    int status_;
+    uint32_t rounds_;
+    uint64_t proposal_files_;
+    uint64_t validation_files_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto;
+};
 // ===================================================================
 
 
@@ -5695,9 +6436,680 @@ inline void SketchResponse::set_allocated_sample(::greptime::v1::region::SketchS
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchResponse.sample)
 }
 
+// -------------------------------------------------------------------
+
+// SketchSplitRequest
+
+// uint64 region_id = 1;
+inline void SketchSplitRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t SketchSplitRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.region_id)
+  return _internal_region_id();
+}
+inline void SketchSplitRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void SketchSplitRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.region_id)
+}
+
+// .greptime.v1.region.SketchTimeRange time_range = 2;
+inline bool SketchSplitRequest::_internal_has_time_range() const {
+  return this != internal_default_instance() && _impl_.time_range_ != nullptr;
+}
+inline bool SketchSplitRequest::has_time_range() const {
+  return _internal_has_time_range();
+}
+inline void SketchSplitRequest::clear_time_range() {
+  if (GetArenaForAllocation() == nullptr && _impl_.time_range_ != nullptr) {
+    delete _impl_.time_range_;
+  }
+  _impl_.time_range_ = nullptr;
+}
+inline const ::greptime::v1::region::SketchTimeRange& SketchSplitRequest::_internal_time_range() const {
+  const ::greptime::v1::region::SketchTimeRange* p = _impl_.time_range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::region::SketchTimeRange&>(
+      ::greptime::v1::region::_SketchTimeRange_default_instance_);
+}
+inline const ::greptime::v1::region::SketchTimeRange& SketchSplitRequest::time_range() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.time_range)
+  return _internal_time_range();
+}
+inline void SketchSplitRequest::unsafe_arena_set_allocated_time_range(
+    ::greptime::v1::region::SketchTimeRange* time_range) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_range_);
+  }
+  _impl_.time_range_ = time_range;
+  if (time_range) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.SketchSplitRequest.time_range)
+}
+inline ::greptime::v1::region::SketchTimeRange* SketchSplitRequest::release_time_range() {
+  
+  ::greptime::v1::region::SketchTimeRange* temp = _impl_.time_range_;
+  _impl_.time_range_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::region::SketchTimeRange* SketchSplitRequest::unsafe_arena_release_time_range() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.SketchSplitRequest.time_range)
+  
+  ::greptime::v1::region::SketchTimeRange* temp = _impl_.time_range_;
+  _impl_.time_range_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::region::SketchTimeRange* SketchSplitRequest::_internal_mutable_time_range() {
+  
+  if (_impl_.time_range_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::region::SketchTimeRange>(GetArenaForAllocation());
+    _impl_.time_range_ = p;
+  }
+  return _impl_.time_range_;
+}
+inline ::greptime::v1::region::SketchTimeRange* SketchSplitRequest::mutable_time_range() {
+  ::greptime::v1::region::SketchTimeRange* _msg = _internal_mutable_time_range();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchSplitRequest.time_range)
+  return _msg;
+}
+inline void SketchSplitRequest::set_allocated_time_range(::greptime::v1::region::SketchTimeRange* time_range) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.time_range_;
+  }
+  if (time_range) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(time_range);
+    if (message_arena != submessage_arena) {
+      time_range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, time_range, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.time_range_ = time_range;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchSplitRequest.time_range)
+}
+
+// string column = 3;
+inline void SketchSplitRequest::clear_column() {
+  _impl_.column_.ClearToEmpty();
+}
+inline const std::string& SketchSplitRequest::column() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.column)
+  return _internal_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void SketchSplitRequest::set_column(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.column_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.column)
+}
+inline std::string* SketchSplitRequest::mutable_column() {
+  std::string* _s = _internal_mutable_column();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchSplitRequest.column)
+  return _s;
+}
+inline const std::string& SketchSplitRequest::_internal_column() const {
+  return _impl_.column_.Get();
+}
+inline void SketchSplitRequest::_internal_set_column(const std::string& value) {
+  
+  _impl_.column_.Set(value, GetArenaForAllocation());
+}
+inline std::string* SketchSplitRequest::_internal_mutable_column() {
+  
+  return _impl_.column_.Mutable(GetArenaForAllocation());
+}
+inline std::string* SketchSplitRequest::release_column() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.SketchSplitRequest.column)
+  return _impl_.column_.Release();
+}
+inline void SketchSplitRequest::set_allocated_column(std::string* column) {
+  if (column != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.column_.SetAllocated(column, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.column_.IsDefault()) {
+    _impl_.column_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchSplitRequest.column)
+}
+
+// uint32 parts = 4;
+inline void SketchSplitRequest::clear_parts() {
+  _impl_.parts_ = 0u;
+}
+inline uint32_t SketchSplitRequest::_internal_parts() const {
+  return _impl_.parts_;
+}
+inline uint32_t SketchSplitRequest::parts() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.parts)
+  return _internal_parts();
+}
+inline void SketchSplitRequest::_internal_set_parts(uint32_t value) {
+  
+  _impl_.parts_ = value;
+}
+inline void SketchSplitRequest::set_parts(uint32_t value) {
+  _internal_set_parts(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.parts)
+}
+
+// uint32 initial_files = 5;
+inline void SketchSplitRequest::clear_initial_files() {
+  _impl_.initial_files_ = 0u;
+}
+inline uint32_t SketchSplitRequest::_internal_initial_files() const {
+  return _impl_.initial_files_;
+}
+inline uint32_t SketchSplitRequest::initial_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.initial_files)
+  return _internal_initial_files();
+}
+inline void SketchSplitRequest::_internal_set_initial_files(uint32_t value) {
+  
+  _impl_.initial_files_ = value;
+}
+inline void SketchSplitRequest::set_initial_files(uint32_t value) {
+  _internal_set_initial_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.initial_files)
+}
+
+// uint32 min_files = 6;
+inline void SketchSplitRequest::clear_min_files() {
+  _impl_.min_files_ = 0u;
+}
+inline uint32_t SketchSplitRequest::_internal_min_files() const {
+  return _impl_.min_files_;
+}
+inline uint32_t SketchSplitRequest::min_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.min_files)
+  return _internal_min_files();
+}
+inline void SketchSplitRequest::_internal_set_min_files(uint32_t value) {
+  
+  _impl_.min_files_ = value;
+}
+inline void SketchSplitRequest::set_min_files(uint32_t value) {
+  _internal_set_min_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.min_files)
+}
+
+// uint32 max_files = 7;
+inline void SketchSplitRequest::clear_max_files() {
+  _impl_.max_files_ = 0u;
+}
+inline uint32_t SketchSplitRequest::_internal_max_files() const {
+  return _impl_.max_files_;
+}
+inline uint32_t SketchSplitRequest::max_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.max_files)
+  return _internal_max_files();
+}
+inline void SketchSplitRequest::_internal_set_max_files(uint32_t value) {
+  
+  _impl_.max_files_ = value;
+}
+inline void SketchSplitRequest::set_max_files(uint32_t value) {
+  _internal_set_max_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.max_files)
+}
+
+// uint64 seed = 8;
+inline void SketchSplitRequest::clear_seed() {
+  _impl_.seed_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitRequest::_internal_seed() const {
+  return _impl_.seed_;
+}
+inline uint64_t SketchSplitRequest::seed() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.seed)
+  return _internal_seed();
+}
+inline void SketchSplitRequest::_internal_set_seed(uint64_t value) {
+  
+  _impl_.seed_ = value;
+}
+inline void SketchSplitRequest::set_seed(uint64_t value) {
+  _internal_set_seed(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.seed)
+}
+
+// double max_cdf_delta = 9;
+inline void SketchSplitRequest::clear_max_cdf_delta() {
+  _impl_.max_cdf_delta_ = 0;
+}
+inline double SketchSplitRequest::_internal_max_cdf_delta() const {
+  return _impl_.max_cdf_delta_;
+}
+inline double SketchSplitRequest::max_cdf_delta() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.max_cdf_delta)
+  return _internal_max_cdf_delta();
+}
+inline void SketchSplitRequest::_internal_set_max_cdf_delta(double value) {
+  
+  _impl_.max_cdf_delta_ = value;
+}
+inline void SketchSplitRequest::set_max_cdf_delta(double value) {
+  _internal_set_max_cdf_delta(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.max_cdf_delta)
+}
+
+// double min_partition_ratio = 10;
+inline void SketchSplitRequest::clear_min_partition_ratio() {
+  _impl_.min_partition_ratio_ = 0;
+}
+inline double SketchSplitRequest::_internal_min_partition_ratio() const {
+  return _impl_.min_partition_ratio_;
+}
+inline double SketchSplitRequest::min_partition_ratio() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.min_partition_ratio)
+  return _internal_min_partition_ratio();
+}
+inline void SketchSplitRequest::_internal_set_min_partition_ratio(double value) {
+  
+  _impl_.min_partition_ratio_ = value;
+}
+inline void SketchSplitRequest::set_min_partition_ratio(double value) {
+  _internal_set_min_partition_ratio(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.min_partition_ratio)
+}
+
+// double max_partition_ratio = 11;
+inline void SketchSplitRequest::clear_max_partition_ratio() {
+  _impl_.max_partition_ratio_ = 0;
+}
+inline double SketchSplitRequest::_internal_max_partition_ratio() const {
+  return _impl_.max_partition_ratio_;
+}
+inline double SketchSplitRequest::max_partition_ratio() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitRequest.max_partition_ratio)
+  return _internal_max_partition_ratio();
+}
+inline void SketchSplitRequest::_internal_set_max_partition_ratio(double value) {
+  
+  _impl_.max_partition_ratio_ = value;
+}
+inline void SketchSplitRequest::set_max_partition_ratio(double value) {
+  _internal_set_max_partition_ratio(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitRequest.max_partition_ratio)
+}
+
+// -------------------------------------------------------------------
+
+// SketchSplitPoint
+
+// .greptime.v1.Value value = 1;
+inline bool SketchSplitPoint::_internal_has_value() const {
+  return this != internal_default_instance() && _impl_.value_ != nullptr;
+}
+inline bool SketchSplitPoint::has_value() const {
+  return _internal_has_value();
+}
+inline const ::greptime::v1::Value& SketchSplitPoint::_internal_value() const {
+  const ::greptime::v1::Value* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::Value&>(
+      ::greptime::v1::_Value_default_instance_);
+}
+inline const ::greptime::v1::Value& SketchSplitPoint::value() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitPoint.value)
+  return _internal_value();
+}
+inline void SketchSplitPoint::unsafe_arena_set_allocated_value(
+    ::greptime::v1::Value* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.SketchSplitPoint.value)
+}
+inline ::greptime::v1::Value* SketchSplitPoint::release_value() {
+  
+  ::greptime::v1::Value* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::Value* SketchSplitPoint::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.SketchSplitPoint.value)
+  
+  ::greptime::v1::Value* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::Value* SketchSplitPoint::_internal_mutable_value() {
+  
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::Value>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
+}
+inline ::greptime::v1::Value* SketchSplitPoint::mutable_value() {
+  ::greptime::v1::Value* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchSplitPoint.value)
+  return _msg;
+}
+inline void SketchSplitPoint::set_allocated_value(::greptime::v1::Value* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(value));
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.SketchSplitPoint.value)
+}
+
+// double candidate_rank = 2;
+inline void SketchSplitPoint::clear_candidate_rank() {
+  _impl_.candidate_rank_ = 0;
+}
+inline double SketchSplitPoint::_internal_candidate_rank() const {
+  return _impl_.candidate_rank_;
+}
+inline double SketchSplitPoint::candidate_rank() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitPoint.candidate_rank)
+  return _internal_candidate_rank();
+}
+inline void SketchSplitPoint::_internal_set_candidate_rank(double value) {
+  
+  _impl_.candidate_rank_ = value;
+}
+inline void SketchSplitPoint::set_candidate_rank(double value) {
+  _internal_set_candidate_rank(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitPoint.candidate_rank)
+}
+
+// optional double validation_rank = 3;
+inline bool SketchSplitPoint::_internal_has_validation_rank() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool SketchSplitPoint::has_validation_rank() const {
+  return _internal_has_validation_rank();
+}
+inline void SketchSplitPoint::clear_validation_rank() {
+  _impl_.validation_rank_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline double SketchSplitPoint::_internal_validation_rank() const {
+  return _impl_.validation_rank_;
+}
+inline double SketchSplitPoint::validation_rank() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitPoint.validation_rank)
+  return _internal_validation_rank();
+}
+inline void SketchSplitPoint::_internal_set_validation_rank(double value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.validation_rank_ = value;
+}
+inline void SketchSplitPoint::set_validation_rank(double value) {
+  _internal_set_validation_rank(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitPoint.validation_rank)
+}
+
+// -------------------------------------------------------------------
+
+// SketchSplitResponse
+
+// .greptime.v1.region.SketchSplitStatus status = 1;
+inline void SketchSplitResponse::clear_status() {
+  _impl_.status_ = 0;
+}
+inline ::greptime::v1::region::SketchSplitStatus SketchSplitResponse::_internal_status() const {
+  return static_cast< ::greptime::v1::region::SketchSplitStatus >(_impl_.status_);
+}
+inline ::greptime::v1::region::SketchSplitStatus SketchSplitResponse::status() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.status)
+  return _internal_status();
+}
+inline void SketchSplitResponse::_internal_set_status(::greptime::v1::region::SketchSplitStatus value) {
+  
+  _impl_.status_ = value;
+}
+inline void SketchSplitResponse::set_status(::greptime::v1::region::SketchSplitStatus value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.status)
+}
+
+// repeated .greptime.v1.region.SketchSplitPoint points = 2;
+inline int SketchSplitResponse::_internal_points_size() const {
+  return _impl_.points_.size();
+}
+inline int SketchSplitResponse::points_size() const {
+  return _internal_points_size();
+}
+inline void SketchSplitResponse::clear_points() {
+  _impl_.points_.Clear();
+}
+inline ::greptime::v1::region::SketchSplitPoint* SketchSplitResponse::mutable_points(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchSplitResponse.points)
+  return _impl_.points_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchSplitPoint >*
+SketchSplitResponse::mutable_points() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.SketchSplitResponse.points)
+  return &_impl_.points_;
+}
+inline const ::greptime::v1::region::SketchSplitPoint& SketchSplitResponse::_internal_points(int index) const {
+  return _impl_.points_.Get(index);
+}
+inline const ::greptime::v1::region::SketchSplitPoint& SketchSplitResponse::points(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.points)
+  return _internal_points(index);
+}
+inline ::greptime::v1::region::SketchSplitPoint* SketchSplitResponse::_internal_add_points() {
+  return _impl_.points_.Add();
+}
+inline ::greptime::v1::region::SketchSplitPoint* SketchSplitResponse::add_points() {
+  ::greptime::v1::region::SketchSplitPoint* _add = _internal_add_points();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.SketchSplitResponse.points)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchSplitPoint >&
+SketchSplitResponse::points() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.SketchSplitResponse.points)
+  return _impl_.points_;
+}
+
+// uint64 candidate_files = 3;
+inline void SketchSplitResponse::clear_candidate_files() {
+  _impl_.candidate_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_candidate_files() const {
+  return _impl_.candidate_files_;
+}
+inline uint64_t SketchSplitResponse::candidate_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.candidate_files)
+  return _internal_candidate_files();
+}
+inline void SketchSplitResponse::_internal_set_candidate_files(uint64_t value) {
+  
+  _impl_.candidate_files_ = value;
+}
+inline void SketchSplitResponse::set_candidate_files(uint64_t value) {
+  _internal_set_candidate_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.candidate_files)
+}
+
+// uint64 sampled_files = 4;
+inline void SketchSplitResponse::clear_sampled_files() {
+  _impl_.sampled_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_sampled_files() const {
+  return _impl_.sampled_files_;
+}
+inline uint64_t SketchSplitResponse::sampled_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.sampled_files)
+  return _internal_sampled_files();
+}
+inline void SketchSplitResponse::_internal_set_sampled_files(uint64_t value) {
+  
+  _impl_.sampled_files_ = value;
+}
+inline void SketchSplitResponse::set_sampled_files(uint64_t value) {
+  _internal_set_sampled_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.sampled_files)
+}
+
+// uint64 proposal_files = 5;
+inline void SketchSplitResponse::clear_proposal_files() {
+  _impl_.proposal_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_proposal_files() const {
+  return _impl_.proposal_files_;
+}
+inline uint64_t SketchSplitResponse::proposal_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.proposal_files)
+  return _internal_proposal_files();
+}
+inline void SketchSplitResponse::_internal_set_proposal_files(uint64_t value) {
+  
+  _impl_.proposal_files_ = value;
+}
+inline void SketchSplitResponse::set_proposal_files(uint64_t value) {
+  _internal_set_proposal_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.proposal_files)
+}
+
+// uint64 validation_files = 6;
+inline void SketchSplitResponse::clear_validation_files() {
+  _impl_.validation_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_validation_files() const {
+  return _impl_.validation_files_;
+}
+inline uint64_t SketchSplitResponse::validation_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.validation_files)
+  return _internal_validation_files();
+}
+inline void SketchSplitResponse::_internal_set_validation_files(uint64_t value) {
+  
+  _impl_.validation_files_ = value;
+}
+inline void SketchSplitResponse::set_validation_files(uint64_t value) {
+  _internal_set_validation_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.validation_files)
+}
+
+// uint32 rounds = 7;
+inline void SketchSplitResponse::clear_rounds() {
+  _impl_.rounds_ = 0u;
+}
+inline uint32_t SketchSplitResponse::_internal_rounds() const {
+  return _impl_.rounds_;
+}
+inline uint32_t SketchSplitResponse::rounds() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.rounds)
+  return _internal_rounds();
+}
+inline void SketchSplitResponse::_internal_set_rounds(uint32_t value) {
+  
+  _impl_.rounds_ = value;
+}
+inline void SketchSplitResponse::set_rounds(uint32_t value) {
+  _internal_set_rounds(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.rounds)
+}
+
+// repeated .greptime.v1.region.SketchGap gaps = 8;
+inline int SketchSplitResponse::_internal_gaps_size() const {
+  return _impl_.gaps_.size();
+}
+inline int SketchSplitResponse::gaps_size() const {
+  return _internal_gaps_size();
+}
+inline void SketchSplitResponse::clear_gaps() {
+  _impl_.gaps_.Clear();
+}
+inline ::greptime::v1::region::SketchGap* SketchSplitResponse::mutable_gaps(int index) {
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.SketchSplitResponse.gaps)
+  return _impl_.gaps_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchGap >*
+SketchSplitResponse::mutable_gaps() {
+  // @@protoc_insertion_point(field_mutable_list:greptime.v1.region.SketchSplitResponse.gaps)
+  return &_impl_.gaps_;
+}
+inline const ::greptime::v1::region::SketchGap& SketchSplitResponse::_internal_gaps(int index) const {
+  return _impl_.gaps_.Get(index);
+}
+inline const ::greptime::v1::region::SketchGap& SketchSplitResponse::gaps(int index) const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.gaps)
+  return _internal_gaps(index);
+}
+inline ::greptime::v1::region::SketchGap* SketchSplitResponse::_internal_add_gaps() {
+  return _impl_.gaps_.Add();
+}
+inline ::greptime::v1::region::SketchGap* SketchSplitResponse::add_gaps() {
+  ::greptime::v1::region::SketchGap* _add = _internal_add_gaps();
+  // @@protoc_insertion_point(field_add:greptime.v1.region.SketchSplitResponse.gaps)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::SketchGap >&
+SketchSplitResponse::gaps() const {
+  // @@protoc_insertion_point(field_list:greptime.v1.region.SketchSplitResponse.gaps)
+  return _impl_.gaps_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -5745,6 +7157,11 @@ template <> struct is_proto_enum< ::greptime::v1::region::SketchGapReason> : ::s
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::region::SketchGapReason>() {
   return ::greptime::v1::region::SketchGapReason_descriptor();
+}
+template <> struct is_proto_enum< ::greptime::v1::region::SketchSplitStatus> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::greptime::v1::region::SketchSplitStatus>() {
+  return ::greptime::v1::region::SketchSplitStatus_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
