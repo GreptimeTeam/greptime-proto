@@ -4025,6 +4025,8 @@ class SketchSplitResponse final :
     kRoundsFieldNumber = 7,
     kProposalFilesFieldNumber = 5,
     kValidationFilesFieldNumber = 6,
+    kSharedFilesFieldNumber = 9,
+    kDirectoryFilesFieldNumber = 10,
   };
   // repeated .greptime.v1.region.SketchSplitPoint points = 2;
   int points_size() const;
@@ -4116,6 +4118,24 @@ class SketchSplitResponse final :
   void _internal_set_validation_files(uint64_t value);
   public:
 
+  // uint64 shared_files = 9;
+  void clear_shared_files();
+  uint64_t shared_files() const;
+  void set_shared_files(uint64_t value);
+  private:
+  uint64_t _internal_shared_files() const;
+  void _internal_set_shared_files(uint64_t value);
+  public:
+
+  // uint64 directory_files = 10;
+  void clear_directory_files();
+  uint64_t directory_files() const;
+  void set_directory_files(uint64_t value);
+  private:
+  uint64_t _internal_directory_files() const;
+  void _internal_set_directory_files(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:greptime.v1.region.SketchSplitResponse)
  private:
   class _Internal;
@@ -4132,6 +4152,8 @@ class SketchSplitResponse final :
     uint32_t rounds_;
     uint64_t proposal_files_;
     uint64_t validation_files_;
+    uint64_t shared_files_;
+    uint64_t directory_files_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -7099,6 +7121,46 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::greptime::v1::region::
 SketchSplitResponse::gaps() const {
   // @@protoc_insertion_point(field_list:greptime.v1.region.SketchSplitResponse.gaps)
   return _impl_.gaps_;
+}
+
+// uint64 shared_files = 9;
+inline void SketchSplitResponse::clear_shared_files() {
+  _impl_.shared_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_shared_files() const {
+  return _impl_.shared_files_;
+}
+inline uint64_t SketchSplitResponse::shared_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.shared_files)
+  return _internal_shared_files();
+}
+inline void SketchSplitResponse::_internal_set_shared_files(uint64_t value) {
+  
+  _impl_.shared_files_ = value;
+}
+inline void SketchSplitResponse::set_shared_files(uint64_t value) {
+  _internal_set_shared_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.shared_files)
+}
+
+// uint64 directory_files = 10;
+inline void SketchSplitResponse::clear_directory_files() {
+  _impl_.directory_files_ = uint64_t{0u};
+}
+inline uint64_t SketchSplitResponse::_internal_directory_files() const {
+  return _impl_.directory_files_;
+}
+inline uint64_t SketchSplitResponse::directory_files() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.SketchSplitResponse.directory_files)
+  return _internal_directory_files();
+}
+inline void SketchSplitResponse::_internal_set_directory_files(uint64_t value) {
+  
+  _impl_.directory_files_ = value;
+}
+inline void SketchSplitResponse::set_directory_files(uint64_t value) {
+  _internal_set_directory_files(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.SketchSplitResponse.directory_files)
 }
 
 #ifdef __GNUC__

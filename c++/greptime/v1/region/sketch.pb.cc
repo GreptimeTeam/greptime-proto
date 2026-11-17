@@ -331,6 +331,8 @@ PROTOBUF_CONSTEXPR SketchSplitResponse::SketchSplitResponse(
   , /*decltype(_impl_.rounds_)*/0u
   , /*decltype(_impl_.proposal_files_)*/uint64_t{0u}
   , /*decltype(_impl_.validation_files_)*/uint64_t{0u}
+  , /*decltype(_impl_.shared_files_)*/uint64_t{0u}
+  , /*decltype(_impl_.directory_files_)*/uint64_t{0u}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct SketchSplitResponseDefaultTypeInternal {
   PROTOBUF_CONSTEXPR SketchSplitResponseDefaultTypeInternal()
@@ -550,6 +552,8 @@ const uint32_t TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSplitResponse, _impl_.validation_files_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSplitResponse, _impl_.rounds_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSplitResponse, _impl_.gaps_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSplitResponse, _impl_.shared_files_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::region::SketchSplitResponse, _impl_.directory_files_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::region::SketchTimeRange)},
@@ -664,30 +668,31 @@ const char descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto[] P
   "ion_ratio\030\013 \001(\001\"\177\n\020SketchSplitPoint\022!\n\005v"
   "alue\030\001 \001(\0132\022.greptime.v1.Value\022\026\n\016candid"
   "ate_rank\030\002 \001(\001\022\034\n\017validation_rank\030\003 \001(\001H"
-  "\000\210\001\001B\022\n\020_validation_rank\"\241\002\n\023SketchSplit"
+  "\000\210\001\001B\022\n\020_validation_rank\"\320\002\n\023SketchSplit"
   "Response\0225\n\006status\030\001 \001(\0162%.greptime.v1.r"
   "egion.SketchSplitStatus\0224\n\006points\030\002 \003(\0132"
   "$.greptime.v1.region.SketchSplitPoint\022\027\n"
   "\017candidate_files\030\003 \001(\004\022\025\n\rsampled_files\030"
   "\004 \001(\004\022\026\n\016proposal_files\030\005 \001(\004\022\030\n\020validat"
   "ion_files\030\006 \001(\004\022\016\n\006rounds\030\007 \001(\r\022+\n\004gaps\030"
-  "\010 \003(\0132\035.greptime.v1.region.SketchGap*\356\001\n"
-  "\017SketchGapReason\022!\n\035SKETCH_GAP_REASON_UN"
-  "SPECIFIED\020\000\022$\n SKETCH_GAP_REASON_NOT_CON"
-  "FIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MISSING_I"
-  "NDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGACY_FORMA"
-  "T\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MISMATCH\020"
-  "\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIBLE\020\005*\221\002"
-  "\n\021SketchSplitStatus\022#\n\037SKETCH_SPLIT_STAT"
-  "US_UNSPECIFIED\020\000\022!\n\035SKETCH_SPLIT_STATUS_"
-  "VALIDATED\020\001\022\036\n\032SKETCH_SPLIT_STATUS_CENSU"
-  "S\020\002\022 \n\034SKETCH_SPLIT_STATUS_UNSTABLE\020\003\022\"\n"
-  "\036SKETCH_SPLIT_STATUS_INFEASIBLE\020\004\022(\n$SKE"
-  "TCH_SPLIT_STATUS_MISSING_COVERAGE\020\005\022$\n S"
-  "KETCH_SPLIT_STATUS_EMPTY_WINDOW\020\006B]\n\025io."
-  "greptime.v1.regionB\006SketchZ<github.com/G"
-  "reptimeTeam/greptime-proto/go/greptime/v"
-  "1/regionb\006proto3"
+  "\010 \003(\0132\035.greptime.v1.region.SketchGap\022\024\n\014"
+  "shared_files\030\t \001(\004\022\027\n\017directory_files\030\n "
+  "\001(\004*\356\001\n\017SketchGapReason\022!\n\035SKETCH_GAP_RE"
+  "ASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_REASON_"
+  "NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MI"
+  "SSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGAC"
+  "Y_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MI"
+  "SMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIB"
+  "LE\020\005*\221\002\n\021SketchSplitStatus\022#\n\037SKETCH_SPL"
+  "IT_STATUS_UNSPECIFIED\020\000\022!\n\035SKETCH_SPLIT_"
+  "STATUS_VALIDATED\020\001\022\036\n\032SKETCH_SPLIT_STATU"
+  "S_CENSUS\020\002\022 \n\034SKETCH_SPLIT_STATUS_UNSTAB"
+  "LE\020\003\022\"\n\036SKETCH_SPLIT_STATUS_INFEASIBLE\020\004"
+  "\022(\n$SKETCH_SPLIT_STATUS_MISSING_COVERAGE"
+  "\020\005\022$\n SKETCH_SPLIT_STATUS_EMPTY_WINDOW\020\006"
+  "B]\n\025io.greptime.v1.regionB\006SketchZ<githu"
+  "b.com/GreptimeTeam/greptime-proto/go/gre"
+  "ptime/v1/regionb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_deps[2] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -695,7 +700,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2freg
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto = {
-    false, false, 3496, descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto,
+    false, false, 3543, descriptor_table_protodef_greptime_2fv1_2fregion_2fsketch_2eproto,
     "greptime/v1/region/sketch.proto",
     &descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_once, descriptor_table_greptime_2fv1_2fregion_2fsketch_2eproto_deps, 2, 21,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fregion_2fsketch_2eproto::offsets,
@@ -6122,12 +6127,14 @@ SketchSplitResponse::SketchSplitResponse(const SketchSplitResponse& from)
     , decltype(_impl_.rounds_){}
     , decltype(_impl_.proposal_files_){}
     , decltype(_impl_.validation_files_){}
+    , decltype(_impl_.shared_files_){}
+    , decltype(_impl_.directory_files_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.candidate_files_, &from._impl_.candidate_files_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.validation_files_) -
-    reinterpret_cast<char*>(&_impl_.candidate_files_)) + sizeof(_impl_.validation_files_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.directory_files_) -
+    reinterpret_cast<char*>(&_impl_.candidate_files_)) + sizeof(_impl_.directory_files_));
   // @@protoc_insertion_point(copy_constructor:greptime.v1.region.SketchSplitResponse)
 }
 
@@ -6144,6 +6151,8 @@ inline void SketchSplitResponse::SharedCtor(
     , decltype(_impl_.rounds_){0u}
     , decltype(_impl_.proposal_files_){uint64_t{0u}}
     , decltype(_impl_.validation_files_){uint64_t{0u}}
+    , decltype(_impl_.shared_files_){uint64_t{0u}}
+    , decltype(_impl_.directory_files_){uint64_t{0u}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -6176,8 +6185,8 @@ void SketchSplitResponse::Clear() {
   _impl_.points_.Clear();
   _impl_.gaps_.Clear();
   ::memset(&_impl_.candidate_files_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.validation_files_) -
-      reinterpret_cast<char*>(&_impl_.candidate_files_)) + sizeof(_impl_.validation_files_));
+      reinterpret_cast<char*>(&_impl_.directory_files_) -
+      reinterpret_cast<char*>(&_impl_.candidate_files_)) + sizeof(_impl_.directory_files_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -6259,6 +6268,22 @@ const char* SketchSplitResponse::_InternalParse(const char* ptr, ::_pbi::ParseCo
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 shared_files = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.shared_files_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 directory_files = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
+          _impl_.directory_files_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -6344,6 +6369,18 @@ uint8_t* SketchSplitResponse::_InternalSerialize(
         InternalWriteMessage(8, repfield, repfield.GetCachedSize(), target, stream);
   }
 
+  // uint64 shared_files = 9;
+  if (this->_internal_shared_files() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(9, this->_internal_shared_files(), target);
+  }
+
+  // uint64 directory_files = 10;
+  if (this->_internal_directory_files() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(10, this->_internal_directory_files(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6405,6 +6442,16 @@ size_t SketchSplitResponse::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_validation_files());
   }
 
+  // uint64 shared_files = 9;
+  if (this->_internal_shared_files() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_shared_files());
+  }
+
+  // uint64 directory_files = 10;
+  if (this->_internal_directory_files() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_directory_files());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -6443,6 +6490,12 @@ void SketchSplitResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   if (from._internal_validation_files() != 0) {
     _this->_internal_set_validation_files(from._internal_validation_files());
   }
+  if (from._internal_shared_files() != 0) {
+    _this->_internal_set_shared_files(from._internal_shared_files());
+  }
+  if (from._internal_directory_files() != 0) {
+    _this->_internal_set_directory_files(from._internal_directory_files());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -6463,8 +6516,8 @@ void SketchSplitResponse::InternalSwap(SketchSplitResponse* other) {
   _impl_.points_.InternalSwap(&other->_impl_.points_);
   _impl_.gaps_.InternalSwap(&other->_impl_.gaps_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(SketchSplitResponse, _impl_.validation_files_)
-      + sizeof(SketchSplitResponse::_impl_.validation_files_)
+      PROTOBUF_FIELD_OFFSET(SketchSplitResponse, _impl_.directory_files_)
+      + sizeof(SketchSplitResponse::_impl_.directory_files_)
       - PROTOBUF_FIELD_OFFSET(SketchSplitResponse, _impl_.candidate_files_)>(
           reinterpret_cast<char*>(&_impl_.candidate_files_),
           reinterpret_cast<char*>(&other->_impl_.candidate_files_));

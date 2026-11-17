@@ -144,7 +144,8 @@ message SketchResponse {
 
 // Generates split points and validates their estimated partition masses in one
 // pinned SST snapshot. This is an engineering stability check, not a confidence
-// guarantee. Limits count unique files across proposal and validation together.
+// guarantee. Limits count unique algorithm-payload files across both samples.
+// Additional directory probes use separate byte budgets and concurrency limits.
 message SketchSplitRequest {
   uint64 region_id = 1;
   SketchTimeRange time_range = 2;
@@ -152,6 +153,7 @@ message SketchSplitRequest {
   uint32 parts = 4;
   uint32 initial_files = 5;
   uint32 min_files = 6;
+  // Maximum unique algorithm-payload files, excluding directory-only probes.
   uint32 max_files = 7;
   uint64 seed = 8;
   // Maximum absolute difference between proposal and validation partition mass.
@@ -164,7 +166,8 @@ message SketchSplitRequest {
 message SketchSplitPoint {
   Value value = 1;
   double candidate_rank = 2;
-  // Absent for a census: all eligible files were read without a holdout.
+  // Absent for a census: all candidates were accounted for without a holdout.
+  // Complete directories can prove empty buckets without reading their payloads.
   optional double validation_rank = 3;
 }
 
@@ -183,9 +186,14 @@ message SketchSplitResponse {
   // Empty on refusal. Values are increasing and ranks are strictly increasing.
   repeated SketchSplitPoint points = 2;
   uint64 candidate_files = 3;
+  // Unique payload files: proposal_files + validation_files - shared_files.
   uint64 sampled_files = 4;
   uint64 proposal_files = 5;
   uint64 validation_files = 6;
   uint32 rounds = 7;
   repeated SketchGap gaps = 8;
+  // Files contributing to both proposal and validation; read once.
+  uint64 shared_files = 9;
+  // Unique directory probes, including cache hits; may exceed max_files.
+  uint64 directory_files = 10;
 }

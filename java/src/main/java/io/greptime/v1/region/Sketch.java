@@ -15855,6 +15855,10 @@ public final class Sketch {
     int getMinFiles();
 
     /**
+     * <pre>
+     * Maximum unique algorithm-payload files, excluding directory-only probes.
+     * </pre>
+     *
      * <code>uint32 max_files = 7;</code>
      * @return The maxFiles.
      */
@@ -15896,7 +15900,8 @@ public final class Sketch {
    * <pre>
    * Generates split points and validates their estimated partition masses in one
    * pinned SST snapshot. This is an engineering stability check, not a confidence
-   * guarantee. Limits count unique files across proposal and validation together.
+   * guarantee. Limits count unique algorithm-payload files across both samples.
+   * Additional directory probes use separate byte budgets and concurrency limits.
    * </pre>
    *
    * Protobuf type {@code greptime.v1.region.SketchSplitRequest}
@@ -16153,6 +16158,10 @@ public final class Sketch {
     public static final int MAX_FILES_FIELD_NUMBER = 7;
     private int maxFiles_;
     /**
+     * <pre>
+     * Maximum unique algorithm-payload files, excluding directory-only probes.
+     * </pre>
+     *
      * <code>uint32 max_files = 7;</code>
      * @return The maxFiles.
      */
@@ -16494,7 +16503,8 @@ public final class Sketch {
      * <pre>
      * Generates split points and validates their estimated partition masses in one
      * pinned SST snapshot. This is an engineering stability check, not a confidence
-     * guarantee. Limits count unique files across proposal and validation together.
+     * guarantee. Limits count unique algorithm-payload files across both samples.
+     * Additional directory probes use separate byte budgets and concurrency limits.
      * </pre>
      *
      * Protobuf type {@code greptime.v1.region.SketchSplitRequest}
@@ -17033,6 +17043,10 @@ public final class Sketch {
 
       private int maxFiles_ ;
       /**
+       * <pre>
+       * Maximum unique algorithm-payload files, excluding directory-only probes.
+       * </pre>
+       *
        * <code>uint32 max_files = 7;</code>
        * @return The maxFiles.
        */
@@ -17041,6 +17055,10 @@ public final class Sketch {
         return maxFiles_;
       }
       /**
+       * <pre>
+       * Maximum unique algorithm-payload files, excluding directory-only probes.
+       * </pre>
+       *
        * <code>uint32 max_files = 7;</code>
        * @param value The maxFiles to set.
        * @return This builder for chaining.
@@ -17052,6 +17070,10 @@ public final class Sketch {
         return this;
       }
       /**
+       * <pre>
+       * Maximum unique algorithm-payload files, excluding directory-only probes.
+       * </pre>
+       *
        * <code>uint32 max_files = 7;</code>
        * @return This builder for chaining.
        */
@@ -17289,7 +17311,8 @@ public final class Sketch {
 
     /**
      * <pre>
-     * Absent for a census: all eligible files were read without a holdout.
+     * Absent for a census: all candidates were accounted for without a holdout.
+     * Complete directories can prove empty buckets without reading their payloads.
      * </pre>
      *
      * <code>optional double validation_rank = 3;</code>
@@ -17298,7 +17321,8 @@ public final class Sketch {
     boolean hasValidationRank();
     /**
      * <pre>
-     * Absent for a census: all eligible files were read without a holdout.
+     * Absent for a census: all candidates were accounted for without a holdout.
+     * Complete directories can prove empty buckets without reading their payloads.
      * </pre>
      *
      * <code>optional double validation_rank = 3;</code>
@@ -17451,7 +17475,8 @@ public final class Sketch {
     private double validationRank_;
     /**
      * <pre>
-     * Absent for a census: all eligible files were read without a holdout.
+     * Absent for a census: all candidates were accounted for without a holdout.
+     * Complete directories can prove empty buckets without reading their payloads.
      * </pre>
      *
      * <code>optional double validation_rank = 3;</code>
@@ -17463,7 +17488,8 @@ public final class Sketch {
     }
     /**
      * <pre>
-     * Absent for a census: all eligible files were read without a holdout.
+     * Absent for a census: all candidates were accounted for without a holdout.
+     * Complete directories can prove empty buckets without reading their payloads.
      * </pre>
      *
      * <code>optional double validation_rank = 3;</code>
@@ -17992,7 +18018,8 @@ public final class Sketch {
       private double validationRank_ ;
       /**
        * <pre>
-       * Absent for a census: all eligible files were read without a holdout.
+       * Absent for a census: all candidates were accounted for without a holdout.
+       * Complete directories can prove empty buckets without reading their payloads.
        * </pre>
        *
        * <code>optional double validation_rank = 3;</code>
@@ -18004,7 +18031,8 @@ public final class Sketch {
       }
       /**
        * <pre>
-       * Absent for a census: all eligible files were read without a holdout.
+       * Absent for a census: all candidates were accounted for without a holdout.
+       * Complete directories can prove empty buckets without reading their payloads.
        * </pre>
        *
        * <code>optional double validation_rank = 3;</code>
@@ -18016,7 +18044,8 @@ public final class Sketch {
       }
       /**
        * <pre>
-       * Absent for a census: all eligible files were read without a holdout.
+       * Absent for a census: all candidates were accounted for without a holdout.
+       * Complete directories can prove empty buckets without reading their payloads.
        * </pre>
        *
        * <code>optional double validation_rank = 3;</code>
@@ -18031,7 +18060,8 @@ public final class Sketch {
       }
       /**
        * <pre>
-       * Absent for a census: all eligible files were read without a holdout.
+       * Absent for a census: all candidates were accounted for without a holdout.
+       * Complete directories can prove empty buckets without reading their payloads.
        * </pre>
        *
        * <code>optional double validation_rank = 3;</code>
@@ -18162,6 +18192,10 @@ public final class Sketch {
     long getCandidateFiles();
 
     /**
+     * <pre>
+     * Unique payload files: proposal_files + validation_files - shared_files.
+     * </pre>
+     *
      * <code>uint64 sampled_files = 4;</code>
      * @return The sampledFiles.
      */
@@ -18208,6 +18242,26 @@ public final class Sketch {
      */
     io.greptime.v1.region.Sketch.SketchGapOrBuilder getGapsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Files contributing to both proposal and validation; read once.
+     * </pre>
+     *
+     * <code>uint64 shared_files = 9;</code>
+     * @return The sharedFiles.
+     */
+    long getSharedFiles();
+
+    /**
+     * <pre>
+     * Unique directory probes, including cache hits; may exceed max_files.
+     * </pre>
+     *
+     * <code>uint64 directory_files = 10;</code>
+     * @return The directoryFiles.
+     */
+    long getDirectoryFiles();
   }
   /**
    * Protobuf type {@code greptime.v1.region.SketchSplitResponse}
@@ -18305,6 +18359,16 @@ public final class Sketch {
               }
               gaps_.add(
                   input.readMessage(io.greptime.v1.region.Sketch.SketchGap.parser(), extensionRegistry));
+              break;
+            }
+            case 72: {
+
+              sharedFiles_ = input.readUInt64();
+              break;
+            }
+            case 80: {
+
+              directoryFiles_ = input.readUInt64();
               break;
             }
             default: {
@@ -18440,6 +18504,10 @@ public final class Sketch {
     public static final int SAMPLED_FILES_FIELD_NUMBER = 4;
     private long sampledFiles_;
     /**
+     * <pre>
+     * Unique payload files: proposal_files + validation_files - shared_files.
+     * </pre>
+     *
      * <code>uint64 sampled_files = 4;</code>
      * @return The sampledFiles.
      */
@@ -18521,6 +18589,36 @@ public final class Sketch {
       return gaps_.get(index);
     }
 
+    public static final int SHARED_FILES_FIELD_NUMBER = 9;
+    private long sharedFiles_;
+    /**
+     * <pre>
+     * Files contributing to both proposal and validation; read once.
+     * </pre>
+     *
+     * <code>uint64 shared_files = 9;</code>
+     * @return The sharedFiles.
+     */
+    @java.lang.Override
+    public long getSharedFiles() {
+      return sharedFiles_;
+    }
+
+    public static final int DIRECTORY_FILES_FIELD_NUMBER = 10;
+    private long directoryFiles_;
+    /**
+     * <pre>
+     * Unique directory probes, including cache hits; may exceed max_files.
+     * </pre>
+     *
+     * <code>uint64 directory_files = 10;</code>
+     * @return The directoryFiles.
+     */
+    @java.lang.Override
+    public long getDirectoryFiles() {
+      return directoryFiles_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -18558,6 +18656,12 @@ public final class Sketch {
       }
       for (int i = 0; i < gaps_.size(); i++) {
         output.writeMessage(8, gaps_.get(i));
+      }
+      if (sharedFiles_ != 0L) {
+        output.writeUInt64(9, sharedFiles_);
+      }
+      if (directoryFiles_ != 0L) {
+        output.writeUInt64(10, directoryFiles_);
       }
       unknownFields.writeTo(output);
     }
@@ -18600,6 +18704,14 @@ public final class Sketch {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, gaps_.get(i));
       }
+      if (sharedFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(9, sharedFiles_);
+      }
+      if (directoryFiles_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(10, directoryFiles_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -18630,6 +18742,10 @@ public final class Sketch {
           != other.getRounds()) return false;
       if (!getGapsList()
           .equals(other.getGapsList())) return false;
+      if (getSharedFiles()
+          != other.getSharedFiles()) return false;
+      if (getDirectoryFiles()
+          != other.getDirectoryFiles()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -18665,6 +18781,12 @@ public final class Sketch {
         hash = (37 * hash) + GAPS_FIELD_NUMBER;
         hash = (53 * hash) + getGapsList().hashCode();
       }
+      hash = (37 * hash) + SHARED_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSharedFiles());
+      hash = (37 * hash) + DIRECTORY_FILES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDirectoryFiles());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18824,6 +18946,10 @@ public final class Sketch {
         } else {
           gapsBuilder_.clear();
         }
+        sharedFiles_ = 0L;
+
+        directoryFiles_ = 0L;
+
         return this;
       }
 
@@ -18875,6 +19001,8 @@ public final class Sketch {
         } else {
           result.gaps_ = gapsBuilder_.build();
         }
+        result.sharedFiles_ = sharedFiles_;
+        result.directoryFiles_ = directoryFiles_;
         onBuilt();
         return result;
       }
@@ -18992,6 +19120,12 @@ public final class Sketch {
               gapsBuilder_.addAllMessages(other.gaps_);
             }
           }
+        }
+        if (other.getSharedFiles() != 0L) {
+          setSharedFiles(other.getSharedFiles());
+        }
+        if (other.getDirectoryFiles() != 0L) {
+          setDirectoryFiles(other.getDirectoryFiles());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -19422,6 +19556,10 @@ public final class Sketch {
 
       private long sampledFiles_ ;
       /**
+       * <pre>
+       * Unique payload files: proposal_files + validation_files - shared_files.
+       * </pre>
+       *
        * <code>uint64 sampled_files = 4;</code>
        * @return The sampledFiles.
        */
@@ -19430,6 +19568,10 @@ public final class Sketch {
         return sampledFiles_;
       }
       /**
+       * <pre>
+       * Unique payload files: proposal_files + validation_files - shared_files.
+       * </pre>
+       *
        * <code>uint64 sampled_files = 4;</code>
        * @param value The sampledFiles to set.
        * @return This builder for chaining.
@@ -19441,6 +19583,10 @@ public final class Sketch {
         return this;
       }
       /**
+       * <pre>
+       * Unique payload files: proposal_files + validation_files - shared_files.
+       * </pre>
+       *
        * <code>uint64 sampled_files = 4;</code>
        * @return This builder for chaining.
        */
@@ -19783,6 +19929,92 @@ public final class Sketch {
         }
         return gapsBuilder_;
       }
+
+      private long sharedFiles_ ;
+      /**
+       * <pre>
+       * Files contributing to both proposal and validation; read once.
+       * </pre>
+       *
+       * <code>uint64 shared_files = 9;</code>
+       * @return The sharedFiles.
+       */
+      @java.lang.Override
+      public long getSharedFiles() {
+        return sharedFiles_;
+      }
+      /**
+       * <pre>
+       * Files contributing to both proposal and validation; read once.
+       * </pre>
+       *
+       * <code>uint64 shared_files = 9;</code>
+       * @param value The sharedFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSharedFiles(long value) {
+        
+        sharedFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Files contributing to both proposal and validation; read once.
+       * </pre>
+       *
+       * <code>uint64 shared_files = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSharedFiles() {
+        
+        sharedFiles_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long directoryFiles_ ;
+      /**
+       * <pre>
+       * Unique directory probes, including cache hits; may exceed max_files.
+       * </pre>
+       *
+       * <code>uint64 directory_files = 10;</code>
+       * @return The directoryFiles.
+       */
+      @java.lang.Override
+      public long getDirectoryFiles() {
+        return directoryFiles_;
+      }
+      /**
+       * <pre>
+       * Unique directory probes, including cache hits; may exceed max_files.
+       * </pre>
+       *
+       * <code>uint64 directory_files = 10;</code>
+       * @param value The directoryFiles to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDirectoryFiles(long value) {
+        
+        directoryFiles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unique directory probes, including cache hits; may exceed max_files.
+       * </pre>
+       *
+       * <code>uint64 directory_files = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDirectoryFiles() {
+        
+        directoryFiles_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -20014,30 +20246,31 @@ public final class Sketch {
       "ion_ratio\030\013 \001(\001\"\177\n\020SketchSplitPoint\022!\n\005v" +
       "alue\030\001 \001(\0132\022.greptime.v1.Value\022\026\n\016candid" +
       "ate_rank\030\002 \001(\001\022\034\n\017validation_rank\030\003 \001(\001H" +
-      "\000\210\001\001B\022\n\020_validation_rank\"\241\002\n\023SketchSplit" +
+      "\000\210\001\001B\022\n\020_validation_rank\"\320\002\n\023SketchSplit" +
       "Response\0225\n\006status\030\001 \001(\0162%.greptime.v1.r" +
       "egion.SketchSplitStatus\0224\n\006points\030\002 \003(\0132" +
       "$.greptime.v1.region.SketchSplitPoint\022\027\n" +
       "\017candidate_files\030\003 \001(\004\022\025\n\rsampled_files\030" +
       "\004 \001(\004\022\026\n\016proposal_files\030\005 \001(\004\022\030\n\020validat" +
       "ion_files\030\006 \001(\004\022\016\n\006rounds\030\007 \001(\r\022+\n\004gaps\030" +
-      "\010 \003(\0132\035.greptime.v1.region.SketchGap*\356\001\n" +
-      "\017SketchGapReason\022!\n\035SKETCH_GAP_REASON_UN" +
-      "SPECIFIED\020\000\022$\n SKETCH_GAP_REASON_NOT_CON" +
-      "FIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MISSING_I" +
-      "NDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGACY_FORMA" +
-      "T\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MISMATCH\020" +
-      "\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIBLE\020\005*\221\002" +
-      "\n\021SketchSplitStatus\022#\n\037SKETCH_SPLIT_STAT" +
-      "US_UNSPECIFIED\020\000\022!\n\035SKETCH_SPLIT_STATUS_" +
-      "VALIDATED\020\001\022\036\n\032SKETCH_SPLIT_STATUS_CENSU" +
-      "S\020\002\022 \n\034SKETCH_SPLIT_STATUS_UNSTABLE\020\003\022\"\n" +
-      "\036SKETCH_SPLIT_STATUS_INFEASIBLE\020\004\022(\n$SKE" +
-      "TCH_SPLIT_STATUS_MISSING_COVERAGE\020\005\022$\n S" +
-      "KETCH_SPLIT_STATUS_EMPTY_WINDOW\020\006B]\n\025io." +
-      "greptime.v1.regionB\006SketchZ<github.com/G" +
-      "reptimeTeam/greptime-proto/go/greptime/v" +
-      "1/regionb\006proto3"
+      "\010 \003(\0132\035.greptime.v1.region.SketchGap\022\024\n\014" +
+      "shared_files\030\t \001(\004\022\027\n\017directory_files\030\n " +
+      "\001(\004*\356\001\n\017SketchGapReason\022!\n\035SKETCH_GAP_RE" +
+      "ASON_UNSPECIFIED\020\000\022$\n SKETCH_GAP_REASON_" +
+      "NOT_CONFIGURED\020\001\022#\n\037SKETCH_GAP_REASON_MI" +
+      "SSING_INDEX\020\002\022#\n\037SKETCH_GAP_REASON_LEGAC" +
+      "Y_FORMAT\020\003\022$\n SKETCH_GAP_REASON_SCOPE_MI" +
+      "SMATCH\020\004\022\"\n\036SKETCH_GAP_REASON_INCOMPATIB" +
+      "LE\020\005*\221\002\n\021SketchSplitStatus\022#\n\037SKETCH_SPL" +
+      "IT_STATUS_UNSPECIFIED\020\000\022!\n\035SKETCH_SPLIT_" +
+      "STATUS_VALIDATED\020\001\022\036\n\032SKETCH_SPLIT_STATU" +
+      "S_CENSUS\020\002\022 \n\034SKETCH_SPLIT_STATUS_UNSTAB" +
+      "LE\020\003\022\"\n\036SKETCH_SPLIT_STATUS_INFEASIBLE\020\004" +
+      "\022(\n$SKETCH_SPLIT_STATUS_MISSING_COVERAGE" +
+      "\020\005\022$\n SKETCH_SPLIT_STATUS_EMPTY_WINDOW\020\006" +
+      "B]\n\025io.greptime.v1.regionB\006SketchZ<githu" +
+      "b.com/GreptimeTeam/greptime-proto/go/gre" +
+      "ptime/v1/regionb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -20170,7 +20403,7 @@ public final class Sketch {
     internal_static_greptime_v1_region_SketchSplitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_region_SketchSplitResponse_descriptor,
-        new java.lang.String[] { "Status", "Points", "CandidateFiles", "SampledFiles", "ProposalFiles", "ValidationFiles", "Rounds", "Gaps", });
+        new java.lang.String[] { "Status", "Points", "CandidateFiles", "SampledFiles", "ProposalFiles", "ValidationFiles", "Rounds", "Gaps", "SharedFiles", "DirectoryFiles", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
   }

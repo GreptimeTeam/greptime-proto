@@ -216,7 +216,8 @@ pub struct SketchResponse {
 }
 /// Generates split points and validates their estimated partition masses in one
 /// pinned SST snapshot. This is an engineering stability check, not a confidence
-/// guarantee. Limits count unique files across proposal and validation together.
+/// guarantee. Limits count unique algorithm-payload files across both samples.
+/// Additional directory probes use separate byte budgets and concurrency limits.
 #[allow(clippy::all)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SketchSplitRequest {
@@ -232,6 +233,7 @@ pub struct SketchSplitRequest {
     pub initial_files: u32,
     #[prost(uint32, tag = "6")]
     pub min_files: u32,
+    /// Maximum unique algorithm-payload files, excluding directory-only probes.
     #[prost(uint32, tag = "7")]
     pub max_files: u32,
     #[prost(uint64, tag = "8")]
@@ -252,7 +254,8 @@ pub struct SketchSplitPoint {
     pub value: ::core::option::Option<super::Value>,
     #[prost(double, tag = "2")]
     pub candidate_rank: f64,
-    /// Absent for a census: all eligible files were read without a holdout.
+    /// Absent for a census: all candidates were accounted for without a holdout.
+    /// Complete directories can prove empty buckets without reading their payloads.
     #[prost(double, optional, tag = "3")]
     pub validation_rank: ::core::option::Option<f64>,
 }
@@ -266,6 +269,7 @@ pub struct SketchSplitResponse {
     pub points: ::prost::alloc::vec::Vec<SketchSplitPoint>,
     #[prost(uint64, tag = "3")]
     pub candidate_files: u64,
+    /// Unique payload files: proposal_files + validation_files - shared_files.
     #[prost(uint64, tag = "4")]
     pub sampled_files: u64,
     #[prost(uint64, tag = "5")]
@@ -276,6 +280,12 @@ pub struct SketchSplitResponse {
     pub rounds: u32,
     #[prost(message, repeated, tag = "8")]
     pub gaps: ::prost::alloc::vec::Vec<SketchGap>,
+    /// Files contributing to both proposal and validation; read once.
+    #[prost(uint64, tag = "9")]
+    pub shared_files: u64,
+    /// Unique directory probes, including cache hits; may exceed max_files.
+    #[prost(uint64, tag = "10")]
+    pub directory_files: u64,
 }
 #[allow(clippy::all)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
