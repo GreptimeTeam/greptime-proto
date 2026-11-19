@@ -42,73 +42,55 @@ mod test {
         partition_expr_version: Option<crate::v1::PartitionExprVersion>,
     }
 
+    /// A receiver that does not know body arm 24.
     #[derive(Clone, PartialEq, Message)]
-    struct LegacyTruncateRequest {
-        #[prost(uint64, tag = "1")]
-        region_id: u64,
-        #[prost(oneof = "LegacyTruncateKind", tags = "2, 3, 4")]
-        kind: Option<LegacyTruncateKind>,
+    struct LegacyRegionRequest {
+        #[prost(oneof = "LegacyRegionRequestBody", tags = "23")]
+        body: Option<LegacyRegionRequestBody>,
     }
 
     #[derive(Clone, PartialEq, prost::Oneof)]
-    enum LegacyTruncateKind {
-        #[prost(message, tag = "2")]
-        All(crate::v1::region::All),
-        #[prost(message, tag = "3")]
-        TimeRanges(crate::v1::TimeRanges),
-        #[prost(message, tag = "4")]
-        Unflushed(crate::v1::region::Unflushed),
+    enum LegacyRegionRequestBody {
+        #[prost(message, tag = "23")]
+        CancelCompaction(crate::v1::region::CancelCompactionRequest),
     }
 
     #[test]
-    fn test_truncate_pending_tails_wire_compatibility() {
-        use crate::v1::region::{truncate_request, All, PendingTails, TruncateRequest, Unflushed};
-        use crate::v1::{TimeRange, TimeRanges};
+    fn test_discard_pending_tails_wire_compatibility() {
+        use crate::v1::region::{CancelCompactionRequest, DiscardPendingTailsRequest};
 
-        let request = TruncateRequest {
-            region_id: 42,
-            kind: Some(truncate_request::Kind::PendingTails(PendingTails {
-                node_id: 7,
-            })),
+        // Body arm 24 with region_id 42 and datanode_id 7.
+        let encoded = [0xc2, 0x01, 0x04, 0x08, 42, 0x10, 7];
+        let request = crate::v1::region::RegionRequest {
+            header: None,
+            body: Some(RegionRequest::DiscardPendingTails(
+                DiscardPendingTailsRequest {
+                    region_id: 42,
+                    datanode_id: 7,
+                },
+            )),
         };
-        let encoded = request.encode_to_vec();
+        assert_eq!(encoded.to_vec(), request.encode_to_vec());
         assert_eq!(
             request,
-            TruncateRequest::decode(encoded.as_slice()).unwrap()
+            crate::v1::region::RegionRequest::decode(&encoded[..]).unwrap()
         );
+        let legacy_decoded = LegacyRegionRequest::decode(&encoded[..]).unwrap();
+        assert!(legacy_decoded.body.is_none());
 
-        let legacy_decoded = LegacyTruncateRequest::decode(encoded.as_slice()).unwrap();
-        assert_eq!(42, legacy_decoded.region_id);
-        assert!(legacy_decoded.kind.is_none());
-
-        let time_ranges = TimeRanges {
-            time_unit: TimeUnit::Second as i32,
-            time_ranges: vec![TimeRange { start: 1, end: 2 }],
-        };
-        for (legacy_kind, kind) in [
-            (
-                LegacyTruncateKind::All(All {}),
-                truncate_request::Kind::All(All {}),
-            ),
-            (
-                LegacyTruncateKind::TimeRanges(time_ranges.clone()),
-                truncate_request::Kind::TimeRanges(time_ranges),
-            ),
-            (
-                LegacyTruncateKind::Unflushed(Unflushed {}),
-                truncate_request::Kind::Unflushed(Unflushed {}),
-            ),
-        ] {
-            let legacy_request = LegacyTruncateRequest {
+        // Body arm 23 with region_id 43 and task_id "task", as legacy senders encode it.
+        let legacy_encoded = [
+            0xba, 0x01, 0x08, 0x08, 43, 0x12, 0x04, b't', b'a', b's', b'k',
+        ];
+        let new_decoded = crate::v1::region::RegionRequest::decode(&legacy_encoded[..]).unwrap();
+        assert_eq!(
+            Some(RegionRequest::CancelCompaction(CancelCompactionRequest {
                 region_id: 43,
-                kind: Some(legacy_kind),
-            };
-            let new_decoded =
-                TruncateRequest::decode(legacy_request.encode_to_vec().as_slice()).unwrap();
-            assert_eq!(43, new_decoded.region_id);
-            assert_eq!(Some(kind), new_decoded.kind);
-            assert_eq!(legacy_request.encode_to_vec(), new_decoded.encode_to_vec());
-        }
+                task_id: "task".to_string(),
+            })),
+            new_decoded.body
+        );
+        assert_eq!(legacy_encoded.to_vec(), new_decoded.encode_to_vec());
     }
 
     #[test]

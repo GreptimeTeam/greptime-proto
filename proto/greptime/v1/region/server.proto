@@ -46,6 +46,15 @@ message CancelCompactionRequest {
   string task_id = 2;
 }
 
+// Discards, without replaying them, all pending WAL tails that the datanode
+// `datanode_id` wrote in the region.
+message DiscardPendingTailsRequest {
+  uint64 region_id = 1;
+  // The id of the datanode that wrote the tails, i.e. the `Peer.id` the
+  // metasrv assigns.
+  uint64 datanode_id = 2;
+}
+
 message RegionRequest {
   RegionRequestHeader header = 1;
   // query request is handled in flight services.
@@ -71,6 +80,7 @@ message RegionRequest {
     RemoteDynFilterRequest remote_dyn_filter = 21;
     CleanUpRequest clean_up = 22;
     CancelCompactionRequest cancel_compaction = 23;
+    DiscardPendingTailsRequest discard_pending_tails = 24;
   }
 }
 
@@ -289,7 +299,6 @@ message TruncateRequest {
     All all = 2;
     TimeRanges time_ranges = 3;
     Unflushed unflushed = 4;
-    PendingTails pending_tails = 5;
   }
 }
 
@@ -298,12 +307,6 @@ message All {}
 
 // Truncate unflushed data in region
 message Unflushed {}
-
-// Truncate the pending WAL tails that one datanode wrote in region
-message PendingTails {
-  // The datanode that wrote the tails.
-  uint64 node_id = 1;
-}
 
 // The column definition of a region. Unlike the message `ColumnDef` in
 // `ddl.proto` which is for clients outside GreptimeDB, this `RegionColumnDef`
