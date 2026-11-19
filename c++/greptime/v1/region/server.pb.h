@@ -121,6 +121,9 @@ extern DeleteRequestDefaultTypeInternal _DeleteRequest_default_instance_;
 class DeleteRequests;
 struct DeleteRequestsDefaultTypeInternal;
 extern DeleteRequestsDefaultTypeInternal _DeleteRequests_default_instance_;
+class DiscardPendingTailsRequest;
+struct DiscardPendingTailsRequestDefaultTypeInternal;
+extern DiscardPendingTailsRequestDefaultTypeInternal _DiscardPendingTailsRequest_default_instance_;
 class DropColumn;
 struct DropColumnDefaultTypeInternal;
 extern DropColumnDefaultTypeInternal _DropColumn_default_instance_;
@@ -240,6 +243,7 @@ template<> ::greptime::v1::region::CreateRequest_OptionsEntry_DoNotUse* Arena::C
 template<> ::greptime::v1::region::CreateRequests* Arena::CreateMaybeMessage<::greptime::v1::region::CreateRequests>(Arena*);
 template<> ::greptime::v1::region::DeleteRequest* Arena::CreateMaybeMessage<::greptime::v1::region::DeleteRequest>(Arena*);
 template<> ::greptime::v1::region::DeleteRequests* Arena::CreateMaybeMessage<::greptime::v1::region::DeleteRequests>(Arena*);
+template<> ::greptime::v1::region::DiscardPendingTailsRequest* Arena::CreateMaybeMessage<::greptime::v1::region::DiscardPendingTailsRequest>(Arena*);
 template<> ::greptime::v1::region::DropColumn* Arena::CreateMaybeMessage<::greptime::v1::region::DropColumn>(Arena*);
 template<> ::greptime::v1::region::DropColumns* Arena::CreateMaybeMessage<::greptime::v1::region::DropColumns>(Arena*);
 template<> ::greptime::v1::region::DropRequest* Arena::CreateMaybeMessage<::greptime::v1::region::DropRequest>(Arena*);
@@ -669,6 +673,165 @@ class CancelCompactionRequest final :
 };
 // -------------------------------------------------------------------
 
+class DiscardPendingTailsRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.DiscardPendingTailsRequest) */ {
+ public:
+  inline DiscardPendingTailsRequest() : DiscardPendingTailsRequest(nullptr) {}
+  ~DiscardPendingTailsRequest() override;
+  explicit PROTOBUF_CONSTEXPR DiscardPendingTailsRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DiscardPendingTailsRequest(const DiscardPendingTailsRequest& from);
+  DiscardPendingTailsRequest(DiscardPendingTailsRequest&& from) noexcept
+    : DiscardPendingTailsRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline DiscardPendingTailsRequest& operator=(const DiscardPendingTailsRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DiscardPendingTailsRequest& operator=(DiscardPendingTailsRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DiscardPendingTailsRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DiscardPendingTailsRequest* internal_default_instance() {
+    return reinterpret_cast<const DiscardPendingTailsRequest*>(
+               &_DiscardPendingTailsRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(DiscardPendingTailsRequest& a, DiscardPendingTailsRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DiscardPendingTailsRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DiscardPendingTailsRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DiscardPendingTailsRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<DiscardPendingTailsRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DiscardPendingTailsRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const DiscardPendingTailsRequest& from) {
+    DiscardPendingTailsRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DiscardPendingTailsRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.region.DiscardPendingTailsRequest";
+  }
+  protected:
+  explicit DiscardPendingTailsRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegionIdFieldNumber = 1,
+    kDatanodeIdFieldNumber = 2,
+  };
+  // uint64 region_id = 1;
+  void clear_region_id();
+  uint64_t region_id() const;
+  void set_region_id(uint64_t value);
+  private:
+  uint64_t _internal_region_id() const;
+  void _internal_set_region_id(uint64_t value);
+  public:
+
+  // uint64 datanode_id = 2;
+  void clear_datanode_id();
+  uint64_t datanode_id() const;
+  void set_datanode_id(uint64_t value);
+  private:
+  uint64_t _internal_datanode_id() const;
+  void _internal_set_datanode_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.region.DiscardPendingTailsRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    uint64_t region_id_;
+    uint64_t datanode_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fregion_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class RegionRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.region.RegionRequest) */ {
  public:
@@ -734,6 +897,7 @@ class RegionRequest final :
     kRemoteDynFilter = 21,
     kCleanUp = 22,
     kCancelCompaction = 23,
+    kDiscardPendingTails = 24,
     BODY_NOT_SET = 0,
   };
 
@@ -742,7 +906,7 @@ class RegionRequest final :
                &_RegionRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(RegionRequest& a, RegionRequest& b) {
     a.Swap(&b);
@@ -837,6 +1001,7 @@ class RegionRequest final :
     kRemoteDynFilterFieldNumber = 21,
     kCleanUpFieldNumber = 22,
     kCancelCompactionFieldNumber = 23,
+    kDiscardPendingTailsFieldNumber = 24,
   };
   // .greptime.v1.region.RegionRequestHeader header = 1;
   bool has_header() const;
@@ -1234,6 +1399,24 @@ class RegionRequest final :
       ::greptime::v1::region::CancelCompactionRequest* cancel_compaction);
   ::greptime::v1::region::CancelCompactionRequest* unsafe_arena_release_cancel_compaction();
 
+  // .greptime.v1.region.DiscardPendingTailsRequest discard_pending_tails = 24;
+  bool has_discard_pending_tails() const;
+  private:
+  bool _internal_has_discard_pending_tails() const;
+  public:
+  void clear_discard_pending_tails();
+  const ::greptime::v1::region::DiscardPendingTailsRequest& discard_pending_tails() const;
+  PROTOBUF_NODISCARD ::greptime::v1::region::DiscardPendingTailsRequest* release_discard_pending_tails();
+  ::greptime::v1::region::DiscardPendingTailsRequest* mutable_discard_pending_tails();
+  void set_allocated_discard_pending_tails(::greptime::v1::region::DiscardPendingTailsRequest* discard_pending_tails);
+  private:
+  const ::greptime::v1::region::DiscardPendingTailsRequest& _internal_discard_pending_tails() const;
+  ::greptime::v1::region::DiscardPendingTailsRequest* _internal_mutable_discard_pending_tails();
+  public:
+  void unsafe_arena_set_allocated_discard_pending_tails(
+      ::greptime::v1::region::DiscardPendingTailsRequest* discard_pending_tails);
+  ::greptime::v1::region::DiscardPendingTailsRequest* unsafe_arena_release_discard_pending_tails();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.region.RegionRequest)
@@ -1260,6 +1443,7 @@ class RegionRequest final :
   void set_has_remote_dyn_filter();
   void set_has_clean_up();
   void set_has_cancel_compaction();
+  void set_has_discard_pending_tails();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -1293,6 +1477,7 @@ class RegionRequest final :
       ::greptime::v1::region::RemoteDynFilterRequest* remote_dyn_filter_;
       ::greptime::v1::region::CleanUpRequest* clean_up_;
       ::greptime::v1::region::CancelCompactionRequest* cancel_compaction_;
+      ::greptime::v1::region::DiscardPendingTailsRequest* discard_pending_tails_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -1377,7 +1562,7 @@ class RegionResponse final :
                &_RegionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(RegionResponse& a, RegionResponse& b) {
     a.Swap(&b);
@@ -1607,7 +1792,7 @@ class RegionRequestFailure final :
                &_RegionRequestFailure_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(RegionRequestFailure& a, RegionRequestFailure& b) {
     a.Swap(&b);
@@ -1775,7 +1960,7 @@ class InsertRequests final :
                &_InsertRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(InsertRequests& a, InsertRequests& b) {
     a.Swap(&b);
@@ -1932,7 +2117,7 @@ class DeleteRequests final :
                &_DeleteRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(DeleteRequests& a, DeleteRequests& b) {
     a.Swap(&b);
@@ -2089,7 +2274,7 @@ class InsertRequest final :
                &_InsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(InsertRequest& a, InsertRequest& b) {
     a.Swap(&b);
@@ -2288,7 +2473,7 @@ class DeleteRequest final :
                &_DeleteRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(DeleteRequest& a, DeleteRequest& b) {
     a.Swap(&b);
@@ -2476,7 +2661,7 @@ class QueryRequest final :
                &_QueryRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(QueryRequest& a, QueryRequest& b) {
     a.Swap(&b);
@@ -2660,7 +2845,7 @@ class CreateRequests final :
                &_CreateRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CreateRequests& a, CreateRequests& b) {
     a.Swap(&b);
@@ -2845,7 +3030,7 @@ class CreateRequest final :
                &_CreateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CreateRequest& a, CreateRequest& b) {
     a.Swap(&b);
@@ -3136,7 +3321,7 @@ class RegionRequirements final :
                &_RegionRequirements_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(RegionRequirements& a, RegionRequirements& b) {
     a.Swap(&b);
@@ -3284,7 +3469,7 @@ class DropRequests final :
                &_DropRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(DropRequests& a, DropRequests& b) {
     a.Swap(&b);
@@ -3441,7 +3626,7 @@ class DropRequest final :
                &_DropRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(DropRequest& a, DropRequest& b) {
     a.Swap(&b);
@@ -3661,7 +3846,7 @@ class OpenRequest final :
                &_OpenRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(OpenRequest& a, OpenRequest& b) {
     a.Swap(&b);
@@ -3895,7 +4080,7 @@ class CleanUpRequest final :
                &_CleanUpRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CleanUpRequest& a, CleanUpRequest& b) {
     a.Swap(&b);
@@ -4101,7 +4286,7 @@ class CloseRequest final :
                &_CloseRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CloseRequest& a, CloseRequest& b) {
     a.Swap(&b);
@@ -4260,7 +4445,7 @@ class AlterRequests final :
                &_AlterRequests_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(AlterRequests& a, AlterRequests& b) {
     a.Swap(&b);
@@ -4434,7 +4619,7 @@ class AlterRequest final :
                &_AlterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(AlterRequest& a, AlterRequest& b) {
     a.Swap(&b);
@@ -4877,7 +5062,7 @@ class SyncColumns final :
                &_SyncColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(SyncColumns& a, SyncColumns& b) {
     a.Swap(&b);
@@ -5034,7 +5219,7 @@ class AddColumns final :
                &_AddColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(AddColumns& a, AddColumns& b) {
     a.Swap(&b);
@@ -5191,7 +5376,7 @@ class DropColumns final :
                &_DropColumns_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(DropColumns& a, DropColumns& b) {
     a.Swap(&b);
@@ -5348,7 +5533,7 @@ class AddColumn final :
                &_AddColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(AddColumn& a, AddColumn& b) {
     a.Swap(&b);
@@ -5525,7 +5710,7 @@ class DropColumn final :
                &_DropColumn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(DropColumn& a, DropColumn& b) {
     a.Swap(&b);
@@ -5678,7 +5863,7 @@ class FlushRequest final :
                &_FlushRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(FlushRequest& a, FlushRequest& b) {
     a.Swap(&b);
@@ -5825,7 +6010,7 @@ class Regular final :
                &_Regular_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(Regular& a, Regular& b) {
     a.Swap(&b);
@@ -5944,7 +6129,7 @@ class StrictWindow final :
                &_StrictWindow_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(StrictWindow& a, StrictWindow& b) {
     a.Swap(&b);
@@ -6092,7 +6277,7 @@ class CompactionTimeRange final :
                &_CompactionTimeRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CompactionTimeRange& a, CompactionTimeRange& b) {
     a.Swap(&b);
@@ -6268,7 +6453,7 @@ class CompactRequest final :
                &_CompactRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CompactRequest& a, CompactRequest& b) {
     a.Swap(&b);
@@ -6507,7 +6692,7 @@ class TruncateRequest final :
                &_TruncateRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(TruncateRequest& a, TruncateRequest& b) {
     a.Swap(&b);
@@ -6728,7 +6913,7 @@ class All final :
                &_All_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(All& a, All& b) {
     a.Swap(&b);
@@ -6846,7 +7031,7 @@ class Unflushed final :
                &_Unflushed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(Unflushed& a, Unflushed& b) {
     a.Swap(&b);
@@ -6965,7 +7150,7 @@ class RegionColumnDef final :
                &_RegionColumnDef_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(RegionColumnDef& a, RegionColumnDef& b) {
     a.Swap(&b);
@@ -7138,7 +7323,7 @@ class BulkInsertRequest final :
                &_BulkInsertRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(BulkInsertRequest& a, BulkInsertRequest& b) {
     a.Swap(&b);
@@ -7369,7 +7554,7 @@ class AlignedSchemaVersion final :
                &_AlignedSchemaVersion_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(AlignedSchemaVersion& a, AlignedSchemaVersion& b) {
     a.Swap(&b);
@@ -7517,7 +7702,7 @@ class MitoManifestInfo final :
                &_MitoManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    42;
 
   friend void swap(MitoManifestInfo& a, MitoManifestInfo& b) {
     a.Swap(&b);
@@ -7665,7 +7850,7 @@ class MetricManifestInfo final :
                &_MetricManifestInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    43;
 
   friend void swap(MetricManifestInfo& a, MetricManifestInfo& b) {
     a.Swap(&b);
@@ -7830,7 +8015,7 @@ class SyncRequest final :
                &_SyncRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    44;
 
   friend void swap(SyncRequest& a, SyncRequest& b) {
     a.Swap(&b);
@@ -8031,7 +8216,7 @@ class ListMetadataRequest final :
                &_ListMetadataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    45;
 
   friend void swap(ListMetadataRequest& a, ListMetadataRequest& b) {
     a.Swap(&b);
@@ -8192,7 +8377,7 @@ class BuildIndexRequest_SstIndexOptions final :
                &_BuildIndexRequest_SstIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    46;
 
   friend void swap(BuildIndexRequest_SstIndexOptions& a, BuildIndexRequest_SstIndexOptions& b) {
     a.Swap(&b);
@@ -8310,7 +8495,7 @@ class BuildIndexRequest_SeriesIndexOptions final :
                &_BuildIndexRequest_SeriesIndexOptions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    47;
 
   friend void swap(BuildIndexRequest_SeriesIndexOptions& a, BuildIndexRequest_SeriesIndexOptions& b) {
     a.Swap(&b);
@@ -8435,7 +8620,7 @@ class BuildIndexRequest final :
                &_BuildIndexRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    48;
 
   friend void swap(BuildIndexRequest& a, BuildIndexRequest& b) {
     a.Swap(&b);
@@ -8639,7 +8824,7 @@ class FileMetas final :
                &_FileMetas_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    49;
 
   friend void swap(FileMetas& a, FileMetas& b) {
     a.Swap(&b);
@@ -8792,7 +8977,7 @@ class ApplyStagingManifestRequest final :
                &_ApplyStagingManifestRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    50;
 
   friend void swap(ApplyStagingManifestRequest& a, ApplyStagingManifestRequest& b) {
     a.Swap(&b);
@@ -8989,7 +9174,7 @@ class RemoteDynFilterRequest final :
                &_RemoteDynFilterRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    51;
 
   friend void swap(RemoteDynFilterRequest& a, RemoteDynFilterRequest& b) {
     a.Swap(&b);
@@ -9195,7 +9380,7 @@ class RemoteDynFilterUpdate final :
                &_RemoteDynFilterUpdate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    52;
 
   friend void swap(RemoteDynFilterUpdate& a, RemoteDynFilterUpdate& b) {
     a.Swap(&b);
@@ -9386,7 +9571,7 @@ class RemoteDynFilterUnregister final :
                &_RemoteDynFilterUnregister_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    53;
 
   friend void swap(RemoteDynFilterUnregister& a, RemoteDynFilterUnregister& b) {
     a.Swap(&b);
@@ -9738,6 +9923,50 @@ inline void CancelCompactionRequest::set_allocated_task_id(std::string* task_id)
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.region.CancelCompactionRequest.task_id)
+}
+
+// -------------------------------------------------------------------
+
+// DiscardPendingTailsRequest
+
+// uint64 region_id = 1;
+inline void DiscardPendingTailsRequest::clear_region_id() {
+  _impl_.region_id_ = uint64_t{0u};
+}
+inline uint64_t DiscardPendingTailsRequest::_internal_region_id() const {
+  return _impl_.region_id_;
+}
+inline uint64_t DiscardPendingTailsRequest::region_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DiscardPendingTailsRequest.region_id)
+  return _internal_region_id();
+}
+inline void DiscardPendingTailsRequest::_internal_set_region_id(uint64_t value) {
+  
+  _impl_.region_id_ = value;
+}
+inline void DiscardPendingTailsRequest::set_region_id(uint64_t value) {
+  _internal_set_region_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DiscardPendingTailsRequest.region_id)
+}
+
+// uint64 datanode_id = 2;
+inline void DiscardPendingTailsRequest::clear_datanode_id() {
+  _impl_.datanode_id_ = uint64_t{0u};
+}
+inline uint64_t DiscardPendingTailsRequest::_internal_datanode_id() const {
+  return _impl_.datanode_id_;
+}
+inline uint64_t DiscardPendingTailsRequest::datanode_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.DiscardPendingTailsRequest.datanode_id)
+  return _internal_datanode_id();
+}
+inline void DiscardPendingTailsRequest::_internal_set_datanode_id(uint64_t value) {
+  
+  _impl_.datanode_id_ = value;
+}
+inline void DiscardPendingTailsRequest::set_datanode_id(uint64_t value) {
+  _internal_set_datanode_id(value);
+  // @@protoc_insertion_point(field_set:greptime.v1.region.DiscardPendingTailsRequest.datanode_id)
 }
 
 // -------------------------------------------------------------------
@@ -11385,6 +11614,80 @@ inline ::greptime::v1::region::CancelCompactionRequest* RegionRequest::_internal
 inline ::greptime::v1::region::CancelCompactionRequest* RegionRequest::mutable_cancel_compaction() {
   ::greptime::v1::region::CancelCompactionRequest* _msg = _internal_mutable_cancel_compaction();
   // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.cancel_compaction)
+  return _msg;
+}
+
+// .greptime.v1.region.DiscardPendingTailsRequest discard_pending_tails = 24;
+inline bool RegionRequest::_internal_has_discard_pending_tails() const {
+  return body_case() == kDiscardPendingTails;
+}
+inline bool RegionRequest::has_discard_pending_tails() const {
+  return _internal_has_discard_pending_tails();
+}
+inline void RegionRequest::set_has_discard_pending_tails() {
+  _impl_._oneof_case_[0] = kDiscardPendingTails;
+}
+inline void RegionRequest::clear_discard_pending_tails() {
+  if (_internal_has_discard_pending_tails()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.discard_pending_tails_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::region::DiscardPendingTailsRequest* RegionRequest::release_discard_pending_tails() {
+  // @@protoc_insertion_point(field_release:greptime.v1.region.RegionRequest.discard_pending_tails)
+  if (_internal_has_discard_pending_tails()) {
+    clear_has_body();
+    ::greptime::v1::region::DiscardPendingTailsRequest* temp = _impl_.body_.discard_pending_tails_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.discard_pending_tails_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::region::DiscardPendingTailsRequest& RegionRequest::_internal_discard_pending_tails() const {
+  return _internal_has_discard_pending_tails()
+      ? *_impl_.body_.discard_pending_tails_
+      : reinterpret_cast< ::greptime::v1::region::DiscardPendingTailsRequest&>(::greptime::v1::region::_DiscardPendingTailsRequest_default_instance_);
+}
+inline const ::greptime::v1::region::DiscardPendingTailsRequest& RegionRequest::discard_pending_tails() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.region.RegionRequest.discard_pending_tails)
+  return _internal_discard_pending_tails();
+}
+inline ::greptime::v1::region::DiscardPendingTailsRequest* RegionRequest::unsafe_arena_release_discard_pending_tails() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.region.RegionRequest.discard_pending_tails)
+  if (_internal_has_discard_pending_tails()) {
+    clear_has_body();
+    ::greptime::v1::region::DiscardPendingTailsRequest* temp = _impl_.body_.discard_pending_tails_;
+    _impl_.body_.discard_pending_tails_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void RegionRequest::unsafe_arena_set_allocated_discard_pending_tails(::greptime::v1::region::DiscardPendingTailsRequest* discard_pending_tails) {
+  clear_body();
+  if (discard_pending_tails) {
+    set_has_discard_pending_tails();
+    _impl_.body_.discard_pending_tails_ = discard_pending_tails;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.region.RegionRequest.discard_pending_tails)
+}
+inline ::greptime::v1::region::DiscardPendingTailsRequest* RegionRequest::_internal_mutable_discard_pending_tails() {
+  if (!_internal_has_discard_pending_tails()) {
+    clear_body();
+    set_has_discard_pending_tails();
+    _impl_.body_.discard_pending_tails_ = CreateMaybeMessage< ::greptime::v1::region::DiscardPendingTailsRequest >(GetArenaForAllocation());
+  }
+  return _impl_.body_.discard_pending_tails_;
+}
+inline ::greptime::v1::region::DiscardPendingTailsRequest* RegionRequest::mutable_discard_pending_tails() {
+  ::greptime::v1::region::DiscardPendingTailsRequest* _msg = _internal_mutable_discard_pending_tails();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.region.RegionRequest.discard_pending_tails)
   return _msg;
 }
 
@@ -16915,6 +17218,8 @@ inline void RemoteDynFilterUnregister::set_allocated_filter_id(std::string* filt
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

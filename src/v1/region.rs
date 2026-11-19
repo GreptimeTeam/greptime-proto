@@ -42,6 +42,57 @@ mod test {
         partition_expr_version: Option<crate::v1::PartitionExprVersion>,
     }
 
+    /// A receiver that does not know body arm 24.
+    #[derive(Clone, PartialEq, Message)]
+    struct LegacyRegionRequest {
+        #[prost(oneof = "LegacyRegionRequestBody", tags = "23")]
+        body: Option<LegacyRegionRequestBody>,
+    }
+
+    #[derive(Clone, PartialEq, prost::Oneof)]
+    enum LegacyRegionRequestBody {
+        #[prost(message, tag = "23")]
+        CancelCompaction(crate::v1::region::CancelCompactionRequest),
+    }
+
+    #[test]
+    fn test_discard_pending_tails_wire_compatibility() {
+        use crate::v1::region::{CancelCompactionRequest, DiscardPendingTailsRequest};
+
+        // Body arm 24 with region_id 42 and datanode_id 7.
+        let encoded = [0xc2, 0x01, 0x04, 0x08, 42, 0x10, 7];
+        let request = crate::v1::region::RegionRequest {
+            header: None,
+            body: Some(RegionRequest::DiscardPendingTails(
+                DiscardPendingTailsRequest {
+                    region_id: 42,
+                    datanode_id: 7,
+                },
+            )),
+        };
+        assert_eq!(encoded.to_vec(), request.encode_to_vec());
+        assert_eq!(
+            request,
+            crate::v1::region::RegionRequest::decode(&encoded[..]).unwrap()
+        );
+        let legacy_decoded = LegacyRegionRequest::decode(&encoded[..]).unwrap();
+        assert!(legacy_decoded.body.is_none());
+
+        // Body arm 23 with region_id 43 and task_id "task", as legacy senders encode it.
+        let legacy_encoded = [
+            0xba, 0x01, 0x08, 0x08, 43, 0x12, 0x04, b't', b'a', b's', b'k',
+        ];
+        let new_decoded = crate::v1::region::RegionRequest::decode(&legacy_encoded[..]).unwrap();
+        assert_eq!(
+            Some(RegionRequest::CancelCompaction(CancelCompactionRequest {
+                region_id: 43,
+                task_id: "task".to_string(),
+            })),
+            new_decoded.body
+        );
+        assert_eq!(legacy_encoded.to_vec(), new_decoded.encode_to_vec());
+    }
+
     #[test]
     fn test_build_index_options_wire_compatibility() {
         use crate::v1::region::{build_index_request, BuildIndexRequest};
