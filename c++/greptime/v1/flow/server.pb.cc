@@ -220,10 +220,39 @@ struct FlushFlowDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 FlushFlowDefaultTypeInternal _FlushFlow_default_instance_;
+PROTOBUF_CONSTEXPR BackfillFlow::BackfillFlow(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.flow_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.range_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct BackfillFlowDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BackfillFlowDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BackfillFlowDefaultTypeInternal() {}
+  union {
+    BackfillFlow _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BackfillFlowDefaultTypeInternal _BackfillFlow_default_instance_;
+PROTOBUF_CONSTEXPR BackfillStatus::BackfillStatus(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.flow_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct BackfillStatusDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR BackfillStatusDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~BackfillStatusDefaultTypeInternal() {}
+  union {
+    BackfillStatus _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BackfillStatusDefaultTypeInternal _BackfillStatus_default_instance_;
 }  // namespace flow
 }  // namespace v1
 }  // namespace greptime
-static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[14];
+static ::_pb::Metadata file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[16];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto = nullptr;
 
@@ -296,6 +325,8 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowRequest, _impl_.body_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse, _internal_metadata_),
@@ -357,6 +388,23 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::FlushFlow, _impl_.flow_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillFlow, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillFlow, _impl_.catalog_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillFlow, _impl_.flow_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillFlow, _impl_.range_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillStatus, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillStatus, _impl_.catalog_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::BackfillStatus, _impl_.flow_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::flow::DirtyWindowRequests)},
@@ -367,12 +415,14 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 42, -1, -1, sizeof(::greptime::v1::flow::InsertRequests)},
   { 49, -1, -1, sizeof(::greptime::v1::flow::InsertRequest)},
   { 58, -1, -1, sizeof(::greptime::v1::flow::FlowRequest)},
-  { 69, 77, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse)},
-  { 79, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
-  { 89, 97, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
-  { 99, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
-  { 115, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
-  { 122, -1, -1, sizeof(::greptime::v1::flow::FlushFlow)},
+  { 71, 79, -1, sizeof(::greptime::v1::flow::FlowResponse_ExtensionsEntry_DoNotUse)},
+  { 81, -1, -1, sizeof(::greptime::v1::flow::FlowResponse)},
+  { 91, 99, -1, sizeof(::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse)},
+  { 101, -1, -1, sizeof(::greptime::v1::flow::CreateRequest)},
+  { 117, -1, -1, sizeof(::greptime::v1::flow::DropRequest)},
+  { 124, -1, -1, sizeof(::greptime::v1::flow::FlushFlow)},
+  { 131, -1, -1, sizeof(::greptime::v1::flow::BackfillFlow)},
+  { 140, -1, -1, sizeof(::greptime::v1::flow::BackfillStatus)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -390,6 +440,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::greptime::v1::flow::_CreateRequest_default_instance_._instance,
   &::greptime::v1::flow::_DropRequest_default_instance_._instance,
   &::greptime::v1::flow::_FlushFlow_default_instance_._instance,
+  &::greptime::v1::flow::_BackfillFlow_default_instance_._instance,
+  &::greptime::v1::flow::_BackfillStatus_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -412,42 +464,49 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "rtRequest\"\206\001\n\rInsertRequest\022\021\n\tregion_id"
   "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022"
   "A\n\026partition_expr_version\030\003 \001(\0132!.grepti"
-  "me.v1.PartitionExprVersion\"\332\001\n\013FlowReque"
+  "me.v1.PartitionExprVersion\"\313\002\n\013FlowReque"
   "st\0223\n\006header\030@ \001(\0132#.greptime.v1.flow.Fl"
   "owRequestHeader\0221\n\006create\030\001 \001(\0132\037.grepti"
   "me.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001(\013"
   "2\035.greptime.v1.flow.DropRequestH\000\022,\n\005flu"
-  "sh\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH\000B"
-  "\006\n\004body\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001(\013"
-  "2\033.greptime.v1.ResponseHeader\022\025\n\raffecte"
-  "d_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.g"
-  "reptime.v1.FlowId\022B\n\nextensions\030\004 \003(\0132.."
-  "greptime.v1.flow.FlowResponse.Extensions"
-  "Entry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n"
-  "\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022$\n\007fl"
-  "ow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n\020sour"
-  "ce_table_ids\030\002 \003(\0132\024.greptime.v1.TableId"
-  "\022/\n\017sink_table_name\030\003 \001(\0132\026.greptime.v1."
-  "TableName\022\034\n\024create_if_not_exists\030\004 \001(\010\022"
-  ".\n\014expire_after\030\005 \001(\0132\030.greptime.v1.Expi"
-  "reAfter\0220\n\reval_interval\030\n \001(\0132\031.greptim"
-  "e.v1.EvalInterval\022\017\n\007comment\030\006 \001(\t\022\013\n\003sq"
-  "l\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320.greptime"
-  ".v1.flow.CreateRequest.FlowOptionsEntry\022"
-  "\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOptionsEntry\022"
-  "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropR"
-  "equest\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.Fl"
-  "owId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.gre"
-  "ptime.v1.FlowId2\230\002\n\004Flow\022S\n\022HandleCreate"
-  "Remove\022\035.greptime.v1.flow.FlowRequest\032\036."
-  "greptime.v1.flow.FlowResponse\022W\n\023HandleM"
-  "irrorRequest\022 .greptime.v1.flow.InsertRe"
-  "quests\032\036.greptime.v1.flow.FlowResponse\022b"
-  "\n\031HandleMarkDirtyTimeWindow\022%.greptime.v"
-  "1.flow.DirtyWindowRequests\032\036.greptime.v1"
-  ".flow.FlowResponseBY\n\023io.greptime.v1.flo"
-  "wB\006ServerZ:github.com/GreptimeTeam/grept"
-  "ime-proto/go/greptime/v1/flowb\006proto3"
+  "sh\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH\000\022"
+  "2\n\010backfill\030\004 \001(\0132\036.greptime.v1.flow.Bac"
+  "kfillFlowH\000\022;\n\017backfill_status\030\005 \001(\0132 .g"
+  "reptime.v1.flow.BackfillStatusH\000B\006\n\004body"
+  "\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.grep"
+  "time.v1.ResponseHeader\022\025\n\raffected_rows\030"
+  "\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.greptime"
+  ".v1.FlowId\022B\n\nextensions\030\004 \003(\0132..greptim"
+  "e.v1.flow.FlowResponse.ExtensionsEntry\0321"
+  "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
+  "\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022$\n\007flow_id\030\001"
+  " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl"
+  "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin"
+  "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa"
+  "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi"
+  "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter"
+  "\0220\n\reval_interval\030\n \001(\0132\031.greptime.v1.Ev"
+  "alInterval\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t"
+  "\022F\n\014flow_options\030\010 \003(\01320.greptime.v1.flo"
+  "w.CreateRequest.FlowOptionsEntry\022\022\n\nor_r"
+  "eplace\030\t \001(\010\0322\n\020FlowOptionsEntry\022\013\n\003key\030"
+  "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropRequest\022"
+  "$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\"1\n"
+  "\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v"
+  "1.FlowId\"Y\n\014BackfillFlow\022\017\n\007catalog\030\001 \001("
+  "\t\022\014\n\004flow\030\002 \001(\t\022*\n\005range\030\003 \001(\0132\033.greptim"
+  "e.v1.flow.TimeRange\"/\n\016BackfillStatus\022\017\n"
+  "\007catalog\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t2\230\002\n\004Flow\022S\n"
+  "\022HandleCreateRemove\022\035.greptime.v1.flow.F"
+  "lowRequest\032\036.greptime.v1.flow.FlowRespon"
+  "se\022W\n\023HandleMirrorRequest\022 .greptime.v1."
+  "flow.InsertRequests\032\036.greptime.v1.flow.F"
+  "lowResponse\022b\n\031HandleMarkDirtyTimeWindow"
+  "\022%.greptime.v1.flow.DirtyWindowRequests\032"
+  "\036.greptime.v1.flow.FlowResponseBY\n\023io.gr"
+  "eptime.v1.flowB\006ServerZ:github.com/Grept"
+  "imeTeam/greptime-proto/go/greptime/v1/fl"
+  "owb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -456,9 +515,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 2197, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 2450, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
-    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 14,
+    &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 16,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
     file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto, file_level_enum_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
     file_level_service_descriptors_greptime_2fv1_2fflow_2fserver_2eproto,
@@ -1874,6 +1933,8 @@ class FlowRequest::_Internal {
   static const ::greptime::v1::flow::CreateRequest& create(const FlowRequest* msg);
   static const ::greptime::v1::flow::DropRequest& drop(const FlowRequest* msg);
   static const ::greptime::v1::flow::FlushFlow& flush(const FlowRequest* msg);
+  static const ::greptime::v1::flow::BackfillFlow& backfill(const FlowRequest* msg);
+  static const ::greptime::v1::flow::BackfillStatus& backfill_status(const FlowRequest* msg);
 };
 
 const ::greptime::v1::flow::FlowRequestHeader&
@@ -1891,6 +1952,14 @@ FlowRequest::_Internal::drop(const FlowRequest* msg) {
 const ::greptime::v1::flow::FlushFlow&
 FlowRequest::_Internal::flush(const FlowRequest* msg) {
   return *msg->_impl_.body_.flush_;
+}
+const ::greptime::v1::flow::BackfillFlow&
+FlowRequest::_Internal::backfill(const FlowRequest* msg) {
+  return *msg->_impl_.body_.backfill_;
+}
+const ::greptime::v1::flow::BackfillStatus&
+FlowRequest::_Internal::backfill_status(const FlowRequest* msg) {
+  return *msg->_impl_.body_.backfill_status_;
 }
 void FlowRequest::set_allocated_create(::greptime::v1::flow::CreateRequest* create) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -1937,6 +2006,36 @@ void FlowRequest::set_allocated_flush(::greptime::v1::flow::FlushFlow* flush) {
   }
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRequest.flush)
 }
+void FlowRequest::set_allocated_backfill(::greptime::v1::flow::BackfillFlow* backfill) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (backfill) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(backfill);
+    if (message_arena != submessage_arena) {
+      backfill = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, backfill, submessage_arena);
+    }
+    set_has_backfill();
+    _impl_.body_.backfill_ = backfill;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRequest.backfill)
+}
+void FlowRequest::set_allocated_backfill_status(::greptime::v1::flow::BackfillStatus* backfill_status) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_body();
+  if (backfill_status) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(backfill_status);
+    if (message_arena != submessage_arena) {
+      backfill_status = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, backfill_status, submessage_arena);
+    }
+    set_has_backfill_status();
+    _impl_.body_.backfill_status_ = backfill_status;
+  }
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlowRequest.backfill_status)
+}
 FlowRequest::FlowRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1971,6 +2070,16 @@ FlowRequest::FlowRequest(const FlowRequest& from)
     case kFlush: {
       _this->_internal_mutable_flush()->::greptime::v1::flow::FlushFlow::MergeFrom(
           from._internal_flush());
+      break;
+    }
+    case kBackfill: {
+      _this->_internal_mutable_backfill()->::greptime::v1::flow::BackfillFlow::MergeFrom(
+          from._internal_backfill());
+      break;
+    }
+    case kBackfillStatus: {
+      _this->_internal_mutable_backfill_status()->::greptime::v1::flow::BackfillStatus::MergeFrom(
+          from._internal_backfill_status());
       break;
     }
     case BODY_NOT_SET: {
@@ -2035,6 +2144,18 @@ void FlowRequest::clear_body() {
       }
       break;
     }
+    case kBackfill: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.body_.backfill_;
+      }
+      break;
+    }
+    case kBackfillStatus: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.body_.backfill_status_;
+      }
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -2083,6 +2204,22 @@ const char* FlowRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* c
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_flush(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.flow.BackfillFlow backfill = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_backfill(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.flow.BackfillStatus backfill_status = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_backfill_status(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2145,6 +2282,20 @@ uint8_t* FlowRequest::_InternalSerialize(
         _Internal::flush(this).GetCachedSize(), target, stream);
   }
 
+  // .greptime.v1.flow.BackfillFlow backfill = 4;
+  if (_internal_has_backfill()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::backfill(this),
+        _Internal::backfill(this).GetCachedSize(), target, stream);
+  }
+
+  // .greptime.v1.flow.BackfillStatus backfill_status = 5;
+  if (_internal_has_backfill_status()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::backfill_status(this),
+        _Internal::backfill_status(this).GetCachedSize(), target, stream);
+  }
+
   // .greptime.v1.flow.FlowRequestHeader header = 64;
   if (this->_internal_has_header()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2197,6 +2348,20 @@ size_t FlowRequest::ByteSizeLong() const {
           *_impl_.body_.flush_);
       break;
     }
+    // .greptime.v1.flow.BackfillFlow backfill = 4;
+    case kBackfill: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.body_.backfill_);
+      break;
+    }
+    // .greptime.v1.flow.BackfillStatus backfill_status = 5;
+    case kBackfillStatus: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.body_.backfill_status_);
+      break;
+    }
     case BODY_NOT_SET: {
       break;
     }
@@ -2237,6 +2402,16 @@ void FlowRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PR
     case kFlush: {
       _this->_internal_mutable_flush()->::greptime::v1::flow::FlushFlow::MergeFrom(
           from._internal_flush());
+      break;
+    }
+    case kBackfill: {
+      _this->_internal_mutable_backfill()->::greptime::v1::flow::BackfillFlow::MergeFrom(
+          from._internal_backfill());
+      break;
+    }
+    case kBackfillStatus: {
+      _this->_internal_mutable_backfill_status()->::greptime::v1::flow::BackfillStatus::MergeFrom(
+          from._internal_backfill_status());
       break;
     }
     case BODY_NOT_SET: {
@@ -3634,6 +3809,554 @@ void FlushFlow::InternalSwap(FlushFlow* other) {
       file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[13]);
 }
 
+// ===================================================================
+
+class BackfillFlow::_Internal {
+ public:
+  static const ::greptime::v1::flow::TimeRange& range(const BackfillFlow* msg);
+};
+
+const ::greptime::v1::flow::TimeRange&
+BackfillFlow::_Internal::range(const BackfillFlow* msg) {
+  return *msg->_impl_.range_;
+}
+BackfillFlow::BackfillFlow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.flow.BackfillFlow)
+}
+BackfillFlow::BackfillFlow(const BackfillFlow& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  BackfillFlow* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , decltype(_impl_.flow_){}
+    , decltype(_impl_.range_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog().empty()) {
+    _this->_impl_.catalog_.Set(from._internal_catalog(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.flow_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_flow().empty()) {
+    _this->_impl_.flow_.Set(from._internal_flow(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_range()) {
+    _this->_impl_.range_ = new ::greptime::v1::flow::TimeRange(*from._impl_.range_);
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.BackfillFlow)
+}
+
+inline void BackfillFlow::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , decltype(_impl_.flow_){}
+    , decltype(_impl_.range_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.flow_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+BackfillFlow::~BackfillFlow() {
+  // @@protoc_insertion_point(destructor:greptime.v1.flow.BackfillFlow)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void BackfillFlow::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_.Destroy();
+  _impl_.flow_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.range_;
+}
+
+void BackfillFlow::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void BackfillFlow::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.flow.BackfillFlow)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_.ClearToEmpty();
+  _impl_.flow_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.range_ != nullptr) {
+    delete _impl_.range_;
+  }
+  _impl_.range_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BackfillFlow::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.BackfillFlow.catalog"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string flow = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_flow();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.BackfillFlow.flow"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.flow.TimeRange range = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_range(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* BackfillFlow::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.flow.BackfillFlow)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog().data(), static_cast<int>(this->_internal_catalog().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.flow.BackfillFlow.catalog");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog(), target);
+  }
+
+  // string flow = 2;
+  if (!this->_internal_flow().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_flow().data(), static_cast<int>(this->_internal_flow().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.flow.BackfillFlow.flow");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_flow(), target);
+  }
+
+  // .greptime.v1.flow.TimeRange range = 3;
+  if (this->_internal_has_range()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::range(this),
+        _Internal::range(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.flow.BackfillFlow)
+  return target;
+}
+
+size_t BackfillFlow::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.flow.BackfillFlow)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog());
+  }
+
+  // string flow = 2;
+  if (!this->_internal_flow().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_flow());
+  }
+
+  // .greptime.v1.flow.TimeRange range = 3;
+  if (this->_internal_has_range()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.range_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BackfillFlow::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    BackfillFlow::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BackfillFlow::GetClassData() const { return &_class_data_; }
+
+
+void BackfillFlow::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<BackfillFlow*>(&to_msg);
+  auto& from = static_cast<const BackfillFlow&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.flow.BackfillFlow)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog().empty()) {
+    _this->_internal_set_catalog(from._internal_catalog());
+  }
+  if (!from._internal_flow().empty()) {
+    _this->_internal_set_flow(from._internal_flow());
+  }
+  if (from._internal_has_range()) {
+    _this->_internal_mutable_range()->::greptime::v1::flow::TimeRange::MergeFrom(
+        from._internal_range());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void BackfillFlow::CopyFrom(const BackfillFlow& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.flow.BackfillFlow)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BackfillFlow::IsInitialized() const {
+  return true;
+}
+
+void BackfillFlow::InternalSwap(BackfillFlow* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_, lhs_arena,
+      &other->_impl_.catalog_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.flow_, lhs_arena,
+      &other->_impl_.flow_, rhs_arena
+  );
+  swap(_impl_.range_, other->_impl_.range_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BackfillFlow::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[14]);
+}
+
+// ===================================================================
+
+class BackfillStatus::_Internal {
+ public:
+};
+
+BackfillStatus::BackfillStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:greptime.v1.flow.BackfillStatus)
+}
+BackfillStatus::BackfillStatus(const BackfillStatus& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  BackfillStatus* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , decltype(_impl_.flow_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_catalog().empty()) {
+    _this->_impl_.catalog_.Set(from._internal_catalog(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.flow_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_flow().empty()) {
+    _this->_impl_.flow_.Set(from._internal_flow(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.BackfillStatus)
+}
+
+inline void BackfillStatus::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.catalog_){}
+    , decltype(_impl_.flow_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.catalog_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.flow_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+BackfillStatus::~BackfillStatus() {
+  // @@protoc_insertion_point(destructor:greptime.v1.flow.BackfillStatus)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void BackfillStatus::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.catalog_.Destroy();
+  _impl_.flow_.Destroy();
+}
+
+void BackfillStatus::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void BackfillStatus::Clear() {
+// @@protoc_insertion_point(message_clear_start:greptime.v1.flow.BackfillStatus)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.catalog_.ClearToEmpty();
+  _impl_.flow_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* BackfillStatus::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string catalog = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_catalog();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.BackfillStatus.catalog"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string flow = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_flow();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.BackfillStatus.flow"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* BackfillStatus::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:greptime.v1.flow.BackfillStatus)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_catalog().data(), static_cast<int>(this->_internal_catalog().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.flow.BackfillStatus.catalog");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_catalog(), target);
+  }
+
+  // string flow = 2;
+  if (!this->_internal_flow().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_flow().data(), static_cast<int>(this->_internal_flow().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "greptime.v1.flow.BackfillStatus.flow");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_flow(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:greptime.v1.flow.BackfillStatus)
+  return target;
+}
+
+size_t BackfillStatus::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:greptime.v1.flow.BackfillStatus)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string catalog = 1;
+  if (!this->_internal_catalog().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_catalog());
+  }
+
+  // string flow = 2;
+  if (!this->_internal_flow().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_flow());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData BackfillStatus::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    BackfillStatus::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*BackfillStatus::GetClassData() const { return &_class_data_; }
+
+
+void BackfillStatus::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<BackfillStatus*>(&to_msg);
+  auto& from = static_cast<const BackfillStatus&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:greptime.v1.flow.BackfillStatus)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_catalog().empty()) {
+    _this->_internal_set_catalog(from._internal_catalog());
+  }
+  if (!from._internal_flow().empty()) {
+    _this->_internal_set_flow(from._internal_flow());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void BackfillStatus::CopyFrom(const BackfillStatus& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:greptime.v1.flow.BackfillStatus)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BackfillStatus::IsInitialized() const {
+  return true;
+}
+
+void BackfillStatus::InternalSwap(BackfillStatus* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.catalog_, lhs_arena,
+      &other->_impl_.catalog_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.flow_, lhs_arena,
+      &other->_impl_.flow_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata BackfillStatus::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_getter, &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once,
+      file_level_metadata_greptime_2fv1_2fflow_2fserver_2eproto[15]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace flow
 }  // namespace v1
@@ -3694,6 +4417,14 @@ Arena::CreateMaybeMessage< ::greptime::v1::flow::DropRequest >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::greptime::v1::flow::FlushFlow*
 Arena::CreateMaybeMessage< ::greptime::v1::flow::FlushFlow >(Arena* arena) {
   return Arena::CreateMessageInternal< ::greptime::v1::flow::FlushFlow >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::BackfillFlow*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::BackfillFlow >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::BackfillFlow >(arena);
+}
+template<> PROTOBUF_NOINLINE ::greptime::v1::flow::BackfillStatus*
+Arena::CreateMaybeMessage< ::greptime::v1::flow::BackfillStatus >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::greptime::v1::flow::BackfillStatus >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

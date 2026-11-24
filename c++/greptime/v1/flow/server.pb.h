@@ -53,6 +53,12 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 namespace greptime {
 namespace v1 {
 namespace flow {
+class BackfillFlow;
+struct BackfillFlowDefaultTypeInternal;
+extern BackfillFlowDefaultTypeInternal _BackfillFlow_default_instance_;
+class BackfillStatus;
+struct BackfillStatusDefaultTypeInternal;
+extern BackfillStatusDefaultTypeInternal _BackfillStatus_default_instance_;
 class CreateRequest;
 struct CreateRequestDefaultTypeInternal;
 extern CreateRequestDefaultTypeInternal _CreateRequest_default_instance_;
@@ -99,6 +105,8 @@ extern TimeRangeDefaultTypeInternal _TimeRange_default_instance_;
 }  // namespace v1
 }  // namespace greptime
 PROTOBUF_NAMESPACE_OPEN
+template<> ::greptime::v1::flow::BackfillFlow* Arena::CreateMaybeMessage<::greptime::v1::flow::BackfillFlow>(Arena*);
+template<> ::greptime::v1::flow::BackfillStatus* Arena::CreateMaybeMessage<::greptime::v1::flow::BackfillStatus>(Arena*);
 template<> ::greptime::v1::flow::CreateRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest>(Arena*);
 template<> ::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse* Arena::CreateMaybeMessage<::greptime::v1::flow::CreateRequest_FlowOptionsEntry_DoNotUse>(Arena*);
 template<> ::greptime::v1::flow::DirtyWindowRequest* Arena::CreateMaybeMessage<::greptime::v1::flow::DirtyWindowRequest>(Arena*);
@@ -1232,6 +1240,8 @@ class FlowRequest final :
     kCreate = 1,
     kDrop = 2,
     kFlush = 3,
+    kBackfill = 4,
+    kBackfillStatus = 5,
     BODY_NOT_SET = 0,
   };
 
@@ -1317,6 +1327,8 @@ class FlowRequest final :
     kCreateFieldNumber = 1,
     kDropFieldNumber = 2,
     kFlushFieldNumber = 3,
+    kBackfillFieldNumber = 4,
+    kBackfillStatusFieldNumber = 5,
   };
   // .greptime.v1.flow.FlowRequestHeader header = 64;
   bool has_header() const;
@@ -1390,6 +1402,42 @@ class FlowRequest final :
       ::greptime::v1::flow::FlushFlow* flush);
   ::greptime::v1::flow::FlushFlow* unsafe_arena_release_flush();
 
+  // .greptime.v1.flow.BackfillFlow backfill = 4;
+  bool has_backfill() const;
+  private:
+  bool _internal_has_backfill() const;
+  public:
+  void clear_backfill();
+  const ::greptime::v1::flow::BackfillFlow& backfill() const;
+  PROTOBUF_NODISCARD ::greptime::v1::flow::BackfillFlow* release_backfill();
+  ::greptime::v1::flow::BackfillFlow* mutable_backfill();
+  void set_allocated_backfill(::greptime::v1::flow::BackfillFlow* backfill);
+  private:
+  const ::greptime::v1::flow::BackfillFlow& _internal_backfill() const;
+  ::greptime::v1::flow::BackfillFlow* _internal_mutable_backfill();
+  public:
+  void unsafe_arena_set_allocated_backfill(
+      ::greptime::v1::flow::BackfillFlow* backfill);
+  ::greptime::v1::flow::BackfillFlow* unsafe_arena_release_backfill();
+
+  // .greptime.v1.flow.BackfillStatus backfill_status = 5;
+  bool has_backfill_status() const;
+  private:
+  bool _internal_has_backfill_status() const;
+  public:
+  void clear_backfill_status();
+  const ::greptime::v1::flow::BackfillStatus& backfill_status() const;
+  PROTOBUF_NODISCARD ::greptime::v1::flow::BackfillStatus* release_backfill_status();
+  ::greptime::v1::flow::BackfillStatus* mutable_backfill_status();
+  void set_allocated_backfill_status(::greptime::v1::flow::BackfillStatus* backfill_status);
+  private:
+  const ::greptime::v1::flow::BackfillStatus& _internal_backfill_status() const;
+  ::greptime::v1::flow::BackfillStatus* _internal_mutable_backfill_status();
+  public:
+  void unsafe_arena_set_allocated_backfill_status(
+      ::greptime::v1::flow::BackfillStatus* backfill_status);
+  ::greptime::v1::flow::BackfillStatus* unsafe_arena_release_backfill_status();
+
   void clear_body();
   BodyCase body_case() const;
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.FlowRequest)
@@ -1398,6 +1446,8 @@ class FlowRequest final :
   void set_has_create();
   void set_has_drop();
   void set_has_flush();
+  void set_has_backfill();
+  void set_has_backfill_status();
 
   inline bool has_body() const;
   inline void clear_has_body();
@@ -1413,6 +1463,8 @@ class FlowRequest final :
       ::greptime::v1::flow::CreateRequest* create_;
       ::greptime::v1::flow::DropRequest* drop_;
       ::greptime::v1::flow::FlushFlow* flush_;
+      ::greptime::v1::flow::BackfillFlow* backfill_;
+      ::greptime::v1::flow::BackfillStatus* backfill_status_;
     } body_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t _oneof_case_[1];
@@ -2320,6 +2372,364 @@ class FlushFlow final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_greptime_2fv1_2fflow_2fserver_2eproto;
 };
+// -------------------------------------------------------------------
+
+class BackfillFlow final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.BackfillFlow) */ {
+ public:
+  inline BackfillFlow() : BackfillFlow(nullptr) {}
+  ~BackfillFlow() override;
+  explicit PROTOBUF_CONSTEXPR BackfillFlow(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BackfillFlow(const BackfillFlow& from);
+  BackfillFlow(BackfillFlow&& from) noexcept
+    : BackfillFlow() {
+    *this = ::std::move(from);
+  }
+
+  inline BackfillFlow& operator=(const BackfillFlow& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BackfillFlow& operator=(BackfillFlow&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BackfillFlow& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BackfillFlow* internal_default_instance() {
+    return reinterpret_cast<const BackfillFlow*>(
+               &_BackfillFlow_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(BackfillFlow& a, BackfillFlow& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BackfillFlow* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BackfillFlow* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BackfillFlow* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BackfillFlow>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BackfillFlow& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BackfillFlow& from) {
+    BackfillFlow::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BackfillFlow* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.flow.BackfillFlow";
+  }
+  protected:
+  explicit BackfillFlow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogFieldNumber = 1,
+    kFlowFieldNumber = 2,
+    kRangeFieldNumber = 3,
+  };
+  // string catalog = 1;
+  void clear_catalog();
+  const std::string& catalog() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog();
+  PROTOBUF_NODISCARD std::string* release_catalog();
+  void set_allocated_catalog(std::string* catalog);
+  private:
+  const std::string& _internal_catalog() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog(const std::string& value);
+  std::string* _internal_mutable_catalog();
+  public:
+
+  // string flow = 2;
+  void clear_flow();
+  const std::string& flow() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_flow(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_flow();
+  PROTOBUF_NODISCARD std::string* release_flow();
+  void set_allocated_flow(std::string* flow);
+  private:
+  const std::string& _internal_flow() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flow(const std::string& value);
+  std::string* _internal_mutable_flow();
+  public:
+
+  // .greptime.v1.flow.TimeRange range = 3;
+  bool has_range() const;
+  private:
+  bool _internal_has_range() const;
+  public:
+  void clear_range();
+  const ::greptime::v1::flow::TimeRange& range() const;
+  PROTOBUF_NODISCARD ::greptime::v1::flow::TimeRange* release_range();
+  ::greptime::v1::flow::TimeRange* mutable_range();
+  void set_allocated_range(::greptime::v1::flow::TimeRange* range);
+  private:
+  const ::greptime::v1::flow::TimeRange& _internal_range() const;
+  ::greptime::v1::flow::TimeRange* _internal_mutable_range();
+  public:
+  void unsafe_arena_set_allocated_range(
+      ::greptime::v1::flow::TimeRange* range);
+  ::greptime::v1::flow::TimeRange* unsafe_arena_release_range();
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.flow.BackfillFlow)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flow_;
+    ::greptime::v1::flow::TimeRange* range_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fflow_2fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class BackfillStatus final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:greptime.v1.flow.BackfillStatus) */ {
+ public:
+  inline BackfillStatus() : BackfillStatus(nullptr) {}
+  ~BackfillStatus() override;
+  explicit PROTOBUF_CONSTEXPR BackfillStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  BackfillStatus(const BackfillStatus& from);
+  BackfillStatus(BackfillStatus&& from) noexcept
+    : BackfillStatus() {
+    *this = ::std::move(from);
+  }
+
+  inline BackfillStatus& operator=(const BackfillStatus& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline BackfillStatus& operator=(BackfillStatus&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const BackfillStatus& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const BackfillStatus* internal_default_instance() {
+    return reinterpret_cast<const BackfillStatus*>(
+               &_BackfillStatus_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(BackfillStatus& a, BackfillStatus& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(BackfillStatus* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(BackfillStatus* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  BackfillStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<BackfillStatus>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const BackfillStatus& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const BackfillStatus& from) {
+    BackfillStatus::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BackfillStatus* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "greptime.v1.flow.BackfillStatus";
+  }
+  protected:
+  explicit BackfillStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCatalogFieldNumber = 1,
+    kFlowFieldNumber = 2,
+  };
+  // string catalog = 1;
+  void clear_catalog();
+  const std::string& catalog() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_catalog(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_catalog();
+  PROTOBUF_NODISCARD std::string* release_catalog();
+  void set_allocated_catalog(std::string* catalog);
+  private:
+  const std::string& _internal_catalog() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_catalog(const std::string& value);
+  std::string* _internal_mutable_catalog();
+  public:
+
+  // string flow = 2;
+  void clear_flow();
+  const std::string& flow() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_flow(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_flow();
+  PROTOBUF_NODISCARD std::string* release_flow();
+  void set_allocated_flow(std::string* flow);
+  private:
+  const std::string& _internal_flow() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_flow(const std::string& value);
+  std::string* _internal_mutable_flow();
+  public:
+
+  // @@protoc_insertion_point(class_scope:greptime.v1.flow.BackfillStatus)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flow_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_greptime_2fv1_2fflow_2fserver_2eproto;
+};
 // ===================================================================
 
 
@@ -3197,6 +3607,154 @@ inline ::greptime::v1::flow::FlushFlow* FlowRequest::_internal_mutable_flush() {
 inline ::greptime::v1::flow::FlushFlow* FlowRequest::mutable_flush() {
   ::greptime::v1::flow::FlushFlow* _msg = _internal_mutable_flush();
   // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRequest.flush)
+  return _msg;
+}
+
+// .greptime.v1.flow.BackfillFlow backfill = 4;
+inline bool FlowRequest::_internal_has_backfill() const {
+  return body_case() == kBackfill;
+}
+inline bool FlowRequest::has_backfill() const {
+  return _internal_has_backfill();
+}
+inline void FlowRequest::set_has_backfill() {
+  _impl_._oneof_case_[0] = kBackfill;
+}
+inline void FlowRequest::clear_backfill() {
+  if (_internal_has_backfill()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.backfill_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::flow::BackfillFlow* FlowRequest::release_backfill() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowRequest.backfill)
+  if (_internal_has_backfill()) {
+    clear_has_body();
+    ::greptime::v1::flow::BackfillFlow* temp = _impl_.body_.backfill_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.backfill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::flow::BackfillFlow& FlowRequest::_internal_backfill() const {
+  return _internal_has_backfill()
+      ? *_impl_.body_.backfill_
+      : reinterpret_cast< ::greptime::v1::flow::BackfillFlow&>(::greptime::v1::flow::_BackfillFlow_default_instance_);
+}
+inline const ::greptime::v1::flow::BackfillFlow& FlowRequest::backfill() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowRequest.backfill)
+  return _internal_backfill();
+}
+inline ::greptime::v1::flow::BackfillFlow* FlowRequest::unsafe_arena_release_backfill() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.flow.FlowRequest.backfill)
+  if (_internal_has_backfill()) {
+    clear_has_body();
+    ::greptime::v1::flow::BackfillFlow* temp = _impl_.body_.backfill_;
+    _impl_.body_.backfill_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void FlowRequest::unsafe_arena_set_allocated_backfill(::greptime::v1::flow::BackfillFlow* backfill) {
+  clear_body();
+  if (backfill) {
+    set_has_backfill();
+    _impl_.body_.backfill_ = backfill;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowRequest.backfill)
+}
+inline ::greptime::v1::flow::BackfillFlow* FlowRequest::_internal_mutable_backfill() {
+  if (!_internal_has_backfill()) {
+    clear_body();
+    set_has_backfill();
+    _impl_.body_.backfill_ = CreateMaybeMessage< ::greptime::v1::flow::BackfillFlow >(GetArenaForAllocation());
+  }
+  return _impl_.body_.backfill_;
+}
+inline ::greptime::v1::flow::BackfillFlow* FlowRequest::mutable_backfill() {
+  ::greptime::v1::flow::BackfillFlow* _msg = _internal_mutable_backfill();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRequest.backfill)
+  return _msg;
+}
+
+// .greptime.v1.flow.BackfillStatus backfill_status = 5;
+inline bool FlowRequest::_internal_has_backfill_status() const {
+  return body_case() == kBackfillStatus;
+}
+inline bool FlowRequest::has_backfill_status() const {
+  return _internal_has_backfill_status();
+}
+inline void FlowRequest::set_has_backfill_status() {
+  _impl_._oneof_case_[0] = kBackfillStatus;
+}
+inline void FlowRequest::clear_backfill_status() {
+  if (_internal_has_backfill_status()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete _impl_.body_.backfill_status_;
+    }
+    clear_has_body();
+  }
+}
+inline ::greptime::v1::flow::BackfillStatus* FlowRequest::release_backfill_status() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.FlowRequest.backfill_status)
+  if (_internal_has_backfill_status()) {
+    clear_has_body();
+    ::greptime::v1::flow::BackfillStatus* temp = _impl_.body_.backfill_status_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.body_.backfill_status_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::greptime::v1::flow::BackfillStatus& FlowRequest::_internal_backfill_status() const {
+  return _internal_has_backfill_status()
+      ? *_impl_.body_.backfill_status_
+      : reinterpret_cast< ::greptime::v1::flow::BackfillStatus&>(::greptime::v1::flow::_BackfillStatus_default_instance_);
+}
+inline const ::greptime::v1::flow::BackfillStatus& FlowRequest::backfill_status() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.FlowRequest.backfill_status)
+  return _internal_backfill_status();
+}
+inline ::greptime::v1::flow::BackfillStatus* FlowRequest::unsafe_arena_release_backfill_status() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:greptime.v1.flow.FlowRequest.backfill_status)
+  if (_internal_has_backfill_status()) {
+    clear_has_body();
+    ::greptime::v1::flow::BackfillStatus* temp = _impl_.body_.backfill_status_;
+    _impl_.body_.backfill_status_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void FlowRequest::unsafe_arena_set_allocated_backfill_status(::greptime::v1::flow::BackfillStatus* backfill_status) {
+  clear_body();
+  if (backfill_status) {
+    set_has_backfill_status();
+    _impl_.body_.backfill_status_ = backfill_status;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.FlowRequest.backfill_status)
+}
+inline ::greptime::v1::flow::BackfillStatus* FlowRequest::_internal_mutable_backfill_status() {
+  if (!_internal_has_backfill_status()) {
+    clear_body();
+    set_has_backfill_status();
+    _impl_.body_.backfill_status_ = CreateMaybeMessage< ::greptime::v1::flow::BackfillStatus >(GetArenaForAllocation());
+  }
+  return _impl_.body_.backfill_status_;
+}
+inline ::greptime::v1::flow::BackfillStatus* FlowRequest::mutable_backfill_status() {
+  ::greptime::v1::flow::BackfillStatus* _msg = _internal_mutable_backfill_status();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.FlowRequest.backfill_status)
   return _msg;
 }
 
@@ -4116,9 +4674,311 @@ inline void FlushFlow::set_allocated_flow_id(::greptime::v1::FlowId* flow_id) {
   // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.FlushFlow.flow_id)
 }
 
+// -------------------------------------------------------------------
+
+// BackfillFlow
+
+// string catalog = 1;
+inline void BackfillFlow::clear_catalog() {
+  _impl_.catalog_.ClearToEmpty();
+}
+inline const std::string& BackfillFlow::catalog() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.BackfillFlow.catalog)
+  return _internal_catalog();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BackfillFlow::set_catalog(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.BackfillFlow.catalog)
+}
+inline std::string* BackfillFlow::mutable_catalog() {
+  std::string* _s = _internal_mutable_catalog();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.BackfillFlow.catalog)
+  return _s;
+}
+inline const std::string& BackfillFlow::_internal_catalog() const {
+  return _impl_.catalog_.Get();
+}
+inline void BackfillFlow::_internal_set_catalog(const std::string& value) {
+  
+  _impl_.catalog_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BackfillFlow::_internal_mutable_catalog() {
+  
+  return _impl_.catalog_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BackfillFlow::release_catalog() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.BackfillFlow.catalog)
+  return _impl_.catalog_.Release();
+}
+inline void BackfillFlow::set_allocated_catalog(std::string* catalog) {
+  if (catalog != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_.SetAllocated(catalog, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_.IsDefault()) {
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.BackfillFlow.catalog)
+}
+
+// string flow = 2;
+inline void BackfillFlow::clear_flow() {
+  _impl_.flow_.ClearToEmpty();
+}
+inline const std::string& BackfillFlow::flow() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.BackfillFlow.flow)
+  return _internal_flow();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BackfillFlow::set_flow(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.flow_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.BackfillFlow.flow)
+}
+inline std::string* BackfillFlow::mutable_flow() {
+  std::string* _s = _internal_mutable_flow();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.BackfillFlow.flow)
+  return _s;
+}
+inline const std::string& BackfillFlow::_internal_flow() const {
+  return _impl_.flow_.Get();
+}
+inline void BackfillFlow::_internal_set_flow(const std::string& value) {
+  
+  _impl_.flow_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BackfillFlow::_internal_mutable_flow() {
+  
+  return _impl_.flow_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BackfillFlow::release_flow() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.BackfillFlow.flow)
+  return _impl_.flow_.Release();
+}
+inline void BackfillFlow::set_allocated_flow(std::string* flow) {
+  if (flow != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.flow_.SetAllocated(flow, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.flow_.IsDefault()) {
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.BackfillFlow.flow)
+}
+
+// .greptime.v1.flow.TimeRange range = 3;
+inline bool BackfillFlow::_internal_has_range() const {
+  return this != internal_default_instance() && _impl_.range_ != nullptr;
+}
+inline bool BackfillFlow::has_range() const {
+  return _internal_has_range();
+}
+inline void BackfillFlow::clear_range() {
+  if (GetArenaForAllocation() == nullptr && _impl_.range_ != nullptr) {
+    delete _impl_.range_;
+  }
+  _impl_.range_ = nullptr;
+}
+inline const ::greptime::v1::flow::TimeRange& BackfillFlow::_internal_range() const {
+  const ::greptime::v1::flow::TimeRange* p = _impl_.range_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::flow::TimeRange&>(
+      ::greptime::v1::flow::_TimeRange_default_instance_);
+}
+inline const ::greptime::v1::flow::TimeRange& BackfillFlow::range() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.BackfillFlow.range)
+  return _internal_range();
+}
+inline void BackfillFlow::unsafe_arena_set_allocated_range(
+    ::greptime::v1::flow::TimeRange* range) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.range_);
+  }
+  _impl_.range_ = range;
+  if (range) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.BackfillFlow.range)
+}
+inline ::greptime::v1::flow::TimeRange* BackfillFlow::release_range() {
+  
+  ::greptime::v1::flow::TimeRange* temp = _impl_.range_;
+  _impl_.range_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::flow::TimeRange* BackfillFlow::unsafe_arena_release_range() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.BackfillFlow.range)
+  
+  ::greptime::v1::flow::TimeRange* temp = _impl_.range_;
+  _impl_.range_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::flow::TimeRange* BackfillFlow::_internal_mutable_range() {
+  
+  if (_impl_.range_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::flow::TimeRange>(GetArenaForAllocation());
+    _impl_.range_ = p;
+  }
+  return _impl_.range_;
+}
+inline ::greptime::v1::flow::TimeRange* BackfillFlow::mutable_range() {
+  ::greptime::v1::flow::TimeRange* _msg = _internal_mutable_range();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.BackfillFlow.range)
+  return _msg;
+}
+inline void BackfillFlow::set_allocated_range(::greptime::v1::flow::TimeRange* range) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.range_;
+  }
+  if (range) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(range);
+    if (message_arena != submessage_arena) {
+      range = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, range, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.range_ = range;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.BackfillFlow.range)
+}
+
+// -------------------------------------------------------------------
+
+// BackfillStatus
+
+// string catalog = 1;
+inline void BackfillStatus::clear_catalog() {
+  _impl_.catalog_.ClearToEmpty();
+}
+inline const std::string& BackfillStatus::catalog() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.BackfillStatus.catalog)
+  return _internal_catalog();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BackfillStatus::set_catalog(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.catalog_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.BackfillStatus.catalog)
+}
+inline std::string* BackfillStatus::mutable_catalog() {
+  std::string* _s = _internal_mutable_catalog();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.BackfillStatus.catalog)
+  return _s;
+}
+inline const std::string& BackfillStatus::_internal_catalog() const {
+  return _impl_.catalog_.Get();
+}
+inline void BackfillStatus::_internal_set_catalog(const std::string& value) {
+  
+  _impl_.catalog_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BackfillStatus::_internal_mutable_catalog() {
+  
+  return _impl_.catalog_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BackfillStatus::release_catalog() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.BackfillStatus.catalog)
+  return _impl_.catalog_.Release();
+}
+inline void BackfillStatus::set_allocated_catalog(std::string* catalog) {
+  if (catalog != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.catalog_.SetAllocated(catalog, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.catalog_.IsDefault()) {
+    _impl_.catalog_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.BackfillStatus.catalog)
+}
+
+// string flow = 2;
+inline void BackfillStatus::clear_flow() {
+  _impl_.flow_.ClearToEmpty();
+}
+inline const std::string& BackfillStatus::flow() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.BackfillStatus.flow)
+  return _internal_flow();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void BackfillStatus::set_flow(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.flow_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:greptime.v1.flow.BackfillStatus.flow)
+}
+inline std::string* BackfillStatus::mutable_flow() {
+  std::string* _s = _internal_mutable_flow();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.BackfillStatus.flow)
+  return _s;
+}
+inline const std::string& BackfillStatus::_internal_flow() const {
+  return _impl_.flow_.Get();
+}
+inline void BackfillStatus::_internal_set_flow(const std::string& value) {
+  
+  _impl_.flow_.Set(value, GetArenaForAllocation());
+}
+inline std::string* BackfillStatus::_internal_mutable_flow() {
+  
+  return _impl_.flow_.Mutable(GetArenaForAllocation());
+}
+inline std::string* BackfillStatus::release_flow() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.BackfillStatus.flow)
+  return _impl_.flow_.Release();
+}
+inline void BackfillStatus::set_allocated_flow(std::string* flow) {
+  if (flow != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.flow_.SetAllocated(flow, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.flow_.IsDefault()) {
+    _impl_.flow_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.BackfillStatus.flow)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
