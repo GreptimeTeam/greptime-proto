@@ -82,6 +82,8 @@ message FlowRequest {
     CreateRequest create = 1;
     DropRequest drop = 2;
     FlushFlow flush = 3;
+    BackfillFlow backfill = 4;
+    BackfillStatus backfill_status = 5;
   }
 }
 
@@ -118,4 +120,15 @@ message DropRequest {
 
 message FlushFlow {
   FlowId flow_id = 1;
+}
+
+message BackfillFlow {
+  string catalog = 1;
+  string flow = 2;
+  TimeRange range = 3;
+}
+
+message BackfillStatus {
+  string catalog = 1;
+  string flow = 2;
 }
