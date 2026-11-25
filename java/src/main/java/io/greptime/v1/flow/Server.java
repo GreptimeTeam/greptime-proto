@@ -5661,34 +5661,31 @@ java.lang.String defaultValue);
     io.greptime.v1.flow.Server.FlushFlowOrBuilder getFlushOrBuilder();
 
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-     * @return Whether the backfill field is set.
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+     * @return Whether the admin field is set.
      */
-    boolean hasBackfill();
+    boolean hasAdmin();
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-     * @return The backfill.
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+     * @return The admin.
      */
-    io.greptime.v1.flow.Server.BackfillFlow getBackfill();
+    io.greptime.v1.flow.Server.AdminFlow getAdmin();
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
      */
-    io.greptime.v1.flow.Server.BackfillFlowOrBuilder getBackfillOrBuilder();
-
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     * @return Whether the backfillStatus field is set.
-     */
-    boolean hasBackfillStatus();
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     * @return The backfillStatus.
-     */
-    io.greptime.v1.flow.Server.BackfillStatus getBackfillStatus();
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     */
-    io.greptime.v1.flow.Server.BackfillStatusOrBuilder getBackfillStatusOrBuilder();
+    io.greptime.v1.flow.Server.AdminFlowOrBuilder getAdminOrBuilder();
 
     public io.greptime.v1.flow.Server.FlowRequest.BodyCase getBodyCase();
   }
@@ -5779,32 +5776,18 @@ java.lang.String defaultValue);
               bodyCase_ = 3;
               break;
             }
-            case 34: {
-              io.greptime.v1.flow.Server.BackfillFlow.Builder subBuilder = null;
-              if (bodyCase_ == 4) {
-                subBuilder = ((io.greptime.v1.flow.Server.BackfillFlow) body_).toBuilder();
+            case 50: {
+              io.greptime.v1.flow.Server.AdminFlow.Builder subBuilder = null;
+              if (bodyCase_ == 6) {
+                subBuilder = ((io.greptime.v1.flow.Server.AdminFlow) body_).toBuilder();
               }
               body_ =
-                  input.readMessage(io.greptime.v1.flow.Server.BackfillFlow.parser(), extensionRegistry);
+                  input.readMessage(io.greptime.v1.flow.Server.AdminFlow.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.flow.Server.BackfillFlow) body_);
+                subBuilder.mergeFrom((io.greptime.v1.flow.Server.AdminFlow) body_);
                 body_ = subBuilder.buildPartial();
               }
-              bodyCase_ = 4;
-              break;
-            }
-            case 42: {
-              io.greptime.v1.flow.Server.BackfillStatus.Builder subBuilder = null;
-              if (bodyCase_ == 5) {
-                subBuilder = ((io.greptime.v1.flow.Server.BackfillStatus) body_).toBuilder();
-              }
-              body_ =
-                  input.readMessage(io.greptime.v1.flow.Server.BackfillStatus.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.greptime.v1.flow.Server.BackfillStatus) body_);
-                body_ = subBuilder.buildPartial();
-              }
-              bodyCase_ = 5;
+              bodyCase_ = 6;
               break;
             }
             case 514: {
@@ -5862,8 +5845,7 @@ java.lang.String defaultValue);
       CREATE(1),
       DROP(2),
       FLUSH(3),
-      BACKFILL(4),
-      BACKFILL_STATUS(5),
+      ADMIN(6),
       BODY_NOT_SET(0);
       private final int value;
       private BodyCase(int value) {
@@ -5884,8 +5866,7 @@ java.lang.String defaultValue);
           case 1: return CREATE;
           case 2: return DROP;
           case 3: return FLUSH;
-          case 4: return BACKFILL;
-          case 5: return BACKFILL_STATUS;
+          case 6: return ADMIN;
           case 0: return BODY_NOT_SET;
           default: return null;
         }
@@ -6020,66 +6001,47 @@ java.lang.String defaultValue);
       return io.greptime.v1.flow.Server.FlushFlow.getDefaultInstance();
     }
 
-    public static final int BACKFILL_FIELD_NUMBER = 4;
+    public static final int ADMIN_FIELD_NUMBER = 6;
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-     * @return Whether the backfill field is set.
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+     * @return Whether the admin field is set.
      */
     @java.lang.Override
-    public boolean hasBackfill() {
-      return bodyCase_ == 4;
+    public boolean hasAdmin() {
+      return bodyCase_ == 6;
     }
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-     * @return The backfill.
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+     * @return The admin.
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillFlow getBackfill() {
-      if (bodyCase_ == 4) {
-         return (io.greptime.v1.flow.Server.BackfillFlow) body_;
+    public io.greptime.v1.flow.Server.AdminFlow getAdmin() {
+      if (bodyCase_ == 6) {
+         return (io.greptime.v1.flow.Server.AdminFlow) body_;
       }
-      return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+      return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
     }
     /**
-     * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+     * <pre>
+     * One generic admin call: the flownode routes `function` over `args`.
+     * </pre>
+     *
+     * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillFlowOrBuilder getBackfillOrBuilder() {
-      if (bodyCase_ == 4) {
-         return (io.greptime.v1.flow.Server.BackfillFlow) body_;
+    public io.greptime.v1.flow.Server.AdminFlowOrBuilder getAdminOrBuilder() {
+      if (bodyCase_ == 6) {
+         return (io.greptime.v1.flow.Server.AdminFlow) body_;
       }
-      return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
-    }
-
-    public static final int BACKFILL_STATUS_FIELD_NUMBER = 5;
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     * @return Whether the backfillStatus field is set.
-     */
-    @java.lang.Override
-    public boolean hasBackfillStatus() {
-      return bodyCase_ == 5;
-    }
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     * @return The backfillStatus.
-     */
-    @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillStatus getBackfillStatus() {
-      if (bodyCase_ == 5) {
-         return (io.greptime.v1.flow.Server.BackfillStatus) body_;
-      }
-      return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-    }
-    /**
-     * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-     */
-    @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillStatusOrBuilder getBackfillStatusOrBuilder() {
-      if (bodyCase_ == 5) {
-         return (io.greptime.v1.flow.Server.BackfillStatus) body_;
-      }
-      return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
+      return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6105,11 +6067,8 @@ java.lang.String defaultValue);
       if (bodyCase_ == 3) {
         output.writeMessage(3, (io.greptime.v1.flow.Server.FlushFlow) body_);
       }
-      if (bodyCase_ == 4) {
-        output.writeMessage(4, (io.greptime.v1.flow.Server.BackfillFlow) body_);
-      }
-      if (bodyCase_ == 5) {
-        output.writeMessage(5, (io.greptime.v1.flow.Server.BackfillStatus) body_);
+      if (bodyCase_ == 6) {
+        output.writeMessage(6, (io.greptime.v1.flow.Server.AdminFlow) body_);
       }
       if (header_ != null) {
         output.writeMessage(64, getHeader());
@@ -6135,13 +6094,9 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.greptime.v1.flow.Server.FlushFlow) body_);
       }
-      if (bodyCase_ == 4) {
+      if (bodyCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (io.greptime.v1.flow.Server.BackfillFlow) body_);
-      }
-      if (bodyCase_ == 5) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (io.greptime.v1.flow.Server.BackfillStatus) body_);
+          .computeMessageSize(6, (io.greptime.v1.flow.Server.AdminFlow) body_);
       }
       if (header_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -6181,13 +6136,9 @@ java.lang.String defaultValue);
           if (!getFlush()
               .equals(other.getFlush())) return false;
           break;
-        case 4:
-          if (!getBackfill()
-              .equals(other.getBackfill())) return false;
-          break;
-        case 5:
-          if (!getBackfillStatus()
-              .equals(other.getBackfillStatus())) return false;
+        case 6:
+          if (!getAdmin()
+              .equals(other.getAdmin())) return false;
           break;
         case 0:
         default:
@@ -6220,13 +6171,9 @@ java.lang.String defaultValue);
           hash = (37 * hash) + FLUSH_FIELD_NUMBER;
           hash = (53 * hash) + getFlush().hashCode();
           break;
-        case 4:
-          hash = (37 * hash) + BACKFILL_FIELD_NUMBER;
-          hash = (53 * hash) + getBackfill().hashCode();
-          break;
-        case 5:
-          hash = (37 * hash) + BACKFILL_STATUS_FIELD_NUMBER;
-          hash = (53 * hash) + getBackfillStatus().hashCode();
+        case 6:
+          hash = (37 * hash) + ADMIN_FIELD_NUMBER;
+          hash = (53 * hash) + getAdmin().hashCode();
           break;
         case 0:
         default:
@@ -6424,18 +6371,11 @@ java.lang.String defaultValue);
             result.body_ = flushBuilder_.build();
           }
         }
-        if (bodyCase_ == 4) {
-          if (backfillBuilder_ == null) {
+        if (bodyCase_ == 6) {
+          if (adminBuilder_ == null) {
             result.body_ = body_;
           } else {
-            result.body_ = backfillBuilder_.build();
-          }
-        }
-        if (bodyCase_ == 5) {
-          if (backfillStatusBuilder_ == null) {
-            result.body_ = body_;
-          } else {
-            result.body_ = backfillStatusBuilder_.build();
+            result.body_ = adminBuilder_.build();
           }
         }
         result.bodyCase_ = bodyCase_;
@@ -6503,12 +6443,8 @@ java.lang.String defaultValue);
             mergeFlush(other.getFlush());
             break;
           }
-          case BACKFILL: {
-            mergeBackfill(other.getBackfill());
-            break;
-          }
-          case BACKFILL_STATUS: {
-            mergeBackfillStatus(other.getBackfillStatus());
+          case ADMIN: {
+            mergeAdmin(other.getAdmin());
             break;
           }
           case BODY_NOT_SET: {
@@ -7105,287 +7041,181 @@ java.lang.String defaultValue);
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.BackfillFlow, io.greptime.v1.flow.Server.BackfillFlow.Builder, io.greptime.v1.flow.Server.BackfillFlowOrBuilder> backfillBuilder_;
+          io.greptime.v1.flow.Server.AdminFlow, io.greptime.v1.flow.Server.AdminFlow.Builder, io.greptime.v1.flow.Server.AdminFlowOrBuilder> adminBuilder_;
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-       * @return Whether the backfill field is set.
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+       * @return Whether the admin field is set.
        */
       @java.lang.Override
-      public boolean hasBackfill() {
-        return bodyCase_ == 4;
+      public boolean hasAdmin() {
+        return bodyCase_ == 6;
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
-       * @return The backfill.
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
+       * @return The admin.
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillFlow getBackfill() {
-        if (backfillBuilder_ == null) {
-          if (bodyCase_ == 4) {
-            return (io.greptime.v1.flow.Server.BackfillFlow) body_;
+      public io.greptime.v1.flow.Server.AdminFlow getAdmin() {
+        if (adminBuilder_ == null) {
+          if (bodyCase_ == 6) {
+            return (io.greptime.v1.flow.Server.AdminFlow) body_;
           }
-          return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+          return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
         } else {
-          if (bodyCase_ == 4) {
-            return backfillBuilder_.getMessage();
+          if (bodyCase_ == 6) {
+            return adminBuilder_.getMessage();
           }
-          return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+          return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
-      public Builder setBackfill(io.greptime.v1.flow.Server.BackfillFlow value) {
-        if (backfillBuilder_ == null) {
+      public Builder setAdmin(io.greptime.v1.flow.Server.AdminFlow value) {
+        if (adminBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
           body_ = value;
           onChanged();
         } else {
-          backfillBuilder_.setMessage(value);
+          adminBuilder_.setMessage(value);
         }
-        bodyCase_ = 4;
+        bodyCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
-      public Builder setBackfill(
-          io.greptime.v1.flow.Server.BackfillFlow.Builder builderForValue) {
-        if (backfillBuilder_ == null) {
+      public Builder setAdmin(
+          io.greptime.v1.flow.Server.AdminFlow.Builder builderForValue) {
+        if (adminBuilder_ == null) {
           body_ = builderForValue.build();
           onChanged();
         } else {
-          backfillBuilder_.setMessage(builderForValue.build());
+          adminBuilder_.setMessage(builderForValue.build());
         }
-        bodyCase_ = 4;
+        bodyCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
-      public Builder mergeBackfill(io.greptime.v1.flow.Server.BackfillFlow value) {
-        if (backfillBuilder_ == null) {
-          if (bodyCase_ == 4 &&
-              body_ != io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance()) {
-            body_ = io.greptime.v1.flow.Server.BackfillFlow.newBuilder((io.greptime.v1.flow.Server.BackfillFlow) body_)
+      public Builder mergeAdmin(io.greptime.v1.flow.Server.AdminFlow value) {
+        if (adminBuilder_ == null) {
+          if (bodyCase_ == 6 &&
+              body_ != io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance()) {
+            body_ = io.greptime.v1.flow.Server.AdminFlow.newBuilder((io.greptime.v1.flow.Server.AdminFlow) body_)
                 .mergeFrom(value).buildPartial();
           } else {
             body_ = value;
           }
           onChanged();
         } else {
-          if (bodyCase_ == 4) {
-            backfillBuilder_.mergeFrom(value);
+          if (bodyCase_ == 6) {
+            adminBuilder_.mergeFrom(value);
           } else {
-            backfillBuilder_.setMessage(value);
+            adminBuilder_.setMessage(value);
           }
         }
-        bodyCase_ = 4;
+        bodyCase_ = 6;
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
-      public Builder clearBackfill() {
-        if (backfillBuilder_ == null) {
-          if (bodyCase_ == 4) {
+      public Builder clearAdmin() {
+        if (adminBuilder_ == null) {
+          if (bodyCase_ == 6) {
             bodyCase_ = 0;
             body_ = null;
             onChanged();
           }
         } else {
-          if (bodyCase_ == 4) {
+          if (bodyCase_ == 6) {
             bodyCase_ = 0;
             body_ = null;
           }
-          backfillBuilder_.clear();
+          adminBuilder_.clear();
         }
         return this;
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
-      public io.greptime.v1.flow.Server.BackfillFlow.Builder getBackfillBuilder() {
-        return getBackfillFieldBuilder().getBuilder();
+      public io.greptime.v1.flow.Server.AdminFlow.Builder getAdminBuilder() {
+        return getAdminFieldBuilder().getBuilder();
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
       @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillFlowOrBuilder getBackfillOrBuilder() {
-        if ((bodyCase_ == 4) && (backfillBuilder_ != null)) {
-          return backfillBuilder_.getMessageOrBuilder();
+      public io.greptime.v1.flow.Server.AdminFlowOrBuilder getAdminOrBuilder() {
+        if ((bodyCase_ == 6) && (adminBuilder_ != null)) {
+          return adminBuilder_.getMessageOrBuilder();
         } else {
-          if (bodyCase_ == 4) {
-            return (io.greptime.v1.flow.Server.BackfillFlow) body_;
+          if (bodyCase_ == 6) {
+            return (io.greptime.v1.flow.Server.AdminFlow) body_;
           }
-          return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+          return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
         }
       }
       /**
-       * <code>.greptime.v1.flow.BackfillFlow backfill = 4;</code>
+       * <pre>
+       * One generic admin call: the flownode routes `function` over `args`.
+       * </pre>
+       *
+       * <code>.greptime.v1.flow.AdminFlow admin = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.BackfillFlow, io.greptime.v1.flow.Server.BackfillFlow.Builder, io.greptime.v1.flow.Server.BackfillFlowOrBuilder> 
-          getBackfillFieldBuilder() {
-        if (backfillBuilder_ == null) {
-          if (!(bodyCase_ == 4)) {
-            body_ = io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+          io.greptime.v1.flow.Server.AdminFlow, io.greptime.v1.flow.Server.AdminFlow.Builder, io.greptime.v1.flow.Server.AdminFlowOrBuilder> 
+          getAdminFieldBuilder() {
+        if (adminBuilder_ == null) {
+          if (!(bodyCase_ == 6)) {
+            body_ = io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
           }
-          backfillBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.flow.Server.BackfillFlow, io.greptime.v1.flow.Server.BackfillFlow.Builder, io.greptime.v1.flow.Server.BackfillFlowOrBuilder>(
-                  (io.greptime.v1.flow.Server.BackfillFlow) body_,
+          adminBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.flow.Server.AdminFlow, io.greptime.v1.flow.Server.AdminFlow.Builder, io.greptime.v1.flow.Server.AdminFlowOrBuilder>(
+                  (io.greptime.v1.flow.Server.AdminFlow) body_,
                   getParentForChildren(),
                   isClean());
           body_ = null;
         }
-        bodyCase_ = 4;
+        bodyCase_ = 6;
         onChanged();;
-        return backfillBuilder_;
-      }
-
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.BackfillStatus, io.greptime.v1.flow.Server.BackfillStatus.Builder, io.greptime.v1.flow.Server.BackfillStatusOrBuilder> backfillStatusBuilder_;
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       * @return Whether the backfillStatus field is set.
-       */
-      @java.lang.Override
-      public boolean hasBackfillStatus() {
-        return bodyCase_ == 5;
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       * @return The backfillStatus.
-       */
-      @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillStatus getBackfillStatus() {
-        if (backfillStatusBuilder_ == null) {
-          if (bodyCase_ == 5) {
-            return (io.greptime.v1.flow.Server.BackfillStatus) body_;
-          }
-          return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-        } else {
-          if (bodyCase_ == 5) {
-            return backfillStatusBuilder_.getMessage();
-          }
-          return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      public Builder setBackfillStatus(io.greptime.v1.flow.Server.BackfillStatus value) {
-        if (backfillStatusBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          body_ = value;
-          onChanged();
-        } else {
-          backfillStatusBuilder_.setMessage(value);
-        }
-        bodyCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      public Builder setBackfillStatus(
-          io.greptime.v1.flow.Server.BackfillStatus.Builder builderForValue) {
-        if (backfillStatusBuilder_ == null) {
-          body_ = builderForValue.build();
-          onChanged();
-        } else {
-          backfillStatusBuilder_.setMessage(builderForValue.build());
-        }
-        bodyCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      public Builder mergeBackfillStatus(io.greptime.v1.flow.Server.BackfillStatus value) {
-        if (backfillStatusBuilder_ == null) {
-          if (bodyCase_ == 5 &&
-              body_ != io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance()) {
-            body_ = io.greptime.v1.flow.Server.BackfillStatus.newBuilder((io.greptime.v1.flow.Server.BackfillStatus) body_)
-                .mergeFrom(value).buildPartial();
-          } else {
-            body_ = value;
-          }
-          onChanged();
-        } else {
-          if (bodyCase_ == 5) {
-            backfillStatusBuilder_.mergeFrom(value);
-          } else {
-            backfillStatusBuilder_.setMessage(value);
-          }
-        }
-        bodyCase_ = 5;
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      public Builder clearBackfillStatus() {
-        if (backfillStatusBuilder_ == null) {
-          if (bodyCase_ == 5) {
-            bodyCase_ = 0;
-            body_ = null;
-            onChanged();
-          }
-        } else {
-          if (bodyCase_ == 5) {
-            bodyCase_ = 0;
-            body_ = null;
-          }
-          backfillStatusBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      public io.greptime.v1.flow.Server.BackfillStatus.Builder getBackfillStatusBuilder() {
-        return getBackfillStatusFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillStatusOrBuilder getBackfillStatusOrBuilder() {
-        if ((bodyCase_ == 5) && (backfillStatusBuilder_ != null)) {
-          return backfillStatusBuilder_.getMessageOrBuilder();
-        } else {
-          if (bodyCase_ == 5) {
-            return (io.greptime.v1.flow.Server.BackfillStatus) body_;
-          }
-          return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-        }
-      }
-      /**
-       * <code>.greptime.v1.flow.BackfillStatus backfill_status = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.BackfillStatus, io.greptime.v1.flow.Server.BackfillStatus.Builder, io.greptime.v1.flow.Server.BackfillStatusOrBuilder> 
-          getBackfillStatusFieldBuilder() {
-        if (backfillStatusBuilder_ == null) {
-          if (!(bodyCase_ == 5)) {
-            body_ = io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-          }
-          backfillStatusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.flow.Server.BackfillStatus, io.greptime.v1.flow.Server.BackfillStatus.Builder, io.greptime.v1.flow.Server.BackfillStatusOrBuilder>(
-                  (io.greptime.v1.flow.Server.BackfillStatus) body_,
-                  getParentForChildren(),
-                  isClean());
-          body_ = null;
-        }
-        bodyCase_ = 5;
-        onChanged();;
-        return backfillStatusBuilder_;
+        return adminBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -12652,8 +12482,8 @@ java.lang.String defaultValue);
 
   }
 
-  public interface BackfillFlowOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.BackfillFlow)
+  public interface AdminFlowOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.AdminFlow)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12681,42 +12511,73 @@ java.lang.String defaultValue);
         getFlowBytes();
 
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-     * @return Whether the range field is set.
+     * <code>string function = 3;</code>
+     * @return The function.
      */
-    boolean hasRange();
+    java.lang.String getFunction();
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-     * @return The range.
+     * <code>string function = 3;</code>
+     * @return The bytes for function.
      */
-    io.greptime.v1.flow.Server.TimeRange getRange();
+    com.google.protobuf.ByteString
+        getFunctionBytes();
+
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
+     * <code>repeated string args = 4;</code>
+     * @return A list containing the args.
      */
-    io.greptime.v1.flow.Server.TimeRangeOrBuilder getRangeOrBuilder();
+    java.util.List<java.lang.String>
+        getArgsList();
+    /**
+     * <code>repeated string args = 4;</code>
+     * @return The count of args.
+     */
+    int getArgsCount();
+    /**
+     * <code>repeated string args = 4;</code>
+     * @param index The index of the element to return.
+     * @return The args at the given index.
+     */
+    java.lang.String getArgs(int index);
+    /**
+     * <code>repeated string args = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the args at the given index.
+     */
+    com.google.protobuf.ByteString
+        getArgsBytes(int index);
   }
   /**
-   * Protobuf type {@code greptime.v1.flow.BackfillFlow}
+   * <pre>
+   * One generic flow-admin call: the owning flownode runs `function` with the
+   * function's own `args` against the flow `catalog`.`flow`.
+   * The route is shared by every flow admin function, so adding one needs no
+   * new request body. `args` are already normalized to strings by the caller.
+   * </pre>
+   *
+   * Protobuf type {@code greptime.v1.flow.AdminFlow}
    */
-  public static final class BackfillFlow extends
+  public static final class AdminFlow extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.flow.BackfillFlow)
-      BackfillFlowOrBuilder {
+      // @@protoc_insertion_point(message_implements:greptime.v1.flow.AdminFlow)
+      AdminFlowOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use BackfillFlow.newBuilder() to construct.
-    private BackfillFlow(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use AdminFlow.newBuilder() to construct.
+    private AdminFlow(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private BackfillFlow() {
+    private AdminFlow() {
       catalog_ = "";
       flow_ = "";
+      function_ = "";
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new BackfillFlow();
+      return new AdminFlow();
     }
 
     @java.lang.Override
@@ -12724,7 +12585,7 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BackfillFlow(
+    private AdminFlow(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12732,6 +12593,7 @@ java.lang.String defaultValue);
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -12755,16 +12617,18 @@ java.lang.String defaultValue);
               break;
             }
             case 26: {
-              io.greptime.v1.flow.Server.TimeRange.Builder subBuilder = null;
-              if (range_ != null) {
-                subBuilder = range_.toBuilder();
-              }
-              range_ = input.readMessage(io.greptime.v1.flow.Server.TimeRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(range_);
-                range_ = subBuilder.buildPartial();
-              }
+              java.lang.String s = input.readStringRequireUtf8();
 
+              function_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                args_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              args_.add(s);
               break;
             }
             default: {
@@ -12784,21 +12648,24 @@ java.lang.String defaultValue);
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          args_ = args_.getUnmodifiableView();
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillFlow_descriptor;
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_AdminFlow_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillFlow_fieldAccessorTable
+      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_AdminFlow_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.greptime.v1.flow.Server.BackfillFlow.class, io.greptime.v1.flow.Server.BackfillFlow.Builder.class);
+              io.greptime.v1.flow.Server.AdminFlow.class, io.greptime.v1.flow.Server.AdminFlow.Builder.class);
     }
 
     public static final int CATALOG_FIELD_NUMBER = 1;
@@ -12877,30 +12744,77 @@ java.lang.String defaultValue);
       }
     }
 
-    public static final int RANGE_FIELD_NUMBER = 3;
-    private io.greptime.v1.flow.Server.TimeRange range_;
+    public static final int FUNCTION_FIELD_NUMBER = 3;
+    private volatile java.lang.Object function_;
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-     * @return Whether the range field is set.
+     * <code>string function = 3;</code>
+     * @return The function.
      */
     @java.lang.Override
-    public boolean hasRange() {
-      return range_ != null;
+    public java.lang.String getFunction() {
+      java.lang.Object ref = function_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        function_ = s;
+        return s;
+      }
     }
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-     * @return The range.
+     * <code>string function = 3;</code>
+     * @return The bytes for function.
      */
     @java.lang.Override
-    public io.greptime.v1.flow.Server.TimeRange getRange() {
-      return range_ == null ? io.greptime.v1.flow.Server.TimeRange.getDefaultInstance() : range_;
+    public com.google.protobuf.ByteString
+        getFunctionBytes() {
+      java.lang.Object ref = function_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        function_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ARGS_FIELD_NUMBER = 4;
+    private com.google.protobuf.LazyStringList args_;
+    /**
+     * <code>repeated string args = 4;</code>
+     * @return A list containing the args.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getArgsList() {
+      return args_;
     }
     /**
-     * <code>.greptime.v1.flow.TimeRange range = 3;</code>
+     * <code>repeated string args = 4;</code>
+     * @return The count of args.
      */
-    @java.lang.Override
-    public io.greptime.v1.flow.Server.TimeRangeOrBuilder getRangeOrBuilder() {
-      return getRange();
+    public int getArgsCount() {
+      return args_.size();
+    }
+    /**
+     * <code>repeated string args = 4;</code>
+     * @param index The index of the element to return.
+     * @return The args at the given index.
+     */
+    public java.lang.String getArgs(int index) {
+      return args_.get(index);
+    }
+    /**
+     * <code>repeated string args = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the args at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getArgsBytes(int index) {
+      return args_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12923,8 +12837,11 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flow_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flow_);
       }
-      if (range_ != null) {
-        output.writeMessage(3, getRange());
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(function_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, function_);
+      }
+      for (int i = 0; i < args_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -12941,9 +12858,16 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flow_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, flow_);
       }
-      if (range_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getRange());
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(function_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, function_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < args_.size(); i++) {
+          dataSize += computeStringSizeNoTag(args_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getArgsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12955,20 +12879,19 @@ java.lang.String defaultValue);
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof io.greptime.v1.flow.Server.BackfillFlow)) {
+      if (!(obj instanceof io.greptime.v1.flow.Server.AdminFlow)) {
         return super.equals(obj);
       }
-      io.greptime.v1.flow.Server.BackfillFlow other = (io.greptime.v1.flow.Server.BackfillFlow) obj;
+      io.greptime.v1.flow.Server.AdminFlow other = (io.greptime.v1.flow.Server.AdminFlow) obj;
 
       if (!getCatalog()
           .equals(other.getCatalog())) return false;
       if (!getFlow()
           .equals(other.getFlow())) return false;
-      if (hasRange() != other.hasRange()) return false;
-      if (hasRange()) {
-        if (!getRange()
-            .equals(other.getRange())) return false;
-      }
+      if (!getFunction()
+          .equals(other.getFunction())) return false;
+      if (!getArgsList()
+          .equals(other.getArgsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12984,78 +12907,80 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getCatalog().hashCode();
       hash = (37 * hash) + FLOW_FIELD_NUMBER;
       hash = (53 * hash) + getFlow().hashCode();
-      if (hasRange()) {
-        hash = (37 * hash) + RANGE_FIELD_NUMBER;
-        hash = (53 * hash) + getRange().hashCode();
+      hash = (37 * hash) + FUNCTION_FIELD_NUMBER;
+      hash = (53 * hash) + getFunction().hashCode();
+      if (getArgsCount() > 0) {
+        hash = (37 * hash) + ARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getArgsList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(byte[] data)
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseDelimitedFrom(java.io.InputStream input)
+    public static io.greptime.v1.flow.Server.AdminFlow parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseDelimitedFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static io.greptime.v1.flow.Server.BackfillFlow parseFrom(
+    public static io.greptime.v1.flow.Server.AdminFlow parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13068,7 +12993,7 @@ java.lang.String defaultValue);
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(io.greptime.v1.flow.Server.BackfillFlow prototype) {
+    public static Builder newBuilder(io.greptime.v1.flow.Server.AdminFlow prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -13084,26 +13009,33 @@ java.lang.String defaultValue);
       return builder;
     }
     /**
-     * Protobuf type {@code greptime.v1.flow.BackfillFlow}
+     * <pre>
+     * One generic flow-admin call: the owning flownode runs `function` with the
+     * function's own `args` against the flow `catalog`.`flow`.
+     * The route is shared by every flow admin function, so adding one needs no
+     * new request body. `args` are already normalized to strings by the caller.
+     * </pre>
+     *
+     * Protobuf type {@code greptime.v1.flow.AdminFlow}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.BackfillFlow)
-        io.greptime.v1.flow.Server.BackfillFlowOrBuilder {
+        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.AdminFlow)
+        io.greptime.v1.flow.Server.AdminFlowOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillFlow_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_AdminFlow_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillFlow_fieldAccessorTable
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_AdminFlow_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                io.greptime.v1.flow.Server.BackfillFlow.class, io.greptime.v1.flow.Server.BackfillFlow.Builder.class);
+                io.greptime.v1.flow.Server.AdminFlow.class, io.greptime.v1.flow.Server.AdminFlow.Builder.class);
       }
 
-      // Construct using io.greptime.v1.flow.Server.BackfillFlow.newBuilder()
+      // Construct using io.greptime.v1.flow.Server.AdminFlow.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13125,29 +13057,27 @@ java.lang.String defaultValue);
 
         flow_ = "";
 
-        if (rangeBuilder_ == null) {
-          range_ = null;
-        } else {
-          range_ = null;
-          rangeBuilder_ = null;
-        }
+        function_ = "";
+
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillFlow_descriptor;
+        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_AdminFlow_descriptor;
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillFlow getDefaultInstanceForType() {
-        return io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance();
+      public io.greptime.v1.flow.Server.AdminFlow getDefaultInstanceForType() {
+        return io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance();
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillFlow build() {
-        io.greptime.v1.flow.Server.BackfillFlow result = buildPartial();
+      public io.greptime.v1.flow.Server.AdminFlow build() {
+        io.greptime.v1.flow.Server.AdminFlow result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -13155,15 +13085,17 @@ java.lang.String defaultValue);
       }
 
       @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillFlow buildPartial() {
-        io.greptime.v1.flow.Server.BackfillFlow result = new io.greptime.v1.flow.Server.BackfillFlow(this);
+      public io.greptime.v1.flow.Server.AdminFlow buildPartial() {
+        io.greptime.v1.flow.Server.AdminFlow result = new io.greptime.v1.flow.Server.AdminFlow(this);
+        int from_bitField0_ = bitField0_;
         result.catalog_ = catalog_;
         result.flow_ = flow_;
-        if (rangeBuilder_ == null) {
-          result.range_ = range_;
-        } else {
-          result.range_ = rangeBuilder_.build();
+        result.function_ = function_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          args_ = args_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
+        result.args_ = args_;
         onBuilt();
         return result;
       }
@@ -13202,16 +13134,16 @@ java.lang.String defaultValue);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.flow.Server.BackfillFlow) {
-          return mergeFrom((io.greptime.v1.flow.Server.BackfillFlow)other);
+        if (other instanceof io.greptime.v1.flow.Server.AdminFlow) {
+          return mergeFrom((io.greptime.v1.flow.Server.AdminFlow)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(io.greptime.v1.flow.Server.BackfillFlow other) {
-        if (other == io.greptime.v1.flow.Server.BackfillFlow.getDefaultInstance()) return this;
+      public Builder mergeFrom(io.greptime.v1.flow.Server.AdminFlow other) {
+        if (other == io.greptime.v1.flow.Server.AdminFlow.getDefaultInstance()) return this;
         if (!other.getCatalog().isEmpty()) {
           catalog_ = other.catalog_;
           onChanged();
@@ -13220,846 +13152,18 @@ java.lang.String defaultValue);
           flow_ = other.flow_;
           onChanged();
         }
-        if (other.hasRange()) {
-          mergeRange(other.getRange());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        io.greptime.v1.flow.Server.BackfillFlow parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.flow.Server.BackfillFlow) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object catalog_ = "";
-      /**
-       * <code>string catalog = 1;</code>
-       * @return The catalog.
-       */
-      public java.lang.String getCatalog() {
-        java.lang.Object ref = catalog_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          catalog_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string catalog = 1;</code>
-       * @return The bytes for catalog.
-       */
-      public com.google.protobuf.ByteString
-          getCatalogBytes() {
-        java.lang.Object ref = catalog_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          catalog_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string catalog = 1;</code>
-       * @param value The catalog to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalog(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCatalog() {
-        
-        catalog_ = getDefaultInstance().getCatalog();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string catalog = 1;</code>
-       * @param value The bytes for catalog to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCatalogBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        catalog_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object flow_ = "";
-      /**
-       * <code>string flow = 2;</code>
-       * @return The flow.
-       */
-      public java.lang.String getFlow() {
-        java.lang.Object ref = flow_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          flow_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string flow = 2;</code>
-       * @return The bytes for flow.
-       */
-      public com.google.protobuf.ByteString
-          getFlowBytes() {
-        java.lang.Object ref = flow_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          flow_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string flow = 2;</code>
-       * @param value The flow to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFlow(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        flow_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string flow = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearFlow() {
-        
-        flow_ = getDefaultInstance().getFlow();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string flow = 2;</code>
-       * @param value The bytes for flow to set.
-       * @return This builder for chaining.
-       */
-      public Builder setFlowBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        flow_ = value;
-        onChanged();
-        return this;
-      }
-
-      private io.greptime.v1.flow.Server.TimeRange range_;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder> rangeBuilder_;
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       * @return Whether the range field is set.
-       */
-      public boolean hasRange() {
-        return rangeBuilder_ != null || range_ != null;
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       * @return The range.
-       */
-      public io.greptime.v1.flow.Server.TimeRange getRange() {
-        if (rangeBuilder_ == null) {
-          return range_ == null ? io.greptime.v1.flow.Server.TimeRange.getDefaultInstance() : range_;
-        } else {
-          return rangeBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public Builder setRange(io.greptime.v1.flow.Server.TimeRange value) {
-        if (rangeBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          range_ = value;
+        if (!other.getFunction().isEmpty()) {
+          function_ = other.function_;
           onChanged();
-        } else {
-          rangeBuilder_.setMessage(value);
         }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public Builder setRange(
-          io.greptime.v1.flow.Server.TimeRange.Builder builderForValue) {
-        if (rangeBuilder_ == null) {
-          range_ = builderForValue.build();
-          onChanged();
-        } else {
-          rangeBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public Builder mergeRange(io.greptime.v1.flow.Server.TimeRange value) {
-        if (rangeBuilder_ == null) {
-          if (range_ != null) {
-            range_ =
-              io.greptime.v1.flow.Server.TimeRange.newBuilder(range_).mergeFrom(value).buildPartial();
+        if (!other.args_.isEmpty()) {
+          if (args_.isEmpty()) {
+            args_ = other.args_;
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            range_ = value;
+            ensureArgsIsMutable();
+            args_.addAll(other.args_);
           }
-          onChanged();
-        } else {
-          rangeBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public Builder clearRange() {
-        if (rangeBuilder_ == null) {
-          range_ = null;
-          onChanged();
-        } else {
-          range_ = null;
-          rangeBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public io.greptime.v1.flow.Server.TimeRange.Builder getRangeBuilder() {
-        
-        onChanged();
-        return getRangeFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      public io.greptime.v1.flow.Server.TimeRangeOrBuilder getRangeOrBuilder() {
-        if (rangeBuilder_ != null) {
-          return rangeBuilder_.getMessageOrBuilder();
-        } else {
-          return range_ == null ?
-              io.greptime.v1.flow.Server.TimeRange.getDefaultInstance() : range_;
-        }
-      }
-      /**
-       * <code>.greptime.v1.flow.TimeRange range = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder> 
-          getRangeFieldBuilder() {
-        if (rangeBuilder_ == null) {
-          rangeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              io.greptime.v1.flow.Server.TimeRange, io.greptime.v1.flow.Server.TimeRange.Builder, io.greptime.v1.flow.Server.TimeRangeOrBuilder>(
-                  getRange(),
-                  getParentForChildren(),
-                  isClean());
-          range_ = null;
-        }
-        return rangeBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.BackfillFlow)
-    }
-
-    // @@protoc_insertion_point(class_scope:greptime.v1.flow.BackfillFlow)
-    private static final io.greptime.v1.flow.Server.BackfillFlow DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.BackfillFlow();
-    }
-
-    public static io.greptime.v1.flow.Server.BackfillFlow getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<BackfillFlow>
-        PARSER = new com.google.protobuf.AbstractParser<BackfillFlow>() {
-      @java.lang.Override
-      public BackfillFlow parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BackfillFlow(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<BackfillFlow> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<BackfillFlow> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillFlow getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface BackfillStatusOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:greptime.v1.flow.BackfillStatus)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string catalog = 1;</code>
-     * @return The catalog.
-     */
-    java.lang.String getCatalog();
-    /**
-     * <code>string catalog = 1;</code>
-     * @return The bytes for catalog.
-     */
-    com.google.protobuf.ByteString
-        getCatalogBytes();
-
-    /**
-     * <code>string flow = 2;</code>
-     * @return The flow.
-     */
-    java.lang.String getFlow();
-    /**
-     * <code>string flow = 2;</code>
-     * @return The bytes for flow.
-     */
-    com.google.protobuf.ByteString
-        getFlowBytes();
-  }
-  /**
-   * Protobuf type {@code greptime.v1.flow.BackfillStatus}
-   */
-  public static final class BackfillStatus extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:greptime.v1.flow.BackfillStatus)
-      BackfillStatusOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use BackfillStatus.newBuilder() to construct.
-    private BackfillStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private BackfillStatus() {
-      catalog_ = "";
-      flow_ = "";
-    }
-
-    @java.lang.Override
-    @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new BackfillStatus();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private BackfillStatus(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              catalog_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              flow_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillStatus_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillStatus_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              io.greptime.v1.flow.Server.BackfillStatus.class, io.greptime.v1.flow.Server.BackfillStatus.Builder.class);
-    }
-
-    public static final int CATALOG_FIELD_NUMBER = 1;
-    private volatile java.lang.Object catalog_;
-    /**
-     * <code>string catalog = 1;</code>
-     * @return The catalog.
-     */
-    @java.lang.Override
-    public java.lang.String getCatalog() {
-      java.lang.Object ref = catalog_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        catalog_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string catalog = 1;</code>
-     * @return The bytes for catalog.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCatalogBytes() {
-      java.lang.Object ref = catalog_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        catalog_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FLOW_FIELD_NUMBER = 2;
-    private volatile java.lang.Object flow_;
-    /**
-     * <code>string flow = 2;</code>
-     * @return The flow.
-     */
-    @java.lang.Override
-    public java.lang.String getFlow() {
-      java.lang.Object ref = flow_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        flow_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string flow = 2;</code>
-     * @return The bytes for flow.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getFlowBytes() {
-      java.lang.Object ref = flow_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        flow_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flow_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flow_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(catalog_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, catalog_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(flow_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, flow_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof io.greptime.v1.flow.Server.BackfillStatus)) {
-        return super.equals(obj);
-      }
-      io.greptime.v1.flow.Server.BackfillStatus other = (io.greptime.v1.flow.Server.BackfillStatus) obj;
-
-      if (!getCatalog()
-          .equals(other.getCatalog())) return false;
-      if (!getFlow()
-          .equals(other.getFlow())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CATALOG_FIELD_NUMBER;
-      hash = (53 * hash) + getCatalog().hashCode();
-      hash = (37 * hash) + FLOW_FIELD_NUMBER;
-      hash = (53 * hash) + getFlow().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static io.greptime.v1.flow.Server.BackfillStatus parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(io.greptime.v1.flow.Server.BackfillStatus prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code greptime.v1.flow.BackfillStatus}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:greptime.v1.flow.BackfillStatus)
-        io.greptime.v1.flow.Server.BackfillStatusOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillStatus_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillStatus_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                io.greptime.v1.flow.Server.BackfillStatus.class, io.greptime.v1.flow.Server.BackfillStatus.Builder.class);
-      }
-
-      // Construct using io.greptime.v1.flow.Server.BackfillStatus.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        catalog_ = "";
-
-        flow_ = "";
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return io.greptime.v1.flow.Server.internal_static_greptime_v1_flow_BackfillStatus_descriptor;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillStatus getDefaultInstanceForType() {
-        return io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillStatus build() {
-        io.greptime.v1.flow.Server.BackfillStatus result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public io.greptime.v1.flow.Server.BackfillStatus buildPartial() {
-        io.greptime.v1.flow.Server.BackfillStatus result = new io.greptime.v1.flow.Server.BackfillStatus(this);
-        result.catalog_ = catalog_;
-        result.flow_ = flow_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof io.greptime.v1.flow.Server.BackfillStatus) {
-          return mergeFrom((io.greptime.v1.flow.Server.BackfillStatus)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(io.greptime.v1.flow.Server.BackfillStatus other) {
-        if (other == io.greptime.v1.flow.Server.BackfillStatus.getDefaultInstance()) return this;
-        if (!other.getCatalog().isEmpty()) {
-          catalog_ = other.catalog_;
-          onChanged();
-        }
-        if (!other.getFlow().isEmpty()) {
-          flow_ = other.flow_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -14077,11 +13181,11 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.greptime.v1.flow.Server.BackfillStatus parsedMessage = null;
+        io.greptime.v1.flow.Server.AdminFlow parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.greptime.v1.flow.Server.BackfillStatus) e.getUnfinishedMessage();
+          parsedMessage = (io.greptime.v1.flow.Server.AdminFlow) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14090,6 +13194,7 @@ java.lang.String defaultValue);
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object catalog_ = "";
       /**
@@ -14242,6 +13347,192 @@ java.lang.String defaultValue);
         onChanged();
         return this;
       }
+
+      private java.lang.Object function_ = "";
+      /**
+       * <code>string function = 3;</code>
+       * @return The function.
+       */
+      public java.lang.String getFunction() {
+        java.lang.Object ref = function_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          function_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string function = 3;</code>
+       * @return The bytes for function.
+       */
+      public com.google.protobuf.ByteString
+          getFunctionBytes() {
+        java.lang.Object ref = function_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          function_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string function = 3;</code>
+       * @param value The function to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunction(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        function_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string function = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFunction() {
+        
+        function_ = getDefaultInstance().getFunction();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string function = 3;</code>
+       * @param value The bytes for function to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        function_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureArgsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          args_ = new com.google.protobuf.LazyStringArrayList(args_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @return A list containing the args.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getArgsList() {
+        return args_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @return The count of args.
+       */
+      public int getArgsCount() {
+        return args_.size();
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param index The index of the element to return.
+       * @return The args at the given index.
+       */
+      public java.lang.String getArgs(int index) {
+        return args_.get(index);
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the args at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getArgsBytes(int index) {
+        return args_.getByteString(index);
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param index The index to set the value at.
+       * @param value The args to set.
+       * @return This builder for chaining.
+       */
+      public Builder setArgs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param value The args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addArgs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param values The args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllArgs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureArgsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, args_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearArgs() {
+        args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string args = 4;</code>
+       * @param value The bytes of the args to add.
+       * @return This builder for chaining.
+       */
+      public Builder addArgsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureArgsIsMutable();
+        args_.add(value);
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -14255,41 +13546,41 @@ java.lang.String defaultValue);
       }
 
 
-      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.BackfillStatus)
+      // @@protoc_insertion_point(builder_scope:greptime.v1.flow.AdminFlow)
     }
 
-    // @@protoc_insertion_point(class_scope:greptime.v1.flow.BackfillStatus)
-    private static final io.greptime.v1.flow.Server.BackfillStatus DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:greptime.v1.flow.AdminFlow)
+    private static final io.greptime.v1.flow.Server.AdminFlow DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.BackfillStatus();
+      DEFAULT_INSTANCE = new io.greptime.v1.flow.Server.AdminFlow();
     }
 
-    public static io.greptime.v1.flow.Server.BackfillStatus getDefaultInstance() {
+    public static io.greptime.v1.flow.Server.AdminFlow getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<BackfillStatus>
-        PARSER = new com.google.protobuf.AbstractParser<BackfillStatus>() {
+    private static final com.google.protobuf.Parser<AdminFlow>
+        PARSER = new com.google.protobuf.AbstractParser<AdminFlow>() {
       @java.lang.Override
-      public BackfillStatus parsePartialFrom(
+      public AdminFlow parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BackfillStatus(input, extensionRegistry);
+        return new AdminFlow(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<BackfillStatus> parser() {
+    public static com.google.protobuf.Parser<AdminFlow> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<BackfillStatus> getParserForType() {
+    public com.google.protobuf.Parser<AdminFlow> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public io.greptime.v1.flow.Server.BackfillStatus getDefaultInstanceForType() {
+    public io.greptime.v1.flow.Server.AdminFlow getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14366,15 +13657,10 @@ java.lang.String defaultValue);
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_greptime_v1_flow_FlushFlow_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_BackfillFlow_descriptor;
+    internal_static_greptime_v1_flow_AdminFlow_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_BackfillFlow_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_greptime_v1_flow_BackfillStatus_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_greptime_v1_flow_BackfillStatus_fieldAccessorTable;
+      internal_static_greptime_v1_flow_AdminFlow_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -14403,49 +13689,46 @@ java.lang.String defaultValue);
       "rtRequest\"\206\001\n\rInsertRequest\022\021\n\tregion_id" +
       "\030\001 \001(\004\022\037\n\004rows\030\002 \001(\0132\021.greptime.v1.Rows\022" +
       "A\n\026partition_expr_version\030\003 \001(\0132!.grepti" +
-      "me.v1.PartitionExprVersion\"\313\002\n\013FlowReque" +
+      "me.v1.PartitionExprVersion\"\257\002\n\013FlowReque" +
       "st\0223\n\006header\030@ \001(\0132#.greptime.v1.flow.Fl" +
       "owRequestHeader\0221\n\006create\030\001 \001(\0132\037.grepti" +
       "me.v1.flow.CreateRequestH\000\022-\n\004drop\030\002 \001(\013" +
       "2\035.greptime.v1.flow.DropRequestH\000\022,\n\005flu" +
       "sh\030\003 \001(\0132\033.greptime.v1.flow.FlushFlowH\000\022" +
-      "2\n\010backfill\030\004 \001(\0132\036.greptime.v1.flow.Bac" +
-      "kfillFlowH\000\022;\n\017backfill_status\030\005 \001(\0132 .g" +
-      "reptime.v1.flow.BackfillStatusH\000B\006\n\004body" +
-      "\"\366\001\n\014FlowResponse\022+\n\006header\030\001 \001(\0132\033.grep" +
-      "time.v1.ResponseHeader\022\025\n\raffected_rows\030" +
-      "\002 \001(\004\022+\n\016affected_flows\030\003 \003(\0132\023.greptime" +
-      ".v1.FlowId\022B\n\nextensions\030\004 \003(\0132..greptim" +
-      "e.v1.flow.FlowResponse.ExtensionsEntry\0321" +
-      "\n\017ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022$\n\007flow_id\030\001" +
-      " \001(\0132\023.greptime.v1.FlowId\022.\n\020source_tabl" +
-      "e_ids\030\002 \003(\0132\024.greptime.v1.TableId\022/\n\017sin" +
-      "k_table_name\030\003 \001(\0132\026.greptime.v1.TableNa" +
-      "me\022\034\n\024create_if_not_exists\030\004 \001(\010\022.\n\014expi" +
-      "re_after\030\005 \001(\0132\030.greptime.v1.ExpireAfter" +
-      "\0220\n\reval_interval\030\n \001(\0132\031.greptime.v1.Ev" +
-      "alInterval\022\017\n\007comment\030\006 \001(\t\022\013\n\003sql\030\007 \001(\t" +
-      "\022F\n\014flow_options\030\010 \003(\01320.greptime.v1.flo" +
-      "w.CreateRequest.FlowOptionsEntry\022\022\n\nor_r" +
-      "eplace\030\t \001(\010\0322\n\020FlowOptionsEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013DropRequest\022" +
-      "$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\"1\n" +
-      "\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132\023.greptime.v" +
-      "1.FlowId\"Y\n\014BackfillFlow\022\017\n\007catalog\030\001 \001(" +
-      "\t\022\014\n\004flow\030\002 \001(\t\022*\n\005range\030\003 \001(\0132\033.greptim" +
-      "e.v1.flow.TimeRange\"/\n\016BackfillStatus\022\017\n" +
-      "\007catalog\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t2\230\002\n\004Flow\022S\n" +
-      "\022HandleCreateRemove\022\035.greptime.v1.flow.F" +
-      "lowRequest\032\036.greptime.v1.flow.FlowRespon" +
-      "se\022W\n\023HandleMirrorRequest\022 .greptime.v1." +
-      "flow.InsertRequests\032\036.greptime.v1.flow.F" +
-      "lowResponse\022b\n\031HandleMarkDirtyTimeWindow" +
-      "\022%.greptime.v1.flow.DirtyWindowRequests\032" +
-      "\036.greptime.v1.flow.FlowResponseBY\n\023io.gr" +
-      "eptime.v1.flowB\006ServerZ:github.com/Grept" +
-      "imeTeam/greptime-proto/go/greptime/v1/fl" +
-      "owb\006proto3"
+      ",\n\005admin\030\006 \001(\0132\033.greptime.v1.flow.AdminF" +
+      "lowH\000B\006\n\004bodyJ\004\010\004\020\005J\004\010\005\020\006R\010backfillR\017bac" +
+      "kfill_status\"\366\001\n\014FlowResponse\022+\n\006header\030" +
+      "\001 \001(\0132\033.greptime.v1.ResponseHeader\022\025\n\raf" +
+      "fected_rows\030\002 \001(\004\022+\n\016affected_flows\030\003 \003(" +
+      "\0132\023.greptime.v1.FlowId\022B\n\nextensions\030\004 \003" +
+      "(\0132..greptime.v1.flow.FlowResponse.Exten" +
+      "sionsEntry\0321\n\017ExtensionsEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\304\003\n\rCreateRequest\022" +
+      "$\n\007flow_id\030\001 \001(\0132\023.greptime.v1.FlowId\022.\n" +
+      "\020source_table_ids\030\002 \003(\0132\024.greptime.v1.Ta" +
+      "bleId\022/\n\017sink_table_name\030\003 \001(\0132\026.greptim" +
+      "e.v1.TableName\022\034\n\024create_if_not_exists\030\004" +
+      " \001(\010\022.\n\014expire_after\030\005 \001(\0132\030.greptime.v1" +
+      ".ExpireAfter\0220\n\reval_interval\030\n \001(\0132\031.gr" +
+      "eptime.v1.EvalInterval\022\017\n\007comment\030\006 \001(\t\022" +
+      "\013\n\003sql\030\007 \001(\t\022F\n\014flow_options\030\010 \003(\01320.gre" +
+      "ptime.v1.flow.CreateRequest.FlowOptionsE" +
+      "ntry\022\022\n\nor_replace\030\t \001(\010\0322\n\020FlowOptionsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013" +
+      "DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime." +
+      "v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132" +
+      "\023.greptime.v1.FlowId\"J\n\tAdminFlow\022\017\n\007cat" +
+      "alog\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t\022\020\n\010function\030\003 \001" +
+      "(\t\022\014\n\004args\030\004 \003(\t2\230\002\n\004Flow\022S\n\022HandleCreat" +
+      "eRemove\022\035.greptime.v1.flow.FlowRequest\032\036" +
+      ".greptime.v1.flow.FlowResponse\022W\n\023Handle" +
+      "MirrorRequest\022 .greptime.v1.flow.InsertR" +
+      "equests\032\036.greptime.v1.flow.FlowResponse\022" +
+      "b\n\031HandleMarkDirtyTimeWindow\022%.greptime." +
+      "v1.flow.DirtyWindowRequests\032\036.greptime.v" +
+      "1.flow.FlowResponseBY\n\023io.greptime.v1.fl" +
+      "owB\006ServerZ:github.com/GreptimeTeam/grep" +
+      "time-proto/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -14501,7 +13784,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_FlowRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlowRequest_descriptor,
-        new java.lang.String[] { "Header", "Create", "Drop", "Flush", "Backfill", "BackfillStatus", "Body", });
+        new java.lang.String[] { "Header", "Create", "Drop", "Flush", "Admin", "Body", });
     internal_static_greptime_v1_flow_FlowResponse_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_greptime_v1_flow_FlowResponse_fieldAccessorTable = new
@@ -14538,18 +13821,12 @@ java.lang.String defaultValue);
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_FlushFlow_descriptor,
         new java.lang.String[] { "FlowId", });
-    internal_static_greptime_v1_flow_BackfillFlow_descriptor =
+    internal_static_greptime_v1_flow_AdminFlow_descriptor =
       getDescriptor().getMessageTypes().get(11);
-    internal_static_greptime_v1_flow_BackfillFlow_fieldAccessorTable = new
+    internal_static_greptime_v1_flow_AdminFlow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_BackfillFlow_descriptor,
-        new java.lang.String[] { "Catalog", "Flow", "Range", });
-    internal_static_greptime_v1_flow_BackfillStatus_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_greptime_v1_flow_BackfillStatus_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_greptime_v1_flow_BackfillStatus_descriptor,
-        new java.lang.String[] { "Catalog", "Flow", });
+        internal_static_greptime_v1_flow_AdminFlow_descriptor,
+        new java.lang.String[] { "Catalog", "Flow", "Function", "Args", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
