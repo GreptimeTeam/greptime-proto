@@ -176,6 +176,10 @@ pub struct AdminFlow {
     pub function: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "4")]
     pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The flow id the frontend already resolved for routing. The owning
+    /// flownode must refuse if the name now resolves to another id.
+    #[prost(message, optional, tag = "5")]
+    pub flow_id: ::core::option::Option<super::FlowId>,
 }
 /// Generated client implementations.
 pub mod flow_client {

@@ -2473,6 +2473,7 @@ class AdminFlow final :
     kCatalogFieldNumber = 1,
     kFlowFieldNumber = 2,
     kFunctionFieldNumber = 3,
+    kFlowIdFieldNumber = 5,
   };
   // repeated string args = 4;
   int args_size() const;
@@ -2540,6 +2541,24 @@ class AdminFlow final :
   std::string* _internal_mutable_function();
   public:
 
+  // .greptime.v1.FlowId flow_id = 5;
+  bool has_flow_id() const;
+  private:
+  bool _internal_has_flow_id() const;
+  public:
+  void clear_flow_id();
+  const ::greptime::v1::FlowId& flow_id() const;
+  PROTOBUF_NODISCARD ::greptime::v1::FlowId* release_flow_id();
+  ::greptime::v1::FlowId* mutable_flow_id();
+  void set_allocated_flow_id(::greptime::v1::FlowId* flow_id);
+  private:
+  const ::greptime::v1::FlowId& _internal_flow_id() const;
+  ::greptime::v1::FlowId* _internal_mutable_flow_id();
+  public:
+  void unsafe_arena_set_allocated_flow_id(
+      ::greptime::v1::FlowId* flow_id);
+  ::greptime::v1::FlowId* unsafe_arena_release_flow_id();
+
   // @@protoc_insertion_point(class_scope:greptime.v1.flow.AdminFlow)
  private:
   class _Internal;
@@ -2552,6 +2571,7 @@ class AdminFlow final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr catalog_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr flow_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr function_;
+    ::greptime::v1::FlowId* flow_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -4654,6 +4674,91 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 AdminFlow::mutable_args() {
   // @@protoc_insertion_point(field_mutable_list:greptime.v1.flow.AdminFlow.args)
   return &_impl_.args_;
+}
+
+// .greptime.v1.FlowId flow_id = 5;
+inline bool AdminFlow::_internal_has_flow_id() const {
+  return this != internal_default_instance() && _impl_.flow_id_ != nullptr;
+}
+inline bool AdminFlow::has_flow_id() const {
+  return _internal_has_flow_id();
+}
+inline const ::greptime::v1::FlowId& AdminFlow::_internal_flow_id() const {
+  const ::greptime::v1::FlowId* p = _impl_.flow_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::greptime::v1::FlowId&>(
+      ::greptime::v1::_FlowId_default_instance_);
+}
+inline const ::greptime::v1::FlowId& AdminFlow::flow_id() const {
+  // @@protoc_insertion_point(field_get:greptime.v1.flow.AdminFlow.flow_id)
+  return _internal_flow_id();
+}
+inline void AdminFlow::unsafe_arena_set_allocated_flow_id(
+    ::greptime::v1::FlowId* flow_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.flow_id_);
+  }
+  _impl_.flow_id_ = flow_id;
+  if (flow_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:greptime.v1.flow.AdminFlow.flow_id)
+}
+inline ::greptime::v1::FlowId* AdminFlow::release_flow_id() {
+  
+  ::greptime::v1::FlowId* temp = _impl_.flow_id_;
+  _impl_.flow_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::greptime::v1::FlowId* AdminFlow::unsafe_arena_release_flow_id() {
+  // @@protoc_insertion_point(field_release:greptime.v1.flow.AdminFlow.flow_id)
+  
+  ::greptime::v1::FlowId* temp = _impl_.flow_id_;
+  _impl_.flow_id_ = nullptr;
+  return temp;
+}
+inline ::greptime::v1::FlowId* AdminFlow::_internal_mutable_flow_id() {
+  
+  if (_impl_.flow_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::greptime::v1::FlowId>(GetArenaForAllocation());
+    _impl_.flow_id_ = p;
+  }
+  return _impl_.flow_id_;
+}
+inline ::greptime::v1::FlowId* AdminFlow::mutable_flow_id() {
+  ::greptime::v1::FlowId* _msg = _internal_mutable_flow_id();
+  // @@protoc_insertion_point(field_mutable:greptime.v1.flow.AdminFlow.flow_id)
+  return _msg;
+}
+inline void AdminFlow::set_allocated_flow_id(::greptime::v1::FlowId* flow_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.flow_id_);
+  }
+  if (flow_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(flow_id));
+    if (message_arena != submessage_arena) {
+      flow_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, flow_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.flow_id_ = flow_id;
+  // @@protoc_insertion_point(field_set_allocated:greptime.v1.flow.AdminFlow.flow_id)
 }
 
 #ifdef __GNUC__

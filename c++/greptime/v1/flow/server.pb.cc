@@ -226,6 +226,7 @@ PROTOBUF_CONSTEXPR AdminFlow::AdminFlow(
   , /*decltype(_impl_.catalog_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.flow_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.function_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.flow_id_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct AdminFlowDefaultTypeInternal {
   PROTOBUF_CONSTEXPR AdminFlowDefaultTypeInternal()
@@ -384,6 +385,7 @@ const uint32_t TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::AdminFlow, _impl_.flow_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::AdminFlow, _impl_.function_),
   PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::AdminFlow, _impl_.args_),
+  PROTOBUF_FIELD_OFFSET(::greptime::v1::flow::AdminFlow, _impl_.flow_id_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::greptime::v1::flow::DirtyWindowRequests)},
@@ -469,18 +471,19 @@ const char descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto[] PRO
   "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013"
   "DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime."
   "v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132"
-  "\023.greptime.v1.FlowId\"J\n\tAdminFlow\022\017\n\007cat"
+  "\023.greptime.v1.FlowId\"p\n\tAdminFlow\022\017\n\007cat"
   "alog\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t\022\020\n\010function\030\003 \001"
-  "(\t\022\014\n\004args\030\004 \003(\t2\230\002\n\004Flow\022S\n\022HandleCreat"
-  "eRemove\022\035.greptime.v1.flow.FlowRequest\032\036"
-  ".greptime.v1.flow.FlowResponse\022W\n\023Handle"
-  "MirrorRequest\022 .greptime.v1.flow.InsertR"
-  "equests\032\036.greptime.v1.flow.FlowResponse\022"
-  "b\n\031HandleMarkDirtyTimeWindow\022%.greptime."
-  "v1.flow.DirtyWindowRequests\032\036.greptime.v"
-  "1.flow.FlowResponseBY\n\023io.greptime.v1.fl"
-  "owB\006ServerZ:github.com/GreptimeTeam/grep"
-  "time-proto/go/greptime/v1/flowb\006proto3"
+  "(\t\022\014\n\004args\030\004 \003(\t\022$\n\007flow_id\030\005 \001(\0132\023.grep"
+  "time.v1.FlowId2\230\002\n\004Flow\022S\n\022HandleCreateR"
+  "emove\022\035.greptime.v1.flow.FlowRequest\032\036.g"
+  "reptime.v1.flow.FlowResponse\022W\n\023HandleMi"
+  "rrorRequest\022 .greptime.v1.flow.InsertReq"
+  "uests\032\036.greptime.v1.flow.FlowResponse\022b\n"
+  "\031HandleMarkDirtyTimeWindow\022%.greptime.v1"
+  ".flow.DirtyWindowRequests\032\036.greptime.v1."
+  "flow.FlowResponseBY\n\023io.greptime.v1.flow"
+  "B\006ServerZ:github.com/GreptimeTeam/grepti"
+  "me-proto/go/greptime/v1/flowb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps[3] = {
   &::descriptor_table_greptime_2fv1_2fcommon_2eproto,
@@ -489,7 +492,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_greptime_2fv1_2fflo
 };
 static ::_pbi::once_flag descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto = {
-    false, false, 2358, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
+    false, false, 2396, descriptor_table_protodef_greptime_2fv1_2fflow_2fserver_2eproto,
     "greptime/v1/flow/server.proto",
     &descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_once, descriptor_table_greptime_2fv1_2fflow_2fserver_2eproto_deps, 3, 15,
     schemas, file_default_instances, TableStruct_greptime_2fv1_2fflow_2fserver_2eproto::offsets,
@@ -3729,8 +3732,19 @@ void FlushFlow::InternalSwap(FlushFlow* other) {
 
 class AdminFlow::_Internal {
  public:
+  static const ::greptime::v1::FlowId& flow_id(const AdminFlow* msg);
 };
 
+const ::greptime::v1::FlowId&
+AdminFlow::_Internal::flow_id(const AdminFlow* msg) {
+  return *msg->_impl_.flow_id_;
+}
+void AdminFlow::clear_flow_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
+    delete _impl_.flow_id_;
+  }
+  _impl_.flow_id_ = nullptr;
+}
 AdminFlow::AdminFlow(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -3745,6 +3759,7 @@ AdminFlow::AdminFlow(const AdminFlow& from)
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.flow_){}
     , decltype(_impl_.function_){}
+    , decltype(_impl_.flow_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -3772,6 +3787,9 @@ AdminFlow::AdminFlow(const AdminFlow& from)
     _this->_impl_.function_.Set(from._internal_function(), 
       _this->GetArenaForAllocation());
   }
+  if (from._internal_has_flow_id()) {
+    _this->_impl_.flow_id_ = new ::greptime::v1::FlowId(*from._impl_.flow_id_);
+  }
   // @@protoc_insertion_point(copy_constructor:greptime.v1.flow.AdminFlow)
 }
 
@@ -3784,6 +3802,7 @@ inline void AdminFlow::SharedCtor(
     , decltype(_impl_.catalog_){}
     , decltype(_impl_.flow_){}
     , decltype(_impl_.function_){}
+    , decltype(_impl_.flow_id_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.catalog_.InitDefault();
@@ -3815,6 +3834,7 @@ inline void AdminFlow::SharedDtor() {
   _impl_.catalog_.Destroy();
   _impl_.flow_.Destroy();
   _impl_.function_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.flow_id_;
 }
 
 void AdminFlow::SetCachedSize(int size) const {
@@ -3831,6 +3851,10 @@ void AdminFlow::Clear() {
   _impl_.catalog_.ClearToEmpty();
   _impl_.flow_.ClearToEmpty();
   _impl_.function_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.flow_id_ != nullptr) {
+    delete _impl_.flow_id_;
+  }
+  _impl_.flow_id_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -3882,6 +3906,14 @@ const char* AdminFlow::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
             CHK_(::_pbi::VerifyUTF8(str, "greptime.v1.flow.AdminFlow.args"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // .greptime.v1.FlowId flow_id = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_flow_id(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -3954,6 +3986,13 @@ uint8_t* AdminFlow::_InternalSerialize(
     target = stream->WriteString(4, s, target);
   }
 
+  // .greptime.v1.FlowId flow_id = 5;
+  if (this->_internal_has_flow_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::flow_id(this),
+        _Internal::flow_id(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3999,6 +4038,13 @@ size_t AdminFlow::ByteSizeLong() const {
         this->_internal_function());
   }
 
+  // .greptime.v1.FlowId flow_id = 5;
+  if (this->_internal_has_flow_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.flow_id_);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4026,6 +4072,10 @@ void AdminFlow::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   }
   if (!from._internal_function().empty()) {
     _this->_internal_set_function(from._internal_function());
+  }
+  if (from._internal_has_flow_id()) {
+    _this->_internal_mutable_flow_id()->::greptime::v1::FlowId::MergeFrom(
+        from._internal_flow_id());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4059,6 +4109,7 @@ void AdminFlow::InternalSwap(AdminFlow* other) {
       &_impl_.function_, lhs_arena,
       &other->_impl_.function_, rhs_arena
   );
+  swap(_impl_.flow_id_, other->_impl_.flow_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata AdminFlow::GetMetadata() const {

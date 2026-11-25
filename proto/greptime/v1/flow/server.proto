@@ -137,4 +137,7 @@ message AdminFlow {
   string flow = 2;
   string function = 3;
   repeated string args = 4;
+  // The flow id the frontend already resolved for routing. The owning
+  // flownode must refuse if the name now resolves to another id.
+  FlowId flow_id = 5;
 }

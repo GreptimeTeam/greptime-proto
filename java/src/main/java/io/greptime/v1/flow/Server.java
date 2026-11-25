@@ -12546,6 +12546,36 @@ java.lang.String defaultValue);
      */
     com.google.protobuf.ByteString
         getArgsBytes(int index);
+
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     * @return Whether the flowId field is set.
+     */
+    boolean hasFlowId();
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     * @return The flowId.
+     */
+    io.greptime.v1.Ddl.FlowId getFlowId();
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     */
+    io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder();
   }
   /**
    * <pre>
@@ -12629,6 +12659,19 @@ java.lang.String defaultValue);
                 mutable_bitField0_ |= 0x00000001;
               }
               args_.add(s);
+              break;
+            }
+            case 42: {
+              io.greptime.v1.Ddl.FlowId.Builder subBuilder = null;
+              if (flowId_ != null) {
+                subBuilder = flowId_.toBuilder();
+              }
+              flowId_ = input.readMessage(io.greptime.v1.Ddl.FlowId.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(flowId_);
+                flowId_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -12817,6 +12860,47 @@ java.lang.String defaultValue);
       return args_.getByteString(index);
     }
 
+    public static final int FLOW_ID_FIELD_NUMBER = 5;
+    private io.greptime.v1.Ddl.FlowId flowId_;
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     * @return Whether the flowId field is set.
+     */
+    @java.lang.Override
+    public boolean hasFlowId() {
+      return flowId_ != null;
+    }
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     * @return The flowId.
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowId getFlowId() {
+      return flowId_ == null ? io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+    }
+    /**
+     * <pre>
+     * The flow id the frontend already resolved for routing. The owning
+     * flownode must refuse if the name now resolves to another id.
+     * </pre>
+     *
+     * <code>.greptime.v1.FlowId flow_id = 5;</code>
+     */
+    @java.lang.Override
+    public io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder() {
+      return getFlowId();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12842,6 +12926,9 @@ java.lang.String defaultValue);
       }
       for (int i = 0; i < args_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, args_.getRaw(i));
+      }
+      if (flowId_ != null) {
+        output.writeMessage(5, getFlowId());
       }
       unknownFields.writeTo(output);
     }
@@ -12869,6 +12956,10 @@ java.lang.String defaultValue);
         size += dataSize;
         size += 1 * getArgsList().size();
       }
+      if (flowId_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getFlowId());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -12892,6 +12983,11 @@ java.lang.String defaultValue);
           .equals(other.getFunction())) return false;
       if (!getArgsList()
           .equals(other.getArgsList())) return false;
+      if (hasFlowId() != other.hasFlowId()) return false;
+      if (hasFlowId()) {
+        if (!getFlowId()
+            .equals(other.getFlowId())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -12912,6 +13008,10 @@ java.lang.String defaultValue);
       if (getArgsCount() > 0) {
         hash = (37 * hash) + ARGS_FIELD_NUMBER;
         hash = (53 * hash) + getArgsList().hashCode();
+      }
+      if (hasFlowId()) {
+        hash = (37 * hash) + FLOW_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getFlowId().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -13061,6 +13161,12 @@ java.lang.String defaultValue);
 
         args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        if (flowIdBuilder_ == null) {
+          flowId_ = null;
+        } else {
+          flowId_ = null;
+          flowIdBuilder_ = null;
+        }
         return this;
       }
 
@@ -13096,6 +13202,11 @@ java.lang.String defaultValue);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.args_ = args_;
+        if (flowIdBuilder_ == null) {
+          result.flowId_ = flowId_;
+        } else {
+          result.flowId_ = flowIdBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -13165,6 +13276,9 @@ java.lang.String defaultValue);
             args_.addAll(other.args_);
           }
           onChanged();
+        }
+        if (other.hasFlowId()) {
+          mergeFlowId(other.getFlowId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13533,6 +13647,170 @@ java.lang.String defaultValue);
         onChanged();
         return this;
       }
+
+      private io.greptime.v1.Ddl.FlowId flowId_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> flowIdBuilder_;
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       * @return Whether the flowId field is set.
+       */
+      public boolean hasFlowId() {
+        return flowIdBuilder_ != null || flowId_ != null;
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       * @return The flowId.
+       */
+      public io.greptime.v1.Ddl.FlowId getFlowId() {
+        if (flowIdBuilder_ == null) {
+          return flowId_ == null ? io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+        } else {
+          return flowIdBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public Builder setFlowId(io.greptime.v1.Ddl.FlowId value) {
+        if (flowIdBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          flowId_ = value;
+          onChanged();
+        } else {
+          flowIdBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public Builder setFlowId(
+          io.greptime.v1.Ddl.FlowId.Builder builderForValue) {
+        if (flowIdBuilder_ == null) {
+          flowId_ = builderForValue.build();
+          onChanged();
+        } else {
+          flowIdBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public Builder mergeFlowId(io.greptime.v1.Ddl.FlowId value) {
+        if (flowIdBuilder_ == null) {
+          if (flowId_ != null) {
+            flowId_ =
+              io.greptime.v1.Ddl.FlowId.newBuilder(flowId_).mergeFrom(value).buildPartial();
+          } else {
+            flowId_ = value;
+          }
+          onChanged();
+        } else {
+          flowIdBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public Builder clearFlowId() {
+        if (flowIdBuilder_ == null) {
+          flowId_ = null;
+          onChanged();
+        } else {
+          flowId_ = null;
+          flowIdBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public io.greptime.v1.Ddl.FlowId.Builder getFlowIdBuilder() {
+        
+        onChanged();
+        return getFlowIdFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      public io.greptime.v1.Ddl.FlowIdOrBuilder getFlowIdOrBuilder() {
+        if (flowIdBuilder_ != null) {
+          return flowIdBuilder_.getMessageOrBuilder();
+        } else {
+          return flowId_ == null ?
+              io.greptime.v1.Ddl.FlowId.getDefaultInstance() : flowId_;
+        }
+      }
+      /**
+       * <pre>
+       * The flow id the frontend already resolved for routing. The owning
+       * flownode must refuse if the name now resolves to another id.
+       * </pre>
+       *
+       * <code>.greptime.v1.FlowId flow_id = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder> 
+          getFlowIdFieldBuilder() {
+        if (flowIdBuilder_ == null) {
+          flowIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.greptime.v1.Ddl.FlowId, io.greptime.v1.Ddl.FlowId.Builder, io.greptime.v1.Ddl.FlowIdOrBuilder>(
+                  getFlowId(),
+                  getParentForChildren(),
+                  isClean());
+          flowId_ = null;
+        }
+        return flowIdBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -13717,18 +13995,19 @@ java.lang.String defaultValue);
       "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"3\n\013" +
       "DropRequest\022$\n\007flow_id\030\001 \001(\0132\023.greptime." +
       "v1.FlowId\"1\n\tFlushFlow\022$\n\007flow_id\030\001 \001(\0132" +
-      "\023.greptime.v1.FlowId\"J\n\tAdminFlow\022\017\n\007cat" +
+      "\023.greptime.v1.FlowId\"p\n\tAdminFlow\022\017\n\007cat" +
       "alog\030\001 \001(\t\022\014\n\004flow\030\002 \001(\t\022\020\n\010function\030\003 \001" +
-      "(\t\022\014\n\004args\030\004 \003(\t2\230\002\n\004Flow\022S\n\022HandleCreat" +
-      "eRemove\022\035.greptime.v1.flow.FlowRequest\032\036" +
-      ".greptime.v1.flow.FlowResponse\022W\n\023Handle" +
-      "MirrorRequest\022 .greptime.v1.flow.InsertR" +
-      "equests\032\036.greptime.v1.flow.FlowResponse\022" +
-      "b\n\031HandleMarkDirtyTimeWindow\022%.greptime." +
-      "v1.flow.DirtyWindowRequests\032\036.greptime.v" +
-      "1.flow.FlowResponseBY\n\023io.greptime.v1.fl" +
-      "owB\006ServerZ:github.com/GreptimeTeam/grep" +
-      "time-proto/go/greptime/v1/flowb\006proto3"
+      "(\t\022\014\n\004args\030\004 \003(\t\022$\n\007flow_id\030\005 \001(\0132\023.grep" +
+      "time.v1.FlowId2\230\002\n\004Flow\022S\n\022HandleCreateR" +
+      "emove\022\035.greptime.v1.flow.FlowRequest\032\036.g" +
+      "reptime.v1.flow.FlowResponse\022W\n\023HandleMi" +
+      "rrorRequest\022 .greptime.v1.flow.InsertReq" +
+      "uests\032\036.greptime.v1.flow.FlowResponse\022b\n" +
+      "\031HandleMarkDirtyTimeWindow\022%.greptime.v1" +
+      ".flow.DirtyWindowRequests\032\036.greptime.v1." +
+      "flow.FlowResponseBY\n\023io.greptime.v1.flow" +
+      "B\006ServerZ:github.com/GreptimeTeam/grepti" +
+      "me-proto/go/greptime/v1/flowb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -13826,7 +14105,7 @@ java.lang.String defaultValue);
     internal_static_greptime_v1_flow_AdminFlow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greptime_v1_flow_AdminFlow_descriptor,
-        new java.lang.String[] { "Catalog", "Flow", "Function", "Args", });
+        new java.lang.String[] { "Catalog", "Flow", "Function", "Args", "FlowId", });
     io.greptime.v1.Common.getDescriptor();
     io.greptime.v1.Ddl.getDescriptor();
     io.greptime.v1.RowData.getDescriptor();
