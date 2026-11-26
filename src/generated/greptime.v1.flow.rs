@@ -80,7 +80,7 @@ pub struct InsertRequest {
 pub struct FlowRequest {
     #[prost(message, optional, tag = "64")]
     pub header: ::core::option::Option<FlowRequestHeader>,
-    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3")]
+    #[prost(oneof = "flow_request::Body", tags = "1, 2, 3, 6")]
     pub body: ::core::option::Option<flow_request::Body>,
 }
 /// Nested message and enum types in `FlowRequest`.
@@ -94,6 +94,9 @@ pub mod flow_request {
         Drop(super::DropRequest),
         #[prost(message, tag = "3")]
         Flush(super::FlushFlow),
+        /// One generic admin call: the flownode routes `function` over `args`.
+        #[prost(message, tag = "6")]
+        Admin(super::AdminFlow),
     }
 }
 #[allow(clippy::all)]
@@ -155,6 +158,27 @@ pub struct DropRequest {
 #[derive(Clone, Copy, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct FlushFlow {
     #[prost(message, optional, tag = "1")]
+    pub flow_id: ::core::option::Option<super::FlowId>,
+}
+/// One generic flow-admin call: the owning flownode runs `function` with the
+/// function's own `args` against the flow `catalog`.`flow`.
+///
+/// The route is shared by every flow admin function, so adding one needs no
+/// new request body. `args` are already normalized to strings by the caller.
+#[allow(clippy::all)]
+#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+pub struct AdminFlow {
+    #[prost(string, tag = "1")]
+    pub catalog: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub flow: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub function: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "4")]
+    pub args: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// The flow id the frontend already resolved for routing. The owning
+    /// flownode must refuse if the name now resolves to another id.
+    #[prost(message, optional, tag = "5")]
     pub flow_id: ::core::option::Option<super::FlowId>,
 }
 /// Generated client implementations.

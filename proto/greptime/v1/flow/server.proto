@@ -77,11 +77,18 @@ message InsertRequest {
 }
 
 message FlowRequest {
+  // 4 and 5 were per-function backfill bodies; one flow-admin body carries
+  // every function instead.
+  reserved 4, 5;
+  reserved "backfill", "backfill_status";
+
   FlowRequestHeader header = 64;
   oneof body {
     CreateRequest create = 1;
     DropRequest drop = 2;
     FlushFlow flush = 3;
+    // One generic admin call: the flownode routes `function` over `args`.
+    AdminFlow admin = 6;
   }
 }
 
@@ -118,4 +125,19 @@ message DropRequest {
 
 message FlushFlow {
   FlowId flow_id = 1;
+}
+
+// One generic flow-admin call: the owning flownode runs `function` with the
+// function's own `args` against the flow `catalog`.`flow`.
+//
+// The route is shared by every flow admin function, so adding one needs no
+// new request body. `args` are already normalized to strings by the caller.
+message AdminFlow {
+  string catalog = 1;
+  string flow = 2;
+  string function = 3;
+  repeated string args = 4;
+  // The flow id the frontend already resolved for routing. The owning
+  // flownode must refuse if the name now resolves to another id.
+  FlowId flow_id = 5;
 }
